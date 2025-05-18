@@ -1,0 +1,18 @@
+{
+	"type": "mna:manaweaving-recipe",
+	"tier": 1,
+	"output": "minecraft:leather",
+	"quantity": 6,		
+	"items": [
+		"tfc:rotten_compost",
+		"tfc:rotten_compost",
+		"tfc:rotten_compost",
+		"tfc:rotten_compost",
+		"tfc:rotten_compost",
+		"tfc:rotten_compost",
+		"mna:bone_ash"
+	],
+	"patterns": [
+		"mna:circle"
+	]
+}

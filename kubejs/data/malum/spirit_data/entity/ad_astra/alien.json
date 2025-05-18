@@ -1,0 +1,14 @@
+{
+	"registry_name": "ad_astra:alien",
+	"primary_type": "eldritch",
+	"spirits": [
+		{
+			"spirit": "sacred",
+			"count": 1
+		},
+		{
+			"spirit": "eldritch",
+			"count": 1
+		}
+	]
+}

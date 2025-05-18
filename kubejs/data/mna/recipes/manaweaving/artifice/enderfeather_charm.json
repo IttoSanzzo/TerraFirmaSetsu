@@ -1,0 +1,18 @@
+{
+	"type": "mna:manaweaving-recipe",
+	"output": "mna:bed_charm",
+	"tier": 1,
+	"items": [
+		"forge:rods/wooden",
+		"minecraft:ender_pearl",
+		"forge:feathers",
+		"forge:string",
+		"minecraft:black_dye",		
+		"mna:purified_vinteum_dust"
+	],
+	"patterns": [
+		"mna:triangle",
+		"mna:square",
+		"mna:triangle"
+	]
+}

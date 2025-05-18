@@ -1,0 +1,22 @@
+{
+    "registry_name": "tfc:duck",
+    "primary_type": "sacred",
+    "spirits": [
+      {
+        "spirit": "earthen",
+        "count": 1
+      },
+      {
+        "spirit": "aqueous",
+        "count": 1
+      },
+      {
+        "spirit": "aerial",
+        "count": 1
+      },
+      {
+        "spirit": "sacred",
+        "count": 2
+      }
+    ]
+  }

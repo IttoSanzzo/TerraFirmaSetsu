@@ -1,0 +1,17 @@
+{
+	"type": "mna:manaweaving-recipe",
+	"tier": 3,
+	"output": "mna:rune_earth",
+	"enchant": "minecraft:unbreaking",
+	"magnitude": 1,
+	"items": [
+		"mna:rune_earth",
+		"mna:stone_rune_gray",
+		"mna:stone_rune_light_gray",
+		"minecraft:diamond",
+		"minecraft:diamond"
+	],
+	"patterns": [
+		"mna:manaweave_patterns/diamond"
+	]
+}

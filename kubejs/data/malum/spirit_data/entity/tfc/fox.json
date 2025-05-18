@@ -1,0 +1,18 @@
+{
+    "registry_name": "tfc:fox",
+    "primary_type": "sacred",
+    "spirits": [
+      {
+        "spirit": "earthen",
+        "count": 1
+      },
+      {
+        "spirit": "aerial",
+        "count": 1
+      },
+      {
+        "spirit": "sacred",
+        "count": 2
+      }
+    ]
+  }

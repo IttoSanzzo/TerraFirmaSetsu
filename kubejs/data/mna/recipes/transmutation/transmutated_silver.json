@@ -1,0 +1,6 @@
+{
+  "type": "mna:transmutation",
+  "targetBlock": "minecraft:raw_gold_block",
+  "lootTable": "mna:transmutation/trans_gold_silver",
+  "representationItem": "tfc:ore/normal_native_silver"
+}

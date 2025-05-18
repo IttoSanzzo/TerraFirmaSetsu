@@ -1,0 +1,21 @@
+{
+  "type": "malum:spirit_infusion",
+  "input": {
+    "item": "minecraft:phantom_membrane",
+    "count": 1
+  },
+  "output": {
+    "item": "malum:astral_weave",
+    "count": 2
+  },
+  "extra_items": [],
+  "spirits": [
+    {
+      "type": "aerial",
+      "count": 2
+    },
+    {
+      "type": "aqueous"
+    }
+  ]
+}

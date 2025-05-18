@@ -1,0 +1,21 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"SGS",
+		"SCS"
+	],
+	"key": {
+		"S": {
+			"tag": "forge:smooth_stone"
+		},
+		"C": {
+			"item": "tfc:crucible"
+		},
+		"G": {
+			"item": "tfc:metal/ingot/rose_gold"
+		}
+	},
+	"result": {
+		"item": "hexerei:mixing_cauldron"
+	}
+}

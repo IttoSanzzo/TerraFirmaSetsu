@@ -1,0 +1,18 @@
+{
+    "registry_name": "tfc:octopoteuthis",
+    "primary_type": "eldritch",
+    "spirits": [
+      {
+        "spirit": "sacred",
+        "count": 1
+      },
+      {
+        "spirit": "arcane",
+        "count": 1
+      },
+      {
+        "spirit": "eldritch",
+        "count": 2
+      }
+    ]
+  }

@@ -1,0 +1,18 @@
+{
+	"type": "mna:component",
+	"tier": 1,
+	"output": "mna:break",
+	"items":
+	[
+		"mna:stone_rune_brown",		
+		"mna:vinteum_dust",
+		"tfc:metal/pickaxe/black_bronze",
+		"tfc:metal/shovel/black_bronze",
+		"tfc:metal/axe/black_bronze",
+		"mna:stone_rune_gray"
+	],
+	"patterns":
+	[
+		"mna:manaweave_patterns/square"	
+	]
+}

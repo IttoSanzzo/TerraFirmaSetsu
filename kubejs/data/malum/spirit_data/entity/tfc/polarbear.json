@@ -1,0 +1,22 @@
+{
+    "registry_name": "tfc:polar_bear",
+    "primary_type": "earthen",
+    "spirits": [
+      {
+        "spirit": "aerial",
+        "count": 1
+      },
+      {
+        "spirit": "aqueous",
+        "count": 1
+      },
+      {
+        "spirit": "earthen",
+        "count": 2
+      },
+      {
+        "spirit": "sacred",
+        "count": 1
+      }
+    ]
+  }

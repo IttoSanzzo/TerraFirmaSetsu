@@ -1,0 +1,17 @@
+{
+	"type": "mna:manaweaving-recipe",
+	"output": "mna:constructs/construct_basic_head_stone",
+	"tier": 2,
+	"items": [
+		"mna:constructs/rune_head",
+		"tfc:omni_stone",
+		"tfc:omni_stone",
+		"tfc:omni_stone",
+		"mna:vinteum_dust",
+		"mna:vinteum_dust"
+	],
+	"patterns": [
+		"mna:diamond",
+		"mna:circle"
+	]
+}

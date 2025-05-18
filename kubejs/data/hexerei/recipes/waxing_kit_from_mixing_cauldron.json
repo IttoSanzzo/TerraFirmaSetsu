@@ -1,0 +1,39 @@
+{
+	"type": "hexerei:mixingcauldron",
+	"liquid": {
+		"fluid": "minecraft:water"
+	},
+	"ingredients": [
+		{
+			"item": "hexerei:cloth"
+		},
+		{
+			"item": "hexerei:mahogany_planks"
+		},
+		{
+			"tag": "setsu:ingot/all_iron"
+		},
+		{
+			"item": "hexerei:mahogany_planks"
+		},
+		{
+			"tag": "setsu:ingot/all_iron"
+		},
+		{
+			"item": "hexerei:mahogany_planks"
+		},
+		{
+			"tag": "setsu:ingot/all_iron"
+		},
+		{
+			"item": "hexerei:mahogany_planks"
+		}
+	],
+	"output": {
+		"item": "hexerei:waxing_kit"
+	},
+	"liquidOutput": {
+		"fluid": "minecraft:water"
+	},
+	"fluidLevelsConsumed": 1000
+}

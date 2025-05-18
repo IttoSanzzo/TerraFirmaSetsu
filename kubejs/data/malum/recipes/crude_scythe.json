@@ -1,0 +1,22 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"SSW",
+		" WH",
+		"W  "
+	],
+	"key": {
+		"S": {
+			"tag": "tfc:scythes"
+		},
+		"W": {
+			"item": "malum:exposed_runewood_log"
+		},
+		"H": {
+			"item": "malum:runic_sapball"
+		}
+	},
+	"result": {
+		"item": "malum:crude_scythe"
+	}
+}

@@ -1,0 +1,20 @@
+{
+	"pools": [
+		{
+			"rolls": 9,
+			"entries": [
+				{
+					"type": "item",
+					"weight": 1,
+					"name": "malum:processed_soulstone",
+					"functions": [
+						{
+							"function": "set_count",
+							"count": 1
+						}
+					]
+				}
+			]
+		}
+	]
+}

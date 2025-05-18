@@ -1,0 +1,21 @@
+{
+	"type": "mna:component",
+	"output": "mna:leap",
+	"tier": 2,
+	"items":
+	[
+		"minecraft:sugar",
+		"firmalife:raw_honey",
+		"forge:feathers",
+		"mna:stone_rune_white",
+		"mna:vinteum_dust",
+		"mna:cerublossom",
+		"ladder",
+		"ladder"
+	],
+	"patterns":
+	[
+		"mna:manaweave_patterns/square",
+		"mna:manaweave_patterns/triangle"
+	]
+}

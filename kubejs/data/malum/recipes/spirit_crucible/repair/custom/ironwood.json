@@ -1,0 +1,17 @@
+{
+  "type": "malum:spirit_repair",
+  "itemIdRegex": "ironwood_.+",
+  "modIdRegex": "",
+  "durabilityPercentage": 0.5,
+  "inputs": [],
+  "repairMaterial": {
+    "tag": "forge:ingots/nickel",
+    "count": 1
+  },
+  "spirits": [
+    {
+      "type": "earthen",
+      "count": 1
+    }
+  ]
+}

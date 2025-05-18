@@ -1,0 +1,40 @@
+{
+	"type": "hexerei:mixingcauldron",
+	"liquid": {
+		"fluid": "hexerei:blood_fluid"
+	},
+	"ingredients": [
+		{
+			"item": "minecraft:leather"
+		},
+		{
+			"item": "minecraft:feather"
+		},
+		{
+			"tag": "forge:dyes/black"
+		},
+		{
+			"tag": "forge:string"
+		},
+		{
+			"item": "tfc:metal/sheet/black_bronze"
+		},
+		{
+			"tag": "forge:string"
+		},
+		{
+			"tag": "forge:dyes/black"
+		},
+		{
+			"item": "minecraft:feather"
+		}
+	],
+	"output": {
+		"item": "hexerei:infused_fabric"
+	},
+	"liquidOutput": {
+		"fluid": "hexerei:blood_fluid"
+	},
+	"fluidLevelsConsumed": 333,
+	"heatRequirement": "heated"
+}

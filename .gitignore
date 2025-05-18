@@ -1,0 +1,73 @@
+# ==================== Conteúdo pesado não versionado ==========================
+/mods/
+/shaderpacks/
+/resourcepacks/
+/texturepacks/
+/libraries/
+/downloads/
+/modernfix/
+/patchouli_books/
+/schematics/
+/XaeroWaypoints*/
+/XaeroWorldMap/
+/xaero/
+
+# ==================== Dados gerados durante execução ==========================
+/logs/
+/crash-reports/
+/saves/
+/screenshots/
+/journeymap/
+/minimap/
+/webcache2/
+/local/
+/server-resource-packs/
+
+# ===================== Arquivos específicos de mods ===========================
+/config/voicechat/
+/config/xaerominimap/
+/config/xaeroworldmap/
+/kubejs/documentation/
+/kubejs/probe/
+/kubejs/jsconfig.json
+/kubejs/server_scripts/debug/
+/kubejs/startup_scripts/debug/
+/kubejs/client_scripts/debug/
+/kubejs/config/probejs.json
+/kubejs/config/modpack_config.json
+
+# =================== Arquivos temporários ou do sistema =======================
+*.iml
+*.swp
+*.swo
+*.DS_Store
+*.thumbs.db
+.idea/
+.vscode/
+*.log
+
+# ================ Arquivos relacionados à CurseForge/Modrinth =================
+manifest.json
+modlist.html
+minecraftinstance.json
+.curseclient
+.curseforge/
+packwiz.lock.json
+
+# =================== Artefatos de desenvolvimento avançado ====================
+/coremods/
+/ldlib/
+/observable_announce
+patchouli_data.json
+realms_persistence.json
+rhino.local.properties
+usernamecache.json
+node_modules/
+package-lock.json
+package.json
+node-tail.js
+.eslintrc
+/icon-exports-x32
+.probe
+ESM
+ldlib

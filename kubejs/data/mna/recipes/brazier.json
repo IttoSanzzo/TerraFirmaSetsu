@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+  	" V ",
+  	"TCT",
+  	"Q Q"
+  ],
+  "key": {
+  	"V": {
+  		"item": "mna:vinteum_dust"
+  	},
+  	"C": {
+  		"tag": "minecraft:coals"
+  	},
+  	"Q": {
+  		"tag": "forge:gems/quartz"
+  	}
+	  ,
+  	"T": {
+  		"item": "mna:transmuted_silver"
+  	}
+  },
+  "result": {
+    "item": "mna:brazier"    
+  }
+}

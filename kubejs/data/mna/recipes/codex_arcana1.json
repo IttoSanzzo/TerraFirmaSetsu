@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "pattern": [
+  	"O O",
+  	"SGS",
+  	"SIS"
+  ],
+  "key": {
+  	"O": {
+  		"item": "mna:decoration/arcane_stone"
+  	},
+  	"S": {
+  		"tag": "forge:stone"
+  	},
+  	"I": {
+  		"item": "mna:vinteum_ingot"
+  	},
+  	"G": {
+  		"tag": "forge:glass"
+  	}
+  },
+  "result": {
+    "item": "mna:mana_resevoir"    
+  }
+}

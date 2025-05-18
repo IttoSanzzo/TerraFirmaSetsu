@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:book"
+    },
+    {
+      "item": "malum:revealed_runewood_log"
+    }
+  ],
+  "result": {
+    "item": "malum:encyclopedia_arcana"
+  }
+}

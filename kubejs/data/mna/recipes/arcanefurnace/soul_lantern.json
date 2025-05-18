@@ -1,0 +1,8 @@
+{
+	"type": "mna:arcane-furnace",
+	"tier": 2,
+	"input": "tfc:lamps",
+	"output": "minecraft:soul_lantern",
+	"outputQuantity": 1,
+	"burnTime": 400
+}

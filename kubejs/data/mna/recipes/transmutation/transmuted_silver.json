@@ -1,0 +1,6 @@
+{
+  "type": "mna:transmutation",
+  "targetBlock": "immersiveengineering:raw_block_silver",
+  "lootTable": "mna:transmutation/transmuted_silver",
+  "representationItem": "mna:transmuted_silver"
+}

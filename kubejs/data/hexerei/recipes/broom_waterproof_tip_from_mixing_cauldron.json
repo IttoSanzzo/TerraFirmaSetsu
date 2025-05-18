@@ -1,0 +1,40 @@
+{
+	"type": "hexerei:mixingcauldron",
+	"liquid": {
+		"fluid": "hexerei:quicksilver_fluid"
+	},
+	"ingredients": [
+		{
+			"item": "bloodmagic:watersigil"
+		},
+		{
+			"item": "minecraft:dark_prismarine"
+		},
+		{
+			"item": "minecraft:prismarine_shard"
+		},
+		{
+			"item": "minecraft:dark_prismarine"
+		},
+		{
+			"item": "minecraft:prismarine"
+		},
+		{
+			"item": "minecraft:dark_prismarine"
+		},
+		{
+			"item": "minecraft:prismarine_shard"
+		},
+		{
+			"item": "minecraft:dark_prismarine"
+		}
+	],
+	"output": {
+		"item": "hexerei:broom_waterproof_tip"
+	},
+	"liquidOutput": {
+		"fluid": "hexerei:quicksilver_fluid"
+	},
+	"fluidLevelsConsumed": 2000,
+	"heatRequirement": "heated"
+}

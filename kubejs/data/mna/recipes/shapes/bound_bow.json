@@ -1,0 +1,19 @@
+{
+	"type": "mna:shape",
+	"tier": 2,
+	"output": "mna:bound_bow",
+	"items":
+	[
+		"mna:vinteum_dust",
+		"mna:infused_silk",
+		"mna:mote_ender",
+		"forge:feathers",
+		"forge:rods/wooden",
+		"minecraft:flint",
+		"archarsenal:bow_gold"
+	],
+	"patterns":
+	[
+		"mna:manaweave_patterns/triangle"		
+	]
+}

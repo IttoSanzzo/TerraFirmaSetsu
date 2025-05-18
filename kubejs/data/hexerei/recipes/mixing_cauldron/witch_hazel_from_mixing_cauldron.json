@@ -1,0 +1,40 @@
+{
+	"type": "hexerei:mixingcauldron",
+	"liquid": {
+		"fluid": "hexerei:quicksilver_fluid"
+	},
+	"ingredients": [
+		{
+			"item": "hexerei:animal_fat"
+		},
+		{
+			"tag": "minecraft:leaves"
+		},
+		{
+			"tag": "minecraft:saplings"
+		},
+		{
+			"tag": "minecraft:saplings"
+		},
+		{
+			"tag": "tfc:dirt"
+		},
+		{
+			"tag": "minecraft:saplings"
+		},
+		{
+			"tag": "minecraft:saplings"
+		},
+		{
+			"tag": "minecraft:leaves"
+		}
+	],
+	"output": {
+		"item": "hexerei:witch_hazel_sapling"
+	},
+	"liquidOutput": {
+		"fluid": "hexerei:quicksilver_fluid"
+	},
+	"fluidLevelsConsumed": 1000,
+	"moonRequirement": "full_moon"
+}

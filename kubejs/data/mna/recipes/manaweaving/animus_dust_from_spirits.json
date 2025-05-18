@@ -1,0 +1,20 @@
+{
+	"type": "mna:manaweaving-recipe",
+	"tier": 1,
+	"output": "mna:animus_dust",	
+	"quantity": 4,	
+	"items": [
+		"malum:spirits",
+		"malum:spirits",
+		"malum:spirits",
+		"malum:spirits",
+		"malum:spirits",
+		"malum:spirits",
+		"malum:spirits",
+		"mna:vinteum_dust",
+		"mna:wakebloom"
+	],
+	"patterns": [
+		"mna:circle"	
+	]
+}

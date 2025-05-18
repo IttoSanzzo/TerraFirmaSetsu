@@ -1,0 +1,17 @@
+{
+	"type": "mna:manaweaving-recipe",
+	"output": "mna:constructs/construct_axe_arm_right_iron",
+	"tier": 3,
+	"items": [
+		"mna:constructs/rune_rod",
+		"mna:constructs/rune_axe",
+		"tfc:metal/ingot/wrought_iron",
+		"tfc:metal/ingot/wrought_iron",
+		"mna:vinteum_dust",
+		"mna:vinteum_dust"
+	],
+	"patterns": [
+		"mna:diamond",
+		"mna:triangle"
+	]
+}

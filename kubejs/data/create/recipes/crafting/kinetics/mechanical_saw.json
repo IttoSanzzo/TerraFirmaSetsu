@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+      "CD"
+    ],
+    "key": {
+      "C": {
+        "item": "create:andesite_casing"
+      },
+      "D": {
+        "item": "immersiveengineering:sawblade"
+      }
+    },
+    "result": {
+      "item": "create:mechanical_saw"
+    }
+  }

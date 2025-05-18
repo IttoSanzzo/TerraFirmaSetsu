@@ -1,0 +1,23 @@
+{
+  "type": "malum:spirit_repair",
+  "itemIdRegex": "",
+  "modIdRegex": "",
+  "durabilityPercentage": 0.75,
+  "inputs": [
+    "malum:crude_scythe"
+  ],
+  "repairMaterial": {
+    "item": "mna:transmuted_silver",
+    "count": 1
+  },
+  "spirits": [
+    {
+      "type": "sacred",
+      "count": 1
+    },
+    {
+      "type": "wicked",
+      "count": 3
+    }
+  ]
+}

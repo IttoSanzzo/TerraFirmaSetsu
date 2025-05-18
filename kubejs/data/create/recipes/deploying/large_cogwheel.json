@@ -1,0 +1,16 @@
+{
+	"type": "create:deploying",
+	"ingredients": [
+		{
+			"item": "create:cogwheel"
+		},
+		{
+			"tag": "setsu:treated_lumber"
+		}
+	],
+	"results": [
+		{
+			"item": "create:large_cogwheel"
+		}
+	]
+}

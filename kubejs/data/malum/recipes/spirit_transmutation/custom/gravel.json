@@ -1,0 +1,9 @@
+{
+  "type": "malum:spirit_transmutation",
+  "input": {
+    "tag": "forge:cobblestone"
+  },
+  "output": {
+    "item": "minecraft:gravel"
+  }
+}

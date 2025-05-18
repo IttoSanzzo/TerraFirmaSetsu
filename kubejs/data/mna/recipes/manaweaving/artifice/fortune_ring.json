@@ -1,0 +1,19 @@
+{
+	"type": "mna:manaweaving-recipe",
+	"output": "mna:fortune_ring",
+	"tier": 3,
+	"items": [
+		"tfc:metal/ingot/gold",
+		"tfc:metal/ingot/wrought_iron",
+		"minecraft:redstone",
+		"tfc:gem/lapis_lazuli",	
+		"mna:mote_earth",	
+		"mna:fortune_ring_minor"
+	],
+	"patterns": [
+		"mna:diamond",
+		"mna:diamond",
+		"mna:diamond",
+		"mna:diamond"	
+	]
+}

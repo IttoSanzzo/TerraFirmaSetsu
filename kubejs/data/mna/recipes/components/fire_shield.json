@@ -1,0 +1,19 @@
+{
+	"type": "mna:component",
+	"tier": 5,
+	"output": "mna:fire_shield",
+	"items":
+	[
+		"tfc:metal/shield/black_bronze",
+		"mna:mote_fire",
+		"mna:superheated_vinteum_ingot",
+		"mna:desert_nova",
+		"mna:rune_defense"
+	],
+	"patterns":
+	[
+		"mna:manaweave_patterns/infinity",
+		"mna:manaweave_patterns/triangle",
+		"mna:manaweave_patterns/inverted_split_triangle"		
+	]
+}

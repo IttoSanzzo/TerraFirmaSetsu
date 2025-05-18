@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+  	"WSW",
+  	"WLW",
+  	"WPW"
+  ],
+  "key": {
+  	"S": {
+  		"item": "minecraft:sea_lantern"
+  	},
+  	"W": {
+  		"tag": "minecraft:logs"
+  	},
+  	"P": {
+  		"tag": "minecraft:planks"
+  	},
+  	"L": {
+  		"tag": "minecraft:wooden_slabs"
+  	}
+  },
+  "result": {
+    "item": "mna:runic_light"    
+  }
+}

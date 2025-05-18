@@ -1,0 +1,16 @@
+{
+	"type": "mna:modifier",
+	"output": "mna:speed",
+	"tier": 2,
+	"items":
+	[
+		"redstone",
+		"sugar",
+		"firmalife:raw_honey",
+		"mna:stone_rune_yellow",
+		"mna:stone_rune_white"
+	],
+	"patterns":
+	[
+	]
+}

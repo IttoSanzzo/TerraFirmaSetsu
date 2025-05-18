@@ -1,0 +1,24 @@
+{
+  "type": "malum:spirit_repair",
+  "itemIdRegex": "pendorite_.+",
+  "modIdRegex": "",
+  "durabilityPercentage": 1,
+  "inputs": [],
+  "repairMaterial": {
+    "item": "rosia:purple_steel_ingot",
+    "count": 1
+  },
+  "spirits": [
+    {
+      "type": "earthen",
+      "count": 4
+    },
+    {
+      "type": "infernal",
+      "count": 6
+    },    {
+      "type": "aqueous",
+      "count": 1
+    }
+  ]
+}

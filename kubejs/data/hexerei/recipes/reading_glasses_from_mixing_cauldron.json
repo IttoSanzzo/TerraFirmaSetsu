@@ -1,0 +1,40 @@
+{
+	"type": "hexerei:mixingcauldron",
+	"liquid": {
+		"fluid": "minecraft:lava"
+	},
+	"ingredients": [
+		{
+			"tag": "forge:rods/wooden"
+		},
+		{
+			"tag": "forge:glass_panes/colorless"
+		},
+		{
+			"tag": "forge:rods/wooden"
+		},
+		{
+			"tag": "forge:rods/wooden"
+		},
+		{
+			"item": "hexerei:animal_fat"
+		},
+		{
+			"tag": "forge:rods/wooden"
+		},
+		{
+			"tag": "forge:rods/wooden"
+		},
+		{
+			"tag": "forge:glass_panes/colorless"
+		}
+	],
+	"output": {
+		"item": "hexerei:reading_glasses"
+	},
+	"liquidOutput": {
+		"fluid": "minecraft:lava"
+	},
+	"fluidLevelsConsumed": 333,
+	"heatRequirement": "heated"
+}

@@ -1,0 +1,23 @@
+{
+	"type": "create:filling",
+	"ingredients": [
+		{
+			"tag": "tfc:lumber"
+		},
+		{
+			"fluid": "immersiveengineering:creosote",
+			"amount": 30
+		}
+	],
+	"results": [
+		{
+			"item": "tfc_ie_addon:treated_wood_lumber"
+		}
+	],
+	"conditions": [
+		{
+			"type": "forge:mod_loaded",
+			"modid": "tfc_ie_addon"
+		}
+	]
+}

@@ -1,0 +1,19 @@
+{
+	"type": "mna:component",
+	"output": "mna:slowfall",
+	"tier": 2,
+	"items":
+	[
+		"mna:stone_rune_white",
+		"feather",		
+		"leather_boots",
+		"tfc:straw",
+		"minecraft:paper",
+		"mna:vinteum_dust"		
+	],
+	"patterns":
+	[
+		"mna:manaweave_patterns/knot4",
+		"mna:manaweave_patterns/triangle"
+	]
+}

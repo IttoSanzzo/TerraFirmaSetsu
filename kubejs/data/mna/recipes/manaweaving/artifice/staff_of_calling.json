@@ -1,0 +1,20 @@
+{
+	"type": "mna:manaweaving-recipe",
+	"output": "mna:staff_phylactery",
+	"tier": 3,
+	"items": [
+		"mna:staves",
+		"minecraft:soul_lantern",
+		"tfc:metal/ingot/wrought_iron",
+		"tfc:metal/ingot/wrought_iron",
+		"minecraft:soul_fire_base_blocks",
+		"mna:crystal_phylactery"
+	],
+	"patterns": [
+		"mna:square",
+		"mna:diamond",
+		"mna:slash",
+		"mna:split_triangle",
+		"mna:backslash"
+	]
+}

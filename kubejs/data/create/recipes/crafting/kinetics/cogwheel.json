@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "create:shaft"
+    },
+    {
+      "tag": "forge:treated_lumber"
+    },
+    {
+      "tag": "forge:treated_lumber"
+    }
+  ],
+  "result": {
+    "item": "create:cogwheel"
+  }
+}

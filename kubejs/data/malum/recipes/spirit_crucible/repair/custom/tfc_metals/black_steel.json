@@ -1,0 +1,21 @@
+{
+  "type": "malum:spirit_repair",
+  "itemIdRegex": ".+black_steel",
+  "modIdRegex": "",
+  "durabilityPercentage": 0.5,
+  "inputs": [],
+  "repairMaterial": {
+    "tag": "forge:ingots/iron",
+    "count": 1
+  },
+  "spirits": [
+    {
+      "type": "earthen",
+      "count": 3
+    },
+    {
+      "type": "infernal",
+      "count": 2
+    }
+  ]
+}

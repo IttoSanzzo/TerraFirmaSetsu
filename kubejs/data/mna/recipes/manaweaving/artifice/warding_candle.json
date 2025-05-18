@@ -1,0 +1,13 @@
+{
+	"type": "mna:manaweaving-recipe",
+	"output": "mna:warding_candle",
+	"tier": 2,
+	"items": [
+		"minecraft:candles",
+		"minecraft:wooden_slabs",		
+		"mna:ritual_focus_lesser"
+	],
+	"patterns": [
+		"mna:circle"
+	]
+}

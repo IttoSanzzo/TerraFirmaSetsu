@@ -1,0 +1,21 @@
+{
+  "type": "malum:spirit_repair",
+  "itemIdRegex": "netherite_.+",
+  "modIdRegex": "",
+  "durabilityPercentage": 0.5,
+  "inputs": [],
+  "repairMaterial": {
+    "item": "tfc:metal/ingot/black_steel",
+    "count": 1
+  },
+  "spirits": [
+    {
+      "type": "infernal",
+      "count": 3
+    },
+    {
+      "type": "earthen",
+      "count": 2
+    }
+  ]
+}

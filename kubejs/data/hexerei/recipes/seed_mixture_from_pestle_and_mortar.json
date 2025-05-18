@@ -1,0 +1,25 @@
+{
+	"type": "hexerei:pestle_and_mortar",
+	"ingredients": [
+		{
+			"tag": "forge:seeds"
+		},
+		{
+			"tag": "forge:seeds"
+		},
+		{
+			"tag": "forge:seeds"
+		},
+		{
+			"tag": "forge:seeds"
+		},
+		{
+			"item": "hexerei:sage_seed"
+		}
+	],
+	"output": {
+		"item": "hexerei:seed_mixture",
+		"count": 1
+	},
+	"grindingTime": 60
+}

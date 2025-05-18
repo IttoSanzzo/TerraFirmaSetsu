@@ -1,0 +1,20 @@
+{
+	"type": "mna:component",
+	"output": "mna:shield",
+	"tier": 3,
+	"items":
+	[
+		"mna:stone_rune_cyan",
+		"tfc:metal/shield/black_bronze",
+		"mna:stone_rune_blue",
+		"mna:vinteum_dust",
+		"tfc:metal/chestplate/black_bronze",
+		"mna:rune_defense"
+	],
+	"patterns":
+	[
+		"mna:manaweave_patterns/knot2",
+		"mna:manaweave_patterns/diamond",
+		"mna:manaweave_patterns/knot4"
+	]
+}

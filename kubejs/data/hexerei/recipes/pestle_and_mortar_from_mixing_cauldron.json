@@ -1,0 +1,40 @@
+{
+	"type": "hexerei:mixingcauldron",
+	"liquid": {
+		"fluid": "minecraft:lava"
+	},
+	"ingredients": [
+		{
+			"tag": "forge:gems/quartz"
+		},
+		{
+			"tag": "setsu:ingot/all_iron"
+		},
+		{
+			"tag": "tfc:rock/smooth"
+		},
+		{
+			"tag": "tfc:rock/smooth"
+		},
+		{
+			"tag": "tfc:rock/smooth"
+		},
+		{
+			"tag": "tfc:rock/smooth"
+		},
+		{
+			"tag": "tfc:rock/smooth"
+		},
+		{
+			"tag": "setsu:ingot/all_iron"
+		}
+	],
+	"output": {
+		"item": "hexerei:pestle_and_mortar"
+	},
+	"liquidOutput": {
+		"fluid": "minecraft:lava"
+	},
+	"fluidLevelsConsumed": 333,
+	"heatRequirement": "heated"
+}

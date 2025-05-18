@@ -1,0 +1,15 @@
+{
+	"type": "mna:manaweaving-recipe",
+	"output": "mna:antidote_bracelet",
+	"tier": 3,
+	"items": [
+		"mna:healing_poultice",
+		"forge:mushroom/brown",
+		"forge:mushroom/red",
+		"mna:mundane_bracelet"
+	],
+	"patterns": [
+		"mna:circle",
+		"mna:circle"
+	]
+}

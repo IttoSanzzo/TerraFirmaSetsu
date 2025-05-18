@@ -1,0 +1,17 @@
+{
+  "type": "malum:spirit_repair",
+  "itemIdRegex": "corinthium_.+",
+  "modIdRegex": "",
+  "durabilityPercentage": 0.5,
+  "inputs": [],
+  "repairMaterial": {
+    "item": "simplecorinthium:corinthium_ingot",
+    "count": 1
+  },
+  "spirits": [
+    {
+      "type": "earthen",
+      "count": 1
+    }
+  ]
+}

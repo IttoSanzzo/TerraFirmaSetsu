@@ -1,0 +1,19 @@
+{
+	"type": "mna:component",
+	"tier": 4,
+	"output": "mna:drown",
+	"items":
+	[
+		"minecraft:boats",
+		"mna:mote_water",
+		"mna:wakebloom",
+		"minecraft:fishes",
+		"minecraft:fishes",
+		"minecraft:fishes"
+	],
+	"patterns":
+	[
+		"mna:manaweave_patterns/circle",
+		"mna:manaweave_patterns/hourglass"
+	]
+}

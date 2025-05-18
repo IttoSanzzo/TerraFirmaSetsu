@@ -1,0 +1,27 @@
+{
+  "conditions": [
+    {
+      "value": {
+        "tag": "forge:ingots/nickel",
+        "type": "forge:tag_empty"
+      },
+      "type": "forge:not"
+    }
+  ],
+  "type": "malum:spirit_repair",
+  "itemIdRegex": "nickel_.+",
+  "modIdRegex": ".+",
+  "durabilityPercentage": 0.5,
+  "inputs": [
+  ],
+  "repairMaterial": {
+    "tag": "forge:ingots/nickel",
+    "count": 1
+  },
+  "spirits": [
+    {
+      "type": "earthen",
+      "count": 1
+    }
+  ]
+}

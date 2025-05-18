@@ -1,0 +1,19 @@
+{
+	"ingredient": [
+		{
+			"item": "ad_astra:netherite_oxygen_helmet"
+		},
+		{
+			"item": "ad_astra:netherite_space_suit"
+		},
+		{
+			"item": "ad_astra:netherite_space_pants"
+		},
+		{
+			"item": "ad_astra:netherite_space_boots"
+		}
+	],
+	"piercing": 12,
+	"slashing": 14,
+	"crushing": 12
+}

@@ -1,0 +1,18 @@
+{
+    "registry_name": "tfc:moose",
+    "primary_type": "sacred",
+    "spirits": [
+      {
+        "spirit": "aerial",
+        "count": 1
+      },
+      {
+        "spirit": "earthen",
+        "count": 1
+      },
+      {
+        "spirit": "sacred",
+        "count": 2
+      }
+    ]
+  }

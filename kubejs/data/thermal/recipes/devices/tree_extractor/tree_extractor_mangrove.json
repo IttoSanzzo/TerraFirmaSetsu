@@ -1,0 +1,9 @@
+{
+	"type": "thermal:tree_extractor",
+	"trunk": "tfc:wood/log/mangrove",
+	"leaves": "tfc:wood/leaves/mangrove",
+	"result": {
+		"fluid": "thermal:resin",
+		"amount": 25
+	}
+}

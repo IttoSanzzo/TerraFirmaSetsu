@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+      "KCK",
+      "KRK",
+      "KPK"
+    ],
+    "key": {
+      "P": {
+        "item": "immersiveengineering:plate_iron"
+      },
+      "C": {
+        "item": "create:andesite_casing"
+      },
+      "R": {
+        "item": "create:shaft"
+      },
+      "K": {
+        "item": "farmersdelight:rope"
+      }
+    },
+    "result": {
+      "item": "create:rope_pulley"
+    }
+  }

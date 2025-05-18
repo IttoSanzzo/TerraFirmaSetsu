@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+  	"TST",
+  	"TGT",
+  	"TXT"
+  ],
+  "key": {
+  	"T": {
+  		"item": "terracotta"
+  	},
+  	"S": {
+  		"item": "mna:transmuted_silver"
+  	},
+  	"G": {
+  		"item": "glass_pane"
+  	},
+	  "X": {
+		"item": "tfc:metal/ingot/wrought_iron"
+	}
+  },
+  "result": {
+    "item": "mna:fluid_jug"    
+  }
+}

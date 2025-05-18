@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+      "KCK",
+      "KRK",
+      "KPK"
+    ],
+    "key": {
+      "P": {
+        "tag": "forge:plates/copper"
+      },
+      "C": {
+        "item": "create:copper_casing"
+      },
+      "R": {
+        "tag": "forge:rods"
+      },
+      "K": {
+          "item": "farmersdelight:rope"
+      }
+    },
+    "result": {
+      "item": "create:hose_pulley"
+    }
+  }

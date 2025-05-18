@@ -1,0 +1,40 @@
+{
+	"type": "hexerei:mixingcauldron",
+	"liquid": {
+		"fluid": "minecraft:lava"
+	},
+	"ingredients": [
+		{
+			"item": "tfc:metal/ingot/rose_gold"
+		},
+		{
+			"tag": "tfc:lumber"
+		},
+		{
+			"item": "firmalife:beeswax"
+		},
+		{
+			"item": "tfc:powder/wood_ash"
+		},
+		{
+			"tag": "setsu:treated_lumber"
+		},
+		{
+			"item": "tfc:powder/wood_ash"
+		},
+		{
+			"item": "firmalife:beeswax"
+		},
+		{
+			"tag": "tfc:lumber"
+		}
+	],
+	"output": {
+		"item": "hexerei:sage_burning_plate"
+	},
+	"liquidOutput": {
+		"fluid": "minecraft:lava"
+	},
+	"fluidLevelsConsumed": 333,
+	"heatRequirement": "heated"
+}

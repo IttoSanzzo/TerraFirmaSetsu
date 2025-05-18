@@ -1,0 +1,15 @@
+{
+	"type": "botania:mana_infusion",
+	"input": {
+		"item": "mna:wakebloom"
+	},
+	"output": {
+		"item": "mna:tarma_root",
+		"count": 1
+	},
+	"mana": 300,
+	"catalyst": {
+		"type": "block",
+		"block": "mna:decoration/chimerite_arcane_stone_chiseled"
+	}
+}

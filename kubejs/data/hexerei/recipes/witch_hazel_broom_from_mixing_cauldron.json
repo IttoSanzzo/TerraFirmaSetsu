@@ -1,0 +1,40 @@
+{
+	"type": "hexerei:mixingcauldron",
+	"liquid": {
+		"fluid": "hexerei:quicksilver_fluid"
+	},
+	"ingredients": [
+		{
+			"item": "botania:rune_air"
+		},
+		{
+			"item": "bloodmagic:arcaneashes"
+		},
+		{
+			"item": "potionsmaster:ender_powder"
+		},
+		{
+			"item": "minecraft:blaze_powder"
+		},
+		{
+			"item": "hexerei:broom_brush"
+		},
+		{
+			"item": "hexerei:gold_rings"
+		},
+		{
+			"item": "hexerei:witch_hazel_log"
+		},
+		{
+			"item": "hexerei:witch_hazel_log"
+		}
+	],
+	"output": {
+		"item": "hexerei:witch_hazel_broom"
+	},
+	"liquidOutput": {
+		"fluid": "hexerei:quicksilver_fluid"
+	},
+	"fluidLevelsConsumed": 666,
+	"heatRequirement": "heated"
+}

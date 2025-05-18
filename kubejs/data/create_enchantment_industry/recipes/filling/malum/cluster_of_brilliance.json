@@ -1,0 +1,17 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "malum:raw_soulstone"
+    },
+    {
+      "fluid": "create_enchantment_industry:experience",
+      "amount": 30
+    }
+  ],
+  "results": [
+    {
+      "item": "malum:cluster_of_brilliance"
+    }
+  ]
+}

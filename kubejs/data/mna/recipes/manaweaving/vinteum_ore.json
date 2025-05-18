@@ -1,0 +1,19 @@
+{
+	"type": "mna:manaweaving-recipe",
+	"output": "mna:vinteum_ore",
+	"tier": 2,
+	"quantity": 8,		
+	"items": [
+		"tfc:rock/raw",
+		"tfc:rock/raw",
+		"tfc:rock/raw",
+		"tfc:rock/raw",
+		"tfc:rock/raw",
+		"tfc:rock/raw",
+		"tfc:rock/raw",
+		"tfc:rock/raw"
+	],
+	"patterns": [
+		"mna:diamond"
+	]
+}

@@ -1,0 +1,13 @@
+{
+	"type": "immersiveengineering:blast_furnace",
+	"input": {
+		"tag": "setsu:ingot/all_iron"
+	},
+	"result": {
+		"item": "tfc:metal/ingot/steel"
+	},
+	"slag": {
+		"tag": "forge:slag"
+	},
+	"time": 1200
+}

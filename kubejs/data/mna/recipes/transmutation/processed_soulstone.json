@@ -1,0 +1,6 @@
+{
+  "type": "mna:transmutation",
+  "targetBlock": "malum:block_of_raw_soulstone",
+  "lootTable": "mna:transmutation/transmuted_soulstone",
+  "representationItem": "malum:processed_soulstone"
+}

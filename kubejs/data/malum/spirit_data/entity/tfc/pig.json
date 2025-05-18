@@ -1,0 +1,10 @@
+{
+    "registry_name": "tfc:pig",
+    "primary_type": "sacred",
+    "spirits": [
+      {
+        "spirit": "sacred",
+        "count": 4
+      }
+    ]
+  }

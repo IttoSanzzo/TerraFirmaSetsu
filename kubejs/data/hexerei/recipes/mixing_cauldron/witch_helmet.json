@@ -1,0 +1,39 @@
+{
+	"type": "hexerei:mixingcauldron",
+	"liquid": {
+		"fluid": "hexerei:quicksilver_fluid"
+	},
+	"ingredients": [
+		{
+			"item": "hexerei:infused_fabric"
+		},
+		{
+			"item": "hexerei:mindful_trance_blend"
+		},
+		{
+			"item": "botania:mana_string"
+		},
+		{
+			"tag": "forge:feathers"
+		},
+		{
+			"item": "minecraft:leather_helmet"
+		},
+		{
+			"tag": "forge:feathers"
+		},
+		{
+			"item": "botania:mana_string"
+		},
+		{
+			"item": "hexerei:mindful_trance_blend"
+		}
+	],
+	"output": {
+		"item": "hexerei:witch_helmet"
+	},
+	"liquidOutput": {
+		"fluid": "hexerei:quicksilver_fluid"
+	},
+	"fluidLevelsConsumed": 1500
+}

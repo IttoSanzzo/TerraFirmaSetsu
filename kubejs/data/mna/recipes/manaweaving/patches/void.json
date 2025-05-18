@@ -1,0 +1,15 @@
+{
+	"type": "mna:manaweaving-recipe",
+	"tier": 3,
+	"output": "mna:patch_void",		
+	"items": [
+		"mna:runic_silk",		
+		"minecraft:piston",
+		"trashcans:item_trash_can"
+	],
+	"patterns": [
+		"mna:slash",
+		"mna:inverted_triangle",				
+		"mna:backslash"
+	]
+}

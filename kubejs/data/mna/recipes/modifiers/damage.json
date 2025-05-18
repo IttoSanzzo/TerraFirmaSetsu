@@ -1,0 +1,17 @@
+{
+	"type": "mna:modifier",
+	"output": "mna:damage",
+	"tier": 2,
+	"items":
+	[
+		"mna:chimerite_gem",
+		"tfc:metal/sword_blade/bismuth_bronze",
+		"tfc:metal/sword_blade/black_bronze",
+		"mna:stone_rune_red",
+		"mna:stone_rune_red",
+		"minecraft:diamond"
+	],
+	"patterns":
+	[
+	]
+}

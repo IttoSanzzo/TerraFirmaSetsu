@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+      "FF ",
+      "G  ",
+      "   "
+    ],
+    "key": {
+      "G": {
+        "tag": "forge:glue"
+      },
+      "F": {
+        "type": "tfc:not_rotten",
+        "ingredient": {
+          "tag": "tfc:small_fishing_bait"
+        }
+      }
+    },
+    "result": {
+      "item": "thermal:aquachow"
+    }
+  }

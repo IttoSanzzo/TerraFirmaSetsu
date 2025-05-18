@@ -1,0 +1,33 @@
+{
+  "type": "malum:spirit_infusion",
+  "input": {
+    "tag": "tfc:high_quality_cloth",
+    "count": 1
+  },
+  "output": {
+    "item": "malum:spirit_fabric",
+    "count": 4
+  },
+  "extra_items": [
+    {
+      "tag": "forge:string",
+      "count": 2
+    },
+    {
+      "item": "malum:hex_ash",
+      "count": 1
+    }
+  ],
+  "spirits": [
+    {
+      "type": "wicked",
+      "count": 2
+    },
+    {
+      "type": "earthen"
+    },
+    {
+      "type": "aerial"
+    }
+  ]
+}

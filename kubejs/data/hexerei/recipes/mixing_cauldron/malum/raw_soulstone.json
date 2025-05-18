@@ -1,0 +1,40 @@
+{
+	"type": "hexerei:mixingcauldron",
+	"liquid": {
+		"fluid": "minecraft:water"
+	},
+	"ingredients": [
+		{
+			"tag": "malum:spirits"
+		},
+		{
+			"tag": "malum:spirits"
+		},
+		{
+			"tag": "malum:spirits"
+		},
+		{
+			"tag": "malum:spirits"
+		},
+		{
+			"item": "minecraft:cobbled_deepslate"
+		},
+		{
+			"tag": "malum:spirits"
+		},
+		{
+			"tag": "malum:spirits"
+		},
+		{
+			"tag": "malum:spirits"
+		}
+	],
+	"output": {
+		"item": "malum:raw_soulstone"
+	},
+	"liquidOutput": {
+		"fluid": "minecraft:water"
+	},
+	"fluidLevelsConsumed": 666,
+	"heatRequirement": "heated"
+}

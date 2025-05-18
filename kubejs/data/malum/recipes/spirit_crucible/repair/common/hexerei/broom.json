@@ -1,0 +1,31 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "hexerei"
+    }
+  ],
+  "type": "malum:spirit_repair",
+  "itemIdRegex": ".+broom_brush",
+  "modIdRegex": "hexerei",
+  "durabilityPercentage": 1,
+  "inputs": [],
+  "repairMaterial": {
+    "item": "hexerei:mandrake_root",
+    "count": 4
+  },
+  "spirits": [
+    {
+      "type": "arcane",
+      "count": 1
+    },
+    {
+      "type": "aerial",
+      "count": 4
+    },
+    {
+      "type": "eldritch",
+      "count": 2
+    }
+  ]
+}

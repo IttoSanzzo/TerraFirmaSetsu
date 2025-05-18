@@ -1,0 +1,21 @@
+{
+  "type": "malum:spirit_repair",
+  "itemIdRegex": ".+/bronze",
+  "modIdRegex": "",
+  "durabilityPercentage": 0.5,
+  "inputs": [],
+  "repairMaterial": {
+    "tag": "forge:ingots/bronze",
+    "count": 1
+  },
+  "spirits": [
+    {
+      "type": "earthen",
+      "count": 1
+    },
+    {
+      "type": "infernal",
+      "count": 1
+    }
+  ]
+}

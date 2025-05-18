@@ -1,0 +1,20 @@
+{
+	"type": "mna:manaweaving-recipe",
+	"output": "mna:eldrin_altar",
+	"tier": 3,
+	"items": [
+		"mna:pedestal",
+		"mna:chimerite_crystals",
+		"mna:chimerite_crystals",
+		"mna:chimerite_crystals",
+		"mna:chimerite_crystals",
+		"mna:chimerite_crystals",
+		"mna:chimerite_crystals"
+	],
+	"patterns": [
+		"mna:circle",
+		"mna:split_triangle",
+		"mna:inverted_triangle",
+		"mna:diamond"
+	]
+}

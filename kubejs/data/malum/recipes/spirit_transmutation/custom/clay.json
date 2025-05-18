@@ -1,0 +1,9 @@
+{
+	"type": "malum:spirit_transmutation",
+	"input": {
+		"tag": "tfc:all_stone"
+	},
+	"output": {
+		"item": "minecraft:clay"
+	}
+}

@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+  	"WBW",
+  	"WUW",
+  	"WSW"
+  ],
+  "key": {
+  	"U": {
+  		"item": "mna:decoration/arcane_sandstone"
+  	},
+  	"W": {
+  		"item": "mna:decoration/arcane_sandstone_wall"
+  	},
+  	"S": {
+  		"item": "mna:decoration/arcane_stone"
+  	},
+  	"B": {
+		"type": "tfc:fluid_item",
+		"fluid_ingredient": {
+		  "ingredient": "minecraft:water",
+		  "amount": 100
+		}
+	}
+  },
+  "result": {
+    "item": "mna:manaweaving_altar"    
+  }
+}

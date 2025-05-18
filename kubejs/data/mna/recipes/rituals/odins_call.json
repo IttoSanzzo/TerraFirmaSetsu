@@ -1,0 +1,69 @@
+{
+	"type": "mna:ritual",
+	"tier": 5,
+	"pattern":
+	[
+		[ 0,  13, 13,  7, 13, 13,  0 ],
+		[ 13, 13,  8,  0,  6, 13, 13 ],
+		[ 13,  9,  0, 13,  0,  5, 13 ],
+		[ 13,  0, 10, -1,  4,  0, 13 ],
+		[ 13,  0,  0,  3,  0,  0, 13 ],
+		[ 13, 13,  2,  0, 11, 13, 13 ],
+		[ 0,   1, 13, 13, 13, 12,  0 ]
+	],
+	"reagents":
+	[
+		"   W   ",
+		"       ",
+		" F   F ",
+		"       ",
+		"   B   ",
+		"       ",
+		" A   E "
+	],
+	"keys":
+	{
+		"W": 
+		{ 
+			"item": "mna:witherbone",
+			"optional": false,
+			"consume": true
+		},
+		"F": 
+		{ 
+			"item": "feather",
+			"optional": false,
+			"consume": true
+		},
+		"B": 
+		{ 
+			"item": "bone",
+			"optional": false,
+			"consume": true
+		},
+		"A": 
+		{ 
+			"item": "mna:greater_mote_air",
+			"optional": false,
+			"consume": true
+		},
+		"E": 
+		{ 
+			"item": "mna:greater_mote_ender",
+			"optional": false,
+			"consume": true
+		}
+	},
+	"manaweave":
+	[
+		"mna:manaweave_patterns/infinity"
+	],
+	"parameters":
+	{
+		"innerColor": "0x13166e",
+		"outerColor": "0x02031a",
+		"beamColor": "0xc7c8d9",
+		"connectBeam": false,
+		"displayIndexes": false
+	}
+}

@@ -1,0 +1,18 @@
+{
+	"type": "mna:manaweaving-recipe",
+	"output": "mna:constructs/construct_rocket_legs_gold",
+	"tier": 3,
+	"items": [
+		"mna:constructs/rune_hips",
+		"mna:constructs/rune_rod",
+		"mna:constructs/rune_rod",
+		"tfc:metal/ingot/rose_gold",
+		"tfc:metal/ingot/rose_gold",
+		"mna:mote_fire"
+	],
+	"patterns": [
+		"mna:diamond",
+		"mna:triangle",
+		"mna:diamond"
+	]
+}

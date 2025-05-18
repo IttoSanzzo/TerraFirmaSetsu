@@ -1,0 +1,39 @@
+{
+	"type": "hexerei:mixingcauldron",
+	"liquid": {
+		"fluid": "minecraft:lava"
+	},
+	"ingredients": [
+		{
+			"tag": "setsu:ingot/all_iron"
+		},
+		{
+			"tag": "setsu:ingot/all_iron"
+		},
+		{
+			"tag": "setsu:ingot/all_iron"
+		},
+		{
+			"item": "minecraft:iron_nugget"
+		},
+		{
+			"item": "minecraft:iron_nugget"
+		},
+		{
+			"item": "minecraft:iron_nugget"
+		},
+		{
+			"tag": "setsu:ingot/all_iron"
+		},
+		{
+			"tag": "setsu:ingot/all_iron"
+		}
+	],
+	"output": {
+		"item": "hexerei:candle_dipper"
+	},
+	"liquidOutput": {
+		"fluid": "minecraft:lava"
+	},
+	"fluidLevelsConsumed": 250
+}

@@ -1,0 +1,8 @@
+{
+  "type": "bloodmagic:array", 
+  "conditions": [
+      {
+        "type": "forge:false"
+      }
+    ]
+  }

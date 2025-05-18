@@ -1,0 +1,40 @@
+{
+	"type": "hexerei:mixingcauldron",
+	"liquid": {
+		"fluid": "hexerei:quicksilver_fluid"
+	},
+	"ingredients": [
+		{
+			"item": "minecraft:netherite_ingot"
+		},
+		{
+			"item": "botania:mana_diamond"
+		},
+		{
+			"item": "tfc:metal/ingot/wrought_iron"
+		},
+		{
+			"item": "hexerei:mahogany_planks"
+		},
+		{
+			"item": "hexerei:mahogany_planks"
+		},
+		{
+			"item": "hexerei:mahogany_planks"
+		},
+		{
+			"item": "tfc:metal/ingot/wrought_iron"
+		},
+		{
+			"item": "botania:mana_diamond"
+		}
+	],
+	"output": {
+		"item": "hexerei:warhammer"
+	},
+	"liquidOutput": {
+		"fluid": "hexerei:quicksilver_fluid"
+	},
+	"fluidLevelsConsumed": 1500,
+	"heatRequirement": "heated"
+}

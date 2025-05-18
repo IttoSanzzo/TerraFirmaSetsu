@@ -1,0 +1,16 @@
+{
+	"type": "mna:modifier",
+	"output": "mna:range",
+	"tier": 2,
+	"items":
+	[
+		"bow",
+		"arrow",
+		"spectral_arrow",
+		"lead",
+		"forge:string"
+	],
+	"patterns":
+	[	
+	]
+}

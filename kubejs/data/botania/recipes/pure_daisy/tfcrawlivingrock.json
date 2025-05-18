@@ -1,0 +1,16 @@
+{
+  "type": "botania:pure_daisy",
+  "input": {
+    "type": "tag_excluding",
+    "tag": "forge:stone",
+    "exclude": [
+      {
+        "type": "block",
+        "block": "botania:livingrock"
+      }
+    ]
+  },
+  "output": {
+    "name": "botania:livingrock"
+  }
+}

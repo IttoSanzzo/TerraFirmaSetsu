@@ -1,0 +1,15 @@
+{
+	"type": "create:cutting",
+	"ingredients": [
+		{
+			"tag": "forge:treated_wood"
+		}
+	],
+	"processingTime": 50,
+	"results": [
+		{
+			"count": 4,
+			"item": "tfc_ie_addon:treated_wood_lumber"
+		}
+	]
+}

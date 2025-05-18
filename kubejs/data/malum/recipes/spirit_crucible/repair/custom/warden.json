@@ -1,0 +1,17 @@
+{
+  "type": "malum:spirit_repair",
+  "itemIdRegex": "warden_.+",
+  "modIdRegex": "",
+  "durabilityPercentage": 0.75,
+  "inputs": [],
+  "repairMaterial": {
+    "item": "mna:greater_mote_ender",
+    "count": 1
+  },
+  "spirits": [
+    {
+      "type": "eldritch",
+      "count": 3
+    }
+  ]
+}

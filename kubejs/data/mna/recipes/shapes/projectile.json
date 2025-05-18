@@ -1,0 +1,17 @@
+{
+	"type": "mna:shape",
+	"output": "mna:projectile",
+	"tier": 2,
+	"items":
+	[
+		"snowball",
+		"minecraft:arrows",
+		"mna:vinteum_dust",
+		"bow"
+	],
+	"patterns":
+	[
+		"mna:manaweave_patterns/triangle",
+		"mna:manaweave_patterns/diamond"		
+	]
+}

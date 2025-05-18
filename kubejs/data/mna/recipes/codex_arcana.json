@@ -1,0 +1,17 @@
+{
+  "type": "tfc:advanced_shapeless_crafting",
+  "ingredients": [
+    {
+        "item": "minecraft:book"
+    },
+    {
+        "item": "mna:vinteum_dust"
+    }
+  ],
+  "result": {
+    "stack": {
+      "item": "mna:guide_book",
+      "count": 1
+    }
+  }
+}

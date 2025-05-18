@@ -1,0 +1,40 @@
+{
+	"type": "hexerei:mixingcauldron",
+	"liquid": {
+		"fluid": "minecraft:lava"
+	},
+	"ingredients": [
+		{
+			"item": "tfc:metal/ingot/gold"
+		},
+		{
+			"item": "minecraft:gold_nugget"
+		},
+		{
+			"item": "tfc:metal/ingot/gold"
+		},
+		{
+			"item": "minecraft:gold_nugget"
+		},
+		{
+			"item": "tfc:metal/ingot/gold"
+		},
+		{
+			"item": "minecraft:gold_nugget"
+		},
+		{
+			"item": "tfc:metal/ingot/gold"
+		},
+		{
+			"item": "minecraft:gold_nugget"
+		}
+	],
+	"output": {
+		"item": "hexerei:gold_rings"
+	},
+	"liquidOutput": {
+		"fluid": "minecraft:lava"
+	},
+	"fluidLevelsConsumed": 333,
+	"heatRequirement": "heated"
+}

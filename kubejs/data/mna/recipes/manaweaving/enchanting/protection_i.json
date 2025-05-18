@@ -1,0 +1,19 @@
+{
+	"type": "mna:manaweaving-recipe",
+	"tier": 3,
+	"output": "mna:rune_earth",
+	"enchant": "minecraft:protection",
+	"magnitude": 1,
+	"items": [
+		"mna:rune_earth",
+		"mna:rune_defense",
+		"tfc:shields",
+		"sewingkit:leather_sheet",
+		"sewingkit:leather_sheet",
+		"sewingkit:leather_sheet",
+		"sewingkit:leather_sheet"
+	],
+	"patterns": [
+		"mna:manaweave_patterns/diamond"
+	]
+}

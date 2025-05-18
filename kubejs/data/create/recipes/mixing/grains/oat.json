@@ -1,0 +1,23 @@
+{
+    "type": "create:mixing",
+    "ingredients": [
+      {
+        "type": "tfc:not_rotten",
+        "ingredient": {
+          "item": "tfc:food/oat"
+        }
+      }
+    ],
+    "results": [
+      {
+        "item": "tfc:food/oat_grain",
+        "modifiers": [
+          "tfc:copy_oldest_food"
+        ]
+      },
+      {
+        "item": "tfc:straw",
+        "chance": 0.95
+      }
+    ]
+}

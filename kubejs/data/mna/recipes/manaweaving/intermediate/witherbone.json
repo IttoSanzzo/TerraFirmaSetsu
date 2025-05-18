@@ -1,0 +1,16 @@
+{
+	"type": "mna:manaweaving-recipe",
+	"tier": 4,
+	"output": "mna:witherbone",
+	"items":
+	[
+		"mna:vinteum_dust",
+		"mna:bone_ash",
+		"forge:bones",
+		"minecraft:soul_fire_base_blocks"
+	],
+	"patterns":
+	[
+		"mna:inverted_triangle"
+	]
+}

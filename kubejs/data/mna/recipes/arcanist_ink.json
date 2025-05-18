@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "mna:purified_vinteum_dust"
+    },
+    {
+      "item": "supplementaries:antique_ink"
+    },
+    {
+      "tag": "mna:ma_flowers"
+    }
+  ],
+  "result": {
+    "item": "mna:arcanist_ink"
+  }
+}

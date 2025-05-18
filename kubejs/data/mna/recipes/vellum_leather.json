@@ -1,0 +1,21 @@
+{
+  "type": "tfc:advanced_shapeless_crafting",
+  "ingredients": [
+    {
+      "type": "tfc:fluid_item",
+      "fluid_ingredient": {
+        "ingredient": "minecraft:water",
+        "amount": 100
+      }
+    },
+    {
+        "item": "minecraft:leather"
+    }
+  ],
+  "result": {
+    "stack": {
+      "item": "mna:vellum",
+      "count": 2
+    }
+  }
+}

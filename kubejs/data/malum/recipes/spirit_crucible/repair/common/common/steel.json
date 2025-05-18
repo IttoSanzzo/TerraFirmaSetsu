@@ -1,0 +1,31 @@
+{
+  "conditions": [
+    {
+      "value": {
+        "tag": "forge:ingots/steel",
+        "type": "forge:tag_empty"
+      },
+      "type": "forge:not"
+    }
+  ],
+  "type": "malum:spirit_repair",
+  "itemIdRegex": "steel_.+",
+  "modIdRegex": ".+",
+  "durabilityPercentage": 0.5,
+  "inputs": [
+  ],
+  "repairMaterial": {
+    "tag": "forge:ingots/steel",
+    "count": 1
+  },
+  "spirits": [
+    {
+      "type": "earthen",
+      "count": 3
+    },
+    {
+      "type": "infernal",
+      "count": 1
+    }
+  ]
+}

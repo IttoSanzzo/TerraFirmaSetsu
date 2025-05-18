@@ -1,0 +1,18 @@
+{
+	"type": "mna:manaweaving-recipe",
+	"output": "mna:drown_charm",
+	"tier": 1,
+	"items": [
+		"tfc:plants",
+		"forge:feathers",
+		"forge:feathers",
+		"forge:string",
+		"minecraft:black_dye",		
+		"mna:vinteum_dust"
+	],
+	"patterns": [
+		"mna:circle",
+		"mna:triangle",
+		"mna:circle"
+	]
+}

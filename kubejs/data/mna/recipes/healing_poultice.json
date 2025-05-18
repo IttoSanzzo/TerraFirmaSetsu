@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "firmalife:fruit_leaf"
+    },
+    {
+      "item": "mna:aum"
+    }
+  ],
+  "result": {
+    "item": "mna:healing_poultice",
+    "count":2
+  }
+}

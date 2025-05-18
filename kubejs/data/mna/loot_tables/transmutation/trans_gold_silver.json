@@ -1,0 +1,20 @@
+{
+	"pools": [
+		{
+			"rolls": 12,
+			"entries": [
+				{
+					"type": "item",
+					"weight": 1,
+					"name": "tfc:ore/normal_native_silver",
+					"functions": [
+						{
+							"function": "set_count",
+							"count": 1
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,10 @@
+{
+  "type": "botania:mana_infusion",
+  "input": {
+    "item": "tfc:metal/ingot/copper"
+  },
+  "output": {
+    "item": "botania:manasteel_ingot"
+  },
+  "mana": 15000
+}

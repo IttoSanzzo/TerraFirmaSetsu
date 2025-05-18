@@ -1,0 +1,14 @@
+{
+    "registry_name": "tfc:rabbit",
+    "primary_type": "sacred",
+    "spirits": [
+      {
+        "spirit": "aerial",
+        "count": 1
+      },
+      {
+        "spirit": "sacred",
+        "count": 2
+      }
+    ]
+  }

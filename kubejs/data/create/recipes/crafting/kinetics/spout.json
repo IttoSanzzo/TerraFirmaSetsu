@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+      "C",
+      "K"
+    ],
+    "key": {
+      "K": {
+        "item": "create:andesite_alloy"
+      },
+      "C": {
+        "item": "create:fluid_tank"
+      }
+    },
+    "result": {
+      "item": "create:spout"
+    }
+  }

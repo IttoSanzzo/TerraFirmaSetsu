@@ -1,0 +1,16 @@
+{
+	"type": "mna:shape",
+	"tier": 2,
+	"output": "mna:bound_axe",
+	"items":
+	[
+		"mna:vinteum_dust",
+		"minecraft:diamond",
+		"tfc:metal/axe/black_bronze"
+	],
+	"patterns":
+	[
+		"mna:manaweave_patterns/diamond",
+		"mna:manaweave_patterns/square"
+	]
+}

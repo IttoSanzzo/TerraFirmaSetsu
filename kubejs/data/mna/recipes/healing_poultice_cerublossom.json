@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "firmalife:fruit_leaf"
+    },
+    {
+      "item": "mna:vinteum_dust"
+    },
+    {
+      "item": "mna:cerublossom"
+    }
+  ],
+  "result": {
+    "item": "mna:healing_poultice",
+    "count":3
+  }
+}

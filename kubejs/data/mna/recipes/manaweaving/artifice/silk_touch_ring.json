@@ -1,0 +1,17 @@
+{
+	"type": "mna:manaweaving-recipe",
+	"output": "mna:silk_touch_ring",
+	"tier": 2,
+	"items": [
+		"forge:string",
+		"tfc:dirt",
+		"minecraft:book",
+		"forge:rods/wooden",
+		"minecraft:snowball",
+		"mna:mundane_ring"
+	],
+	"patterns": [
+		"mna:knot",
+		"mna:knot4"		
+	]
+}

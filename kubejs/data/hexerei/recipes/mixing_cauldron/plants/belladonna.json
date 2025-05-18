@@ -1,0 +1,39 @@
+{
+	"type": "hexerei:mixingcauldron",
+	"liquid": {
+		"fluid": "minecraft:water"
+	},
+	"ingredients": [
+		{
+			"item": "hexerei:sage_seed"
+		},
+		{
+			"tag": "tfc:makes_magenta_dye"
+		},
+		{
+			"item": "hexerei:sage_seed"
+		},
+		{
+			"tag": "tfc:makes_magenta_dye"
+		},
+		{
+			"item": "hexerei:sage_seed"
+		},
+		{
+			"tag": "tfc:makes_magenta_dye"
+		},
+		{
+			"item": "hexerei:sage_seed"
+		},
+		{
+			"tag": "tfc:makes_magenta_dye"
+		}
+	],
+	"output": {
+		"item": "hexerei:belladonna_plant"
+	},
+	"liquidOutput": {
+		"fluid": "minecraft:water"
+	},
+	"fluidLevelsConsumed": 250
+}

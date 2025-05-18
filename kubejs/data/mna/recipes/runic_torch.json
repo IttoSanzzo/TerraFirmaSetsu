@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+  	"LVL",
+  	"LSL",
+  	"LSL"
+  ],
+  "key": {
+  	"L": {
+  		"tag": "minecraft:logs"
+  	},
+  	"S": {
+  		"tag": "tfc:omni_stone"
+  	},
+  	"V": {
+  		"item": "mna:vinteum_dust"
+  	}
+  },
+  "result": {
+    "item": "mna:runic_torch"    
+  }
+}

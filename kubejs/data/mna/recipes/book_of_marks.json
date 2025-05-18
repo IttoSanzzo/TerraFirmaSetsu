@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+  	"SP",
+  	"LM",
+  	"SP"
+  ],
+  "key": {
+ 	"L": {
+  		"item": "minecraft:leather"
+  	},
+  	"P": {
+  		"item": "minecraft:paper"
+  	},
+  	"M": {
+  		"item": "mna:rune_pattern_marking"
+  	},
+	"S": {
+		"tag": "forge:string"
+	}
+  },
+  "result": {
+    "item": "mna:book_marks"    
+  }
+}

@@ -1,0 +1,19 @@
+{
+	"ingredient": [
+		{
+			"item": "ad_astra:oxygen_helmet"
+		},
+		{
+			"item": "ad_astra:space_suit"
+		},
+		{
+			"item": "ad_astra:space_pants"
+		},
+		{
+			"item": "ad_astra:space_boots"
+		}
+	],
+	"piercing": 5,
+	"slashing": 3,
+	"crushing": 5
+}

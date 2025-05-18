@@ -1,0 +1,14 @@
+{
+	"registry_name": "ad_astra:martian_raptor",
+	"primary_type": "eldritch",
+	"spirits": [
+		{
+			"spirit": "earthen",
+			"count": 1
+		},
+		{
+			"spirit": "eldritch",
+			"count": 1
+		}
+	]
+}

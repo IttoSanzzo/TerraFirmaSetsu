@@ -1,0 +1,23 @@
+{
+	"type": "botania:petal_apothecary",
+	"output": {
+		"item": "minecraft:vine"
+	},
+	"ingredients": [
+		{
+			"tag": "botania:petals/green"
+		},
+		{
+			"tag": "botania:petals/green"
+		},
+		{
+			"tag": "botania:petals/light_blue"
+		},
+		{
+			"tag": "botania:petals/light_blue"
+		}
+	],
+	"reagent": {
+		"tag": "botania:seed_apothecary_reagent"
+	}
+}

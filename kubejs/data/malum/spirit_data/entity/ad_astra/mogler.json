@@ -1,0 +1,14 @@
+{
+	"registry_name": "ad_astra:mogler",
+	"primary_type": "eldritch",
+	"spirits": [
+		{
+			"spirit": "infernal",
+			"count": 1
+		},
+		{
+			"spirit": "eldritch",
+			"count": 1
+		}
+	]
+}

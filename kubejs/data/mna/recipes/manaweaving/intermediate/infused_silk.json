@@ -1,0 +1,15 @@
+{
+	"type": "mna:manaweaving-recipe",
+	"tier": 1,
+	"output": "mna:infused_silk",
+	"items":
+	[
+		"tfc:high_quality_cloth",
+		"forge:string",
+		"mna:ritual_focus_minor"
+	],
+	"patterns":
+	[
+		"mna:square"
+	]
+}

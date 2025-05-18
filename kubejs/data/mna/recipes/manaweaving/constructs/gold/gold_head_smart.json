@@ -1,0 +1,17 @@
+{
+	"type": "mna:manaweaving-recipe",
+	"output": "mna:constructs/construct_smart_head_gold",
+	"tier": 3,
+	"items": [
+		"mna:constructs/rune_head",
+		"tfc:metal/ingot/rose_gold",
+		"tfc:metal/ingot/rose_gold",
+		"mna:vinteum_dust",
+		"mna:vinteum_dust",
+		"mna:mote_arcane"
+	],
+	"patterns": [
+		"mna:diamond",
+		"mna:circle"
+	]
+}

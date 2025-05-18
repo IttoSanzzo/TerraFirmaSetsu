@@ -1,0 +1,6 @@
+{
+  "type": "mna:transmutation",
+  "targetBlock": "minecraft:raw_copper_block",
+  "lootTable": "mna:transmutation/trans_copper_gold",
+  "representationItem": "tfc:ore/normal_native_gold"
+}

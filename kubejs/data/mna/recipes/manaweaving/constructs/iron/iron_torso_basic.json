@@ -1,0 +1,16 @@
+{
+	"type": "mna:manaweaving-recipe",
+	"output": "mna:constructs/construct_basic_torso_iron",
+	"tier": 3,
+	"items": [
+		"mna:constructs/rune_torso",
+		"tfc:metal/double_ingot/wrought_iron",
+		"tfc:metal/double_ingot/wrought_iron",
+		"mna:vinteum_dust",
+		"mna:vinteum_dust"
+	],
+	"patterns": [
+		"mna:diamond",
+		"mna:square"
+	]
+}

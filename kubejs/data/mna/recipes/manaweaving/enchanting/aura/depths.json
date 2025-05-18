@@ -1,0 +1,23 @@
+{
+	"type": "mna:manaweaving-recipe",
+	"tier": 2,
+	"output": "mna:rune_aura",
+	"enchant": "mna:aura-depths",
+	"magnitude": 1,
+	"items":
+	[
+		"mna:rune_aura",
+		"tfc:groundcover/clam",
+		"mna:mote_water",		
+		"minecraft:fishes",
+		"minecraft:fishes",
+		"mna:wakebloom",
+		"mna:wakebloom"
+	],
+	"patterns":
+	[
+		"mna:circle",
+		"mna:circle",
+		"mna:circle"
+	]
+}

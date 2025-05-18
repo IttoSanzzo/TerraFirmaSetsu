@@ -1,0 +1,30 @@
+{
+  "type": "malum:spirit_repair",
+  "itemIdRegex": "",
+  "modIdRegex": "",
+  "durabilityPercentage": 0.75,
+  "inputs": [
+    "malum:soul_hunter_cloak",
+    "malum:soul_hunter_robe",
+    "malum:soul_hunter_leggings",
+    "malum:soul_hunter_boots"
+  ],
+  "repairMaterial": {
+    "item": "malum:spirit_fabric",
+    "count": 1
+  },
+  "spirits": [
+    {
+      "type": "arcane",
+      "count": 3
+    },
+    {
+      "type": "aerial",
+      "count": 1
+    },
+    {
+      "type": "wicked",
+      "count": 2
+    }
+  ]
+}

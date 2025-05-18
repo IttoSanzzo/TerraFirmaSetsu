@@ -1,0 +1,16 @@
+{
+	"type": "hexerei:pestle_and_mortar",
+	"ingredients": [
+		{
+			"tag": "hexerei:tallow_meltable"
+		},
+		{
+			"tag": "hexerei:flower_biproduct"
+		}
+	],
+	"output": {
+		"item": "hexerei:wax_blend",
+		"count": 2
+	},
+	"grindingTime": 200
+}

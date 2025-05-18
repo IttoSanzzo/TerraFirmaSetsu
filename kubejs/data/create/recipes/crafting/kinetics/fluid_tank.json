@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+      " B ",
+      " G ",
+      " B "
+    ],
+    "key": {
+      "B": {
+        "tag": "forge:plates/copper"
+      },
+      "G": {
+        "tag": "forge:glass"
+      }
+    },
+    "result": {
+      "item": "create:fluid_tank"
+    }
+  }

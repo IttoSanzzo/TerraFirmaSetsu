@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+      "CD"
+    ],
+    "key": {
+      "C": {
+        "item": "create:andesite_casing"
+      },
+      "D": {
+        "tag": "immersiveengineering:drillheads"
+      }
+    },
+    "result": {
+      "item": "create:mechanical_drill"
+    }
+  }

@@ -1,0 +1,39 @@
+{
+  "type": "hexerei:mixingcauldron",
+  "liquid": {
+    "fluid": "minecraft:lava"
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:blaze_rod"
+    },
+    {
+      "item": "tfc:metal/rod/wrought_iron"
+    },
+    {
+      "item": "tfc:metal/rod/wrought_iron"
+    },
+    {
+      "item": "minecraft:smooth_stone_slab"
+    },
+    {
+      "item": "minecraft:smooth_stone_slab"
+    },
+    {
+      "item": "minecraft:smooth_stone_slab"
+    },
+    {
+      "item": "tfc:metal/rod/wrought_iron"
+    },
+    {
+      "item": "tfc:metal/rod/wrought_iron"
+    }
+  ],
+  "output": {
+    "item": "minecraft:brewing_stand"
+  },
+  "liquidOutput": {
+    "fluid": "minecraft:lava"
+  },
+  "fluidLevelsConsumed": 1000
+}

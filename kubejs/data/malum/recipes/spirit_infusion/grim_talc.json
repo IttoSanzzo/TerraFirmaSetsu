@@ -1,0 +1,17 @@
+{
+	"type": "malum:spirit_infusion",
+	"extra_items": [],
+	"input": {
+		"count": 10,
+		"item": "minecraft:bone"
+	},
+	"output": {
+		"item": "malum:grim_talc"
+	},
+	"spirits": [
+		{
+			"type": "wicked",
+			"count": 2
+		}
+	]
+}

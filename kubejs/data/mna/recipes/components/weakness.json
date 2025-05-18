@@ -1,0 +1,16 @@
+{
+	"type": "mna:component",
+	"tier": 3,
+	"output": "mna:weakness",
+	"items":
+	[
+		"mna:vinteum_dust",
+		"minecraft:poisonous_potato",
+		"minecraft:fermented_spider_eye",
+		"minecraft:fermented_spider_eye"
+	],
+	"patterns":
+	[
+		"mna:manaweave_patterns/inverted_triangle"				
+	]
+}

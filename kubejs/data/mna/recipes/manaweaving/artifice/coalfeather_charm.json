@@ -1,0 +1,18 @@
+{
+	"type": "mna:manaweaving-recipe",
+	"output": "mna:burn_charm",
+	"tier": 1,
+	"items": [
+		"minecraft:coals",
+		"forge:feathers",
+		"forge:feathers",
+		"forge:string",
+		"minecraft:black_dye",		
+		"mna:vinteum_dust"
+	],
+	"patterns": [
+		"mna:backslash",
+		"mna:square",
+		"mna:slash"
+	]
+}

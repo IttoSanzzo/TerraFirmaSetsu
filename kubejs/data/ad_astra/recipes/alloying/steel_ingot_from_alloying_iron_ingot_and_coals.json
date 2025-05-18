@@ -1,0 +1,17 @@
+{
+	"type": "ad_astra:alloying",
+	"cookingtime": 200,
+	"energy": 30,
+	"ingredients": [
+		{
+			"tag": "setsu:ingot/all_iron"
+		},
+		{
+			"tag": "minecraft:coals"
+		}
+	],
+	"result": {
+		"id": "tfc:metal/ingot/steel",
+		"count": 1
+	}
+}

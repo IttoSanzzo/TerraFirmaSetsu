@@ -1,0 +1,21 @@
+{
+	"type": "mna:component",
+	"output": "mna:strength",	
+	"tier": 4,
+	"items":
+	[
+		"tfc:food/grain_soup",
+		"tfc:food/vegetables_soup",
+		"tfc:food/fruit_soup",
+		"tfc:food/protein_soup",
+		"tfc:food/dairy_soup",
+		"mna:vinteum_dust",
+		"minecraft:blaze_powder"
+	],
+	"patterns":
+	[
+		"mna:manaweave_patterns/triangle",
+		"mna:manaweave_patterns/diamond",
+		"mna:manaweave_patterns/triangle"				
+	]
+}

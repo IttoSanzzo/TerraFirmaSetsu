@@ -1,0 +1,17 @@
+{
+	"type": "mna:component",
+	"output": "mna:gust",
+	"tier": 1,
+	"items":
+	[
+		"mna:stone_rune_white",	
+		"forge:seeds",
+		"minecraft:feather",
+		"forge:red_yellow_material",
+		"forge:red_dye_material"
+	],
+	"patterns":
+	[
+		"mna:manaweave_patterns/triangle"
+	]
+}
