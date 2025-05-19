@@ -63,13 +63,13 @@ function setRecipesSophisticatedBackpacks(event) {
 	 * Backpacks
 	 */
 
-	addDamageShaped(event, "sophisticatedbackpacks:backpack", ["SLN", "BZB", "BCB"], {
+	addDamageShaped(event, "sophisticatedbackpacks:backpack", ["SLN", "BCB", " Z "], {
 		S: "#tfc:metal/shearss",
 		L: "#forge:string",
 		N: "tfc:bone_needle",
 		B: "toolbelt:pouch",
 		Z: "sophisticatedbackpacks:upgrade_base",
-		C: "thermal:satchel"
+		C: "sns:frame_pack"
 	});
 	addDamageShaped(event, "sophisticatedbackpacks:copper_backpack", ["SLN", "UZU", "BCB"], {
 		S: "#tfc:metal/shearss",

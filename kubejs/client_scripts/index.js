@@ -25,6 +25,7 @@ JEIEvents.hideItems((event) => {
 	setJeiAdAstra(event);
 	setJeiHexerei(event);
 	setJeiIceAndFire(event);
+	setJeiSacksAndSuch(event);
 });
 
 JEIEvents.addItems((event) => {

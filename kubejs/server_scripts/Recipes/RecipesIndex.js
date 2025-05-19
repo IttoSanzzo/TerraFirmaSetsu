@@ -41,6 +41,7 @@ const setRecipes = (event) => {
 	setRecipesAdAstra(event);
 	setRecipesMna(event);
 	setRecipesIceAndFire(event);
+	setSacksAndSuch(event);
 
 	// TFC Addons
 	setRecipesFirmalife(event);
