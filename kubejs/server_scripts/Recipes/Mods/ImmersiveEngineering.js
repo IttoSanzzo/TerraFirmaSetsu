@@ -221,6 +221,8 @@ const setClocheRecipes = (event) => {
 
 function setRecipesImmersiveEngineering(event) {
 
+	event.remove({ id: "immersiveengineering:crafting/cokebrick" });
+
 	/**
 	 * 
 	 * @param {string} outpu 
