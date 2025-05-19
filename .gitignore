@@ -11,6 +11,8 @@
 /XaeroWaypoints*/
 /XaeroWorldMap/
 /xaero/
+/simplebackups/
+/trees/
 
 # ==================== Dados gerados durante execução ==========================
 /logs/
@@ -35,6 +37,7 @@
 /kubejs/client_scripts/debug/
 /kubejs/config/probejs.json
 /kubejs/config/modpack_config.json
+TrashSlotSaveState.json
 
 # =================== Arquivos temporários ou do sistema =======================
 *.iml
@@ -61,6 +64,7 @@ patchouli_data.json
 realms_persistence.json
 rhino.local.properties
 usernamecache.json
+usercache.json
 node_modules/
 package-lock.json
 package.json
