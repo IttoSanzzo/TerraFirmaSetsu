@@ -135,4 +135,62 @@ function setRecipesTerraFirmaCraft(event) {
 	 * Moss
 	 */
 	addDamageShapeless(event, "tfc:plant/moss", ["#tfc:mossy_loose", "#tfc:axes"]);
+
+	/**
+	 * Mechanical Items
+	 */
+	event.remove({ id: "tfc:crafting/rustic_windmill_blade" });
+	event.shaped("tfc:rustic_windmill_blade", [" B ", "WWB", " W "], {
+		B: "tfc:burlap_cloth",
+		W: "tfc:stick_bunch"
+	}).id("setsu:tfc/rustic_windmill_blade");
+
+	event.remove({ id: "tfc:crafting/lattice_windmill_blade" });
+	event.shaped("tfc:lattice_windmill_blade", ["GSS", "SSS", "WWW"], {
+		G: "tfc:glue",
+		S: "tfc:stick_bundle",
+		W: "#tfc:lumber"
+	}).id("setsu:tfc/lattice_windmill_blade");
+
+	ItemCol.tfcWoodTypesWithNether.forEach(woodType => {
+		if (woodType == "crimson" || woodType == "warped") {
+			event.remove({ id: `beneath:crafting/wood/${woodType}_water_wheel` });
+			event.shaped(`beneath:wood/water_wheel/${woodType}`, ["LWL", "WSW", "LWL"], {
+				L: "#forge:treated_lumber",
+				S: `beneath:wood/axle/${woodType}`,
+				W: `beneath:wood/planks/${woodType}`
+			}).id(`setsu:tfc/wood/water_wheel/${woodType}`);
+
+			event.remove({ id: `beneath:crafting/wood/${woodType}_gear_box` });
+			event.shaped(`beneath:wood/gear_box/${woodType}`, ["ALA", "LXL", "ALA"], {
+				A: `beneath:wood/axle/${woodType}`,
+				L: `beneath:wood/lumber/${woodType}`,
+				X: `beneath:wood/encased_axle/${woodType}`
+			}).id(`setsu:tfc/wood/gear_box/${woodType}`);
+		}
+		else {
+			event.remove({ id: `tfc:crafting/wood/${woodType}_water_wheel` });
+			event.shaped(`tfc:wood/water_wheel/${woodType}`, ["LWL", "WSW", "LWL"], {
+				L: "#forge:treated_lumber",
+				S: `tfc:wood/axle/${woodType}`,
+				W: `tfc:wood/planks/${woodType}`
+			}).id(`setsu:tfc/wood/water_wheel/${woodType}`);
+
+			event.remove({ id: `tfc:crafting/wood/${woodType}_gear_box` });
+			event.shaped(`tfc:wood/gear_box/${woodType}`, ["ALA", "LXL", "ALA"], {
+				A: `tfc:wood/axle/${woodType}`,
+				L: `tfc:wood/lumber/${woodType}`,
+				X: `tfc:wood/encased_axle/${woodType}`
+			}).id(`setsu:tfc/wood/gear_box/${woodType}`);
+		}
+	})
+
+	event.shaped("tfc:hand_wheel", ["SSS", "SAS", "SSS"], {
+		S: "minecraft:stick",
+		A: "#tfc:axles",
+	}).id("setsu:tfc/hand_wheel");
+	event.shaped("tfc:hand_wheel_base", ["SSS", "SAS", "SSS"], {
+		S: "#tfc:rock_knapping",
+		A: "#tfc:axles",
+	}).id("setsu:tfc/hand_wheel_base");
 }

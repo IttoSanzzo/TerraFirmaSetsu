@@ -108,6 +108,30 @@ ItemCol.setVar("tfcWoodTypes", [
 	"white_cedar",
 	"willow"
 ]);
+ItemCol.setVar("tfcWoodTypesWithNether", [
+	"acacia",
+	"ash",
+	"aspen",
+	"birch",
+	"blackwood",
+	"chestnut",
+	"douglas_fir",
+	"hickory",
+	"kapok",
+	"mangrove",
+	"maple",
+	"oak",
+	"palm",
+	"pine",
+	"rosewood",
+	"sequoia",
+	"spruce",
+	"sycamore",
+	"white_cedar",
+	"willow",
+	"crimson",
+	"warped"
+]);
 ItemCol.setVar("tfcFruitTypes", [
 	"cherry",
 	"green_apple",
