@@ -13,6 +13,11 @@
 /xaero/
 /simplebackups/
 /trees/
+/blazemap-servers/
+/Distant_Horizons_server_data/
+servers.dat
+servers.dat_old
+
 
 # ==================== Dados gerados durante execução ==========================
 /logs/

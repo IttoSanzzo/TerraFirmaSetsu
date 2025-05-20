@@ -99,8 +99,6 @@ function setLootMinecraft(event) {
 			.replaceLoot(`minecraft:${color}_bed`, "tfc:wool");
 		event.addEntityLootModifier("minecraft:sheep")
 			.replaceLoot(`minecraft:${color}_wool`, "tfc:wool");
-		event.addEntityLootModifier(LootType.UNKNOWN)
-			.replaceLoot(`minecraft:${color}_wool`, "tfc:wool");
 	})
 
 }
