@@ -49,6 +49,7 @@ function setRecipesMacawMods(event) {
 	/**
 	 * Lights
 	 */
+	event.replaceInput({ mod: "mcwlights" }, "minecraft:torch", "tfc:torch");
 	event.replaceInput({ mod: "mcwlights" }, "#minecraft:logs", "#minecraft:logs");
 	event.replaceInput({ mod: "mcwlights" }, "#minecraft:planks", "#tfc:lumber");
 	event.replaceInput({ mod: "mcwlights" }, "#forge:rods/wooden", "#forge:rods/wooden");
