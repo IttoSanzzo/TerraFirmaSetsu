@@ -93,12 +93,20 @@ function setLootMinecraft(event) {
 
 	// Block
 	ItemCol.allDyes.forEach((color) => {
-		event.addBlockLootModifier(`minecraft:${color}_wool`)
-			.replaceLoot(`minecraft:${color}_wool`, "tfc:wool_yarn");
-		event.addBlockLootModifier(`minecraft:${color}_bed`)
-			.replaceLoot(`minecraft:${color}_bed`, "tfc:wool");
+		const wool = `minecraft:${color}_wool`;
+		const bed = `minecraft:${color}_bed`;
+
+		event.addBlockLootModifier(wool)
+			.removeLoot(wool);
+		event.addBlockLootModifier(bed)
+			.removeLoot(bed);
+		event.addBlockLootModifier(wool)
+			.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
+			.addLoot(wool);
+		event.addBlockLootModifier(bed)
+			.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
+			.addLoot(bed);
 		event.addEntityLootModifier("minecraft:sheep")
 			.replaceLoot(`minecraft:${color}_wool`, "tfc:wool");
 	})
-
 }

@@ -430,8 +430,8 @@ function setRecipesImmersiveEngineering(event) {
 	event.remove({ id: "immersiveengineering:hemp_fabric" });
 	event.shaped("immersiveengineering:hemp_fabric", ["CYC", "SYS", "YCY"], {
 		S: "#forge:rods/wooden",
-		C: "tfc:wool_cloth",
-		Y: "tfc:wool_yarn"
+		C: "#tfc:high_quality_cloth",
+		Y: "#forge:string"
 	}).id("setsu:immersiveengineering/hemp_fabric");
 	event.remove({ id: "immersiveengineering:cokebrick" });
 	event.shaped("immersiveengineering:cokebrick", ["CBC", "BSB", "CBC"], {

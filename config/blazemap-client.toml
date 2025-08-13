@@ -28,7 +28,7 @@
 	disabledLayers = []
 	#Zoom level. Must be a power of 2
 	#Range: 0.125 ~ 8.0
-	zoom = 4.0
+	zoom = 2.0
 
 [minimap]
 	#List of disabled Layers, comma separated
@@ -37,7 +37,7 @@
 	disabledLayers = []
 	#Zoom level. Must be a power of 2
 	#Range: 0.5 ~ 8.0
-	zoom = 0.5
+	zoom = 4.0
 	#Enable the minimap?
 	enabled = false
 	#Minimap horizontal position on screen

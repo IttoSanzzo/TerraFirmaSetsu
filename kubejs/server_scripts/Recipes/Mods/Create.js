@@ -252,4 +252,40 @@ function setRecipesCreate(event) {
 			}
 		]
 	);
+
+	event.remove({ id: "minecraft:chain" });
+	event.remove({ id: "create:crafting/appliances/chain_from_zinc" });
+	event.shapeless("minecraft:chain", ["1x #forge:metal/chain"]);
+
+	event.remove({ id: "create:crafting/logistics/packager" });
+	event.shaped("create:packager", [" F ", "RCR"], {
+		F: "suppsquared:metal_frame",
+		C: "create:cardboard_block",
+		R: "minecraft:redstone",
+	}).id("setsu:create/packager");
+
+	event.remove({ id: "create:crafting/kinetics/filter" });
+	event.shaped("create:filter", ["MCM"], {
+		C: "farmersdelight:canvas",
+		M: "minecraft:iron_nugget",
+	}).id("setsu:create/filter");
+	event.remove({ id: "create:crafting/kinetics/attribute_filter" });
+	event.shaped("create:attribute_filter", ["MCM"], {
+		C: "#tfc:high_quality_cloth",
+		M: "create:brass_nugget",
+	}).id("setsu:create/attribute_filter");
+	event.remove({ id: "create:crafting/kinetics/package_filter" });
+	event.shaped("create:package_filter", ["MCM"], {
+		C: "minecraft:paper",
+		M: "create:zinc_nugget",
+	}).id("create:package_filter");
+
+	event.remove({ id: "create:crafting/logistics/item_hatch" });
+	event.shapeless("create:item_hatch", ["1x create:andesite_alloy", "1x #minecraft:trapdoors"]).id("setsu:create/item_hatch");
+
+	ItemCol.allDyes.forEach((dye) => {
+		event.replaceInput({ id: `create:crafting/logistics/${dye}_postbox` }, "minecraft:barrel", "#tfcbarrels:barrels");
+		event.remove({ id: `create:crafting/logistics/${dye}_table_cloth` });
+		event.shapeless(`3x create:${dye}_table_cloth`, ["1x create:andesite_alloy", "1x #tfc:high_quality_cloth", `minecraft:${dye}_dye`]).id(`setsu:create/${dye}_table_cloth`);
+	})
 }

@@ -14,7 +14,6 @@ console.log("Starting Index.js Server Scripts!");
 	EntityEvents.spawned(entitySpawned);
 	PlayerEvents.loggedIn(loginEvent);
 	ItemEvents.rightClicked(rightClickEvent);
-	playerDeathSustenance();
 
 	/* Loot */
 	LootJS.modifiers(setLoot);

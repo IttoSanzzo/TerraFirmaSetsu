@@ -9,7 +9,7 @@
 	#Range: 0 ~ 100
 	invAlpha = 0
 	#Toggle on by default
-	byDefault = false
+	byDefault = true
 	#Animate recently picked up items
 	animatedInv = false
 	#Hide background if inventory is empty
@@ -107,16 +107,16 @@
 	yArmPos = 52
 	#Potion HUD vertical align
 	#Allowed Values: TOP, CENTER, BOTTOM
-	potValign = "TOP"
+	potValign = "CENTER"
 	#Potion HUD horizontal align
 	#Allowed Values: LEFT, MIDDLE, RIGHT
 	potHalign = "RIGHT"
 	#Potion HUD position (X)
 	#Range: -9999 ~ 9999
-	xPotionPos = 62
+	xPotionPos = 60
 	#Potion HUD position (Y)
 	#Range: -9999 ~ 9999
-	yPotionPos = 108
+	yPotionPos = 67
 	#Helmet position (X)
 	#Range: -9999 ~ 9999
 	helmPosX = 103

@@ -90,6 +90,16 @@ function setRecipesCreateEncased(event) {
 		M: `create:industrial_iron_block`,
 		C: "minecraft:anvil"
 	}).id(`setsu:createcasing/industrial_iron_press_vanilla_anvil`)
+	event.shaped(`createcasing:weathered_iron_press`, ["S", "M", "C"], {
+		S: "create:shaft",
+		M: `create:weathered_iron_block`,
+		C: "tfc:metal/double_ingot/black_steel"
+	}).id(`setsu:createcasing/weathered_industrial_iron_press`)
+	event.shaped(`createcasing:weathered_iron_press`, ["S", "M", "C"], {
+		S: "create:shaft",
+		M: `create:weathered_iron_block`,
+		C: "minecraft:anvil"
+	}).id(`setsu:createcasing/weathered_iron_press_vanilla_anvil`)
 
 	event.shaped(`createcasing:creative_press`, ["S", "M", "C"], {
 		S: "create:shaft",

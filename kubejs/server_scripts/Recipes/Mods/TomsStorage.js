@@ -18,7 +18,7 @@ function setRecipesTomsStorage(event) {
 		P: "toms_storage:ts.inventory_cable_connector",
 		S: "toms_storage:ts.trim",
 		D: "create:display_board",
-		B: "#forge:electron_tube",
+		B: "create:stock_ticker",
 	}).id("setsu:toms_storage/ts.storage_terminal");
 
 	event.remove({ output: "toms_storage:ts.crafting_terminal" });

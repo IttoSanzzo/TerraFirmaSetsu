@@ -12,6 +12,7 @@ const setCustomWeights = (event) => {
 	event.itemSize("kubejs:metal/ingot/weak_purple_steel", "large", "medium");
 	event.itemSize("kubejs:metal/ingot/purple_steel", "large", "medium");
 	event.itemSize("kubejs:metal/double_ingot/purple_steel", "large", "heavy");
+	event.itemSize("kubejs:misc/silk_cocoon", "very_small", "very_light");
 
 	/* Minors */
 	event.itemSize("minecraft:bundle", "very_small", "very_light");
