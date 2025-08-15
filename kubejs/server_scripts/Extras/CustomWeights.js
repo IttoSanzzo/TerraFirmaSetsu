@@ -18,6 +18,11 @@ const setCustomWeights = (event) => {
 	event.itemSize("minecraft:bundle", "very_small", "very_light");
 	event.itemSize("thermal:satchel", "normal", "light");
 
+	event.itemSize("trotting_wagons:armored_wagon", "huge", "very_heavy");
+	event.itemSize("trotting_wagons:royal_wagon", "huge", "very_heavy");
+	event.itemSize("trotting_wagons:conestoga_wagon", "huge", "very_heavy");
+
+
 	/* BackPacks */
 	event.itemSize("thermal:satchel", "huge", "very_heavy");
 	const simpleBackpacks = [

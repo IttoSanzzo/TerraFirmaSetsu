@@ -44,10 +44,13 @@ const setRecipes = (event) => {
 	setSacksAndSuch(event);
 	setArtisanal(event);
 	setRecipesBioforgeLoomborn(event);
+	setRecipesTrottingWagons(event);
+	setRecipesWell(event);
 
 	// TFC Addons
 	setRecipesFirmalife(event);
 	setRecipesFirmaciv(event);
+	setRecipesTfcBetterBf(event);
 
 	// Create Addons
 	setRecipesCreateAdditions(event);

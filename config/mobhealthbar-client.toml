@@ -9,11 +9,11 @@
 	#Show the Name above the mobs
 	show_name = true
 	#Show bars only when a mob is aggressive
-	on_aggro = false
+	on_aggro = true
 	#Show bar texture
 	bar = true
 	#Show the hp bar of the mobs who are damaged
-	damaged_only = false
+	damaged_only = true
 	#Show the hp bar of the mob you are looking at
 	hovered_only = false
 	#

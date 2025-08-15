@@ -9,13 +9,13 @@
 		"Generate Dragon Skeleton Chance" = 2500
 		#1 out of this number chance per chunk for generation
 		#Range: 1 ~ 10000
-		"Generate Dragon Cave Chance" = 30
+		"Generate Dragon Cave Chance" = 29
 		#1 out of this number chance per chunk for generation
 		#Range: 1 ~ 10000
-		"Generate Dragon Roost Chance" = 30
+		"Generate Dragon Roost Chance" = 80
 		#1 out of this number chance per block that gold will generate in dragon lairs.
 		#Range: 1 ~ 10000
-		"Dragon Den Gold Amount" = 4
+		"Dragon Den Gold Amount" = 6
 		#Ratio of Stone(this number) to Ores in Dragon Caves
 		#Range: 1 ~ 10000
 		"Dragon Cave Ore Ratio" = 45
@@ -80,7 +80,7 @@
 		#Range: 0.0 ~ 2.0
 		"Dragon Flight Speed Modifier" = 1.0
 		#Enable this if your server is being bombarded with moved wrongly or moved too fast console messages. REQUIRES RESTART!
-		"Dragon Moved Wrongly Error Fix" = false
+		"Dragon Moved Wrongly Error Fix" = true
 
 	[Dragons.Behaviour]
 		#How high dragons can fly, in Y height.
@@ -166,7 +166,7 @@
 		"Use Siren Shader" = true
 		#1 out of this number chance per chunk for generation
 		#Range: 1 ~ 10000
-		"Spawn Sirens Chance" = 450
+		"Spawn Sirens Chance" = 10000
 		#how long(in ticks) can a siren use its sing effect on a player, without a cooldown.
 		#Range: 100 ~ 24000
 		"Siren Max Sing Time" = 12000
@@ -188,7 +188,7 @@
 		"Death Worms Target Monsters" = true
 		#Deathworm spawn weight. Higher = lower chance to spawn
 		#Range: 1 ~ 10000
-		"Death Worm Spawn Weight" = 2500
+		"Death Worm Spawn Weight" = 5000
 
 	[Mobs.Cockatrice]
 		#Maximum cockatrice health
@@ -227,7 +227,7 @@
 		"Stymphalian Birds Target Animals" = false
 		#1 out of this number chance per chunk for generation
 		#Range: 1 ~ 10000
-		"Spawn Stymhphalian Bird Chance" = 2000
+		"Spawn Stymhphalian Bird Chance" = 3000
 
 	[Mobs.Trolls]
 		#True if trolls are allowed to spawn
@@ -268,10 +268,10 @@
 
 	[Mobs.Amphitheres]
 		#True if amphitheres are allowed to spawn
-		"Spawn Amphitheres" = true
+		"Spawn Amphitheres" = false
 		#Amphithere spawn weight. Lower = lower chance to spawn
 		#Range: 1 ~ 10000
-		"Amphithere Spawn Weight" = 5
+		"Amphithere Spawn Weight" = 50
 		#How many blocks away can ampitheres detect villagers being hurt. Note that increasing this could cause lag.
 		#Range: 1 ~ 10000
 		"Amphithere Villager Search Length" = 64
@@ -304,7 +304,7 @@
 	[Mobs.Hippocampus]
 		#1 out of this number chance per chunk for generation
 		#Range: 1 ~ 10000
-		"Spawn Hippocampus Chance" = 1000
+		"Spawn Hippocampus Chance" = 10000
 		#Change this to slow down or speed up hippocampus swimming.
 		#Range: 0.0 ~ 2.0
 		"Hippocampus Swim Speed Modifier" = 1.0
@@ -314,7 +314,7 @@
 		"Spawn Hippogryphs" = true
 		#Hippogryph spawn weight. Lower = lower chance to spawn.
 		#Range: 1 ~ 10000
-		"Hippogryph Spawn Weight" = 2
+		"Hippogryph Spawn Weight" = 300
 		#Change this to slow down or speed up hippogryph flight.
 		#Range: 0.0 ~ 2.0
 		"Hippogryph Flight Speed Modifier" = 1.0
@@ -338,7 +338,7 @@
 		"Hydra Max Health" = 250.0
 		#One out of this number chance per chunk to generate a hydra cave.
 		#Range: 1 ~ 10000
-		"Hydra Caves Gen Chance" = 1000
+		"Hydra Caves Gen Chance" = 60
 		#Maximum ghost health.
 		#Range: 1.0 ~ 10000.0
 		"Ghost Max Health" = 30.0

@@ -10,7 +10,7 @@ function setRecipesBioforgeLoomborn(event) {
 
 	event.recipes.tfc.damage_inputs_shapeless_crafting(
 		event.recipes.minecraft.crafting_shapeless("minecraft:string", [
-			"5x kubejs:misc/silk_cocoon",
+			"4x kubejs:misc/silk_cocoon",
 			"tfc:spindle"
 		])
 	).id(`setsu:bioforge_loomborn/string_from_cocoon`);

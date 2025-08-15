@@ -193,4 +193,6 @@ function setRecipesTerraFirmaCraft(event) {
 		S: "#tfc:rock_knapping",
 		A: "#tfc:axles",
 	}).id("setsu:tfc/hand_wheel_base");
+
+	event.remove({ id: "minecraft:brick" });
 }

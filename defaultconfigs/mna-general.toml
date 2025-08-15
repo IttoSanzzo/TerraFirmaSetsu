@@ -42,8 +42,6 @@ brimstonePerHeart = 50
 	#What the mod considers to be the average manaweave cost when generating manaweaves automatically for the player.
 	#Range: 0 ~ 500
 	averageManaweaveCost = 25
-	#Entity IDs in this list cannot be summoned regardless of other configured values.
-	summonBlacklist = ["occultism:possessed_skeleton", "occultism:possessed_ghast", "occultism:possessed_enderman", "occultism:possessed_endermite"]
 	#How much damage does the fortification effect set all damage to
 	#Range: 1.0 ~ 20.0
 	fortificationDamageAmount = 4.0
@@ -92,13 +90,26 @@ brimstonePerHeart = 50
 	damageColors = ["inFire:0xff7400", "onFire:0xff7400", "lightningBolt:0xe5e51a", "lava:0xffffff", "hotFloor:0xff7400", "inWall:0xffffff", "cramming:0xffffff", "drown:0x3a92dc", "starve:0x03790e", "cactus:0x03790e", "fall:0xffffff", "flyIntoWall:0xffffff", "outOfWorld:0xffffff", "generic:0xffffff", "magic:0x871572", "wither:0x471b3f", "anvil:0xffffff", "fallingBlock:0xffffff", "dragonBreath:0x871572", "dryout:0xdbc88f", "sweetBerryBush:0x03790e", "freeze:0x18dee4", "fallingStalactite:0xffffff", "stalagmite:0xffffff", "ma-lightning:0xe5e51a", "ma-briars:0x03790e", "disperse:0x18dee4", "shuriken:0xffffff", "conflagrate:0xff7400"]
 	#What enchantments should disjunction not work on?
 	disjunctionBlacklist = ["mna:soulbound", "mna:fireproof"]
-	#Items in this list cannot be disenchanted by the disenchanter.
-	disenchantBlacklist = ["mna:runic_malus"]
-	#Items in this list cannot be repaired in a runeforge with the repair upgrade.  If the item cannot be repaired normally; it doesn't need to be added to this list.
-	repairBlacklist = []
 	#When a player gains a tier, should components X tiers below the current tier automatically be roted?  Set to 5 to disable.
 	#Range: 0 ~ 5
 	auto_rote_spells_below_tier = 3
+	#Should possession affect players?  It will not allow them to be controlled, they will be stunned.
+	possessionAffectsPlayers = false
+	#What is the brightness threshold for when a light pylon should place a new light?
+	#Range: 5 ~ 15
+	lightPylonThreshold = 11
+	#Should constructs be unable to die when fighting enemies?  If true, they will be knocked unconscious for 15 seconds instead of dying before getting up again.
+	immortalConstructs = true
+	#In what radius should lantern wraiths search for grouping limits when checking spawn validity? 0 disables the check, useful if it's causing lag.
+	#Range: 0 ~ 1024
+	lanternWraithSpawnBoundsSize = 128
+	#How many lantern wraiths should be allowed within a grouping limit?  Above this will deny new natural spawns, excluding raids and faction wars.
+	#Range: 1 ~ 32
+	lanternWraithGroupLimit = 4
+	#Should boss arenas be protected?  Setting this to true allows their contents to be broken and harvested, and may break the progression of the mod, and the challenge of the boss fights.
+	disableBossArenaProtection = false
+	#Should residual magic in chunks be required for spawns?  Casting spells, using items, performing rituals all generate it and it decays naturally over time.
+	recentMagicRequiredForSpawns = true
 
 #Mana and Artifice // Villager Modification
 [ma_villager_modification]

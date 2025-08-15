@@ -95,7 +95,7 @@ familiarityDecayLimit = 0.3
 		#
 		# A movement multiplier for players moving through plants. Individual plants will use a ratio of this value, and lower = slower.
 		#Range: 0.0 ~ 1.0
-		plantsMovementModifier = 0.2
+		plantsMovementModifier = 1.0
 
 	[blocks.leaves]
 		#
@@ -497,7 +497,7 @@ familiarityDecayLimit = 0.3
 		#Range: 0.001 ~ 1000.0
 		cropGrowthModifier = 1.0
 		#
-		# Modifier applied to the expiry time of every crop. The modifier multiplies the ticks it takes to grow, so larger values cause longer growth times. For example, a value of 2 doubles the growth time.
+		# Modifier applied to the expiry time of every crop. The modifier multiplies the ticks it takes to grow, so larger values cause longer expiry times. For example, a value of 2 doubles the expiry time.
 		#Range: 0.001 ~ 1000.0
 		cropExpiryModifier = 1.0
 
@@ -540,59 +540,59 @@ familiarityDecayLimit = 0.3
 		#
 		# Tank capacity of a Fire Ingot mold (in mB).
 		#Range: 0 ~ 2147483645
-		moldIngotCapacity = 144
+		moldIngotCapacity = 100
 		#
 		# Tank capacity of a Pickaxe Head mold (in mB).
 		#Range: 0 ~ 2147483645
-		moldPickaxeHeadCapacity = 144
+		moldPickaxeHeadCapacity = 100
 		#
 		# Tank capacity of a Propick Head mold (in mB).
 		#Range: 0 ~ 2147483645
-		moldPropickHeadCapacity = 144
+		moldPropickHeadCapacity = 100
 		#
 		# Tank capacity of a Axe Head mold (in mB).
 		#Range: 0 ~ 2147483645
-		moldAxeHeadCapacity = 144
+		moldAxeHeadCapacity = 100
 		#
 		# Tank capacity of a Shovel Head mold (in mB).
 		#Range: 0 ~ 2147483645
-		moldShovelHeadCapacity = 144
+		moldShovelHeadCapacity = 100
 		#
 		# Tank capacity of a Hoe Head mold (in mB).
 		#Range: 0 ~ 2147483645
-		moldHoeHeadCapacity = 144
+		moldHoeHeadCapacity = 100
 		#
 		# Tank capacity of a Chisel Head mold (in mB).
 		#Range: 0 ~ 2147483645
-		moldChiselHeadCapacity = 144
+		moldChiselHeadCapacity = 100
 		#
 		# Tank capacity of a Hammer Head mold (in mB).
 		#Range: 0 ~ 2147483645
-		moldHammerHeadCapacity = 144
+		moldHammerHeadCapacity = 100
 		#
 		# Tank capacity of a Saw Blade mold (in mB).
 		#Range: 0 ~ 2147483645
-		moldSawBladeCapacity = 144
+		moldSawBladeCapacity = 100
 		#
 		# Tank capacity of a Javelin Head mold (in mB).
 		#Range: 0 ~ 2147483645
-		moldJavelinHeadCapacity = 144
+		moldJavelinHeadCapacity = 100
 		#
 		# Tank capacity of a Sword Blade mold (in mB).
 		#Range: 0 ~ 2147483645
-		moldSwordBladeCapacity = 288
+		moldSwordBladeCapacity = 200
 		#
 		# Tank capacity of a Mace Head mold (in mB).
 		#Range: 0 ~ 2147483645
-		moldMaceHeadCapacity = 288
+		moldMaceHeadCapacity = 200
 		#
 		# Tank capacity of a Knife Blade mold (in mB).
 		#Range: 0 ~ 2147483645
-		moldKnifeBladeCapacity = 144
+		moldKnifeBladeCapacity = 100
 		#
 		# Tank capacity of a Bell mold (in mB).
 		#Range: 0 ~ 2147483645
-		moldScytheBladeCapacity = 144
+		moldScytheBladeCapacity = 100
 
 	[items.jug]
 		#
@@ -809,8 +809,8 @@ familiarityDecayLimit = 0.3
 
 	[mechanics.fluids]
 		#
-		# If true, TFC buckets that naturally place sources (colored steel) will place sources. If false, this behavior is disabled.
-		enableBucketsPlacingSources = true
+		# If true, TFC buckets that naturally place sources (colored steel) will place sources. If false, this behavior is disabled. By default, colored steel buckets do not place sources.
+		enableBucketsPlacingSources1 = false
 
 	[mechanics.vanillaChanges]
 		#
