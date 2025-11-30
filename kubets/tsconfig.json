@@ -1,0 +1,26 @@
+{
+	"compilerOptions": {
+		"target": "ES2017",
+		"module": "none",
+		"moduleResolution": "node",
+		"outDir": "dist",
+		"rootDir": "src",
+		"strict": true,
+		"noImplicitAny": false,
+		"removeComments": false,
+		"preserveConstEnums": true,
+		"sourceMap": false,
+		"allowJs": false,
+		"checkJs": false,
+		"isolatedModules": false,
+		"esModuleInterop": false
+	},
+	"include": [
+		"src/**/*.ts",
+		"src/**/*.d.ts"
+	],
+	"exclude": [
+		"src/**/*.js",
+		"node_modules"
+	]
+}

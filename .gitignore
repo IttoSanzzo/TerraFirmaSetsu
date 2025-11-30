@@ -64,6 +64,9 @@ packwiz.lock.json
 # =================== Artefatos de desenvolvimento avançado ====================
 /coremods/
 /ldlib/
+kubets/builder
+kubets/dist/
+kubets/.buildcache.json
 /observable_announce
 patchouli_data.json
 realms_persistence.json
@@ -72,7 +75,6 @@ usernamecache.json
 usercache.json
 node_modules/
 package-lock.json
-package.json
 node-tail.js
 .eslintrc
 /icon-exports-x32

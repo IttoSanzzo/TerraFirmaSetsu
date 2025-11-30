@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"path": ".",
+			"name": "TerraFirmaSetsu Git"
+		},
+		{
+			"path": "./kubets",
+			"name": "KubeTs"
+		},
+		{
+			"path": "../Minecraft/Instances/TerraFirmaSetsu dev 76 dev 1",
+			"name": "Modpack Instance"
+		},
+		{
+			"path": "../Minecraft/Instances/TerraFirmaSetsu dev 76 dev 1/kubejs",
+			"name": "KubeJs"
+		}
+	],
+	"settings": {}
+}

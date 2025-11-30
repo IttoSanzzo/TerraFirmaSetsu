@@ -1,0 +1,20 @@
+{
+	"name": "terrafirmasetsu-kubejs",
+	"version": "7.6",
+	"private": true,
+	"description": "KubeJs for TerraFirmaSetsu Minecraft Modpack",
+	"author": "Itto Sanzzo",
+	"license": "SEE LICENSE IN LICENSE",
+	"scripts": {
+		"dev": "node builder.mjs --watch",
+		"build": "node builder.mjs",
+		"build-builder": "bun build builder.mjs  --compile --outfile builder"
+	},
+	"devDependencies": {
+		"chokidar": "^5.0.0",
+		"esbuild": "^0.27.0",
+		"fs-extra": "^11.3.2",
+		"glob": "^13.0.0",
+		"typescript": "^5.6.3"
+	}
+}
