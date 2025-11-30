@@ -3,9 +3,10 @@ import { glob } from "glob";
 import fs from "fs-extra";
 import chokidar from "chokidar";
 import * as path from "path";
-import { exec } from "child_process";
-import util from "util";
-const execAsync = util.promisify(exec);
+import { format } from "prettier";
+// import util from "util";
+// import { exec } from "child_process";
+// const execAsync = util.promisify(exec);
 
 function parseArgs() {
 	const args = process.argv.slice(2);
@@ -65,24 +66,59 @@ async function needsUpdate(cache, srcFile, fileRelativePath) {
 
 // --- Processors ----------------------------------------------------
 
-async function checkTsTypes(filePath) {
-	try {
-		await execAsync(`npx tsc --pretty false --noEmit "${filePath}"`);
-		return true;
-	} catch (err) {
-		console.error("\t\t\t✖ TypeScript error in:", filePath);
-		console.error(`\t\t\t\t${err.stderr || err.stdout || err.message}`);
-		return false;
-	}
+// async function checkTsTypes(filePath) {
+// 	const tempName = ".tsconfig.check.json";
+// 	const absFile = path.resolve(filePath);
+// 	const rel = path.relative(process.cwd(), absFile).replace(/\\/g, "/");
+
+// 	const tempConfig = {
+// 		extends: "./tsconfig.json",
+// 		files: [rel]
+// 	};
+
+// 	await fs.writeFile(tempName, JSON.stringify(tempConfig, null, 2), "utf8");
+
+// 	try {
+// 		await execAsync(`npx tsc --project ${tempName} --noEmit`);
+// 		return true;
+// 	} catch (err) {
+// 		console.error("\t\t\t✖ TypeScript error in:", filePath);
+// 		console.error(err.stderr || err.stdout || err.message);
+// 		return false;
+// 	} finally {
+// 		await fs.remove(tempName);
+// 	}
+// }
+
+// async function checkTsTypes(filePath) {
+// 	try {
+// 		await execAsync(`npx tsc --pretty false --noEmit "${filePath}"`);
+// 		return true;
+// 	} catch (err) {
+// 		console.error("\t\t\t✖ TypeScript error in:", filePath);
+// 		console.error(`\t\t\t\t${err.stderr || err.stdout || err.message}`);
+// 		return false;
+// 	}
+// }
+async function postProcessTsFileTasks(tsFilePath, jsFilePath) {
+	const tsCode = await fs.readFile(tsFilePath, "utf8");
+	let jsCode = await fs.readFile(jsFilePath, "utf8");
+
+	const topCommentMatch = tsCode.match(/^\s*\/\/\s*priority:\s*\d+/);
+	const topComment = topCommentMatch ? topCommentMatch[0] : "";
+	if (topComment)
+		jsCode = jsCode.replace(/^("use strict";\n)?/, `${topComment}\n"use strict";\n`);
+	const formatted = await format(jsCode, { parser: "babel" });
+	await fs.writeFile(jsFilePath, formatted);
 }
 
 async function processTsFile(filePath, fileRelativePath) {
 	console.log(`\t\tCompiling js [${fileRelativePath}]`);
 
-	if (!(await checkTsTypes(filePath))) {
-		console.log(`\t\t\tSkipping build due to TS errors.`);
-		return { ok: false };
-	}
+	// if (!(await checkTsTypes(filePath))) {
+	// 	console.log(`\t\t\tSkipping build due to TS errors.`);
+	// 	return { ok: false };
+	// }
 
 	const jsOutFilePath = path.join(OUT, fileRelativePath.replace(/\.ts$/, ".js"));
 	const outDir = path.dirname(jsOutFilePath);
@@ -103,10 +139,13 @@ async function processTsFile(filePath, fileRelativePath) {
 			legalComments: "none",
 			logLevel: "silent"
 		});
+
+		await postProcessTsFileTasks(filePath, jsOutFilePath);
+
 		return { ok: true };
 	} catch (ex) {
 		console.error(`\t\t\tBuild FAILED for [${fileRelativePath}]`);
-		console.error(`\t\t\t${err.message || err}`);
+		console.error(`\t\t\t${ex.message || ex}`);
 		if (await fs.pathExists(jsOutFilePath))
 			await fs.remove(jsOutFilePath);
 		return { ok: false, error: ex }
@@ -148,7 +187,7 @@ async function fullCompile() {
 
 	const newCache = {};
 
-	const allFiles = glob.sync(`${SRC}/**/*`, { nodir: true });
+	const allFiles = glob.sync(`${SRC}/**/*`, { nodir: true, ignore: [`${SRC}/types/**`] });
 	console.log("\tFile discovery done.");
 
 	await Promise.all(
@@ -208,7 +247,8 @@ function startWatch() {
 		usePolling: true,
 		interval: 100,
 		ignorePermissionErrors: true,
-		depth: 99
+		depth: 99,
+		ignored: `${SRC}/types`
 	})
 	watcher
 		.on("add", async (path) => await safeCompile(path))

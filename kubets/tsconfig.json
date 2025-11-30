@@ -13,7 +13,7 @@
 		"allowJs": false,
 		"checkJs": false,
 		"isolatedModules": false,
-		"esModuleInterop": false
+		"esModuleInterop": false,
 	},
 	"include": [
 		"src/**/*.ts",
