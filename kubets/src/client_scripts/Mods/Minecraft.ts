@@ -1,6 +1,8 @@
 //priority: 10
 
-const setJeiMinecraft = (event) => {
+import { $HideJEIEventJS } from "packages/dev/latvian/mods/kubejs/integration/forge/jei/$HideJEIEventJS";
+
+export const setJeiMinecraft = (event: $HideJEIEventJS<any>) => {
 	event.hide("minecraft:iron_ingot");
 	event.hide("minecraft:copper_ingot");
 	event.hide("minecraft:gold_ingot");
@@ -115,16 +117,9 @@ const setJeiMinecraft = (event) => {
 	event.hide("minecraft:deepslate_lapis_ore");
 	event.hide("minecraft:lapis_ore");
 
-	[
-		"oak",
-		"birch",
-		"spruce",
-		"acacia",
-		"dark_oak",
-		"jungle"
-	].forEach((logz) => {
+	["oak", "birch", "spruce", "acacia", "dark_oak", "jungle"].forEach((logz) => {
 		event.hide(`minecraft:${logz}_sign`);
-	})
+	});
 	event.hide("minecraft:candle");
 	[
 		"white",
@@ -142,8 +137,8 @@ const setJeiMinecraft = (event) => {
 		"brown",
 		"green",
 		"red",
-		"black"
+		"black",
 	].forEach((candle) => {
 		event.hide(`minecraft:${candle}_candle`);
-	})
-}
+	});
+};

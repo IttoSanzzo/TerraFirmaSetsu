@@ -1,6 +1,8 @@
 //priority: 10
 
-const setJeiFarmersdelight = (event) => {
+import { $HideJEIEventJS } from "packages/dev/latvian/mods/kubejs/integration/forge/jei/$HideJEIEventJS";
+
+export const setJeiFarmersdelight = (event: $HideJEIEventJS<any>) => {
 	event.hide("#farmersdelight:wild_crops");
 	event.hide("farmersdelight:stove");
 	event.hide("farmersdelight:rope");
@@ -26,9 +28,9 @@ const setJeiFarmersdelight = (event) => {
 		"cherry",
 		"crimson",
 		"warped",
-		"bamboo"
-	]
+		"bamboo",
+	];
 	allWoods.forEach((wood) => {
 		event.hide(`farmersdelight:${wood}_cabinet`);
 	});
-}
+};

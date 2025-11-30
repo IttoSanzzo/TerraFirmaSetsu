@@ -1,5 +1,32 @@
 //priority: 0
 
+import {
+	setJeiAccommodation,
+	setJeiAdAstra,
+	setJeiAstikorCarts,
+	setJeiBigReactors,
+	setJeiBloodMagic,
+	setJeiConstructionWand,
+	setJeiCreate,
+	setJeiFarmersdelight,
+	setJeiFirmaciv,
+	setJeiFunctionalStorage,
+	setJeiHexerei,
+	setJeiIceAndFire,
+	setJeiImmersiveEngineering,
+	setJeiMcwFurnitures,
+	setJeiMcwRoofs,
+	setJeiMinecraft,
+	setJeiPotionMaster,
+	setJeiQuark,
+	setJeiSacksAndSuch,
+	setJeiSimpleWeapons,
+	setJeiSophisticatedBackpacks,
+	setJeiTerraFirmaCraft,
+	setJeiThermal,
+	setJeiTrottingWagons,
+} from "./Mods";
+
 console.log("Starting Index.js Client Scripts!");
 JEIEvents.hideItems((event) => {
 	// JEI Hides
@@ -30,7 +57,9 @@ JEIEvents.hideItems((event) => {
 });
 
 JEIEvents.addItems((event) => {
-	event.add(Item.of("patchouli:guide_book", '{"patchouli:book":"tfc:field_guide"}'));
+	event.add(
+		Item.of("patchouli:guide_book", '{"patchouli:book":"tfc:field_guide"}')
+	);
 	event.add(Item.of("minecraft:bundle"));
 	event.add("sophisticatedbackpacks:backpack");
 

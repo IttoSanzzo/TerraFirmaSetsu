@@ -1,6 +1,8 @@
 //priority: 10
 
-const setJeiAstikorCarts = (event) => {
+import { $HideJEIEventJS } from "packages/dev/latvian/mods/kubejs/integration/forge/jei/$HideJEIEventJS";
+
+export const setJeiAstikorCarts = (event: $HideJEIEventJS<any>) => {
 	event.hide("astikorcarts:animal_cart");
 	event.hide("astikorcarts:supply_cart");
 	event.hide("astikorcarts:plow");
@@ -26,10 +28,10 @@ const setJeiAstikorCarts = (event) => {
 		"spruce",
 		"sycamore",
 		"white_cedar",
-		"willow"
+		"willow",
 	];
 
 	tfcWoodTypes.forEach((wood) => {
 		event.hide(`tfcastikorcarts:postilion/${wood}`);
 	});
-}
+};

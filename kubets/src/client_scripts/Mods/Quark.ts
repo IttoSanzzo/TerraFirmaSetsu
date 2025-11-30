@@ -1,6 +1,8 @@
 //priority: 10
 
-const setJeiQuark = (event) => {
+import { $HideJEIEventJS } from "packages/dev/latvian/mods/kubejs/integration/forge/jei/$HideJEIEventJS";
+
+export const setJeiQuark = (event: $HideJEIEventJS<any>) => {
 	event.hide("quark:thatch");
 	event.hide("quark:thatch_stairs");
 	event.hide("quark:thatch_slab");
@@ -14,9 +16,9 @@ const setJeiQuark = (event) => {
 		"beetroot_crate",
 		"cocoa_beans_sack",
 		"berry_sack",
-		"glowberry_sack"
-	]
+		"glowberry_sack",
+	];
 	foodBlock.forEach((block) => {
 		event.hide(`quark:${block}`);
 	});
-}
+};

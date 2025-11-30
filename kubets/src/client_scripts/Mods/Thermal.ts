@@ -1,6 +1,8 @@
 //priority: 10
 
-const setJeiThermal = (event) => {
+import { $HideJEIEventJS } from "packages/dev/latvian/mods/kubejs/integration/forge/jei/$HideJEIEventJS";
+
+export const setJeiThermal = (event: $HideJEIEventJS<any>) => {
 	event.hide("thermal:dynamo_stirling");
 	event.hide("thermal:dynamo_compression");
 	event.hide("thermal:dynamo_magmatic");
@@ -28,11 +30,11 @@ const setJeiThermal = (event) => {
 	event.hide("thermal:tin_ore");
 	event.hide("thermal:deepslate_tin_ore");
 	event.hide("thermal:device_tree_extractor");
-}
+};
 
 JEIEvents.removeCategories((event) => {
-	event.remove("thermal:disenchantment_fuel")
-	event.remove("thermal:gourmand_fuel")
-	event.remove("thermal:stirling_fuel")
-	console.log(event.getCategoryIds())
-})
+	event.remove("thermal:disenchantment_fuel");
+	event.remove("thermal:gourmand_fuel");
+	event.remove("thermal:stirling_fuel");
+	console.log(event.getCategoryIds());
+});

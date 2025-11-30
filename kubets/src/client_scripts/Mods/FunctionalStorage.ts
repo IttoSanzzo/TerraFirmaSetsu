@@ -1,6 +1,8 @@
 //priority: 10
 
-const setJeiFunctionalStorage = (event) => {
+import { $HideJEIEventJS } from "packages/dev/latvian/mods/kubejs/integration/forge/jei/$HideJEIEventJS";
+
+export const setJeiFunctionalStorage = (event: $HideJEIEventJS<any>) => {
 	const allVanillaWoodTypes = [
 		"oak",
 		"spruce",
@@ -11,7 +13,7 @@ const setJeiFunctionalStorage = (event) => {
 		"mangrove",
 		"cherry",
 		"crimson",
-		"warped"
+		"warped",
 	];
 
 	allVanillaWoodTypes.forEach((wood) => {
@@ -19,4 +21,4 @@ const setJeiFunctionalStorage = (event) => {
 		event.hide(`functionalstorage:${wood}_2`);
 		event.hide(`functionalstorage:${wood}_4`);
 	});
-}
+};

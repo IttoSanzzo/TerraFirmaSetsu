@@ -1,6 +1,8 @@
 //priority: 10
 
-const setJeiIceAndFire = (event) => {
+import { $HideJEIEventJS } from "packages/dev/latvian/mods/kubejs/integration/forge/jei/$HideJEIEventJS";
+
+export const setJeiIceAndFire = (event: $HideJEIEventJS<any>) => {
 	const removals = [
 		"iceandfire:armor_copper_metal_helmet",
 		"iceandfire:armor_copper_metal_chestplate",
@@ -15,4 +17,4 @@ const setJeiIceAndFire = (event) => {
 	removals.forEach((item) => {
 		event.hide(item);
 	});
-}
+};

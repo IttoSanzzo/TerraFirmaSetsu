@@ -1,6 +1,8 @@
 //priority: 10
 
-const setJeiImmersiveEngineering = (event) => {
+import { $HideJEIEventJS } from "packages/dev/latvian/mods/kubejs/integration/forge/jei/$HideJEIEventJS";
+
+export const setJeiImmersiveEngineering = (event: $HideJEIEventJS<any>) => {
 	event.hide("immersiveengineering:deepslate_ore_aluminum");
 	event.hide("immersiveengineering:ore_aluminum");
 	event.hide("immersiveengineering:deepslate_ore_lead");
@@ -13,4 +15,4 @@ const setJeiImmersiveEngineering = (event) => {
 	event.hide("immersiveengineering:ore_uranium");
 	event.hide("immersiveengineering:deepslate_ore_");
 	event.hide("immersiveengineering:ore_");
-}
+};

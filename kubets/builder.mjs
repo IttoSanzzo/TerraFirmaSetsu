@@ -108,6 +108,9 @@ async function postProcessTsFileTasks(tsFilePath, jsFilePath) {
 	const topComment = topCommentMatch ? topCommentMatch[0] : "";
 	if (topComment)
 		jsCode = jsCode.replace(/^("use strict";\n)?/, `${topComment}\n"use strict";\n`);
+	jsCode = jsCode
+		.replace(/import[\s\S]*?from\s+['"].*?['"];?/g, "")
+		.replace(/^export\s+/gm, "");
 	const formatted = await format(jsCode, { parser: "babel" });
 	await fs.writeFile(jsFilePath, formatted);
 }
@@ -130,8 +133,8 @@ async function processTsFile(filePath, fileRelativePath) {
 			entryPoints: [filePath],
 			outfile: jsOutFilePath,
 			bundle: false,
-			format: "iife",
 			platform: "neutral",
+			// format: "esm",
 			target: "es2017",
 			charset: "utf8",
 			sourcemap: false,
@@ -139,6 +142,19 @@ async function processTsFile(filePath, fileRelativePath) {
 			legalComments: "none",
 			logLevel: "silent"
 		});
+		// await esbuild.build({
+		// 	entryPoints: [filePath],
+		// 	outfile: jsOutFilePath,
+		// 	bundle: false,
+		// 	format: "iife",
+		// 	platform: "neutral",
+		// 	target: "es2017",
+		// 	charset: "utf8",
+		// 	sourcemap: false,
+		// 	minify: false,
+		// 	legalComments: "none",
+		// 	logLevel: "silent"
+		// });
 
 		await postProcessTsFileTasks(filePath, jsOutFilePath);
 
