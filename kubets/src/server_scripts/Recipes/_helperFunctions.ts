@@ -1,13 +1,12 @@
 // priority: 1000
 
-/**
- *
- * @param {Internal.RecipeEventJS} recipesEvent
- * @param {*} output
- * @param {*} ingredients
- */
+import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
 
-const addCreateMixing = (recipesEvent, output, ingredients) => {
+export function addCreateMixing(
+	recipesEvent: $RecipesEventJS,
+	output: any,
+	ingredients: any
+) {
 	recipesEvent
 		.custom({
 			type: "create:mixing",
@@ -19,25 +18,16 @@ const addCreateMixing = (recipesEvent, output, ingredients) => {
 				? `setsu:create/mixing/${output.item.replace(":", ".").replace("/", ".")}`
 				: `setsu:create/mixing/${output.fluid.replace(":", ".").replace("/", ".")}`
 		);
-};
+}
 
-/**
- *
- * @param {Internal.RecipeEventJS} recipesEvent
- * @param {string} output
- * @param {number} count
- * @param {string} fluid
- * @param {number} amount
- * @param {Object} input
- */
-const tfcBucketRecipes = (
-	recipesEvent,
-	output,
-	count,
-	fluid,
-	amount,
-	input
-) => {
+export function tfcBucketRecipes(
+	recipesEvent: $RecipesEventJS,
+	output: any,
+	count: number,
+	fluid: any,
+	amount: number,
+	input: any
+) {
 	recipesEvent.remove({ output: output });
 	let totalInput = [];
 	for (let i = 1; i <= 8; ++i) {
@@ -72,16 +62,14 @@ const tfcBucketRecipes = (
 			input,
 		]
 	);
-};
+}
 
-/**
- *
- * @param {Internal.RecipesEventJS} recipesEvent
- * @param {*} output
- * @param {*} grid
- * @param {*} ingredients
- */
-const addDamageShaped = (recipesEvent, output, grid, ingredients) => {
+export function addDamageShaped(
+	recipesEvent: $RecipesEventJS,
+	output: any,
+	grid: any,
+	ingredients: any
+) {
 	recipesEvent.recipes.tfc
 		.damage_inputs_shaped_crafting(
 			recipesEvent.recipes.minecraft.crafting_shaped(output, grid, ingredients)
@@ -89,15 +77,13 @@ const addDamageShaped = (recipesEvent, output, grid, ingredients) => {
 		.id(
 			`setsu:tfc/damage/${output.replace(":", ".").replace("/", ".").replace(" ", "_")}`
 		);
-};
+}
 
-/**
- *
- * @param {Internal.RecipesEventJS} recipesEvent
- * @param {*} output
- * @param {*} ingredients
- */
-const addDamageShapeless = (recipesEvent, output, ingredients) => {
+export function addDamageShapeless(
+	recipesEvent: $RecipesEventJS,
+	output: any,
+	ingredients: any
+) {
 	recipesEvent.recipes.tfc
 		.damage_inputs_shapeless_crafting(
 			recipesEvent.recipes.minecraft.crafting_shapeless(output, ingredients)
@@ -105,4 +91,4 @@ const addDamageShapeless = (recipesEvent, output, ingredients) => {
 		.id(
 			`setsu:tfc/damage/${output.replace(":", ".").replace("/", ".").replace(" ", "_")}/from/${ingredients[0].replace(":", ".").replace("/", ".").replace(" ", "_").replace("#", "_")}`
 		);
-};
+}

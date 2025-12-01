@@ -2,6 +2,7 @@
 
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
 import { ItemCol } from "../../../HelpCollections/ItemCollections";
+import { addCreateMixing, tfcBucketRecipes } from "../../_helperFunctions";
 
 export function setRecipesFirmalife(event: $RecipesEventJS) {
 	ItemCol.tfcGrains.forEach((grain) => {
