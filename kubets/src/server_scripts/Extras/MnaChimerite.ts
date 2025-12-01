@@ -1,6 +1,6 @@
 //priority: 899
 
-const setMnaChimerite = (event) => {
+export const setMnaChimerite = (event) => {
 	console.log("Setsu Mna Chimerite Start!");
 	// Start
 
@@ -52,7 +52,6 @@ const setMnaChimerite = (event) => {
 		"tetrahedrite",
 	];
 
-
 	chimeriteStones.forEach((stone) => {
 		chimeriteGems.forEach((gem) => {
 			event.addJson(`mna:loot_modifiers/chimerite_drop_${gem}_${stone}`, {
@@ -87,20 +86,23 @@ const setMnaChimerite = (event) => {
 				dropsWith: `tfc:ore/poor_${ore}`,
 			});
 
-			event.addJson(`mna:loot_modifiers/chimerite_drop_normal_${ore}_${stone}`, {
-				type: "mna:drops_chimerite",
-				conditions: [
-					{
-						condition: "block_state_property",
-						block: `tfc:ore/normal_${ore}/${stone}`,
-					},
-				],
-				numChimerite: 1,
-				magicLevel: 20,
-				chance: 0.05,
-				fortuneBonusChance: 0.05,
-				dropsWith: `tfc:ore/normal_${ore}`,
-			});
+			event.addJson(
+				`mna:loot_modifiers/chimerite_drop_normal_${ore}_${stone}`,
+				{
+					type: "mna:drops_chimerite",
+					conditions: [
+						{
+							condition: "block_state_property",
+							block: `tfc:ore/normal_${ore}/${stone}`,
+						},
+					],
+					numChimerite: 1,
+					magicLevel: 20,
+					chance: 0.05,
+					fortuneBonusChance: 0.05,
+					dropsWith: `tfc:ore/normal_${ore}`,
+				}
+			);
 
 			event.addJson(`mna:loot_modifiers/chimerite_drop_rich_${ore}_${stone}`, {
 				type: "mna:drops_chimerite",
@@ -117,8 +119,8 @@ const setMnaChimerite = (event) => {
 				dropsWith: `tfc:ore/rich_${ore}`,
 			});
 		});
-	})
+	});
 
 	// End.
 	console.log("Setsu Mna Chimerite End!");
-}
+};

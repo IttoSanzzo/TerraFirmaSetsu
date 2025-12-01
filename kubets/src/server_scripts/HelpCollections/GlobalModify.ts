@@ -1,6 +1,6 @@
 //priority: 999
 
-const globalModify = [
+export const globalModify = [
 	"minecraft",
 	"trashcans",
 	"framedblocks",

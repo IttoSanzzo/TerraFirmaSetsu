@@ -1,6 +1,8 @@
 // priority: 199
 
-const setCustomHeats = (event) => {
+import { $TFCDataEventJS } from "packages/com/notenoughmail/kubejs_tfc/event/$TFCDataEventJS";
+
+export function setCustomHeats(event: $TFCDataEventJS) {
 	//  100 - Hot
 	//  200 -
 	//  300 -
@@ -49,5 +51,4 @@ const setCustomHeats = (event) => {
 	event.itemHeat("kubejs:metal/ingot/weak_purple_steel", 3.25, 1100, 1300);
 	event.itemHeat("kubejs:metal/ingot/purple_steel", 3.25, 1100, 1300);
 	event.itemHeat("kubejs:metal/double_ingot/purple_steel", 6.5, 1100, 1300);
-
-};
+}

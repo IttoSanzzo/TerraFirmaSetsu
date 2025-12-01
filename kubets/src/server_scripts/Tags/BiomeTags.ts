@@ -1,6 +1,10 @@
 //priority: 899
 
-const setBiomeTags = (event) => {
+import { TagEventProbe } from "packages/moe/wolfgirl/probejs/generated/TagEventProbe";
+
+export function setBiomeTags(
+	event: TagEventProbe<Special.WorldgenBiomeTag, Special.WorldgenBiome>
+) {
 	console.log("Setsu Tag Biome Start!");
 	// M. Variables
 	const all_tfc_biomes = [
@@ -35,7 +39,7 @@ const setBiomeTags = (event) => {
 		"tfc:volcanic_mountains",
 		"tfc:volcanic_oceanic_mountain_lake",
 		"tfc:volcanic_oceanic_mountain_river",
-		"tfc:volcanic_oceanic_mountains"
+		"tfc:volcanic_oceanic_mountains",
 	];
 	const all_tfc_earth_biomes = [
 		"tfc:badlands",
@@ -58,7 +62,7 @@ const setBiomeTags = (event) => {
 		"tfc:volcanic_mountain_lake",
 		"tfc:volcanic_mountains",
 		"tfc:volcanic_oceanic_mountain_lake",
-		"tfc:volcanic_oceanic_mountains"
+		"tfc:volcanic_oceanic_mountains",
 	];
 	const all_tfc_aquatic_biomes = [
 		"tfc:deep_ocean",
@@ -85,59 +89,176 @@ const setBiomeTags = (event) => {
 	 * Removes
 	 */
 
-	event.get("repurposed_structures:has_structure/strongholds/nether").removeAll()
-	event.get("alekiships:has_structure/unfinished_rowboat").removeAll()
-	event.get("alekiships:has_structure/unfinished_sloop").removeAll()
+	event
+		.get("repurposed_structures:has_structure/strongholds/nether")
+		.removeAll();
+	event.get("alekiships:has_structure/unfinished_rowboat").removeAll();
+	event.get("alekiships:has_structure/unfinished_sloop").removeAll();
 
 	/**
 	 * TFC to Vanilla
 	 */
 
-	event.add("minecraft:is_overworld", all_tfc_biomes)
+	event.add("minecraft:is_overworld", all_tfc_biomes as any);
 
 	const addDefault = (tag, additions) => {
-		event.add(`minecraft:${tag}`, additions);
-		event.add(`forge:${tag}`, additions);
+		event.add(`minecraft:${tag}` as any, additions);
+		event.add(`forge:${tag}` as any, additions);
 	};
 
-	addDefault("is_sparse", all_tfc_biomes)
-	addDefault("windswept_forest", ["tfc:volcanic_oceanic_mountains", "tfc:old_mountains", "tfc:volcanic_mountains", "tfc:mountains", "tfc:oceanic_mountains", "tfc:highlands"])
-	addDefault("savanna_plateau", ["tfc:badlands", "tfc:inverted_badlands", "tfc:volcanic_mountains", "tfc:rolling_hills", "tfc:hills", "tfc:badlands", "tfc:inverted_badlands", "tfc:volcanic_mountains", "tfc:rolling_hills", "tfc:hills"]);
-	addDefault("badlands", ["tfc:inverted_badlands", "tfc:badlands"])
-	addDefault("is_badlands", ["tfc:inverted_badlands", "tfc:badlands"])
-	addDefault("is_dry", ["tfc:inverted_badlands", "tfc:badlands"])
-	addDefault("is_sandy", ["tfc:shore", "tfc:tidal_flats", "tfc:badlands", "tfc:inverted_badlands", "tfc:volcanic_mountains", "tfc:rolling_hills", "tfc:hills", "tfc:badlands", "tfc:inverted_badlands", "tfc:volcanic_mountains", "tfc:rolling_hills", "tfc:hills"])
-	addDefault("is_beach", ["tfc:shore", "tfc:tidal_flats"])
-	addDefault("is_deep_ocean", ["tfc:deep_ocean_trench", "tfc:deep_ocean"])
-	addDefault("is_hill", ["tfc:rolling_hills", "tfc:hills"])
-	addDefault("is_mountain", ["tfc:volcanic_oceanic_mountains", "tfc:old_mountains", "tfc:volcanic_mountains", "tfc:mountains", "tfc:oceanic_mountains", "tfc:highlands"])
-	addDefault("is_peak", ["tfc:volcanic_oceanic_mountains", "tfc:old_mountains", "tfc:volcanic_mountains", "tfc:mountains", "tfc:oceanic_mountains", "tfc:highlands"])
-	addDefault("is_ocean", ["tfc:ocean", "tfc:ocean_reef"])
-	addDefault("is_river", ["tfc:river"])
-	addDefault("is_water", ["tfc:river", "tfc:ocean", "tfc:ocean_reef", "tfc:deep_ocean_trench", "tfc:deep_ocean"])
-	addDefault("is_lake", ["tfc:volcanic_mountain_lake", "tfc:volcanic_oceanic_mountain_lake", "tfc:oceanic_mountain_lake", "tfc:mountain_lake", "tfc:plateau_lake", "tfc:lake", "tfc:old_mountain_lake"])
-	addDefault("is_savanna", ["tfc:plains", "tfc:plateau"])
-	addDefault("is_lowland", ["tfc:lowlands", "tfc:low_canyons"])
-	addDefault("is_swamp", ["tfc:lowlands", "tfc:low_canyons"])
-	addDefault("is_desert", ["tfc:badlands", "tfc:inverted_badlands", "tfc:volcanic_mountains", "tfc:rolling_hills", "tfc:hills", "tfc:badlands", "tfc:inverted_badlands", "tfc:volcanic_mountains", "tfc:rolling_hills", "tfc:hills"]);
-	addDefault("is_savanna", ["tfc:badlands", "tfc:inverted_badlands", "tfc:volcanic_mountains", "tfc:rolling_hills", "tfc:hills", "tfc:badlands", "tfc:inverted_badlands", "tfc:volcanic_mountains", "tfc:rolling_hills", "tfc:hills"]);
+	addDefault("is_sparse", all_tfc_biomes);
+	addDefault("windswept_forest", [
+		"tfc:volcanic_oceanic_mountains",
+		"tfc:old_mountains",
+		"tfc:volcanic_mountains",
+		"tfc:mountains",
+		"tfc:oceanic_mountains",
+		"tfc:highlands",
+	]);
+	addDefault("savanna_plateau", [
+		"tfc:badlands",
+		"tfc:inverted_badlands",
+		"tfc:volcanic_mountains",
+		"tfc:rolling_hills",
+		"tfc:hills",
+		"tfc:badlands",
+		"tfc:inverted_badlands",
+		"tfc:volcanic_mountains",
+		"tfc:rolling_hills",
+		"tfc:hills",
+	]);
+	addDefault("badlands", ["tfc:inverted_badlands", "tfc:badlands"]);
+	addDefault("is_badlands", ["tfc:inverted_badlands", "tfc:badlands"]);
+	addDefault("is_dry", ["tfc:inverted_badlands", "tfc:badlands"]);
+	addDefault("is_sandy", [
+		"tfc:shore",
+		"tfc:tidal_flats",
+		"tfc:badlands",
+		"tfc:inverted_badlands",
+		"tfc:volcanic_mountains",
+		"tfc:rolling_hills",
+		"tfc:hills",
+		"tfc:badlands",
+		"tfc:inverted_badlands",
+		"tfc:volcanic_mountains",
+		"tfc:rolling_hills",
+		"tfc:hills",
+	]);
+	addDefault("is_beach", ["tfc:shore", "tfc:tidal_flats"]);
+	addDefault("is_deep_ocean", ["tfc:deep_ocean_trench", "tfc:deep_ocean"]);
+	addDefault("is_hill", ["tfc:rolling_hills", "tfc:hills"]);
+	addDefault("is_mountain", [
+		"tfc:volcanic_oceanic_mountains",
+		"tfc:old_mountains",
+		"tfc:volcanic_mountains",
+		"tfc:mountains",
+		"tfc:oceanic_mountains",
+		"tfc:highlands",
+	]);
+	addDefault("is_peak", [
+		"tfc:volcanic_oceanic_mountains",
+		"tfc:old_mountains",
+		"tfc:volcanic_mountains",
+		"tfc:mountains",
+		"tfc:oceanic_mountains",
+		"tfc:highlands",
+	]);
+	addDefault("is_ocean", ["tfc:ocean", "tfc:ocean_reef"]);
+	addDefault("is_river", ["tfc:river"]);
+	addDefault("is_water", [
+		"tfc:river",
+		"tfc:ocean",
+		"tfc:ocean_reef",
+		"tfc:deep_ocean_trench",
+		"tfc:deep_ocean",
+	]);
+	addDefault("is_lake", [
+		"tfc:volcanic_mountain_lake",
+		"tfc:volcanic_oceanic_mountain_lake",
+		"tfc:oceanic_mountain_lake",
+		"tfc:mountain_lake",
+		"tfc:plateau_lake",
+		"tfc:lake",
+		"tfc:old_mountain_lake",
+	]);
+	addDefault("is_savanna", ["tfc:plains", "tfc:plateau"]);
+	addDefault("is_lowland", ["tfc:lowlands", "tfc:low_canyons"]);
+	addDefault("is_swamp", ["tfc:lowlands", "tfc:low_canyons"]);
+	addDefault("is_desert", [
+		"tfc:badlands",
+		"tfc:inverted_badlands",
+		"tfc:volcanic_mountains",
+		"tfc:rolling_hills",
+		"tfc:hills",
+		"tfc:badlands",
+		"tfc:inverted_badlands",
+		"tfc:volcanic_mountains",
+		"tfc:rolling_hills",
+		"tfc:hills",
+	]);
+	addDefault("is_savanna", [
+		"tfc:badlands",
+		"tfc:inverted_badlands",
+		"tfc:volcanic_mountains",
+		"tfc:rolling_hills",
+		"tfc:hills",
+		"tfc:badlands",
+		"tfc:inverted_badlands",
+		"tfc:volcanic_mountains",
+		"tfc:rolling_hills",
+		"tfc:hills",
+	]);
 	addDefault("is_forest", ["tfc:plains", "tfc:plateau", "tfc:rolling_hills"]);
 	addDefault("is_jungle", ["tfc:plains", "tfc:plateau", "tfc:rolling_hills"]);
-	addDefault("is_tundra", ["tfc:plains", "tfc:rolling_hills", "tfc:oceanic_mountains"]);
-	addDefault("is_snowy", ["tfc:plains", "tfc:plateau", "tfc:rolling_hills", "tfc:mountains", "tfc:oceanic_mountains", "tfc:highlands"]);
+	addDefault("is_tundra", [
+		"tfc:plains",
+		"tfc:rolling_hills",
+		"tfc:oceanic_mountains",
+	]);
+	addDefault("is_snowy", [
+		"tfc:plains",
+		"tfc:plateau",
+		"tfc:rolling_hills",
+		"tfc:mountains",
+		"tfc:oceanic_mountains",
+		"tfc:highlands",
+	]);
 	addDefault("is_plains", ["tfc:plains", "tfc:rolling_hills", "tfc:hills"]);
-	addDefault("is_dry/overworld", ["tfc:inverted_badlands", "tfc:badlands"])
-	addDefault("is_cold/overworld", ["tfc:plains", "tfc:plateau", "tfc:rolling_hills", "tfc:mountains", "tfc:oceanic_mountains", "tfc:highlands"]);
-	addDefault("is_wet/overworld", ["tfc:plains", "tfc:plateau", "tfc:rolling_hills", "tfc:oceanic_mountain_lake", "tfc:mountain_lake", "tfc:plateau_lake", "tfc:lake"]);
+	addDefault("is_dry/overworld", ["tfc:inverted_badlands", "tfc:badlands"]);
+	addDefault("is_cold/overworld", [
+		"tfc:plains",
+		"tfc:plateau",
+		"tfc:rolling_hills",
+		"tfc:mountains",
+		"tfc:oceanic_mountains",
+		"tfc:highlands",
+	]);
+	addDefault("is_wet/overworld", [
+		"tfc:plains",
+		"tfc:plateau",
+		"tfc:rolling_hills",
+		"tfc:oceanic_mountain_lake",
+		"tfc:mountain_lake",
+		"tfc:plateau_lake",
+		"tfc:lake",
+	]);
 
 	/**
 	 * Add Biome to Structures
 	 */
 
-	event.add("minecraft:has_structure/village_savanna", ["#minecraft:is_savanna"])
-	event.add("minecraft:has_structure/village_desert", ["#minecraft:is_badlands"])
-	event.add("minecraft:has_structure/swamp_hut", ["#minecraft:is_lowland"])
-	event.add("minecraft:has_structure/ruined_portal_swamp", ["#minecraft:is_lowland"])
+	event.add("minecraft:has_structure/village_savanna", [
+		"#minecraft:is_savanna",
+	] as any);
+	event.add("minecraft:has_structure/village_desert", [
+		"#minecraft:is_badlands",
+	] as any);
+	event.add("minecraft:has_structure/swamp_hut", [
+		"#minecraft:is_lowland",
+	] as any);
+	event.add("minecraft:has_structure/ruined_portal_swamp", [
+		"#minecraft:is_lowland",
+	] as any);
 	// event.get("ae2:has_meteorites").remove("#is_overworld")
 
 	/**
@@ -145,73 +266,255 @@ const setBiomeTags = (event) => {
 	 */
 
 	// Mna
-	event.add("mna:crypt_biomes", ["tfc:hills", "tfc:rolling_hills", "tfc:plains", "tfc:plateau", "tfc:plateau_lake", "tfc:river", "tfc:rolling_hills"]);
-	event.add("mna:fey_tree_biomes", ["tfc:rolling_hills", "tfc:plains", "tfc:plateau", "tfc:plateau_lake", "tfc:river", "tfc:rolling_hills", "lowlands", "lake"]);
-	event.add("mna:cathedral_biomes", all_tfc_earth_biomes);
-	event.add("mna:council_island_biomes", all_tfc_earth_biomes);
-	event.add("mna:dry_biomes", all_tfc_earth_biomes);
-	event.add("mna:lush_biomes", all_tfc_earth_biomes);
-	event.add("mna:manaweave_cache_biomes", all_tfc_earth_biomes);
+	event.add("mna:crypt_biomes", [
+		"tfc:hills",
+		"tfc:rolling_hills",
+		"tfc:plains",
+		"tfc:plateau",
+		"tfc:plateau_lake",
+		"tfc:river",
+		"tfc:rolling_hills",
+	] as any);
+	event.add("mna:fey_tree_biomes", [
+		"tfc:rolling_hills",
+		"tfc:plains",
+		"tfc:plateau",
+		"tfc:plateau_lake",
+		"tfc:river",
+		"tfc:rolling_hills",
+		"lowlands",
+		"lake",
+	] as any);
+	event.add("mna:cathedral_biomes", all_tfc_earth_biomes as any);
+	event.add("mna:council_island_biomes", all_tfc_earth_biomes as any);
+	event.add("mna:dry_biomes", all_tfc_earth_biomes as any);
+	event.add("mna:lush_biomes", all_tfc_earth_biomes as any);
+	event.add("mna:manaweave_cache_biomes", all_tfc_earth_biomes as any);
 
 	// Towns and Towers
-	event.add("towns_and_towers:has_structure/village_swamp_boat", all_tfc_deep_aquatic_biomes);
-	event.add("towns_and_towers:has_structure/village_wooded_badlands_tipi", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/pillager_outpost_badlands", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/pillager_outpost_beach", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/pillager_outpost_birch_forest", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/pillager_outpost_deep_oceans", all_tfc_deep_aquatic_biomes);
-	event.add("towns_and_towers:has_structure/pillager_outpost_desert", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/pillager_outpost_flower_forest", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/pillager_outpost_forest", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/pillager_outpost_grove", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/pillager_outpost_jungle", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/pillager_outpost_meadow", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/pillager_outpost_mushroom_fields", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/pillager_outpost_old_growth_taiga", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/pillager_outpost_savanna", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/pillager_outpost_snowy_beach", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/pillager_outpost_snowy_plains", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/pillager_outpost_snowy_slopes", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/pillager_outpost_snowy_taiga", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/pillager_outpost_sparse_jungle", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/pillager_outpost_sunflower_plains", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/pillager_outpost_swamp", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/pillager_outpost_taiga", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/pillager_outpost_wooded_badlands", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/shallow_oceans_wreckage", all_tfc_deep_aquatic_biomes);
-	event.add("towns_and_towers:has_structure/village_badlands_pueblo", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/village_beach_lighthouse", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/village_birch_forest_romanian", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/village_deep_oceans_ships", all_tfc_deep_aquatic_biomes);
-	event.add("towns_and_towers:has_structure/village_flower_forest_japanese", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/village_forest_ruins", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/village_grove_villager_outpost", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/village_jungle_tribal", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/village_meadow_swiss", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/village_mushroom_fields_fantasy", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/village_old_growth_taiga_polish", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/village_snowy_slopes_inn", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/village_snowy_taiga_viking", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/village_sparse_jungle_polynesian", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/village_sunflower_plains_farm", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/exclusives/pillager_outpost_classic", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/exclusives/pillager_outpost_iberian", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/exclusives/pillager_outpost_mediterranean", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/exclusives/pillager_outpost_oriental", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/exclusives/pillager_outpost_rustic", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/exclusives/pillager_outpost_swedish", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/exclusives/pillager_outpost_tudor", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/exclusives/village_classic", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/exclusives/village_iberian", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/exclusives/village_mediterranean", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/exclusives/village_nilotic", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/exclusives/village_oriental", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/exclusives/village_rustic", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/exclusives/village_swedish", all_tfc_earth_biomes);
-	event.add("towns_and_towers:has_structure/exclusives/village_tudor", all_tfc_earth_biomes);
+	event.add(
+		"towns_and_towers:has_structure/village_swamp_boat",
+		all_tfc_deep_aquatic_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/village_wooded_badlands_tipi",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/pillager_outpost_badlands",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/pillager_outpost_beach",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/pillager_outpost_birch_forest",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/pillager_outpost_deep_oceans",
+		all_tfc_deep_aquatic_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/pillager_outpost_desert",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/pillager_outpost_flower_forest",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/pillager_outpost_forest",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/pillager_outpost_grove",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/pillager_outpost_jungle",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/pillager_outpost_meadow",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/pillager_outpost_mushroom_fields",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/pillager_outpost_old_growth_taiga",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/pillager_outpost_savanna",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/pillager_outpost_snowy_beach",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/pillager_outpost_snowy_plains",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/pillager_outpost_snowy_slopes",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/pillager_outpost_snowy_taiga",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/pillager_outpost_sparse_jungle",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/pillager_outpost_sunflower_plains",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/pillager_outpost_swamp",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/pillager_outpost_taiga",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/pillager_outpost_wooded_badlands",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/shallow_oceans_wreckage",
+		all_tfc_deep_aquatic_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/village_badlands_pueblo",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/village_beach_lighthouse",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/village_birch_forest_romanian",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/village_deep_oceans_ships",
+		all_tfc_deep_aquatic_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/village_flower_forest_japanese",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/village_forest_ruins",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/village_grove_villager_outpost",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/village_jungle_tribal",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/village_meadow_swiss",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/village_mushroom_fields_fantasy",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/village_old_growth_taiga_polish",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/village_snowy_slopes_inn",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/village_snowy_taiga_viking",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/village_sparse_jungle_polynesian",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/village_sunflower_plains_farm",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/exclusives/pillager_outpost_classic",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/exclusives/pillager_outpost_iberian",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/exclusives/pillager_outpost_mediterranean",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/exclusives/pillager_outpost_oriental",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/exclusives/pillager_outpost_rustic",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/exclusives/pillager_outpost_swedish",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/exclusives/pillager_outpost_tudor",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/exclusives/village_classic",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/exclusives/village_iberian",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/exclusives/village_mediterranean",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/exclusives/village_nilotic",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/exclusives/village_oriental",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/exclusives/village_rustic",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/exclusives/village_swedish",
+		all_tfc_earth_biomes as any
+	);
+	event.add(
+		"towns_and_towers:has_structure/exclusives/village_tudor",
+		all_tfc_earth_biomes as any
+	);
 
 	// Supplementaries
-	event.add("supplementaries:has_way_signs", all_tfc_biomes);
+	event.add("supplementaries:has_way_signs", all_tfc_biomes as any);
 
 	/*
 	

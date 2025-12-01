@@ -1,5 +1,15 @@
 //priority: 1
 
+import {
+	setCustomHeats,
+	entitySpawned,
+	loginEvent,
+	rightClickEvent,
+	setCustomWeights,
+} from "./Extras";
+import { setLoot } from "./LootJs/LootIndex";
+import { setBiomeTags, setBlockTags, setFluidTags, setItemTags } from "./Tags";
+
 console.log("Starting Index.js Server Scripts!");
 {
 	/* Tags */
@@ -7,17 +17,14 @@ console.log("Starting Index.js Server Scripts!");
 	ServerEvents.tags("block", setBlockTags);
 	ServerEvents.tags("fluid", setFluidTags);
 	ServerEvents.tags("item", setItemTags);
-
 	/* Extras */
 	TFCEvents.data(setCustomHeats);
 	TFCEvents.data(setCustomWeights);
 	EntityEvents.spawned(entitySpawned);
 	PlayerEvents.loggedIn(loginEvent);
 	ItemEvents.rightClicked(rightClickEvent);
-
 	/* Loot */
 	LootJS.modifiers(setLoot);
-
 	/* Recipes */
 	ServerEvents.recipes(setRecipes);
 	ServerEvents.highPriorityData(setMnaChimerite);

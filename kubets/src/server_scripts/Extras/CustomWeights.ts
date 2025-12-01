@@ -1,6 +1,8 @@
 // priority: 199
 
-const setCustomWeights = (event) => {
+import { $TFCDataEventJS } from "packages/com/notenoughmail/kubejs_tfc/event/$TFCDataEventJS";
+
+export function setCustomWeights(event: $TFCDataEventJS) {
 	//Very Light items will stack to 64.
 	//Light      items will stack to 32.
 	//Medium     items will stack to 16.
@@ -22,7 +24,6 @@ const setCustomWeights = (event) => {
 	event.itemSize("trotting_wagons:royal_wagon", "huge", "very_heavy");
 	event.itemSize("trotting_wagons:conestoga_wagon", "huge", "very_heavy");
 
-
 	/* BackPacks */
 	event.itemSize("thermal:satchel", "huge", "very_heavy");
 	const simpleBackpacks = [
@@ -31,9 +32,13 @@ const setCustomWeights = (event) => {
 		"iron_",
 		"gold_",
 		"diamond_",
-		"netherite_"
-	]
+		"netherite_",
+	];
 	simpleBackpacks.forEach((backpack) => {
-		event.itemSize(`sophisticatedbackpacks:${backpack}backpack`, "huge", "very_heavy");
+		event.itemSize(
+			`sophisticatedbackpacks:${backpack}backpack`,
+			"huge",
+			"very_heavy"
+		);
 	});
-};
+}

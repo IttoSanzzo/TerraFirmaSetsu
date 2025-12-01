@@ -1,15 +1,32 @@
 //priority: 498
 
-const setBlockTags = (event) => {
+import { TagEventProbe } from "packages/moe/wolfgirl/probejs/generated/TagEventProbe";
+import { ItemCol } from "../HelpCollections/ItemCollections";
+
+export function setBlockTags(
+	event: TagEventProbe<Special.BlockTag, Special.Block>
+) {
 	console.log("Setsu Tag Block Start!");
 
 	ItemCol.tfcDirtTypes.forEach((type) => {
-		event.add("minecraft:dirt", [`tfc:grass/${type}`, `tfc:dirt/${type}`, `tfc:mud/${type}`,])
-		event.add("botania:terraformable", [`tfc:grass/${type}`, `tfc:dirt/${type}`, `tfc:mud/${type}`,])
-		event.add("mna:construct_plantable_grass", [`tfc:grass/${type}`, `tfc:dirt/${type}`, `tfc:mud/${type}`,])
+		event.add("minecraft:dirt", [
+			`tfc:grass/${type}`,
+			`tfc:dirt/${type}`,
+			`tfc:mud/${type}`,
+		] as any);
+		event.add("botania:terraformable", [
+			`tfc:grass/${type}`,
+			`tfc:dirt/${type}`,
+			`tfc:mud/${type}`,
+		] as any);
+		event.add("mna:construct_plantable_grass", [
+			`tfc:grass/${type}`,
+			`tfc:dirt/${type}`,
+			`tfc:mud/${type}`,
+		] as any);
 	});
-	event.add("minecraft:farmland", ["#tfc:farmland"]);
-	event.add("mna:construct_plantable_farmland", "#minecraft:farmland");
+	event.add("minecraft:farmland", ["#tfc:farmland"] as any);
+	event.add("mna:construct_plantable_farmland", "#minecraft:farmland" as any);
 
 	event.get("create:passive_boiler_heaters").add("#forge:magma");
 	event.add("farmersdelight:heat_sources", [
@@ -21,8 +38,8 @@ const setBlockTags = (event) => {
 		"firmalife:insulated_tile_oven_bottom",
 		"firmalife:cured_stone_oven_bottom",
 		"firmalife:insulated_stone_oven_bottom",
-	]);
-	event.add("firmalife:oven_insulation", ["firmalife:sealed_bricks"]);
+	] as any);
+	event.add("firmalife:oven_insulation", ["firmalife:sealed_bricks"] as any);
 	event.add("tfc:forge_insulation", [
 		"tfc:charcoal_forge",
 		"tfc:charcoal_pile",
@@ -30,28 +47,31 @@ const setBlockTags = (event) => {
 		"minecraft:brick_stairs",
 		"#chipped:stone",
 		"#chipped:cobblestone",
-	]);
+	] as any);
 
 	ItemCol.tfcStoneTypes.forEach((stone) => {
 		event.add("tfc:forge_insulation", [
 			`tfc:rock/cracked_bricks/${stone}_stairs`,
 			`tfc:rock/bricks/${stone}_stairs`,
 			`tfc:rock/smooth/${stone}_stairs`,
-		]);
+		] as any);
 	});
 
 	ItemCol.tfcAllCrops.forEach((crop) => {
-		event.add("mna:construct_harvestables", `tfc:crop/${crop}`);
-		event.add("mna:construct_harvestables", `tfc:dead_crop/${crop}`);
-		event.add("hexerei:crow_harvestable", `tfc:crop/${crop}`);
-		event.add("hexerei:crow_harvestable", `tfc:dead_crop/${crop}`);
+		event.add("mna:construct_harvestables", `tfc:crop/${crop}` as any);
+		event.add("mna:construct_harvestables", `tfc:dead_crop/${crop}` as any);
+		event.add("hexerei:crow_harvestable" as any, `tfc:crop/${crop}` as any);
+		event.add(
+			"hexerei:crow_harvestable" as any,
+			`tfc:dead_crop/${crop}` as any
+		);
 	});
 	event.add("mna:construct_harvestables", [
 		"hexerei:belladonna_flower",
 		"hexerei:mandrake_flower",
 		"hexerei:yellow_dock_bush",
 		"hexerei:mugwort_bush",
-	]);
+	] as any);
 
 	ItemCol.tfcWoodTypes.forEach((wood) => {
 		event.add("mca:chests", [`tfc:wood/chest/${wood}`]);
@@ -62,18 +82,24 @@ const setBlockTags = (event) => {
 
 	/// OldOnes
 
-	event.add("tfc:can_trigger_collapse", "beyond_earth:mars_stone");
-	event.add("tfc:can_trigger_collapse", "beyond_earth:moon_stone");
-	event.add("tfc:can_trigger_collapse", "beyond_earth:mercury_stone");
-	event.add("tfc:can_trigger_collapse", "beyond_earth:infernal_spire_block");
-	event.add("tfc:can_trigger_collapse", "beyond_earth:venus_stone");
-	event.add("tfc:can_trigger_collapse", "beyond_earth:venus_sandstone");
-	event.add("tfc:can_start_collapse", "beyond_earth:mars_stone");
-	event.add("tfc:can_start_collapse", "beyond_earth:moon_stone");
-	event.add("tfc:can_start_collapse", "beyond_earth:mercury_stone");
-	event.add("tfc:can_start_collapse", "beyond_earth:infernal_spire_block");
-	event.add("tfc:can_start_collapse", "beyond_earth:venus_stone");
-	event.add("tfc:can_start_collapse", "beyond_earth:venus_sandstone");
+	event.add("tfc:can_trigger_collapse", "beyond_earth:mars_stone" as any);
+	event.add("tfc:can_trigger_collapse", "beyond_earth:moon_stone" as any);
+	event.add("tfc:can_trigger_collapse", "beyond_earth:mercury_stone" as any);
+	event.add(
+		"tfc:can_trigger_collapse",
+		"beyond_earth:infernal_spire_block" as any
+	);
+	event.add("tfc:can_trigger_collapse", "beyond_earth:venus_stone" as any);
+	event.add("tfc:can_trigger_collapse", "beyond_earth:venus_sandstone" as any);
+	event.add("tfc:can_start_collapse", "beyond_earth:mars_stone" as any);
+	event.add("tfc:can_start_collapse", "beyond_earth:moon_stone" as any);
+	event.add("tfc:can_start_collapse", "beyond_earth:mercury_stone" as any);
+	event.add(
+		"tfc:can_start_collapse",
+		"beyond_earth:infernal_spire_block" as any
+	);
+	event.add("tfc:can_start_collapse", "beyond_earth:venus_stone" as any);
+	event.add("tfc:can_start_collapse", "beyond_earth:venus_sandstone" as any);
 	event.add("tfc:can_trigger_collapse", "minecraft:basalt");
 	event.add("tfc:can_trigger_collapse", "minecraft:blackstone");
 	event.add("tfc:can_trigger_collapse", "minecraft:magma_block");

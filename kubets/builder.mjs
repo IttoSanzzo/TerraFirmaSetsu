@@ -134,7 +134,6 @@ async function processTsFile(filePath, fileRelativePath) {
 			outfile: jsOutFilePath,
 			bundle: false,
 			platform: "neutral",
-			// format: "esm",
 			target: "es2017",
 			charset: "utf8",
 			sourcemap: false,
@@ -142,19 +141,6 @@ async function processTsFile(filePath, fileRelativePath) {
 			legalComments: "none",
 			logLevel: "silent"
 		});
-		// await esbuild.build({
-		// 	entryPoints: [filePath],
-		// 	outfile: jsOutFilePath,
-		// 	bundle: false,
-		// 	format: "iife",
-		// 	platform: "neutral",
-		// 	target: "es2017",
-		// 	charset: "utf8",
-		// 	sourcemap: false,
-		// 	minify: false,
-		// 	legalComments: "none",
-		// 	logLevel: "silent"
-		// });
 
 		await postProcessTsFileTasks(filePath, jsOutFilePath);
 
@@ -188,7 +174,8 @@ async function processFile(file, newCache) {
 		const result = await processTsFile(file, fileRelativePath);
 		if (!result.ok) return;
 	}
-	else if (!file.endsWith(".js"))
+	// else if (!file.endsWith(".js"))
+	else
 		await processNonTsFile(file, fileRelativePath)
 }
 
