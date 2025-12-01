@@ -100,6 +100,28 @@ async function needsUpdate(cache, srcFile, fileRelativePath) {
 // 		return false;
 // 	}
 // }
+
+function expandShorthandObjects(code) {
+	const templateRegex = /`(?:\\`|[^`])*`/g;
+	const templates = [];
+	const placeholder = "\uFFF0TPL_";
+	let idx = 0;
+	code = code.replace(templateRegex, m => placeholder + (templates.push(m) - 1) + "\uFFF1");
+	const objectLiteralRegex = /(?<=\breturn\s+|\=\s*|\(\s*|:\s*|,\s*|^\s*)\{([^{}]+?)\}/gm;
+	code = code.replace(objectLiteralRegex, (full, inside) => {
+		const props = inside.split(",").map(p => p.trim()).filter(Boolean);
+		let changed = false;
+		const newProps = props.map(p => {
+			if (p.includes(":")) return p;
+			if (!/^[a-zA-Z_$][0-9a-zA-Z_$]*$/.test(p)) return p;
+			changed = true;
+			return `${p}: ${p}`;
+		});
+		return changed ? `{ ${newProps.join(", ")} }` : full;
+	});
+	return code.replace(new RegExp(placeholder + "(\\d+)\uFFF1", "g"), (_, i) => templates[i]);;
+}
+
 async function postProcessTsFileTasks(tsFilePath, jsFilePath) {
 	const tsCode = await fs.readFile(tsFilePath, "utf8");
 	let jsCode = await fs.readFile(jsFilePath, "utf8");
@@ -111,7 +133,8 @@ async function postProcessTsFileTasks(tsFilePath, jsFilePath) {
 	jsCode = jsCode
 		.replace(/import[\s\S]*?from\s+['"].*?['"];?/g, "")
 		.replace(/^export\s+/gm, "");
-	const formatted = await format(jsCode, { parser: "babel" });
+	jsCode = expandShorthandObjects(jsCode);
+	const formatted = await format(jsCode, { parser: "babel", trailingComma: "none", printWidth: 80, semi: true });
 	await fs.writeFile(jsFilePath, formatted);
 }
 
@@ -134,12 +157,15 @@ async function processTsFile(filePath, fileRelativePath) {
 			outfile: jsOutFilePath,
 			bundle: false,
 			platform: "neutral",
-			target: "es2017",
+			target: "esnext",
 			charset: "utf8",
 			sourcemap: false,
-			minify: false,
 			legalComments: "none",
-			logLevel: "silent"
+			logLevel: "silent",
+			minify: false,
+			minifySyntax: false,
+			minifyIdentifiers: false,
+			minifyWhitespace: false,
 		});
 
 		await postProcessTsFileTasks(filePath, jsOutFilePath);

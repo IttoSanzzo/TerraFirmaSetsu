@@ -1,6 +1,8 @@
 //priority: 899
 
-export const setMnaChimerite = (event) => {
+import { $DataPackEventJS } from "packages/dev/latvian/mods/kubejs/script/data/$DataPackEventJS";
+
+export function setMnaChimerite(event: $DataPackEventJS) {
 	console.log("Setsu Mna Chimerite Start!");
 	// Start
 
@@ -123,4 +125,4 @@ export const setMnaChimerite = (event) => {
 
 	// End.
 	console.log("Setsu Mna Chimerite End!");
-};
+}

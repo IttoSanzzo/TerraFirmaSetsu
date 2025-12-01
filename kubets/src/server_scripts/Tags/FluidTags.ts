@@ -22,18 +22,18 @@ export function setFluidTags(
 	event.add("tfc:usable_in_ingot_mold", [
 		"kubejs:metal/purple_steel",
 		"kubejs:metal/high_carbon_purple_steel",
-	] as any);
+	]);
 	event.add("tfc:usable_in_tool_head_mold", [
 		"kubejs:metal/purple_steel",
 		"kubejs:metal/high_carbon_purple_steel",
-	] as any);
+	]);
 
 	/// OldOnes
 	event
 		.get("minecraft:water")
 		.removeAll()
 		.add([/^(minecraft|tfc):.*water$/]);
-	event.add("forge:crude_oil", "beyond_earth:oil" as any);
+	event.add("forge:crude_oil", "beyond_earth:oil");
 	event.add("beyond_earth:vehicle_fuel", "thermal:refined_fuel");
 	event.add("tfc:usable_in_barrel", "immersiveengineering:creosote");
 	event.add("forge:chocolate", "firmalife:chocolate");
@@ -49,7 +49,7 @@ export function setFluidTags(
 
 	// Color Dyes
 	ItemCol.allDyes.forEach((color) => {
-		event.add(`setsu:dyes/${color}` as any, `tfc:${color}_dye` as any);
+		event.add(`setsu:dyes/${color}`, `tfc:${color}_dye`);
 	});
 
 	// Fuel
@@ -60,7 +60,7 @@ export function setFluidTags(
 		"immersiveengineering:redstone_acid",
 	];
 	oilTags.forEach((oil) => {
-		event.add(oil as any, oil as any);
+		event.add(oil, oil);
 	});
 	event.add("ad_astra:pure_oil", "ad_astra:oil");
 	event.add("ad_astra:pure_fuel", "ad_astra:fuel");

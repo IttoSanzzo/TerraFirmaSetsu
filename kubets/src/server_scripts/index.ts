@@ -6,8 +6,10 @@ import {
 	loginEvent,
 	rightClickEvent,
 	setCustomWeights,
+	setMnaChimerite,
 } from "./Extras";
 import { setLoot } from "./LootJs/LootIndex";
+import { setRecipes } from "./Recipes";
 import { setBiomeTags, setBlockTags, setFluidTags, setItemTags } from "./Tags";
 
 console.log("Starting Index.js Server Scripts!");

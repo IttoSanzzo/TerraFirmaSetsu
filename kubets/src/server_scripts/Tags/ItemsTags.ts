@@ -1,6 +1,7 @@
 // priority: 498
 
 import { TagEventProbe } from "packages/moe/wolfgirl/probejs/generated/TagEventProbe";
+import { ItemCol } from "../HelpCollections/ItemCollections";
 
 export function setItemTags(
 	event: TagEventProbe<Special.ItemTag, Special.Item>
@@ -460,7 +461,6 @@ export function setItemTags(
 		"#forge:treated_wood",
 		"tfc_ie_addon:treated_wood_lumber",
 	]);
-	event.add("forge:treated_lumber");
 	event.add("setsu:treated_lumber", [
 		"firmalife:treated_lumber",
 		"tfc_ie_addon:treated_wood_lumber",

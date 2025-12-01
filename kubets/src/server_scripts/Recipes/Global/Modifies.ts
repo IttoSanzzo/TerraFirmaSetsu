@@ -1,22 +1,26 @@
 // priority: 199
 
-function setRecipeModifies(event) {
-	const replaceAll = (item, replacement) => {
+import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
+import { globalModify } from "../../HelpCollections/GlobalModify";
+import { ItemCol } from "../../HelpCollections/ItemCollections";
+
+export function setRecipeModifies(event: $RecipesEventJS) {
+	function replaceAll(item: string, replacement: string) {
 		globalModify.forEach((mod) => {
 			event.replaceInput({ mod: mod }, item, replacement);
 			event.replaceOutput({ mod: mod }, item, replacement);
 		});
-	};
-	const replaceINPUT = (item, replacement) => {
+	}
+	function replaceINPUT(item: string, replacement: string) {
 		globalModify.forEach((mod) => {
 			event.replaceInput({ mod: mod }, item, replacement);
 		});
-	};
-	const replaceOUTPUT = (item, replacement) => {
+	}
+	function replaceOUTPUT(item: string, replacement: string) {
 		globalModify.forEach((mod) => {
 			event.replaceOutput({ mod: mod }, item, replacement);
 		});
-	};
+	}
 
 	replaceINPUT("minecraft:iron_ingot", "tfc:metal/ingot/wrought_iron");
 	replaceINPUT("#forge:ingots/iron", "tfc:metal/ingot/wrought_iron");

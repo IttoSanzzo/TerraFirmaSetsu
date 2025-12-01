@@ -1,6 +1,10 @@
 //priority: 200
 
-const setRecipes = (event) => {
+import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
+import { setRecipeModifies } from "./Global/Modifies";
+import { setRecipeRemoves } from "./Global/Removes";
+
+export function setRecipes(event: $RecipesEventJS) {
 	console.log("Setsu Recipes Start!");
 
 	// Globals
@@ -68,4 +72,3 @@ const setRecipes = (event) => {
 TFCEvents.data((event) => {
 })
 */
-
