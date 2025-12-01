@@ -1,6 +1,8 @@
 // priority: 198
 
-function setRecipesToolbelt(event) {
+import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
+
+function setRecipesToolbelt(event: $RecipesEventJS) {
 	event.remove({ id: "toolbelt:belt" });
 	event.remove({ id: "toolbelt:pouch" });
 
@@ -10,7 +12,7 @@ function setRecipesToolbelt(event) {
 		N: "tfc:bone_needle",
 		L: "#tfc:leather_knapping",
 		B: "toolbelt:pouch",
-		U: "#forge:nuggets"
+		U: "#forge:nuggets",
 	});
 
 	addDamageShaped(event, "toolbelt:pouch", ["VSN", "UL "], {
@@ -18,6 +20,6 @@ function setRecipesToolbelt(event) {
 		S: "#forge:string",
 		N: "tfc:bone_needle",
 		U: "#forge:nuggets",
-		L: "#tfc:leather_knapping"
+		L: "#tfc:leather_knapping",
 	});
 }

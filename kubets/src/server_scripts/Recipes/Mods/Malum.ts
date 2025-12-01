@@ -1,7 +1,8 @@
 // priority: 198
 
-function setRecipesMalum(event) {
+import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
 
+function setRecipesMalum(event: $RecipesEventJS) {
 	event.remove({ output: `malum:runewood_boat` });
 	event.remove({ output: `malum:soulwood_boat` });
 	event.remove({ id: `malum:copper_ingot_from_nugget` });
@@ -15,6 +16,12 @@ function setRecipesMalum(event) {
 
 	event.remove({ id: `malum:runewood_planks` });
 	event.remove({ id: `malum:soulwood_planks` });
-	addDamageShapeless(event, `4x malum:runewood_planks`, [`#malum:runewood_logs`, "#tfc:metal/saws"]);
-	addDamageShapeless(event, `4x malum:soulwood_planks`, [`#malum:soulwood_logs`, "#tfc:metal/saws"]);
+	addDamageShapeless(event, `4x malum:runewood_planks`, [
+		`#malum:runewood_logs`,
+		"#tfc:metal/saws",
+	]);
+	addDamageShapeless(event, `4x malum:soulwood_planks`, [
+		`#malum:soulwood_logs`,
+		"#tfc:metal/saws",
+	]);
 }

@@ -1,6 +1,8 @@
 // priority: 198
 
-function setSacksAndSuch(event) {
+import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
+
+function setSacksAndSuch(event: $RecipesEventJS) {
 	event.remove({ id: "sns:crafting/pack_frame" });
 	event.remove({ id: "sns:heating/pack_frame" });
 
@@ -9,6 +11,6 @@ function setSacksAndSuch(event) {
 		S: "sns:bound_leather_strip",
 		C: "sns:reinforced_fabric",
 		O: "thermal:satchel",
-		N: "tfc:bone_needle"
+		N: "tfc:bone_needle",
 	});
 }
