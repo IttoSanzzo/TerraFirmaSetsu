@@ -501,17 +501,13 @@ declare module "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS" {
 		public remove(filter: $RecipeFilter$$Type): void;
 		public replaceInput(
 			filter: $RecipeFilter$$Type,
-			match:
-				| $ReplacementMatch$$Type
-				| $InputReplacement$$Type
-				| $OutputReplacement$$Type
-				| OmniString,
-			with_: $InputReplacement$$Type | $OutputReplacement$$Type | OmniString
+			match: $ReplacementMatch$$Type | KjsItemOrTag,
+			with_: $InputReplacement$$Type | KjsItemOrTag
 		): void;
 		public replaceOutput(
 			filter: $RecipeFilter$$Type,
-			match: $ReplacementMatch$$Type | $OutputReplacement$$Type | OmniString,
-			with_: $OutputReplacement$$Type | OmniString
+			match: $ReplacementMatch$$Type | KjsItemOrTag,
+			with_: $OutputReplacement$$Type | KjsItemOrTag
 		): void;
 		public static runInParallel(runnable: $Runnable$$Type): void;
 		public static runInParallel<T>(callable: $Callable$$Type<T>): T;

@@ -3,6 +3,13 @@
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
 import { setRecipeModifies } from "./Global/Modifies";
 import { setRecipeRemoves } from "./Global/Removes";
+import { setRecipesCreateAdditions } from "./Mods/CreateAddons/CreateAdditions";
+import { setRecipesCreateEncased } from "./Mods/CreateAddons/CreateEncased";
+import { setRecipesCreateRailways } from "./Mods/CreateAddons/CreateRailways";
+import { setRecipesCreateStuffAndAdditions } from "./Mods/CreateAddons/CreateStuffAndAdditions";
+import { setRecipesFirmalife } from "./Mods/TfcAddons/Firmalife";
+import { setRecipesFirmaciv } from "./Mods/TfcAddons/Firmaciv";
+import { setRecipesTfcBetterBf } from "./Mods/TfcAddons/TfcBetterBf";
 
 export function setRecipes(event: $RecipesEventJS) {
 	console.log("Setsu Recipes Start!");
