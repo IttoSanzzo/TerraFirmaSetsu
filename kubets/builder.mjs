@@ -4,9 +4,8 @@ import fs from "fs-extra";
 import chokidar from "chokidar";
 import * as path from "path";
 import { format } from "prettier";
-// import util from "util";
-// import { exec } from "child_process";
-// const execAsync = util.promisify(exec);
+import { parse } from "acorn";
+import * as walk from "acorn-walk";
 
 function parseArgs() {
 	const args = process.argv.slice(2);
@@ -102,29 +101,38 @@ async function needsUpdate(cache, srcFile, fileRelativePath) {
 // }
 
 function expandShorthandObjects(code) {
-	const templateRegex = /`(?:\\`|[^`])*`/g;
-	const templates = [];
-	const placeholder = "\uFFF0TPL_";
-	let idx = 0;
-	code = code.replace(templateRegex, m => placeholder + (templates.push(m) - 1) + "\uFFF1");
-	const objectLiteralRegex = /(?<=\breturn\s+|\=\s*|\(\s*|:\s*|,\s*|^\s*)\{([^{}]+?)\}/gm;
-	code = code.replace(objectLiteralRegex, (full, inside) => {
-		const props = inside.split(",").map(p => p.trim()).filter(Boolean);
-		let changed = false;
-		const newProps = props.map(p => {
-			if (p.includes(":")) return p;
-			if (!/^[a-zA-Z_$][0-9a-zA-Z_$]*$/.test(p)) return p;
-			changed = true;
-			return `${p}: ${p}`;
-		});
-		return changed ? `{ ${newProps.join(", ")} }` : full;
+	const ast = parse(code, {
+		ecmaVersion: "latest",
+		sourceType: "module",
+		allowReturnOutsideFunction: true,
+		locations: true
 	});
-	return code.replace(new RegExp(placeholder + "(\\d+)\uFFF1", "g"), (_, i) => templates[i]);;
+	const replacements = [];
+	walk.simple(ast, {
+		ObjectExpression(node) {
+			for (const prop of node.properties) {
+				if (prop.type === "Property" && prop.shorthand) {
+					const keyName = prop.key.name;
+					replacements.push({
+						start: prop.start,
+						end: prop.end,
+						replace: `${keyName}: ${keyName}`
+					});
+				}
+			}
+		}
+	});
+	let out = code;
+	replacements
+		.sort((a, b) => b.start - a.start)
+		.forEach(r => {
+			out = out.slice(0, r.start) + r.replace + out.slice(r.end);
+		});
+	return out;
 }
 
-async function postProcessTsFileTasks(tsFilePath, jsFilePath) {
+async function postProcessTsFileTasks(tsFilePath, jsFilePath, jsCode) {
 	const tsCode = await fs.readFile(tsFilePath, "utf8");
-	let jsCode = await fs.readFile(jsFilePath, "utf8");
 
 	const topCommentMatch = tsCode.match(/^\s*\/\/\s*priority:\s*\d+/);
 	const topComment = topCommentMatch ? topCommentMatch[0] : "";
@@ -133,18 +141,12 @@ async function postProcessTsFileTasks(tsFilePath, jsFilePath) {
 	jsCode = jsCode
 		.replace(/import[\s\S]*?from\s+['"].*?['"];?/g, "")
 		.replace(/^export\s+/gm, "");
-	jsCode = expandShorthandObjects(jsCode);
-	const formatted = await format(jsCode, { parser: "babel", trailingComma: "none", printWidth: 80, semi: true });
+	const formatted = await format(expandShorthandObjects(jsCode), { parser: "babel", trailingComma: "none", printWidth: 80, semi: true });
 	await fs.writeFile(jsFilePath, formatted);
 }
 
 async function processTsFile(filePath, fileRelativePath) {
 	console.log(`\t\tCompiling js [${fileRelativePath}]`);
-
-	// if (!(await checkTsTypes(filePath))) {
-	// 	console.log(`\t\t\tSkipping build due to TS errors.`);
-	// 	return { ok: false };
-	// }
 
 	const jsOutFilePath = path.join(OUT, fileRelativePath.replace(/\.ts$/, ".js"));
 	const outDir = path.dirname(jsOutFilePath);
@@ -152,9 +154,8 @@ async function processTsFile(filePath, fileRelativePath) {
 	try {
 		await fs.mkdirp(outDir);
 
-		await esbuild.build({
+		const result = await esbuild.build({
 			entryPoints: [filePath],
-			outfile: jsOutFilePath,
 			bundle: false,
 			platform: "neutral",
 			target: "esnext",
@@ -166,9 +167,9 @@ async function processTsFile(filePath, fileRelativePath) {
 			minifySyntax: false,
 			minifyIdentifiers: false,
 			minifyWhitespace: false,
+			write: false,
 		});
-
-		await postProcessTsFileTasks(filePath, jsOutFilePath);
+		await postProcessTsFileTasks(filePath, jsOutFilePath, result.outputFiles[0].text);
 
 		return { ok: true };
 	} catch (ex) {

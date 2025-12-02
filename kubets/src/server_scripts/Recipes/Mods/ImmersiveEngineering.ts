@@ -1,10 +1,11 @@
 // priority: 198
 
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
+import { ItemCol } from "../../HelpCollections/ItemCollections";
 
-const setClocheRecipes = (event: $RecipesEventJS) => {
+export function setClocheRecipes(event: $RecipesEventJS) {
 	event.remove({ mod: "tfc_ie_addon", type: "immersiveengineering:cloche" });
-	const addClocheRecipe = (output, amount, seed, soil, render, time) => {
+	function addClocheRecipe(output, amount, seed, soil, render, time) {
 		event
 			.custom({
 				type: "immersiveengineering:cloche",
@@ -34,7 +35,7 @@ const setClocheRecipes = (event: $RecipesEventJS) => {
 			.id(
 				`setsu:immersiveengineering/cloche/${seed.replace(":", "/").replace("/", ".")}`
 			);
-	};
+	}
 
 	addClocheRecipe(
 		"tfc:food/carrot",
@@ -249,7 +250,7 @@ const setClocheRecipes = (event: $RecipesEventJS) => {
 		"firmalife:plant/fig_sapling",
 		2500
 	);
-};
+}
 
 function setRecipesImmersiveEngineering(event) {
 	event.remove({ id: "immersiveengineering:crafting/cokebrick" });
