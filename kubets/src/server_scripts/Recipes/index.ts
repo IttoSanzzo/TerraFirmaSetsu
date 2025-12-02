@@ -10,6 +10,7 @@ import { setRecipesCreateStuffAndAdditions } from "./Mods/CreateAddons/CreateStu
 import { setRecipesFirmalife } from "./Mods/TfcAddons/Firmalife";
 import { setRecipesFirmaciv } from "./Mods/TfcAddons/Firmaciv";
 import { setRecipesTfcBetterBf } from "./Mods/TfcAddons/TfcBetterBf";
+import { setRecipesAdAstra } from "./Mods/AdAstra";
 
 export function setRecipes(event: $RecipesEventJS) {
 	console.log("Setsu Recipes Start!");

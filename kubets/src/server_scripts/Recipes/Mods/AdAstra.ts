@@ -2,7 +2,7 @@
 
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
 
-function setRecipesAdAstra(event: $RecipesEventJS) {
+export function setRecipesAdAstra(event: $RecipesEventJS) {
 	event.remove({ id: "ad_astra_giselle_addon:crafting/gravity_normalizer" });
 	event.remove({ id: "ad_astra:fuel_refinery" });
 	event.remove({ id: "ad_astra:cryo_freezer" });
@@ -66,7 +66,13 @@ function setRecipesAdAstra(event: $RecipesEventJS) {
 	 * Fuel!
 	 */
 
-	const newRefinery1Input = (output, amount, input0, amount0, catalyst) => {
+	const newRefinery1Input = (
+		output: Special.Fluid,
+		amount: number,
+		input0: Special.FluidTag,
+		amount0: number,
+		catalyst?: Special.Item
+	) => {
 		event
 			.custom(
 				catalyst != undefined
@@ -89,13 +95,13 @@ function setRecipesAdAstra(event: $RecipesEventJS) {
 			);
 	};
 	const newRefinery2Input = (
-		output,
-		amount,
-		input0,
-		amount0,
-		input1,
-		amount1,
-		catalyst
+		output: Special.Fluid,
+		amount: number,
+		input0: Special.FluidTag,
+		amount0: number,
+		input1: Special.FluidTag,
+		amount1: number,
+		catalyst?: Special.Item
 	) => {
 		event
 			.custom(
@@ -120,7 +126,12 @@ function setRecipesAdAstra(event: $RecipesEventJS) {
 				`setsu:ad_astra/refinery/${output.replace(":", ".").replace("/", ".")}`
 			);
 	};
-	const addMixer = (output, ingredient, fluid, amount) => {
+	const addMixer = (
+		output: Special.Fluid,
+		ingredient: Special.Item,
+		fluid: Special.FluidTag,
+		amount: number
+	) => {
 		event
 			.custom({
 				type: "immersiveengineering:mixer",

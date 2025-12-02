@@ -110,7 +110,7 @@ function setRecipesAccommodation(event: $RecipesEventJS) {
 						P: "minecraft:paper",
 					}
 				)
-				.id(`setsu:accommodation_/shoji_middle/${String(id).substring()}`);
+				.id(`setsu:accommodation_/shoji_middle/${String(id)}`);
 		});
 	}
 
@@ -163,6 +163,6 @@ function setRecipesAccommodation(event: $RecipesEventJS) {
 				L: lumber,
 				P: "minecraft:paper",
 			})
-			.id(`setsu:accommodation_/shoji_middle/${String(id).substring()}`);
+			.id(`setsu:accommodation_/shoji_middle/${String(id)}`);
 	});
 }

@@ -1,11 +1,11 @@
 type OmniString = string & { __brand?: "OmniString" };
 
-interface KjsItemStack {
+interface KjsItemStackObject {
 	item: OmniString | Special.Item;
 	count?: number;
 	nbt?: Record<string, any>;
 }
-type KjsItemObject =
+type KjsIngredientObject =
 	| {
 			type: Special.ItemTag | Special.FluidTag | OmniString;
 			ingredient: {
@@ -20,5 +20,12 @@ type KjsItemObject =
 				amount: number;
 			};
 	  };
-type KjsItem = OmniString | Special.Item | KjsItemStack | KjsItemObject;
-type KjsItemOrTag = `#${Special.ItemTag}` | KjsItem;
+
+type KjsItem = OmniString | Special.Item | KjsIngredientObject;
+type KjsItemStack = OmniString | Special.Item | KjsIngredientObject;
+
+type KjsItemTag = `#${Special.ItemTag}`;
+type KjsItemTagStack = `#${Special.ItemTag}`;
+
+type KjsItemOrItemTag = KjsItem | KjsItemTag;
+type KjsItemOrItemTagStack = KjsItemStack | KjsItemTagStack;

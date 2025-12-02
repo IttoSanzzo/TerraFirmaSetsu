@@ -331,11 +331,11 @@ declare module "packages/dev/latvian/mods/kubejs/recipe/$RecipeTypeFunction" {
 		set prototype(value: $Scriptable$$Type);
 	}
 
-	type VanillaShapedKey = Record<string, KjsItemOrTag>;
+	type VanillaShapedKey = Record<string, KjsItemOrItemTag>;
 
 	interface $RecipeTypeFunction {
-		(output: KjsItem, input: KjsItemOrTag[]): any;
-		(output: KjsItem, pattern: string[], key: VanillaShapedKey): any;
+		(output: KjsItemStack, input: KjsItemOrItemTagStack[]): any;
+		(output: KjsItemStack, pattern: string[], key: VanillaShapedKey): any;
 	}
 }
 

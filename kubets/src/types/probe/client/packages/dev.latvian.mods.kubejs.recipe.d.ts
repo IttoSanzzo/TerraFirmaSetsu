@@ -266,8 +266,8 @@ declare module "packages/dev/latvian/mods/kubejs/recipe/filter/$RecipeFilter" {
 				type?: Special.RecipeType | OmniString;
 				group?: string;
 				mod?: Special.Mod | OmniString;
-				input?: $InputItem$$Type | RegExp | OmniString;
-				output?: $OutputItem$$Type | RegExp | OmniString;
+				input?: $InputItem$$Type | RegExp | KjsItem;
+				output?: $OutputItem$$Type | RegExp | KjsItem;
 		  }
 		| ((arg0: $RecipeKJS) => boolean);
 	/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
@@ -501,13 +501,13 @@ declare module "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS" {
 		public remove(filter: $RecipeFilter$$Type): void;
 		public replaceInput(
 			filter: $RecipeFilter$$Type,
-			match: $ReplacementMatch$$Type | KjsItemOrTag,
-			with_: $InputReplacement$$Type | KjsItemOrTag
+			match: $ReplacementMatch$$Type | KjsItemOrItemTag,
+			with_: $InputReplacement$$Type | KjsItemOrItemTagStack
 		): void;
 		public replaceOutput(
 			filter: $RecipeFilter$$Type,
-			match: $ReplacementMatch$$Type | KjsItemOrTag,
-			with_: $OutputReplacement$$Type | KjsItemOrTag
+			match: $ReplacementMatch$$Type | KjsItemOrItemTag,
+			with_: $OutputReplacement$$Type | KjsItemOrItemTagStack
 		): void;
 		public static runInParallel(runnable: $Runnable$$Type): void;
 		public static runInParallel<T>(callable: $Callable$$Type<T>): T;
