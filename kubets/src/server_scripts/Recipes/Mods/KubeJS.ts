@@ -2,7 +2,7 @@
 
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
 
-function setRecipesKubeJS(event: $RecipesEventJS) {
+export function setRecipesKubeJS(event: $RecipesEventJS) {
 	event.recipes.tfc
 		.heating("kubejs:metal/ingot/high_carbon_purple_steel", 1549)
 		.resultFluid(Fluid.of("kubejs:metal/high_carbon_purple_steel", 100))

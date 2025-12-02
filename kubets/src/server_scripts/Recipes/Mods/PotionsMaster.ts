@@ -2,8 +2,12 @@
 
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
 
-function setRecipesPotionsMaster(event: $RecipesEventJS) {
-	const addPowderFromPlesteAndMortar = (output, count, ingredient) => {
+export function setRecipesPotionsMaster(event: $RecipesEventJS) {
+	const addPowderFromPlesteAndMortar = (
+		output: Special.Item | OmniString,
+		count: number,
+		ingredient: Special.Item | OmniString
+	) => {
 		event
 			.custom({
 				type: "hexerei:pestle_and_mortar",

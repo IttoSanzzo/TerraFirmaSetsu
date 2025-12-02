@@ -3,7 +3,7 @@
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
 import { addDamageShaped } from "../_helperFunctions";
 
-function setRecipesEnderStorage(event: $RecipesEventJS) {
+export function setRecipesEnderStorage(event: $RecipesEventJS) {
 	event.remove({ id: "enderstorage:ender_chest" });
 	event
 		.shaped("enderstorage:ender_chest", ["BWB", "OCO", "BPB"], {

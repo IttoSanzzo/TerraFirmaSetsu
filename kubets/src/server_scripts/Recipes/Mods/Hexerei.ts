@@ -1,8 +1,9 @@
 // priority: 198
 
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
+import { addDamageShapeless } from "../_helperFunctions";
 
-function setRecipesHexerei(event: $RecipesEventJS) {
+export function setRecipesHexerei(event: $RecipesEventJS) {
 	/**
 	 * Removes
 	 */
@@ -60,7 +61,7 @@ function setRecipesHexerei(event: $RecipesEventJS) {
 	/**
 	 * Wood
 	 */
-	const reWood = (name, woodList) => {
+	const reWood = (name: string, woodList: string[]) => {
 		event.remove({ id: `hexerei:${name}_planks` });
 		event.remove({ id: `hexerei:${name}_planks_from_wood` });
 		event.remove({ id: `hexerei:${name}_planks_from_stripped_log` });
@@ -94,7 +95,10 @@ function setRecipesHexerei(event: $RecipesEventJS) {
 	/**
 	 * Raw Cauldron
 	 */
-	const addRawCauldron = (output, ingredient) => {
+	const addRawCauldron = (
+		output: Special.Item | OmniString,
+		ingredient: Special.Item | OmniString
+	) => {
 		event
 			.custom({
 				type: "hexerei:mixingcauldron",

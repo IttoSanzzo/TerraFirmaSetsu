@@ -2,8 +2,13 @@
 
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
 
-function setRecipesSimpleWeapons(event: $RecipesEventJS) {
-	const weaponSmith = (output, ingredient, form, tier) => {
+export function setRecipesSimpleWeapons(event: $RecipesEventJS) {
+	const weaponSmith = (
+		output: Special.Item | OmniString,
+		ingredient: Special.Item | OmniString,
+		form: string[],
+		tier: number
+	) => {
 		event.recipes.tfc
 			.anvil(output, ingredient, form)
 			.tier(tier)
@@ -11,7 +16,12 @@ function setRecipesSimpleWeapons(event: $RecipesEventJS) {
 			.id(`setsu:simpleweapons/${output.replace(":", "/")}`);
 	};
 
-	const smithAllWeapons = (tier, name, ingredientLight, ingredientHeavy) => {
+	const smithAllWeapons = (
+		tier: number,
+		name: string,
+		ingredientLight: Special.Item | OmniString,
+		ingredientHeavy: Special.Item | OmniString
+	) => {
 		let spear = "spear";
 		if (name == "diamond" || name == "pendorite" || name == "netherite")
 			spear = "halberd";

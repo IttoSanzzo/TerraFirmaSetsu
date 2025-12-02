@@ -2,7 +2,7 @@
 
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
 
-function setRecipesTombstone(event: $RecipesEventJS) {
+export function setRecipesTombstone(event: $RecipesEventJS) {
 	event.remove({ id: "tombstone:receptacle_of_familiar" });
 	event
 		.shaped("tombstone:receptacle_of_familiar", ["TIT", "IDI", "TIT"], {

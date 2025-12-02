@@ -2,8 +2,13 @@
 
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
 
-function setRecipesOreWashing(event: $RecipesEventJS) {
-	function newOreWashHeating(metal, chunk, heat, fluid) {
+export function setRecipesOreWashing(event: $RecipesEventJS) {
+	function newOreWashHeating(
+		metal: string,
+		chunk: string,
+		heat: number,
+		fluid?: Special.Fluid | OmniString
+	) {
 		if (fluid == undefined) fluid = `tfc:metal/${metal}`;
 		event
 			.custom({
@@ -43,7 +48,7 @@ function setRecipesOreWashing(event: $RecipesEventJS) {
 	 * All Others
 	 */
 
-	function newArcBriquet(ingot, briquet, prefix) {
+	function newArcBriquet(ingot: string, briquet: string, prefix?: string) {
 		if (prefix != undefined) ingot = `${prefix}${ingot}`;
 		else ingot = `tfc:metal/ingot/${ingot}`;
 		event
@@ -95,7 +100,13 @@ function setRecipesOreWashing(event: $RecipesEventJS) {
 	newArcBriquet("uranium", "uraninite", "immersiveengineering:ingot_");
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////
-	function newOmniChunksCrusher(prefix, raw, rocky, loot, type) {
+	function newOmniChunksCrusher(
+		prefix: string,
+		raw: string,
+		rocky: string,
+		loot: number,
+		type: string
+	) {
 		event
 			.custom({
 				type: "immersiveengineering:crusher",
@@ -126,7 +137,13 @@ function setRecipesOreWashing(event: $RecipesEventJS) {
 			})
 			.id(`setsu:tfcorewashing/ores/raw_${raw}_${type}_crushing`);
 	}
-	function newOmniChunksPress(prefix, raw, rocky, loot, type) {
+	function newOmniChunksPress(
+		prefix: string,
+		raw: string,
+		rocky: string,
+		loot: number,
+		type: string
+	) {
 		event
 			.custom({
 				type: "create:sequenced_assembly",
@@ -164,7 +181,13 @@ function setRecipesOreWashing(event: $RecipesEventJS) {
 			})
 			.id(`setsu:tfcorewashing/ores/raw_${raw}_${type}_pressing`);
 	}
-	function newOmniChunksHammer(prefix, raw, rocky, loot, type) {
+	function newOmniChunksHammer(
+		prefix: string,
+		raw: string,
+		rocky: string,
+		loot: number,
+		type: string
+	) {
 		event
 			.custom({
 				type: "tfc:extra_products_shapeless_crafting",
@@ -191,7 +214,7 @@ function setRecipesOreWashing(event: $RecipesEventJS) {
 			.id(`setsu:tfcorewashing/ores/raw_${raw}_${type}_hammer`);
 	}
 
-	function newWashAllMechaPiece(prefix, raw, rocky) {
+	function newWashAllMechaPiece(prefix: string, raw: string, rocky: string) {
 		newOmniChunksCrusher(prefix, raw, rocky, 20, "piece");
 		newOmniChunksPress(prefix, raw, rocky, 20, "piece");
 		newOmniChunksHammer(prefix, raw, rocky, 20, "piece");

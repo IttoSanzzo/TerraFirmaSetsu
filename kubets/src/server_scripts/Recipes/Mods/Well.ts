@@ -2,7 +2,7 @@
 
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
 
-function setRecipesWell(event: $RecipesEventJS) {
+export function setRecipesWell(event: $RecipesEventJS) {
 	event.remove({ id: "well:well" });
 	event
 		.shaped("well:well", ["BBB", "SLS", "TWT"], {

@@ -2,7 +2,7 @@
 
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
 
-function setRecipesTrottingWagons(event: $RecipesEventJS) {
+export function setRecipesTrottingWagons(event: $RecipesEventJS) {
 	event.remove({ output: "trotting_wagons:wheel" });
 
 	event.remove({ output: "trotting_wagons:armored_wagon" });

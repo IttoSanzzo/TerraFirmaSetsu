@@ -2,7 +2,7 @@
 
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
 
-function setRecipesTorchMaster(event: $RecipesEventJS) {
+export function setRecipesTorchMaster(event: $RecipesEventJS) {
 	event.remove({ output: "torchmaster:megatorch" });
 	event
 		.shaped("torchmaster:megatorch", ["TET", "GLG", "LLL"], {

@@ -2,7 +2,7 @@
 
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
 
-function setRecipesBioforgeLoomborn(event: $RecipesEventJS) {
+export function setRecipesBioforgeLoomborn(event: $RecipesEventJS) {
 	event.remove({ id: "bioforge_loomborn:silkworm_hive_recipe" });
 	event
 		.shaped("bioforge_loomborn:silkworm_hive", ["LLL", "WCW", "LLL"], {

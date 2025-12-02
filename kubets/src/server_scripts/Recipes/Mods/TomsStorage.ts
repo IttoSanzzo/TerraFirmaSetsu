@@ -2,7 +2,7 @@
 
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
 
-function setRecipesTomsStorage(event: $RecipesEventJS) {
+export function setRecipesTomsStorage(event: $RecipesEventJS) {
 	// Key Items ///////////////////////////////////////////
 
 	event.remove({ output: "toms_storage:ts.inventory_connector" });

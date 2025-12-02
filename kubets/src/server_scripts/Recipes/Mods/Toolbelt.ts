@@ -1,8 +1,9 @@
 // priority: 198
 
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
+import { addDamageShaped } from "../_helperFunctions";
 
-function setRecipesToolbelt(event: $RecipesEventJS) {
+export function setRecipesToolbelt(event: $RecipesEventJS) {
 	event.remove({ id: "toolbelt:belt" });
 	event.remove({ id: "toolbelt:pouch" });
 

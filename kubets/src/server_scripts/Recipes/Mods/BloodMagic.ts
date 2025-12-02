@@ -2,7 +2,7 @@
 
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
 
-function setRecipesBloodMagic(event: $RecipesEventJS) {
+export function setRecipesBloodMagic(event: $RecipesEventJS) {
 	event.remove({ id: "bloodmagic:alchemicalreactionchamber" });
 	event
 		.shaped("bloodmagic:alchemicalreactionchamber", ["SSS", "IOI", "BFB"], {

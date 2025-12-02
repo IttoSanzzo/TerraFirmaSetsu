@@ -1,8 +1,9 @@
 // priority: 198
 
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
+import { ItemCol } from "../../HelpCollections/ItemCollections";
 
-function setRecipesSupplementaries(event: $RecipesEventJS) {
+export function setRecipesSupplementaries(event: $RecipesEventJS) {
 	// Remove Pancake & Candy
 	event.remove({ output: "farmersdelight:pancake" });
 	event.remove({ output: "farmersdelight:candy" });

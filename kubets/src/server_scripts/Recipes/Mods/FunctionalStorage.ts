@@ -1,8 +1,9 @@
 // priority: 198
 
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
+import { ItemCol } from "../../HelpCollections/ItemCollections";
 
-function setRecipesFunctionalStorage(event: $RecipesEventJS) {
+export function setRecipesFunctionalStorage(event: $RecipesEventJS) {
 	ItemCol.allVanillaWoodTypes.forEach((wood) => {
 		event.remove({ output: `functionalstorage:${wood}_1` });
 		event.remove({ output: `functionalstorage:${wood}_2` });

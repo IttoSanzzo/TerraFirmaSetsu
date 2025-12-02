@@ -1,8 +1,9 @@
 // priority: 198
 
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
+import { addDamageShapeless } from "../_helperFunctions";
 
-function setRecipesMalum(event: $RecipesEventJS) {
+export function setRecipesMalum(event: $RecipesEventJS) {
 	event.remove({ output: `malum:runewood_boat` });
 	event.remove({ output: `malum:soulwood_boat` });
 	event.remove({ id: `malum:copper_ingot_from_nugget` });

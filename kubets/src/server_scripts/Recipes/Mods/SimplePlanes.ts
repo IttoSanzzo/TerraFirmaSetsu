@@ -2,7 +2,7 @@
 
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
 
-function setRecipesSimplePlanes(event: $RecipesEventJS) {
+export function setRecipesSimplePlanes(event: $RecipesEventJS) {
 	// 0. Replaces
 	event.replaceInput(
 		{ id: "simpleplanes:parachute" },

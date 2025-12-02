@@ -1,8 +1,10 @@
 // priority: 198
 
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
+import { addDamageShaped, addDamageShapeless } from "../_helperFunctions";
+import { ItemCol } from "../../HelpCollections/ItemCollections";
 
-function setRecipesQuark(event: $RecipesEventJS) {
+export function setRecipesQuark(event: $RecipesEventJS) {
 	// 0. Replaces
 	event.remove({ output: "quark:thatch" });
 	event.remove({ output: "quark:thatch_stairs" });

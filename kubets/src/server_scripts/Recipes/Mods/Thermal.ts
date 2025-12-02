@@ -1,9 +1,14 @@
 // priority: 198
 
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
+import { ItemCol } from "../../HelpCollections/ItemCollections";
 
-function setRecipesThermal(event: $RecipesEventJS) {
-	function addSawMill(output, count, ingredient) {
+export function setRecipesThermal(event: $RecipesEventJS) {
+	function addSawMill(
+		output: Special.Item | OmniString,
+		count: number,
+		ingredient: Special.Item | OmniString
+	) {
 		event
 			.custom({
 				type: "thermal:sawmill",
@@ -27,7 +32,12 @@ function setRecipesThermal(event: $RecipesEventJS) {
 				`setsu:thermal/sawmill/${ingredient.replace(":", ".").replace("/", ".")}/to/${output.replace(":", ".").replace("/", ".")}`
 			);
 	}
-	function addPress(output, count, ingredient, ingredientCount) {
+	function addPress(
+		output: Special.Item | OmniString,
+		count: number,
+		ingredient: Special.Item | OmniString,
+		ingredientCount: number
+	) {
 		event
 			.custom({
 				type: "thermal:press",
@@ -46,7 +56,11 @@ function setRecipesThermal(event: $RecipesEventJS) {
 				`setsu:thermal/press/${ingredient.replace(":", ".").replace("/", ".")}/to/${output.replace(":", ".").replace("/", ".")}`
 			);
 	}
-	function addCrucible(output, count, ingredient) {
+	function addCrucible(
+		output: Special.Fluid | OmniString,
+		count: number,
+		ingredient: Special.ItemTag | OmniString
+	) {
 		event
 			.custom({
 				type: "thermal:crucible",
@@ -65,7 +79,11 @@ function setRecipesThermal(event: $RecipesEventJS) {
 				`setsu:thermal/crucible/${ingredient.replace(":", ".").replace("/", ".")}/to/${output.replace(":", ".").replace("/", ".")}`
 			);
 	}
-	function addInsolator(wood, ingredient, chance) {
+	function addInsolator(
+		wood: string,
+		ingredient: Special.Item | OmniString,
+		chance: number
+	) {
 		event
 			.custom({
 				type: "thermal:insolator",

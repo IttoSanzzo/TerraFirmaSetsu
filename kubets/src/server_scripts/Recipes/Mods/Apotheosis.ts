@@ -2,7 +2,7 @@
 
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
 
-function setRecipesApotheosis(event: $RecipesEventJS) {
+export function setRecipesApotheosis(event: $RecipesEventJS) {
 	// event.shapeless("apotheosis:ender_lead", ["minecraft:ender_pearl", "minecraft:lead", "tfc:metal/ingot/rose_gold"]).id("setsu:apotheosis/ender_lead");
 
 	event.remove({ id: "apotheosis:salvaging_table" });

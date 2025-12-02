@@ -1,8 +1,10 @@
 // priority: 198
 
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
+import { ItemCol } from "../../HelpCollections/ItemCollections";
+import { addDamageShapeless } from "../_helperFunctions";
 
-function setRecipesMacawMods(event: $RecipesEventJS) {
+export function setRecipesMacawMods(event: $RecipesEventJS) {
 	const printtype = [
 		"oak",
 		"spruce",

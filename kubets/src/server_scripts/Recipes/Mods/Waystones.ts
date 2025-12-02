@@ -2,7 +2,7 @@
 
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
 
-function setRecipesWaystones(event: $RecipesEventJS) {
+export function setRecipesWaystones(event: $RecipesEventJS) {
 	event.replaceInput(
 		{ mod: "waystones" },
 		"minecraft:obsidian",

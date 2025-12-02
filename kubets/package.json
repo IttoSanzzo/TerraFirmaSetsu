@@ -14,7 +14,8 @@
 		"redev": "rm -rf \"$npm_package_config_kubejs_out\" && rm -rf ./.buildcache.json && node builder.mjs --watch --out \"$npm_package_config_kubejs_out\"",
 		"build": "node builder.mjs --out \"$npm_package_config_kubejs_out\"",
 		"bundle": "node bundler.mjs --root \"$npm_package_config_kubejs_out\"",
-		"build-builder": "bun build builder.mjs --compile --outfile builder"
+		"build-builder": "bun build builder.mjs --compile --outfile builder",
+		"rebuild-and-bundle": "npm run rebuild && npm run bundle"
 	},
 	"devDependencies": {
 		"@babel/generator": "^7.28.5",

@@ -2,7 +2,7 @@
 
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
 
-function setRecipesBigReactors(event: $RecipesEventJS) {
+export function setRecipesBigReactors(event: $RecipesEventJS) {
 	event.replaceInput(
 		{ mod: "biggerreactors" },
 		"minecraft:sand",

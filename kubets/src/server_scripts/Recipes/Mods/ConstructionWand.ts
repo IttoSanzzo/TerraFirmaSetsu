@@ -2,7 +2,7 @@
 
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
 
-function setRecipesConstructionWand(event: $RecipesEventJS) {
+export function setRecipesConstructionWand(event: $RecipesEventJS) {
 	event.remove({ output: "constructionwand:stone_wand" });
 
 	event.replaceInput(

@@ -2,8 +2,9 @@
 
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
 import { ItemCol } from "../../HelpCollections/ItemCollections";
+import { addDamageShapeless } from "../_helperFunctions";
 
-function setRecipesBotania(event: $RecipesEventJS) {
+export function setRecipesBotania(event: $RecipesEventJS) {
 	event
 		.custom({
 			type: "botania:mana_infusion",

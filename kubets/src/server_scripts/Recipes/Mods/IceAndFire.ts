@@ -2,8 +2,13 @@
 
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
 
-function setRecipesIceAndFire(event: $RecipesEventJS) {
-	const addDragonForge = (output, ingredient1, ingredient2, type) => {
+export function setRecipesIceAndFire(event: $RecipesEventJS) {
+	const addDragonForge = (
+		output: Special.Item | OmniString,
+		ingredient1: Special.Item | OmniString,
+		ingredient2: Special.Item | OmniString,
+		type: "lightning" | "fire" | "ice"
+	) => {
 		event
 			.custom({
 				type: "iceandfire:dragonforge",
@@ -23,9 +28,9 @@ function setRecipesIceAndFire(event: $RecipesEventJS) {
 				`setsu:iceandfire/dragonforge/${type}/${output.replace(":", "_").replace("/", "_")}`
 			);
 	};
-	const removeAll = (filter) => {
+	function removeAll(filter: string) {
 		event.remove([{ input: filter }, { output: filter }]);
-	};
+	}
 	const removals = [
 		"iceandfire:armor_copper_metal_helmet",
 		"iceandfire:armor_copper_metal_chestplate",
@@ -41,7 +46,13 @@ function setRecipesIceAndFire(event: $RecipesEventJS) {
 		removeAll(item);
 	});
 
-	const reForge = (output, ingredient, form, tier, id) => {
+	const reForge = (
+		output: string,
+		ingredient: string,
+		form: string[],
+		tier: number,
+		id?: string
+	) => {
 		event.remove({ id: id != undefined ? id : output });
 		event.recipes.tfc
 			.anvil(output, ingredient, form)

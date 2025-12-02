@@ -1,8 +1,9 @@
 // priority: 198
 
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
+import { ItemCol } from "../../HelpCollections/ItemCollections";
 
-function setRecipesFarmersdelight(event: $RecipesEventJS) {
+export function setRecipesFarmersdelight(event: $RecipesEventJS) {
 	event.remove({ id: "farmersdelight:stove" });
 	event.remove({ id: `farmersdelight:rice_bale` });
 	event.remove({ id: `farmersdelight:organic_compost_from_tree_bark` });

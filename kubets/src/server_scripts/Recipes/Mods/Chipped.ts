@@ -2,7 +2,7 @@
 
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
 
-function setRecipesChipped(event: $RecipesEventJS) {
+export function setRecipesChipped(event: $RecipesEventJS) {
 	event.remove({ id: "chipped:benches/loom_table" });
 	event
 		.shaped("chipped:loom_table", ["LLL", "WCW", "WOW"], {

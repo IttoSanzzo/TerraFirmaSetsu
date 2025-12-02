@@ -3,7 +3,7 @@
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
 import { ItemCol } from "../../HelpCollections/ItemCollections";
 
-function setRecipesMna(event: $RecipesEventJS) {
+export function setRecipesMna(event: $RecipesEventJS) {
 	/**
 	 * MnA
 	 */
@@ -187,7 +187,10 @@ function setRecipesMna(event: $RecipesEventJS) {
 	/**
 	 * Arcane Stones
 	 */
-	const mnaTransmutation = (output, target) => {
+	const mnaTransmutation = (
+		output: Special.Block | OmniString,
+		target: Special.Block | OmniString
+	) => {
 		event
 			.custom({
 				type: "mna:transmutation",
@@ -216,7 +219,13 @@ function setRecipesMna(event: $RecipesEventJS) {
 	/**
 	 * Botania Infusion
 	 */
-	const mnaBotaniaInfusion = (output, count, ingredient, type, mana) => {
+	const mnaBotaniaInfusion = (
+		output: Special.Item | OmniString,
+		count: number,
+		ingredient: OmniString,
+		type: OmniString,
+		mana: number
+	) => {
 		const mnaBotaniajson = {
 			type: "botania:mana_infusion",
 			output: {
@@ -232,7 +241,7 @@ function setRecipesMna(event: $RecipesEventJS) {
 		};
 		mnaBotaniajson["input"][type] = ingredient;
 		event
-			.custom(mnaBotaniajson)
+			.custom(mnaBotaniajson as any)
 			.id(
 				`setsu:mna/mana_infusion/${output.replace(":", "_").replace("/", "_")}`
 			);
@@ -277,7 +286,11 @@ function setRecipesMna(event: $RecipesEventJS) {
 	/**
 	 * Hexerei Metal Raws
 	 */
-	const oreWeaving = (rarity, output, ore) => {
+	const oreWeaving = (
+		rarity: "poor" | "normal" | "rich",
+		output: Special.Item | OmniString,
+		ore: (Special.Item | OmniString)[]
+	) => {
 		event
 			.custom({
 				type: "mna:manaweaving-recipe",
@@ -291,7 +304,7 @@ function setRecipesMna(event: $RecipesEventJS) {
 				`setsu:mna/manaweaving/raw_${rarity}_${ore[0].replace(":", "_").replace("/", "_")}_transformation`
 			);
 	};
-	const mnaRawTrans = (output, ore) => {
+	const mnaRawTrans = (output: Special.Item, ore: OmniString) => {
 		oreWeaving("poor", output, [
 			`tfc:ore/poor_${ore}`,
 			`tfc:ore/poor_${ore}`,

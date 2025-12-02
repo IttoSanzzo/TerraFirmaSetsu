@@ -1,9 +1,15 @@
 // priority: 198
 
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
+import { ItemCol } from "../../HelpCollections/ItemCollections";
+import { addCreateMixing } from "../_helperFunctions";
 
-function setRecipesCreate(event: $RecipesEventJS) {
-	function createAddCutting(output, count, ingredient) {
+export function setRecipesCreate(event: $RecipesEventJS) {
+	function createAddCutting(
+		output: Special.Item | OmniString,
+		count: number,
+		ingredient: Special.Item | OmniString
+	) {
 		event
 			.custom({
 				type: "create:cutting",
@@ -24,7 +30,10 @@ function setRecipesCreate(event: $RecipesEventJS) {
 				`setsu:create/cutting/${ingredient.replace(":", ".").replace("/", ".")}/to/${output.replace(":", ".").replace("/", ".")}`
 			);
 	}
-	function createAddPressing(output, ingredient) {
+	function createAddPressing(
+		output: Special.Item | OmniString,
+		ingredient: Special.Item | OmniString
+	) {
 		event
 			.custom({
 				type: "create:pressing",
@@ -43,7 +52,11 @@ function setRecipesCreate(event: $RecipesEventJS) {
 				`setsu:create/pressing/${ingredient.replace(":", ".").replace("/", ".")}/to/${output.replace(":", ".").replace("/", ".")}`
 			);
 	}
-	function createAddRolling(output, count, ingredient) {
+	function createAddRolling(
+		output: Special.Item | OmniString,
+		count: number,
+		ingredient: Special.Item | OmniString
+	) {
 		event
 			.custom({
 				type: "createaddition:rolling",

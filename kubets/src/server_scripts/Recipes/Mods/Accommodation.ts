@@ -2,7 +2,7 @@
 
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
 
-function setRecipesAccommodation(event: $RecipesEventJS) {
+export function setRecipesAccommodation(event: $RecipesEventJS) {
 	event.remove({ id: "accommodation_:tatami_recipe" });
 	event.remove({ id: "accommodation_:tatami_rectangle_recipe" });
 
@@ -80,7 +80,7 @@ function setRecipesAccommodation(event: $RecipesEventJS) {
 		})
 		.id("setsu:accommodation_/shoji_middle");
 
-	function shojiWall(vanilla, tfc) {
+	function shojiWall(vanilla: string, tfc: string[]) {
 		tfc.forEach((lumber) => {
 			let lumberString = String(lumber);
 			let id = lumberString.substring(lumberString.search("lumber/") + 7);

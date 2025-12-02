@@ -3,9 +3,16 @@
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
 import { ItemCol } from "../../HelpCollections/ItemCollections";
 
-export function setClocheRecipes(event: $RecipesEventJS) {
+function setClocheRecipes(event: $RecipesEventJS) {
 	event.remove({ mod: "tfc_ie_addon", type: "immersiveengineering:cloche" });
-	function addClocheRecipe(output, amount, seed, soil, render, time) {
+	function addClocheRecipe(
+		output: Special.Item | OmniString,
+		amount: number,
+		seed: Special.Item | OmniString,
+		soil: Special.ItemTag | OmniString,
+		render: Special.Block | OmniString,
+		time: number
+	) {
 		event
 			.custom({
 				type: "immersiveengineering:cloche",
@@ -252,18 +259,15 @@ export function setClocheRecipes(event: $RecipesEventJS) {
 	);
 }
 
-function setRecipesImmersiveEngineering(event) {
+export function setRecipesImmersiveEngineering(event: $RecipesEventJS) {
 	event.remove({ id: "immersiveengineering:crafting/cokebrick" });
 
-	/**
-	 *
-	 * @param {string} outpu
-	 * @param {string} ingredient
-	 * @param {string} mold
-	 * @param {number} count
-	 */
-
-	const addMetalPress = (output, count, ingredient, mold) => {
+	const addMetalPress = (
+		output: Special.Item | OmniString,
+		count: number,
+		ingredient: Special.Item | OmniString,
+		mold: Special.Item | OmniString
+	) => {
 		event
 			.custom({
 				type: "immersiveengineering:metal_press",
@@ -285,12 +289,12 @@ function setRecipesImmersiveEngineering(event) {
 			);
 	};
 	const addArcFurnace = (
-		output,
-		count,
-		ingredient,
-		ingredientCount,
-		additive,
-		time
+		output: Special.Item | OmniString,
+		count: number,
+		ingredient: Special.Item | OmniString,
+		ingredientCount: number,
+		additive: Special.Item | OmniString,
+		time: number
 	) => {
 		event
 			.custom({
@@ -322,11 +326,11 @@ function setRecipesImmersiveEngineering(event) {
 			);
 	};
 	const addArcFurnaceNoAds = (
-		output,
-		count,
-		ingredient,
-		ingredientCount,
-		time
+		output: Special.Item | OmniString,
+		count: number,
+		ingredient: Special.Item | OmniString,
+		ingredientCount: number,
+		time: number
 	) => {
 		event
 			.custom({
@@ -651,7 +655,12 @@ function setRecipesImmersiveEngineering(event) {
 	 * Glass Chapter
 	 */
 
-	const addMixer = (output, ingredient, fluid, amount) => {
+	const addMixer = (
+		output: Special.Fluid | OmniString,
+		ingredient: Special.ItemTag | OmniString,
+		fluid: Special.FluidTag | OmniString,
+		amount: number
+	) => {
 		event
 			.custom({
 				type: "immersiveengineering:mixer",
@@ -664,7 +673,12 @@ function setRecipesImmersiveEngineering(event) {
 				`setsu:immersiveengineering/mixer/${ingredient.replace(":", ".").replace("/", ".")}/to/${output.replace(":", ".").replace("/", ".")}`
 			);
 	};
-	const addBottling = (output, ingredient, fluid, amount) => {
+	const addBottling = (
+		output: Special.Item | OmniString,
+		ingredient: Special.Item | OmniString,
+		fluid: Special.FluidTag | OmniString,
+		amount: number
+	) => {
 		event
 			.custom({
 				type: "immersiveengineering:bottling_machine",
@@ -676,7 +690,12 @@ function setRecipesImmersiveEngineering(event) {
 				`setsu:immersiveengineering/bottling/${ingredient.replace(":", ".").replace("/", ".")}/to/${output.replace(":", ".").replace("/", ".")}`
 			);
 	};
-	const addSawmill = (output, count, ingredient, secondary) => {
+	const addSawmill = (
+		output: Special.Item | OmniString,
+		count: number,
+		ingredient: Special.Item | OmniString,
+		secondary: Special.Item | OmniString
+	) => {
 		event
 			.custom({
 				type: "immersiveengineering:sawmill",

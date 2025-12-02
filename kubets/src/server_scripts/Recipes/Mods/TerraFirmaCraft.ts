@@ -1,8 +1,10 @@
 // priority: 198
 
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
+import { ItemCol } from "../../HelpCollections/ItemCollections";
+import { addDamageShapeless, tfcBucketRecipes } from "../_helperFunctions";
 
-function setRecipesTerraFirmaCraft(event: $RecipesEventJS) {
+export function setRecipesTerraFirmaCraft(event: $RecipesEventJS) {
 	event
 		.shapeless("9x kubejs:bismuth_bronze_nugget", [
 			"tfc:metal/ingot/bismuth_bronze",
