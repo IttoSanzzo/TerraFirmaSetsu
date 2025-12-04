@@ -3,6 +3,7 @@ import { $SoundEvent, $SoundEvent$$Type } from "packages/net/minecraft/sounds/$S
 import { $CompoundTag, $CompoundTag$$Type } from "packages/net/minecraft/nbt/$CompoundTag"
 import { $LazyOptional } from "packages/net/minecraftforge/common/util/$LazyOptional"
 import { $Component, $Component$$Type } from "packages/net/minecraft/network/chat/$Component"
+import { $LycheeFallingBlockEntity } from "packages/snownee/lychee/block_crushing/$LycheeFallingBlockEntity"
 import { $Direction } from "packages/net/minecraft/core/$Direction"
 import { $FallingBlockEntityAccessor } from "packages/net/dries007/tfc/mixin/accessor/$FallingBlockEntityAccessor"
 import { $FallingBlockEntityAccessor as $FallingBlockEntityAccessor$0 } from "packages/com/simibubi/create/foundation/mixin/accessor/$FallingBlockEntityAccessor"
@@ -34,7 +35,7 @@ import { $CallbackInfo$$Type } from "packages/org/spongepowered/asm/mixin/inject
 import { $EntityDimensions$$Type } from "packages/net/minecraft/world/entity/$EntityDimensions"
 import { $PartEntity } from "packages/net/minecraftforge/entity/$PartEntity"
 
-export class $FallingBlockEntity extends $Entity implements $FallingBlockEntityAccessor, $FallingBlockEntityAccessor$0 {
+export class $FallingBlockEntity extends $Entity implements $FallingBlockEntityAccessor, $LycheeFallingBlockEntity, $FallingBlockEntityAccessor$0 {
 constructor(entityType0: $EntityType$$Type<$FallingBlockEntity$$Type>, level1: $Level$$Type)
 
 public "alwaysAccepts"(): boolean
@@ -54,8 +55,8 @@ public "getBlockState"(): $BlockState
 public "getCapability"<T>(capability0: $Capability$$Type<T>): $LazyOptional<T>
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 /** @deprecated */
 public "getEyeHeightForge"(pose0: $Pose$$Type, entityDimensions1: $EntityDimensions$$Type): float
@@ -80,8 +81,8 @@ public "getStartPos"(): $BlockPos
 public "getStepHeight"(): float
 public "getTeamId"(): string
 public "getType"(): string
-public "handler$dma000$handleLand"(ci: $CallbackInfo$$Type, block: $Block$$Type, blockPos2: $BlockPos$$Type, bl: boolean, bl2: boolean, d: double, blockState: $BlockState$$Type): void
-public "handler$ejk000$stopTickingIfRemoved"(callbackInfo0: $CallbackInfo$$Type): void
+public "handler$eao000$handleLand"(ci: $CallbackInfo$$Type, block: $Block$$Type, blockPos2: $BlockPos$$Type, bl: boolean, bl2: boolean, d: double, blockState: $BlockState$$Type): void
+public "handler$epm000$stopTickingIfRemoved"(callbackInfo0: $CallbackInfo$$Type): void
 public "hasCustomOutlineRendering"(player0: $Player$$Type): boolean
 public "isAmbientCreature"(): boolean
 public "isAnimal"(): boolean
@@ -99,8 +100,11 @@ public "isPeacefulCreature"(): boolean
 public "isPlayer"(): boolean
 public "isPushedByFluid"(fluidType0: $FluidType$$Type): boolean
 public "isWaterCreature"(): boolean
+public "lychee$anvilDamageChance"(float0: float): void
+public "lychee$cancelDrop"(): void
+public "lychee$matched"(): void
 public "mergeNbt"(tag: $CompoundTag$$Type): $Entity
-public "modify$epa000$supplementaries$concreteFix"(original: $BlockPos$$Type): $BlockPos
+public "modify$ffc000$supplementaries$concreteFix"(original: $BlockPos$$Type): $BlockPos
 public "playSound"(id: $SoundEvent$$Type): void
 public "playSound"(id: $SoundEvent$$Type, volume: float, pitch: float): void
 public "rayTrace"(distance: double, fluids: boolean): $RayTraceResultJS
@@ -110,7 +114,6 @@ public "runCommandSilent"(command: string): integer
 public "sdl$isDynamicLightEnabled"(): boolean
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "self"(): $Entity
-public "serializeNBT"(): $CompoundTag
 public "setHexereiDynamicLightEnabled"(boolean0: boolean): void
 public "setHurtsEntities"(float0: float, int1: integer): void
 public "setMotionX"(x: double): void
@@ -221,7 +224,7 @@ import { $EntityDimensions$$Type } from "packages/net/minecraft/world/entity/$En
 import { $PartEntity } from "packages/net/minecraftforge/entity/$PartEntity"
 import { $DynamicLightSource } from "packages/toni/sodiumdynamiclights/$DynamicLightSource"
 
-export class $PrimedTnt extends $Entity implements $TraceableEntity, $TNTEntityAccess, $DynamicLightSource {
+export class $PrimedTnt extends $Entity implements $TraceableEntity, $DynamicLightSource, $TNTEntityAccess {
 constructor(entityType0: $EntityType$$Type<$PrimedTnt$$Type>, level1: $Level$$Type)
 constructor(level0: $Level$$Type, double1: double, double2: double, double3: double, livingEntity4: $LivingEntity$$Type)
 
@@ -238,8 +241,8 @@ public "getBlock"(): $BlockContainerJS
 public "getCapability"<T>(capability0: $Capability$$Type<T>): $LazyOptional<T>
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 /** @deprecated */
 public "getEyeHeightForge"(pose0: $Pose$$Type, entityDimensions1: $EntityDimensions$$Type): float
@@ -264,7 +267,7 @@ public "getSoundFromFluidType"(fluidType0: $FluidType$$Type, soundAction1: $Soun
 public "getStepHeight"(): float
 public "getTeamId"(): string
 public "getType"(): string
-public "handler$cll004$adastra$tick"(ci: $CallbackInfo$$Type): void
+public "handler$dam004$adastra$tick"(ci: $CallbackInfo$$Type): void
 public "hasCustomOutlineRendering"(player0: $Player$$Type): boolean
 public "isAmbientCreature"(): boolean
 public "isAnimal"(): boolean
@@ -298,7 +301,6 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $Entity
-public "serializeNBT"(): $CompoundTag
 public "setFuse"(int0: integer): void
 public "setHexereiDynamicLightEnabled"(boolean0: boolean): void
 public "setMotionX"(x: double): void
@@ -372,12 +374,15 @@ import { $LazyOptional } from "packages/net/minecraftforge/common/util/$LazyOpti
 import { $Component, $Component$$Type } from "packages/net/minecraft/network/chat/$Component"
 import { $ItemEntityAccess } from "packages/blusunrize/immersiveengineering/mixin/accessors/$ItemEntityAccess"
 import { $Direction } from "packages/net/minecraft/core/$Direction"
+import { $ItemEntityAccess as $ItemEntityAccess$0 } from "packages/snownee/lychee/mixin/$ItemEntityAccess"
 import { $ItemStack, $ItemStack$$Type } from "packages/net/minecraft/world/item/$ItemStack"
 import { $BlockContainerJS, $BlockContainerJS$$Type } from "packages/dev/latvian/mods/kubejs/level/$BlockContainerJS"
-import { $ResourceLocation$$Type } from "packages/net/minecraft/resources/$ResourceLocation"
+import { $ResourceLocation, $ResourceLocation$$Type } from "packages/net/minecraft/resources/$ResourceLocation"
 import { $ItemEntityKJS } from "packages/dev/latvian/mods/kubejs/core/$ItemEntityKJS"
+import { $Recipe$$Type } from "packages/net/minecraft/world/item/crafting/$Recipe"
 import { $CallbackInfoReturnable$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfoReturnable"
 import { $FluidState$$Type } from "packages/net/minecraft/world/level/material/$FluidState"
+import { $IItemEntity } from "packages/xaero/pac/common/entity/$IItemEntity"
 import { $TraceableEntity } from "packages/net/minecraft/world/entity/$TraceableEntity"
 import { $EntityType$$Type } from "packages/net/minecraft/world/entity/$EntityType"
 import { $Player$$Type } from "packages/net/minecraft/world/entity/player/$Player"
@@ -390,8 +395,8 @@ import { $FluidType$$Type } from "packages/net/minecraftforge/fluids/$FluidType"
 import { $Entity, $Entity$$Type } from "packages/net/minecraft/world/entity/$Entity"
 import { $EntityArrayList } from "packages/dev/latvian/mods/kubejs/player/$EntityArrayList"
 import { $BiPredicate$$Type } from "packages/java/util/function/$BiPredicate"
+import { $UUID, $UUID$$Type } from "packages/java/util/$UUID"
 import { $RayTraceResultJS } from "packages/dev/latvian/mods/kubejs/entity/$RayTraceResultJS"
-import { $UUID$$Type } from "packages/java/util/$UUID"
 import { $SoundAction$$Type } from "packages/net/minecraftforge/common/$SoundAction"
 import { $ScriptType } from "packages/dev/latvian/mods/kubejs/script/$ScriptType"
 import { $Level, $Level$$Type } from "packages/net/minecraft/world/level/$Level"
@@ -399,11 +404,12 @@ import { $Pose$$Type } from "packages/net/minecraft/world/entity/$Pose"
 import { $Capability$$Type } from "packages/net/minecraftforge/common/capabilities/$Capability"
 import { $HitResult$$Type } from "packages/net/minecraft/world/phys/$HitResult"
 import { $CallbackInfo$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfo"
+import { $LycheeCounter } from "packages/snownee/lychee/core/recipe/$LycheeCounter"
 import { $ItemEntityAccessor } from "packages/vazkii/botania/mixin/$ItemEntityAccessor"
 import { $EntityDimensions$$Type } from "packages/net/minecraft/world/entity/$EntityDimensions"
 import { $PartEntity } from "packages/net/minecraftforge/entity/$PartEntity"
 
-export class $ItemEntity extends $Entity implements $TraceableEntity, $ItemEntityAccessor, $ItemEntityAccess, $ItemEntityKJS {
+export class $ItemEntity extends $Entity implements $TraceableEntity, $ItemEntityAccessor, $ItemEntityKJS, $ItemEntityAccess, $ItemEntityAccess$0, $LycheeCounter, $IItemEntity {
 static readonly "LIFETIME": integer
 readonly "bobOffs": float
 
@@ -428,8 +434,8 @@ public "getBlock"(): $BlockContainerJS
 public "getCapability"<T>(capability0: $Capability$$Type<T>): $LazyOptional<T>
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 /** @deprecated */
 public "getEyeHeightForge"(pose0: $Pose$$Type, entityDimensions1: $EntityDimensions$$Type): float
@@ -458,8 +464,11 @@ public "getStepHeight"(): float
 public "getTeamId"(): string
 public "getTicksUntilDespawn"(): integer
 public "getType"(): string
-public "handler$cio000$mna$fireImmune"(callbackInfoReturnable0: $CallbackInfoReturnable$$Type<any>): void
-public "handler$cll004$adastra$tick"(ci: $CallbackInfo$$Type): void
+public "getXaero_OPAC_target"(): $UUID
+public "getXaero_OPAC_thrower"(): $UUID
+public "getXaero_OPAC_throwerAccessor"(): $UUID
+public "handler$cjj000$mna$fireImmune"(callbackInfoReturnable0: $CallbackInfoReturnable$$Type<any>): void
+public "handler$dam004$adastra$tick"(ci: $CallbackInfo$$Type): void
 public "hasCustomOutlineRendering"(player0: $Player$$Type): boolean
 public "hasPickUpDelay"(): boolean
 public "isAmbientCreature"(): boolean
@@ -479,6 +488,11 @@ public "isPeacefulCreature"(): boolean
 public "isPlayer"(): boolean
 public "isPushedByFluid"(fluidType0: $FluidType$$Type): boolean
 public "isWaterCreature"(): boolean
+public "lychee$getCount"(): integer
+public "lychee$getRecipeId"(): $ResourceLocation
+public "lychee$setCount"(int0: integer): void
+public "lychee$setRecipeId"(resourceLocation0: $ResourceLocation$$Type): void
+public "lychee$update"(resourceLocation0: $ResourceLocation$$Type, recipe1: $Recipe$$Type<any>): void
 public "makeFakeItem"(): void
 public static "merge"(itemStack0: $ItemStack$$Type, itemStack1: $ItemStack$$Type, int2: integer): $ItemStack
 public "mergeNbt"(tag: $CompoundTag$$Type): $Entity
@@ -491,7 +505,6 @@ public "runCommand"(command: string): integer
 public "runCommandSilent"(command: string): integer
 public "sdl$isDynamicLightEnabled"(): boolean
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
-public "serializeNBT"(): $CompoundTag
 public "setDefaultPickUpDelay"(): void
 public "setDefaultPickUpDelay"(): void
 public "setExtendedLifetime"(): void
@@ -518,6 +531,7 @@ public "setThrower"(uUID0: $UUID$$Type): void
 public "setTicksUntilDespawn"(ticks: integer): void
 public "setUnlimitedLifetime"(): void
 public "setX"(x: double): void
+public "setXaero_OPAC_throwerAccessor"(uUID0: $UUID$$Type): void
 public "setY"(y: double): void
 public "setZ"(z: double): void
 public "shouldRiderSit"(): boolean
@@ -530,6 +544,8 @@ get "age"(): integer
 set "age"(value: integer)
 get "lifespan"(): integer
 set "lifespan"(value: integer)
+get "pickupDelay"(): integer
+set "pickupDelay"(value: integer)
 get "block"(): $BlockContainerJS
 get "displayName"(): $Component
 get "facing"(): $Direction
@@ -551,6 +567,9 @@ get "stepHeight"(): float
 get "teamId"(): string
 get "ticksUntilDespawn"(): integer
 get "type"(): string
+get "xaero_OPAC_target"(): $UUID
+get "xaero_OPAC_thrower"(): $UUID
+get "xaero_OPAC_throwerAccessor"(): $UUID
 get "ambientCreature"(): boolean
 get "animal"(): boolean
 get "dynamicLightEnabledH"(): boolean
@@ -575,6 +594,7 @@ set "target"(value: $UUID$$Type)
 set "thrower"(value: $UUID$$Type)
 set "ticksUntilDespawn"(value: integer)
 set "x"(value: double)
+set "xaero_OPAC_throwerAccessor"(value: $UUID$$Type)
 set "y"(value: double)
 set "z"(value: double)
 }

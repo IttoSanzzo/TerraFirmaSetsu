@@ -41,8 +41,8 @@ public "pushTransformation"(transformation0: $Transformation$$Type): void
 public "rotateAround"(quaternionf0: $Quaternionf$$Type, float1: float, float2: float, float3: float): void
 public "scale"(float0: float, float1: float, float2: float): void
 public "setIdentity"(): void
-public "translate"(float0: float, float1: float, float2: float): void
 public "translate"(double0: double, double1: double, double2: double): void
+public "translate"(float0: float, float1: float, float2: float): void
 get "poseStack"(): $Deque<$PoseStack$Pose>
 set "poseStack"(value: $Deque$$Type<$PoseStack$Pose$$Type>)
 }
@@ -118,6 +118,31 @@ export abstract class $GlyphInfo$$Static implements $GlyphInfo {
 }
 }
 
+declare module "packages/com/mojang/blaze3d/platform/$GlStateManager$DestFactor" {
+import { $Enum } from "packages/java/lang/$Enum"
+
+export class $GlStateManager$DestFactor extends $Enum<$GlStateManager$DestFactor> {
+static readonly "CONSTANT_ALPHA": $GlStateManager$DestFactor
+static readonly "CONSTANT_COLOR": $GlStateManager$DestFactor
+static readonly "DST_ALPHA": $GlStateManager$DestFactor
+static readonly "DST_COLOR": $GlStateManager$DestFactor
+static readonly "ONE": $GlStateManager$DestFactor
+static readonly "ONE_MINUS_CONSTANT_ALPHA": $GlStateManager$DestFactor
+static readonly "ONE_MINUS_CONSTANT_COLOR": $GlStateManager$DestFactor
+static readonly "ONE_MINUS_DST_ALPHA": $GlStateManager$DestFactor
+static readonly "ONE_MINUS_DST_COLOR": $GlStateManager$DestFactor
+static readonly "ONE_MINUS_SRC_ALPHA": $GlStateManager$DestFactor
+static readonly "ONE_MINUS_SRC_COLOR": $GlStateManager$DestFactor
+static readonly "SRC_ALPHA": $GlStateManager$DestFactor
+static readonly "SRC_COLOR": $GlStateManager$DestFactor
+static readonly "ZERO": $GlStateManager$DestFactor
+readonly "value": integer
+
+public static "valueOf"(string0: string): $GlStateManager$DestFactor
+public static "values"(): $GlStateManager$DestFactor[]
+}
+}
+
 declare module "packages/com/mojang/blaze3d/shaders/$AbstractUniform" {
 import { $Vector4f$$Type } from "packages/org/joml/$Vector4f"
 import { $Vector3f$$Type } from "packages/org/joml/$Vector3f"
@@ -127,18 +152,18 @@ import { $Matrix3f$$Type } from "packages/org/joml/$Matrix3f"
 export class $AbstractUniform {
 constructor()
 
-public "set"(float0: float, float1: float, float2: float, float3: float): void
-public "set"(float0: float, float1: float, float2: float): void
-public "set"(int0: integer, int1: integer, int2: integer, int3: integer): void
-public "set"(int0: integer, int1: integer, int2: integer): void
+public "set"(vector3f0: $Vector3f$$Type): void
 public "set"(matrix4f0: $Matrix4f$$Type): void
 public "set"(float0s: float[]): void
-public "set"(vector3f0: $Vector3f$$Type): void
 public "set"(vector4f0: $Vector4f$$Type): void
-public "set"(matrix3f0: $Matrix3f$$Type): void
+public "set"(float0: float, float1: float, float2: float): void
+public "set"(float0: float, float1: float, float2: float, float3: float): void
+public "set"(int0: integer, int1: integer, int2: integer): void
+public "set"(int0: integer, int1: integer, int2: integer, int3: integer): void
 public "set"(float0: float): void
-public "set"(int0: integer): void
 public "set"(float0: float, float1: float): void
+public "set"(matrix3f0: $Matrix3f$$Type): void
+public "set"(int0: integer): void
 public "set"(int0: integer, int1: integer): void
 public "setMat2x2"(float0: float, float1: float, float2: float, float3: float): void
 public "setMat2x3"(float0: float, float1: float, float2: float, float3: float, float4: float, float5: float): void
@@ -186,8 +211,8 @@ export interface $BufferVertexConsumer extends $VertexConsumer {
 "applyBakedLighting"(int0: integer, byteBuffer1: $ByteBuffer$$Type): integer
 "applyBakedNormals"(vector3f0: $Vector3f$$Type, byteBuffer1: $ByteBuffer$$Type, matrix3f2: $Matrix3f$$Type): void
 "color"(int0: integer, int1: integer, int2: integer, int3: integer): $VertexConsumer
-"color"(float0: float, float1: float, float2: float, float3: float): $VertexConsumer
 "color"(int0: integer): $VertexConsumer
+"color"(float0: float, float1: float, float2: float, float3: float): $VertexConsumer
 "currentElement"(): $VertexFormatElement
 "defaultColor"(int0: integer, int1: integer, int2: integer, int3: integer): void
 "endVertex"(): void
@@ -198,8 +223,8 @@ export interface $BufferVertexConsumer extends $VertexConsumer {
 "overlayCoords"(int0: integer, int1: integer): $VertexConsumer
 "overlayCoords"(int0: integer): $VertexConsumer
 "putBulkData"(pose0: $PoseStack$Pose$$Type, bakedQuad1: $BakedQuad$$Type, float2: float, float3: float, float4: float, int5: integer, int6: integer): void
-"putBulkData"(pose0: $PoseStack$Pose$$Type, bakedQuad1: $BakedQuad$$Type, float2s: float[], float3: float, float4: float, float5: float, int6s: integer[], int7: integer, boolean8: boolean): void
 "putBulkData"(pose0: $PoseStack$Pose$$Type, bakedQuad1: $BakedQuad$$Type, float2s: float[], float3: float, float4: float, float5: float, float6: float, int7s: integer[], int8: integer, boolean9: boolean): void
+"putBulkData"(pose0: $PoseStack$Pose$$Type, bakedQuad1: $BakedQuad$$Type, float2s: float[], float3: float, float4: float, float5: float, int6s: integer[], int7: integer, boolean8: boolean): void
 "putBulkData"(pose0: $PoseStack$Pose$$Type, bakedQuad1: $BakedQuad$$Type, float2: float, float3: float, float4: float, float5: float, int6: integer, int7: integer, boolean8: boolean): void
 "putByte"(int0: integer, byte1: byte): void
 "putFloat"(int0: integer, float1: float): void
@@ -356,9 +381,9 @@ constructor()
 
 public "applyBakedLighting"(int0: integer, byteBuffer1: $ByteBuffer$$Type): integer
 public "applyBakedNormals"(vector3f0: $Vector3f$$Type, byteBuffer1: $ByteBuffer$$Type, matrix3f2: $Matrix3f$$Type): void
-public "color"(float0: float, float1: float, float2: float, float3: float): $VertexConsumer
 public "color"(int0: integer, int1: integer, int2: integer, int3: integer): $VertexConsumer
 public "color"(int0: integer): $VertexConsumer
+public "color"(float0: float, float1: float, float2: float, float3: float): $VertexConsumer
 public "defaultColor"(int0: integer, int1: integer, int2: integer, int3: integer): void
 public "endVertex"(): void
 public "misc"(vertexFormatElement0: $VertexFormatElement$$Type, ...int1s: integer[]): $VertexConsumer
@@ -367,16 +392,16 @@ public "normal"(matrix3f0: $Matrix3f$$Type, float1: float, float2: float, float3
 public "overlayCoords"(int0: integer): $VertexConsumer
 public "overlayCoords"(int0: integer, int1: integer): $VertexConsumer
 public "putBulkData"(pose0: $PoseStack$Pose$$Type, bakedQuad1: $BakedQuad$$Type, float2: float, float3: float, float4: float, int5: integer, int6: integer): void
-public "putBulkData"(pose0: $PoseStack$Pose$$Type, bakedQuad1: $BakedQuad$$Type, float2s: float[], float3: float, float4: float, float5: float, int6s: integer[], int7: integer, boolean8: boolean): void
 public "putBulkData"(pose0: $PoseStack$Pose$$Type, bakedQuad1: $BakedQuad$$Type, float2s: float[], float3: float, float4: float, float5: float, float6: float, int7s: integer[], int8: integer, boolean9: boolean): void
+public "putBulkData"(pose0: $PoseStack$Pose$$Type, bakedQuad1: $BakedQuad$$Type, float2s: float[], float3: float, float4: float, float5: float, int6s: integer[], int7: integer, boolean8: boolean): void
 public "putBulkData"(pose0: $PoseStack$Pose$$Type, bakedQuad1: $BakedQuad$$Type, float2: float, float3: float, float4: float, float5: float, int6: integer, int7: integer, boolean8: boolean): void
 public "unsetDefaultColor"(): void
 public "uv"(float0: float, float1: float): $VertexConsumer
 public "uv2"(int0: integer, int1: integer): $VertexConsumer
 public "uv2"(int0: integer): $VertexConsumer
-public "vertex"(double0: double, double1: double, double2: double): $VertexConsumer
 public "vertex"(float0: float, float1: float, float2: float, float3: float, float4: float, float5: float, float6: float, float7: float, float8: float, int9: integer, int10: integer, float11: float, float12: float, float13: float): void
 public "vertex"(matrix4f0: $Matrix4f$$Type, float1: float, float2: float, float3: float): $VertexConsumer
+public "vertex"(double0: double, double1: double, double2: double): $VertexConsumer
 get "defaultColorSet"(): boolean
 set "defaultColorSet"(value: boolean)
 }
@@ -457,8 +482,8 @@ public "beginBlock"(block: short, renderType: short, localPosX: integer, localPo
 public "building"(): boolean
 public "canUseIntrinsics"(): boolean
 public "clear"(): void
-public "color"(float0: float, float1: float, float2: float, float3: float): $VertexConsumer
 public "color"(int0: integer): $VertexConsumer
+public "color"(float0: float, float1: float, float2: float, float3: float): $VertexConsumer
 public static "copyInto"(vertexBufferWriter0: $VertexBufferWriter$$Type, memoryStack1: $MemoryStack$$Type, long2: long, int3: integer, vertexFormatDescription4: $VertexFormatDescription$$Type): void
 public "currentElement"(): $VertexFormatElement
 public "discard"(): void
@@ -486,7 +511,7 @@ public "iris$vertexCount"(): integer
 public "isCurrentBatchEmpty"(): boolean
 /** @deprecated */
 public "isFullWriter"(): boolean
-public "localvar$bgn000$vertex"(alpha: float): float
+public "localvar$bkj000$vertex"(alpha: float): float
 public "misc"(vertexFormatElement0: $VertexFormatElement$$Type, ...int1s: integer[]): $VertexConsumer
 public "nextElement"(): void
 public "normal"(float0: float, float1: float, float2: float): $VertexConsumer
@@ -763,6 +788,32 @@ public "releaseAlBuffer"(): $OptionalInt
 }
 }
 
+declare module "packages/com/mojang/blaze3d/platform/$GlStateManager$SourceFactor" {
+import { $Enum } from "packages/java/lang/$Enum"
+
+export class $GlStateManager$SourceFactor extends $Enum<$GlStateManager$SourceFactor> {
+static readonly "CONSTANT_ALPHA": $GlStateManager$SourceFactor
+static readonly "CONSTANT_COLOR": $GlStateManager$SourceFactor
+static readonly "DST_ALPHA": $GlStateManager$SourceFactor
+static readonly "DST_COLOR": $GlStateManager$SourceFactor
+static readonly "ONE": $GlStateManager$SourceFactor
+static readonly "ONE_MINUS_CONSTANT_ALPHA": $GlStateManager$SourceFactor
+static readonly "ONE_MINUS_CONSTANT_COLOR": $GlStateManager$SourceFactor
+static readonly "ONE_MINUS_DST_ALPHA": $GlStateManager$SourceFactor
+static readonly "ONE_MINUS_DST_COLOR": $GlStateManager$SourceFactor
+static readonly "ONE_MINUS_SRC_ALPHA": $GlStateManager$SourceFactor
+static readonly "ONE_MINUS_SRC_COLOR": $GlStateManager$SourceFactor
+static readonly "SRC_ALPHA": $GlStateManager$SourceFactor
+static readonly "SRC_ALPHA_SATURATE": $GlStateManager$SourceFactor
+static readonly "SRC_COLOR": $GlStateManager$SourceFactor
+static readonly "ZERO": $GlStateManager$SourceFactor
+readonly "value": integer
+
+public static "valueOf"(string0: string): $GlStateManager$SourceFactor
+public static "values"(): $GlStateManager$SourceFactor[]
+}
+}
+
 declare module "packages/com/mojang/blaze3d/platform/$VideoMode" {
 import { $GLFWVidMode$$Type } from "packages/org/lwjgl/glfw/$GLFWVidMode"
 import { $Optional } from "packages/java/util/$Optional"
@@ -972,9 +1023,9 @@ import { $BakedQuad$$Type } from "packages/net/minecraft/client/renderer/block/m
 export interface $VertexConsumer extends $IForgeVertexConsumer {
 "applyBakedLighting"(int0: integer, byteBuffer1: $ByteBuffer$$Type): integer
 "applyBakedNormals"(vector3f0: $Vector3f$$Type, byteBuffer1: $ByteBuffer$$Type, matrix3f2: $Matrix3f$$Type): void
-"color"(float0: float, float1: float, float2: float, float3: float): $VertexConsumer
 "color"(int0: integer, int1: integer, int2: integer, int3: integer): $VertexConsumer
 "color"(int0: integer): $VertexConsumer
+"color"(float0: float, float1: float, float2: float, float3: float): $VertexConsumer
 "defaultColor"(int0: integer, int1: integer, int2: integer, int3: integer): void
 "endVertex"(): void
 "misc"(vertexFormatElement0: $VertexFormatElement$$Type, ...int1s: integer[]): $VertexConsumer
@@ -983,16 +1034,16 @@ export interface $VertexConsumer extends $IForgeVertexConsumer {
 "overlayCoords"(int0: integer): $VertexConsumer
 "overlayCoords"(int0: integer, int1: integer): $VertexConsumer
 "putBulkData"(pose0: $PoseStack$Pose$$Type, bakedQuad1: $BakedQuad$$Type, float2: float, float3: float, float4: float, int5: integer, int6: integer): void
-"putBulkData"(pose0: $PoseStack$Pose$$Type, bakedQuad1: $BakedQuad$$Type, float2s: float[], float3: float, float4: float, float5: float, int6s: integer[], int7: integer, boolean8: boolean): void
 "putBulkData"(pose0: $PoseStack$Pose$$Type, bakedQuad1: $BakedQuad$$Type, float2s: float[], float3: float, float4: float, float5: float, float6: float, int7s: integer[], int8: integer, boolean9: boolean): void
+"putBulkData"(pose0: $PoseStack$Pose$$Type, bakedQuad1: $BakedQuad$$Type, float2s: float[], float3: float, float4: float, float5: float, int6s: integer[], int7: integer, boolean8: boolean): void
 "putBulkData"(pose0: $PoseStack$Pose$$Type, bakedQuad1: $BakedQuad$$Type, float2: float, float3: float, float4: float, float5: float, int6: integer, int7: integer, boolean8: boolean): void
 "unsetDefaultColor"(): void
 "uv"(float0: float, float1: float): $VertexConsumer
 "uv2"(int0: integer, int1: integer): $VertexConsumer
 "uv2"(int0: integer): $VertexConsumer
-"vertex"(double0: double, double1: double, double2: double): $VertexConsumer
 "vertex"(float0: float, float1: float, float2: float, float3: float, float4: float, float5: float, float6: float, float7: float, float8: float, int9: integer, int10: integer, float11: float, float12: float, float13: float): void
 "vertex"(matrix4f0: $Matrix4f$$Type, float1: float, float2: float, float3: float): $VertexConsumer
+"vertex"(double0: double, double1: double, double2: double): $VertexConsumer
 }
 
 export namespace $VertexConsumer {
@@ -1273,19 +1324,19 @@ public "getWidth"(): integer
 /** @deprecated */
 public "makePixelArray"(): integer[]
 public "mappedCopy"(intUnaryOperator0: $IntUnaryOperator$$Type): $NativeImage
+public static "read"(inputStream0: $InputStream$$Type): $NativeImage
 public static "read"(format0: $NativeImage$Format$$Type, byteBuffer1: $ByteBuffer$$Type): $NativeImage
 public static "read"(byteBuffer0: $ByteBuffer$$Type): $NativeImage
 public static "read"(format0: $NativeImage$Format$$Type, inputStream1: $InputStream$$Type): $NativeImage
 public static "read"(byte0s: byte[]): $NativeImage
-public static "read"(inputStream0: $InputStream$$Type): $NativeImage
 public "resizeSubRectTo"(int0: integer, int1: integer, int2: integer, int3: integer, nativeImage4: $NativeImage$$Type): void
 public "setPixelLuminance"(int0: integer, int1: integer, byte2: byte): void
 public "setPixelRGBA"(int0: integer, int1: integer, int2: integer): void
 public "skinlayers$isAllocated"(): boolean
 public "untrack"(): void
+public "upload"(int0: integer, int1: integer, int2: integer, int3: integer, int4: integer, int5: integer, int6: integer, boolean7: boolean, boolean8: boolean, boolean9: boolean, boolean10: boolean): void
 public "upload"(int0: integer, int1: integer, int2: integer, int3: integer, int4: integer, int5: integer, int6: integer, boolean7: boolean, boolean8: boolean): void
 public "upload"(int0: integer, int1: integer, int2: integer, boolean3: boolean): void
-public "upload"(int0: integer, int1: integer, int2: integer, int3: integer, int4: integer, int5: integer, int6: integer, boolean7: boolean, boolean8: boolean, boolean9: boolean, boolean10: boolean): void
 public "writeToFile"(path0: $Path$$Type): void
 public "writeToFile"(file0: $File$$Type): void
 get "pixels"(): long
@@ -1335,7 +1386,7 @@ public "getWidth"(): integer
 public "getWindow"(): long
 public "getX"(): integer
 public "getY"(): integer
-public "handler$fhd000$startQuartz"(windowEventHandler0: $WindowEventHandler$$Type, screenManager1: $ScreenManager$$Type, displayData2: $DisplayData$$Type, string3: string, string4: string, callbackInfo5: $CallbackInfo$$Type): void
+public "handler$fng000$startQuartz"(windowEventHandler0: $WindowEventHandler$$Type, screenManager1: $ScreenManager$$Type, displayData2: $DisplayData$$Type, string3: string, string4: string, callbackInfo5: $CallbackInfo$$Type): void
 public "isFullscreen"(): boolean
 public "kjs$loadIcons"(original: $List$$Type<$IoSupplier$$Type<$InputStream$$Type>>): $List<$IoSupplier<$InputStream>>
 public "setDefaultErrorCallback"(): void

@@ -34,8 +34,8 @@ constructor()
 
 public "addLake"(p: $Consumer$$Type<$AddLakeProperties$$Type>): void
 public "addOre"(p: $Consumer$$Type<$AddOreProperties$$Type>): void
-public "addSpawn"(category: $MobCategory$$Type, spawn: string): void
 public "addSpawn"(filter: $BiomeFilter$$Type, category: $MobCategory$$Type, spawn: string): void
+public "addSpawn"(category: $MobCategory$$Type, spawn: string): void
 public "addSpawn"(p: $Consumer$$Type<$AddSpawnProperties$$Type>): void
 }
 }
@@ -78,8 +78,8 @@ public "getBlockState"(): $BlockState
 public "getCanSeeSky"(): boolean
 public "getDimension"(): $ResourceLocation
 public "getDown"(): $BlockContainerJS
-public "getDrops"(): $List<$ItemStack>
 public "getDrops"(entity: $Entity$$Type, heldItem: $ItemStack$$Type): $List<$ItemStack>
+public "getDrops"(): $List<$ItemStack>
 public "getEast"(): $BlockContainerJS
 public "getEntity"(): $BlockEntity
 public "getEntityData"(): $CompoundTag
@@ -117,9 +117,9 @@ public "set"(id: $ResourceLocation$$Type, properties: $Map$$Type<any, any>, flag
 public "setBlockState"(state: $BlockState$$Type, flags: integer): void
 public "setEntityData"(tag: $CompoundTag$$Type): void
 public "spawnFireworks"(fireworks: $FireworksJS$$Type): void
-public "spawnLightning"(): void
-public "spawnLightning"(effectOnly: boolean, player: $ServerPlayer$$Type): void
 public "spawnLightning"(effectOnly: boolean): void
+public "spawnLightning"(effectOnly: boolean, player: $ServerPlayer$$Type): void
+public "spawnLightning"(): void
 public "specialEquals"(o: any, shallow: boolean): boolean
 get "biomeId"(): $ResourceLocation
 get "blockLight"(): integer
@@ -464,17 +464,17 @@ public "printFeatures"(type: $GenerationStep$Decoration$$Type): void
 public "printFeatures"(): void
 public "printFeatures"(type: $GenerationStep$Decoration$$Type, filter: $BiomeFilter$$Type): void
 public "printFeaturesForType"(type: $GenerationStep$Decoration$$Type, filter: $BiomeFilter$$Type, afterRemoval: boolean): void
-public "printFiltered"(type: $GenerationStep$Decoration$$Type): void
 public "printFiltered"(type: $GenerationStep$Decoration$$Type, filter: $BiomeFilter$$Type): void
 public "printFiltered"(): void
-public "printSpawns"(): void
+public "printFiltered"(type: $GenerationStep$Decoration$$Type): void
 public "printSpawns"(category: $MobCategory$$Type): void
+public "printSpawns"(): void
+public "removeAllFeatures"(): void
 public "removeAllFeatures"(filter: $BiomeFilter$$Type, type: $GenerationStep$Decoration$$Type): void
 public "removeAllFeatures"(filter: $BiomeFilter$$Type): void
-public "removeAllFeatures"(): void
 public "removeAllSpawns"(): void
-public "removeFeatureById"(filter: $BiomeFilter$$Type, decoration: $GenerationStep$Decoration$$Type, ids: $ResourceLocation$$Type[]): void
 public "removeFeatureById"(type: $GenerationStep$Decoration$$Type, ids: $ResourceLocation$$Type[]): void
+public "removeFeatureById"(filter: $BiomeFilter$$Type, decoration: $GenerationStep$Decoration$$Type, ids: $ResourceLocation$$Type[]): void
 public "removeOres"(p: $Consumer$$Type<$RemoveOresProperties$$Type>): void
 public "removeSpawns"(p: $Consumer$$Type<$RemoveSpawnsProperties$$Type>): void
 }

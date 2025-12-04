@@ -211,8 +211,8 @@ import { $IKeyEntryRenderEvent } from "packages/com/blamejared/controlling/api/e
 import { $GuiGraphics, $GuiGraphics$$Type } from "packages/net/minecraft/client/gui/$GuiGraphics"
 
 export class $KeyEntryRenderEvent extends $Event implements $IKeyEntryRenderEvent {
-constructor()
 constructor(keyEntry0: $NewKeyBindsList$KeyEntry$$Type, guiGraphics1: $GuiGraphics$$Type, int2: integer, int3: integer, int4: integer, int5: integer, int6: integer, int7: integer, int8: integer, boolean9: boolean, float10: float)
+constructor()
 
 public "getEntry"(): $NewKeyBindsList$KeyEntry
 public "getGuiGraphics"(): $GuiGraphics

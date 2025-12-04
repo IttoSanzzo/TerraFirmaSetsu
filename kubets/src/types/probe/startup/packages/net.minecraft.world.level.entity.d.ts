@@ -102,6 +102,17 @@ export type $LevelEntityGetter_<T extends $EntityAccess> = $LevelEntityGetter$$T
 }
 }
 
+declare module "packages/net/minecraft/world/level/entity/$TransientEntitySectionManager" {
+import { $EntityAccess, $EntityAccess$$Type } from "packages/net/minecraft/world/level/entity/$EntityAccess"
+
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $TransientEntitySectionManager$$Type<T extends $EntityAccess> = ($TransientEntitySectionManager<T>);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $TransientEntitySectionManager_<T extends $EntityAccess> = $TransientEntitySectionManager$$Type<T>;
+}
+}
+
 declare module "packages/net/minecraft/world/level/entity/$EntityPersistentStorage" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */

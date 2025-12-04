@@ -88,14 +88,14 @@ constructor(properties0: $FluidType$Properties$$Type)
 
 public "canBePlacedInLevel"(blockAndTintGetter0: $BlockAndTintGetter$$Type, blockPos1: $BlockPos$$Type, fluidStack2: $FluidStack$$Type): boolean
 public "canBePlacedInLevel"(blockAndTintGetter0: $BlockAndTintGetter$$Type, blockPos1: $BlockPos$$Type, fluidState2: $FluidState$$Type): boolean
-public "canConvertToSource"(fluidStack0: $FluidStack$$Type): boolean
 public "canConvertToSource"(fluidState0: $FluidState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): boolean
+public "canConvertToSource"(fluidStack0: $FluidStack$$Type): boolean
 public "canDrownIn"(livingEntity0: $LivingEntity$$Type): boolean
-public "canExtinguish"(entity0: $Entity$$Type): boolean
 public "canExtinguish"(fluidState0: $FluidState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): boolean
-public "canHydrate"(fluidStack0: $FluidStack$$Type): boolean
+public "canExtinguish"(entity0: $Entity$$Type): boolean
 public "canHydrate"(entity0: $Entity$$Type): boolean
 public "canHydrate"(fluidState0: $FluidState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, blockState3: $BlockState$$Type, blockPos4: $BlockPos$$Type): boolean
+public "canHydrate"(fluidStack0: $FluidStack$$Type): boolean
 public "canPushEntity"(entity0: $Entity$$Type): boolean
 public "canRideVehicleUnder"(entity0: $Entity$$Type, entity1: $Entity$$Type): boolean
 public "canSwim"(entity0: $Entity$$Type): boolean
@@ -103,30 +103,30 @@ public "getAdjacentBlockPathType"(fluidState0: $FluidState$$Type, blockGetter1: 
 public "getBlockForFluidState"(blockAndTintGetter0: $BlockAndTintGetter$$Type, blockPos1: $BlockPos$$Type, fluidState2: $FluidState$$Type): $BlockState
 public "getBlockPathType"(fluidState0: $FluidState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, mob3: $Mob$$Type, boolean4: boolean): $BlockPathTypes
 public "getBucket"(fluidStack0: $FluidStack$$Type): $ItemStack
+public "getDensity"(fluidState0: $FluidState$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type): integer
 public "getDensity"(fluidStack0: $FluidStack$$Type): integer
 public "getDensity"(): integer
-public "getDensity"(fluidState0: $FluidState$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type): integer
 public "getDescription"(fluidStack0: $FluidStack$$Type): $Component
 public "getDescription"(): $Component
 public "getDescriptionId"(): string
 public "getDescriptionId"(fluidStack0: $FluidStack$$Type): string
 public "getFallDistanceModifier"(entity0: $Entity$$Type): float
-public "getLightLevel"(fluidState0: $FluidState$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type): integer
 public "getLightLevel"(fluidStack0: $FluidStack$$Type): integer
 public "getLightLevel"(): integer
+public "getLightLevel"(fluidState0: $FluidState$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type): integer
 public "getRarity"(): $Rarity
 public "getRarity"(fluidStack0: $FluidStack$$Type): $Rarity
 public "getRenderPropertiesInternal"(): any
-public "getSound"(player0: $Player$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, soundAction3: $SoundAction$$Type): $SoundEvent
 public "getSound"(fluidStack0: $FluidStack$$Type, soundAction1: $SoundAction$$Type): $SoundEvent
 public "getSound"(entity0: $Entity$$Type, soundAction1: $SoundAction$$Type): $SoundEvent
 public "getSound"(soundAction0: $SoundAction$$Type): $SoundEvent
+public "getSound"(player0: $Player$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, soundAction3: $SoundAction$$Type): $SoundEvent
 public "getStateForPlacement"(blockAndTintGetter0: $BlockAndTintGetter$$Type, blockPos1: $BlockPos$$Type, fluidStack2: $FluidStack$$Type): $FluidState
-public "getTemperature"(): integer
 public "getTemperature"(fluidStack0: $FluidStack$$Type): integer
+public "getTemperature"(): integer
 public "getTemperature"(fluidState0: $FluidState$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type): integer
-public "getViscosity"(fluidState0: $FluidState$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type): integer
 public "getViscosity"(fluidStack0: $FluidStack$$Type): integer
+public "getViscosity"(fluidState0: $FluidState$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type): integer
 public "getViscosity"(): integer
 public "initializeClient"(consumer0: $Consumer$$Type<$IClientFluidTypeExtensions$$Type>): void
 public "isAir"(): boolean
@@ -138,8 +138,8 @@ public "move"(fluidState0: $FluidState$$Type, livingEntity1: $LivingEntity$$Type
 public "onVaporize"(player0: $Player$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, fluidStack3: $FluidStack$$Type): void
 public "setItemMovement"(itemEntity0: $ItemEntity$$Type): void
 public "shouldUpdateWhileBoating"(fluidState0: $FluidState$$Type, boat1: $Boat$$Type, entity2: $Entity$$Type): boolean
-public "supportsBoating"(boat0: $Boat$$Type): boolean
 public "supportsBoating"(fluidState0: $FluidState$$Type, boat1: $Boat$$Type): boolean
+public "supportsBoating"(boat0: $Boat$$Type): boolean
 get "density"(): integer
 get "description"(): $Component
 get "descriptionId"(): string
@@ -222,8 +222,8 @@ import { $FluidStack, $FluidStack$$Type } from "packages/net/minecraftforge/flui
 import { $IFluidHandler$FluidAction$$Type } from "packages/net/minecraftforge/fluids/capability/$IFluidHandler$FluidAction"
 
 export interface $IFluidHandler {
-"drain"(int0: integer, fluidAction1: $IFluidHandler$FluidAction$$Type): $FluidStack
 "drain"(fluidStack0: $FluidStack$$Type, fluidAction1: $IFluidHandler$FluidAction$$Type): $FluidStack
+"drain"(int0: integer, fluidAction1: $IFluidHandler$FluidAction$$Type): $FluidStack
 "fill"(fluidStack0: $FluidStack$$Type, fluidAction1: $IFluidHandler$FluidAction$$Type): integer
 "getFluidInTank"(int0: integer): $FluidStack
 "getTankCapacity"(int0: integer): integer

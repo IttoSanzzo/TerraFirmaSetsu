@@ -240,8 +240,8 @@ import { $Event } from "packages/net/minecraftforge/eventbus/api/$Event"
 import { $LivingEntity, $LivingEntity$$Type } from "packages/net/minecraft/world/entity/$LivingEntity"
 
 export class $AttributeChangedValueEvent extends $Event {
-constructor(livingEntity0: $LivingEntity$$Type, attributeInstance1: $AttributeInstance$$Type, double2: double, double3: double)
 constructor()
+constructor(livingEntity0: $LivingEntity$$Type, attributeInstance1: $AttributeInstance$$Type, double2: double, double3: double)
 
 public "getAttributeInstance"(): $AttributeInstance
 public "getEntity"(): $LivingEntity

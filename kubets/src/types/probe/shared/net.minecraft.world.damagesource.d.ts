@@ -15,8 +15,8 @@ export class $DamageSource implements $DamageSourceExtension {
 constructor(holder0: $Holder$$Type<$DamageType$$Type>, vec31: $Vec3$$Type)
 constructor(holder0: $Holder$$Type<$DamageType$$Type>, entity1: $Entity$$Type, entity2: $Entity$$Type)
 constructor(holder0: $Holder$$Type<$DamageType$$Type>, entity1: $Entity$$Type, entity2: $Entity$$Type, vec33: $Vec3$$Type)
-constructor(holder0: $Holder$$Type<$DamageType$$Type>)
 constructor(holder0: $Holder$$Type<$DamageType$$Type>, entity1: $Entity$$Type)
+constructor(holder0: $Holder$$Type<$DamageType$$Type>)
 
 public "addTag"(tagKey0: $TagKey$$Type<any>): void
 public "getActual"(): $Entity
@@ -26,7 +26,7 @@ public "getLocalizedDeathMessage"(livingEntity0: $LivingEntity$$Type): $Componen
 public "getPlayer"(): $Player
 public "getSourcePosition"(): $Vec3
 public "getType"(): string
-public "handler$zje000$apoth_isSourceInExtraTags"(tagKey0: $TagKey$$Type<any>, callbackInfoReturnable1: $CallbackInfoReturnable$$Type<any>): void
+public "handler$zna000$apoth_isSourceInExtraTags"(tagKey0: $TagKey$$Type<any>, callbackInfoReturnable1: $CallbackInfoReturnable$$Type<any>): void
 public "is"(tagKey0: $TagKey$$Type<$DamageType$$Type>): boolean
 public "is"(resourceKey0: $ResourceKey$$Type<$DamageType>): boolean
 public "isCreativePlayer"(): boolean
@@ -129,8 +129,8 @@ public "cramming"(): $DamageSource
 public "dragonBreath"(): $DamageSource
 public "drown"(): $DamageSource
 public "dryOut"(): $DamageSource
-public "explosion"(explosion0: $Explosion$$Type): $DamageSource
 public "explosion"(entity0: $Entity$$Type, entity1: $Entity$$Type): $DamageSource
+public "explosion"(explosion0: $Explosion$$Type): $DamageSource
 public "fall"(): $DamageSource
 public "fallingBlock"(entity0: $Entity$$Type): $DamageSource
 public "fallingStalactite"(entity0: $Entity$$Type): $DamageSource
@@ -155,8 +155,8 @@ public "onFire"(): $DamageSource
 public "outOfBorder"(): $DamageSource
 public "playerAttack"(player0: $Player$$Type): $DamageSource
 public "sonicBoom"(entity0: $Entity$$Type): $DamageSource
-public "source"(resourceKey0: $ResourceKey$$Type<$DamageType>): $DamageSource
 public "source"(resourceKey0: $ResourceKey$$Type<$DamageType>, entity1: $Entity$$Type): $DamageSource
+public "source"(resourceKey0: $ResourceKey$$Type<$DamageType>): $DamageSource
 public "source"(resourceKey0: $ResourceKey$$Type<$DamageType>, entity1: $Entity$$Type, entity2: $Entity$$Type): $DamageSource
 public "stalagmite"(): $DamageSource
 public "starve"(): $DamageSource

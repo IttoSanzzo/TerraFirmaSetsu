@@ -61,11 +61,13 @@ export interface $Char2FloatFunction extends $Function$0<character, float>, $Int
 "composeObject"<T>(object2CharFunction0: $Object2CharFunction$$Type<T>): $Object2FloatFunction<T>
 "composeReference"<T>(reference2CharFunction0: $Reference2CharFunction$$Type<T>): $Reference2FloatFunction<T>
 "composeShort"(short2CharFunction0: $Short2CharFunction$$Type): $Short2FloatFunction
-"containsKey"(char0: character): boolean
 /** @deprecated */
 "containsKey"(object0: any): boolean
+"containsKey"(char0: character): boolean
 "defaultReturnValue"(): float
 "defaultReturnValue"(float0: float): void
+/** @deprecated */
+"get"(object0: any): float
 "get"(char0: character): float
 /** @deprecated */
 "getOrDefault"(object0: any, float1: float): float
@@ -74,6 +76,8 @@ export interface $Char2FloatFunction extends $Function$0<character, float>, $Int
 /** @deprecated */
 "put"(character0: character, float1: float): float
 "remove"(char0: character): float
+/** @deprecated */
+"remove"(object0: any): float
 "size"(): integer
 }
 
@@ -135,11 +139,11 @@ export interface $Char2CharFunction extends $Function<character, character>, $In
 "composeObject"<T>(object2CharFunction0: $Object2CharFunction$$Type<T>): $Object2CharFunction<T>
 "composeReference"<T>(reference2CharFunction0: $Reference2CharFunction$$Type<T>): $Reference2CharFunction<T>
 "composeShort"(short2CharFunction0: $Short2CharFunction$$Type): $Short2CharFunction
-"containsKey"(char0: character): boolean
 /** @deprecated */
 "containsKey"(object0: any): boolean
-"defaultReturnValue"(char0: character): void
+"containsKey"(char0: character): boolean
 "defaultReturnValue"(): character
+"defaultReturnValue"(char0: character): void
 "get"(char0: character): character
 /** @deprecated */
 "getOrDefault"(object0: any, character1: character): character
@@ -226,24 +230,22 @@ export interface $Char2BooleanFunction extends $Function$0<character, boolean>, 
 "composeObject"<T>(object2CharFunction0: $Object2CharFunction$$Type<T>): $Object2BooleanFunction<T>
 "composeReference"<T>(reference2CharFunction0: $Reference2CharFunction$$Type<T>): $Reference2BooleanFunction<T>
 "composeShort"(short2CharFunction0: $Short2CharFunction$$Type): $Short2BooleanFunction
+"containsKey"(char0: character): boolean
 /** @deprecated */
 "containsKey"(object0: any): boolean
-"containsKey"(char0: character): boolean
 "defaultReturnValue"(): boolean
 "defaultReturnValue"(boolean0: boolean): void
 /** @deprecated */
 "get"(object0: any): boolean
 "get"(char0: character): boolean
-"getOrDefault"(char0: character, boolean1: boolean): boolean
 /** @deprecated */
 "getOrDefault"(object0: any, boolean1: boolean): boolean
+"getOrDefault"(char0: character, boolean1: boolean): boolean
 "negate"(): $IntPredicate
 "or"(intPredicate0: $IntPredicate$$Type): $IntPredicate
 /** @deprecated */
 "put"(character0: character, boolean1: boolean): boolean
 "put"(char0: character, boolean1: boolean): boolean
-/** @deprecated */
-"remove"(object0: any): boolean
 "remove"(char0: character): boolean
 "size"(): integer
 /** @deprecated */
@@ -323,14 +325,14 @@ export interface $Char2ReferenceFunction<V> extends $Function$0<character, V>, $
 /** @deprecated */
 "containsKey"(object0: any): boolean
 "containsKey"(char0: character): boolean
-"defaultReturnValue"(v0: V): void
 "defaultReturnValue"(): V
+"defaultReturnValue"(v0: V): void
 /** @deprecated */
 "get"(object0: any): V
 "get"(char0: character): V
+"getOrDefault"(char0: character, v1: V): V
 /** @deprecated */
 "getOrDefault"(object0: any, v1: V): V
-"getOrDefault"(char0: character, v1: V): V
 /** @deprecated */
 "put"(character0: character, v1: V): V
 "put"(char0: character, v1: V): V
@@ -411,11 +413,13 @@ export interface $Char2LongFunction extends $Function$0<character, long>, $IntTo
 "composeObject"<T>(object2CharFunction0: $Object2CharFunction$$Type<T>): $Object2LongFunction<T>
 "composeReference"<T>(reference2CharFunction0: $Reference2CharFunction$$Type<T>): $Reference2LongFunction<T>
 "composeShort"(short2CharFunction0: $Short2CharFunction$$Type): $Short2LongFunction
-"containsKey"(char0: character): boolean
 /** @deprecated */
 "containsKey"(object0: any): boolean
+"containsKey"(char0: character): boolean
 "defaultReturnValue"(): long
 "defaultReturnValue"(long0: long): void
+/** @deprecated */
+"get"(object0: any): long
 "get"(char0: character): long
 /** @deprecated */
 "getOrDefault"(object0: any, long1: long): long
@@ -424,6 +428,8 @@ export interface $Char2LongFunction extends $Function$0<character, long>, $IntTo
 /** @deprecated */
 "put"(character0: character, long1: long): long
 "remove"(char0: character): long
+/** @deprecated */
+"remove"(object0: any): long
 "size"(): integer
 }
 
@@ -500,11 +506,13 @@ export interface $Char2ShortFunction extends $Function$0<character, short>, $Int
 "composeObject"<T>(object2CharFunction0: $Object2CharFunction$$Type<T>): $Object2ShortFunction<T>
 "composeReference"<T>(reference2CharFunction0: $Reference2CharFunction$$Type<T>): $Reference2ShortFunction<T>
 "composeShort"(short2CharFunction0: $Short2CharFunction$$Type): $Short2ShortFunction
-"containsKey"(char0: character): boolean
 /** @deprecated */
 "containsKey"(object0: any): boolean
+"containsKey"(char0: character): boolean
 "defaultReturnValue"(): short
 "defaultReturnValue"(short0: short): void
+/** @deprecated */
+"get"(object0: any): short
 "get"(char0: character): short
 /** @deprecated */
 "getOrDefault"(object0: any, short1: short): short
@@ -513,6 +521,8 @@ export interface $Char2ShortFunction extends $Function$0<character, short>, $Int
 /** @deprecated */
 "put"(character0: character, short1: short): short
 "remove"(char0: character): short
+/** @deprecated */
+"remove"(object0: any): short
 "size"(): integer
 }
 
@@ -589,11 +599,13 @@ export interface $Char2ByteFunction extends $Function$0<character, byte>, $IntUn
 "composeObject"<T>(object2CharFunction0: $Object2CharFunction$$Type<T>): $Object2ByteFunction<T>
 "composeReference"<T>(reference2CharFunction0: $Reference2CharFunction$$Type<T>): $Reference2ByteFunction<T>
 "composeShort"(short2CharFunction0: $Short2CharFunction$$Type): $Short2ByteFunction
-"containsKey"(char0: character): boolean
 /** @deprecated */
 "containsKey"(object0: any): boolean
+"containsKey"(char0: character): boolean
 "defaultReturnValue"(): byte
 "defaultReturnValue"(byte0: byte): void
+/** @deprecated */
+"get"(object0: any): byte
 "get"(char0: character): byte
 /** @deprecated */
 "getOrDefault"(object0: any, byte1: byte): byte
@@ -602,6 +614,8 @@ export interface $Char2ByteFunction extends $Function$0<character, byte>, $IntUn
 /** @deprecated */
 "put"(character0: character, byte1: byte): byte
 "remove"(char0: character): byte
+/** @deprecated */
+"remove"(object0: any): byte
 "size"(): integer
 }
 
@@ -678,11 +692,13 @@ export interface $Char2IntFunction extends $Function$0<character, integer>, $Int
 "composeObject"<T>(object2CharFunction0: $Object2CharFunction$$Type<T>): $Object2IntFunction<T>
 "composeReference"<T>(reference2CharFunction0: $Reference2CharFunction$$Type<T>): $Reference2IntFunction<T>
 "composeShort"(short2CharFunction0: $Short2CharFunction$$Type): $Short2IntFunction
-"containsKey"(char0: character): boolean
 /** @deprecated */
 "containsKey"(object0: any): boolean
+"containsKey"(char0: character): boolean
 "defaultReturnValue"(): integer
 "defaultReturnValue"(int0: integer): void
+/** @deprecated */
+"get"(object0: any): integer
 "get"(char0: character): integer
 /** @deprecated */
 "getOrDefault"(object0: any, integer1: integer): integer
@@ -691,6 +707,8 @@ export interface $Char2IntFunction extends $Function$0<character, integer>, $Int
 /** @deprecated */
 "put"(character0: character, integer1: integer): integer
 "remove"(char0: character): integer
+/** @deprecated */
+"remove"(object0: any): integer
 "size"(): integer
 }
 
@@ -765,11 +783,13 @@ export interface $Char2DoubleFunction extends $Function$0<character, double>, $I
 "composeObject"<T>(object2CharFunction0: $Object2CharFunction$$Type<T>): $Object2DoubleFunction<T>
 "composeReference"<T>(reference2CharFunction0: $Reference2CharFunction$$Type<T>): $Reference2DoubleFunction<T>
 "composeShort"(short2CharFunction0: $Short2CharFunction$$Type): $Short2DoubleFunction
-"containsKey"(char0: character): boolean
 /** @deprecated */
 "containsKey"(object0: any): boolean
+"containsKey"(char0: character): boolean
 "defaultReturnValue"(): double
 "defaultReturnValue"(double0: double): void
+/** @deprecated */
+"get"(object0: any): double
 "get"(char0: character): double
 /** @deprecated */
 "getOrDefault"(object0: any, double1: double): double
@@ -778,6 +798,8 @@ export interface $Char2DoubleFunction extends $Function$0<character, double>, $I
 /** @deprecated */
 "put"(character0: character, double1: double): double
 "remove"(char0: character): double
+/** @deprecated */
+"remove"(object0: any): double
 "size"(): integer
 }
 
@@ -854,14 +876,14 @@ export interface $Char2ObjectFunction<V> extends $Function$0<character, V>, $Int
 /** @deprecated */
 "containsKey"(object0: any): boolean
 "containsKey"(char0: character): boolean
-"defaultReturnValue"(v0: V): void
 "defaultReturnValue"(): V
+"defaultReturnValue"(v0: V): void
 /** @deprecated */
 "get"(object0: any): V
 "get"(char0: character): V
+"getOrDefault"(char0: character, v1: V): V
 /** @deprecated */
 "getOrDefault"(object0: any, v1: V): V
-"getOrDefault"(char0: character, v1: V): V
 /** @deprecated */
 "put"(character0: character, v1: V): V
 "put"(char0: character, v1: V): V

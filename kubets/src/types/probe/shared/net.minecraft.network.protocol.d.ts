@@ -976,8 +976,8 @@ import { $Packet } from "packages/net/minecraft/network/protocol/$Packet"
 import { $Difficulty, $Difficulty$$Type } from "packages/net/minecraft/world/$Difficulty"
 
 export class $ServerboundChangeDifficultyPacket implements $Packet<$ServerGamePacketListener> {
-constructor(difficulty0: $Difficulty$$Type)
 constructor(friendlyByteBuf0: $FriendlyByteBuf$$Type)
+constructor(difficulty0: $Difficulty$$Type)
 
 public "getDifficulty"(): $Difficulty
 public "handle"(serverGamePacketListener0: $ServerGamePacketListener$$Type): void
@@ -1019,8 +1019,8 @@ import { $ServerGamePacketListener, $ServerGamePacketListener$$Type } from "pack
 import { $Packet } from "packages/net/minecraft/network/protocol/$Packet"
 
 export class $ServerboundKeepAlivePacket implements $Packet<$ServerGamePacketListener> {
-constructor(long0: long)
 constructor(friendlyByteBuf0: $FriendlyByteBuf$$Type)
+constructor(long0: long)
 
 public "getId"(): long
 public "handle"(serverGamePacketListener0: $ServerGamePacketListener$$Type): void
@@ -1038,8 +1038,8 @@ import { $Packet } from "packages/net/minecraft/network/protocol/$Packet"
 import { $ItemStack, $ItemStack$$Type } from "packages/net/minecraft/world/item/$ItemStack"
 
 export class $ServerboundSetCreativeModeSlotPacket implements $Packet<$ServerGamePacketListener> {
-constructor(int0: integer, itemStack1: $ItemStack$$Type)
 constructor(friendlyByteBuf0: $FriendlyByteBuf$$Type)
+constructor(int0: integer, itemStack1: $ItemStack$$Type)
 
 public "getItem"(): $ItemStack
 public "getSlotNum"(): integer
@@ -1477,8 +1477,8 @@ import { $ServerGamePacketListener, $ServerGamePacketListener$$Type } from "pack
 import { $Packet } from "packages/net/minecraft/network/protocol/$Packet"
 
 export class $ServerboundContainerButtonClickPacket implements $Packet<$ServerGamePacketListener> {
-constructor(int0: integer, int1: integer)
 constructor(friendlyByteBuf0: $FriendlyByteBuf$$Type)
+constructor(int0: integer, int1: integer)
 
 public "getButtonId"(): integer
 public "getContainerId"(): integer
@@ -1779,7 +1779,7 @@ public "getXa"(): integer
 public "getYa"(): integer
 public "getZa"(): integer
 public "handle"(clientGamePacketListener0: $ClientGamePacketListener$$Type): void
-public "handler$cam000$init"(int0: integer, vec31: $Vec3$$Type, callbackInfo2: $CallbackInfo$$Type): void
+public "handler$cen000$init"(int0: integer, vec31: $Vec3$$Type, callbackInfo2: $CallbackInfo$$Type): void
 public "isSkippable"(): boolean
 public "write"(friendlyByteBuf0: $FriendlyByteBuf$$Type): void
 get "id"(): integer
@@ -2972,8 +2972,8 @@ import { $ServerGamePacketListener, $ServerGamePacketListener$$Type } from "pack
 import { $Packet } from "packages/net/minecraft/network/protocol/$Packet"
 
 export class $ServerboundLockDifficultyPacket implements $Packet<$ServerGamePacketListener> {
-constructor(boolean0: boolean)
 constructor(friendlyByteBuf0: $FriendlyByteBuf$$Type)
+constructor(boolean0: boolean)
 
 public "handle"(serverGamePacketListener0: $ServerGamePacketListener$$Type): void
 public "isLocked"(): boolean
@@ -4116,8 +4116,8 @@ import { $Vec3$$Type } from "packages/net/minecraft/world/phys/$Vec3"
 
 export interface $ServerboundInteractPacket$Handler {
 "onAttack"(): void
-"onInteraction"(interactionHand0: $InteractionHand$$Type, vec31: $Vec3$$Type): void
 "onInteraction"(interactionHand0: $InteractionHand$$Type): void
+"onInteraction"(interactionHand0: $InteractionHand$$Type, vec31: $Vec3$$Type): void
 }
 
 export namespace $ServerboundInteractPacket$Handler {
@@ -4683,8 +4683,8 @@ export class $ServerboundInteractPacket implements $Packet<$ServerGamePacketList
 constructor(friendlyByteBuf0: $FriendlyByteBuf$$Type)
 
 public static "createAttackPacket"(entity0: $Entity$$Type, boolean1: boolean): $ServerboundInteractPacket
-public static "createInteractionPacket"(entity0: $Entity$$Type, boolean1: boolean, interactionHand2: $InteractionHand$$Type): $ServerboundInteractPacket
 public static "createInteractionPacket"(entity0: $Entity$$Type, boolean1: boolean, interactionHand2: $InteractionHand$$Type, vec33: $Vec3$$Type): $ServerboundInteractPacket
+public static "createInteractionPacket"(entity0: $Entity$$Type, boolean1: boolean, interactionHand2: $InteractionHand$$Type): $ServerboundInteractPacket
 public "dispatch"(handler0: $ServerboundInteractPacket$Handler$$Type): void
 public "getTarget"(serverLevel0: $ServerLevel$$Type): $Entity
 public "handle"(serverGamePacketListener0: $ServerGamePacketListener$$Type): void

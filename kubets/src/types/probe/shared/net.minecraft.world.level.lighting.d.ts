@@ -55,11 +55,12 @@ public "updateSectionStatus"(blockPos0: $BlockPos$$Type, boolean1: boolean): voi
 }
 
 declare module "packages/net/minecraft/world/level/lighting/$LayerLightSectionStorage" {
+import { $LayerLightSectionStorageAccessor } from "packages/dev/engine_room/flywheel/backend/mixin/light/$LayerLightSectionStorageAccessor"
 import { $DataLayerStorageMap } from "packages/net/minecraft/world/level/lighting/$DataLayerStorageMap"
 import { $LayerLightSectionStorage$SectionType } from "packages/net/minecraft/world/level/lighting/$LayerLightSectionStorage$SectionType"
 import { $DataLayer } from "packages/net/minecraft/world/level/chunk/$DataLayer"
 
-export class $LayerLightSectionStorage<M extends $DataLayerStorageMap<M>> {
+export class $LayerLightSectionStorage<M extends $DataLayerStorageMap<M>> implements $LayerLightSectionStorageAccessor {
 public "getDataLayerData"(long0: long): $DataLayer
 public "getDebugSectionType"(long0: long): $LayerLightSectionStorage$SectionType
 public "getStoredLevel"(long0: long): integer
@@ -122,8 +123,8 @@ export interface $LightEventListener {
 "propagateLightSources"(chunkPos0: $ChunkPos$$Type): void
 "runLightUpdates"(): integer
 "setLightEnabled"(chunkPos0: $ChunkPos$$Type, boolean1: boolean): void
-"updateSectionStatus"(sectionPos0: $SectionPos$$Type, boolean1: boolean): void
 "updateSectionStatus"(blockPos0: $BlockPos$$Type, boolean1: boolean): void
+"updateSectionStatus"(sectionPos0: $SectionPos$$Type, boolean1: boolean): void
 }
 
 export namespace $LightEventListener {
@@ -181,8 +182,8 @@ export interface $LayerLightEventListener extends $LightEventListener {
 "propagateLightSources"(chunkPos0: $ChunkPos$$Type): void
 "runLightUpdates"(): integer
 "setLightEnabled"(chunkPos0: $ChunkPos$$Type, boolean1: boolean): void
-"updateSectionStatus"(sectionPos0: $SectionPos$$Type, boolean1: boolean): void
 "updateSectionStatus"(blockPos0: $BlockPos$$Type, boolean1: boolean): void
+"updateSectionStatus"(sectionPos0: $SectionPos$$Type, boolean1: boolean): void
 }
 
 export namespace $LayerLightEventListener {

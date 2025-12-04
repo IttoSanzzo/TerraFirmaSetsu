@@ -56,11 +56,11 @@ export interface $Container extends $Clearable, $InventoryKJS {
 "clear"(): void
 "clear"(ingredient: $Ingredient$$Type): void
 "clearContent"(): void
-"count"(ingredient: $Ingredient$$Type): integer
 "count"(): integer
+"count"(ingredient: $Ingredient$$Type): integer
 "countItem"(item0: $Item$$Type): integer
-"countNonEmpty"(): integer
 "countNonEmpty"(ingredient: $Ingredient$$Type): integer
+"countNonEmpty"(): integer
 "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
 "find"(ingredient: $Ingredient$$Type): integer
 "find"(): integer
@@ -108,6 +108,7 @@ const DEFAULT_DISTANCE_LIMIT: integer
 const LARGE_MAX_STACK_SIZE: integer
 function stillValidBlockEntity(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 function stillValidBlockEntity(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+function stillValidBlockEntity(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 function tryClear(object0: any): void
 }
 export abstract class $Container$$Static implements $Container {
@@ -116,6 +117,7 @@ static readonly "LARGE_MAX_STACK_SIZE": integer
 
 static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 static "tryClear"(object0: any): void
 }
 }
@@ -155,11 +157,11 @@ export interface $WorldlyContainer extends $Container {
 "clear"(): void
 "clear"(ingredient: $Ingredient$$Type): void
 "clearContent"(): void
-"count"(ingredient: $Ingredient$$Type): integer
 "count"(): integer
+"count"(ingredient: $Ingredient$$Type): integer
 "countItem"(item0: $Item$$Type): integer
-"countNonEmpty"(): integer
 "countNonEmpty"(ingredient: $Ingredient$$Type): integer
+"countNonEmpty"(): integer
 "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
 "find"(ingredient: $Ingredient$$Type): integer
 "find"(): integer
@@ -206,11 +208,13 @@ get "mutable"(): boolean
 export namespace $WorldlyContainer {
 function stillValidBlockEntity(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 function stillValidBlockEntity(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+function stillValidBlockEntity(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 function tryClear(object0: any): void
 }
 export abstract class $WorldlyContainer$$Static implements $WorldlyContainer {
 static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 static "tryClear"(object0: any): void
 }
 }
@@ -359,11 +363,11 @@ public "canTakeItem"(container0: $Container$$Type, int1: integer, itemStack2: $I
 public "clear"(): void
 public "clear"(ingredient: $Ingredient$$Type): void
 public "clearContent"(): void
-public "count"(ingredient: $Ingredient$$Type): integer
 public "count"(): integer
+public "count"(ingredient: $Ingredient$$Type): integer
 public "countItem"(item0: $Item$$Type): integer
-public "countNonEmpty"(): integer
 public "countNonEmpty"(ingredient: $Ingredient$$Type): integer
+public "countNonEmpty"(): integer
 public "createTag"(): $ListTag
 public "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
 public "fillStackedContents"(stackedContents0: $StackedContents$$Type): void
@@ -402,6 +406,7 @@ public "startOpen"(player0: $Player$$Type): void
 public "stillValid"(player0: $Player$$Type): boolean
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 public "stopOpen"(player0: $Player$$Type): void
 public static "tryClear"(object0: any): void
 get "allItems"(): $List<$ItemStack>

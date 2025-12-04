@@ -5,8 +5,8 @@ import { $ItemStack, $ItemStack$$Type } from "packages/net/minecraft/world/item/
 import { $BlockPos, $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
 
 export class $EnchantmentLevelSetEvent extends $Event {
-constructor()
 constructor(level0: $Level$$Type, blockPos1: $BlockPos$$Type, int2: integer, int3: integer, itemStack4: $ItemStack$$Type, int5: integer)
+constructor()
 
 public "getEnchantLevel"(): integer
 public "getEnchantRow"(): integer

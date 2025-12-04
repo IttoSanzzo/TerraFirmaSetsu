@@ -513,7 +513,7 @@ public "getStateAtViewpoint"(blockState0: $BlockState$$Type, blockGetter1: $Bloc
 public "getTableParticle"(blockState0: $BlockState$$Type): $ParticleOptions
 public "getToolModifiedState"(blockState0: $BlockState$$Type, useOnContext1: $UseOnContext$$Type, toolAction2: $ToolAction$$Type, boolean3: boolean): $BlockState
 public "getWeakChanges"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): boolean
-public "handler$fdj000$amendments$addPotSound"(state: $BlockState$$Type, level: $Level$$Type, pos: $BlockPos$$Type, player: $Player$$Type, hand: $InteractionHand$$Type, hit: $BlockHitResult$$Type, cir: $CallbackInfoReturnable$$Type<any>): void
+public "handler$fjm000$amendments$addPotSound"(state: $BlockState$$Type, level: $Level$$Type, pos: $BlockPos$$Type, player: $Player$$Type, hand: $InteractionHand$$Type, hit: $BlockHitResult$$Type, cir: $CallbackInfoReturnable$$Type<any>): void
 public "hidesNeighborFace"(blockGetter0: $BlockGetter$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type, direction4: $Direction$$Type): boolean
 public "isBed"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
 public "isBurning"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): boolean
@@ -1555,12 +1555,13 @@ import { $BlockPathTypes, $BlockPathTypes$$Type } from "packages/net/minecraft/w
 import { $BiConsumer$$Type } from "packages/java/util/function/$BiConsumer"
 import { $LevelReader$$Type } from "packages/net/minecraft/world/level/$LevelReader"
 import { $Holder } from "packages/net/minecraft/core/$Holder"
+import { $PointedDripstoneBlockAccess } from "packages/snownee/lychee/mixin/$PointedDripstoneBlockAccess"
 import { $HitResult$$Type } from "packages/net/minecraft/world/phys/$HitResult"
 import { $Set } from "packages/java/util/$Set"
 import { $SoundType } from "packages/net/minecraft/world/level/block/$SoundType"
 import { $Rotation$$Type } from "packages/net/minecraft/world/level/block/$Rotation"
 
-export class $PointedDripstoneBlock extends $Block implements $Fallable, $SimpleWaterloggedBlock {
+export class $PointedDripstoneBlock extends $Block implements $Fallable, $SimpleWaterloggedBlock, $PointedDripstoneBlockAccess {
 static readonly "THICKNESS": $EnumProperty<$DripstoneThickness>
 static readonly "TIP_DIRECTION": $DirectionProperty
 static readonly "WATERLOGGED": $BooleanProperty
@@ -3860,7 +3861,7 @@ public "isSlimeBlock"(blockState0: $BlockState$$Type): boolean
 public "isStickyBlock"(blockState0: $BlockState$$Type): boolean
 public "isValidSpawn"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, type3: $SpawnPlacements$Type$$Type, entityType4: $EntityType$$Type<any>): boolean
 public "makesOpenTrapdoorAboveClimbable"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, blockState3: $BlockState$$Type): boolean
-public "modifyReturnValue$feh000$getShape"(original: $VoxelShape$$Type, state: $BlockState$$Type, level: $BlockGetter$$Type, pos: $BlockPos$$Type, context: $CollisionContext$$Type): $VoxelShape
+public "modifyReturnValue$fkk000$getShape"(original: $VoxelShape$$Type, state: $BlockState$$Type, level: $BlockGetter$$Type, pos: $BlockPos$$Type, context: $CollisionContext$$Type): $VoxelShape
 public "onBlockExploded"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, explosion3: $Explosion$$Type): void
 public "onBlockStateChange"(levelReader0: $LevelReader$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type): void
 public "onCaughtFire"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type, livingEntity4: $LivingEntity$$Type): void
@@ -4898,7 +4899,7 @@ import { $Set } from "packages/java/util/$Set"
 import { $Enchantment } from "packages/net/minecraft/world/item/enchantment/$Enchantment"
 import { $SoundType } from "packages/net/minecraft/world/level/block/$SoundType"
 import { $Optional } from "packages/java/util/$Optional"
-import { $WeatheringCopper$WeatherState$$Type } from "packages/net/minecraft/world/level/block/$WeatheringCopper$WeatherState"
+import { $WeatheringCopper$WeatherState, $WeatheringCopper$WeatherState$$Type } from "packages/net/minecraft/world/level/block/$WeatheringCopper$WeatherState"
 import { $Rotation$$Type } from "packages/net/minecraft/world/level/block/$Rotation"
 import { $Explosion$$Type } from "packages/net/minecraft/world/level/$Explosion"
 import { $BlockAndTintGetter$$Type } from "packages/net/minecraft/world/level/$BlockAndTintGetter"
@@ -4920,6 +4921,7 @@ public "canHarvestBlock"(blockState0: $BlockState$$Type, blockGetter1: $BlockGet
 public "canStickTo"(blockState0: $BlockState$$Type, blockState1: $BlockState$$Type): boolean
 public "collisionExtendsVertically"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
 public "getAdjacentBlockPathType"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, mob3: $Mob$$Type, blockPathTypes4: $BlockPathTypes$$Type): $BlockPathTypes
+public "getAge"(): $WeatheringCopper$WeatherState
 public "getAppearance"(blockState0: $BlockState$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type, blockState4: $BlockState$$Type, blockPos5: $BlockPos$$Type): $BlockState
 public "getArcanaBonus"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): float
 public "getBeaconColorMultiplier"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, blockPos3: $BlockPos$$Type): float[]
@@ -4934,8 +4936,8 @@ public "getEnchantPowerBonus"(blockState0: $BlockState$$Type, levelReader1: $Lev
 public "getExpDrop"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, randomSource2: $RandomSource$$Type, blockPos3: $BlockPos$$Type, int4: integer, int5: integer): integer
 public "getExplosionResistance"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, explosion3: $Explosion$$Type): float
 public "getFireSpreadSpeed"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): integer
-public static "getFirst"(blockState0: $BlockState$$Type): $BlockState
 public static "getFirst"(block0: $Block$$Type): $Block
+public static "getFirst"(blockState0: $BlockState$$Type): $BlockState
 public "getFlammability"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): integer
 public "getFriction"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): float
 public "getLightEmission"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): integer
@@ -4986,6 +4988,7 @@ public "shouldCheckWeakPower"(blockState0: $BlockState$$Type, signalGetter1: $Si
 public "shouldDisplayFluidOverlay"(blockState0: $BlockState$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type, fluidState3: $FluidState$$Type): boolean
 public "spawnTableParticle"(blockState0: $BlockState$$Type, level1: $Level$$Type, randomSource2: $RandomSource$$Type, blockPos3: $BlockPos$$Type, blockPos4: $BlockPos$$Type): void
 public "supportsExternalFaceHiding"(blockState0: $BlockState$$Type): boolean
+get "age"(): $WeatheringCopper$WeatherState
 get "blockStates"(): $List<$BlockState>
 get "chanceModifier"(): float
 get "mod"(): string
@@ -5076,8 +5079,8 @@ public "getEnchantPowerBonus"(blockState0: $BlockState$$Type, levelReader1: $Lev
 public "getExpDrop"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, randomSource2: $RandomSource$$Type, blockPos3: $BlockPos$$Type, int4: integer, int5: integer): integer
 public "getExplosionResistance"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, explosion3: $Explosion$$Type): float
 public "getFireSpreadSpeed"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): integer
-public static "getFirst"(blockState0: $BlockState$$Type): $BlockState
 public static "getFirst"(block0: $Block$$Type): $Block
+public static "getFirst"(blockState0: $BlockState$$Type): $BlockState
 public "getFlammability"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): integer
 public "getFriction"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): float
 public "getLightEmission"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): integer
@@ -9219,9 +9222,9 @@ public "getTableParticle"(blockState0: $BlockState$$Type): $ParticleOptions
 public "getTicker"<T extends $BlockEntity>(level0: $Level$$Type, blockState1: $BlockState$$Type, blockEntityType2: $BlockEntityType$$Type<T>): $BlockEntityTicker<T>
 public "getToolModifiedState"(blockState0: $BlockState$$Type, useOnContext1: $UseOnContext$$Type, toolAction2: $ToolAction$$Type, boolean3: boolean): $BlockState
 public "getWeakChanges"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): boolean
-public "handler$fdg000$amendments$updateExtension"(state: $BlockState$$Type, direction: $Direction$$Type, neighborState: $BlockState$$Type, level: $LevelAccessor$$Type, currentPos: $BlockPos$$Type, neighborPos: $BlockPos$$Type, cir: $CallbackInfoReturnable$$Type<any>): void
-public "handler$fdg000$amendments$use"(state: $BlockState$$Type, level: $Level$$Type, pos: $BlockPos$$Type, player: $Player$$Type, hand: $InteractionHand$$Type, hit: $BlockHitResult$$Type, cir: $CallbackInfoReturnable$$Type<any>): void
-public "handler$feg000$amendments$canAttachTo"(level: $LevelReader$$Type, state: $BlockState$$Type, facingPos: $BlockPos$$Type, direction: $Direction$$Type, cir: $CallbackInfoReturnable$$Type<any>, facingState: $BlockState$$Type): void
+public "handler$fjj000$amendments$updateExtension"(state: $BlockState$$Type, direction: $Direction$$Type, neighborState: $BlockState$$Type, level: $LevelAccessor$$Type, currentPos: $BlockPos$$Type, neighborPos: $BlockPos$$Type, cir: $CallbackInfoReturnable$$Type<any>): void
+public "handler$fjj000$amendments$use"(state: $BlockState$$Type, level: $Level$$Type, pos: $BlockPos$$Type, player: $Player$$Type, hand: $InteractionHand$$Type, hit: $BlockHitResult$$Type, cir: $CallbackInfoReturnable$$Type<any>): void
+public "handler$fkj000$amendments$canAttachTo"(level: $LevelReader$$Type, state: $BlockState$$Type, facingPos: $BlockPos$$Type, direction: $Direction$$Type, cir: $CallbackInfoReturnable$$Type<any>, facingState: $BlockState$$Type): void
 public "hidesNeighborFace"(blockGetter0: $BlockGetter$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type, direction4: $Direction$$Type): boolean
 public "isBed"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
 public "isBurning"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): boolean
@@ -9276,6 +9279,7 @@ import { $Block } from "packages/net/minecraft/world/level/block/$Block"
 import { $PushReaction } from "packages/net/minecraft/world/level/material/$PushReaction"
 import { $LivingEntity$$Type } from "packages/net/minecraft/world/entity/$LivingEntity"
 import { $FluidState$$Type } from "packages/net/minecraft/world/level/material/$FluidState"
+import { $CallbackInfoReturnable$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfoReturnable"
 import { $TreeConfiguration$$Type } from "packages/net/minecraft/world/level/levelgen/feature/configurations/$TreeConfiguration"
 import { $BlockGetter$$Type } from "packages/net/minecraft/world/level/$BlockGetter"
 import { $EntityType$$Type } from "packages/net/minecraft/world/entity/$EntityType"
@@ -9284,6 +9288,7 @@ import { $Player$$Type } from "packages/net/minecraft/world/entity/player/$Playe
 import { $ToolAction$$Type } from "packages/net/minecraftforge/common/$ToolAction"
 import { $List } from "packages/java/util/$List"
 import { $RandomSource$$Type } from "packages/net/minecraft/util/$RandomSource"
+import { $BlockHitResult$$Type } from "packages/net/minecraft/world/phys/$BlockHitResult"
 import { $ServerLevel$$Type } from "packages/net/minecraft/server/level/$ServerLevel"
 import { $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
 import { $ParticleOptions } from "packages/net/minecraft/core/particles/$ParticleOptions"
@@ -9302,6 +9307,7 @@ import { $UseOnContext$$Type } from "packages/net/minecraft/world/item/context/$
 import { $HitResult$$Type } from "packages/net/minecraft/world/phys/$HitResult"
 import { $Set } from "packages/java/util/$Set"
 import { $Enchantment } from "packages/net/minecraft/world/item/enchantment/$Enchantment"
+import { $InteractionHand$$Type } from "packages/net/minecraft/world/$InteractionHand"
 import { $SoundType } from "packages/net/minecraft/world/level/block/$SoundType"
 import { $Optional } from "packages/java/util/$Optional"
 import { $Rotation$$Type } from "packages/net/minecraft/world/level/block/$Rotation"
@@ -9360,6 +9366,7 @@ public "getStateAtViewpoint"(blockState0: $BlockState$$Type, blockGetter1: $Bloc
 public "getTableParticle"(blockState0: $BlockState$$Type): $ParticleOptions
 public "getToolModifiedState"(blockState0: $BlockState$$Type, useOnContext1: $UseOnContext$$Type, toolAction2: $ToolAction$$Type, boolean3: boolean): $BlockState
 public "getWeakChanges"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): boolean
+public "handler$cnp000$checkRespawnAnchorRespawnPointSet"(state: $BlockState$$Type, level: $Level$$Type, pos: $BlockPos$$Type, player: $Player$$Type, hand: $InteractionHand$$Type, hit: $BlockHitResult$$Type, cir: $CallbackInfoReturnable$$Type<any>): void
 public "hidesNeighborFace"(blockGetter0: $BlockGetter$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type, direction4: $Direction$$Type): boolean
 public "isBed"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
 public "isBurning"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): boolean
@@ -9447,13 +9454,14 @@ import { $HitResult$$Type } from "packages/net/minecraft/world/phys/$HitResult"
 import { $Set } from "packages/java/util/$Set"
 import { $SoundType } from "packages/net/minecraft/world/level/block/$SoundType"
 import { $Rotation$$Type } from "packages/net/minecraft/world/level/block/$Rotation"
-import { $BlockSetType$$Type } from "packages/net/minecraft/world/level/block/state/properties/$BlockSetType"
+import { $BlockSetType, $BlockSetType$$Type } from "packages/net/minecraft/world/level/block/state/properties/$BlockSetType"
 
 export class $TrapDoorBlock extends $HorizontalDirectionalBlock implements $SimpleWaterloggedBlock {
 static readonly "HALF": $EnumProperty<$Half>
 static readonly "OPEN": $BooleanProperty
 static readonly "POWERED": $BooleanProperty
 static readonly "WATERLOGGED": $BooleanProperty
+readonly "type": $BlockSetType
 
 constructor(properties0: $BlockBehaviour$Properties$$Type, blockSetType1: $BlockSetType$$Type)
 
@@ -10094,6 +10102,7 @@ import { $LevelAccessor$$Type } from "packages/net/minecraft/world/level/$LevelA
 import { $MapColor, $MapColor$$Type } from "packages/net/minecraft/world/level/material/$MapColor"
 import { $BlockBehaviour$Properties$$Type } from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
 import { $Direction, $Direction$$Type } from "packages/net/minecraft/core/$Direction"
+import { $Projectile$$Type } from "packages/net/minecraft/world/entity/projectile/$Projectile"
 import { $ItemStack } from "packages/net/minecraft/world/item/$ItemStack"
 import { $FeatureFlagSet$$Type } from "packages/net/minecraft/world/flag/$FeatureFlagSet"
 import { $ResourceLocation } from "packages/net/minecraft/resources/$ResourceLocation"
@@ -10109,6 +10118,7 @@ import { $Player$$Type } from "packages/net/minecraft/world/entity/player/$Playe
 import { $ToolAction$$Type } from "packages/net/minecraftforge/common/$ToolAction"
 import { $List } from "packages/java/util/$List"
 import { $RandomSource$$Type } from "packages/net/minecraft/util/$RandomSource"
+import { $BlockHitResult$$Type } from "packages/net/minecraft/world/phys/$BlockHitResult"
 import { $ServerLevel$$Type } from "packages/net/minecraft/server/level/$ServerLevel"
 import { $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
 import { $ParticleOptions } from "packages/net/minecraft/core/particles/$ParticleOptions"
@@ -10127,6 +10137,7 @@ import { $HitResult$$Type } from "packages/net/minecraft/world/phys/$HitResult"
 import { $Set } from "packages/java/util/$Set"
 import { $Enchantment } from "packages/net/minecraft/world/item/enchantment/$Enchantment"
 import { $SoundType } from "packages/net/minecraft/world/level/block/$SoundType"
+import { $CallbackInfo$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfo"
 import { $Optional } from "packages/java/util/$Optional"
 import { $Rotation$$Type } from "packages/net/minecraft/world/level/block/$Rotation"
 import { $Explosion$$Type } from "packages/net/minecraft/world/level/$Explosion"
@@ -10176,6 +10187,7 @@ public "getStateAtViewpoint"(blockState0: $BlockState$$Type, blockGetter1: $Bloc
 public "getTableParticle"(blockState0: $BlockState$$Type): $ParticleOptions
 public "getToolModifiedState"(blockState0: $BlockState$$Type, useOnContext1: $UseOnContext$$Type, toolAction2: $ToolAction$$Type, boolean3: boolean): $BlockState
 public "getWeakChanges"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): boolean
+public "handler$zcl000$onOnProjectileHit"(level0: $Level$$Type, blockState1: $BlockState$$Type, blockHitResult2: $BlockHitResult$$Type, projectile3: $Projectile$$Type, callbackInfo4: $CallbackInfo$$Type): void
 public "hidesNeighborFace"(blockGetter0: $BlockGetter$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type, direction4: $Direction$$Type): boolean
 public "isBed"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
 public "isBurning"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): boolean
@@ -12560,131 +12572,6 @@ set "requiresTool"(value: boolean)
 }
 }
 
-declare module "packages/net/minecraft/world/level/block/$HorizontalDirectionalBlock" {
-import { $LevelAccessor$$Type } from "packages/net/minecraft/world/level/$LevelAccessor"
-import { $MapColor, $MapColor$$Type } from "packages/net/minecraft/world/level/material/$MapColor"
-import { $Direction, $Direction$$Type } from "packages/net/minecraft/core/$Direction"
-import { $ItemStack } from "packages/net/minecraft/world/item/$ItemStack"
-import { $FeatureFlagSet$$Type } from "packages/net/minecraft/world/flag/$FeatureFlagSet"
-import { $ResourceLocation } from "packages/net/minecraft/resources/$ResourceLocation"
-import { $Block } from "packages/net/minecraft/world/level/block/$Block"
-import { $PushReaction } from "packages/net/minecraft/world/level/material/$PushReaction"
-import { $LivingEntity$$Type } from "packages/net/minecraft/world/entity/$LivingEntity"
-import { $FluidState$$Type } from "packages/net/minecraft/world/level/material/$FluidState"
-import { $TreeConfiguration$$Type } from "packages/net/minecraft/world/level/levelgen/feature/configurations/$TreeConfiguration"
-import { $BlockGetter$$Type } from "packages/net/minecraft/world/level/$BlockGetter"
-import { $EntityType$$Type } from "packages/net/minecraft/world/entity/$EntityType"
-import { $Mob$$Type } from "packages/net/minecraft/world/entity/$Mob"
-import { $Player$$Type } from "packages/net/minecraft/world/entity/player/$Player"
-import { $ToolAction$$Type } from "packages/net/minecraftforge/common/$ToolAction"
-import { $List } from "packages/java/util/$List"
-import { $RandomSource$$Type } from "packages/net/minecraft/util/$RandomSource"
-import { $ServerLevel$$Type } from "packages/net/minecraft/server/level/$ServerLevel"
-import { $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
-import { $DirectionProperty } from "packages/net/minecraft/world/level/block/state/properties/$DirectionProperty"
-import { $ParticleOptions } from "packages/net/minecraft/core/particles/$ParticleOptions"
-import { $Entity$$Type } from "packages/net/minecraft/world/entity/$Entity"
-import { $SpawnPlacements$Type$$Type } from "packages/net/minecraft/world/entity/$SpawnPlacements$Type"
-import { $SignalGetter$$Type } from "packages/net/minecraft/world/level/$SignalGetter"
-import { $BlockPathTypes, $BlockPathTypes$$Type } from "packages/net/minecraft/world/level/pathfinder/$BlockPathTypes"
-import { $BlockState, $BlockState$$Type } from "packages/net/minecraft/world/level/block/state/$BlockState"
-import { $Level$$Type } from "packages/net/minecraft/world/level/$Level"
-import { $Vec3, $Vec3$$Type } from "packages/net/minecraft/world/phys/$Vec3"
-import { $BiConsumer$$Type } from "packages/java/util/function/$BiConsumer"
-import { $LevelReader$$Type } from "packages/net/minecraft/world/level/$LevelReader"
-import { $Holder } from "packages/net/minecraft/core/$Holder"
-import { $UseOnContext$$Type } from "packages/net/minecraft/world/item/context/$UseOnContext"
-import { $HitResult$$Type } from "packages/net/minecraft/world/phys/$HitResult"
-import { $Set } from "packages/java/util/$Set"
-import { $Enchantment } from "packages/net/minecraft/world/item/enchantment/$Enchantment"
-import { $SoundType } from "packages/net/minecraft/world/level/block/$SoundType"
-import { $Optional } from "packages/java/util/$Optional"
-import { $Rotation$$Type } from "packages/net/minecraft/world/level/block/$Rotation"
-import { $Explosion$$Type } from "packages/net/minecraft/world/level/$Explosion"
-import { $BlockAndTintGetter$$Type } from "packages/net/minecraft/world/level/$BlockAndTintGetter"
-
-export class $HorizontalDirectionalBlock extends $Block {
-static readonly "FACING": $DirectionProperty
-
-public "addLandingEffects"(blockState0: $BlockState$$Type, serverLevel1: $ServerLevel$$Type, blockPos2: $BlockPos$$Type, blockState3: $BlockState$$Type, livingEntity4: $LivingEntity$$Type, int5: integer): boolean
-public "addRunningEffects"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
-public "allowsTreasure"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): boolean
-public "arch$holder"(): $Holder<$Block>
-public "arch$registryName"(): $ResourceLocation
-public "canBeHydrated"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, fluidState3: $FluidState$$Type, blockPos4: $BlockPos$$Type): boolean
-public "canConnectRedstone"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): boolean
-public "canDropFromExplosion"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, explosion3: $Explosion$$Type): boolean
-public "canEntityDestroy"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
-public "canHarvestBlock"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, player3: $Player$$Type): boolean
-public "canStickTo"(blockState0: $BlockState$$Type, blockState1: $BlockState$$Type): boolean
-public "collisionExtendsVertically"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
-public "getAdjacentBlockPathType"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, mob3: $Mob$$Type, blockPathTypes4: $BlockPathTypes$$Type): $BlockPathTypes
-public "getAppearance"(blockState0: $BlockState$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type, blockState4: $BlockState$$Type, blockPos5: $BlockPos$$Type): $BlockState
-public "getArcanaBonus"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): float
-public "getBeaconColorMultiplier"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, blockPos3: $BlockPos$$Type): float[]
-public "getBedDirection"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): $Direction
-public "getBlacklistedEnchantments"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): $Set<$Enchantment>
-public "getBlockPathType"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, mob3: $Mob$$Type): $BlockPathTypes
-public "getBlockStates"(): $List<$BlockState>
-public "getBonusClues"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): integer
-public "getCloneItemStack"(blockState0: $BlockState$$Type, hitResult1: $HitResult$$Type, blockGetter2: $BlockGetter$$Type, blockPos3: $BlockPos$$Type, player4: $Player$$Type): $ItemStack
-public "getEnchantPowerBonus"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): float
-public "getExpDrop"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, randomSource2: $RandomSource$$Type, blockPos3: $BlockPos$$Type, int4: integer, int5: integer): integer
-public "getExplosionResistance"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, explosion3: $Explosion$$Type): float
-public "getFireSpreadSpeed"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): integer
-public "getFlammability"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): integer
-public "getFriction"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): float
-public "getLightEmission"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): integer
-public "getMapColor"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, mapColor3: $MapColor$$Type): $MapColor
-public "getMaxEnchantingPower"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): float
-public "getMod"(): string
-public "getPistonPushReaction"(blockState0: $BlockState$$Type): $PushReaction
-public "getQuantaBonus"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): float
-public "getQuantaRectification"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): float
-public "getRespawnPosition"(blockState0: $BlockState$$Type, entityType1: $EntityType$$Type<any>, levelReader2: $LevelReader$$Type, blockPos3: $BlockPos$$Type, float4: float, livingEntity5: $LivingEntity$$Type): $Optional<$Vec3>
-public "getSoundType"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): $SoundType
-public "getStateAtViewpoint"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, vec33: $Vec3$$Type): $BlockState
-public "getTableParticle"(blockState0: $BlockState$$Type): $ParticleOptions
-public "getToolModifiedState"(blockState0: $BlockState$$Type, useOnContext1: $UseOnContext$$Type, toolAction2: $ToolAction$$Type, boolean3: boolean): $BlockState
-public "getWeakChanges"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): boolean
-public "hidesNeighborFace"(blockGetter0: $BlockGetter$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type, direction4: $Direction$$Type): boolean
-public "isBed"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
-public "isBurning"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): boolean
-public "isConduitFrame"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, blockPos3: $BlockPos$$Type): boolean
-public "isEnabled"(featureFlagSet0: $FeatureFlagSet$$Type): boolean
-public "isFertile"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): boolean
-public "isFireSource"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): boolean
-public "isFlammable"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): boolean
-public "isLadder"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, livingEntity3: $LivingEntity$$Type): boolean
-public "isPortalFrame"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): boolean
-public "isScaffolding"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, livingEntity3: $LivingEntity$$Type): boolean
-public "isSlimeBlock"(blockState0: $BlockState$$Type): boolean
-public "isStickyBlock"(blockState0: $BlockState$$Type): boolean
-public "isValidSpawn"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, type3: $SpawnPlacements$Type$$Type, entityType4: $EntityType$$Type<any>): boolean
-public "makesOpenTrapdoorAboveClimbable"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, blockState3: $BlockState$$Type): boolean
-public "onBlockExploded"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, explosion3: $Explosion$$Type): void
-public "onBlockStateChange"(levelReader0: $LevelReader$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type): void
-public "onCaughtFire"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type, livingEntity4: $LivingEntity$$Type): void
-public "onDestroyedByPlayer"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, player3: $Player$$Type, boolean4: boolean, fluidState5: $FluidState$$Type): boolean
-public "onNeighborChange"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, blockPos3: $BlockPos$$Type): void
-public "onTreeGrow"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, biConsumer2: $BiConsumer$$Type<$BlockPos$$Type, $BlockState$$Type>, randomSource3: $RandomSource$$Type, blockPos4: $BlockPos$$Type, treeConfiguration5: $TreeConfiguration$$Type): boolean
-public "rotate"(blockState0: $BlockState$$Type, levelAccessor1: $LevelAccessor$$Type, blockPos2: $BlockPos$$Type, rotation3: $Rotation$$Type): $BlockState
-public "setBedOccupied"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, livingEntity3: $LivingEntity$$Type, boolean4: boolean): void
-public "setDestroySpeed"(v: float): void
-public "setLightEmission"(v: integer): void
-public "setRequiresTool"(v: boolean): void
-public "shouldCheckWeakPower"(blockState0: $BlockState$$Type, signalGetter1: $SignalGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): boolean
-public "shouldDisplayFluidOverlay"(blockState0: $BlockState$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type, fluidState3: $FluidState$$Type): boolean
-public "spawnTableParticle"(blockState0: $BlockState$$Type, level1: $Level$$Type, randomSource2: $RandomSource$$Type, blockPos3: $BlockPos$$Type, blockPos4: $BlockPos$$Type): void
-public "supportsExternalFaceHiding"(blockState0: $BlockState$$Type): boolean
-get "blockStates"(): $List<$BlockState>
-get "mod"(): string
-set "destroySpeed"(value: float)
-set "lightEmission"(value: integer)
-set "requiresTool"(value: boolean)
-}
-}
-
 declare module "packages/net/minecraft/world/level/block/$BaseCoralWallFanBlock" {
 import { $SoundEvent } from "packages/net/minecraft/sounds/$SoundEvent"
 import { $LevelAccessor$$Type } from "packages/net/minecraft/world/level/$LevelAccessor"
@@ -12816,6 +12703,131 @@ public "supportsExternalFaceHiding"(blockState0: $BlockState$$Type): boolean
 get "blockStates"(): $List<$BlockState>
 get "mod"(): string
 get "pickupSound"(): $Optional<$SoundEvent>
+set "destroySpeed"(value: float)
+set "lightEmission"(value: integer)
+set "requiresTool"(value: boolean)
+}
+}
+
+declare module "packages/net/minecraft/world/level/block/$HorizontalDirectionalBlock" {
+import { $LevelAccessor$$Type } from "packages/net/minecraft/world/level/$LevelAccessor"
+import { $MapColor, $MapColor$$Type } from "packages/net/minecraft/world/level/material/$MapColor"
+import { $Direction, $Direction$$Type } from "packages/net/minecraft/core/$Direction"
+import { $ItemStack } from "packages/net/minecraft/world/item/$ItemStack"
+import { $FeatureFlagSet$$Type } from "packages/net/minecraft/world/flag/$FeatureFlagSet"
+import { $ResourceLocation } from "packages/net/minecraft/resources/$ResourceLocation"
+import { $Block } from "packages/net/minecraft/world/level/block/$Block"
+import { $PushReaction } from "packages/net/minecraft/world/level/material/$PushReaction"
+import { $LivingEntity$$Type } from "packages/net/minecraft/world/entity/$LivingEntity"
+import { $FluidState$$Type } from "packages/net/minecraft/world/level/material/$FluidState"
+import { $TreeConfiguration$$Type } from "packages/net/minecraft/world/level/levelgen/feature/configurations/$TreeConfiguration"
+import { $BlockGetter$$Type } from "packages/net/minecraft/world/level/$BlockGetter"
+import { $EntityType$$Type } from "packages/net/minecraft/world/entity/$EntityType"
+import { $Mob$$Type } from "packages/net/minecraft/world/entity/$Mob"
+import { $Player$$Type } from "packages/net/minecraft/world/entity/player/$Player"
+import { $ToolAction$$Type } from "packages/net/minecraftforge/common/$ToolAction"
+import { $List } from "packages/java/util/$List"
+import { $RandomSource$$Type } from "packages/net/minecraft/util/$RandomSource"
+import { $ServerLevel$$Type } from "packages/net/minecraft/server/level/$ServerLevel"
+import { $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
+import { $DirectionProperty } from "packages/net/minecraft/world/level/block/state/properties/$DirectionProperty"
+import { $ParticleOptions } from "packages/net/minecraft/core/particles/$ParticleOptions"
+import { $Entity$$Type } from "packages/net/minecraft/world/entity/$Entity"
+import { $SpawnPlacements$Type$$Type } from "packages/net/minecraft/world/entity/$SpawnPlacements$Type"
+import { $SignalGetter$$Type } from "packages/net/minecraft/world/level/$SignalGetter"
+import { $BlockPathTypes, $BlockPathTypes$$Type } from "packages/net/minecraft/world/level/pathfinder/$BlockPathTypes"
+import { $BlockState, $BlockState$$Type } from "packages/net/minecraft/world/level/block/state/$BlockState"
+import { $Level$$Type } from "packages/net/minecraft/world/level/$Level"
+import { $Vec3, $Vec3$$Type } from "packages/net/minecraft/world/phys/$Vec3"
+import { $BiConsumer$$Type } from "packages/java/util/function/$BiConsumer"
+import { $LevelReader$$Type } from "packages/net/minecraft/world/level/$LevelReader"
+import { $Holder } from "packages/net/minecraft/core/$Holder"
+import { $UseOnContext$$Type } from "packages/net/minecraft/world/item/context/$UseOnContext"
+import { $HitResult$$Type } from "packages/net/minecraft/world/phys/$HitResult"
+import { $Set } from "packages/java/util/$Set"
+import { $Enchantment } from "packages/net/minecraft/world/item/enchantment/$Enchantment"
+import { $SoundType } from "packages/net/minecraft/world/level/block/$SoundType"
+import { $Optional } from "packages/java/util/$Optional"
+import { $Rotation$$Type } from "packages/net/minecraft/world/level/block/$Rotation"
+import { $Explosion$$Type } from "packages/net/minecraft/world/level/$Explosion"
+import { $BlockAndTintGetter$$Type } from "packages/net/minecraft/world/level/$BlockAndTintGetter"
+
+export class $HorizontalDirectionalBlock extends $Block {
+static readonly "FACING": $DirectionProperty
+
+public "addLandingEffects"(blockState0: $BlockState$$Type, serverLevel1: $ServerLevel$$Type, blockPos2: $BlockPos$$Type, blockState3: $BlockState$$Type, livingEntity4: $LivingEntity$$Type, int5: integer): boolean
+public "addRunningEffects"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
+public "allowsTreasure"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): boolean
+public "arch$holder"(): $Holder<$Block>
+public "arch$registryName"(): $ResourceLocation
+public "canBeHydrated"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, fluidState3: $FluidState$$Type, blockPos4: $BlockPos$$Type): boolean
+public "canConnectRedstone"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): boolean
+public "canDropFromExplosion"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, explosion3: $Explosion$$Type): boolean
+public "canEntityDestroy"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
+public "canHarvestBlock"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, player3: $Player$$Type): boolean
+public "canStickTo"(blockState0: $BlockState$$Type, blockState1: $BlockState$$Type): boolean
+public "collisionExtendsVertically"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
+public "getAdjacentBlockPathType"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, mob3: $Mob$$Type, blockPathTypes4: $BlockPathTypes$$Type): $BlockPathTypes
+public "getAppearance"(blockState0: $BlockState$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type, blockState4: $BlockState$$Type, blockPos5: $BlockPos$$Type): $BlockState
+public "getArcanaBonus"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): float
+public "getBeaconColorMultiplier"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, blockPos3: $BlockPos$$Type): float[]
+public "getBedDirection"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): $Direction
+public "getBlacklistedEnchantments"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): $Set<$Enchantment>
+public "getBlockPathType"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, mob3: $Mob$$Type): $BlockPathTypes
+public "getBlockStates"(): $List<$BlockState>
+public "getBonusClues"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): integer
+public "getCloneItemStack"(blockState0: $BlockState$$Type, hitResult1: $HitResult$$Type, blockGetter2: $BlockGetter$$Type, blockPos3: $BlockPos$$Type, player4: $Player$$Type): $ItemStack
+public "getEnchantPowerBonus"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): float
+public "getExpDrop"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, randomSource2: $RandomSource$$Type, blockPos3: $BlockPos$$Type, int4: integer, int5: integer): integer
+public "getExplosionResistance"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, explosion3: $Explosion$$Type): float
+public "getFireSpreadSpeed"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): integer
+public "getFlammability"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): integer
+public "getFriction"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): float
+public "getLightEmission"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): integer
+public "getMapColor"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, mapColor3: $MapColor$$Type): $MapColor
+public "getMaxEnchantingPower"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): float
+public "getMod"(): string
+public "getPistonPushReaction"(blockState0: $BlockState$$Type): $PushReaction
+public "getQuantaBonus"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): float
+public "getQuantaRectification"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): float
+public "getRespawnPosition"(blockState0: $BlockState$$Type, entityType1: $EntityType$$Type<any>, levelReader2: $LevelReader$$Type, blockPos3: $BlockPos$$Type, float4: float, livingEntity5: $LivingEntity$$Type): $Optional<$Vec3>
+public "getSoundType"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): $SoundType
+public "getStateAtViewpoint"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, vec33: $Vec3$$Type): $BlockState
+public "getTableParticle"(blockState0: $BlockState$$Type): $ParticleOptions
+public "getToolModifiedState"(blockState0: $BlockState$$Type, useOnContext1: $UseOnContext$$Type, toolAction2: $ToolAction$$Type, boolean3: boolean): $BlockState
+public "getWeakChanges"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): boolean
+public "hidesNeighborFace"(blockGetter0: $BlockGetter$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type, direction4: $Direction$$Type): boolean
+public "isBed"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
+public "isBurning"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): boolean
+public "isConduitFrame"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, blockPos3: $BlockPos$$Type): boolean
+public "isEnabled"(featureFlagSet0: $FeatureFlagSet$$Type): boolean
+public "isFertile"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): boolean
+public "isFireSource"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): boolean
+public "isFlammable"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): boolean
+public "isLadder"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, livingEntity3: $LivingEntity$$Type): boolean
+public "isPortalFrame"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): boolean
+public "isScaffolding"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, livingEntity3: $LivingEntity$$Type): boolean
+public "isSlimeBlock"(blockState0: $BlockState$$Type): boolean
+public "isStickyBlock"(blockState0: $BlockState$$Type): boolean
+public "isValidSpawn"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, type3: $SpawnPlacements$Type$$Type, entityType4: $EntityType$$Type<any>): boolean
+public "makesOpenTrapdoorAboveClimbable"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, blockState3: $BlockState$$Type): boolean
+public "onBlockExploded"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, explosion3: $Explosion$$Type): void
+public "onBlockStateChange"(levelReader0: $LevelReader$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type): void
+public "onCaughtFire"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type, livingEntity4: $LivingEntity$$Type): void
+public "onDestroyedByPlayer"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, player3: $Player$$Type, boolean4: boolean, fluidState5: $FluidState$$Type): boolean
+public "onNeighborChange"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, blockPos3: $BlockPos$$Type): void
+public "onTreeGrow"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, biConsumer2: $BiConsumer$$Type<$BlockPos$$Type, $BlockState$$Type>, randomSource3: $RandomSource$$Type, blockPos4: $BlockPos$$Type, treeConfiguration5: $TreeConfiguration$$Type): boolean
+public "rotate"(blockState0: $BlockState$$Type, levelAccessor1: $LevelAccessor$$Type, blockPos2: $BlockPos$$Type, rotation3: $Rotation$$Type): $BlockState
+public "setBedOccupied"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, livingEntity3: $LivingEntity$$Type, boolean4: boolean): void
+public "setDestroySpeed"(v: float): void
+public "setLightEmission"(v: integer): void
+public "setRequiresTool"(v: boolean): void
+public "shouldCheckWeakPower"(blockState0: $BlockState$$Type, signalGetter1: $SignalGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): boolean
+public "shouldDisplayFluidOverlay"(blockState0: $BlockState$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type, fluidState3: $FluidState$$Type): boolean
+public "spawnTableParticle"(blockState0: $BlockState$$Type, level1: $Level$$Type, randomSource2: $RandomSource$$Type, blockPos3: $BlockPos$$Type, blockPos4: $BlockPos$$Type): void
+public "supportsExternalFaceHiding"(blockState0: $BlockState$$Type): boolean
+get "blockStates"(): $List<$BlockState>
+get "mod"(): string
 set "destroySpeed"(value: float)
 set "lightEmission"(value: integer)
 set "requiresTool"(value: boolean)
@@ -14156,8 +14168,8 @@ public "isSlimeBlock"(blockState0: $BlockState$$Type): boolean
 public "isStickyBlock"(blockState0: $BlockState$$Type): boolean
 public "isValidSpawn"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, type3: $SpawnPlacements$Type$$Type, entityType4: $EntityType$$Type<any>): boolean
 public "makesOpenTrapdoorAboveClimbable"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, blockState3: $BlockState$$Type): boolean
-public "modifyExpressionValue$elg000$getCrawlLimit"(int0: integer): integer
-public "modifyExpressionValue$elg000$getDrainLimit"(int0: integer): integer
+public "modifyExpressionValue$fbi000$getCrawlLimit"(int0: integer): integer
+public "modifyExpressionValue$fbi000$getDrainLimit"(int0: integer): integer
 public "onBlockExploded"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, explosion3: $Explosion$$Type): void
 public "onBlockStateChange"(levelReader0: $LevelReader$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type): void
 public "onCaughtFire"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type, livingEntity4: $LivingEntity$$Type): void
@@ -14662,8 +14674,8 @@ public "getEnchantPowerBonus"(blockState0: $BlockState$$Type, levelReader1: $Lev
 public "getExpDrop"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, randomSource2: $RandomSource$$Type, blockPos3: $BlockPos$$Type, int4: integer, int5: integer): integer
 public "getExplosionResistance"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, explosion3: $Explosion$$Type): float
 public "getFireSpreadSpeed"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): integer
-public static "getFirst"(blockState0: $BlockState$$Type): $BlockState
 public static "getFirst"(block0: $Block$$Type): $Block
+public static "getFirst"(blockState0: $BlockState$$Type): $BlockState
 public "getFlammability"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): integer
 public "getFriction"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): float
 public "getLightEmission"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): integer
@@ -15263,7 +15275,7 @@ import { $EntityType$$Type } from "packages/net/minecraft/world/entity/$EntityTy
 import { $Mob$$Type } from "packages/net/minecraft/world/entity/$Mob"
 import { $Player$$Type } from "packages/net/minecraft/world/entity/player/$Player"
 import { $ToolAction$$Type } from "packages/net/minecraftforge/common/$ToolAction"
-import { $List } from "packages/java/util/$List"
+import { $List, $List$$Type } from "packages/java/util/$List"
 import { $RandomSource$$Type } from "packages/net/minecraft/util/$RandomSource"
 import { $ServerLevel$$Type } from "packages/net/minecraft/server/level/$ServerLevel"
 import { $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
@@ -15355,6 +15367,7 @@ public "isScaffolding"(blockState0: $BlockState$$Type, levelReader1: $LevelReade
 public "isSlimeBlock"(blockState0: $BlockState$$Type): boolean
 public "isStickyBlock"(blockState0: $BlockState$$Type): boolean
 public "isValidSpawn"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, type3: $SpawnPlacements$Type$$Type, entityType4: $EntityType$$Type<any>): boolean
+public "localvar$zcn000$onCheckPressed"(list0: $List$$Type<any>, level1: $Level$$Type, blockPos2: $BlockPos$$Type): $List<any>
 public "makesOpenTrapdoorAboveClimbable"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, blockState3: $BlockState$$Type): boolean
 public "onBlockExploded"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, explosion3: $Explosion$$Type): void
 public "onBlockStateChange"(levelReader0: $LevelReader$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type): void
@@ -15668,6 +15681,7 @@ import { $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
 import { $ParticleOptions } from "packages/net/minecraft/core/particles/$ParticleOptions"
 import { $Entity$$Type } from "packages/net/minecraft/world/entity/$Entity"
 import { $SpawnPlacements$Type$$Type } from "packages/net/minecraft/world/entity/$SpawnPlacements$Type"
+import { $VoxelShape, $VoxelShape$$Type } from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
 import { $SignalGetter$$Type } from "packages/net/minecraft/world/level/$SignalGetter"
 import { $BlockPathTypes, $BlockPathTypes$$Type } from "packages/net/minecraft/world/level/pathfinder/$BlockPathTypes"
 import { $BlockState, $BlockState$$Type } from "packages/net/minecraft/world/level/block/state/$BlockState"
@@ -15755,6 +15769,7 @@ public "isScaffolding"(blockState0: $BlockState$$Type, levelReader1: $LevelReade
 public "isSlimeBlock"(blockState0: $BlockState$$Type): boolean
 public "isStickyBlock"(blockState0: $BlockState$$Type): boolean
 public "isValidSpawn"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, type3: $SpawnPlacements$Type$$Type, entityType4: $EntityType$$Type<any>): boolean
+public "makeShapes"(float0: float, float1: float, float2: float, float3: float, float4: float): $VoxelShape[]
 public "makesOpenTrapdoorAboveClimbable"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, blockState3: $BlockState$$Type): boolean
 public "onBlockExploded"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, explosion3: $Explosion$$Type): void
 public "onBlockStateChange"(levelReader0: $LevelReader$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type): void
@@ -15773,6 +15788,10 @@ public "shouldCheckWeakPower"(blockState0: $BlockState$$Type, signalGetter1: $Si
 public "shouldDisplayFluidOverlay"(blockState0: $BlockState$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type, fluidState3: $FluidState$$Type): boolean
 public "spawnTableParticle"(blockState0: $BlockState$$Type, level1: $Level$$Type, randomSource2: $RandomSource$$Type, blockPos3: $BlockPos$$Type, blockPos4: $BlockPos$$Type): void
 public "supportsExternalFaceHiding"(blockState0: $BlockState$$Type): boolean
+get "collisionShapeByIndex"(): $VoxelShape[]
+set "collisionShapeByIndex"(value: $VoxelShape$$Type[])
+get "shapeByIndex"(): $VoxelShape[]
+set "shapeByIndex"(value: $VoxelShape$$Type[])
 get "blockStates"(): $List<$BlockState>
 get "mod"(): string
 get "pickupSound"(): $Optional<$SoundEvent>
@@ -16191,8 +16210,8 @@ public static "fromEnumWithMapping"<E extends ($Enum<E> & $StringRepresentable)>
 public "getRotation"(direction0: $Direction$$Type): $Rotation
 public "getSerializedName"(): string
 public static "keys"(stringRepresentable0s: $StringRepresentable$$Type[]): $Keyable
-public "mirror"(int0: integer, int1: integer): integer
 public "mirror"(direction0: $Direction$$Type): $Direction
+public "mirror"(int0: integer, int1: integer): integer
 public "rotation"(): $OctahedralGroup
 public "symbol"(): $Component
 public static "valueOf"(string0: string): $Mirror
@@ -17099,7 +17118,7 @@ public "getTableParticle"(blockState0: $BlockState$$Type): $ParticleOptions
 public "getTicker"(level0: $Level$$Type, blockState1: $BlockState$$Type, blockEntityType2: $BlockEntityType$$Type<any>): $BlockEntityTicker<any>
 public "getToolModifiedState"(blockState0: $BlockState$$Type, useOnContext1: $UseOnContext$$Type, toolAction2: $ToolAction$$Type, boolean3: boolean): $BlockState
 public "getWeakChanges"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): boolean
-public "handler$bnb000$getMenuProvider"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, callbackInfoReturnable3: $CallbackInfoReturnable$$Type<any>): void
+public "handler$cam000$getMenuProvider"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, callbackInfoReturnable3: $CallbackInfoReturnable$$Type<any>): void
 public "hasBlockEntity"(): boolean
 public "hidesNeighborFace"(blockGetter0: $BlockGetter$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type, direction4: $Direction$$Type): boolean
 public "isBed"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
@@ -18264,6 +18283,7 @@ import { $ResourceLocation } from "packages/net/minecraft/resources/$ResourceLoc
 import { $PushReaction } from "packages/net/minecraft/world/level/material/$PushReaction"
 import { $LivingEntity$$Type } from "packages/net/minecraft/world/entity/$LivingEntity"
 import { $FluidState$$Type } from "packages/net/minecraft/world/level/material/$FluidState"
+import { $CallbackInfoReturnable$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfoReturnable"
 import { $BlockGetter$$Type } from "packages/net/minecraft/world/level/$BlockGetter"
 import { $EntityType$$Type } from "packages/net/minecraft/world/entity/$EntityType"
 import { $Player$$Type } from "packages/net/minecraft/world/entity/player/$Player"
@@ -18281,6 +18301,7 @@ import { $BaseFireBlock } from "packages/net/minecraft/world/level/block/$BaseFi
 import { $UseOnContext$$Type } from "packages/net/minecraft/world/item/context/$UseOnContext"
 import { $Enchantment } from "packages/net/minecraft/world/item/enchantment/$Enchantment"
 import { $Optional } from "packages/java/util/$Optional"
+import { $FireBlockAccess } from "packages/snownee/kiwi/mixin/$FireBlockAccess"
 import { $Explosion$$Type } from "packages/net/minecraft/world/level/$Explosion"
 import { $BlockAndTintGetter$$Type } from "packages/net/minecraft/world/level/$BlockAndTintGetter"
 import { $IntegerProperty } from "packages/net/minecraft/world/level/block/state/properties/$IntegerProperty"
@@ -18302,11 +18323,12 @@ import { $Holder } from "packages/net/minecraft/core/$Holder"
 import { $HitResult$$Type } from "packages/net/minecraft/world/phys/$HitResult"
 import { $Set } from "packages/java/util/$Set"
 import { $SoundType } from "packages/net/minecraft/world/level/block/$SoundType"
+import { $CallbackInfo$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfo"
 import { $LocalBooleanRef$$Type } from "packages/com/llamalad7/mixinextras/sugar/ref/$LocalBooleanRef"
 import { $FireBlockAccessor as $FireBlockAccessor$0 } from "packages/net/mehvahdjukaar/supplementaries/mixins/forge/$FireBlockAccessor"
 import { $Rotation$$Type } from "packages/net/minecraft/world/level/block/$Rotation"
 
-export class $FireBlock extends $BaseFireBlock implements $FireBlockAccessor, $FireBlockForgeAccessor, $FireBlockAccessor$0 {
+export class $FireBlock extends $BaseFireBlock implements $FireBlockAccessor, $FireBlockAccess, $FireBlockForgeAccessor, $FireBlockAccessor$0 {
 static readonly "AGE": $IntegerProperty
 static readonly "EAST": $BooleanProperty
 static readonly "MAX_AGE": integer
@@ -18367,6 +18389,8 @@ public "getStateWithAge"(levelAccessor0: $LevelAccessor$$Type, blockPos1: $Block
 public "getTableParticle"(blockState0: $BlockState$$Type): $ParticleOptions
 public "getToolModifiedState"(blockState0: $BlockState$$Type, useOnContext1: $UseOnContext$$Type, toolAction2: $ToolAction$$Type, boolean3: boolean): $BlockState
 public "getWeakChanges"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): boolean
+public "handler$zbn000$onGetFireOdds"(levelReader0: $LevelReader$$Type, blockPos1: $BlockPos$$Type, callbackInfoReturnable2: $CallbackInfoReturnable$$Type<any>): void
+public "handler$zdb000$onCheckBurnOut"(level0: $Level$$Type, blockPos1: $BlockPos$$Type, int2: integer, randomSource3: $RandomSource$$Type, int4: integer, direction5: $Direction$$Type, callbackInfo6: $CallbackInfo$$Type): void
 public "hidesNeighborFace"(blockGetter0: $BlockGetter$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type, direction4: $Direction$$Type): boolean
 public "isBed"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
 public "isBurning"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): boolean
@@ -18383,7 +18407,7 @@ public "isSlimeBlock"(blockState0: $BlockState$$Type): boolean
 public "isStickyBlock"(blockState0: $BlockState$$Type): boolean
 public "isValidSpawn"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, type3: $SpawnPlacements$Type$$Type, entityType4: $EntityType$$Type<any>): boolean
 public "makesOpenTrapdoorAboveClimbable"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, blockState3: $BlockState$$Type): boolean
-public "modifyExpressionValue$epb000$supp$igniteLumisene"(odds: integer, level: $ServerLevel$$Type, pos: $BlockPos$MutableBlockPos$$Type, isLiquid: $LocalBooleanRef$$Type): integer
+public "modifyExpressionValue$ffd000$supp$igniteLumisene"(odds: integer, level: $ServerLevel$$Type, pos: $BlockPos$MutableBlockPos$$Type, isLiquid: $LocalBooleanRef$$Type): integer
 public "onBlockExploded"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, explosion3: $Explosion$$Type): void
 public "onBlockStateChange"(levelReader0: $LevelReader$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type): void
 public "onCaughtFire"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type, livingEntity4: $LivingEntity$$Type): void
@@ -18400,7 +18424,7 @@ public "shouldCheckWeakPower"(blockState0: $BlockState$$Type, signalGetter1: $Si
 public "shouldDisplayFluidOverlay"(blockState0: $BlockState$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type, fluidState3: $FluidState$$Type): boolean
 public "spawnTableParticle"(blockState0: $BlockState$$Type, level1: $Level$$Type, randomSource2: $RandomSource$$Type, blockPos3: $BlockPos$$Type, blockPos4: $BlockPos$$Type): void
 public "supportsExternalFaceHiding"(blockState0: $BlockState$$Type): boolean
-public "wrapOperation$epb000$supp$doIgniteLumisene"(level: $ServerLevel$$Type, pos: $BlockPos$$Type, fireState: $BlockState$$Type, i: integer, original: $Operation$$Type<any>, isLiquid: $LocalBooleanRef$$Type): boolean
+public "wrapOperation$ffd000$supp$doIgniteLumisene"(level: $ServerLevel$$Type, pos: $BlockPos$$Type, fireState: $BlockState$$Type, i: integer, original: $Operation$$Type<any>, isLiquid: $LocalBooleanRef$$Type): boolean
 get "blockStates"(): $List<$BlockState>
 get "mod"(): string
 set "destroySpeed"(value: float)
@@ -18951,8 +18975,8 @@ public "isScaffolding"(blockState0: $BlockState$$Type, levelReader1: $LevelReade
 public "isSlimeBlock"(blockState0: $BlockState$$Type): boolean
 public "isStickyBlock"(blockState0: $BlockState$$Type): boolean
 public "isValidSpawn"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, type3: $SpawnPlacements$Type$$Type, entityType4: $EntityType$$Type<any>): boolean
-public static "isWoodenDoor"(blockState0: $BlockState$$Type): boolean
 public static "isWoodenDoor"(level0: $Level$$Type, blockPos1: $BlockPos$$Type): boolean
+public static "isWoodenDoor"(blockState0: $BlockState$$Type): boolean
 public "makesOpenTrapdoorAboveClimbable"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, blockState3: $BlockState$$Type): boolean
 public "onBlockExploded"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, explosion3: $Explosion$$Type): void
 public "onBlockStateChange"(levelReader0: $LevelReader$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type): void
@@ -19560,10 +19584,13 @@ import { $Optional } from "packages/java/util/$Optional"
 import { $Rotation$$Type } from "packages/net/minecraft/world/level/block/$Rotation"
 import { $Explosion$$Type } from "packages/net/minecraft/world/level/$Explosion"
 import { $BlockEntityTicker } from "packages/net/minecraft/world/level/block/entity/$BlockEntityTicker"
+import { $DispenseItemBehavior } from "packages/net/minecraft/core/dispenser/$DispenseItemBehavior"
 import { $GameEventListener } from "packages/net/minecraft/world/level/gameevent/$GameEventListener"
 import { $BlockAndTintGetter$$Type } from "packages/net/minecraft/world/level/$BlockAndTintGetter"
 
 export class $DropperBlock extends $DispenserBlock {
+static readonly "DISPENSE_BEHAVIOUR": $DispenseItemBehavior
+
 constructor(properties0: $BlockBehaviour$Properties$$Type)
 
 public "addLandingEffects"(blockState0: $BlockState$$Type, serverLevel1: $ServerLevel$$Type, blockPos2: $BlockPos$$Type, blockState3: $BlockState$$Type, livingEntity4: $LivingEntity$$Type, int5: integer): boolean
@@ -20196,7 +20223,7 @@ public "isSlimeBlock"(blockState0: $BlockState$$Type): boolean
 public "isStickyBlock"(blockState0: $BlockState$$Type): boolean
 public "isValidSpawn"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, type3: $SpawnPlacements$Type$$Type, entityType4: $EntityType$$Type<any>): boolean
 public "makesOpenTrapdoorAboveClimbable"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, blockState3: $BlockState$$Type): boolean
-public "modifyReturnValue$fco000$use"(original: $InteractionResult$$Type, state: $BlockState$$Type, level: $Level$$Type, pos: $BlockPos$$Type, player: $Player$$Type, hand: $InteractionHand$$Type, stack: $ItemStack$$Type): $InteractionResult
+public "modifyReturnValue$fjb000$use"(original: $InteractionResult$$Type, state: $BlockState$$Type, level: $Level$$Type, pos: $BlockPos$$Type, player: $Player$$Type, hand: $InteractionHand$$Type, stack: $ItemStack$$Type): $InteractionResult
 public "onBlockExploded"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, explosion3: $Explosion$$Type): void
 public "onBlockStateChange"(levelReader0: $LevelReader$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type): void
 public "onCaughtFire"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type, livingEntity4: $LivingEntity$$Type): void
@@ -20724,8 +20751,8 @@ public "getTableParticle"(blockState0: $BlockState$$Type): $ParticleOptions
 public "getTicker"<T extends $BlockEntity>(level0: $Level$$Type, blockState1: $BlockState$$Type, blockEntityType2: $BlockEntityType$$Type<T>): $BlockEntityTicker<T>
 public "getToolModifiedState"(blockState0: $BlockState$$Type, useOnContext1: $UseOnContext$$Type, toolAction2: $ToolAction$$Type, boolean3: boolean): $BlockState
 public "getWeakChanges"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): boolean
-public "handler$dkb000$isFDSmokeSource"(blockState0: $BlockState$$Type, callbackInfoReturnable1: $CallbackInfoReturnable$$Type<any>): void
-public "handler$eoe000$isSmokeSource"(state: $BlockState$$Type, info: $CallbackInfoReturnable$$Type<any>): void
+public "handler$dop000$isFDSmokeSource"(blockState0: $BlockState$$Type, callbackInfoReturnable1: $CallbackInfoReturnable$$Type<any>): void
+public "handler$feg000$isSmokeSource"(state: $BlockState$$Type, info: $CallbackInfoReturnable$$Type<any>): void
 public "hidesNeighborFace"(blockGetter0: $BlockGetter$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type, direction4: $Direction$$Type): boolean
 public "isBed"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
 public "isBurning"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): boolean
@@ -21671,8 +21698,8 @@ public "getTableParticle"(blockState0: $BlockState$$Type): $ParticleOptions
 public "getTicker"<T extends $BlockEntity>(level0: $Level$$Type, blockState1: $BlockState$$Type, blockEntityType2: $BlockEntityType$$Type<T>): $BlockEntityTicker<T>
 public "getToolModifiedState"(blockState0: $BlockState$$Type, useOnContext1: $UseOnContext$$Type, toolAction2: $ToolAction$$Type, boolean3: boolean): $BlockState
 public "getWeakChanges"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): boolean
-public "handler$fda000$amendments$updateObservers"(entity: $Entity$$Type, level: $Level$$Type, pos: $BlockPos$$Type, direction: $Direction$$Type, cir: $CallbackInfoReturnable$$Type<any>, blockEntity: $BlockEntity$$Type): void
-public "handler$fda000$updateShape"(stateIn: $BlockState$$Type, facing: $Direction$$Type, facingState: $BlockState$$Type, worldIn: $LevelAccessor$$Type, currentPos: $BlockPos$$Type, facingPos: $BlockPos$$Type, info: $CallbackInfoReturnable$$Type<any>): void
+public "handler$fjd000$amendments$updateObservers"(entity: $Entity$$Type, level: $Level$$Type, pos: $BlockPos$$Type, direction: $Direction$$Type, cir: $CallbackInfoReturnable$$Type<any>, blockEntity: $BlockEntity$$Type): void
+public "handler$fjd000$updateShape"(stateIn: $BlockState$$Type, facing: $Direction$$Type, facingState: $BlockState$$Type, worldIn: $LevelAccessor$$Type, currentPos: $BlockPos$$Type, facingPos: $BlockPos$$Type, info: $CallbackInfoReturnable$$Type<any>): void
 public "hidesNeighborFace"(blockGetter0: $BlockGetter$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type, direction4: $Direction$$Type): boolean
 public "isBed"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
 public "isBurning"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): boolean
@@ -22513,7 +22540,7 @@ public "isSlimeBlock"(blockState0: $BlockState$$Type): boolean
 public "isStickyBlock"(blockState0: $BlockState$$Type): boolean
 public "isValidSpawn"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, type3: $SpawnPlacements$Type$$Type, entityType4: $EntityType$$Type<any>): boolean
 public "makesOpenTrapdoorAboveClimbable"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, blockState3: $BlockState$$Type): boolean
-public "modifyReturnValue$feb000$amendments$addPlacementWaterlogging"(original: $BlockState$$Type, context: $BlockPlaceContext$$Type): $BlockState
+public "modifyReturnValue$fke000$amendments$addPlacementWaterlogging"(original: $BlockState$$Type, context: $BlockPlaceContext$$Type): $BlockState
 public "onBlockExploded"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, explosion3: $Explosion$$Type): void
 public "onBlockStateChange"(levelReader0: $LevelReader$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type): void
 public "onCaughtFire"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type, livingEntity4: $LivingEntity$$Type): void
@@ -23168,7 +23195,7 @@ public "isSlimeBlock"(blockState0: $BlockState$$Type): boolean
 public "isStickyBlock"(blockState0: $BlockState$$Type): boolean
 public "isValidSpawn"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, type3: $SpawnPlacements$Type$$Type, entityType4: $EntityType$$Type<any>): boolean
 public "makesOpenTrapdoorAboveClimbable"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, blockState3: $BlockState$$Type): boolean
-public "modifyReturnValue$fdi000$amendments$cauldronConnect"(original: boolean, state: $BlockState$$Type, isSideSolid: boolean, direction: $Direction$$Type): boolean
+public "modifyReturnValue$fjl000$amendments$cauldronConnect"(original: boolean, state: $BlockState$$Type, isSideSolid: boolean, direction: $Direction$$Type): boolean
 public "onBlockExploded"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, explosion3: $Explosion$$Type): void
 public "onBlockStateChange"(levelReader0: $LevelReader$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type): void
 public "onCaughtFire"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type, livingEntity4: $LivingEntity$$Type): void
@@ -24105,7 +24132,7 @@ public "getTableParticle"(blockState0: $BlockState$$Type): $ParticleOptions
 public "getTicker"<T extends $BlockEntity>(level0: $Level$$Type, blockState1: $BlockState$$Type, blockEntityType2: $BlockEntityType$$Type<T>): $BlockEntityTicker<T>
 public "getToolModifiedState"(blockState0: $BlockState$$Type, useOnContext1: $UseOnContext$$Type, toolAction2: $ToolAction$$Type, boolean3: boolean): $BlockState
 public "getWeakChanges"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): boolean
-public "handler$fdo000$amendments$openCustomMenu"(level: $Level$$Type, pos: $BlockPos$$Type, player: $Player$$Type, ci: $CallbackInfo$$Type): void
+public "handler$fkb000$amendments$openCustomMenu"(level: $Level$$Type, pos: $BlockPos$$Type, player: $Player$$Type, ci: $CallbackInfo$$Type): void
 public "hidesNeighborFace"(blockGetter0: $BlockGetter$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type, direction4: $Direction$$Type): boolean
 public "isBed"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
 public "isBurning"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): boolean
@@ -24689,6 +24716,7 @@ import { $ResourceLocation } from "packages/net/minecraft/resources/$ResourceLoc
 import { $PushReaction } from "packages/net/minecraft/world/level/material/$PushReaction"
 import { $LivingEntity$$Type } from "packages/net/minecraft/world/entity/$LivingEntity"
 import { $FluidState$$Type } from "packages/net/minecraft/world/level/material/$FluidState"
+import { $CallbackInfoReturnable$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfoReturnable"
 import { $BlockGetter$$Type } from "packages/net/minecraft/world/level/$BlockGetter"
 import { $EntityType$$Type } from "packages/net/minecraft/world/entity/$EntityType"
 import { $Player$$Type } from "packages/net/minecraft/world/entity/player/$Player"
@@ -24720,6 +24748,7 @@ import { $DoubleBlockCombiner$BlockType } from "packages/net/minecraft/world/lev
 import { $TreeConfiguration$$Type } from "packages/net/minecraft/world/level/levelgen/feature/configurations/$TreeConfiguration"
 import { $DyeColor, $DyeColor$$Type } from "packages/net/minecraft/world/item/$DyeColor"
 import { $Mob$$Type } from "packages/net/minecraft/world/entity/$Mob"
+import { $BlockHitResult$$Type } from "packages/net/minecraft/world/phys/$BlockHitResult"
 import { $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
 import { $SpawnPlacements$Type$$Type } from "packages/net/minecraft/world/entity/$SpawnPlacements$Type"
 import { $SignalGetter$$Type } from "packages/net/minecraft/world/level/$SignalGetter"
@@ -24730,6 +24759,7 @@ import { $LevelReader$$Type } from "packages/net/minecraft/world/level/$LevelRea
 import { $Holder } from "packages/net/minecraft/core/$Holder"
 import { $HitResult$$Type } from "packages/net/minecraft/world/phys/$HitResult"
 import { $Set } from "packages/java/util/$Set"
+import { $InteractionHand$$Type } from "packages/net/minecraft/world/$InteractionHand"
 import { $SoundType } from "packages/net/minecraft/world/level/block/$SoundType"
 import { $BedPart } from "packages/net/minecraft/world/level/block/state/properties/$BedPart"
 import { $Rotation$$Type } from "packages/net/minecraft/world/level/block/$Rotation"
@@ -24790,6 +24820,7 @@ public "getTableParticle"(blockState0: $BlockState$$Type): $ParticleOptions
 public "getTicker"<T extends $BlockEntity>(level0: $Level$$Type, blockState1: $BlockState$$Type, blockEntityType2: $BlockEntityType$$Type<T>): $BlockEntityTicker<T>
 public "getToolModifiedState"(blockState0: $BlockState$$Type, useOnContext1: $UseOnContext$$Type, toolAction2: $ToolAction$$Type, boolean3: boolean): $BlockState
 public "getWeakChanges"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): boolean
+public "handler$cnm000$checkBedSpawnPointSet"(state: $BlockState$$Type, level: $Level$$Type, pos: $BlockPos$$Type, player: $Player$$Type, hand: $InteractionHand$$Type, hit: $BlockHitResult$$Type, cir: $CallbackInfoReturnable$$Type<any>): void
 public "hidesNeighborFace"(blockGetter0: $BlockGetter$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type, direction4: $Direction$$Type): boolean
 public "isBed"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
 public "isBurning"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): boolean
@@ -25073,7 +25104,7 @@ public "getTableParticle"(blockState0: $BlockState$$Type): $ParticleOptions
 public "getToolModifiedState"(blockState0: $BlockState$$Type, useOnContext1: $UseOnContext$$Type, toolAction2: $ToolAction$$Type, boolean3: boolean): $BlockState
 public "getWeakChanges"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): boolean
 public "growCrops"(level0: $Level$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type): void
-public "handler$zkg000$mayPlaceOn"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, callbackInfoReturnable3: $CallbackInfoReturnable$$Type<any>): void
+public "handler$zoc000$mayPlaceOn"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, callbackInfoReturnable3: $CallbackInfoReturnable$$Type<any>): void
 public "hidesNeighborFace"(blockGetter0: $BlockGetter$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type, direction4: $Direction$$Type): boolean
 public "isBed"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
 public "isBonemealSuccess"(level0: $Level$$Type, randomSource1: $RandomSource$$Type, blockPos2: $BlockPos$$Type, blockState3: $BlockState$$Type): boolean
@@ -26201,7 +26232,7 @@ public "isSlimeBlock"(blockState0: $BlockState$$Type): boolean
 public "isStickyBlock"(blockState0: $BlockState$$Type): boolean
 public "isValidSpawn"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, type3: $SpawnPlacements$Type$$Type, entityType4: $EntityType$$Type<any>): boolean
 public "makesOpenTrapdoorAboveClimbable"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, blockState3: $BlockState$$Type): boolean
-public "modifyReturnValue$feb000$amendments$addPlacementWaterlogging"(original: $BlockState$$Type, context: $BlockPlaceContext$$Type): $BlockState
+public "modifyReturnValue$fke000$amendments$addPlacementWaterlogging"(original: $BlockState$$Type, context: $BlockPlaceContext$$Type): $BlockState
 public "onBlockExploded"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, explosion3: $Explosion$$Type): void
 public "onBlockStateChange"(levelReader0: $LevelReader$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type): void
 public "onCaughtFire"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type, livingEntity4: $LivingEntity$$Type): void
@@ -26386,8 +26417,8 @@ get "chanceModifier"(): float
 export namespace $WeatheringCopper {
 const NEXT_BY_BLOCK: $Supplier<$BiMap<$Block, $Block>>
 const PREVIOUS_BY_BLOCK: $Supplier<$BiMap<$Block, $Block>>
-function getFirst(blockState0: $BlockState$$Type): $BlockState
 function getFirst(block0: $Block$$Type): $Block
+function getFirst(blockState0: $BlockState$$Type): $BlockState
 function getNext(block0: $Block$$Type): $Optional<$Block>
 function getPrevious(blockState0: $BlockState$$Type): $Optional<$BlockState>
 function getPrevious(block0: $Block$$Type): $Optional<$Block>
@@ -26396,8 +26427,8 @@ export abstract class $WeatheringCopper$$Static implements $WeatheringCopper {
 static readonly "NEXT_BY_BLOCK": $Supplier<$BiMap<$Block, $Block>>
 static readonly "PREVIOUS_BY_BLOCK": $Supplier<$BiMap<$Block, $Block>>
 
-static "getFirst"(blockState0: $BlockState$$Type): $BlockState
 static "getFirst"(block0: $Block$$Type): $Block
+static "getFirst"(blockState0: $BlockState$$Type): $BlockState
 static "getNext"(block0: $Block$$Type): $Optional<$Block>
 static "getPrevious"(blockState0: $BlockState$$Type): $Optional<$BlockState>
 static "getPrevious"(block0: $Block$$Type): $Optional<$Block>
@@ -26858,8 +26889,8 @@ public "shouldCheckWeakPower"(blockState0: $BlockState$$Type, signalGetter1: $Si
 public "shouldDisplayFluidOverlay"(blockState0: $BlockState$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type, fluidState3: $FluidState$$Type): boolean
 public "spawnTableParticle"(blockState0: $BlockState$$Type, level1: $Level$$Type, randomSource2: $RandomSource$$Type, blockPos3: $BlockPos$$Type, blockPos4: $BlockPos$$Type): void
 public "supportsExternalFaceHiding"(blockState0: $BlockState$$Type): boolean
-public static "updateColumn"(levelAccessor0: $LevelAccessor$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type): void
 public static "updateColumn"(levelAccessor0: $LevelAccessor$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type): void
+public static "updateColumn"(levelAccessor0: $LevelAccessor$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type): void
 get "blockStates"(): $List<$BlockState>
 get "mod"(): string
 get "pickupSound"(): $Optional<$SoundEvent>
@@ -28579,7 +28610,7 @@ public "getStateAtViewpoint"(blockState0: $BlockState$$Type, blockGetter1: $Bloc
 public "getTableParticle"(blockState0: $BlockState$$Type): $ParticleOptions
 public "getTicker"<T extends $BlockEntity>(level0: $Level$$Type, blockState1: $BlockState$$Type, blockEntityType2: $BlockEntityType$$Type<T>): $BlockEntityTicker<T>
 public "getToolModifiedState"(blockState0: $BlockState$$Type, useOnContext1: $UseOnContext$$Type, toolAction2: $ToolAction$$Type, boolean3: boolean): $BlockState
-public "handler$eoi000$updateSideRelayers"(level: $Level$$Type, pos: $BlockPos$$Type, state: $BlockState$$Type, ci: $CallbackInfo$$Type): void
+public "handler$fek000$updateSideRelayers"(level: $Level$$Type, pos: $BlockPos$$Type, state: $BlockState$$Type, ci: $CallbackInfo$$Type): void
 public "hidesNeighborFace"(blockGetter0: $BlockGetter$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type, direction4: $Direction$$Type): boolean
 public "isBed"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
 public "isBurning"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): boolean
@@ -29285,7 +29316,7 @@ public "getTableParticle"(blockState0: $BlockState$$Type): $ParticleOptions
 public "getTicker"<T extends $BlockEntity>(level0: $Level$$Type, blockState1: $BlockState$$Type, blockEntityType2: $BlockEntityType$$Type<T>): $BlockEntityTicker<T>
 public "getToolModifiedState"(blockState0: $BlockState$$Type, useOnContext1: $UseOnContext$$Type, toolAction2: $ToolAction$$Type, boolean3: boolean): $BlockState
 public "getWeakChanges"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): boolean
-public "handler$col000$onLand"(level0: $Level$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type, fallingBlockEntity4: $FallingBlockEntity$$Type, callbackInfo5: $CallbackInfo$$Type): void
+public "handler$ddm000$onLand"(level0: $Level$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type, fallingBlockEntity4: $FallingBlockEntity$$Type, callbackInfo5: $CallbackInfo$$Type): void
 public "handler$zbe000$easyanvils$getMenuProvider"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, callbackInfoReturnable3: $CallbackInfoReturnable$$Type<any>): void
 public "handler$zbe000$easyanvils$use"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, player3: $Player$$Type, interactionHand4: $InteractionHand$$Type, blockHitResult5: $BlockHitResult$$Type, callbackInfoReturnable6: $CallbackInfoReturnable$$Type<any>): void
 public "hidesNeighborFace"(blockGetter0: $BlockGetter$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type, direction4: $Direction$$Type): boolean
@@ -29511,6 +29542,7 @@ import { $HitResult$$Type } from "packages/net/minecraft/world/phys/$HitResult"
 import { $Set } from "packages/java/util/$Set"
 import { $Enchantment } from "packages/net/minecraft/world/item/enchantment/$Enchantment"
 import { $SoundType } from "packages/net/minecraft/world/level/block/$SoundType"
+import { $CallbackInfo$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfo"
 import { $Optional } from "packages/java/util/$Optional"
 import { $Rotation$$Type } from "packages/net/minecraft/world/level/block/$Rotation"
 import { $Explosion$$Type } from "packages/net/minecraft/world/level/$Explosion"
@@ -29558,6 +29590,8 @@ public "getStateAtViewpoint"(blockState0: $BlockState$$Type, blockGetter1: $Bloc
 public "getTableParticle"(blockState0: $BlockState$$Type): $ParticleOptions
 public "getToolModifiedState"(blockState0: $BlockState$$Type, useOnContext1: $UseOnContext$$Type, toolAction2: $ToolAction$$Type, boolean3: boolean): $BlockState
 public "getWeakChanges"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): boolean
+public "handler$zbh000$onCheckPressedPost"(entity0: $Entity$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, blockState3: $BlockState$$Type, int4: integer, callbackInfo5: $CallbackInfo$$Type): void
+public "handler$zbh000$onCheckPressedPre"(entity0: $Entity$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, blockState3: $BlockState$$Type, int4: integer, callbackInfo5: $CallbackInfo$$Type): void
 public "hidesNeighborFace"(blockGetter0: $BlockGetter$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type, direction4: $Direction$$Type): boolean
 public "isBed"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
 public "isBurning"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): boolean
@@ -29707,8 +29741,8 @@ public "getTableParticle"(blockState0: $BlockState$$Type): $ParticleOptions
 public "getTicker"<T extends $BlockEntity>(level0: $Level$$Type, blockState1: $BlockState$$Type, blockEntityType2: $BlockEntityType$$Type<T>): $BlockEntityTicker<T>
 public "getToolModifiedState"(blockState0: $BlockState$$Type, useOnContext1: $UseOnContext$$Type, toolAction2: $ToolAction$$Type, boolean3: boolean): $BlockState
 public "getWeakChanges"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): boolean
-public "handler$fdg000$amendments$updateExtension"(state: $BlockState$$Type, direction: $Direction$$Type, neighborState: $BlockState$$Type, level: $LevelAccessor$$Type, currentPos: $BlockPos$$Type, neighborPos: $BlockPos$$Type, cir: $CallbackInfoReturnable$$Type<any>): void
-public "handler$fdg000$amendments$use"(state: $BlockState$$Type, level: $Level$$Type, pos: $BlockPos$$Type, player: $Player$$Type, hand: $InteractionHand$$Type, hit: $BlockHitResult$$Type, cir: $CallbackInfoReturnable$$Type<any>): void
+public "handler$fjj000$amendments$updateExtension"(state: $BlockState$$Type, direction: $Direction$$Type, neighborState: $BlockState$$Type, level: $LevelAccessor$$Type, currentPos: $BlockPos$$Type, neighborPos: $BlockPos$$Type, cir: $CallbackInfoReturnable$$Type<any>): void
+public "handler$fjj000$amendments$use"(state: $BlockState$$Type, level: $Level$$Type, pos: $BlockPos$$Type, player: $Player$$Type, hand: $InteractionHand$$Type, hit: $BlockHitResult$$Type, cir: $CallbackInfoReturnable$$Type<any>): void
 public "hidesNeighborFace"(blockGetter0: $BlockGetter$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type, direction4: $Direction$$Type): boolean
 public "isBed"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
 public "isBurning"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): boolean
@@ -32709,7 +32743,7 @@ public "shouldCheckWeakPower"(blockState0: $BlockState$$Type, signalGetter1: $Si
 public "shouldDisplayFluidOverlay"(blockState0: $BlockState$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type, fluidState3: $FluidState$$Type): boolean
 public "spawnTableParticle"(blockState0: $BlockState$$Type, level1: $Level$$Type, randomSource2: $RandomSource$$Type, blockPos3: $BlockPos$$Type, blockPos4: $BlockPos$$Type): void
 public "supportsExternalFaceHiding"(blockState0: $BlockState$$Type): boolean
-public "wrapWithCondition$epn000$supp$preventSlidyBlockUpdates"(instance: $ObserverBlock$$Type, level: $LevelAccessor$$Type, pos: $BlockPos$$Type, neighbor: $BlockState$$Type): boolean
+public "wrapWithCondition$fga000$supp$preventSlidyBlockUpdates"(instance: $ObserverBlock$$Type, level: $LevelAccessor$$Type, pos: $BlockPos$$Type, neighbor: $BlockState$$Type): boolean
 get "blockStates"(): $List<$BlockState>
 get "mod"(): string
 set "destroySpeed"(value: float)
@@ -32816,7 +32850,7 @@ public "getStateAtViewpoint"(blockState0: $BlockState$$Type, blockGetter1: $Bloc
 public "getTableParticle"(blockState0: $BlockState$$Type): $ParticleOptions
 public "getToolModifiedState"(blockState0: $BlockState$$Type, useOnContext1: $UseOnContext$$Type, toolAction2: $ToolAction$$Type, boolean3: boolean): $BlockState
 public "getWeakChanges"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): boolean
-public "handler$zkh001$mayPlaceOn"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, callbackInfoReturnable3: $CallbackInfoReturnable$$Type<any>): void
+public "handler$zod001$mayPlaceOn"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, callbackInfoReturnable3: $CallbackInfoReturnable$$Type<any>): void
 public "hidesNeighborFace"(blockGetter0: $BlockGetter$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type, direction4: $Direction$$Type): boolean
 public "isBed"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
 public "isBonemealSuccess"(level0: $Level$$Type, randomSource1: $RandomSource$$Type, blockPos2: $BlockPos$$Type, blockState3: $BlockState$$Type): boolean
@@ -32958,9 +32992,9 @@ public "getTableParticle"(blockState0: $BlockState$$Type): $ParticleOptions
 public "getTicker"<T extends $BlockEntity>(level0: $Level$$Type, blockState1: $BlockState$$Type, blockEntityType2: $BlockEntityType$$Type<T>): $BlockEntityTicker<T>
 public "getToolModifiedState"(blockState0: $BlockState$$Type, useOnContext1: $UseOnContext$$Type, toolAction2: $ToolAction$$Type, boolean3: boolean): $BlockState
 public "getWeakChanges"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): boolean
-public "handler$don000$getTicker"(level0: $Level$$Type, blockState1: $BlockState$$Type, blockEntityType2: $BlockEntityType$$Type<any>, callbackInfoReturnable3: $CallbackInfoReturnable$$Type<any>): void
-public "handler$don000$newBlockEntity"(blockPos0: $BlockPos$$Type, blockState1: $BlockState$$Type, callbackInfoReturnable2: $CallbackInfoReturnable$$Type<any>): void
-public "handler$don000$use"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, player3: $Player$$Type, interactionHand4: $InteractionHand$$Type, blockHitResult5: $BlockHitResult$$Type, callbackInfoReturnable6: $CallbackInfoReturnable$$Type<any>): void
+public "handler$edm000$getTicker"(level0: $Level$$Type, blockState1: $BlockState$$Type, blockEntityType2: $BlockEntityType$$Type<any>, callbackInfoReturnable3: $CallbackInfoReturnable$$Type<any>): void
+public "handler$edm000$newBlockEntity"(blockPos0: $BlockPos$$Type, blockState1: $BlockState$$Type, callbackInfoReturnable2: $CallbackInfoReturnable$$Type<any>): void
+public "handler$edm000$use"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, player3: $Player$$Type, interactionHand4: $InteractionHand$$Type, blockHitResult5: $BlockHitResult$$Type, callbackInfoReturnable6: $CallbackInfoReturnable$$Type<any>): void
 public "hidesNeighborFace"(blockGetter0: $BlockGetter$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type, direction4: $Direction$$Type): boolean
 public "isBed"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
 public "isBurning"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): boolean
@@ -33393,50 +33427,52 @@ declare module "packages/net/minecraft/world/level/block/$WallBlock" {
 import { $SoundEvent } from "packages/net/minecraft/sounds/$SoundEvent"
 import { $LevelAccessor$$Type } from "packages/net/minecraft/world/level/$LevelAccessor"
 import { $BooleanProperty } from "packages/net/minecraft/world/level/block/state/properties/$BooleanProperty"
-import { $Fluid$$Type } from "packages/net/minecraft/world/level/material/$Fluid"
-import { $MapColor, $MapColor$$Type } from "packages/net/minecraft/world/level/material/$MapColor"
-import { $BlockBehaviour$Properties$$Type } from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
-import { $Direction, $Direction$$Type } from "packages/net/minecraft/core/$Direction"
-import { $SimpleWaterloggedBlock } from "packages/net/minecraft/world/level/block/$SimpleWaterloggedBlock"
 import { $ItemStack } from "packages/net/minecraft/world/item/$ItemStack"
 import { $FeatureFlagSet$$Type } from "packages/net/minecraft/world/flag/$FeatureFlagSet"
 import { $ResourceLocation } from "packages/net/minecraft/resources/$ResourceLocation"
 import { $WallSide } from "packages/net/minecraft/world/level/block/state/properties/$WallSide"
-import { $Block } from "packages/net/minecraft/world/level/block/$Block"
 import { $PushReaction } from "packages/net/minecraft/world/level/material/$PushReaction"
 import { $LivingEntity$$Type } from "packages/net/minecraft/world/entity/$LivingEntity"
 import { $FluidState$$Type } from "packages/net/minecraft/world/level/material/$FluidState"
-import { $TreeConfiguration$$Type } from "packages/net/minecraft/world/level/levelgen/feature/configurations/$TreeConfiguration"
 import { $BlockGetter$$Type } from "packages/net/minecraft/world/level/$BlockGetter"
 import { $EntityType$$Type } from "packages/net/minecraft/world/entity/$EntityType"
-import { $Mob$$Type } from "packages/net/minecraft/world/entity/$Mob"
 import { $Player$$Type } from "packages/net/minecraft/world/entity/player/$Player"
 import { $ToolAction$$Type } from "packages/net/minecraftforge/common/$ToolAction"
 import { $List } from "packages/java/util/$List"
 import { $RandomSource$$Type } from "packages/net/minecraft/util/$RandomSource"
 import { $ServerLevel$$Type } from "packages/net/minecraft/server/level/$ServerLevel"
-import { $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
 import { $ParticleOptions } from "packages/net/minecraft/core/particles/$ParticleOptions"
 import { $Entity$$Type } from "packages/net/minecraft/world/entity/$Entity"
-import { $SpawnPlacements$Type$$Type } from "packages/net/minecraft/world/entity/$SpawnPlacements$Type"
-import { $SignalGetter$$Type } from "packages/net/minecraft/world/level/$SignalGetter"
-import { $BlockPathTypes, $BlockPathTypes$$Type } from "packages/net/minecraft/world/level/pathfinder/$BlockPathTypes"
 import { $BlockState, $BlockState$$Type } from "packages/net/minecraft/world/level/block/state/$BlockState"
 import { $Level$$Type } from "packages/net/minecraft/world/level/$Level"
 import { $Vec3, $Vec3$$Type } from "packages/net/minecraft/world/phys/$Vec3"
+import { $UseOnContext$$Type } from "packages/net/minecraft/world/item/context/$UseOnContext"
+import { $EnumProperty } from "packages/net/minecraft/world/level/block/state/properties/$EnumProperty"
+import { $Enchantment } from "packages/net/minecraft/world/item/enchantment/$Enchantment"
+import { $Optional } from "packages/java/util/$Optional"
+import { $Explosion$$Type } from "packages/net/minecraft/world/level/$Explosion"
+import { $BlockAndTintGetter$$Type } from "packages/net/minecraft/world/level/$BlockAndTintGetter"
+import { $Fluid$$Type } from "packages/net/minecraft/world/level/material/$Fluid"
+import { $MapColor, $MapColor$$Type } from "packages/net/minecraft/world/level/material/$MapColor"
+import { $BlockBehaviour$Properties$$Type } from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
+import { $Direction, $Direction$$Type } from "packages/net/minecraft/core/$Direction"
+import { $SimpleWaterloggedBlock } from "packages/net/minecraft/world/level/block/$SimpleWaterloggedBlock"
+import { $Block } from "packages/net/minecraft/world/level/block/$Block"
+import { $TreeConfiguration$$Type } from "packages/net/minecraft/world/level/levelgen/feature/configurations/$TreeConfiguration"
+import { $Mob$$Type } from "packages/net/minecraft/world/entity/$Mob"
+import { $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
+import { $SpawnPlacements$Type$$Type } from "packages/net/minecraft/world/entity/$SpawnPlacements$Type"
+import { $VoxelShape, $VoxelShape$$Type } from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
+import { $SignalGetter$$Type } from "packages/net/minecraft/world/level/$SignalGetter"
+import { $BlockPathTypes, $BlockPathTypes$$Type } from "packages/net/minecraft/world/level/pathfinder/$BlockPathTypes"
 import { $BiConsumer$$Type } from "packages/java/util/function/$BiConsumer"
 import { $LevelReader$$Type } from "packages/net/minecraft/world/level/$LevelReader"
 import { $Holder } from "packages/net/minecraft/core/$Holder"
-import { $UseOnContext$$Type } from "packages/net/minecraft/world/item/context/$UseOnContext"
-import { $EnumProperty } from "packages/net/minecraft/world/level/block/state/properties/$EnumProperty"
 import { $HitResult$$Type } from "packages/net/minecraft/world/phys/$HitResult"
 import { $Set } from "packages/java/util/$Set"
-import { $Enchantment } from "packages/net/minecraft/world/item/enchantment/$Enchantment"
 import { $SoundType } from "packages/net/minecraft/world/level/block/$SoundType"
-import { $Optional } from "packages/java/util/$Optional"
 import { $Rotation$$Type } from "packages/net/minecraft/world/level/block/$Rotation"
-import { $Explosion$$Type } from "packages/net/minecraft/world/level/$Explosion"
-import { $BlockAndTintGetter$$Type } from "packages/net/minecraft/world/level/$BlockAndTintGetter"
+import { $Map, $Map$$Type } from "packages/java/util/$Map"
 
 export class $WallBlock extends $Block implements $SimpleWaterloggedBlock {
 static readonly "EAST_WALL": $EnumProperty<$WallSide>
@@ -33506,6 +33542,7 @@ public "isScaffolding"(blockState0: $BlockState$$Type, levelReader1: $LevelReade
 public "isSlimeBlock"(blockState0: $BlockState$$Type): boolean
 public "isStickyBlock"(blockState0: $BlockState$$Type): boolean
 public "isValidSpawn"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, type3: $SpawnPlacements$Type$$Type, entityType4: $EntityType$$Type<any>): boolean
+public "makeShapes"(float0: float, float1: float, float2: float, float3: float, float4: float, float5: float): $Map<$BlockState, $VoxelShape>
 public "makesOpenTrapdoorAboveClimbable"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, blockState3: $BlockState$$Type): boolean
 public "onBlockExploded"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, explosion3: $Explosion$$Type): void
 public "onBlockStateChange"(levelReader0: $LevelReader$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type): void
@@ -33524,6 +33561,10 @@ public "shouldCheckWeakPower"(blockState0: $BlockState$$Type, signalGetter1: $Si
 public "shouldDisplayFluidOverlay"(blockState0: $BlockState$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type, fluidState3: $FluidState$$Type): boolean
 public "spawnTableParticle"(blockState0: $BlockState$$Type, level1: $Level$$Type, randomSource2: $RandomSource$$Type, blockPos3: $BlockPos$$Type, blockPos4: $BlockPos$$Type): void
 public "supportsExternalFaceHiding"(blockState0: $BlockState$$Type): boolean
+get "collisionShapeByIndex"(): $Map<$BlockState, $VoxelShape>
+set "collisionShapeByIndex"(value: $Map$$Type<$BlockState$$Type, $VoxelShape$$Type>)
+get "shapeByIndex"(): $Map<$BlockState, $VoxelShape>
+set "shapeByIndex"(value: $Map$$Type<$BlockState$$Type, $VoxelShape$$Type>)
 get "blockStates"(): $List<$BlockState>
 get "mod"(): string
 get "pickupSound"(): $Optional<$SoundEvent>
@@ -33980,6 +34021,7 @@ import { $ResourceLocation } from "packages/net/minecraft/resources/$ResourceLoc
 import { $PushReaction } from "packages/net/minecraft/world/level/material/$PushReaction"
 import { $LivingEntity$$Type } from "packages/net/minecraft/world/entity/$LivingEntity"
 import { $FluidState$$Type } from "packages/net/minecraft/world/level/material/$FluidState"
+import { $CallbackInfoReturnable$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfoReturnable"
 import { $BlockGetter$$Type } from "packages/net/minecraft/world/level/$BlockGetter"
 import { $EntityType$$Type } from "packages/net/minecraft/world/entity/$EntityType"
 import { $Player$$Type } from "packages/net/minecraft/world/entity/player/$Player"
@@ -34020,6 +34062,7 @@ import { $Holder } from "packages/net/minecraft/core/$Holder"
 import { $HitResult$$Type } from "packages/net/minecraft/world/phys/$HitResult"
 import { $Set } from "packages/java/util/$Set"
 import { $SoundType } from "packages/net/minecraft/world/level/block/$SoundType"
+import { $CallbackInfo$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfo"
 import { $Rotation$$Type } from "packages/net/minecraft/world/level/block/$Rotation"
 
 export class $LiquidBlock extends $Block implements $BucketPickup, $InjectedLiquidBlockExtension {
@@ -34076,6 +34119,8 @@ public "getStateAtViewpoint"(blockState0: $BlockState$$Type, blockGetter1: $Bloc
 public "getTableParticle"(blockState0: $BlockState$$Type): $ParticleOptions
 public "getToolModifiedState"(blockState0: $BlockState$$Type, useOnContext1: $UseOnContext$$Type, toolAction2: $ToolAction$$Type, boolean3: boolean): $BlockState
 public "getWeakChanges"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): boolean
+public "handler$cel000$inject$randomTick"(blockState0: $BlockState$$Type, serverLevel1: $ServerLevel$$Type, blockPos2: $BlockPos$$Type, randomSource3: $RandomSource$$Type, callbackInfo4: $CallbackInfo$$Type): void
+public "handler$cel000$inject$updateShape"(blockState0: $BlockState$$Type, direction1: $Direction$$Type, blockState2: $BlockState$$Type, levelAccessor3: $LevelAccessor$$Type, blockPos4: $BlockPos$$Type, blockPos5: $BlockPos$$Type, callbackInfoReturnable6: $CallbackInfoReturnable$$Type<any>): void
 public "hidesNeighborFace"(blockGetter0: $BlockGetter$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type, direction4: $Direction$$Type): boolean
 public "isBed"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
 public "isBurning"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): boolean
@@ -35024,7 +35069,7 @@ public "getTableParticle"(blockState0: $BlockState$$Type): $ParticleOptions
 public "getTicker"<T extends $BlockEntity>(level0: $Level$$Type, blockState1: $BlockState$$Type, blockEntityType2: $BlockEntityType$$Type<T>): $BlockEntityTicker<T>
 public "getToolModifiedState"(blockState0: $BlockState$$Type, useOnContext1: $UseOnContext$$Type, toolAction2: $ToolAction$$Type, boolean3: boolean): $BlockState
 public "getWeakChanges"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): boolean
-public "handler$dkc000$onCuttingBoardDispenseFromInject"(serverLevel0: $ServerLevel$$Type, blockPos1: $BlockPos$$Type, callbackInfo2: $CallbackInfo$$Type, blockSourceImpl3: $BlockSourceImpl$$Type, dispenserBlockEntity4: $DispenserBlockEntity$$Type, int5: integer, itemStack6: $ItemStack$$Type): void
+public "handler$dpa000$onCuttingBoardDispenseFromInject"(serverLevel0: $ServerLevel$$Type, blockPos1: $BlockPos$$Type, callbackInfo2: $CallbackInfo$$Type, blockSourceImpl3: $BlockSourceImpl$$Type, dispenserBlockEntity4: $DispenserBlockEntity$$Type, int5: integer, itemStack6: $ItemStack$$Type): void
 public "hidesNeighborFace"(blockGetter0: $BlockGetter$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type, direction4: $Direction$$Type): boolean
 public "isBed"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
 public "isBurning"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): boolean
@@ -35039,6 +35084,7 @@ public "isScaffolding"(blockState0: $BlockState$$Type, levelReader1: $LevelReade
 public "isSlimeBlock"(blockState0: $BlockState$$Type): boolean
 public "isStickyBlock"(blockState0: $BlockState$$Type): boolean
 public "isValidSpawn"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, type3: $SpawnPlacements$Type$$Type, entityType4: $EntityType$$Type<any>): boolean
+public "localvar$zbk000$onDispenseFrom"(dispenseItemBehavior0: $DispenseItemBehavior$$Type, serverLevel1: $ServerLevel$$Type, blockPos2: $BlockPos$$Type): $DispenseItemBehavior
 public "makesOpenTrapdoorAboveClimbable"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, blockState3: $BlockState$$Type): boolean
 public "onBlockExploded"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, explosion3: $Explosion$$Type): void
 public "onBlockStateChange"(levelReader0: $LevelReader$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type): void
@@ -35134,8 +35180,8 @@ public "canHarvestBlock"(blockState0: $BlockState$$Type, blockGetter1: $BlockGet
 public "canPlaceLiquid"(blockGetter0: $BlockGetter$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, fluid3: $Fluid$$Type): boolean
 public "canStickTo"(blockState0: $BlockState$$Type, blockState1: $BlockState$$Type): boolean
 public "collisionExtendsVertically"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
-public static "createNewHangingPropagule"(int0: integer): $BlockState
 public static "createNewHangingPropagule"(): $BlockState
+public static "createNewHangingPropagule"(int0: integer): $BlockState
 public "getAdjacentBlockPathType"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, mob3: $Mob$$Type, blockPathTypes4: $BlockPathTypes$$Type): $BlockPathTypes
 public "getAppearance"(blockState0: $BlockState$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type, blockState4: $BlockState$$Type, blockPos5: $BlockPos$$Type): $BlockState
 public "getArcanaBonus"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): float

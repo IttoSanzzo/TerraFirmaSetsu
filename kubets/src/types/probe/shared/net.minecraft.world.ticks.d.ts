@@ -128,11 +128,11 @@ export interface $ContainerSingleItem extends $Container {
 "clear"(): void
 "clear"(ingredient: $Ingredient$$Type): void
 "clearContent"(): void
-"count"(ingredient: $Ingredient$$Type): integer
 "count"(): integer
+"count"(ingredient: $Ingredient$$Type): integer
 "countItem"(item0: $Item$$Type): integer
-"countNonEmpty"(): integer
 "countNonEmpty"(ingredient: $Ingredient$$Type): integer
+"countNonEmpty"(): integer
 "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
 "find"(ingredient: $Ingredient$$Type): integer
 "find"(): integer
@@ -183,11 +183,13 @@ set "firstItem"(value: $ItemStack$$Type)
 export namespace $ContainerSingleItem {
 function stillValidBlockEntity(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 function stillValidBlockEntity(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+function stillValidBlockEntity(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 function tryClear(object0: any): void
 }
 export abstract class $ContainerSingleItem$$Static implements $ContainerSingleItem {
 static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 static "tryClear"(object0: any): void
 }
 }

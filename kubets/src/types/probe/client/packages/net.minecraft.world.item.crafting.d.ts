@@ -19,16 +19,6 @@ export type $RecipeManager_ = $RecipeManager$$Type;
 }
 }
 
-declare module "packages/net/minecraft/world/item/crafting/$CraftingRecipe" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
-export type $CraftingRecipe$$Type = ($CraftingRecipe);
-/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
-declare global {
-export type $CraftingRecipe_ = $CraftingRecipe$$Type;
-}
-}
-
 declare module "packages/net/minecraft/world/item/crafting/$BookCloningRecipe" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
@@ -36,6 +26,16 @@ export type $BookCloningRecipe$$Type = ($BookCloningRecipe);
 /** Global type exported for convenience, use class-specific types if there's a naming conflict. */
 declare global {
 export type $BookCloningRecipe_ = $BookCloningRecipe$$Type;
+}
+}
+
+declare module "packages/net/minecraft/world/item/crafting/$CraftingRecipe" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $CraftingRecipe$$Type = ($CraftingRecipe);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $CraftingRecipe_ = $CraftingRecipe$$Type;
 }
 }
 
@@ -259,6 +259,17 @@ export type $SmithingTrimRecipe$$Type = ($SmithingTrimRecipe);
 /** Global type exported for convenience, use class-specific types if there's a naming conflict. */
 declare global {
 export type $SmithingTrimRecipe_ = $SmithingTrimRecipe$$Type;
+}
+}
+
+declare module "packages/net/minecraft/world/item/crafting/$Ingredient" {
+import { $ItemStack$$Type } from "packages/net/minecraft/world/item/$ItemStack"
+
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $Ingredient$$Type = ($Ingredient | $ItemStack$$Type | $Ingredient$$Type[] | RegExp | "*" | "-" | `#${Special.ItemTag}` | `@${Special.Mod}` | `%${Special.CreativeModeTab}`);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $Ingredient_ = $Ingredient$$Type;
 }
 }
 
@@ -568,6 +579,16 @@ export type $StonecutterRecipe$$Type = ($StonecutterRecipe);
 /** Global type exported for convenience, use class-specific types if there's a naming conflict. */
 declare global {
 export type $StonecutterRecipe_ = $StonecutterRecipe$$Type;
+}
+}
+
+declare module "packages/net/minecraft/world/item/crafting/$Ingredient$Value" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $Ingredient$Value$$Type = ($Ingredient$Value);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $Ingredient$Value_ = $Ingredient$Value$$Type;
 }
 }
 

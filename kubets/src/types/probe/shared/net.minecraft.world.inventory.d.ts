@@ -20,7 +20,7 @@ import { $Container$$Type } from "packages/net/minecraft/world/$Container"
 import { $AbstractContainerMenuAccessor as $AbstractContainerMenuAccessor$0 } from "packages/mod/traister101/esc/mixin/common/accessor/$AbstractContainerMenuAccessor"
 import { $OptionalInt } from "packages/java/util/$OptionalInt"
 
-export class $AbstractContainerMenu implements $ContainerAccess, $AbstractContainerMenuAccessor, $AbstractContainerMenuInvoker, $AbstractContainerMenuAccessor$0 {
+export class $AbstractContainerMenu implements $AbstractContainerMenuAccessor, $AbstractContainerMenuInvoker, $AbstractContainerMenuAccessor$0, $ContainerAccess {
 static readonly "CARRIED_SLOT_SIZE": integer
 static readonly "QUICKCRAFT_HEADER_CONTINUE": integer
 static readonly "QUICKCRAFT_HEADER_END": integer
@@ -56,7 +56,7 @@ public static "getRedstoneSignalFromContainer"(container0: $Container$$Type): in
 public "getSlot"(int0: integer): $Slot
 public "getStateId"(): integer
 public "getType"(): $MenuType<any>
-public "handler$bbj000$doClick"(int0: integer, int1: integer, clickType2: $ClickType$$Type, player3: $Player$$Type, callbackInfo4: $CallbackInfo$$Type): void
+public "handler$bff000$doClick"(int0: integer, int1: integer, clickType2: $ClickType$$Type, player3: $Player$$Type, callbackInfo4: $CallbackInfo$$Type): void
 public "incrementStateId"(): integer
 public "initializeContents"(int0: integer, list1: $List$$Type<$ItemStack$$Type>, itemStack2: $ItemStack$$Type): void
 public static "isValidQuickcraftType"(int0: integer, player1: $Player$$Type): boolean
@@ -205,6 +205,7 @@ declare module "packages/net/minecraft/world/inventory/$CraftingMenu" {
 import { $AccessorCraftingMenu } from "packages/com/illusivesoulworks/polymorph/mixin/core/$AccessorCraftingMenu"
 import { $Player, $Player$$Type } from "packages/net/minecraft/world/entity/player/$Player"
 import { $ICraftingContainer } from "packages/dev/shadowsoffire/fastbench/api/$ICraftingContainer"
+import { $CraftingMenuAccess } from "packages/snownee/lychee/mixin/$CraftingMenuAccess"
 import { $RecipeBookMenu } from "packages/net/minecraft/world/inventory/$RecipeBookMenu"
 import { $CraftingMenuAccessor } from "packages/fuzs/visualworkbench/mixin/accessor/$CraftingMenuAccessor"
 import { $CraftingContainer, $CraftingContainer$$Type } from "packages/net/minecraft/world/inventory/$CraftingContainer"
@@ -213,7 +214,7 @@ import { $ContainerLevelAccess$$Type } from "packages/net/minecraft/world/invent
 import { $ResultContainer } from "packages/net/minecraft/world/inventory/$ResultContainer"
 import { $CallbackInfoReturnable$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfoReturnable"
 
-export class $CraftingMenu extends $RecipeBookMenu<$CraftingContainer> implements $CraftingMenuAccessor, $AccessorCraftingMenu, $ICraftingContainer {
+export class $CraftingMenu extends $RecipeBookMenu<$CraftingContainer> implements $CraftingMenuAccessor, $AccessorCraftingMenu, $ICraftingContainer, $CraftingMenuAccess {
 static readonly "RESULT_SLOT": integer
 readonly "player": $Player
 readonly "resultSlots": $ResultContainer
@@ -222,7 +223,7 @@ constructor(int0: integer, inventory1: $Inventory$$Type)
 constructor(int0: integer, inventory1: $Inventory$$Type, containerLevelAccess2: $ContainerLevelAccess$$Type)
 
 public "getResult"(): $ResultContainer
-public "handler$fgh000$quickMoveStack"(player0: $Player$$Type, int1: integer, callbackInfoReturnable2: $CallbackInfoReturnable$$Type<any>): void
+public "handler$fmk000$quickMoveStack"(player0: $Player$$Type, int1: integer, callbackInfoReturnable2: $CallbackInfoReturnable$$Type<any>): void
 get "craftSlots"(): $CraftingContainer
 set "craftSlots"(value: $CraftingContainer$$Type)
 get "result"(): $ResultContainer
@@ -461,11 +462,11 @@ public "canPlaceItem"(int0: integer, itemStack1: $ItemStack$$Type): boolean
 public "canTakeItem"(container0: $Container$$Type, int1: integer, itemStack2: $ItemStack$$Type): boolean
 public "clear"(): void
 public "clear"(ingredient: $Ingredient$$Type): void
-public "count"(ingredient: $Ingredient$$Type): integer
 public "count"(): integer
+public "count"(ingredient: $Ingredient$$Type): integer
 public "countItem"(item0: $Item$$Type): integer
-public "countNonEmpty"(): integer
 public "countNonEmpty"(ingredient: $Ingredient$$Type): integer
+public "countNonEmpty"(): integer
 public "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
 public "find"(ingredient: $Ingredient$$Type): integer
 public "find"(): integer
@@ -491,6 +492,7 @@ public "setChanged"(): void
 public "setStackInSlot"(slot: integer, stack: $ItemStack$$Type): void
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 public static "tryClear"(object0: any): void
 get "allItems"(): $List<$ItemStack>
 get "height"(): integer
@@ -602,11 +604,11 @@ export interface $CraftingContainer extends $Container, $StackedContentsCompatib
 "clear"(): void
 "clear"(ingredient: $Ingredient$$Type): void
 "clearContent"(): void
-"count"(ingredient: $Ingredient$$Type): integer
 "count"(): integer
+"count"(ingredient: $Ingredient$$Type): integer
 "countItem"(item0: $Item$$Type): integer
-"countNonEmpty"(): integer
 "countNonEmpty"(ingredient: $Ingredient$$Type): integer
+"countNonEmpty"(): integer
 "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
 "fillStackedContents"(stackedContents0: $StackedContents$$Type): void
 "find"(ingredient: $Ingredient$$Type): integer
@@ -661,11 +663,13 @@ get "mutable"(): boolean
 export namespace $CraftingContainer {
 function stillValidBlockEntity(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 function stillValidBlockEntity(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+function stillValidBlockEntity(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 function tryClear(object0: any): void
 }
 export abstract class $CraftingContainer$$Static implements $CraftingContainer {
 static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 static "tryClear"(object0: any): void
 }
 }
@@ -703,8 +707,8 @@ public "mayPlace"(itemStack0: $ItemStack$$Type): boolean
 public "onQuickCraft"(itemStack0: $ItemStack$$Type, itemStack1: $ItemStack$$Type): void
 public "onTake"(player0: $Player$$Type, itemStack1: $ItemStack$$Type): void
 public "remove"(int0: integer): $ItemStack
-public "safeInsert"(itemStack0: $ItemStack$$Type, int1: integer): $ItemStack
 public "safeInsert"(itemStack0: $ItemStack$$Type): $ItemStack
+public "safeInsert"(itemStack0: $ItemStack$$Type, int1: integer): $ItemStack
 public "safeTake"(int0: integer, int1: integer, player2: $Player$$Type): $ItemStack
 public "set"(itemStack0: $ItemStack$$Type): void
 public "setBackground"(resourceLocation0: $ResourceLocation$$Type, resourceLocation1: $ResourceLocation$$Type): $Slot
@@ -753,8 +757,8 @@ readonly "container": $Container
 constructor(int0: integer, inventory1: $Inventory$$Type)
 constructor(int0: integer, inventory1: $Inventory$$Type, containerLevelAccess2: $ContainerLevelAccess$$Type)
 
-public "handler$eog000$getItem"(player: $Player$$Type, index: integer, cir: $CallbackInfoReturnable$$Type<any>, itemStack: $ItemStack$$Type, slot: $Slot$$Type, itemStack2: $ItemStack$$Type): void
-public "handler$eog000$getItem"(mapStack: $ItemStack$$Type, firstSlotStack: $ItemStack$$Type, resultSlotStack: $ItemStack$$Type, level: $Level$$Type, blockPos: $BlockPos$$Type, ci: $CallbackInfo$$Type, mapItemSavedData: $MapItemSavedData$$Type): void
+public "handler$fei000$getItem"(player: $Player$$Type, index: integer, cir: $CallbackInfoReturnable$$Type<any>, itemStack: $ItemStack$$Type, slot: $Slot$$Type, itemStack2: $ItemStack$$Type): void
+public "handler$fei000$getItem"(mapStack: $ItemStack$$Type, firstSlotStack: $ItemStack$$Type, resultSlotStack: $ItemStack$$Type, level: $Level$$Type, blockPos: $BlockPos$$Type, ci: $CallbackInfo$$Type, mapItemSavedData: $MapItemSavedData$$Type): void
 }
 }
 
@@ -792,15 +796,15 @@ constructor(int0: integer, inventory1: $Inventory$$Type)
 constructor(int0: integer, inventory1: $Inventory$$Type, containerLevelAccess2: $ContainerLevelAccess$$Type)
 
 public static "calculateIncreasedRepairCost"(int0: integer): integer
-public "constant$zja000$apoth_removeLevelCap"(int0: integer): integer
+public "constant$zmm000$apoth_removeLevelCap"(int0: integer): integer
 public "getCost"(): integer
-public "handler$dlo000$onTakeOutputPost"(player0: $Player$$Type, itemStack1: $ItemStack$$Type, callbackInfo2: $CallbackInfo$$Type): void
-public "handler$dlo000$onTakeOutputPre"(player0: $Player$$Type, itemStack1: $ItemStack$$Type, callbackInfo2: $CallbackInfo$$Type): void
-public "modifyExpressionValue$ehp000$isValidRepairItem"(boolean0: boolean, itemStack1: $ItemStack$$Type, itemStack2: $ItemStack$$Type): boolean
-public "redirect$zja000$apoth_chargeOptimalLevels"(player0: $Player$$Type, int1: integer): void
+public "handler$eam000$onTakeOutputPost"(player0: $Player$$Type, itemStack1: $ItemStack$$Type, callbackInfo2: $CallbackInfo$$Type): void
+public "handler$eam000$onTakeOutputPre"(player0: $Player$$Type, itemStack1: $ItemStack$$Type, callbackInfo2: $CallbackInfo$$Type): void
+public "modifyExpressionValue$eob000$isValidRepairItem"(boolean0: boolean, itemStack1: $ItemStack$$Type, itemStack2: $ItemStack$$Type): boolean
+public "redirect$zmm000$apoth_chargeOptimalLevels"(player0: $Player$$Type, int1: integer): void
 public "setItemName"(string0: string): boolean
 public "setMaximumCost"(int0: integer): void
-public "wrapOperation$ehp000$canEnchant"(enchantment0: $Enchantment$$Type, itemStack1: $ItemStack$$Type, operation2: $Operation$$Type<any>): boolean
+public "wrapOperation$eob000$canEnchant"(enchantment0: $Enchantment$$Type, itemStack1: $ItemStack$$Type, operation2: $Operation$$Type<any>): boolean
 get "repairItemCountCost"(): integer
 set "repairItemCountCost"(value: integer)
 get "cost"(): integer
@@ -849,7 +853,7 @@ constructor(inventory0: $Inventory$$Type, boolean1: boolean, player2: $Player$$T
 
 public "getCraftSlots"(): $CraftingContainer
 public "getResult"(): $ResultContainer
-public "handler$fgi001$quickMoveStack"(player0: $Player$$Type, int1: integer, callbackInfoReturnable2: $CallbackInfoReturnable$$Type<any>): void
+public "handler$fml001$quickMoveStack"(player0: $Player$$Type, int1: integer, callbackInfoReturnable2: $CallbackInfoReturnable$$Type<any>): void
 public static "isHotbarSlot"(int0: integer): boolean
 get "craftSlots"(): $CraftingContainer
 set "craftSlots"(value: $CraftingContainer$$Type)
@@ -896,8 +900,8 @@ import { $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
 import { $BiFunction$$Type } from "packages/java/util/function/$BiFunction"
 
 export interface $ContainerLevelAccess extends $ContainerLevelAccessMixin {
-"evaluate"<T>(biFunction0: $BiFunction$$Type<$Level$$Type, $BlockPos$$Type, T>, t1: T): T
 "evaluate"<T>(biFunction0: $BiFunction$$Type<$Level$$Type, $BlockPos$$Type, T>): $Optional<T>
+"evaluate"<T>(biFunction0: $BiFunction$$Type<$Level$$Type, $BlockPos$$Type, T>, t1: T): T
 "execute"(biConsumer0: $BiConsumer$$Type<$Level$$Type, $BlockPos$$Type>): void
 }
 
@@ -947,9 +951,9 @@ public "getPatternSlot"(): $Slot
 public "getResultSlot"(): $Slot
 public "getSelectablePatterns"(): $List<$Holder<$BannerPattern>>
 public "getSelectedBannerPatternIndex"(): integer
-public "modifyExpressionValue$ekf000$getLimit"(int0: integer): integer
+public "modifyExpressionValue$fah000$getLimit"(int0: integer): integer
 public "registerUpdateListener"(runnable0: $Runnable$$Type): void
-public "wrapOperation$epj000$getItem"(instance: $ItemStack$$Type, original: $Operation$$Type<any>): $Item
+public "wrapOperation$ffm000$getItem"(instance: $ItemStack$$Type, original: $Operation$$Type<any>): $Item
 get "bannerSlot"(): $Slot
 get "dyeSlot"(): $Slot
 get "patternSlot"(): $Slot
@@ -1044,8 +1048,8 @@ public static "fourRows"(int0: integer, inventory1: $Inventory$$Type): $ChestMen
 public "getContainer"(): $Container
 public "getRowCount"(): integer
 public static "oneRow"(int0: integer, inventory1: $Inventory$$Type): $ChestMenu
-public static "sixRows"(int0: integer, inventory1: $Inventory$$Type, container2: $Container$$Type): $ChestMenu
 public static "sixRows"(int0: integer, inventory1: $Inventory$$Type): $ChestMenu
+public static "sixRows"(int0: integer, inventory1: $Inventory$$Type, container2: $Container$$Type): $ChestMenu
 public static "threeRows"(int0: integer, inventory1: $Inventory$$Type): $ChestMenu
 public static "threeRows"(int0: integer, inventory1: $Inventory$$Type, container2: $Container$$Type): $ChestMenu
 public static "twoRows"(int0: integer, inventory1: $Inventory$$Type): $ChestMenu
@@ -1124,11 +1128,11 @@ public "canTakeItem"(container0: $Container$$Type, int1: integer, itemStack2: $I
 public "clear"(): void
 public "clear"(ingredient: $Ingredient$$Type): void
 public "clearContent"(): void
-public "count"(ingredient: $Ingredient$$Type): integer
 public "count"(): integer
+public "count"(ingredient: $Ingredient$$Type): integer
 public "countItem"(item0: $Item$$Type): integer
-public "countNonEmpty"(): integer
 public "countNonEmpty"(ingredient: $Ingredient$$Type): integer
+public "countNonEmpty"(): integer
 public "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
 public "find"(ingredient: $Ingredient$$Type): integer
 public "find"(): integer
@@ -1164,6 +1168,7 @@ public "startOpen"(player0: $Player$$Type): void
 public "stillValid"(player0: $Player$$Type): boolean
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 public "stopOpen"(player0: $Player$$Type): void
 public static "tryClear"(object0: any): void
 get "allItems"(): $List<$ItemStack>

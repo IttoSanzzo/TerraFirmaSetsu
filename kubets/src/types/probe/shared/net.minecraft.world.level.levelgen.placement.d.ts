@@ -80,8 +80,8 @@ import { $Codec } from "packages/com/mojang/serialization/$Codec"
 export class $CountOnEveryLayerPlacement extends $PlacementModifier {
 static readonly "CODEC": $Codec<$CountOnEveryLayerPlacement>
 
-public static "of"(intProvider0: $IntProvider$$Type): $CountOnEveryLayerPlacement
 public static "of"(int0: integer): $CountOnEveryLayerPlacement
+public static "of"(intProvider0: $IntProvider$$Type): $CountOnEveryLayerPlacement
 }
 }
 

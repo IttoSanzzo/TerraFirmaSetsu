@@ -53,3 +53,31 @@ export abstract class $LocalRef$$Static<T> implements $LocalRef<T> {
 }
 }
 
+declare module "packages/com/llamalad7/mixinextras/sugar/ref/$LocalLongRef" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+export interface $LocalLongRef {
+"get"(): long
+"set"(long0: long): void
+}
+
+export namespace $LocalLongRef {
+const probejs$$marker: never
+}
+export abstract class $LocalLongRef$$Static implements $LocalLongRef {
+}
+}
+
+declare module "packages/com/llamalad7/mixinextras/sugar/ref/$LocalFloatRef" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+export interface $LocalFloatRef {
+"get"(): float
+"set"(float0: float): void
+}
+
+export namespace $LocalFloatRef {
+const probejs$$marker: never
+}
+export abstract class $LocalFloatRef$$Static implements $LocalFloatRef {
+}
+}
+

@@ -186,8 +186,8 @@ public "getTableParticle"(blockState0: $BlockState$$Type): $ParticleOptions
 public "getToolModifiedState"(blockState0: $BlockState$$Type, useOnContext1: $UseOnContext$$Type, toolAction2: $ToolAction$$Type, boolean3: boolean): $BlockState
 public "getTreePartType"(): $TreePart$TreePartType
 public "getWeakChanges"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): boolean
-public "growLeavesIfLocationIsSuitable"(levelAccessor0: $LevelAccessor$$Type, leavesProperties1: $LeavesProperties$$Type, blockPos2: $BlockPos$$Type, integer3: integer): boolean
 public "growLeavesIfLocationIsSuitable"(levelAccessor0: $LevelAccessor$$Type, leavesProperties1: $LeavesProperties$$Type, blockPos2: $BlockPos$$Type, int3: integer): boolean
+public "growLeavesIfLocationIsSuitable"(levelAccessor0: $LevelAccessor$$Type, leavesProperties1: $LeavesProperties$$Type, blockPos2: $BlockPos$$Type, integer3: integer): boolean
 public "growSignal"(level0: $Level$$Type, blockPos1: $BlockPos$$Type, growSignal2: $GrowSignal$$Type): $GrowSignal
 public "hasAdequateLight"(blockState0: $BlockState$$Type, levelAccessor1: $LevelAccessor$$Type, leavesProperties2: $LeavesProperties$$Type, blockPos3: $BlockPos$$Type): boolean
 public "hidesNeighborFace"(blockGetter0: $BlockGetter$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type, direction4: $Direction$$Type): boolean
@@ -446,16 +446,16 @@ export interface $Registry<V extends $RegistryEntry<V>> extends $Iterable<V> {
 "dump"(): void
 "forEach"(consumer0: $Consumer$$Type<V>): void
 "generateIfValidRunnable"(resourceLocation0: $ResourceLocation$$Type, consumer1: $Consumer$$Type<V>, runnable2: $Runnable$$Type): $Runnable
-"get"(string0: string): V
 "get"(resourceLocation0: $ResourceLocation$$Type): V
+"get"(string0: string): V
 "getAll"(): $Set<V>
 "getAllFor"(string0: string): $Set<V>
 "getAsDataResult"(resourceLocation0: $ResourceLocation$$Type): $DataResult<V>
 "getComparator"(): $Comparator<V>
 "getGetterCodec"(): $Codec<V>
 "getName"(): string
-"getOptional"(string0: string): $Optional<V>
 "getOptional"(resourceLocation0: $ResourceLocation$$Type): $Optional<V>
+"getOptional"(string0: string): $Optional<V>
 "getRegistryNames"(): $Set<$ResourceLocation>
 "getType"(): $Class<V>
 "has"(resourceLocation0: $ResourceLocation$$Type): boolean
@@ -572,8 +572,8 @@ public "colorMultiplier"(blockColors0: $BlockColors$$Type, blockState1: $BlockSt
 public "destroyTree"(level0: $Level$$Type, blockPos1: $BlockPos$$Type): void
 public "destroyTree"(level0: $Level$$Type, blockPos1: $BlockPos$$Type, player2: $Player$$Type): void
 public "doDecay"(level0: $Level$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, species3: $Species$$Type): void
-public "fallWithTree"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type): boolean
 public "fallWithTree"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, boolean3: boolean): boolean
+public "fallWithTree"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type): boolean
 public "fertilize"(level0: $Level$$Type, blockPos1: $BlockPos$$Type, int2: integer): boolean
 public "getAdjacentBlockPathType"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, mob3: $Mob$$Type, blockPathTypes4: $BlockPathTypes$$Type): $BlockPathTypes
 public "getAppearance"(blockState0: $BlockState$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type, blockState4: $BlockState$$Type, blockPos5: $BlockPos$$Type): $BlockState
@@ -730,9 +730,9 @@ constructor(holderSet0: $HolderSet$$Type<T>, holderSet1: $HolderSet$$Type<T>)
 public "clear"(): void
 public static "codec"<T>(resourceKey0: $ResourceKey$$Type<$Registry<T>>, codec1: $Codec$$Type<$Holder$$Type<T>>, boolean2: boolean): $Codec<$ICustomHolderSet<T>>
 public static "direct"<E, T>(function0: $Function$$Type<E, $Holder<T>>, list1: $List$$Type<E>): $HolderSet$Direct<T>
-public static "direct"<E, T>(function0: $Function$$Type<E, $Holder<T>>, ...e1s: E[]): $HolderSet$Direct<T>
-public static "direct"<T>(list0: $List$$Type<$Holder$$Type<T>>): $HolderSet$Direct<T>
 public static "direct"<T>(...holder0s: $Holder$$Type<T>[]): $HolderSet$Direct<T>
+public static "direct"<T>(list0: $List$$Type<$Holder$$Type<T>>): $HolderSet$Direct<T>
+public static "direct"<E, T>(function0: $Function$$Type<E, $Holder<T>>, ...e1s: E[]): $HolderSet$Direct<T>
 /** @deprecated */
 public static "emptyNamed"<T>(holderOwner0: $HolderOwner$$Type<T>, tagKey1: $TagKey$$Type<T>): $HolderSet$Named<T>
 public "excludes"(): $HolderSet<T>
@@ -779,12 +779,12 @@ import { $Vec2i, $Vec2i$$Type } from "packages/com/ferreusveritas/dynamictrees/s
 import { $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
 
 export class $PoissonDisc extends $Vec2i {
-constructor(vec2i0: $Vec2i$$Type, int1: integer)
+constructor(poissonDisc0: $PoissonDisc$$Type)
+constructor(int0: integer, int1: integer, int2: integer)
 constructor()
 constructor(blockPos0: $BlockPos$$Type, int1: integer)
 constructor(int0: integer, int1: integer, int2: integer, boolean3: boolean)
-constructor(int0: integer, int1: integer, int2: integer)
-constructor(poissonDisc0: $PoissonDisc$$Type)
+constructor(vec2i0: $Vec2i$$Type, int1: integer)
 
 public "bitToAngle"(int0: integer): double
 public "clearArc"(): void
@@ -805,6 +805,7 @@ public "isInterior"(int0: integer, int1: integer): boolean
 public "isSolved"(): boolean
 public "maskArc"(double0: double, double1: double): void
 public "set"(int0: integer, int1: integer, int2: integer): $PoissonDisc
+public "set"(int0: integer, int1: integer): $PoissonDisc
 public "setRadius"(int0: integer): $PoissonDisc
 public "setSolved"(): void
 get "arc"(): integer
@@ -1005,8 +1006,8 @@ public "getCapability"<T>(capability0: $Capability$$Type<T>): $LazyOptional<T>
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDestroyData"(): $BranchDestructionData
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 /** @deprecated */
 public "getEyeHeightForge"(pose0: $Pose$$Type, entityDimensions1: $EntityDimensions$$Type): float
@@ -1068,7 +1069,6 @@ public "runCommandSilent"(command: string): integer
 public "sdl$isDynamicLightEnabled"(): boolean
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "self"(): $Entity
-public "serializeNBT"(): $CompoundTag
 public "setData"(branchDestructionData0: $BranchDestructionData$$Type, list1: $List$$Type<$ItemStack$$Type>, destroyType2: $FallingTreeEntity$DestroyType$$Type): $FallingTreeEntity
 public "setHexereiDynamicLightEnabled"(boolean0: boolean): void
 public "setMotionX"(x: double): void
@@ -1760,8 +1760,8 @@ public "isLadder"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Ty
 public static "isNextToBranch"(level0: $Level$$Type, blockPos1: $BlockPos$$Type, direction2: $Direction$$Type): boolean
 public "isPortalFrame"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): boolean
 public "isRootNode"(): boolean
-public "isSameTree"(branchBlock0: $BranchBlock$$Type): boolean
 public "isSameTree"(blockState0: $BlockState$$Type): boolean
+public "isSameTree"(branchBlock0: $BranchBlock$$Type): boolean
 public "isSameTree"(treePart0: $TreePart$$Type): boolean
 public "isScaffolding"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, livingEntity3: $LivingEntity$$Type): boolean
 public "isSlimeBlock"(blockState0: $BlockState$$Type): boolean
@@ -1795,9 +1795,9 @@ public "shouldCheckWeakPower"(blockState0: $BlockState$$Type, signalGetter1: $Si
 public "shouldDisplayFluidOverlay"(blockState0: $BlockState$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type, fluidState3: $FluidState$$Type): boolean
 public "shouldGenerateBranchDrops"(): boolean
 public "spawnTableParticle"(blockState0: $BlockState$$Type, level1: $Level$$Type, randomSource2: $RandomSource$$Type, blockPos3: $BlockPos$$Type, blockPos4: $BlockPos$$Type): void
+public "stripBranch"(blockState0: $BlockState$$Type, levelAccessor1: $LevelAccessor$$Type, blockPos2: $BlockPos$$Type): void
 public "stripBranch"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, player3: $Player$$Type, itemStack4: $ItemStack$$Type): void
 public "stripBranch"(blockState0: $BlockState$$Type, levelAccessor1: $LevelAccessor$$Type, blockPos2: $BlockPos$$Type, int3: integer): void
-public "stripBranch"(blockState0: $BlockState$$Type, levelAccessor1: $LevelAccessor$$Type, blockPos2: $BlockPos$$Type): void
 public "supportsExternalFaceHiding"(blockState0: $BlockState$$Type): boolean
 get "blockStates"(): $List<$BlockState>
 get "family"(): $Family
@@ -2382,8 +2382,8 @@ import { $BlockPos, $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPo
 import { $Species, $Species$$Type } from "packages/com/ferreusveritas/dynamictrees/tree/species/$Species"
 
 export class $BiomeSuitabilityEvent extends $Event {
-constructor()
 constructor(level0: $Level$$Type, biome1: $Biome$$Type, species2: $Species$$Type, blockPos3: $BlockPos$$Type)
+constructor()
 
 public "getBiome"(): $Biome
 public "getLevel"(): $Level
@@ -2512,8 +2512,8 @@ public "getAsDataResult"(resourceLocation0: $ResourceLocation$$Type): $DataResul
 public "getComparator"(): $Comparator<V>
 public "getGetterCodec"(): $Codec<V>
 public "getName"(): string
-public "getOptional"(resourceLocation0: $ResourceLocation$$Type): $Optional<V>
 public "getOptional"(string0: string): $Optional<V>
+public "getOptional"(resourceLocation0: $ResourceLocation$$Type): $Optional<V>
 public "getRegistryNames"(): $Set<$ResourceLocation>
 public "getType"(): $Class<V>
 public "has"(resourceLocation0: $ResourceLocation$$Type): boolean
@@ -2546,11 +2546,11 @@ constructor(...int0s: integer[])
 constructor(int0: integer)
 constructor()
 
-public "addVolume"(volume0: $NetVolumeNode$Volume$$Type): void
 public "addVolume"(int0: integer): void
 public "addVolume"(int0: integer, int1: integer): void
-public "getRawVolume"(): integer
+public "addVolume"(volume0: $NetVolumeNode$Volume$$Type): void
 public "getRawVolume"(int0: integer): integer
+public "getRawVolume"(): integer
 public "getRawVolumesArray"(): integer[]
 public "getVolume"(int0: integer): float
 public "getVolume"(): float
@@ -2572,8 +2572,8 @@ import { $DTResource, $DTResource$$Type } from "packages/com/ferreusveritas/dyna
 export interface $ResourceAccessor<R> {
 "filtered"(predicate0: $Predicate$$Type<$ResourceLocation$$Type>): $ResourceAccessor<R>
 "forEach"(consumer0: $Consumer$$Type<$DTResource$$Type<R>>): void
-"getAllResources"(): $Iterable<$DTResource<R>>
 "getAllResources"(predicate0: $Predicate$$Type<$ResourceLocation$$Type>): $Iterable<$DTResource<R>>
+"getAllResources"(): $Iterable<$DTResource<R>>
 "getResource"(resourceLocation0: $ResourceLocation$$Type): $DTResource<R>
 "map"<N>(function0: $Function$$Type<R, N>): $ResourceAccessor<N>
 get "allResources"(): $Iterable<$DTResource<R>>
@@ -2643,9 +2643,9 @@ static readonly "LEAVES": string
 static readonly "NULL": $LeavesProperties
 static readonly "REGISTRY": $TypedRegistry<$LeavesProperties>
 
-constructor(resourceLocation0: $ResourceLocation$$Type)
-constructor(blockState0: $BlockState$$Type, resourceLocation1: $ResourceLocation$$Type)
 constructor(blockState0: $BlockState$$Type, cellKit1: $CellKit$$Type, resourceLocation2: $ResourceLocation$$Type)
+constructor(blockState0: $BlockState$$Type, resourceLocation1: $ResourceLocation$$Type)
+constructor(resourceLocation0: $ResourceLocation$$Type)
 
 public "addGeneratedBlockTags"(function0: $Function$$Type<$TagKey$$Type<$Block$$Type>, $IntrinsicHolderTagsProvider$IntrinsicTagAppender<$Block>>): void
 public "canGrowOnGround"(): boolean
@@ -2664,8 +2664,8 @@ public "getDefaultBlockProperties"(mapColor0: $MapColor$$Type): $BlockBehaviour$
 public "getDefaultMapColor"(): $MapColor
 public "getDrops"(level0: $Level$$Type, blockPos1: $BlockPos$$Type, itemStack2: $ItemStack$$Type, species3: $Species$$Type): $List<$ItemStack>
 public "getDynamicLeavesBlock"(): $Optional<$DynamicLeavesBlock>
-public "getDynamicLeavesState"(int0: integer): $BlockState
 public "getDynamicLeavesState"(): $BlockState
+public "getDynamicLeavesState"(int0: integer): $BlockState
 public "getFamily"(): $Family
 public "getFireSpreadSpeed"(): integer
 public "getFlammability"(): integer
@@ -2708,8 +2708,8 @@ public "setPostReloadDefaults"(): $LeavesProperties
 public "setPreReloadDefaults"(): $LeavesProperties
 public "setPrimitiveLeaves"(block0: $Block$$Type): void
 public "setRequiresShears"(boolean0: boolean): void
-public "setSeedDropChances"(collection0: $Collection$$Type<float>): void
 public "setSeedDropChances"(float0s: float[]): void
+public "setSeedDropChances"(collection0: $Collection$$Type<float>): void
 public "setSmotherLeavesMax"(int0: integer): void
 public "setTextureOverrides"(map0: $Map$$Type<string, $ResourceLocation$$Type>): void
 public "shouldAge"(boolean0: boolean, blockState1: $BlockState$$Type): boolean
@@ -2753,8 +2753,8 @@ set "modelOverrides"(value: $Map$$Type<string, $ResourceLocation$$Type>)
 set "onlyIfLoaded"(value: string)
 set "primitiveLeaves"(value: $Block$$Type)
 set "requiresShears"(value: boolean)
-set "seedDropChances"(value: $Collection$$Type<float>)
 set "seedDropChances"(value: float[])
+set "seedDropChances"(value: $Collection$$Type<float>)
 set "smotherLeavesMax"(value: integer)
 set "textureOverrides"(value: $Map$$Type<string, $ResourceLocation$$Type>)
 }
@@ -2850,8 +2850,8 @@ public "getAgeProperty"(): $IntegerProperty
 public "getBlock"(): $PodBlock
 public "getBlockDropsPath"(): $ResourceLocation
 public "getBlockShape"(direction0: $Direction$$Type, int1: integer): $VoxelShape
-public "getDefaultBlockProperties"(): $BlockBehaviour$Properties
 public "getDefaultBlockProperties"(mapColor0: $MapColor$$Type): $BlockBehaviour$Properties
+public "getDefaultBlockProperties"(): $BlockBehaviour$Properties
 public "getDefaultMapColor"(): $MapColor
 public "getFlowerHoldPeriodLength"(): float
 public "getGrowthChance"(): float
@@ -2995,7 +2995,6 @@ static readonly "TEMPLATES": $TemplateRegistry<$GrowthLogicKitConfiguration>
 
 constructor(growthLogicKit0: $GrowthLogicKit$$Type)
 
-public "copy"(): $GrowthLogicKitConfiguration
 public static "getDefault"(): $GrowthLogicKitConfiguration
 public "getEnergy"(positionalSpeciesContext0: $PositionalSpeciesContext$$Type): float
 public "getLowestBranchHeight"(positionalSpeciesContext0: $PositionalSpeciesContext$$Type): integer
@@ -3514,16 +3513,16 @@ static readonly "SEED": string
 static readonly "SEED_PARENT": string
 static readonly "TYPE": $TypedRegistry$EntryType<$Species>
 
+constructor()
 constructor(resourceLocation0: $ResourceLocation$$Type, family1: $Family$$Type, leavesProperties2: $LeavesProperties$$Type)
 constructor(resourceLocation0: $ResourceLocation$$Type, family1: $Family$$Type)
-constructor()
 
 public "addAcceptableBlockForGrowth"(block0: $Block$$Type): void
 public "addAcceptableSoils"(...string0s: string[]): $Species
 public "addAcceptableSoilsForWorldGen"(...string0s: string[]): $Species
 public "addFruits"(collection0: $Collection$$Type<$Fruit$$Type>): void
-public "addGenFeature"(genFeatureConfiguration0: $GenFeatureConfiguration$$Type): $Species
 public "addGenFeature"(genFeature0: $GenFeature$$Type): $Species
+public "addGenFeature"(genFeatureConfiguration0: $GenFeatureConfiguration$$Type): $Species
 public "addGeneratedBlockTags"(function0: $Function$$Type<$TagKey$$Type<$Block$$Type>, $IntrinsicHolderTagsProvider$IntrinsicTagAppender<$Block>>): void
 public "addGeneratedItemTags"(function0: $Function$$Type<$TagKey$$Type<$Item$$Type>, $IntrinsicHolderTagsProvider$IntrinsicTagAppender<$Item>>): void
 public "addPods"(collection0: $Collection$$Type<$Pod$$Type>): void
@@ -3534,6 +3533,7 @@ public "addValidLeafBlocks"(...leavesProperties0s: $LeavesProperties$$Type[]): v
 public "applySubstance"(level0: $Level$$Type, blockPos1: $BlockPos$$Type, blockPos2: $BlockPos$$Type, player3: $Player$$Type, interactionHand4: $InteractionHand$$Type, itemStack5: $ItemStack$$Type): boolean
 public "biomeSuitability"(level0: $Level$$Type, blockPos1: $BlockPos$$Type): float
 public "canBoneMealTree"(): boolean
+public "canCraftMegaSeed"(): boolean
 public "canEncodeLeavesBlocks"(blockPos0: $BlockPos$$Type, blockState1: $BlockState$$Type, block2: $Block$$Type, branchDestructionData3: $BranchDestructionData$$Type): boolean
 public "canSaplingConsumeBoneMeal"(levelReader0: $LevelReader$$Type, blockPos1: $BlockPos$$Type): boolean
 public "canSaplingGrow"(levelReader0: $LevelReader$$Type, blockPos1: $BlockPos$$Type): boolean
@@ -3559,8 +3559,8 @@ public "generateSapling"(): $Species
 public "generateSeed"(): $Species
 public "getAllowedWaterHeightForWorldgen"(): integer
 public "getBranchesDrops"(level0: $Level$$Type, volume1: $NetVolumeNode$Volume$$Type, itemStack2: $ItemStack$$Type): $List<$ItemStack>
-public "getBranchesDrops"(level0: $Level$$Type, volume1: $NetVolumeNode$Volume$$Type): $List<$ItemStack>
 public "getBranchesDrops"(level0: $Level$$Type, volume1: $NetVolumeNode$Volume$$Type, itemStack2: $ItemStack$$Type, float3: float): $List<$ItemStack>
+public "getBranchesDrops"(level0: $Level$$Type, volume1: $NetVolumeNode$Volume$$Type): $List<$ItemStack>
 public "getCommonSpecies"(): $Species
 public "getEnergy"(level0: $Level$$Type, blockPos1: $BlockPos$$Type): float
 public "getFallingBranchEndSound"(float0: float, boolean1: boolean, boolean2: boolean): $SoundEvent
@@ -3590,8 +3590,8 @@ public "getLowestBranchHeight"(): integer
 public "getMaxBranchRadius"(): integer
 public "getMegaSpecies"(): $Species
 public "getModelPath"(string0: string): $Optional<$ResourceLocation>
-public "getNodeInflator"(simpleVoxmap0: $SimpleVoxmap$$Type, int1: integer): $NodeInspector
 public "getNodeInflator"(simpleVoxmap0: $SimpleVoxmap$$Type): $NodeInspector
+public "getNodeInflator"(simpleVoxmap0: $SimpleVoxmap$$Type, int1: integer): $NodeInspector
 public "getPerfectBiomes"(): $DTBiomeHolderSet
 public "getPods"(): $Set<$Pod>
 public "getPottedSapling"(): $PottedSaplingBlock
@@ -3640,13 +3640,13 @@ public "hasPods"(): boolean
 public "hasSeed"(): boolean
 public "inheritSeasonalFruitingOffsetToFruits"(): void
 public "inheritSeasonalFruitingOffsetToPods"(): void
+public "isAcceptableSoil"(blockState0: $BlockState$$Type): boolean
 public "isAcceptableSoil"(...string0s: string[]): boolean
 public "isAcceptableSoil"(levelReader0: $LevelReader$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type): boolean
-public "isAcceptableSoil"(blockState0: $BlockState$$Type): boolean
-public "isAcceptableSoilForWorldgen"(blockState0: $BlockState$$Type): boolean
 public "isAcceptableSoilForWorldgen"(levelAccessor0: $LevelAccessor$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type): boolean
-public "isBiomePerfect"(resourceKey0: $ResourceKey$$Type<$Biome>): boolean
+public "isAcceptableSoilForWorldgen"(blockState0: $BlockState$$Type): boolean
 public "isBiomePerfect"(holder0: $Holder$$Type<$Biome$$Type>): boolean
+public "isBiomePerfect"(resourceKey0: $ResourceKey$$Type<$Biome>): boolean
 public "isCommonSpecies"(): boolean
 public "isMegaSpecies"(): boolean
 public static "isOneOfBiomes"(resourceKey0: $ResourceKey$$Type<$Biome>, ...resourceKey1s: $ResourceKey$$Type<$Biome$$Type>[]): boolean
@@ -3683,6 +3683,7 @@ public "setAlwaysShowOnWaila"(boolean0: boolean): $Species
 public "setBasicGrowingParameters"(float0: float, float1: float, int2: integer, int3: integer, float4: float): $Species
 public "setBigTreeSoundThreshold"(float0: float): void
 public "setCanBoneMealTree"(boolean0: boolean): void
+public "setCanCraftMegaSeed"(boolean0: boolean): void
 public "setCanSaplingGrowNaturally"(boolean0: boolean): $Species
 public "setCommonOverride"(commonOverride0: $Species$CommonOverride$$Type): void
 public "setDefaultGrowingParameters"(): $Species
@@ -3691,8 +3692,8 @@ public "setDropSeeds"(boolean0: boolean): void
 public "setFamily"(family0: $Family$$Type): void
 public "setFlowerSeasonHold"(float0: float, float1: float): $Species
 public "setForceSoil"(soilProperties0: $SoilProperties$$Type): $Species
-public "setGrowthLogicKit"(growthLogicKitConfiguration0: $GrowthLogicKitConfiguration$$Type): $Species
 public "setGrowthLogicKit"(growthLogicKit0: $GrowthLogicKit$$Type): $Species
+public "setGrowthLogicKit"(growthLogicKitConfiguration0: $GrowthLogicKitConfiguration$$Type): $Species
 public "setGrowthRate"(float0: float): void
 public "setLangOverrides"(map0: $Map$$Type<string, string>): void
 public "setLeavesProperties"(leavesProperties0: $LeavesProperties$$Type): $Species
@@ -3702,7 +3703,6 @@ public "setMegaSpecies"(species0: $Species$$Type): void
 public "setModelOverrides"(map0: $Map$$Type<string, $ResourceLocation$$Type>): void
 public "setOnlyIfLoaded"(string0: string): void
 public "setPlantableOnFluid"(boolean0: boolean): void
-public "setPreReloadDefaults"(): $Species
 public "setSapling"(supplier0: $Supplier$$Type<$DynamicSaplingBlock>): $Species
 public "setSaplingName"(string0: string): void
 public "setSaplingShape"(voxelShape0: $VoxelShape$$Type): $Species
@@ -3791,8 +3791,8 @@ set "doesRot"(value: boolean)
 set "dropSeeds"(value: boolean)
 set "family"(value: $Family$$Type)
 set "forceSoil"(value: $SoilProperties$$Type)
-set "growthLogicKit"(value: $GrowthLogicKitConfiguration$$Type)
 set "growthLogicKit"(value: $GrowthLogicKit$$Type)
+set "growthLogicKit"(value: $GrowthLogicKitConfiguration$$Type)
 set "growthRate"(value: float)
 set "langOverrides"(value: $Map$$Type<string, string>)
 set "leavesProperties"(value: $LeavesProperties$$Type)
@@ -3896,17 +3896,6 @@ set "willPlant"(value: boolean)
 }
 }
 
-declare module "packages/com/ferreusveritas/dynamictrees/block/$GrowableBlock$Info" {
-import { $LevelAccessor$$Type } from "packages/net/minecraft/world/level/$LevelAccessor"
-import { $BlockState$$Type } from "packages/net/minecraft/world/level/block/state/$BlockState"
-import { $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
-
-export class $GrowableBlock$Info {
-constructor(levelAccessor0: $LevelAccessor$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type)
-
-}
-}
-
 declare module "packages/com/ferreusveritas/dynamictrees/api/configuration/$PropertiesAccessor" {
 import { $PropertiesAccessor$IterationAction$$Type } from "packages/com/ferreusveritas/dynamictrees/api/configuration/$PropertiesAccessor$IterationAction"
 import { $ConfigurationProperty$$Type } from "packages/com/ferreusveritas/dynamictrees/api/configuration/$ConfigurationProperty"
@@ -3921,6 +3910,17 @@ export namespace $PropertiesAccessor {
 const probejs$$marker: never
 }
 export abstract class $PropertiesAccessor$$Static implements $PropertiesAccessor {
+}
+}
+
+declare module "packages/com/ferreusveritas/dynamictrees/block/$GrowableBlock$Info" {
+import { $LevelAccessor$$Type } from "packages/net/minecraft/world/level/$LevelAccessor"
+import { $BlockState$$Type } from "packages/net/minecraft/world/level/block/state/$BlockState"
+import { $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
+
+export class $GrowableBlock$Info {
+constructor(levelAccessor0: $LevelAccessor$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type)
+
 }
 }
 
@@ -4413,10 +4413,10 @@ readonly "toolDir": $Direction
 readonly "trunkHeight": integer
 readonly "woodVolume": $NetVolumeNode$Volume
 
-constructor()
 constructor(compoundTag0: $CompoundTag$$Type)
 constructor(species0: $Species$$Type, map1: $Map$$Type<$BlockPos$$Type, $BranchConnectionData$$Type>, map2: $Map$$Type<$BlockPos$$Type, $BlockState$$Type>, list3: $List$$Type<$BranchBlock$ItemStackPos$$Type>, list4: $List$$Type<$BlockPos$$Type>, volume5: $NetVolumeNode$Volume$$Type, blockPos6: $BlockPos$$Type, direction7: $Direction$$Type, direction8: $Direction$$Type, int9: integer)
 constructor(species0: $Species$$Type, map1: $Map$$Type<$BlockPos$$Type, $BranchConnectionData$$Type>, map2: $Map$$Type<$BlockPos$$Type, $BlockState$$Type>, list3: $List$$Type<$BranchBlock$ItemStackPos$$Type>, list4: $List$$Type<$BlockPos$$Type>, volume5: $NetVolumeNode$Volume$$Type, blockPos6: $BlockPos$$Type, blockPos7: $BlockPos$$Type, direction8: $Direction$$Type, direction9: $Direction$$Type, int10: integer)
+constructor()
 
 public static "decodeRelPos"(int0: integer): $BlockPos
 public static "encodeRelBlockPos"(blockPos0: $BlockPos$$Type): integer
@@ -4432,8 +4432,8 @@ public "getLeavesRelPos"(int0: integer): $BlockPos
 public "getNumBranches"(): integer
 public "getNumEndpoints"(): integer
 public "getNumLeaves"(): integer
-public "getPositions"(posType0: $BranchDestructionData$PosType$$Type, boolean1: boolean): $Iterable<$BlockPos>
 public "getPositions"(posType0: $BranchDestructionData$PosType$$Type): $Iterable<$BlockPos>
+public "getPositions"(posType0: $BranchDestructionData$PosType$$Type, boolean1: boolean): $Iterable<$BlockPos>
 public "getRelativeCutPos"(): $BlockPos
 public "merge"(branchDestructionData0: $BranchDestructionData$$Type): $BranchDestructionData
 public "writeToNBT"(compoundTag0: $CompoundTag$$Type): $CompoundTag
@@ -4474,8 +4474,8 @@ public "len"(): double
 public "set"(vec2i0: $Vec2i$$Type): $Vec2i
 public "set"(int0: integer, int1: integer): $Vec2i
 public "setTight"(boolean0: boolean): $Vec2i
-public "sub"(int0: integer, int1: integer): $Vec2i
 public "sub"(vec2i0: $Vec2i$$Type): $Vec2i
+public "sub"(int0: integer, int1: integer): $Vec2i
 get "tight"(): boolean
 set "tight"(value: boolean)
 get "x"(): integer
@@ -4520,19 +4520,19 @@ export interface $MappedResult<T, I> extends $Result<T, I> {
 "map"<V>(mapper0: $Result$Mapper$$Type<T, V>, string1: string): $MappedResult<V, I>
 "map"<V>(simpleMapper0: $Result$SimpleMapper$$Type<T, V>, predicate1: $Predicate$$Type<V>, string2: string): $MappedResult<V, I>
 "map"<V>(mapper0: $Result$Mapper$$Type<T, V>, predicate1: $Predicate$$Type<V>, string2: string): $MappedResult<V, I>
-"mapEachIfArray"<V, E>(class0: $Class$$Type<V>, simpleMapper1: $Result$SimpleMapper$$Type<V, E>): $MappedResult<$List<E>, I>
 "mapEachIfArray"<V, E>(class0: $Class$$Type<V>, mapper1: $Result$Mapper$$Type<V, E>): $MappedResult<$List<E>, I>
-"mapIfContains"<E, V>(string0: string, class1: $Class$$Type<E>, mapper2: $Result$Mapper$$Type<E, V>, v3: V): $MappedResult<V, I>
+"mapEachIfArray"<V, E>(class0: $Class$$Type<V>, simpleMapper1: $Result$SimpleMapper$$Type<V, E>): $MappedResult<$List<E>, I>
 "mapIfContains"<E, V>(string0: string, class1: $Class$$Type<E>, simpleMapper2: $Result$SimpleMapper$$Type<E, V>, v3: V): $MappedResult<V, I>
-"mapIfContains"<E, V>(string0: string, class1: $Class$$Type<E>, mapper2: $Result$Mapper$$Type<E, V>): $MappedResult<V, I>
+"mapIfContains"<E, V>(string0: string, class1: $Class$$Type<E>, mapper2: $Result$Mapper$$Type<E, V>, v3: V): $MappedResult<V, I>
 "mapIfContains"<E, V>(string0: string, class1: $Class$$Type<E>, simpleMapper2: $Result$SimpleMapper$$Type<E, V>): $MappedResult<V, I>
+"mapIfContains"<E, V>(string0: string, class1: $Class$$Type<E>, mapper2: $Result$Mapper$$Type<E, V>): $MappedResult<V, I>
 "mapIfType"<V, N>(class0: $Class$$Type<V>, mapper1: $Result$Mapper$$Type<V, N>): $MappedResult<N, I>
 "mapIfType"<V, N>(class0: $Class$$Type<V>, simpleMapper1: $Result$SimpleMapper$$Type<V, N>): $MappedResult<N, I>
 "mapIfValid"<V>(predicate0: $Predicate$$Type<T>, string1: string, simpleMapper2: $Result$SimpleMapper$$Type<T, V>): $MappedResult<V, I>
 "mapIfValid"<V>(predicate0: $Predicate$$Type<T>, string1: string, mapper2: $Result$Mapper$$Type<T, V>): $MappedResult<V, I>
 "mapToListOfType"<E>(class0: $Class$$Type<E>): $MappedResult<$List<E>, I>
-"orElse"(t0: T, consumer1: $Consumer$$Type<string>, consumer2: $Consumer$$Type<string>): T
 "orElse"(t0: T): T
+"orElse"(t0: T, consumer1: $Consumer$$Type<string>, consumer2: $Consumer$$Type<string>): T
 "orElseApply"(function0: $Function$$Type<string, T>, biConsumer1: $BiConsumer$$Type<T, $List$$Type<string>>, t2: T): T
 "orElseApply"(function0: $Function$$Type<string, T>, t1: T): T
 "orElseGet"(supplier0: $Supplier$$Type<T>): T
@@ -4765,19 +4765,19 @@ export interface $Result<T, I> {
 "map"<V>(mapper0: $Result$Mapper$$Type<T, V>, string1: string): $MappedResult<V, I>
 "map"<V>(simpleMapper0: $Result$SimpleMapper$$Type<T, V>, predicate1: $Predicate$$Type<V>, string2: string): $MappedResult<V, I>
 "map"<V>(mapper0: $Result$Mapper$$Type<T, V>, predicate1: $Predicate$$Type<V>, string2: string): $MappedResult<V, I>
-"mapEachIfArray"<V, E>(class0: $Class$$Type<V>, simpleMapper1: $Result$SimpleMapper$$Type<V, E>): $MappedResult<$List<E>, I>
 "mapEachIfArray"<V, E>(class0: $Class$$Type<V>, mapper1: $Result$Mapper$$Type<V, E>): $MappedResult<$List<E>, I>
-"mapIfContains"<E, V>(string0: string, class1: $Class$$Type<E>, mapper2: $Result$Mapper$$Type<E, V>, v3: V): $MappedResult<V, I>
+"mapEachIfArray"<V, E>(class0: $Class$$Type<V>, simpleMapper1: $Result$SimpleMapper$$Type<V, E>): $MappedResult<$List<E>, I>
 "mapIfContains"<E, V>(string0: string, class1: $Class$$Type<E>, simpleMapper2: $Result$SimpleMapper$$Type<E, V>, v3: V): $MappedResult<V, I>
-"mapIfContains"<E, V>(string0: string, class1: $Class$$Type<E>, mapper2: $Result$Mapper$$Type<E, V>): $MappedResult<V, I>
+"mapIfContains"<E, V>(string0: string, class1: $Class$$Type<E>, mapper2: $Result$Mapper$$Type<E, V>, v3: V): $MappedResult<V, I>
 "mapIfContains"<E, V>(string0: string, class1: $Class$$Type<E>, simpleMapper2: $Result$SimpleMapper$$Type<E, V>): $MappedResult<V, I>
+"mapIfContains"<E, V>(string0: string, class1: $Class$$Type<E>, mapper2: $Result$Mapper$$Type<E, V>): $MappedResult<V, I>
 "mapIfType"<V, N>(class0: $Class$$Type<V>, mapper1: $Result$Mapper$$Type<V, N>): $MappedResult<N, I>
 "mapIfType"<V, N>(class0: $Class$$Type<V>, simpleMapper1: $Result$SimpleMapper$$Type<V, N>): $MappedResult<N, I>
 "mapIfValid"<V>(predicate0: $Predicate$$Type<T>, string1: string, simpleMapper2: $Result$SimpleMapper$$Type<T, V>): $MappedResult<V, I>
 "mapIfValid"<V>(predicate0: $Predicate$$Type<T>, string1: string, mapper2: $Result$Mapper$$Type<T, V>): $MappedResult<V, I>
 "mapToListOfType"<E>(class0: $Class$$Type<E>): $MappedResult<$List<E>, I>
-"orElse"(t0: T, consumer1: $Consumer$$Type<string>, consumer2: $Consumer$$Type<string>): T
 "orElse"(t0: T): T
+"orElse"(t0: T, consumer1: $Consumer$$Type<string>, consumer2: $Consumer$$Type<string>): T
 "orElseApply"(function0: $Function$$Type<string, T>, biConsumer1: $BiConsumer$$Type<T, $List$$Type<string>>, t2: T): T
 "orElseApply"(function0: $Function$$Type<string, T>, t1: T): T
 "orElseGet"(supplier0: $Supplier$$Type<T>): T
@@ -4915,9 +4915,9 @@ public "getLenX"(): integer
 public "getLenY"(): integer
 public "getLenZ"(): integer
 public "getTops"(): $Iterable<$BlockPos$MutableBlockPos>
-public "getVoxel"(blockPos0: $BlockPos$$Type, blockPos1: $BlockPos$$Type): byte
 public "getVoxel"(int0: integer, int1: integer, int2: integer): byte
 public "getVoxel"(blockPos0: $BlockPos$$Type): byte
+public "getVoxel"(blockPos0: $BlockPos$$Type, blockPos1: $BlockPos$$Type): byte
 public "isYTouched"(int0: integer): boolean
 public "print"(): void
 public "setCenter"(blockPos0: $BlockPos$$Type): $SimpleVoxmap
@@ -5041,9 +5041,9 @@ constructor()
 
 public "containsKey"(resourceKey0: $ResourceKey$$Type<$Biome>): boolean
 public static "direct"<E, T>(function0: $Function$$Type<E, $Holder<T>>, list1: $List$$Type<E>): $HolderSet$Direct<T>
-public static "direct"<E, T>(function0: $Function$$Type<E, $Holder<T>>, ...e1s: E[]): $HolderSet$Direct<T>
-public static "direct"<T>(list0: $List$$Type<$Holder$$Type<T>>): $HolderSet$Direct<T>
 public static "direct"<T>(...holder0s: $Holder$$Type<T>[]): $HolderSet$Direct<T>
+public static "direct"<T>(list0: $List$$Type<$Holder$$Type<T>>): $HolderSet$Direct<T>
+public static "direct"<E, T>(function0: $Function$$Type<E, $Holder<T>>, ...e1s: E[]): $HolderSet$Direct<T>
 /** @deprecated */
 public static "emptyNamed"<T>(holderOwner0: $HolderOwner$$Type<T>, tagKey1: $TagKey$$Type<T>): $HolderSet$Named<T>
 public "forEach"(consumer0: $Consumer$$Type<$Holder$$Type<$Biome$$Type>>): void
@@ -5108,8 +5108,8 @@ public "getAgeProperty"(): $IntegerProperty
 public "getBlock"(): $FruitBlock
 public "getBlockDropsPath"(): $ResourceLocation
 public "getBlockShape"(int0: integer): $VoxelShape
-public "getDefaultBlockProperties"(mapColor0: $MapColor$$Type): $BlockBehaviour$Properties
 public "getDefaultBlockProperties"(): $BlockBehaviour$Properties
+public "getDefaultBlockProperties"(mapColor0: $MapColor$$Type): $BlockBehaviour$Properties
 public "getDefaultMapColor"(): $MapColor
 public "getFlowerHoldPeriodLength"(): float
 public "getGrowthChance"(): float
@@ -5123,7 +5123,6 @@ public "isOutOfSeason"(level0: $Level$$Type, blockPos1: $BlockPos$$Type): boolea
 public "performMatureAction"(info0: $GrowableBlock$Info$$Type): void
 public "place"(levelAccessor0: $LevelAccessor$$Type, blockPos1: $BlockPos$$Type, float2: float): void
 public "placeDuringWorldGen"(levelAccessor0: $LevelAccessor$$Type, blockPos1: $BlockPos$$Type, float2: float): void
-public "reset"(): $Fruit
 public "seasonalFruitProductionFactor"(levelContext0: $LevelContext$$Type, blockPos1: $BlockPos$$Type): float
 public "setBlockShapes"(voxelShape0s: $VoxelShape$$Type[]): void
 public "setCanBoneMeal"(boolean0: boolean): void
@@ -5333,6 +5332,21 @@ public "radius"(): integer
 }
 }
 
+declare module "packages/com/ferreusveritas/dynamictrees/api/resource/$DTResource" {
+import { $Function$$Type } from "packages/java/util/function/$Function"
+import { $ResourceLocation, $ResourceLocation$$Type } from "packages/net/minecraft/resources/$ResourceLocation"
+
+export class $DTResource<R> {
+constructor(resourceLocation0: $ResourceLocation$$Type, r1: R)
+
+public "getLocation"(): $ResourceLocation
+public "getResource"(): R
+public "map"<N>(function0: $Function$$Type<R, N>): $DTResource<N>
+get "location"(): $ResourceLocation
+get "resource"(): R
+}
+}
+
 declare module "packages/com/ferreusveritas/dynamictrees/api/configuration/$ConfigurationProperty" {
 import { $Item } from "packages/net/minecraft/world/item/$Item"
 import { $JsonElement } from "packages/com/google/gson/$JsonElement"
@@ -5359,21 +5373,6 @@ public static "property"<T>(string0: string, class1: $Class$$Type<T>): $Configur
 public static "string"(string0: string): $ConfigurationProperty<string>
 get "key"(): string
 get "type"(): $Class<T>
-}
-}
-
-declare module "packages/com/ferreusveritas/dynamictrees/api/resource/$DTResource" {
-import { $Function$$Type } from "packages/java/util/function/$Function"
-import { $ResourceLocation, $ResourceLocation$$Type } from "packages/net/minecraft/resources/$ResourceLocation"
-
-export class $DTResource<R> {
-constructor(resourceLocation0: $ResourceLocation$$Type, r1: R)
-
-public "getLocation"(): $ResourceLocation
-public "getResource"(): R
-public "map"<N>(function0: $Function$$Type<R, N>): $DTResource<N>
-get "location"(): $ResourceLocation
-get "resource"(): R
 }
 }
 

@@ -101,8 +101,8 @@ import { $Runnable$$Type } from "packages/java/lang/$Runnable"
 export class $DeferredWorkQueue {
 constructor(modLoadingStage0: $ModLoadingStage$$Type)
 
-public "enqueueWork"<T>(modContainer0: $ModContainer$$Type, supplier1: $Supplier$$Type<T>): $CompletableFuture<T>
 public "enqueueWork"(modContainer0: $ModContainer$$Type, runnable1: $Runnable$$Type): $CompletableFuture<void>
+public "enqueueWork"<T>(modContainer0: $ModContainer$$Type, supplier1: $Supplier$$Type<T>): $CompletableFuture<T>
 public static "lookup"(optional0: $Optional$$Type<$ModLoadingStage$$Type>): $Optional<$DeferredWorkQueue>
 public "runTasks"(): void
 }
@@ -229,8 +229,8 @@ export class $ParallelDispatchEvent extends $ModLifecycleEvent {
 constructor(modContainer0: $ModContainer$$Type, modLoadingStage1: $ModLoadingStage$$Type)
 constructor()
 
-public "enqueueWork"(runnable0: $Runnable$$Type): $CompletableFuture<void>
 public "enqueueWork"<T>(supplier0: $Supplier$$Type<T>): $CompletableFuture<T>
+public "enqueueWork"(runnable0: $Runnable$$Type): $CompletableFuture<void>
 }
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
 export type $ParallelDispatchEvent$$Type = ($ParallelDispatchEvent);
@@ -525,52 +525,52 @@ export interface $IConfigSpec<T extends $IConfigSpec<T>> extends $UnmodifiableCo
 "get"<T>(list0: $List$$Type<string>): T
 "getByte"(list0: $List$$Type<string>): byte
 "getByte"(string0: string): byte
-"getByteOrElse"(string0: string, byte1: byte): byte
 "getByteOrElse"(list0: $List$$Type<string>, byte1: byte): byte
+"getByteOrElse"(string0: string, byte1: byte): byte
 "getChar"(list0: $List$$Type<string>): character
 "getChar"(string0: string): character
-"getCharOrElse"(string0: string, char1: character): character
 "getCharOrElse"(list0: $List$$Type<string>, char1: character): character
-"getEnum"<T extends $Enum<T>>(string0: string, class1: $Class$$Type<T>): T
+"getCharOrElse"(string0: string, char1: character): character
 "getEnum"<T extends $Enum<T>>(list0: $List$$Type<string>, class1: $Class$$Type<T>, enumGetMethod2: $EnumGetMethod$$Type): T
+"getEnum"<T extends $Enum<T>>(string0: string, class1: $Class$$Type<T>): T
 "getEnum"<T extends $Enum<T>>(string0: string, class1: $Class$$Type<T>, enumGetMethod2: $EnumGetMethod$$Type): T
 "getEnum"<T extends $Enum<T>>(list0: $List$$Type<string>, class1: $Class$$Type<T>): T
-"getEnumOrElse"<T extends $Enum<T>>(string0: string, t1: T, enumGetMethod2: $EnumGetMethod$$Type): T
-"getEnumOrElse"<T extends $Enum<T>>(list0: $List$$Type<string>, t1: T, enumGetMethod2: $EnumGetMethod$$Type): T
-"getEnumOrElse"<T extends $Enum<T>>(string0: string, t1: T): T
-"getEnumOrElse"<T extends $Enum<T>>(list0: $List$$Type<string>, class1: $Class$$Type<T>, supplier2: $Supplier$$Type<T>): T
+"getEnumOrElse"<T extends $Enum<T>>(list0: $List$$Type<string>, t1: T): T
 "getEnumOrElse"<T extends $Enum<T>>(list0: $List$$Type<string>, class1: $Class$$Type<T>, enumGetMethod2: $EnumGetMethod$$Type, supplier3: $Supplier$$Type<T>): T
 "getEnumOrElse"<T extends $Enum<T>>(string0: string, class1: $Class$$Type<T>, supplier2: $Supplier$$Type<T>): T
+"getEnumOrElse"<T extends $Enum<T>>(list0: $List$$Type<string>, class1: $Class$$Type<T>, supplier2: $Supplier$$Type<T>): T
+"getEnumOrElse"<T extends $Enum<T>>(string0: string, t1: T): T
+"getEnumOrElse"<T extends $Enum<T>>(list0: $List$$Type<string>, t1: T, enumGetMethod2: $EnumGetMethod$$Type): T
 "getEnumOrElse"<T extends $Enum<T>>(string0: string, class1: $Class$$Type<T>, enumGetMethod2: $EnumGetMethod$$Type, supplier3: $Supplier$$Type<T>): T
-"getEnumOrElse"<T extends $Enum<T>>(list0: $List$$Type<string>, t1: T): T
+"getEnumOrElse"<T extends $Enum<T>>(string0: string, t1: T, enumGetMethod2: $EnumGetMethod$$Type): T
 "getInt"(list0: $List$$Type<string>): integer
 "getInt"(string0: string): integer
-"getIntOrElse"(string0: string, int1: integer): integer
-"getIntOrElse"(string0: string, intSupplier1: $IntSupplier$$Type): integer
-"getIntOrElse"(list0: $List$$Type<string>, intSupplier1: $IntSupplier$$Type): integer
 "getIntOrElse"(list0: $List$$Type<string>, int1: integer): integer
+"getIntOrElse"(list0: $List$$Type<string>, intSupplier1: $IntSupplier$$Type): integer
+"getIntOrElse"(string0: string, intSupplier1: $IntSupplier$$Type): integer
+"getIntOrElse"(string0: string, int1: integer): integer
 "getLong"(list0: $List$$Type<string>): long
 "getLong"(string0: string): long
 "getLongOrElse"(list0: $List$$Type<string>, longSupplier1: $LongSupplier$$Type): long
-"getLongOrElse"(list0: $List$$Type<string>, long1: long): long
 "getLongOrElse"(string0: string, longSupplier1: $LongSupplier$$Type): long
+"getLongOrElse"(list0: $List$$Type<string>, long1: long): long
 "getLongOrElse"(string0: string, long1: long): long
 "getOptional"<T>(list0: $List$$Type<string>): $Optional<T>
 "getOptional"<T>(string0: string): $Optional<T>
 "getOptionalEnum"<T extends $Enum<T>>(string0: string, class1: $Class$$Type<T>): $Optional<T>
+"getOptionalEnum"<T extends $Enum<T>>(list0: $List$$Type<string>, class1: $Class$$Type<T>): $Optional<T>
 "getOptionalEnum"<T extends $Enum<T>>(list0: $List$$Type<string>, class1: $Class$$Type<T>, enumGetMethod2: $EnumGetMethod$$Type): $Optional<T>
 "getOptionalEnum"<T extends $Enum<T>>(string0: string, class1: $Class$$Type<T>, enumGetMethod2: $EnumGetMethod$$Type): $Optional<T>
-"getOptionalEnum"<T extends $Enum<T>>(list0: $List$$Type<string>, class1: $Class$$Type<T>): $Optional<T>
 "getOptionalInt"(list0: $List$$Type<string>): $OptionalInt
 "getOptionalInt"(string0: string): $OptionalInt
-"getOptionalLong"(string0: string): $OptionalLong
 "getOptionalLong"(list0: $List$$Type<string>): $OptionalLong
+"getOptionalLong"(string0: string): $OptionalLong
 "getOrElse"<T>(string0: string, t1: T): T
 "getOrElse"<T>(list0: $List$$Type<string>, t1: T): T
 "getOrElse"<T>(list0: $List$$Type<string>, supplier1: $Supplier$$Type<T>): T
 "getOrElse"<T>(string0: string, supplier1: $Supplier$$Type<T>): T
-"getRaw"<T>(list0: $List$$Type<string>): T
 "getRaw"<T>(string0: string): T
+"getRaw"<T>(list0: $List$$Type<string>): T
 "getShort"(string0: string): short
 "getShort"(list0: $List$$Type<string>): short
 "getShortOrElse"(string0: string, short1: short): short
@@ -578,8 +578,8 @@ export interface $IConfigSpec<T extends $IConfigSpec<T>> extends $UnmodifiableCo
 "isCorrect"(commentedConfig0: $CommentedConfig$$Type): boolean
 "isCorrecting"(): boolean
 "isEmpty"(): boolean
-"isNull"(string0: string): boolean
 "isNull"(list0: $List$$Type<string>): boolean
+"isNull"(string0: string): boolean
 "self"(): T
 "size"(): integer
 "valueMap"(): $Map<string, any>
@@ -639,10 +639,10 @@ public "getModId"(): string
 public "getModInfo"(): $IModInfo
 public "getNamespace"(): string
 public "matches"(object0: any): boolean
-public "registerDisplayTest"(supplier0: $Supplier$$Type<string>, biPredicate1: $BiPredicate$$Type<string, boolean>): void
-public "registerDisplayTest"(displayTest0: $IExtensionPoint$DisplayTest$$Type): void
-public "registerDisplayTest"(supplier0: $Supplier$$Type<$IExtensionPoint$DisplayTest>): void
 public "registerDisplayTest"(string0: string, biPredicate1: $BiPredicate$$Type<string, boolean>): void
+public "registerDisplayTest"(supplier0: $Supplier$$Type<string>, biPredicate1: $BiPredicate$$Type<string, boolean>): void
+public "registerDisplayTest"(supplier0: $Supplier$$Type<$IExtensionPoint$DisplayTest>): void
+public "registerDisplayTest"(displayTest0: $IExtensionPoint$DisplayTest$$Type): void
 public "registerExtensionPoint"<T extends ($Record & $IExtensionPoint<T>)>(class0: $Class$$Type<$IExtensionPoint$$Type<T>>, supplier1: $Supplier$$Type<T>): void
 get "currentState"(): $ModLoadingStage
 get "mod"(): any
@@ -885,8 +885,8 @@ constructor()
 constructor(modContainer0: $ModContainer$$Type)
 
 public "description"(): string
-public "getIMCStream"(): $Stream<$InterModComms$IMCMessage>
 public "getIMCStream"(predicate0: $Predicate$$Type<string>): $Stream<$InterModComms$IMCMessage>
+public "getIMCStream"(): $Stream<$InterModComms$IMCMessage>
 get "iMCStream"(): $Stream<$InterModComms$IMCMessage>
 }
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */

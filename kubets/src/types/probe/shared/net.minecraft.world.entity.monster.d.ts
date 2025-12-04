@@ -62,12 +62,12 @@ public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
 public static "createAttributes"(): $AttributeSupplier$Builder
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -79,8 +79,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -162,7 +162,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChargingCrossbow"(boolean0: boolean): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
@@ -331,12 +331,12 @@ public "canHydrateInFluidType"(fluidType0: $FluidType$$Type): boolean
 public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -348,8 +348,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -425,7 +425,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setDefaultMovementSpeed"(speed: double): void
@@ -591,12 +591,12 @@ public "canHydrateInFluidType"(fluidType0: $FluidType$$Type): boolean
 public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -608,8 +608,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -643,8 +643,8 @@ public "getStepHeight"(): float
 public "getTeamId"(): string
 public "getTotalMovementSpeed"(): double
 public "getType"(): string
-public "handler$fad001$addAdditionalSaveData"(compound: $CompoundTag$$Type, ci: $CallbackInfo$$Type): void
-public "handler$fad001$readAdditionalSaveData"(compound: $CompoundTag$$Type, ci: $CallbackInfo$$Type): void
+public "handler$fgg001$addAdditionalSaveData"(compound: $CompoundTag$$Type, ci: $CallbackInfo$$Type): void
+public "handler$fgg001$readAdditionalSaveData"(compound: $CompoundTag$$Type, ci: $CallbackInfo$$Type): void
 public "hasCustomOutlineRendering"(player0: $Player$$Type): boolean
 public "isAmbientCreature"(): boolean
 public "isAnimal"(): boolean
@@ -685,7 +685,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setDefaultMovementSpeed"(speed: double): void
@@ -863,12 +863,12 @@ public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
 public "canTargetEntity"(entity0: $Entity$$Type): boolean
 public "clearAnger"(entity0: $Entity$$Type): void
 public static "createAttributes"(): $AttributeSupplier$Builder
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -884,8 +884,8 @@ public "getClassification"(boolean0: boolean): $MobCategory
 public "getClientAngerLevel"(): integer
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEntityAngryAt"(): $Optional<$LivingEntity>
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
@@ -928,8 +928,8 @@ public "getType"(): string
 public "getVibrationData"(): $VibrationSystem$Data
 public "getVibrationUser"(): $VibrationSystem$User
 public "hasCustomOutlineRendering"(player0: $Player$$Type): boolean
-public "increaseAngerAt"(entity0: $Entity$$Type): void
 public "increaseAngerAt"(entity0: $Entity$$Type, int1: integer, boolean2: boolean): void
+public "increaseAngerAt"(entity0: $Entity$$Type): void
 public "isAmbientCreature"(): boolean
 public "isAnimal"(): boolean
 public "isDynamicLightEnabledH"(): boolean
@@ -968,7 +968,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttackTarget"(livingEntity0: $LivingEntity$$Type): void
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
@@ -1177,12 +1177,12 @@ public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
 public static "checkAnyLightMonsterSpawnRules"(entityType0: $EntityType$$Type<$Monster$$Type>, levelAccessor1: $LevelAccessor$$Type, mobSpawnType2: $MobSpawnType$$Type, blockPos3: $BlockPos$$Type, randomSource4: $RandomSource$$Type): boolean
 public static "checkMonsterSpawnRules"(entityType0: $EntityType$$Type<$Monster$$Type>, serverLevelAccessor1: $ServerLevelAccessor$$Type, mobSpawnType2: $MobSpawnType$$Type, blockPos3: $BlockPos$$Type, randomSource4: $RandomSource$$Type): boolean
 public static "createMonsterAttributes"(): $AttributeSupplier$Builder
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -1194,8 +1194,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -1270,7 +1270,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setDefaultMovementSpeed"(speed: double): void
@@ -1430,12 +1430,12 @@ public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
 public static "createAttributes"(): $AttributeSupplier$Builder
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -1447,8 +1447,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -1523,7 +1523,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setDefaultMovementSpeed"(speed: double): void
@@ -1701,12 +1701,12 @@ public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
 public static "createAttributes"(): $AttributeSupplier$Builder
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -1718,8 +1718,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -1792,7 +1792,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setDefaultMovementSpeed"(speed: double): void
@@ -1996,12 +1996,12 @@ public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
 public static "createAttributes"(): $AttributeSupplier$Builder
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -2013,8 +2013,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -2089,7 +2089,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setCanBreakDoors"(boolean0: boolean): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
@@ -2259,12 +2259,12 @@ public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
 public static "createAttributes"(): $AttributeSupplier$Builder
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "explodeCreeper"(): void
 public "foodEaten"(is: $ItemStack$$Type): void
@@ -2277,8 +2277,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -2314,10 +2314,10 @@ public "getSwelling"(float0: float): float
 public "getTeamId"(): string
 public "getTotalMovementSpeed"(): double
 public "getType"(): string
-public "handler$cjj000$mna$ignite"(callbackInfo0: $CallbackInfo$$Type): void
-public "handler$cjj000$mna$tick"(callbackInfo0: $CallbackInfo$$Type): void
-public "handler$eoj000$supp$addPartyCreeperData"(compound: $CompoundTag$$Type, ci: $CallbackInfo$$Type): void
-public "handler$eoj000$supp$readPartyCreeperData"(compound: $CompoundTag$$Type, ci: $CallbackInfo$$Type): void
+public "handler$cke000$mna$ignite"(callbackInfo0: $CallbackInfo$$Type): void
+public "handler$cke000$mna$tick"(callbackInfo0: $CallbackInfo$$Type): void
+public "handler$fel000$supp$addPartyCreeperData"(compound: $CompoundTag$$Type, ci: $CallbackInfo$$Type): void
+public "handler$fel000$supp$readPartyCreeperData"(compound: $CompoundTag$$Type, ci: $CallbackInfo$$Type): void
 public "hasCustomOutlineRendering"(player0: $Player$$Type): boolean
 public "ignite"(): void
 public "increaseDroppedSkulls"(): void
@@ -2361,7 +2361,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setDefaultMovementSpeed"(speed: double): void
@@ -2403,7 +2403,7 @@ public "swing"(hand: $InteractionHand$$Type): void
 public "teleportTo"(dimension: $ResourceLocation$$Type, x: double, y: double, z: double, yaw: float, pitch: float): void
 public "tell"(message: $Component$$Type): void
 public static "tickEntity"(entity: $LivingEntity$$Type): void
-public "wrapWithCondition$eoj000$supp$checkPartyCreeper"(instance: $Level$$Type, source: $Entity$$Type, x: double, y: double, z: double, radius: float, explosionInteraction: $Level$ExplosionInteraction$$Type): boolean
+public "wrapWithCondition$fel000$supp$checkPartyCreeper"(instance: $Level$$Type, source: $Entity$$Type, x: double, y: double, z: double, radius: float, explosionInteraction: $Level$ExplosionInteraction$$Type): boolean
 get "block"(): $BlockContainerJS
 get "chestArmorItem"(): $ItemStack
 get "defaultMovementSpeed"(): double
@@ -2537,12 +2537,12 @@ public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
 public static "checkZombifiedPiglinSpawnRules"(entityType0: $EntityType$$Type<$ZombifiedPiglin$$Type>, levelAccessor1: $LevelAccessor$$Type, mobSpawnType2: $MobSpawnType$$Type, blockPos3: $BlockPos$$Type, randomSource4: $RandomSource$$Type): boolean
 public static "createAttributes"(): $AttributeSupplier$Builder
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public "forgetCurrentTargetAndRefreshUniversalAnger"(): void
@@ -2555,8 +2555,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -2638,7 +2638,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setDefaultMovementSpeed"(speed: double): void
@@ -2814,12 +2814,12 @@ public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
 public static "createAttributes"(): $AttributeSupplier$Builder
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -2831,8 +2831,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -2905,7 +2905,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setDefaultMovementSpeed"(speed: double): void
@@ -3091,12 +3091,12 @@ public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
 public static "createAttributes"(): $AttributeSupplier$Builder
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -3108,8 +3108,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -3182,7 +3182,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setDefaultMovementSpeed"(speed: double): void
@@ -3341,12 +3341,12 @@ public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
 public static "createAttributes"(): $AttributeSupplier$Builder
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -3358,8 +3358,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -3433,7 +3433,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setClimbing"(boolean0: boolean): void
@@ -3599,12 +3599,12 @@ public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
 public static "createAttributes"(): $AttributeSupplier$Builder
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -3616,8 +3616,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -3652,8 +3652,8 @@ public "getStepSound"(): $SoundEvent
 public "getTeamId"(): string
 public "getTotalMovementSpeed"(): double
 public "getType"(): string
-public "handler$eob000$supp$consumeQuiverArrow"(target: $LivingEntity$$Type, velocity: float, ci: $CallbackInfo$$Type, arrow: $ItemStack$$Type): void
-public "handler$eob000$supp$finalizeSpawn"(level: $ServerLevelAccessor$$Type, difficulty: $DifficultyInstance$$Type, reason: $MobSpawnType$$Type, spawnData: $SpawnGroupData$$Type, dataTag: $CompoundTag$$Type, cir: $CallbackInfoReturnable$$Type<any>): void
+public "handler$fed000$supp$consumeQuiverArrow"(target: $LivingEntity$$Type, velocity: float, ci: $CallbackInfo$$Type, arrow: $ItemStack$$Type): void
+public "handler$fed000$supp$finalizeSpawn"(level: $ServerLevelAccessor$$Type, difficulty: $DifficultyInstance$$Type, reason: $MobSpawnType$$Type, spawnData: $SpawnGroupData$$Type, dataTag: $CompoundTag$$Type, cir: $CallbackInfoReturnable$$Type<any>): void
 public "hasCustomOutlineRendering"(player0: $Player$$Type): boolean
 public "isAmbientCreature"(): boolean
 public "isAnimal"(): boolean
@@ -3696,7 +3696,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setDefaultMovementSpeed"(speed: double): void
@@ -3859,12 +3859,12 @@ public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
 public static "checkHuskSpawnRules"(entityType0: $EntityType$$Type<$Husk$$Type>, serverLevelAccessor1: $ServerLevelAccessor$$Type, mobSpawnType2: $MobSpawnType$$Type, blockPos3: $BlockPos$$Type, randomSource4: $RandomSource$$Type): boolean
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -3876,8 +3876,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -3950,7 +3950,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setDefaultMovementSpeed"(speed: double): void
@@ -4113,12 +4113,12 @@ public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
 public static "checkMagmaCubeSpawnRules"(entityType0: $EntityType$$Type<$MagmaCube$$Type>, levelAccessor1: $LevelAccessor$$Type, mobSpawnType2: $MobSpawnType$$Type, blockPos3: $BlockPos$$Type, randomSource4: $RandomSource$$Type): boolean
 public static "createAttributes"(): $AttributeSupplier$Builder
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -4130,8 +4130,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -4204,7 +4204,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setDefaultMovementSpeed"(speed: double): void
@@ -4367,12 +4367,12 @@ public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
 public static "checkSilverfishSpawnRules"(entityType0: $EntityType$$Type<$Silverfish$$Type>, levelAccessor1: $LevelAccessor$$Type, mobSpawnType2: $MobSpawnType$$Type, blockPos3: $BlockPos$$Type, randomSource4: $RandomSource$$Type): boolean
 public static "createAttributes"(): $AttributeSupplier$Builder
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -4384,8 +4384,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -4458,7 +4458,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setDefaultMovementSpeed"(speed: double): void
@@ -4619,12 +4619,12 @@ public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
 public static "createAttributes"(): $AttributeSupplier$Builder
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -4637,8 +4637,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -4711,7 +4711,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setDefaultMovementSpeed"(speed: double): void
@@ -4877,12 +4877,12 @@ public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
 public static "createAttributes"(): $AttributeSupplier$Builder
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public "forgetCurrentTargetAndRefreshUniversalAnger"(): void
@@ -4896,8 +4896,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -4982,7 +4982,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setBeingStaredAt"(): void
 public "setCarriedBlock"(blockState0: $BlockState$$Type): void
@@ -5165,12 +5165,12 @@ public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
 public static "createAttributes"(): $AttributeSupplier$Builder
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -5183,8 +5183,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -5259,7 +5259,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setDefaultMovementSpeed"(speed: double): void
@@ -5434,12 +5434,12 @@ public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
 public static "checkPiglinSpawnRules"(entityType0: $EntityType$$Type<$Piglin$$Type>, levelAccessor1: $LevelAccessor$$Type, mobSpawnType2: $MobSpawnType$$Type, blockPos3: $BlockPos$$Type, randomSource4: $RandomSource$$Type): boolean
 public static "createAttributes"(): $AttributeSupplier$Builder
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -5452,8 +5452,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -5510,8 +5510,10 @@ public "isPlayer"(): boolean
 public "isPushedByFluid"(fluidType0: $FluidType$$Type): boolean
 public "isUndead"(): boolean
 public "isWaterCreature"(): boolean
+public "localvar$zdd000$onWantsToPickupPre"(itemStack0: $ItemStack$$Type): $ItemStack
 public "mergeNbt"(tag: $CompoundTag$$Type): $Entity
 public "mobInteract"(player0: $Player$$Type, interactionHand1: $InteractionHand$$Type): $InteractionResult
+public "modify$zdd000$onWantsToPickupPost"(piglin0: $Piglin$$Type): $Piglin
 public "modifyAttribute"(attribute: $Attribute$$Type, identifier: string, d: double, operation: $AttributeModifier$Operation$$Type): void
 public "moveInFluid"(fluidState0: $FluidState$$Type, vec31: $Vec3$$Type, double2: double): boolean
 public "onCrossbowAttackPerformed"(): void
@@ -5536,7 +5538,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChargingCrossbow"(boolean0: boolean): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
@@ -5714,12 +5716,12 @@ public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
 public static "checkSlimeSpawnRules"(entityType0: $EntityType$$Type<$Slime$$Type>, levelAccessor1: $LevelAccessor$$Type, mobSpawnType2: $MobSpawnType$$Type, blockPos3: $BlockPos$$Type, randomSource4: $RandomSource$$Type): boolean
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -5731,8 +5733,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEntityType"(): $EntityType<$Slime>
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
@@ -5768,8 +5770,8 @@ public "getStepHeight"(): float
 public "getTeamId"(): string
 public "getTotalMovementSpeed"(): double
 public "getType"(): string
-public "handler$faf000$supp$applySlimedEffect"(livingEntity: $LivingEntity$$Type, ci: $CallbackInfo$$Type): void
-public "handler$zjn000$apoth_markMovable"(removalReason0: $Entity$RemovalReason$$Type, callbackInfo1: $CallbackInfo$$Type, int2: integer, component3: $Component$$Type, boolean4: boolean, float5: float, int6: integer, int7: integer, int8: integer, float9: float, float10: float, slime11: $Slime$$Type): void
+public "handler$fgi000$supp$applySlimedEffect"(livingEntity: $LivingEntity$$Type, ci: $CallbackInfo$$Type): void
+public "handler$znj000$apoth_markMovable"(removalReason0: $Entity$RemovalReason$$Type, callbackInfo1: $CallbackInfo$$Type, int2: integer, component3: $Component$$Type, boolean4: boolean, float5: float, int6: integer, int7: integer, int8: integer, float9: float, float10: float, slime11: $Slime$$Type): void
 public "hasCustomOutlineRendering"(player0: $Player$$Type): boolean
 public "isAmbientCreature"(): boolean
 public "isAnimal"(): boolean
@@ -5792,7 +5794,7 @@ public "isUndead"(): boolean
 public "isWaterCreature"(): boolean
 public "mergeNbt"(tag: $CompoundTag$$Type): $Entity
 public "modifyAttribute"(attribute: $Attribute$$Type, identifier: string, d: double, operation: $AttributeModifier$Operation$$Type): void
-public "modifyExpressionValue$ele000$getRealType"(entityType0: $EntityType$$Type<any>): $EntityType<any>
+public "modifyExpressionValue$fbg000$getRealType"(entityType0: $EntityType$$Type<any>): $EntityType<any>
 public "moveInFluid"(fluidState0: $FluidState$$Type, vec31: $Vec3$$Type, double2: double): boolean
 public "playSound"(id: $SoundEvent$$Type): void
 public "playSound"(id: $SoundEvent$$Type, volume: float, pitch: float): void
@@ -5811,7 +5813,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setDefaultMovementSpeed"(speed: double): void
@@ -6001,12 +6003,12 @@ public "canHydrateInFluidType"(fluidType0: $FluidType$$Type): boolean
 public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -6018,8 +6020,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -6092,7 +6094,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setDefaultMovementSpeed"(speed: double): void
@@ -6256,12 +6258,12 @@ public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
 public static "checkDrownedSpawnRules"(entityType0: $EntityType$$Type<$Drowned$$Type>, serverLevelAccessor1: $ServerLevelAccessor$$Type, mobSpawnType2: $MobSpawnType$$Type, blockPos3: $BlockPos$$Type, randomSource4: $RandomSource$$Type): boolean
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -6273,8 +6275,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -6349,7 +6351,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setDefaultMovementSpeed"(speed: double): void
@@ -6513,12 +6515,12 @@ public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
 public static "checkStraySpawnRules"(entityType0: $EntityType$$Type<$Stray$$Type>, serverLevelAccessor1: $ServerLevelAccessor$$Type, mobSpawnType2: $MobSpawnType$$Type, blockPos3: $BlockPos$$Type, randomSource4: $RandomSource$$Type): boolean
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -6530,8 +6532,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -6604,7 +6606,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setDefaultMovementSpeed"(speed: double): void
@@ -6762,12 +6764,12 @@ public "canHydrateInFluidType"(fluidType0: $FluidType$$Type): boolean
 public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -6779,8 +6781,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -6854,7 +6856,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setDefaultMovementSpeed"(speed: double): void
@@ -7023,12 +7025,12 @@ public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
 public static "checkHoglinSpawnRules"(entityType0: $EntityType$$Type<$Hoglin$$Type>, levelAccessor1: $LevelAccessor$$Type, mobSpawnType2: $MobSpawnType$$Type, blockPos3: $BlockPos$$Type, randomSource4: $RandomSource$$Type): boolean
 public static "createAttributes"(): $AttributeSupplier$Builder
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -7042,8 +7044,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -7119,7 +7121,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setDefaultMovementSpeed"(speed: double): void
@@ -7313,12 +7315,12 @@ public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
 public static "checkGhastSpawnRules"(entityType0: $EntityType$$Type<$Ghast$$Type>, levelAccessor1: $LevelAccessor$$Type, mobSpawnType2: $MobSpawnType$$Type, blockPos3: $BlockPos$$Type, randomSource4: $RandomSource$$Type): boolean
 public static "createAttributes"(): $AttributeSupplier$Builder
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -7330,8 +7332,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 public "getExplosionPower"(): integer
@@ -7406,7 +7408,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setCharging"(boolean0: boolean): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
@@ -7571,12 +7573,12 @@ public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
 public static "checkPatrollingMonsterSpawnRules"(entityType0: $EntityType$$Type<$PatrollingMonster$$Type>, levelAccessor1: $LevelAccessor$$Type, mobSpawnType2: $MobSpawnType$$Type, blockPos3: $BlockPos$$Type, randomSource4: $RandomSource$$Type): boolean
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "findPatrolTarget"(): void
 public "foodEaten"(is: $ItemStack$$Type): void
@@ -7589,8 +7591,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -7666,7 +7668,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setDefaultMovementSpeed"(speed: double): void
@@ -7827,12 +7829,12 @@ public "canHydrateInFluidType"(fluidType0: $FluidType$$Type): boolean
 public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -7845,8 +7847,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -7919,7 +7921,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setDefaultMovementSpeed"(speed: double): void
@@ -8057,7 +8059,7 @@ import { $Tag, $Tag$$Type } from "packages/net/minecraft/nbt/$Tag"
 import { $ScriptType } from "packages/dev/latvian/mods/kubejs/script/$ScriptType"
 import { $Ingredient$$Type } from "packages/net/minecraft/world/item/crafting/$Ingredient"
 import { $InteractionResult } from "packages/net/minecraft/world/$InteractionResult"
-import { $VillagerType$$Type } from "packages/net/minecraft/world/entity/npc/$VillagerType"
+import { $VillagerType, $VillagerType$$Type } from "packages/net/minecraft/world/entity/npc/$VillagerType"
 import { $Level, $Level$$Type } from "packages/net/minecraft/world/level/$Level"
 import { $EquipmentSlot$$Type } from "packages/net/minecraft/world/entity/$EquipmentSlot"
 import { $Vec3$$Type } from "packages/net/minecraft/world/phys/$Vec3"
@@ -8084,12 +8086,12 @@ public "canHydrateInFluidType"(fluidType0: $FluidType$$Type): boolean
 public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -8103,8 +8105,8 @@ public "getClassification"(boolean0: boolean): $MobCategory
 public "getDeathSound"(): $SoundEvent
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -8140,6 +8142,7 @@ public "getStepSound"(): $SoundEvent
 public "getTeamId"(): string
 public "getTotalMovementSpeed"(): double
 public "getType"(): string
+public "getVariant"(): $VillagerType
 public "getVillagerData"(): $VillagerData
 public "getVillagerXp"(): integer
 public "hasCustomOutlineRendering"(player0: $Player$$Type): boolean
@@ -8183,7 +8186,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setDefaultMovementSpeed"(speed: double): void
@@ -8265,6 +8268,7 @@ get "stepSound"(): $SoundEvent
 get "teamId"(): string
 get "totalMovementSpeed"(): double
 get "type"(): string
+get "variant"(): $VillagerType
 get "villagerData"(): $VillagerData
 get "villagerXp"(): integer
 get "ambientCreature"(): boolean
@@ -8363,12 +8367,12 @@ public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
 public static "createCaveSpider"(): $AttributeSupplier$Builder
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -8380,8 +8384,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -8454,7 +8458,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setDefaultMovementSpeed"(speed: double): void
@@ -8617,12 +8621,12 @@ public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
 public static "checkEndermiteSpawnRules"(entityType0: $EntityType$$Type<$Endermite$$Type>, levelAccessor1: $LevelAccessor$$Type, mobSpawnType2: $MobSpawnType$$Type, blockPos3: $BlockPos$$Type, randomSource4: $RandomSource$$Type): boolean
 public static "createAttributes"(): $AttributeSupplier$Builder
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -8634,8 +8638,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -8708,7 +8712,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setDefaultMovementSpeed"(speed: double): void
@@ -8870,12 +8874,12 @@ public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
 public static "createAttributes"(): $AttributeSupplier$Builder
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -8889,8 +8893,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -8965,7 +8969,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setDefaultMovementSpeed"(speed: double): void
@@ -9103,7 +9107,7 @@ import { $FluidState$$Type } from "packages/net/minecraft/world/level/material/$
 import { $TraceableEntity } from "packages/net/minecraft/world/entity/$TraceableEntity"
 import { $EntityType$$Type } from "packages/net/minecraft/world/entity/$EntityType"
 import { $Consumer$$Type } from "packages/java/util/function/$Consumer"
-import { $Mob$$Type } from "packages/net/minecraft/world/entity/$Mob"
+import { $Mob, $Mob$$Type } from "packages/net/minecraft/world/entity/$Mob"
 import { $Player$$Type } from "packages/net/minecraft/world/entity/player/$Player"
 import { $Monster } from "packages/net/minecraft/world/entity/monster/$Monster"
 import { $MinecraftServer } from "packages/net/minecraft/server/$MinecraftServer"
@@ -9151,12 +9155,12 @@ public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
 public static "createAttributes"(): $AttributeSupplier$Builder
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -9169,8 +9173,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -9191,6 +9195,7 @@ public "getMotionZ"(): double
 public "getName"(): $Component
 public "getNbt"(): $CompoundTag
 public "getOffHandItem"(): $ItemStack
+public "getOwner"(): $Mob
 public "getParts"(): $PartEntity<any>[]
 public "getPassengers"(): $EntityArrayList
 public "getPickedResult"(hitResult0: $HitResult$$Type): $ItemStack
@@ -9245,7 +9250,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setBoundOrigin"(blockPos0: $BlockPos$$Type): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
@@ -9306,6 +9311,7 @@ get "motionZ"(): double
 get "name"(): $Component
 get "nbt"(): $CompoundTag
 get "offHandItem"(): $ItemStack
+get "owner"(): $Mob
 get "parts"(): $PartEntity<any>[]
 get "passengers"(): $EntityArrayList
 get "potionEffects"(): $EntityPotionEffectsJS
@@ -9418,12 +9424,12 @@ public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
 public static "checkGuardianSpawnRules"(entityType0: $EntityType$$Type<$Guardian$$Type>, levelAccessor1: $LevelAccessor$$Type, mobSpawnType2: $MobSpawnType$$Type, blockPos3: $BlockPos$$Type, randomSource4: $RandomSource$$Type): boolean
 public static "createAttributes"(): $AttributeSupplier$Builder
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public "getActiveAttackTarget"(): $LivingEntity
@@ -9439,8 +9445,8 @@ public "getClassification"(boolean0: boolean): $MobCategory
 public "getClientSideAttackTime"(): float
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -9517,7 +9523,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setDefaultMovementSpeed"(speed: double): void
@@ -9679,12 +9685,12 @@ public "canHydrateInFluidType"(fluidType0: $FluidType$$Type): boolean
 public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -9697,8 +9703,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -9773,7 +9779,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setDefaultMovementSpeed"(speed: double): void
@@ -9938,12 +9944,12 @@ public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
 public static "createAttributes"(): $AttributeSupplier$Builder
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -9955,8 +9961,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -10031,7 +10037,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setDefaultMovementSpeed"(speed: double): void
@@ -10207,12 +10213,12 @@ public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
 public static "createAttributes"(): $AttributeSupplier$Builder
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -10224,8 +10230,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -10298,7 +10304,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setDefaultMovementSpeed"(speed: double): void
@@ -10415,8 +10421,8 @@ export interface $CrossbowAttackMob extends $RangedAttackMob {
 "performCrossbowAttack"(livingEntity0: $LivingEntity$$Type, float1: float): void
 "performRangedAttack"(livingEntity0: $LivingEntity$$Type, float1: float): void
 "setChargingCrossbow"(boolean0: boolean): void
-"shootCrossbowProjectile"(livingEntity0: $LivingEntity$$Type, livingEntity1: $LivingEntity$$Type, projectile2: $Projectile$$Type, float3: float, float4: float): void
 "shootCrossbowProjectile"(livingEntity0: $LivingEntity$$Type, itemStack1: $ItemStack$$Type, projectile2: $Projectile$$Type, float3: float): void
+"shootCrossbowProjectile"(livingEntity0: $LivingEntity$$Type, livingEntity1: $LivingEntity$$Type, projectile2: $Projectile$$Type, float3: float, float4: float): void
 get "target"(): $LivingEntity
 set "chargingCrossbow"(value: boolean)
 }
@@ -10485,12 +10491,12 @@ public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
 public static "createAttributes"(): $AttributeSupplier$Builder
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -10502,8 +10508,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -10576,7 +10582,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setDefaultMovementSpeed"(speed: double): void
@@ -10745,12 +10751,12 @@ public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
 public static "checkStriderSpawnRules"(entityType0: $EntityType$$Type<$Strider$$Type>, levelAccessor1: $LevelAccessor$$Type, mobSpawnType2: $MobSpawnType$$Type, blockPos3: $BlockPos$$Type, randomSource4: $RandomSource$$Type): boolean
 public static "createAttributes"(): $AttributeSupplier$Builder
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "equipSaddle"(soundSource0: $SoundSource$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
@@ -10764,8 +10770,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -10842,7 +10848,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setDefaultMovementSpeed"(speed: double): void
@@ -11012,12 +11018,12 @@ public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
 public static "createAttributes"(): $AttributeSupplier$Builder
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -11032,8 +11038,8 @@ public "getClientPeekAmount"(float0: float): float
 public "getColor"(): $DyeColor
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -11070,7 +11076,6 @@ public "getStepHeight"(): float
 public "getTeamId"(): string
 public "getTotalMovementSpeed"(): double
 public "getType"(): string
-public "getVariant"(): $Optional<$DyeColor>
 public "hasCustomOutlineRendering"(player0: $Player$$Type): boolean
 public "isAmbientCreature"(): boolean
 public "isAnimal"(): boolean
@@ -11110,7 +11115,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setDefaultMovementSpeed"(speed: double): void
@@ -11180,7 +11185,6 @@ get "stepHeight"(): float
 get "teamId"(): string
 get "totalMovementSpeed"(): double
 get "type"(): string
-get "variant"(): $Optional<$DyeColor>
 get "ambientCreature"(): boolean
 get "animal"(): boolean
 get "dynamicLightEnabledH"(): boolean

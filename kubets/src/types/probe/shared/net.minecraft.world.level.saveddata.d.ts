@@ -6,8 +6,8 @@ export class $SavedData {
 constructor()
 
 public "isDirty"(): boolean
-public "save"(compoundTag0: $CompoundTag$$Type): $CompoundTag
 public "save"(file0: $File$$Type): void
+public "save"(compoundTag0: $CompoundTag$$Type): $CompoundTag
 public "setDirty"(): void
 public "setDirty"(boolean0: boolean): void
 get "dirty"(): boolean
@@ -28,11 +28,11 @@ import { $CallbackInfoReturnable$$Type } from "packages/org/spongepowered/asm/mi
 export class $MapItemSavedData$HoldingPlayer implements $IHoldingPlayerExtension {
 readonly "player": $Player
 
-public "handler$eea000$checkLocked"(mapId: integer, cir: $CallbackInfoReturnable$$Type<any>): void
-public "handler$eea000$initializeDirty"(mapItemSavedData: $MapItemSavedData$$Type, player: $Player$$Type, ci: $CallbackInfo$$Type): void
-public "handler$eea000$lockData"(x: integer, z: integer, ci: $CallbackInfo$$Type): void
-public "handler$eea000$sanityCheck"(x: integer, z: integer, ci: $CallbackInfo$$Type): void
-public "modifyReturnValue$eea000$addExtraPacketData"(packet: $Packet$$Type<any>, mapId: integer): $Packet<any>
+public "handler$ekb000$checkLocked"(mapId: integer, cir: $CallbackInfoReturnable$$Type<any>): void
+public "handler$ekb000$initializeDirty"(mapItemSavedData: $MapItemSavedData$$Type, player: $Player$$Type, ci: $CallbackInfo$$Type): void
+public "handler$ekb000$lockData"(x: integer, z: integer, ci: $CallbackInfo$$Type): void
+public "handler$ekb000$sanityCheck"(x: integer, z: integer, ci: $CallbackInfo$$Type): void
+public "modifyReturnValue$ekb000$addExtraPacketData"(packet: $Packet$$Type<any>, mapId: integer): $Packet<any>
 public "moonlight$setCustomDataDirty"(type: $CustomMapData$Type$$Type<any>, dirtySetter: $Consumer$$Type<any>): void
 public "moonlight$setCustomMarkersDirty"(): void
 get "step"(): integer
@@ -139,14 +139,14 @@ public "getDecorations"(): $Iterable<$MapDecoration>
 public "getHoldingPlayer"(player0: $Player$$Type): $MapItemSavedData$HoldingPlayer
 public "getUpdatePacket"(int0: integer, player1: $Player$$Type): $Packet<any>
 public "getVanillaDecorationSize"(): integer
-public "handler$eef000$checkCustomDeco"(world: $BlockGetter$$Type, x: integer, z: integer, ci: $CallbackInfo$$Type): void
-public "handler$eef000$initCustomData"(i: integer, j: integer, b: byte, bl: boolean, bl2: boolean, bl3: boolean, resourceKey: $ResourceKey$$Type<any>, ci: $CallbackInfo$$Type): void
-public "handler$eef000$locked"(cir: $CallbackInfoReturnable$$Type<any>): void
-public "handler$eef000$save"(tag: $CompoundTag$$Type, cir: $CallbackInfoReturnable$$Type<any>): void
-public "handler$eef000$scaled"(cir: $CallbackInfoReturnable$$Type<any>): void
-public "handler$eef000$tickCarriedBy"(player: $Player$$Type, stack: $ItemStack$$Type, ci: $CallbackInfo$$Type): void
-public "handler$fkj000$create$onCheckBanners"(blockGetter0: $BlockGetter$$Type, int1: integer, int2: integer, callbackInfo3: $CallbackInfo$$Type): void
-public "handler$fkj000$create$onSave"(compoundTag0: $CompoundTag$$Type, callbackInfoReturnable1: $CallbackInfoReturnable$$Type<any>): void
+public "handler$ekg000$checkCustomDeco"(world: $BlockGetter$$Type, x: integer, z: integer, ci: $CallbackInfo$$Type): void
+public "handler$ekg000$initCustomData"(i: integer, j: integer, b: byte, bl: boolean, bl2: boolean, bl3: boolean, resourceKey: $ResourceKey$$Type<any>, ci: $CallbackInfo$$Type): void
+public "handler$ekg000$locked"(cir: $CallbackInfoReturnable$$Type<any>): void
+public "handler$ekg000$save"(tag: $CompoundTag$$Type, cir: $CallbackInfoReturnable$$Type<any>): void
+public "handler$ekg000$scaled"(cir: $CallbackInfoReturnable$$Type<any>): void
+public "handler$ekg000$tickCarriedBy"(player: $Player$$Type, stack: $ItemStack$$Type, ci: $CallbackInfo$$Type): void
+public "handler$gcc000$create$onCheckBanners"(blockGetter0: $BlockGetter$$Type, int1: integer, int2: integer, callbackInfo3: $CallbackInfo$$Type): void
+public "handler$gcc000$create$onSave"(compoundTag0: $CompoundTag$$Type, callbackInfoReturnable1: $CallbackInfoReturnable$$Type<any>): void
 public "isExplorationMap"(): boolean
 public "isTrackedCountOverLimit"(int0: integer): boolean
 public static "load"(compoundTag0: $CompoundTag$$Type): $MapItemSavedData

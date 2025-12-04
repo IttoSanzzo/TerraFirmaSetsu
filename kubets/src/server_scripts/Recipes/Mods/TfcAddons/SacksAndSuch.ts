@@ -1,7 +1,7 @@
 // priority: 198
 
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
-import { addDamageShaped } from "../_helperFunctions";
+import { addDamageShaped } from "../../_helperFunctions";
 
 export function setSacksAndSuch(event: $RecipesEventJS) {
 	event.remove({ id: "sns:crafting/pack_frame" });

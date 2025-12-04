@@ -663,8 +663,8 @@ public static "cast"<T extends $Entity>(entityType: $EntityType$$Type<T>): $Dyna
 public static "cast"<T extends $BlockEntity>(entityType: $BlockEntityType$$Type<T>): $DynamicLightHandlerHolder<T>
 public "chloride$whitelisted"(): boolean
 public "clientTrackingRange"(): integer
-public "create"(serverLevel0: $ServerLevel$$Type, compoundTag1: $CompoundTag$$Type, consumer2: $Consumer$$Type<T>, blockPos3: $BlockPos$$Type, mobSpawnType4: $MobSpawnType$$Type, boolean5: boolean, boolean6: boolean): T
 public static "create"(compoundTag0: $CompoundTag$$Type, level1: $Level$$Type): $Optional<$Entity>
+public "create"(serverLevel0: $ServerLevel$$Type, compoundTag1: $CompoundTag$$Type, consumer2: $Consumer$$Type<T>, blockPos3: $BlockPos$$Type, mobSpawnType4: $MobSpawnType$$Type, boolean5: boolean, boolean6: boolean): T
 public "create"(level0: $Level$$Type): T
 public static "createDefaultStackConfig"<T extends $Entity>(serverLevel0: $ServerLevel$$Type, itemStack1: $ItemStack$$Type, player2: $Player$$Type): $Consumer<T>
 public "customClientSpawn"(spawnEntity0: $PlayMessages$SpawnEntity$$Type, level1: $Level$$Type): T
@@ -694,8 +694,8 @@ public "sodiumdynamiclights$getDynamicLightHandler"(): $DynamicLightHandler<any>
 public "sodiumdynamiclights$getName"(): $Component
 public "sodiumdynamiclights$getSetting"(): boolean
 public "sodiumdynamiclights$setDynamicLightHandler"(handler: $DynamicLightHandler$$Type<any>): void
-public "spawn"(serverLevel0: $ServerLevel$$Type, compoundTag1: $CompoundTag$$Type, consumer2: $Consumer$$Type<T>, blockPos3: $BlockPos$$Type, mobSpawnType4: $MobSpawnType$$Type, boolean5: boolean, boolean6: boolean): T
 public "spawn"(serverLevel0: $ServerLevel$$Type, itemStack1: $ItemStack$$Type, player2: $Player$$Type, blockPos3: $BlockPos$$Type, mobSpawnType4: $MobSpawnType$$Type, boolean5: boolean, boolean6: boolean): T
+public "spawn"(serverLevel0: $ServerLevel$$Type, compoundTag1: $CompoundTag$$Type, consumer2: $Consumer$$Type<T>, blockPos3: $BlockPos$$Type, mobSpawnType4: $MobSpawnType$$Type, boolean5: boolean, boolean6: boolean): T
 public "spawn"(serverLevel0: $ServerLevel$$Type, blockPos1: $BlockPos$$Type, mobSpawnType2: $MobSpawnType$$Type): T
 public "toShortString"(): string
 public "trackDeltas"(): boolean

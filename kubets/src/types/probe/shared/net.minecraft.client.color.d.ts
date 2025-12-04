@@ -21,9 +21,10 @@ import { $ItemColorsExtended } from "packages/me/jellysquid/mods/sodium/client/m
 import { $ItemStack$$Type } from "packages/net/minecraft/world/item/$ItemStack"
 import { $ItemLike$$Type } from "packages/net/minecraft/world/level/$ItemLike"
 import { $ItemColorsForgeAccessor } from "packages/fuzs/puzzleslib/mixin/client/accessor/$ItemColorsForgeAccessor"
+import { $ItemColorsAccess } from "packages/snownee/kiwi/mixin/forge/$ItemColorsAccess"
 import { $ItemColor, $ItemColor$$Type } from "packages/net/minecraft/client/color/item/$ItemColor"
 
-export class $ItemColors implements $AccessorItemColors, $ItemColorsForgeAccessor, $ItemColorsExtended {
+export class $ItemColors implements $ItemColorsAccess, $AccessorItemColors, $ItemColorsForgeAccessor, $ItemColorsExtended {
 constructor()
 
 public static "createDefault"(blockColors0: $BlockColors$$Type): $ItemColors
@@ -57,6 +58,7 @@ import { $Level$$Type } from "packages/net/minecraft/world/level/$Level"
 import { $Block, $Block$$Type } from "packages/net/minecraft/world/level/block/$Block"
 import { $AccessorBlockColors } from "packages/org/violetmoon/zetaimplforge/mixin/mixins/client/$AccessorBlockColors"
 import { $ReferenceSet } from "packages/it/unimi/dsi/fastutil/objects/$ReferenceSet"
+import { $BlockColorsAccess } from "packages/snownee/kiwi/mixin/forge/$BlockColorsAccess"
 import { $Set } from "packages/java/util/$Set"
 import { $Property } from "packages/net/minecraft/world/level/block/state/properties/$Property"
 import { $BlockColorsForgeAccessor } from "packages/fuzs/puzzleslib/mixin/client/accessor/$BlockColorsForgeAccessor"
@@ -65,15 +67,15 @@ import { $BlockAndTintGetter$$Type } from "packages/net/minecraft/world/level/$B
 import { $BlockColorsExtended } from "packages/me/jellysquid/mods/sodium/client/model/color/interop/$BlockColorsExtended"
 import { $Map } from "packages/java/util/$Map"
 
-export class $BlockColors implements $AccessorBlockColors, $BlockColorsForgeAccessor, $BlockColorsExtended {
+export class $BlockColors implements $BlockColorsAccess, $AccessorBlockColors, $BlockColorsForgeAccessor, $BlockColorsExtended {
 readonly "blockColors": $Map<$Holder$Reference<$Block>, $BlockColor>
 
 constructor()
 
 public static "createDefault"(): $BlockColors
 public "embeddium$getOverridenVanillaBlocks"(): $ReferenceSet<any>
-public "getColor"(blockState0: $BlockState$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type, int3: integer): integer
 public "getColor"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type): integer
+public "getColor"(blockState0: $BlockState$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type, int3: integer): integer
 public "getColoringProperties"(block0: $Block$$Type): $Set<$Property<any>>
 public static "getOverridenVanillaBlocks"(blockColors0: $BlockColors$$Type): $ReferenceSet<$Block>
 public static "getProviders"(blockColors0: $BlockColors$$Type): $Reference2ReferenceMap<$Block, $BlockColor>

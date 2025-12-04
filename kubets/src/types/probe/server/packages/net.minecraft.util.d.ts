@@ -9,17 +9,6 @@ export type $SignatureUpdater_ = $SignatureUpdater$$Type;
 }
 }
 
-declare module "packages/net/minecraft/util/$FormattedCharSequence" {
-import { $FormattedCharSink } from "packages/net/minecraft/util/$FormattedCharSink"
-
-/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
-export type $FormattedCharSequence$$Type = ($FormattedCharSequence | ((arg0: $FormattedCharSink) => boolean));
-/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
-declare global {
-export type $FormattedCharSequence_ = $FormattedCharSequence$$Type;
-}
-}
-
 declare module "packages/net/minecraft/util/$AbortableIterationConsumer" {
 import { $AbortableIterationConsumer$Continuation$$Type } from "packages/net/minecraft/util/$AbortableIterationConsumer$Continuation"
 
@@ -28,6 +17,17 @@ export type $AbortableIterationConsumer$$Type<T> = ($AbortableIterationConsumer<
 /** Global type exported for convenience, use class-specific types if there's a naming conflict. */
 declare global {
 export type $AbortableIterationConsumer_<T> = $AbortableIterationConsumer$$Type<T>;
+}
+}
+
+declare module "packages/net/minecraft/util/$FormattedCharSequence" {
+import { $FormattedCharSink } from "packages/net/minecraft/util/$FormattedCharSink"
+
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $FormattedCharSequence$$Type = ($FormattedCharSequence | ((arg0: $FormattedCharSink) => boolean));
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $FormattedCharSequence_ = $FormattedCharSequence$$Type;
 }
 }
 
@@ -174,16 +174,6 @@ export type $ProfilerFiller_ = $ProfilerFiller$$Type;
 }
 }
 
-declare module "packages/net/minecraft/util/valueproviders/$FloatProvider" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
-export type $FloatProvider$$Type = ($FloatProvider);
-/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
-declare global {
-export type $FloatProvider_ = $FloatProvider$$Type;
-}
-}
-
 declare module "packages/net/minecraft/util/$BitStorage" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
@@ -191,6 +181,16 @@ export type $BitStorage$$Type = ($BitStorage);
 /** Global type exported for convenience, use class-specific types if there's a naming conflict. */
 declare global {
 export type $BitStorage_ = $BitStorage$$Type;
+}
+}
+
+declare module "packages/net/minecraft/util/valueproviders/$FloatProvider" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $FloatProvider$$Type = ($FloatProvider);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $FloatProvider_ = $FloatProvider$$Type;
 }
 }
 

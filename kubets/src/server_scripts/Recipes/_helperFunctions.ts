@@ -64,31 +64,32 @@ export function tfcBucketRecipes(
 	);
 }
 
+type VanillaShapedKey = Record<string, KjsItemOrItemTag>;
 export function addDamageShaped(
 	recipesEvent: $RecipesEventJS,
-	output: any,
-	grid: any,
-	ingredients: any
+	output: KjsItemStack,
+	grid: [string] | [string, string] | [string, string, string],
+	ingredients: VanillaShapedKey
 ) {
 	recipesEvent.recipes.tfc
 		.damage_inputs_shaped_crafting(
 			recipesEvent.recipes.minecraft.crafting_shaped(output, grid, ingredients)
 		)
 		.id(
-			`setsu:tfc/damage/${output.replace(":", ".").replace("/", ".").replace(" ", "_")}`
+			`setsu:tfc/damage/${(output as string).replace(":", ".").replace("/", ".").replace(" ", "_")}`
 		);
 }
 
 export function addDamageShapeless(
 	recipesEvent: $RecipesEventJS,
-	output: any,
-	ingredients: any
+	output: KjsItemStack,
+	ingredients: KjsItemOrItemTagStack | KjsItemOrItemTagStack[]
 ) {
 	recipesEvent.recipes.tfc
 		.damage_inputs_shapeless_crafting(
 			recipesEvent.recipes.minecraft.crafting_shapeless(output, ingredients)
 		)
 		.id(
-			`setsu:tfc/damage/${output.replace(":", ".").replace("/", ".").replace(" ", "_")}/from/${ingredients[0].replace(":", ".").replace("/", ".").replace(" ", "_").replace("#", "_")}`
+			`setsu:tfc/damage/${(output as string).replace(":", ".").replace("/", ".").replace(" ", "_")}/from/${ingredients[0].replace(":", ".").replace("/", ".").replace(" ", "_").replace("#", "_")}`
 		);
 }

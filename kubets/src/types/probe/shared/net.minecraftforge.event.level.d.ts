@@ -23,8 +23,8 @@ import { $BlockEvent } from "packages/net/minecraftforge/event/level/$BlockEvent
 import { $BlockPos, $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
 
 export class $BlockEvent$FluidPlaceBlockEvent extends $BlockEvent {
-constructor(levelAccessor0: $LevelAccessor$$Type, blockPos1: $BlockPos$$Type, blockPos2: $BlockPos$$Type, blockState3: $BlockState$$Type)
 constructor()
+constructor(levelAccessor0: $LevelAccessor$$Type, blockPos1: $BlockPos$$Type, blockPos2: $BlockPos$$Type, blockState3: $BlockState$$Type)
 
 public "getLiquidPos"(): $BlockPos
 public "getNewState"(): $BlockState
@@ -44,8 +44,8 @@ import { $BlockEvent } from "packages/net/minecraftforge/event/level/$BlockEvent
 import { $Entity, $Entity$$Type } from "packages/net/minecraft/world/entity/$Entity"
 
 export class $BlockEvent$EntityPlaceEvent extends $BlockEvent {
-constructor(blockSnapshot0: $BlockSnapshot$$Type, blockState1: $BlockState$$Type, entity2: $Entity$$Type)
 constructor()
+constructor(blockSnapshot0: $BlockSnapshot$$Type, blockState1: $BlockState$$Type, entity2: $Entity$$Type)
 
 public "getBlockSnapshot"(): $BlockSnapshot
 public "getEntity"(): $Entity
@@ -98,8 +98,8 @@ import { $BlockState, $BlockState$$Type } from "packages/net/minecraft/world/lev
 import { $BlockPos, $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
 
 export class $BlockEvent$CreateFluidSourceEvent extends $Event {
-constructor()
 constructor(level0: $Level$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type)
+constructor()
 
 public "getLevel"(): $Level
 public "getPos"(): $BlockPos
@@ -289,8 +289,8 @@ import { $BlockPos, $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPo
 import { $WeightedRandomList$$Type } from "packages/net/minecraft/util/random/$WeightedRandomList"
 
 export class $LevelEvent$PotentialSpawns extends $LevelEvent {
-constructor(levelAccessor0: $LevelAccessor$$Type, mobCategory1: $MobCategory$$Type, blockPos2: $BlockPos$$Type, weightedRandomList3: $WeightedRandomList$$Type<$MobSpawnSettings$SpawnerData$$Type>)
 constructor()
+constructor(levelAccessor0: $LevelAccessor$$Type, mobCategory1: $MobCategory$$Type, blockPos2: $BlockPos$$Type, weightedRandomList3: $WeightedRandomList$$Type<$MobSpawnSettings$SpawnerData$$Type>)
 
 public "addSpawnerData"(spawnerData0: $MobSpawnSettings$SpawnerData$$Type): void
 public "getMobCategory"(): $MobCategory

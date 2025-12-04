@@ -16,10 +16,10 @@ constructor(int0: integer)
 public "asContainer"(): $Container
 public "clear"(): void
 public "clear"(ingredient: $Ingredient$$Type): void
-public "count"(ingredient: $Ingredient$$Type): integer
 public "count"(): integer
-public "countNonEmpty"(): integer
+public "count"(ingredient: $Ingredient$$Type): integer
 public "countNonEmpty"(ingredient: $Ingredient$$Type): integer
+public "countNonEmpty"(): integer
 public "extractItem"(i: integer, i1: integer, b: boolean): $ItemStack
 public "find"(ingredient: $Ingredient$$Type): integer
 public "find"(): integer

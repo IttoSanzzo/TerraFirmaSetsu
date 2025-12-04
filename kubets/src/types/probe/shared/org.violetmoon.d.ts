@@ -377,8 +377,8 @@ import { $MobEffect$$Type } from "packages/net/minecraft/world/effect/$MobEffect
 import { $ZGatherAdvancementModifiers, $ZGatherAdvancementModifiers$$Type } from "packages/org/violetmoon/zeta/event/load/$ZGatherAdvancementModifiers"
 
 export class $ForgeZGatherAdvancementModifiers extends $Event implements $ZGatherAdvancementModifiers, $IModBusEvent {
-constructor()
 constructor(zGatherAdvancementModifiers0: $ZGatherAdvancementModifiers$$Type)
+constructor()
 
 public "createASeedyPlaceMod"(set0: $Set$$Type<$Block$$Type>): $IAdvancementModifier
 public "createAdventuringTimeMod"(set0: $Set$$Type<$ResourceKey$$Type<$Biome$$Type>>): $IAdvancementModifier
@@ -421,9 +421,9 @@ public "containsTag"(iTag0: $ITag$$Type<T>): boolean
 public static "direct"<T>(t0: T): $Holder<T>
 public "get"(): T
 public "getTagKeys"(): $Stream<$TagKey<T>>
+public "is"(resourceKey0: $ResourceKey$$Type<T>): boolean
 public "is"(resourceLocation0: $ResourceLocation$$Type): boolean
 public "is"(predicate0: $Predicate$$Type<$ResourceKey$$Type<T>>): boolean
-public "is"(resourceKey0: $ResourceKey$$Type<T>): boolean
 public "is"(tagKey0: $TagKey$$Type<T>): boolean
 public "isBound"(): boolean
 public "kind"(): $Holder$Kind
@@ -520,8 +520,8 @@ export class $RegistryUtil {
 constructor(zeta0: $Zeta$$Type)
 
 public static "getTagValues"<T>(registryAccess0: $RegistryAccess$$Type, tagKey1: $TagKey$$Type<T>): $List<T>
-public "inherit"(block0: $Block$$Type, string1: string): string
 public "inherit"(block0: $Block$$Type, function1: $Function$$Type<string, string>): string
+public "inherit"(block0: $Block$$Type, string1: string): string
 public "inheritQuark"(iZetaBlock0: $IZetaBlock$$Type, string1: string): string
 public static "massRegistryGet"<T>(collection0: $Collection$$Type<string>, registry1: $Registry$$Type<T>): $List<T>
 }
@@ -835,8 +835,8 @@ constructor()
 public "getEntityParams"(entity0: $Entity$$Type): $Pair<$Vec3, $Vec3>
 public "getEntityRange"(livingEntity0: $LivingEntity$$Type): double
 public "rayTrace"(entity0: $Entity$$Type, level1: $Level$$Type, entity2: $Entity$$Type, block3: $ClipContext$Block$$Type, fluid4: $ClipContext$Fluid$$Type, double5: double): $HitResult
-public "rayTrace"(entity0: $Entity$$Type, level1: $Level$$Type, vec32: $Vec3$$Type, vec33: $Vec3$$Type, block4: $ClipContext$Block$$Type, fluid5: $ClipContext$Fluid$$Type, double6: double): $HitResult
 public "rayTrace"(entity0: $Entity$$Type, level1: $Level$$Type, vec32: $Vec3$$Type, vec33: $Vec3$$Type, block4: $ClipContext$Block$$Type, fluid5: $ClipContext$Fluid$$Type): $HitResult
+public "rayTrace"(entity0: $Entity$$Type, level1: $Level$$Type, vec32: $Vec3$$Type, vec33: $Vec3$$Type, block4: $ClipContext$Block$$Type, fluid5: $ClipContext$Fluid$$Type, double6: double): $HitResult
 public "rayTrace"(entity0: $Entity$$Type, level1: $Level$$Type, player2: $Player$$Type, block3: $ClipContext$Block$$Type, fluid4: $ClipContext$Fluid$$Type): $HitResult
 }
 }
@@ -1139,8 +1139,8 @@ import { $ZetaModule$$Type } from "packages/org/violetmoon/zeta/module/$ZetaModu
 
 /** @deprecated */
 export class $ForgeZGatherHints extends $Event implements $ZGatherHints {
-constructor(zGatherHints0: $ZGatherHints$$Type)
 constructor()
+constructor(zGatherHints0: $ZGatherHints$$Type)
 
 public "accept"(itemLike0: $ItemLike$$Type, component1: $Component$$Type): void
 public "gatherHintsFromModule"(zetaModule0: $ZetaModule$$Type, configFlagManager1: $ConfigFlagManager$$Type): void
@@ -1606,12 +1606,12 @@ import { $ResourceLocation$$Type } from "packages/net/minecraft/resources/$Resou
 
 export interface $ZetaCapabilityManager {
 "attachCapability"<T>(object0: any, resourceLocation1: $ResourceLocation$$Type, zetaCapability2: $ZetaCapability$$Type<T>, t3: T): void
-"getCapability"<T>(zetaCapability0: $ZetaCapability$$Type<T>, itemStack1: $ItemStack$$Type): T
 "getCapability"<T>(zetaCapability0: $ZetaCapability$$Type<T>, level1: $Level$$Type): T
 "getCapability"<T>(zetaCapability0: $ZetaCapability$$Type<T>, blockEntity1: $BlockEntity$$Type): T
+"getCapability"<T>(zetaCapability0: $ZetaCapability$$Type<T>, itemStack1: $ItemStack$$Type): T
+"hasCapability"<T>(zetaCapability0: $ZetaCapability$$Type<T>, itemStack1: $ItemStack$$Type): boolean
 "hasCapability"<T>(zetaCapability0: $ZetaCapability$$Type<T>, blockEntity1: $BlockEntity$$Type): boolean
 "hasCapability"<T>(zetaCapability0: $ZetaCapability$$Type<T>, level1: $Level$$Type): boolean
-"hasCapability"<T>(zetaCapability0: $ZetaCapability$$Type<T>, itemStack1: $ItemStack$$Type): boolean
 "register"(zetaCapability0: $ZetaCapability$$Type<any>, object1: any): $ZetaCapabilityManager
 }
 
@@ -1887,20 +1887,20 @@ public "newResourceLocation"(string0: string): $ResourceLocation
 public "performDynamicRegistration"<T>(registryInfoLookup0: $RegistryOps$RegistryInfoLookup$$Type, resourceKey1: $ResourceKey$$Type<$Registry<any>>, writableRegistry2: $WritableRegistry$$Type<T>): void
 public "register"<T>(t0: T, resourceLocation1: $ResourceLocation$$Type, resourceKey2: $ResourceKey$$Type<$Registry<T>>): void
 public "register"<T>(t0: T, string1: string, resourceKey2: $ResourceKey$$Type<$Registry<T>>): void
-public "registerBlock"(block0: $Block$$Type, string1: string): void
-public "registerBlock"(block0: $Block$$Type, resourceLocation1: $ResourceLocation$$Type, boolean2: boolean): void
 public "registerBlock"(block0: $Block$$Type, resourceLocation1: $ResourceLocation$$Type): void
+public "registerBlock"(block0: $Block$$Type, string1: string): void
 public "registerBlock"(block0: $Block$$Type, string1: string, boolean2: boolean): void
-/** @deprecated */
-public "registerDynamic"<T>(t0: T, resourceKey1: $ResourceKey$$Type<T>, resourceKey2: $ResourceKey$$Type<$Registry<T>>): $Holder$Direct<T>
+public "registerBlock"(block0: $Block$$Type, resourceLocation1: $ResourceLocation$$Type, boolean2: boolean): void
 /** @deprecated */
 public "registerDynamic"<T>(t0: T, resourceLocation1: $ResourceLocation$$Type, resourceKey2: $ResourceKey$$Type<$Registry<T>>): $Holder$Direct<T>
 public "registerDynamic"<T>(t0: T, string1: string, resourceKey2: $ResourceKey$$Type<$Registry<T>>): $Holder$Direct<T>
+/** @deprecated */
+public "registerDynamic"<T>(t0: T, resourceKey1: $ResourceKey$$Type<T>, resourceKey2: $ResourceKey$$Type<$Registry<T>>): $Holder$Direct<T>
+public "registerDynamicF"<T>(function0: $Function$$Type<$RegistryOps$RegistryInfoLookup$$Type, T>, string1: string, resourceKey2: $ResourceKey$$Type<$Registry<T>>): $LateBoundHolder<T>
 public "registerDynamicF"<T>(function0: $Function$$Type<$RegistryOps$RegistryInfoLookup$$Type, T>, resourceKey1: $ResourceKey$$Type<T>, resourceKey2: $ResourceKey$$Type<$Registry<T>>): $LateBoundHolder<T>
 public "registerDynamicF"<T>(function0: $Function$$Type<$RegistryOps$RegistryInfoLookup$$Type, T>, resourceLocation1: $ResourceLocation$$Type, resourceKey2: $ResourceKey$$Type<$Registry<T>>): $LateBoundHolder<T>
-public "registerDynamicF"<T>(function0: $Function$$Type<$RegistryOps$RegistryInfoLookup$$Type, T>, string1: string, resourceKey2: $ResourceKey$$Type<$Registry<T>>): $LateBoundHolder<T>
-public "registerItem"(item0: $Item$$Type, resourceLocation1: $ResourceLocation$$Type): void
 public "registerItem"(item0: $Item$$Type, string1: string): void
+public "registerItem"(item0: $Item$$Type, resourceLocation1: $ResourceLocation$$Type): void
 public "validateColorsProviders"(): void
 }
 }
@@ -2017,11 +2017,11 @@ export class $BrewingRegistry {
 constructor(zeta0: $Zeta$$Type)
 
 public "addNegation"(string0: string, potion1: $Potion$$Type, potion2: $Potion$$Type, potion3: $Potion$$Type, potion4: $Potion$$Type, potion5: $Potion$$Type, potion6: $Potion$$Type): void
-public "addPotionMix"(string0: string, supplier1: $Supplier$$Type<$Ingredient>, mobEffect2: $MobEffect$$Type): void
-public "addPotionMix"(string0: string, supplier1: $Supplier$$Type<$Ingredient>, mobEffect2: $MobEffect$$Type, int3: integer, int4: integer, int5: integer): void
-public "addPotionMix"(string0: string, supplier1: $Supplier$$Type<$Ingredient>, mobEffect2: $MobEffect$$Type, mobEffect3: $MobEffect$$Type): void
 public "addPotionMix"(string0: string, supplier1: $Supplier$$Type<$Ingredient>, potion2: $Potion$$Type, potion3: $Potion$$Type, potion4: $Potion$$Type): void
+public "addPotionMix"(string0: string, supplier1: $Supplier$$Type<$Ingredient>, mobEffect2: $MobEffect$$Type, int3: integer, int4: integer, int5: integer): void
+public "addPotionMix"(string0: string, supplier1: $Supplier$$Type<$Ingredient>, mobEffect2: $MobEffect$$Type): void
 public "addPotionMix"(string0: string, supplier1: $Supplier$$Type<$Ingredient>, mobEffect2: $MobEffect$$Type, mobEffect3: $MobEffect$$Type, int4: integer, int5: integer, int6: integer): void
+public "addPotionMix"(string0: string, supplier1: $Supplier$$Type<$Ingredient>, mobEffect2: $MobEffect$$Type, mobEffect3: $MobEffect$$Type): void
 public static "glowstone"(): $Ingredient
 public "isEnabled"(potion0: $Potion$$Type): boolean
 public static "redstone"(): $Ingredient
@@ -2087,8 +2087,8 @@ export interface $IZetaBlock extends $IZetaBlockExtensions, $IDisableable<$IZeta
 "isStickyBlockZeta"(blockState0: $BlockState$$Type): boolean
 "makesOpenTrapdoorAboveClimbableZeta"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, blockState3: $BlockState$$Type): boolean
 "setCondition"(booleanSupplier0: $BooleanSupplier$$Type): $IZetaBlock
-"setCreativeTab"(resourceKey0: $ResourceKey$$Type<$CreativeModeTab>): $Block
 "setCreativeTab"(resourceKey0: $ResourceKey$$Type<$CreativeModeTab>, itemLike1: $ItemLike$$Type, boolean2: boolean): $Block
+"setCreativeTab"(resourceKey0: $ResourceKey$$Type<$CreativeModeTab>): $Block
 "shouldDisplayFluidOverlayZeta"(blockState0: $BlockState$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type, fluidState3: $FluidState$$Type): boolean
 get "block"(): $Block
 get "module"(): $ZetaModule
@@ -2455,8 +2455,8 @@ import { $SectionDefinition, $SectionDefinition$$Type } from "packages/org/viole
 export class $SectionDefinition$Builder extends $Definition$Builder<$SectionDefinition$Builder, $SectionDefinition> {
 constructor()
 
-public "addSubsection"(consumer0: $Consumer$$Type<$SectionDefinition$Builder$$Type>): $SectionDefinition
 public "addSubsection"(sectionDefinition0: $SectionDefinition$$Type): $SectionDefinition$Builder
+public "addSubsection"(consumer0: $Consumer$$Type<$SectionDefinition$Builder$$Type>): $SectionDefinition
 public "addValue"<T>(consumer0: $Consumer$$Type<$ValueDefinition$Builder$$Type<T>>): $ValueDefinition<T>
 public "addValue"(valueDefinition0: $ValueDefinition$$Type<any>): $SectionDefinition$Builder
 }

@@ -100,13 +100,11 @@ export interface $Object2DoubleFunction<K> extends $Function$0<K, double>, $ToDo
 "composeReference"<T>(reference2ObjectFunction0: $Reference2ObjectFunction$$Type<T, K>): $Reference2DoubleFunction<T>
 "composeShort"(short2ObjectFunction0: $Short2ObjectFunction$$Type<K>): $Short2DoubleFunction
 "containsKey"(object0: any): boolean
-"defaultReturnValue"(double0: double): void
 "defaultReturnValue"(): double
-/** @deprecated */
-"get"(object0: any): double
+"defaultReturnValue"(double0: double): void
 "getDouble"(object0: any): double
-"getOrDefault"(object0: any, double1: double): double
 /** @deprecated */
+"getOrDefault"(object0: any, double1: double): double
 "getOrDefault"(object0: any, double1: double): double
 "put"(k0: K, double1: double): double
 /** @deprecated */
@@ -156,7 +154,6 @@ import { $Predicate$$Type } from "packages/java/util/function/$Predicate"
 import { $ObjectSpliterator } from "packages/it/unimi/dsi/fastutil/objects/$ObjectSpliterator"
 import { $ObjectCollection$$Type } from "packages/it/unimi/dsi/fastutil/objects/$ObjectCollection"
 import { $Set } from "packages/java/util/$Set"
-import { $ObjectIterator } from "packages/it/unimi/dsi/fastutil/objects/$ObjectIterator"
 import { $IntFunction$$Type } from "packages/java/util/function/$IntFunction"
 import { $Cloneable } from "packages/java/lang/$Cloneable"
 import { $Stream } from "packages/java/util/stream/$Stream"
@@ -179,10 +176,10 @@ constructor(collection0: $Collection$$Type<K>, strategy1: $Hash$Strategy$$Type<K
 constructor(collection0: $Collection$$Type<K>, float1: float, strategy2: $Hash$Strategy$$Type<K>)
 
 public "addOrGet"(k0: K): K
+public "clone"(): $ObjectOpenCustomHashSet<K>
 public "containsAll"(collection0: $Collection$$Type<any>): boolean
 public static "copyOf"<E>(collection0: $Collection$$Type<E>): $Set<E>
 public "get"(object0: any): K
-public "iterator"(): $ObjectIterator<K>
 public static "of"<K>(k0: K, k1: K): $ObjectSet<K>
 public static "of"<K>(...k0s: K[]): $ObjectSet<K>
 public static "of"<K>(k0: K, k1: K, k2: K): $ObjectSet<K>
@@ -205,8 +202,8 @@ public "stream"(): $Stream<K>
 public "toArray"<T>(t0s: T[]): T[]
 public "toArray"(): any[]
 public "toArray"<T>(intFunction0: $IntFunction$$Type<T[]>): T[]
-public "trim"(int0: integer): boolean
 public "trim"(): boolean
+public "trim"(int0: integer): boolean
 }
 }
 
@@ -318,9 +315,9 @@ export interface $ObjectList<K> extends $List<K>, $Comparable<$List<K>>, $Object
 "replaceAll"(unaryOperator0: $UnaryOperator$$Type<K>): void
 "retainAll"(collection0: $Collection$$Type<any>): boolean
 "set"(int0: integer, k1: K): K
-"setElements"(k0s: K[]): void
-"setElements"(int0: integer, k1s: K[]): void
 "setElements"(int0: integer, k1s: K[], int2: integer, int3: integer): void
+"setElements"(int0: integer, k1s: K[]): void
+"setElements"(k0s: K[]): void
 "size"(int0: integer): void
 "size"(): integer
 "sort"(comparator0: $Comparator$$Type<K>): void
@@ -530,13 +527,11 @@ export interface $Reference2ShortFunction<K> extends $Function$0<K, short>, $ToI
 "defaultReturnValue"(): short
 "defaultReturnValue"(short0: short): void
 /** @deprecated */
-"get"(object0: any): short
-/** @deprecated */
 "getOrDefault"(object0: any, short1: short): short
 "getOrDefault"(object0: any, short1: short): short
 "getShort"(object0: any): short
-/** @deprecated */
 "put"(k0: K, short1: short): short
+/** @deprecated */
 "put"(k0: K, short1: short): short
 "removeShort"(object0: any): short
 "size"(): integer
@@ -781,15 +776,13 @@ export interface $Reference2IntFunction<K> extends $Function$0<K, integer>, $ToI
 "containsKey"(object0: any): boolean
 "defaultReturnValue"(): integer
 "defaultReturnValue"(int0: integer): void
-/** @deprecated */
-"get"(object0: any): integer
 "getInt"(object0: any): integer
 /** @deprecated */
 "getOrDefault"(object0: any, integer1: integer): integer
 "getOrDefault"(object0: any, int1: integer): integer
+"put"(k0: K, int1: integer): integer
 /** @deprecated */
 "put"(k0: K, integer1: integer): integer
-"put"(k0: K, int1: integer): integer
 "removeInt"(object0: any): integer
 "size"(): integer
 }
@@ -866,14 +859,12 @@ export interface $Reference2LongFunction<K> extends $Function$0<K, long>, $ToLon
 "containsKey"(object0: any): boolean
 "defaultReturnValue"(): long
 "defaultReturnValue"(long0: long): void
-/** @deprecated */
-"get"(object0: any): long
 "getLong"(object0: any): long
 /** @deprecated */
 "getOrDefault"(object0: any, long1: long): long
 "getOrDefault"(object0: any, long1: long): long
-/** @deprecated */
 "put"(k0: K, long1: long): long
+/** @deprecated */
 "put"(k0: K, long1: long): long
 "removeLong"(object0: any): long
 "size"(): integer
@@ -951,14 +942,12 @@ export interface $Reference2ByteFunction<K> extends $Function$0<K, byte>, $ToInt
 "containsKey"(object0: any): boolean
 "defaultReturnValue"(): byte
 "defaultReturnValue"(byte0: byte): void
-/** @deprecated */
-"get"(object0: any): byte
 "getByte"(object0: any): byte
 /** @deprecated */
 "getOrDefault"(object0: any, byte1: byte): byte
 "getOrDefault"(object0: any, byte1: byte): byte
-/** @deprecated */
 "put"(k0: K, byte1: byte): byte
+/** @deprecated */
 "put"(k0: K, byte1: byte): byte
 "removeByte"(object0: any): byte
 "size"(): integer
@@ -1022,6 +1011,7 @@ import { $BiFunction$$Type } from "packages/java/util/function/$BiFunction"
 import { $Object2ByteFunction, $Object2ByteFunction$$Type } from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteFunction"
 import { $Function, $Function$$Type } from "packages/java/util/function/$Function"
 import { $Object2IntFunction, $Object2IntFunction$$Type } from "packages/it/unimi/dsi/fastutil/objects/$Object2IntFunction"
+import { $Object2ObjectMap$FastEntrySet } from "packages/it/unimi/dsi/fastutil/objects/$Object2ObjectMap$FastEntrySet"
 import { $Object2CharFunction, $Object2CharFunction$$Type } from "packages/it/unimi/dsi/fastutil/objects/$Object2CharFunction"
 import { $Object2LongFunction, $Object2LongFunction$$Type } from "packages/it/unimi/dsi/fastutil/objects/$Object2LongFunction"
 import { $Cloneable } from "packages/java/lang/$Cloneable"
@@ -1089,6 +1079,7 @@ public "getOrDefault"(object0: any, v1: V): V
 public static "identity"<T>(): $Function<T, T>
 public "keySet"(): $ObjectSet<K>
 public "merge"(k0: K, v1: V, biFunction2: $BiFunction$$Type<V, V, V>): V
+public "object2ObjectEntrySet"(): $Object2ObjectMap$FastEntrySet<K, V>
 public static "of"<K, V>(k0: K, v1: V, k2: K, v3: V, k4: K, v5: V, k6: K, v7: V, k8: K, v9: V): $Map<K, V>
 public static "of"<K, V>(k0: K, v1: V, k2: K, v3: V, k4: K, v5: V, k6: K, v7: V): $Map<K, V>
 public static "of"<K, V>(k0: K, v1: V, k2: K, v3: V, k4: K, v5: V): $Map<K, V>
@@ -1202,14 +1193,12 @@ export interface $Reference2FloatFunction<K> extends $Function$0<K, float>, $ToD
 "containsKey"(object0: any): boolean
 "defaultReturnValue"(): float
 "defaultReturnValue"(float0: float): void
-/** @deprecated */
-"get"(object0: any): float
 "getFloat"(object0: any): float
 /** @deprecated */
 "getOrDefault"(object0: any, float1: float): float
 "getOrDefault"(object0: any, float1: float): float
-/** @deprecated */
 "put"(k0: K, float1: float): float
+/** @deprecated */
 "put"(k0: K, float1: float): float
 "removeFloat"(object0: any): float
 "size"(): integer
@@ -1220,6 +1209,74 @@ function identity<T>(): $Function<T, T>
 }
 export abstract class $Reference2FloatFunction$$Static<K> implements $Reference2FloatFunction<K> {
 static "identity"<T>(): $Function<T, T>
+}
+}
+
+declare module "packages/it/unimi/dsi/fastutil/objects/$Object2ObjectMap$FastEntrySet" {
+import { $Object2ObjectMap$Entry, $Object2ObjectMap$Entry$$Type } from "packages/it/unimi/dsi/fastutil/objects/$Object2ObjectMap$Entry"
+import { $Consumer$$Type } from "packages/java/util/function/$Consumer"
+import { $ObjectSet } from "packages/it/unimi/dsi/fastutil/objects/$ObjectSet"
+import { $Set } from "packages/java/util/$Set"
+import { $Collection$$Type } from "packages/java/util/$Collection"
+import { $ObjectIterator } from "packages/it/unimi/dsi/fastutil/objects/$ObjectIterator"
+import { $Predicate$$Type } from "packages/java/util/function/$Predicate"
+import { $IntFunction$$Type } from "packages/java/util/function/$IntFunction"
+import { $Stream } from "packages/java/util/stream/$Stream"
+
+export interface $Object2ObjectMap$FastEntrySet<K, V> extends $ObjectSet<$Object2ObjectMap$Entry<K, V>> {
+"add"(entry0: $Object2ObjectMap$Entry$$Type<K, V>): boolean
+"addAll"(collection0: $Collection$$Type<$Object2ObjectMap$Entry$$Type<K, V>>): boolean
+"clear"(): void
+"contains"(object0: any): boolean
+"containsAll"(collection0: $Collection$$Type<any>): boolean
+"equals"(object0: any): boolean
+"fastForEach"(consumer0: $Consumer$$Type<$Object2ObjectMap$Entry$$Type<K, V>>): void
+"fastIterator"(): $ObjectIterator<$Object2ObjectMap$Entry<K, V>>
+"forEach"(consumer0: $Consumer$$Type<$Object2ObjectMap$Entry$$Type<K, V>>): void
+"hashCode"(): integer
+"isEmpty"(): boolean
+"parallelStream"(): $Stream<$Object2ObjectMap$Entry<K, V>>
+"remove"(object0: any): boolean
+"removeAll"(collection0: $Collection$$Type<any>): boolean
+"removeIf"(predicate0: $Predicate$$Type<$Object2ObjectMap$Entry$$Type<K, V>>): boolean
+"retainAll"(collection0: $Collection$$Type<any>): boolean
+"size"(): integer
+"stream"(): $Stream<$Object2ObjectMap$Entry<K, V>>
+"toArray"<T>(t0s: T[]): T[]
+"toArray"(): any[]
+"toArray"<T>(intFunction0: $IntFunction$$Type<T[]>): T[]
+get "empty"(): boolean
+}
+
+export namespace $Object2ObjectMap$FastEntrySet {
+function copyOf<E>(collection0: $Collection$$Type<E>): $Set<E>
+function of<K>(k0: K, k1: K): $ObjectSet<K>
+function of<K>(...k0s: K[]): $ObjectSet<K>
+function of<K>(k0: K, k1: K, k2: K): $ObjectSet<K>
+function of<K>(): $ObjectSet<K>
+function of<K>(k0: K): $ObjectSet<K>
+function of<E>(e0: E, e1: E, e2: E, e3: E, e4: E, e5: E): $Set<E>
+function of<E>(e0: E, e1: E, e2: E, e3: E, e4: E, e5: E, e6: E): $Set<E>
+function of<E>(e0: E, e1: E, e2: E, e3: E, e4: E): $Set<E>
+function of<E>(e0: E, e1: E, e2: E, e3: E): $Set<E>
+function of<E>(e0: E, e1: E, e2: E, e3: E, e4: E, e5: E, e6: E, e7: E, e8: E, e9: E): $Set<E>
+function of<E>(e0: E, e1: E, e2: E, e3: E, e4: E, e5: E, e6: E, e7: E, e8: E): $Set<E>
+function of<E>(e0: E, e1: E, e2: E, e3: E, e4: E, e5: E, e6: E, e7: E): $Set<E>
+}
+export abstract class $Object2ObjectMap$FastEntrySet$$Static<K, V> implements $Object2ObjectMap$FastEntrySet<K, V> {
+static "copyOf"<E>(collection0: $Collection$$Type<E>): $Set<E>
+static "of"<K>(k0: K, k1: K): $ObjectSet<K>
+static "of"<K>(...k0s: K[]): $ObjectSet<K>
+static "of"<K>(k0: K, k1: K, k2: K): $ObjectSet<K>
+static "of"<K>(): $ObjectSet<K>
+static "of"<K>(k0: K): $ObjectSet<K>
+static "of"<E>(e0: E, e1: E, e2: E, e3: E, e4: E, e5: E): $Set<E>
+static "of"<E>(e0: E, e1: E, e2: E, e3: E, e4: E, e5: E, e6: E): $Set<E>
+static "of"<E>(e0: E, e1: E, e2: E, e3: E, e4: E): $Set<E>
+static "of"<E>(e0: E, e1: E, e2: E, e3: E): $Set<E>
+static "of"<E>(e0: E, e1: E, e2: E, e3: E, e4: E, e5: E, e6: E, e7: E, e8: E, e9: E): $Set<E>
+static "of"<E>(e0: E, e1: E, e2: E, e3: E, e4: E, e5: E, e6: E, e7: E, e8: E): $Set<E>
+static "of"<E>(e0: E, e1: E, e2: E, e3: E, e4: E, e5: E, e6: E, e7: E): $Set<E>
 }
 }
 
@@ -1328,19 +1385,15 @@ export interface $Object2BooleanFunction<K> extends $Function$0<K, boolean>, $Pr
 "containsKey"(object0: any): boolean
 "defaultReturnValue"(): boolean
 "defaultReturnValue"(boolean0: boolean): void
-/** @deprecated */
-"get"(object0: any): boolean
 "getBoolean"(object0: any): boolean
 "getOrDefault"(object0: any, boolean1: boolean): boolean
 /** @deprecated */
 "getOrDefault"(object0: any, boolean1: boolean): boolean
 "negate"(): $Predicate<K>
 "or"(predicate0: $Predicate$$Type<K>): $Predicate<K>
-/** @deprecated */
-"put"(k0: K, boolean1: boolean): boolean
 "put"(k0: K, boolean1: boolean): boolean
 /** @deprecated */
-"remove"(object0: any): boolean
+"put"(k0: K, boolean1: boolean): boolean
 "removeBoolean"(object0: any): boolean
 "size"(): integer
 "test"(k0: K): boolean
@@ -1442,8 +1495,8 @@ public "replaceAll"(unaryOperator0: $UnaryOperator$$Type<K>): void
 public "retainAll"(collection0: $Collection$$Type<any>): boolean
 public "set"(int0: integer, k1: K): K
 public "setElements"(int0: integer, k1s: K[], int2: integer, int3: integer): void
-public "setElements"(k0s: K[]): void
 public "setElements"(int0: integer, k1s: K[]): void
+public "setElements"(k0s: K[]): void
 public "size"(int0: integer): void
 public "size"(): integer
 public "sort"(comparator0: $Comparator$$Type<K>): void
@@ -1740,14 +1793,12 @@ export interface $Object2LongFunction<K> extends $Function$0<K, long>, $ToLongFu
 "containsKey"(object0: any): boolean
 "defaultReturnValue"(): long
 "defaultReturnValue"(long0: long): void
-/** @deprecated */
-"get"(object0: any): long
 "getLong"(object0: any): long
 /** @deprecated */
 "getOrDefault"(object0: any, long1: long): long
 "getOrDefault"(object0: any, long1: long): long
-/** @deprecated */
 "put"(k0: K, long1: long): long
+/** @deprecated */
 "put"(k0: K, long1: long): long
 "removeLong"(object0: any): long
 "size"(): integer
@@ -1825,15 +1876,13 @@ export interface $Object2CharFunction<K> extends $Function$0<K, character>, $ToI
 "containsKey"(object0: any): boolean
 "defaultReturnValue"(): character
 "defaultReturnValue"(char0: character): void
-/** @deprecated */
-"get"(object0: any): character
 "getChar"(object0: any): character
 /** @deprecated */
 "getOrDefault"(object0: any, character1: character): character
 "getOrDefault"(object0: any, char1: character): character
+"put"(k0: K, char1: character): character
 /** @deprecated */
 "put"(k0: K, character1: character): character
-"put"(k0: K, char1: character): character
 "removeChar"(object0: any): character
 "size"(): integer
 }
@@ -1910,15 +1959,13 @@ export interface $Object2IntFunction<K> extends $Function$0<K, integer>, $ToIntF
 "containsKey"(object0: any): boolean
 "defaultReturnValue"(): integer
 "defaultReturnValue"(int0: integer): void
-/** @deprecated */
-"get"(object0: any): integer
 "getInt"(object0: any): integer
 /** @deprecated */
 "getOrDefault"(object0: any, integer1: integer): integer
 "getOrDefault"(object0: any, int1: integer): integer
+"put"(k0: K, int1: integer): integer
 /** @deprecated */
 "put"(k0: K, integer1: integer): integer
-"put"(k0: K, int1: integer): integer
 "removeInt"(object0: any): integer
 "size"(): integer
 }
@@ -2173,8 +2220,8 @@ export interface $Object2IntMap<K> extends $Object2IntFunction<K>, $Map<K, integ
 "merge"(k0: K, integer1: integer, biFunction2: $BiFunction$$Type<integer, integer, integer>): integer
 /** @deprecated */
 "mergeInt"(k0: K, int1: integer, biFunction2: $BiFunction$$Type<integer, integer, integer>): integer
-"mergeInt"(k0: K, int1: integer, intBinaryOperator2: $IntBinaryOperator$0$$Type): integer
 "mergeInt"(k0: K, int1: integer, intBinaryOperator2: $IntBinaryOperator$$Type): integer
+"mergeInt"(k0: K, int1: integer, intBinaryOperator2: $IntBinaryOperator$0$$Type): integer
 "object2IntEntrySet"(): $ObjectSet<$Object2IntMap$Entry<K>>
 /** @deprecated */
 "put"(k0: K, integer1: integer): integer
@@ -2357,9 +2404,9 @@ export interface $Object2FloatMap<K> extends $Object2FloatFunction<K>, $Map<K, f
 "merge"(k0: K, float1: float, biFunction2: $BiFunction$$Type<float, float, float>): float
 /** @deprecated */
 "merge"(k0: K, float1: float, biFunction2: $BiFunction$$Type<float, float, float>): float
-"mergeFloat"(k0: K, float1: float, doubleBinaryOperator2: $DoubleBinaryOperator$$Type): float
 /** @deprecated */
 "mergeFloat"(k0: K, float1: float, biFunction2: $BiFunction$$Type<float, float, float>): float
+"mergeFloat"(k0: K, float1: float, doubleBinaryOperator2: $DoubleBinaryOperator$$Type): float
 "mergeFloat"(k0: K, float1: float, floatBinaryOperator2: $FloatBinaryOperator$$Type): float
 "object2FloatEntrySet"(): $ObjectSet<$Object2FloatMap$Entry<K>>
 /** @deprecated */
@@ -2549,6 +2596,7 @@ import { $Predicate$$Type } from "packages/java/util/function/$Predicate"
 import { $Collector } from "packages/java/util/stream/$Collector"
 import { $ObjectSpliterator } from "packages/it/unimi/dsi/fastutil/objects/$ObjectSpliterator"
 import { $ObjectCollection$$Type } from "packages/it/unimi/dsi/fastutil/objects/$ObjectCollection"
+import { $ObjectListIterator } from "packages/it/unimi/dsi/fastutil/objects/$ObjectListIterator"
 import { $ObjectList, $ObjectList$$Type } from "packages/it/unimi/dsi/fastutil/objects/$ObjectList"
 import { $UnaryOperator$$Type } from "packages/java/util/function/$UnaryOperator"
 import { $ObjectIterator$$Type } from "packages/it/unimi/dsi/fastutil/objects/$ObjectIterator"
@@ -2580,6 +2628,7 @@ public "elements"(): K[]
 public "ensureCapacity"(int0: integer): void
 public "equals"(objectArrayList0: $ObjectArrayList$$Type<K>): boolean
 public "get"(int0: integer): K
+public "listIterator"(int0: integer): $ObjectListIterator<K>
 public static "of"<K>(...k0s: K[]): $ObjectArrayList<K>
 public static "of"<K>(): $ObjectArrayList<K>
 public static "of"<K>(k0: K, k1: K, k2: K): $ObjectList<K>
@@ -2598,8 +2647,8 @@ public "removeIf"(predicate0: $Predicate$$Type<K>): boolean
 public "replaceAll"(unaryOperator0: $UnaryOperator$$Type<K>): void
 public "retainAll"(collection0: $Collection$$Type<any>): boolean
 public "set"(int0: integer, k1: K): K
-public "setElements"(k0s: K[]): void
 public "setElements"(int0: integer, k1s: K[]): void
+public "setElements"(k0s: K[]): void
 public "spliterator"(): $ObjectSpliterator<K>
 public "stream"(): $Stream<K>
 public "subList"(int0: integer, int1: integer): $ObjectList<K>
@@ -2679,13 +2728,11 @@ export interface $Object2ShortFunction<K> extends $Function$0<K, short>, $ToIntF
 "defaultReturnValue"(): short
 "defaultReturnValue"(short0: short): void
 /** @deprecated */
-"get"(object0: any): short
-/** @deprecated */
 "getOrDefault"(object0: any, short1: short): short
 "getOrDefault"(object0: any, short1: short): short
 "getShort"(object0: any): short
-/** @deprecated */
 "put"(k0: K, short1: short): short
+/** @deprecated */
 "put"(k0: K, short1: short): short
 "removeShort"(object0: any): short
 "size"(): integer
@@ -2758,8 +2805,8 @@ export interface $Reference2ObjectFunction<K, V> extends $Function$0<K, V> {
 "composeReference"<T>(reference2ReferenceFunction0: $Reference2ReferenceFunction$$Type<T, K>): $Reference2ObjectFunction<T, V>
 "composeShort"(short2ReferenceFunction0: $Short2ReferenceFunction$$Type<K>): $Short2ObjectFunction<V>
 "containsKey"(object0: any): boolean
-"defaultReturnValue"(v0: V): void
 "defaultReturnValue"(): V
+"defaultReturnValue"(v0: V): void
 "get"(object0: any): V
 "getOrDefault"(object0: any, v1: V): V
 "put"(k0: K, v1: V): V
@@ -2772,6 +2819,167 @@ function identity<T>(): $Function<T, T>
 }
 export abstract class $Reference2ObjectFunction$$Static<K, V> implements $Reference2ObjectFunction<K, V> {
 static "identity"<T>(): $Function<T, T>
+}
+}
+
+declare module "packages/it/unimi/dsi/fastutil/objects/$Object2BooleanMap" {
+import { $Object2DoubleFunction } from "packages/it/unimi/dsi/fastutil/objects/$Object2DoubleFunction"
+import { $Int2ObjectFunction$$Type } from "packages/it/unimi/dsi/fastutil/ints/$Int2ObjectFunction"
+import { $ObjectSet } from "packages/it/unimi/dsi/fastutil/objects/$ObjectSet"
+import { $Boolean2IntFunction$$Type } from "packages/it/unimi/dsi/fastutil/booleans/$Boolean2IntFunction"
+import { $Reference2ObjectFunction$$Type } from "packages/it/unimi/dsi/fastutil/objects/$Reference2ObjectFunction"
+import { $BooleanCollection } from "packages/it/unimi/dsi/fastutil/booleans/$BooleanCollection"
+import { $Boolean2CharFunction$$Type } from "packages/it/unimi/dsi/fastutil/booleans/$Boolean2CharFunction"
+import { $Boolean2FloatFunction$$Type } from "packages/it/unimi/dsi/fastutil/booleans/$Boolean2FloatFunction"
+import { $Double2ObjectFunction$$Type } from "packages/it/unimi/dsi/fastutil/doubles/$Double2ObjectFunction"
+import { $Short2BooleanFunction } from "packages/it/unimi/dsi/fastutil/shorts/$Short2BooleanFunction"
+import { $BiFunction$$Type } from "packages/java/util/function/$BiFunction"
+import { $Double2BooleanFunction } from "packages/it/unimi/dsi/fastutil/doubles/$Double2BooleanFunction"
+import { $Object2ByteFunction } from "packages/it/unimi/dsi/fastutil/objects/$Object2ByteFunction"
+import { $Function, $Function$$Type } from "packages/java/util/function/$Function"
+import { $Object2IntFunction } from "packages/it/unimi/dsi/fastutil/objects/$Object2IntFunction"
+import { $Float2BooleanFunction } from "packages/it/unimi/dsi/fastutil/floats/$Float2BooleanFunction"
+import { $Int2BooleanFunction } from "packages/it/unimi/dsi/fastutil/ints/$Int2BooleanFunction"
+import { $Object2BooleanMap$Entry } from "packages/it/unimi/dsi/fastutil/objects/$Object2BooleanMap$Entry"
+import { $Boolean2DoubleFunction$$Type } from "packages/it/unimi/dsi/fastutil/booleans/$Boolean2DoubleFunction"
+import { $Object2CharFunction } from "packages/it/unimi/dsi/fastutil/objects/$Object2CharFunction"
+import { $Object2LongFunction } from "packages/it/unimi/dsi/fastutil/objects/$Object2LongFunction"
+import { $Char2BooleanFunction } from "packages/it/unimi/dsi/fastutil/chars/$Char2BooleanFunction"
+import { $Boolean2LongFunction$$Type } from "packages/it/unimi/dsi/fastutil/booleans/$Boolean2LongFunction"
+import { $Object2ObjectFunction, $Object2ObjectFunction$$Type } from "packages/it/unimi/dsi/fastutil/objects/$Object2ObjectFunction"
+import { $Boolean2ByteFunction$$Type } from "packages/it/unimi/dsi/fastutil/booleans/$Boolean2ByteFunction"
+import { $Long2ObjectFunction$$Type } from "packages/it/unimi/dsi/fastutil/longs/$Long2ObjectFunction"
+import { $Byte2BooleanFunction } from "packages/it/unimi/dsi/fastutil/bytes/$Byte2BooleanFunction"
+import { $Object2BooleanFunction, $Object2BooleanFunction$$Type } from "packages/it/unimi/dsi/fastutil/objects/$Object2BooleanFunction"
+import { $Object2ShortFunction } from "packages/it/unimi/dsi/fastutil/objects/$Object2ShortFunction"
+import { $Boolean2ObjectFunction$$Type } from "packages/it/unimi/dsi/fastutil/booleans/$Boolean2ObjectFunction"
+import { $Long2BooleanFunction } from "packages/it/unimi/dsi/fastutil/longs/$Long2BooleanFunction"
+import { $Object2ReferenceFunction } from "packages/it/unimi/dsi/fastutil/objects/$Object2ReferenceFunction"
+import { $Predicate, $Predicate$$Type } from "packages/java/util/function/$Predicate"
+import { $Short2ObjectFunction$$Type } from "packages/it/unimi/dsi/fastutil/shorts/$Short2ObjectFunction"
+import { $Boolean2ShortFunction$$Type } from "packages/it/unimi/dsi/fastutil/booleans/$Boolean2ShortFunction"
+import { $Object2FloatFunction } from "packages/it/unimi/dsi/fastutil/objects/$Object2FloatFunction"
+import { $Float2ObjectFunction$$Type } from "packages/it/unimi/dsi/fastutil/floats/$Float2ObjectFunction"
+import { $BiConsumer$$Type } from "packages/java/util/function/$BiConsumer"
+import { $Char2ObjectFunction$$Type } from "packages/it/unimi/dsi/fastutil/chars/$Char2ObjectFunction"
+import { $Boolean2ReferenceFunction$$Type } from "packages/it/unimi/dsi/fastutil/booleans/$Boolean2ReferenceFunction"
+import { $Reference2BooleanFunction } from "packages/it/unimi/dsi/fastutil/objects/$Reference2BooleanFunction"
+import { $Byte2ObjectFunction$$Type } from "packages/it/unimi/dsi/fastutil/bytes/$Byte2ObjectFunction"
+import { $Map, $Map$$Type } from "packages/java/util/$Map"
+import { $Map$Entry, $Map$Entry$$Type } from "packages/java/util/$Map$Entry"
+
+export interface $Object2BooleanMap<K> extends $Object2BooleanFunction<K>, $Map<K, boolean> {
+"and"(predicate0: $Predicate$$Type<K>): $Predicate<K>
+/** @deprecated */
+"andThen"<T>(function0: $Function$$Type<boolean, T>): $Function<K, T>
+"andThenByte"(boolean2ByteFunction0: $Boolean2ByteFunction$$Type): $Object2ByteFunction<K>
+"andThenChar"(boolean2CharFunction0: $Boolean2CharFunction$$Type): $Object2CharFunction<K>
+"andThenDouble"(boolean2DoubleFunction0: $Boolean2DoubleFunction$$Type): $Object2DoubleFunction<K>
+"andThenFloat"(boolean2FloatFunction0: $Boolean2FloatFunction$$Type): $Object2FloatFunction<K>
+"andThenInt"(boolean2IntFunction0: $Boolean2IntFunction$$Type): $Object2IntFunction<K>
+"andThenLong"(boolean2LongFunction0: $Boolean2LongFunction$$Type): $Object2LongFunction<K>
+"andThenObject"<T>(boolean2ObjectFunction0: $Boolean2ObjectFunction$$Type<T>): $Object2ObjectFunction<K, T>
+"andThenReference"<T>(boolean2ReferenceFunction0: $Boolean2ReferenceFunction$$Type<T>): $Object2ReferenceFunction<K, T>
+"andThenShort"(boolean2ShortFunction0: $Boolean2ShortFunction$$Type): $Object2ShortFunction<K>
+"apply"(k0: K): boolean
+"clear"(): void
+"compose"<V>(function0: $Function$$Type<V, K>): $Function<V, boolean>
+"composeByte"(byte2ObjectFunction0: $Byte2ObjectFunction$$Type<K>): $Byte2BooleanFunction
+"composeChar"(char2ObjectFunction0: $Char2ObjectFunction$$Type<K>): $Char2BooleanFunction
+"composeDouble"(double2ObjectFunction0: $Double2ObjectFunction$$Type<K>): $Double2BooleanFunction
+"composeFloat"(float2ObjectFunction0: $Float2ObjectFunction$$Type<K>): $Float2BooleanFunction
+"composeInt"(int2ObjectFunction0: $Int2ObjectFunction$$Type<K>): $Int2BooleanFunction
+"composeLong"(long2ObjectFunction0: $Long2ObjectFunction$$Type<K>): $Long2BooleanFunction
+"composeObject"<T>(object2ObjectFunction0: $Object2ObjectFunction$$Type<T, K>): $Object2BooleanFunction<T>
+"composeReference"<T>(reference2ObjectFunction0: $Reference2ObjectFunction$$Type<T, K>): $Reference2BooleanFunction<T>
+"composeShort"(short2ObjectFunction0: $Short2ObjectFunction$$Type<K>): $Short2BooleanFunction
+"compute"(k0: K, biFunction1: $BiFunction$$Type<K, boolean, boolean>): boolean
+"computeBoolean"(k0: K, biFunction1: $BiFunction$$Type<K, boolean, boolean>): boolean
+/** @deprecated */
+"computeBooleanIfAbsent"(k0: K, predicate1: $Predicate$$Type<K>): boolean
+/** @deprecated */
+"computeBooleanIfAbsentPartial"(k0: K, object2BooleanFunction1: $Object2BooleanFunction$$Type<K>): boolean
+"computeBooleanIfPresent"(k0: K, biFunction1: $BiFunction$$Type<K, boolean, boolean>): boolean
+"computeIfAbsent"(k0: K, object2BooleanFunction1: $Object2BooleanFunction$$Type<K>): boolean
+"computeIfAbsent"(k0: K, predicate1: $Predicate$$Type<K>): boolean
+"computeIfAbsent"(k0: K, function1: $Function$$Type<K, boolean>): boolean
+"computeIfPresent"(k0: K, biFunction1: $BiFunction$$Type<K, boolean, boolean>): boolean
+"containsKey"(object0: any): boolean
+/** @deprecated */
+"containsValue"(object0: any): boolean
+"containsValue"(boolean0: boolean): boolean
+"defaultReturnValue"(): boolean
+"defaultReturnValue"(boolean0: boolean): void
+"equals"(object0: any): boolean
+"forEach"(biConsumer0: $BiConsumer$$Type<K, boolean>): void
+"getBoolean"(object0: any): boolean
+"getOrDefault"(object0: any, boolean1: boolean): boolean
+/** @deprecated */
+"getOrDefault"(object0: any, boolean1: boolean): boolean
+"hashCode"(): integer
+"isEmpty"(): boolean
+"merge"(k0: K, boolean1: boolean, biFunction2: $BiFunction$$Type<boolean, boolean, boolean>): boolean
+"merge"(k0: K, boolean1: boolean, biFunction2: $BiFunction$$Type<boolean, boolean, boolean>): boolean
+"negate"(): $Predicate<K>
+"object2BooleanEntrySet"(): $ObjectSet<$Object2BooleanMap$Entry<K>>
+"or"(predicate0: $Predicate$$Type<K>): $Predicate<K>
+/** @deprecated */
+"put"(k0: K, boolean1: boolean): boolean
+"put"(k0: K, boolean1: boolean): boolean
+"putAll"(map0: $Map$$Type<K, boolean>): void
+"putIfAbsent"(k0: K, boolean1: boolean): boolean
+"putIfAbsent"(k0: K, boolean1: boolean): boolean
+"remove"(object0: any, boolean1: boolean): boolean
+"remove"(object0: any, object1: any): boolean
+"removeBoolean"(object0: any): boolean
+"replace"(k0: K, boolean1: boolean, boolean2: boolean): boolean
+"replace"(k0: K, boolean1: boolean): boolean
+"replace"(k0: K, boolean1: boolean): boolean
+"replace"(k0: K, boolean1: boolean, boolean2: boolean): boolean
+"replaceAll"(biFunction0: $BiFunction$$Type<K, boolean, boolean>): void
+"size"(): integer
+"test"(k0: K): boolean
+"values"(): $BooleanCollection
+get "empty"(): boolean
+}
+
+export namespace $Object2BooleanMap {
+function copyOf<K, V>(map0: $Map$$Type<K, V>): $Map<K, V>
+function entry<K, V>(k0: K, v1: V): $Map$Entry<K, V>
+function identity<T>(): $Function<T, T>
+function isEqual<T>(object0: any): $Predicate<T>
+function not<T>(predicate0: $Predicate$$Type<T>): $Predicate<T>
+function of<K, V>(k0: K, v1: V, k2: K, v3: V, k4: K, v5: V, k6: K, v7: V, k8: K, v9: V): $Map<K, V>
+function of<K, V>(k0: K, v1: V, k2: K, v3: V, k4: K, v5: V, k6: K, v7: V): $Map<K, V>
+function of<K, V>(k0: K, v1: V, k2: K, v3: V, k4: K, v5: V): $Map<K, V>
+function of<K, V>(): $Map<K, V>
+function of<K, V>(k0: K, v1: V, k2: K, v3: V): $Map<K, V>
+function of<K, V>(k0: K, v1: V): $Map<K, V>
+function of<K, V>(k0: K, v1: V, k2: K, v3: V, k4: K, v5: V, k6: K, v7: V, k8: K, v9: V, k10: K, v11: V, k12: K, v13: V, k14: K, v15: V, k16: K, v17: V, k18: K, v19: V): $Map<K, V>
+function of<K, V>(k0: K, v1: V, k2: K, v3: V, k4: K, v5: V, k6: K, v7: V, k8: K, v9: V, k10: K, v11: V, k12: K, v13: V, k14: K, v15: V, k16: K, v17: V): $Map<K, V>
+function of<K, V>(k0: K, v1: V, k2: K, v3: V, k4: K, v5: V, k6: K, v7: V, k8: K, v9: V, k10: K, v11: V, k12: K, v13: V, k14: K, v15: V): $Map<K, V>
+function of<K, V>(k0: K, v1: V, k2: K, v3: V, k4: K, v5: V, k6: K, v7: V, k8: K, v9: V, k10: K, v11: V, k12: K, v13: V): $Map<K, V>
+function of<K, V>(k0: K, v1: V, k2: K, v3: V, k4: K, v5: V, k6: K, v7: V, k8: K, v9: V, k10: K, v11: V): $Map<K, V>
+function ofEntries<K, V>(...entry0s: $Map$Entry$$Type<K, V>[]): $Map<K, V>
+}
+export abstract class $Object2BooleanMap$$Static<K> implements $Object2BooleanMap<K> {
+static "copyOf"<K, V>(map0: $Map$$Type<K, V>): $Map<K, V>
+static "entry"<K, V>(k0: K, v1: V): $Map$Entry<K, V>
+static "identity"<T>(): $Function<T, T>
+static "isEqual"<T>(object0: any): $Predicate<T>
+static "not"<T>(predicate0: $Predicate$$Type<T>): $Predicate<T>
+static "of"<K, V>(k0: K, v1: V, k2: K, v3: V, k4: K, v5: V, k6: K, v7: V, k8: K, v9: V): $Map<K, V>
+static "of"<K, V>(k0: K, v1: V, k2: K, v3: V, k4: K, v5: V, k6: K, v7: V): $Map<K, V>
+static "of"<K, V>(k0: K, v1: V, k2: K, v3: V, k4: K, v5: V): $Map<K, V>
+static "of"<K, V>(): $Map<K, V>
+static "of"<K, V>(k0: K, v1: V, k2: K, v3: V): $Map<K, V>
+static "of"<K, V>(k0: K, v1: V): $Map<K, V>
+static "of"<K, V>(k0: K, v1: V, k2: K, v3: V, k4: K, v5: V, k6: K, v7: V, k8: K, v9: V, k10: K, v11: V, k12: K, v13: V, k14: K, v15: V, k16: K, v17: V, k18: K, v19: V): $Map<K, V>
+static "of"<K, V>(k0: K, v1: V, k2: K, v3: V, k4: K, v5: V, k6: K, v7: V, k8: K, v9: V, k10: K, v11: V, k12: K, v13: V, k14: K, v15: V, k16: K, v17: V): $Map<K, V>
+static "of"<K, V>(k0: K, v1: V, k2: K, v3: V, k4: K, v5: V, k6: K, v7: V, k8: K, v9: V, k10: K, v11: V, k12: K, v13: V, k14: K, v15: V): $Map<K, V>
+static "of"<K, V>(k0: K, v1: V, k2: K, v3: V, k4: K, v5: V, k6: K, v7: V, k8: K, v9: V, k10: K, v11: V, k12: K, v13: V): $Map<K, V>
+static "of"<K, V>(k0: K, v1: V, k2: K, v3: V, k4: K, v5: V, k6: K, v7: V, k8: K, v9: V, k10: K, v11: V): $Map<K, V>
+static "ofEntries"<K, V>(...entry0s: $Map$Entry$$Type<K, V>[]): $Map<K, V>
 }
 }
 
@@ -2839,15 +3047,13 @@ export interface $Reference2CharFunction<K> extends $Function$0<K, character>, $
 "containsKey"(object0: any): boolean
 "defaultReturnValue"(): character
 "defaultReturnValue"(char0: character): void
-/** @deprecated */
-"get"(object0: any): character
 "getChar"(object0: any): character
 /** @deprecated */
 "getOrDefault"(object0: any, character1: character): character
 "getOrDefault"(object0: any, char1: character): character
+"put"(k0: K, char1: character): character
 /** @deprecated */
 "put"(k0: K, character1: character): character
-"put"(k0: K, char1: character): character
 "removeChar"(object0: any): character
 "size"(): integer
 }
@@ -2924,14 +3130,12 @@ export interface $Object2FloatFunction<K> extends $Function$0<K, float>, $ToDoub
 "containsKey"(object0: any): boolean
 "defaultReturnValue"(): float
 "defaultReturnValue"(float0: float): void
-/** @deprecated */
-"get"(object0: any): float
 "getFloat"(object0: any): float
 /** @deprecated */
 "getOrDefault"(object0: any, float1: float): float
 "getOrDefault"(object0: any, float1: float): float
-/** @deprecated */
 "put"(k0: K, float1: float): float
+/** @deprecated */
 "put"(k0: K, float1: float): float
 "removeFloat"(object0: any): float
 "size"(): integer
@@ -3009,14 +3213,12 @@ export interface $Object2ByteFunction<K> extends $Function$0<K, byte>, $ToIntFun
 "containsKey"(object0: any): boolean
 "defaultReturnValue"(): byte
 "defaultReturnValue"(byte0: byte): void
-/** @deprecated */
-"get"(object0: any): byte
 "getByte"(object0: any): byte
 /** @deprecated */
 "getOrDefault"(object0: any, byte1: byte): byte
 "getOrDefault"(object0: any, byte1: byte): byte
-/** @deprecated */
 "put"(k0: K, byte1: byte): byte
+/** @deprecated */
 "put"(k0: K, byte1: byte): byte
 "removeByte"(object0: any): byte
 "size"(): integer
@@ -3089,8 +3291,8 @@ export interface $Object2ReferenceFunction<K, V> extends $Function$0<K, V> {
 "composeReference"<T>(reference2ObjectFunction0: $Reference2ObjectFunction$$Type<T, K>): $Reference2ReferenceFunction<T, V>
 "composeShort"(short2ObjectFunction0: $Short2ObjectFunction$$Type<K>): $Short2ReferenceFunction<V>
 "containsKey"(object0: any): boolean
-"defaultReturnValue"(v0: V): void
 "defaultReturnValue"(): V
+"defaultReturnValue"(v0: V): void
 "get"(object0: any): V
 "getOrDefault"(object0: any, v1: V): V
 "put"(k0: K, v1: V): V
@@ -3168,13 +3370,11 @@ export interface $Reference2DoubleFunction<K> extends $Function$0<K, double>, $T
 "composeReference"<T>(reference2ReferenceFunction0: $Reference2ReferenceFunction$$Type<T, K>): $Reference2DoubleFunction<T>
 "composeShort"(short2ReferenceFunction0: $Short2ReferenceFunction$$Type<K>): $Short2DoubleFunction
 "containsKey"(object0: any): boolean
-"defaultReturnValue"(double0: double): void
 "defaultReturnValue"(): double
-/** @deprecated */
-"get"(object0: any): double
+"defaultReturnValue"(double0: double): void
 "getDouble"(object0: any): double
-"getOrDefault"(object0: any, double1: double): double
 /** @deprecated */
+"getOrDefault"(object0: any, double1: double): double
 "getOrDefault"(object0: any, double1: double): double
 "put"(k0: K, double1: double): double
 /** @deprecated */
@@ -3188,6 +3388,44 @@ function identity<T>(): $Function<T, T>
 }
 export abstract class $Reference2DoubleFunction$$Static<K> implements $Reference2DoubleFunction<K> {
 static "identity"<T>(): $Function<T, T>
+}
+}
+
+declare module "packages/it/unimi/dsi/fastutil/objects/$Object2BooleanMap$Entry" {
+import { $Comparator, $Comparator$$Type } from "packages/java/util/$Comparator"
+import { $Comparable, $Comparable$$Type } from "packages/java/lang/$Comparable"
+import { $Map$Entry, $Map$Entry$$Type } from "packages/java/util/$Map$Entry"
+
+export interface $Object2BooleanMap$Entry<K> extends $Map$Entry<K, boolean> {
+"equals"(object0: any): boolean
+"getBooleanValue"(): boolean
+"getKey"(): K
+/** @deprecated */
+"getValue"(): boolean
+"hashCode"(): integer
+/** @deprecated */
+"setValue"(boolean0: boolean): boolean
+"setValue"(boolean0: boolean): boolean
+get "booleanValue"(): boolean
+get "key"(): K
+get "value"(): boolean
+set "value"(value: boolean)
+set "value"(value: boolean)
+}
+
+export namespace $Object2BooleanMap$Entry {
+function comparingByKey<K, V>(comparator0: $Comparator$$Type<K>): $Comparator<$Map$Entry<K, V>>
+function comparingByKey<K extends $Comparable<K>, V>(): $Comparator<$Map$Entry<K, V>>
+function comparingByValue<K, V>(comparator0: $Comparator$$Type<V>): $Comparator<$Map$Entry<K, V>>
+function comparingByValue<K, V extends $Comparable<V>>(): $Comparator<$Map$Entry<K, V>>
+function copyOf<K, V>(entry0: $Map$Entry$$Type<K, V>): $Map$Entry<K, V>
+}
+export abstract class $Object2BooleanMap$Entry$$Static<K> implements $Object2BooleanMap$Entry<K> {
+static "comparingByKey"<K, V>(comparator0: $Comparator$$Type<K>): $Comparator<$Map$Entry<K, V>>
+static "comparingByKey"<K extends $Comparable<K>, V>(): $Comparator<$Map$Entry<K, V>>
+static "comparingByValue"<K, V>(comparator0: $Comparator$$Type<V>): $Comparator<$Map$Entry<K, V>>
+static "comparingByValue"<K, V extends $Comparable<V>>(): $Comparator<$Map$Entry<K, V>>
+static "copyOf"<K, V>(entry0: $Map$Entry$$Type<K, V>): $Map$Entry<K, V>
 }
 }
 
@@ -3235,8 +3473,8 @@ export interface $Object2ObjectFunction<K, V> extends $Function<K, V> {
 "composeReference"<T>(reference2ObjectFunction0: $Reference2ObjectFunction$$Type<T, K>): $Reference2ObjectFunction<T, V>
 "composeShort"(short2ObjectFunction0: $Short2ObjectFunction$$Type<K>): $Short2ObjectFunction<V>
 "containsKey"(object0: any): boolean
-"defaultReturnValue"(v0: V): void
 "defaultReturnValue"(): V
+"defaultReturnValue"(v0: V): void
 "get"(object0: any): V
 "getOrDefault"(object0: any, v1: V): V
 "put"(k0: K, v1: V): V
@@ -3319,19 +3557,15 @@ export interface $Reference2BooleanFunction<K> extends $Function$0<K, boolean>, 
 "containsKey"(object0: any): boolean
 "defaultReturnValue"(): boolean
 "defaultReturnValue"(boolean0: boolean): void
-/** @deprecated */
-"get"(object0: any): boolean
 "getBoolean"(object0: any): boolean
 "getOrDefault"(object0: any, boolean1: boolean): boolean
 /** @deprecated */
 "getOrDefault"(object0: any, boolean1: boolean): boolean
 "negate"(): $Predicate<K>
 "or"(predicate0: $Predicate$$Type<K>): $Predicate<K>
-/** @deprecated */
-"put"(k0: K, boolean1: boolean): boolean
 "put"(k0: K, boolean1: boolean): boolean
 /** @deprecated */
-"remove"(object0: any): boolean
+"put"(k0: K, boolean1: boolean): boolean
 "removeBoolean"(object0: any): boolean
 "size"(): integer
 "test"(k0: K): boolean
@@ -3393,8 +3627,8 @@ export interface $Reference2ReferenceFunction<K, V> extends $Function<K, V> {
 "composeReference"<T>(reference2ReferenceFunction0: $Reference2ReferenceFunction$$Type<T, K>): $Reference2ReferenceFunction<T, V>
 "composeShort"(short2ReferenceFunction0: $Short2ReferenceFunction$$Type<K>): $Short2ReferenceFunction<V>
 "containsKey"(object0: any): boolean
-"defaultReturnValue"(v0: V): void
 "defaultReturnValue"(): V
+"defaultReturnValue"(v0: V): void
 "get"(object0: any): V
 "getOrDefault"(object0: any, v1: V): V
 "put"(k0: K, v1: V): V

@@ -14,10 +14,10 @@ constructor(...iItemHandlerModifiable0s: $IItemHandlerModifiable$$Type[])
 public "asContainer"(): $Container
 public "clear"(): void
 public "clear"(ingredient: $Ingredient$$Type): void
-public "count"(ingredient: $Ingredient$$Type): integer
 public "count"(): integer
-public "countNonEmpty"(): integer
+public "count"(ingredient: $Ingredient$$Type): integer
 public "countNonEmpty"(ingredient: $Ingredient$$Type): integer
+public "countNonEmpty"(): integer
 public "extractItem"(int0: integer, int1: integer, boolean2: boolean): $ItemStack
 public "extractItem"(i: integer, i1: integer, b: boolean): $ItemStack
 public "find"(ingredient: $Ingredient$$Type): integer
@@ -66,12 +66,12 @@ export interface $IItemHandler extends $InventoryKJS {
 "asContainer"(): $Container
 "clear"(): void
 "clear"(ingredient: $Ingredient$$Type): void
-"count"(ingredient: $Ingredient$$Type): integer
 "count"(): integer
-"countNonEmpty"(): integer
+"count"(ingredient: $Ingredient$$Type): integer
 "countNonEmpty"(ingredient: $Ingredient$$Type): integer
-"extractItem"(i: integer, i1: integer, b: boolean): $ItemStack
+"countNonEmpty"(): integer
 "extractItem"(int0: integer, int1: integer, boolean2: boolean): $ItemStack
+"extractItem"(i: integer, i1: integer, b: boolean): $ItemStack
 "find"(ingredient: $Ingredient$$Type): integer
 "find"(): integer
 "getAllItems"(): $List<$ItemStack>
@@ -131,10 +131,10 @@ constructor()
 public "asContainer"(): $Container
 public "clear"(): void
 public "clear"(ingredient: $Ingredient$$Type): void
-public "count"(ingredient: $Ingredient$$Type): integer
 public "count"(): integer
-public "countNonEmpty"(): integer
+public "count"(ingredient: $Ingredient$$Type): integer
 public "countNonEmpty"(ingredient: $Ingredient$$Type): integer
+public "countNonEmpty"(): integer
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "extractItem"(int0: integer, int1: integer, boolean2: boolean): $ItemStack
 public "extractItem"(i: integer, i1: integer, b: boolean): $ItemStack
@@ -187,12 +187,12 @@ export interface $IItemHandlerModifiable extends $IItemHandler {
 "asContainer"(): $Container
 "clear"(): void
 "clear"(ingredient: $Ingredient$$Type): void
-"count"(ingredient: $Ingredient$$Type): integer
 "count"(): integer
-"countNonEmpty"(): integer
+"count"(ingredient: $Ingredient$$Type): integer
 "countNonEmpty"(ingredient: $Ingredient$$Type): integer
-"extractItem"(i: integer, i1: integer, b: boolean): $ItemStack
+"countNonEmpty"(): integer
 "extractItem"(int0: integer, int1: integer, boolean2: boolean): $ItemStack
+"extractItem"(i: integer, i1: integer, b: boolean): $ItemStack
 "find"(ingredient: $Ingredient$$Type): integer
 "find"(): integer
 "getAllItems"(): $List<$ItemStack>
@@ -255,11 +255,11 @@ public "canTakeItem"(container0: $Container$$Type, int1: integer, itemStack2: $I
 public "clear"(): void
 public "clear"(ingredient: $Ingredient$$Type): void
 public "clearContent"(): void
-public "count"(ingredient: $Ingredient$$Type): integer
 public "count"(): integer
+public "count"(ingredient: $Ingredient$$Type): integer
 public "countItem"(item0: $Item$$Type): integer
-public "countNonEmpty"(): integer
 public "countNonEmpty"(ingredient: $Ingredient$$Type): integer
+public "countNonEmpty"(): integer
 public "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
 public "find"(ingredient: $Ingredient$$Type): integer
 public "find"(): integer
@@ -292,6 +292,7 @@ public "startOpen"(player0: $Player$$Type): void
 public "stillValid"(player0: $Player$$Type): boolean
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 public "stopOpen"(player0: $Player$$Type): void
 public static "tryClear"(object0: any): void
 get "allItems"(): $List<$ItemStack>

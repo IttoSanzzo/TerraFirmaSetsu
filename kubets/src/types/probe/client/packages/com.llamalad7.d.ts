@@ -38,3 +38,23 @@ export type $LocalRef_<T> = $LocalRef$$Type<T>;
 }
 }
 
+declare module "packages/com/llamalad7/mixinextras/sugar/ref/$LocalLongRef" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $LocalLongRef$$Type = ($LocalLongRef);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $LocalLongRef_ = $LocalLongRef$$Type;
+}
+}
+
+declare module "packages/com/llamalad7/mixinextras/sugar/ref/$LocalFloatRef" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $LocalFloatRef$$Type = ($LocalFloatRef);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $LocalFloatRef_ = $LocalFloatRef$$Type;
+}
+}
+

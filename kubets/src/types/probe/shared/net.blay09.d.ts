@@ -1081,8 +1081,8 @@ import { $BalmEvent } from "packages/net/blay09/mods/balm/api/event/$BalmEvent"
 import { $GuiGraphics, $GuiGraphics$$Type } from "packages/net/minecraft/client/gui/$GuiGraphics"
 
 export class $ScreenDrawEvent extends $BalmEvent {
-constructor(screen0: $Screen$$Type, guiGraphics1: $GuiGraphics$$Type, int2: integer, int3: integer, float4: float)
 constructor()
+constructor(screen0: $Screen$$Type, guiGraphics1: $GuiGraphics$$Type, int2: integer, int3: integer, float4: float)
 
 public "getGuiGraphics"(): $GuiGraphics
 public "getMouseX"(): integer
@@ -2094,8 +2094,8 @@ import { $TeleportDestination } from "packages/net/blay09/mods/waystones/api/$Te
 import { $Entity$$Type } from "packages/net/minecraft/world/entity/$Entity"
 
 export class $WaystoneTeleportEvent$Pre extends $WaystoneTeleportEvent {
-constructor()
 constructor(iWaystoneTeleportContext0: $IWaystoneTeleportContext$$Type)
+constructor()
 
 public "addAdditionalEntity"(entity0: $Entity$$Type): void
 public "getConsumeItemResult"(): $EventResult
@@ -2387,8 +2387,8 @@ import { $BalmEvent } from "packages/net/blay09/mods/balm/api/event/$BalmEvent"
 import { $GuiGraphics, $GuiGraphics$$Type } from "packages/net/minecraft/client/gui/$GuiGraphics"
 
 export class $ContainerScreenDrawEvent extends $BalmEvent {
-constructor(screen0: $Screen$$Type, guiGraphics1: $GuiGraphics$$Type, int2: integer, int3: integer)
 constructor()
+constructor(screen0: $Screen$$Type, guiGraphics1: $GuiGraphics$$Type, int2: integer, int3: integer)
 
 public "getGuiGraphics"(): $GuiGraphics
 public "getMouseX"(): integer

@@ -65,8 +65,8 @@ import { $LivingEvent } from "packages/net/minecraftforge/event/entity/living/$L
 import { $EntityDragonBase, $EntityDragonBase$$Type } from "packages/com/github/alexthe666/iceandfire/entity/$EntityDragonBase"
 
 export class $DragonFireDamageWorldEvent extends $LivingEvent {
-constructor(entityDragonBase0: $EntityDragonBase$$Type, double1: double, double2: double, double3: double)
 constructor()
+constructor(entityDragonBase0: $EntityDragonBase$$Type, double1: double, double2: double, double3: double)
 
 public "getDragon"(): $EntityDragonBase
 public "getTargetX"(): double
@@ -236,8 +236,8 @@ public "calculateChainFlapBufferHead"(float0: float, int1: integer, float2: floa
 public "calculateChainPitchBuffer"(float0: float, int1: integer, float2: float, float3: float, livingEntity4: $LivingEntity$$Type): void
 public "calculateChainSwingBuffer"(float0: float, int1: integer, float2: float, livingEntity3: $LivingEntity$$Type): void
 public "calculateChainSwingBuffer"(float0: float, int1: integer, float2: float, float3: float, livingEntity4: $LivingEntity$$Type): void
-public "calculateChainWaveBuffer"(float0: float, int1: integer, float2: float, livingEntity3: $LivingEntity$$Type): void
 public "calculateChainWaveBuffer"(float0: float, int1: integer, float2: float, float3: float, livingEntity4: $LivingEntity$$Type): void
+public "calculateChainWaveBuffer"(float0: float, int1: integer, float2: float, livingEntity3: $LivingEntity$$Type): void
 public "resetRotations"(): void
 }
 }
@@ -247,8 +247,8 @@ import { $LivingEvent } from "packages/net/minecraftforge/event/entity/living/$L
 import { $EntityDragonBase, $EntityDragonBase$$Type } from "packages/com/github/alexthe666/iceandfire/entity/$EntityDragonBase"
 
 export class $DragonFireEvent extends $LivingEvent {
-constructor(entityDragonBase0: $EntityDragonBase$$Type, double1: double, double2: double, double3: double)
 constructor()
+constructor(entityDragonBase0: $EntityDragonBase$$Type, double1: double, double2: double, double3: double)
 
 public "getDragon"(): $EntityDragonBase
 public "getTargetX"(): double
@@ -332,8 +332,8 @@ import { $EntityModel, $EntityModel$$Type } from "packages/net/minecraft/client/
 import { $LivingEntity, $LivingEntity$$Type } from "packages/net/minecraft/world/entity/$LivingEntity"
 
 export class $EventLivingRenderer extends $Event {
-constructor(livingEntity0: $LivingEntity$$Type, entityModel1: $EntityModel$$Type<any>, poseStack2: $PoseStack$$Type, float3: float)
 constructor()
+constructor(livingEntity0: $LivingEntity$$Type, entityModel1: $EntityModel$$Type<any>, poseStack2: $PoseStack$$Type, float3: float)
 
 public "getEntity"(): $LivingEntity
 public "getModel"(): $EntityModel<any>
@@ -500,11 +500,11 @@ public "canTakeItem"(container0: $Container$$Type, int1: integer, itemStack2: $I
 public "canTakeItemThroughFace"(int0: integer, itemStack1: $ItemStack$$Type, direction2: $Direction$$Type): boolean
 public "clear"(): void
 public "clear"(ingredient: $Ingredient$$Type): void
-public "count"(ingredient: $Ingredient$$Type): integer
 public "count"(): integer
+public "count"(ingredient: $Ingredient$$Type): integer
 public "countItem"(item0: $Item$$Type): integer
-public "countNonEmpty"(): integer
 public "countNonEmpty"(ingredient: $Ingredient$$Type): integer
+public "countNonEmpty"(): integer
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
 public "find"(ingredient: $Ingredient$$Type): integer
@@ -553,6 +553,7 @@ public "smeltItem"(): void
 public "startOpen"(player0: $Player$$Type): void
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 public "stopOpen"(player0: $Player$$Type): void
 public static "tick"(level0: $Level$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, tileEntityDragonforge3: $TileEntityDragonforge$$Type): void
 public "transferPower"(int0: integer): void
@@ -614,12 +615,12 @@ constructor(int0: integer, int1: integer, int2: integer, int3: integer)
 constructor(basicEntityModel0: $BasicEntityModel$$Type<any>, int1: integer, int2: integer)
 constructor(basicEntityModel0: $BasicEntityModel$$Type<any>)
 
-public "addBox"(float0: float, float1: float, float2: float, float3: float, float4: float, float5: float, float6: float): void
-public "addBox"(float0: float, float1: float, float2: float, float3: float, float4: float, float5: float, float6: float, float7: float, float8: float): void
 public "addBox"(float0: float, float1: float, float2: float, float3: float, float4: float, float5: float, float6: float, boolean7: boolean): void
 public "addBox"(string0: string, float1: float, float2: float, float3: float, int4: integer, int5: integer, int6: integer, float7: float, int8: integer, int9: integer): $BasicModelPart
 public "addBox"(float0: float, float1: float, float2: float, float3: float, float4: float, float5: float): $BasicModelPart
 public "addBox"(float0: float, float1: float, float2: float, float3: float, float4: float, float5: float, boolean6: boolean): $BasicModelPart
+public "addBox"(float0: float, float1: float, float2: float, float3: float, float4: float, float5: float, float6: float): void
+public "addBox"(float0: float, float1: float, float2: float, float3: float, float4: float, float5: float, float6: float, float7: float, float8: float): void
 public "addChild"(basicModelPart0: $BasicModelPart$$Type): void
 public "copyModelAngles"(basicModelPart0: $BasicModelPart$$Type): void
 public "getModelAngleCopy"(): $BasicModelPart
@@ -797,11 +798,11 @@ public "canTakeItem"(container0: $Container$$Type, int1: integer, itemStack2: $I
 public "canTakeItemThroughFace"(int0: integer, itemStack1: $ItemStack$$Type, direction2: $Direction$$Type): boolean
 public "clear"(): void
 public "clear"(ingredient: $Ingredient$$Type): void
-public "count"(ingredient: $Ingredient$$Type): integer
 public "count"(): integer
+public "count"(ingredient: $Ingredient$$Type): integer
 public "countItem"(item0: $Item$$Type): integer
-public "countNonEmpty"(): integer
 public "countNonEmpty"(ingredient: $Ingredient$$Type): integer
+public "countNonEmpty"(): integer
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
 public "find"(ingredient: $Ingredient$$Type): integer
@@ -839,6 +840,7 @@ public "setChanged"(): void
 public "setStackInSlot"(slot: integer, stack: $ItemStack$$Type): void
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 public static "tick"(level0: $Level$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, tileEntityPodium3: $TileEntityPodium$$Type): void
 public static "tryClear"(object0: any): void
 get "prevTicksExisted"(): integer
@@ -1331,12 +1333,12 @@ public "canHydrateInFluidType"(fluidType0: $FluidType$$Type): boolean
 public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -1348,8 +1350,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getDragonAge"(): integer
 public "getEggType"(): $EnumDragonEgg
@@ -1428,7 +1430,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setDefaultMovementSpeed"(speed: double): void
@@ -1599,8 +1601,8 @@ public "getInput"(): $Ingredient
 public "getMod"(): string
 public "getOrCreateId"(): $ResourceLocation
 public "getRemainingItems"(tileEntityDragonforge0: $TileEntityDragonforge$$Type): $NonNullList<$ItemStack>
-public "getResultItem"(): $ItemStack
 public "getResultItem"(registryAccess0: $RegistryAccess$$Type): $ItemStack
+public "getResultItem"(): $ItemStack
 public "getSchema"(): $RecipeSchema
 public "getSerializer"(): $RecipeSerializer<any>
 public "getToastSymbol"(): $ItemStack
@@ -1864,12 +1866,12 @@ public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
 public "containerChanged"(container0: $Container$$Type): void
 public "createEgg"(entityDragonBase0: $EntityDragonBase$$Type): $EntityDragonEgg
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "decrementDragonPitch"(float0: float): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "dismount"(boolean0: boolean): void
@@ -1903,8 +1905,8 @@ public "getDeadLootTable"(): $ResourceLocation
 public "getDeathStage"(): integer
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getDistanceSquared"(vec30: $Vec3$$Type): float
 public "getDragonPitch"(): float
@@ -2053,7 +2055,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAgeInDays"(int0: integer): void
 public "setAgeInTicks"(int0: integer): void
 public "setAgingDisabled"(boolean0: boolean): void

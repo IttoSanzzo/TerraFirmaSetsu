@@ -61,17 +61,6 @@ export type $AccessorAbstractVisual_ = $AccessorAbstractVisual$$Type;
 }
 }
 
-declare module "packages/com/railwayteam/railways/mixin_interfaces/$IMonorailBezier" {
-import { $IMonorailBezier$MonorailAngles$$Type } from "packages/com/railwayteam/railways/mixin_interfaces/$IMonorailBezier$MonorailAngles"
-
-/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
-export type $IMonorailBezier$$Type = ($IMonorailBezier | (() => $IMonorailBezier$MonorailAngles$$Type[]));
-/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
-declare global {
-export type $IMonorailBezier_ = $IMonorailBezier$$Type;
-}
-}
-
 declare module "packages/com/railwayteam/railways/mixin_interfaces/$IContraptionFuel" {
 import { $MountedFluidStorageWrapper$$Type } from "packages/com/simibubi/create/api/contraption/storage/fluid/$MountedFluidStorageWrapper"
 
@@ -197,16 +186,6 @@ export type $AccessorOrientedContraptionEntity$$Type = ($AccessorOrientedContrap
 /** Global type exported for convenience, use class-specific types if there's a naming conflict. */
 declare global {
 export type $AccessorOrientedContraptionEntity_ = $AccessorOrientedContraptionEntity$$Type;
-}
-}
-
-declare module "packages/com/railwayteam/railways/mixin_interfaces/$IMonorailBezier$MonorailAngles" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
-export type $IMonorailBezier$MonorailAngles$$Type = ($IMonorailBezier$MonorailAngles);
-/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
-declare global {
-export type $IMonorailBezier$MonorailAngles_ = $IMonorailBezier$MonorailAngles$$Type;
 }
 }
 

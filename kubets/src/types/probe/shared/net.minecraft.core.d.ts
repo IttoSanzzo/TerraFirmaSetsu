@@ -16,10 +16,10 @@ export interface $HolderLookup$RegistryLookup<T> extends $HolderLookup<T>, $Hold
 "canSerializeIn"(holderOwner0: $HolderOwner$$Type<T>): boolean
 "filterElements"(predicate0: $Predicate$$Type<T>): $HolderLookup<T>
 "filterFeatures"(featureFlagSet0: $FeatureFlagSet$$Type): $HolderLookup<T>
-"get"(tagKey0: $TagKey$$Type<T>): $Optional<$HolderSet$Named<T>>
 "get"(resourceKey0: $ResourceKey$$Type<T>): $Optional<$Holder$Reference<T>>
-"getOrThrow"(resourceKey0: $ResourceKey$$Type<T>): $Holder$Reference<T>
+"get"(tagKey0: $TagKey$$Type<T>): $Optional<$HolderSet$Named<T>>
 "getOrThrow"(tagKey0: $TagKey$$Type<T>): $HolderSet$Named<T>
+"getOrThrow"(resourceKey0: $ResourceKey$$Type<T>): $Holder$Reference<T>
 "key"(): $ResourceKey<$Registry<T>>
 "listElementIds"(): $Stream<$ResourceKey<T>>
 "listElements"(): $Stream<$Holder$Reference<T>>
@@ -61,19 +61,19 @@ static readonly "ZERO": $BlockPos
 constructor(int0: integer, int1: integer, int2: integer)
 constructor(vec3i0: $Vec3i$$Type)
 
-public "above"(int0: integer): $BlockPos
-public static "asLong"(int0: integer, int1: integer, int2: integer): long
 public "asLong"(): long
+public static "asLong"(int0: integer, int1: integer, int2: integer): long
 public "atY"(int0: integer): $BlockPos
-public static "betweenClosed"(int0: integer, int1: integer, int2: integer, int3: integer, int4: integer, int5: integer): $Iterable<$BlockPos>
+public "below"(): $BlockPos
 public static "betweenClosed"(blockPos0: $BlockPos$$Type, blockPos1: $BlockPos$$Type): $Iterable<$BlockPos>
+public static "betweenClosed"(int0: integer, int1: integer, int2: integer, int3: integer, int4: integer, int5: integer): $Iterable<$BlockPos>
+public static "betweenClosedStream"(boundingBox0: $BoundingBox$$Type): $Stream<$BlockPos>
 public static "betweenClosedStream"(int0: integer, int1: integer, int2: integer, int3: integer, int4: integer, int5: integer): $Stream<$BlockPos>
 public static "betweenClosedStream"(blockPos0: $BlockPos$$Type, blockPos1: $BlockPos$$Type): $Stream<$BlockPos>
-public static "betweenClosedStream"(boundingBox0: $BoundingBox$$Type): $Stream<$BlockPos>
 public static "betweenClosedStream"(aABB0: $AABB$$Type): $Stream<$BlockPos>
 public static "breadthFirstTraversal"(blockPos0: $BlockPos$$Type, int1: integer, int2: integer, biConsumer3: $BiConsumer$$Type<$BlockPos$$Type, $Consumer$$Type<$BlockPos$$Type>>, predicate4: $Predicate$$Type<$BlockPos$$Type>): integer
-public static "containing"(double0: double, double1: double, double2: double): $BlockPos
 public static "containing"(position0: $Position$$Type): $BlockPos
+public static "containing"(double0: double, double1: double, double2: double): $BlockPos
 public "east"(int0: integer): $BlockPos
 public static "findClosestMatch"(blockPos0: $BlockPos$$Type, int1: integer, int2: integer, predicate3: $Predicate$$Type<$BlockPos$$Type>): $Optional<$BlockPos>
 public "getCenter"(): $Vec3
@@ -83,20 +83,21 @@ public static "getY"(long0: long): integer
 public static "getZ"(long0: long): integer
 public "immutable"(): $BlockPos
 public "mutable"(): $BlockPos$MutableBlockPos
-public "north"(int0: integer): $BlockPos
+public "north"(): $BlockPos
 public static "of"(long0: long): $BlockPos
-public "offset"(int0: integer, int1: integer, int2: integer): $BlockPos
+public "offset"(vec3i0: $Vec3i$$Type): $BlockPos
 public static "offset"(long0: long, int1: integer, int2: integer, int3: integer): long
 public static "offset"(long0: long, direction1: $Direction$$Type): long
+public "offset"(int0: integer, int1: integer, int2: integer): $BlockPos
 public static "randomBetweenClosed"(randomSource0: $RandomSource$$Type, int1: integer, int2: integer, int3: integer, int4: integer, int5: integer, int6: integer, int7: integer): $Iterable<$BlockPos>
 public static "randomInCube"(randomSource0: $RandomSource$$Type, int1: integer, blockPos2: $BlockPos$$Type, int3: integer): $Iterable<$BlockPos>
-public "relative"(direction0: $Direction$$Type): $BlockPos
+public "relative"(direction0: $Direction$$Type, int1: integer): $BlockPos
 public "rotate"(rotation0: $Rotation$$Type): $BlockPos
+public "south"(int0: integer): $BlockPos
 public static "spiralAround"(blockPos0: $BlockPos$$Type, int1: integer, direction2: $Direction$$Type, direction3: $Direction$$Type): $Iterable<$BlockPos$MutableBlockPos>
 /** @deprecated */
 public static "squareOutSouthEast"(blockPos0: $BlockPos$$Type): $Stream<$BlockPos>
-public "west"(int0: integer): $BlockPos
-public "west"(): $BlockPos
+public "subtract"(vec3i0: $Vec3i$$Type): $BlockPos
 public static "withinManhattan"(blockPos0: $BlockPos$$Type, int1: integer, int2: integer, int3: integer): $Iterable<$BlockPos>
 public static "withinManhattanStream"(blockPos0: $BlockPos$$Type, int1: integer, int2: integer, int3: integer): $Stream<$BlockPos>
 get "center"(): $Vec3
@@ -120,9 +121,9 @@ import { $HolderSet$ListBacked } from "packages/net/minecraft/core/$HolderSet$Li
 export class $HolderSet$Direct<T> extends $HolderSet$ListBacked<T> {
 public "addInvalidationListener"(runnable0: $Runnable$$Type): void
 public static "direct"<E, T>(function0: $Function$$Type<E, $Holder<T>>, list1: $List$$Type<E>): $HolderSet$Direct<T>
-public static "direct"<E, T>(function0: $Function$$Type<E, $Holder<T>>, ...e1s: E[]): $HolderSet$Direct<T>
-public static "direct"<T>(list0: $List$$Type<$Holder$$Type<T>>): $HolderSet$Direct<T>
 public static "direct"<T>(...holder0s: $Holder$$Type<T>[]): $HolderSet$Direct<T>
+public static "direct"<T>(list0: $List$$Type<$Holder$$Type<T>>): $HolderSet$Direct<T>
+public static "direct"<E, T>(function0: $Function$$Type<E, $Holder<T>>, ...e1s: E[]): $HolderSet$Direct<T>
 /** @deprecated */
 public static "emptyNamed"<T>(holderOwner0: $HolderOwner$$Type<T>, tagKey1: $TagKey$$Type<T>): $HolderSet$Named<T>
 public "forEach"(consumer0: $Consumer$$Type<$Holder$$Type<T>>): void
@@ -186,9 +187,9 @@ static readonly "SECTION_MASK": integer
 static readonly "SECTION_MAX_INDEX": integer
 static readonly "SECTION_SIZE": integer
 
-public static "aroundAndAtBlockPos"(int0: integer, int1: integer, int2: integer, longConsumer3: $LongConsumer$$Type): void
 public static "aroundAndAtBlockPos"(blockPos0: $BlockPos$$Type, longConsumer1: $LongConsumer$$Type): void
 public static "aroundAndAtBlockPos"(long0: long, longConsumer1: $LongConsumer$$Type): void
+public static "aroundAndAtBlockPos"(int0: integer, int1: integer, int2: integer, longConsumer3: $LongConsumer$$Type): void
 public static "aroundChunk"(chunkPos0: $ChunkPos$$Type, int1: integer, int2: integer, int3: integer): $Stream<$SectionPos>
 public static "asLong"(int0: integer, int1: integer, int2: integer): long
 public static "asLong"(blockPos0: $BlockPos$$Type): long
@@ -210,15 +211,14 @@ public "maxBlockZ"(): integer
 public "minBlockX"(): integer
 public "minBlockY"(): integer
 public "minBlockZ"(): integer
+public static "of"(chunkPos0: $ChunkPos$$Type, int1: integer): $SectionPos
 public static "of"(position0: $Position$$Type): $SectionPos
 public static "of"(long0: long): $SectionPos
-public static "of"(entityAccess0: $EntityAccess$$Type): $SectionPos
 public static "of"(int0: integer, int1: integer, int2: integer): $SectionPos
+public static "of"(entityAccess0: $EntityAccess$$Type): $SectionPos
 public static "of"(blockPos0: $BlockPos$$Type): $SectionPos
-public static "of"(chunkPos0: $ChunkPos$$Type, int1: integer): $SectionPos
 public static "offset"(long0: long, direction1: $Direction$$Type): long
 public static "offset"(long0: long, int1: integer, int2: integer, int3: integer): long
-public "offset"(int0: integer, int1: integer, int2: integer): $SectionPos
 public "origin"(): $BlockPos
 public static "posToSectionCoord"(double0: double): integer
 public "relativeToBlockPos"(short0: short): $BlockPos
@@ -232,12 +232,12 @@ public static "sectionRelativeY"(short0: short): integer
 public static "sectionRelativeZ"(short0: short): integer
 public static "sectionToBlockCoord"(int0: integer, int1: integer): integer
 public static "sectionToBlockCoord"(int0: integer): integer
-public "x"(): integer
 public static "x"(long0: long): integer
+public "x"(): integer
 public static "y"(long0: long): integer
 public "y"(): integer
-public "z"(): integer
 public static "z"(long0: long): integer
+public "z"(): integer
 }
 }
 
@@ -360,21 +360,19 @@ constructor(int0: integer, int1: integer, int2: integer)
 constructor()
 
 public "clamp"(axis0: $Direction$Axis$$Type, int1: integer, int2: integer): $BlockPos$MutableBlockPos
+public "move"(direction0: $Direction$$Type): $BlockPos$MutableBlockPos
+public "move"(direction0: $Direction$$Type, int1: integer): $BlockPos$MutableBlockPos
 public "move"(int0: integer, int1: integer, int2: integer): $BlockPos$MutableBlockPos
 public "move"(vec3i0: $Vec3i$$Type): $BlockPos$MutableBlockPos
-public "move"(direction0: $Direction$$Type, int1: integer): $BlockPos$MutableBlockPos
-public "move"(direction0: $Direction$$Type): $BlockPos$MutableBlockPos
-public "set"(long0: long): $BlockPos$MutableBlockPos
-public "set"(axisCycle0: $AxisCycle$$Type, int1: integer, int2: integer, int3: integer): $BlockPos$MutableBlockPos
 public "set"(vec3i0: $Vec3i$$Type): $BlockPos$MutableBlockPos
+public "set"(long0: long): $BlockPos$MutableBlockPos
 public "set"(double0: double, double1: double, double2: double): $BlockPos$MutableBlockPos
+public "set"(axisCycle0: $AxisCycle$$Type, int1: integer, int2: integer, int3: integer): $BlockPos$MutableBlockPos
 public "set"(int0: integer, int1: integer, int2: integer): $BlockPos$MutableBlockPos
 public "setWithOffset"(vec3i0: $Vec3i$$Type, int1: integer, int2: integer, int3: integer): $BlockPos$MutableBlockPos
 public "setWithOffset"(vec3i0: $Vec3i$$Type, vec3i1: $Vec3i$$Type): $BlockPos$MutableBlockPos
 public "setWithOffset"(vec3i0: $Vec3i$$Type, direction1: $Direction$$Type): $BlockPos$MutableBlockPos
-public "setY"(int0: integer): $BlockPos$MutableBlockPos
 public "setZ"(int0: integer): $BlockPos$MutableBlockPos
-set "y"(value: integer)
 set "z"(value: integer)
 }
 }
@@ -525,20 +523,20 @@ get "tags"(): $Stream<$Pair<$TagKey<T>, $HolderSet$Named<T>>>
 
 export namespace $DefaultedRegistry {
 function forStrings(supplier0: $Supplier$$Type<$Stream<string>>): $Keyable
-function register<T>(registry0: $Registry$$Type<T>, string1: string, t2: T): T
 function register<V, T extends V>(registry0: $Registry$$Type<V>, resourceLocation1: $ResourceLocation$$Type, t2: T): T
 function register<V, T extends V>(registry0: $Registry$$Type<V>, resourceKey1: $ResourceKey$$Type<V>, t2: T): T
-function registerForHolder<T>(registry0: $Registry$$Type<T>, resourceKey1: $ResourceKey$$Type<T>, t2: T): $Holder$Reference<T>
+function register<T>(registry0: $Registry$$Type<T>, string1: string, t2: T): T
 function registerForHolder<T>(registry0: $Registry$$Type<T>, resourceLocation1: $ResourceLocation$$Type, t2: T): $Holder$Reference<T>
+function registerForHolder<T>(registry0: $Registry$$Type<T>, resourceKey1: $ResourceKey$$Type<T>, t2: T): $Holder$Reference<T>
 function registerMapping<V, T extends V>(registry0: $Registry$$Type<V>, int1: integer, string2: string, t3: T): T
 }
 export abstract class $DefaultedRegistry$$Static<T> implements $DefaultedRegistry<T> {
 static "forStrings"(supplier0: $Supplier$$Type<$Stream<string>>): $Keyable
-static "register"<T>(registry0: $Registry$$Type<T>, string1: string, t2: T): T
 static "register"<V, T extends V>(registry0: $Registry$$Type<V>, resourceLocation1: $ResourceLocation$$Type, t2: T): T
 static "register"<V, T extends V>(registry0: $Registry$$Type<V>, resourceKey1: $ResourceKey$$Type<V>, t2: T): T
-static "registerForHolder"<T>(registry0: $Registry$$Type<T>, resourceKey1: $ResourceKey$$Type<T>, t2: T): $Holder$Reference<T>
+static "register"<T>(registry0: $Registry$$Type<T>, string1: string, t2: T): T
 static "registerForHolder"<T>(registry0: $Registry$$Type<T>, resourceLocation1: $ResourceLocation$$Type, t2: T): $Holder$Reference<T>
+static "registerForHolder"<T>(registry0: $Registry$$Type<T>, resourceKey1: $ResourceKey$$Type<T>, t2: T): $Holder$Reference<T>
 static "registerMapping"<V, T extends V>(registry0: $Registry$$Type<V>, int1: integer, string2: string, t3: T): T
 }
 }
@@ -591,9 +589,9 @@ public "addInvalidationListener"(runnable0: $Runnable$$Type): void
 public "canSerializeIn"(holderOwner0: $HolderOwner$$Type<T>): boolean
 public "contains"(holder0: $Holder$$Type<T>): boolean
 public static "direct"<E, T>(function0: $Function$$Type<E, $Holder<T>>, list1: $List$$Type<E>): $HolderSet$Direct<T>
-public static "direct"<E, T>(function0: $Function$$Type<E, $Holder<T>>, ...e1s: E[]): $HolderSet$Direct<T>
-public static "direct"<T>(list0: $List$$Type<$Holder$$Type<T>>): $HolderSet$Direct<T>
 public static "direct"<T>(...holder0s: $Holder$$Type<T>[]): $HolderSet$Direct<T>
+public static "direct"<T>(list0: $List$$Type<$Holder$$Type<T>>): $HolderSet$Direct<T>
+public static "direct"<E, T>(function0: $Function$$Type<E, $Holder<T>>, ...e1s: E[]): $HolderSet$Direct<T>
 /** @deprecated */
 public static "emptyNamed"<T>(holderOwner0: $HolderOwner$$Type<T>, tagKey1: $TagKey$$Type<T>): $HolderSet$Named<T>
 public "forEach"(consumer0: $Consumer$$Type<$Holder$$Type<T>>): void
@@ -664,8 +662,8 @@ public "compositeAccess"(): $RegistryAccess$Frozen
 public "getAccessForLoading"(t0: T): $RegistryAccess$Frozen
 public "getAccessFrom"(t0: T): $RegistryAccess$Frozen
 public "getLayer"(t0: T): $RegistryAccess$Frozen
-public "replaceFrom"(t0: T, ...frozen1s: $RegistryAccess$Frozen$$Type[]): $LayeredRegistryAccess<T>
 public "replaceFrom"(t0: T, list1: $List$$Type<$RegistryAccess$Frozen$$Type>): $LayeredRegistryAccess<T>
+public "replaceFrom"(t0: T, ...frozen1s: $RegistryAccess$Frozen$$Type[]): $LayeredRegistryAccess<T>
 }
 }
 
@@ -728,8 +726,8 @@ static readonly "NONE": $AxisCycle
 static readonly "VALUES": $AxisCycle[]
 
 public static "between"(axis0: $Direction$Axis$$Type, axis1: $Direction$Axis$$Type): $AxisCycle
-public "cycle"(axis0: $Direction$Axis$$Type): $Direction$Axis
 public "cycle"(int0: integer, int1: integer, int2: integer, axis3: $Direction$Axis$$Type): integer
+public "cycle"(axis0: $Direction$Axis$$Type): $Direction$Axis
 public "cycle"(double0: double, double1: double, double2: double, axis3: $Direction$Axis$$Type): double
 public "inverse"(): $AxisCycle
 public static "valueOf"(string0: string): $AxisCycle
@@ -776,16 +774,16 @@ export interface $HolderSet<T> extends $Iterable<$Holder<T>>, $IForgeHolderSet<T
 
 export namespace $HolderSet {
 function direct<E, T>(function0: $Function$$Type<E, $Holder<T>>, list1: $List$$Type<E>): $HolderSet$Direct<T>
-function direct<E, T>(function0: $Function$$Type<E, $Holder<T>>, ...e1s: E[]): $HolderSet$Direct<T>
-function direct<T>(list0: $List$$Type<$Holder$$Type<T>>): $HolderSet$Direct<T>
 function direct<T>(...holder0s: $Holder$$Type<T>[]): $HolderSet$Direct<T>
+function direct<T>(list0: $List$$Type<$Holder$$Type<T>>): $HolderSet$Direct<T>
+function direct<E, T>(function0: $Function$$Type<E, $Holder<T>>, ...e1s: E[]): $HolderSet$Direct<T>
 function emptyNamed<T>(holderOwner0: $HolderOwner$$Type<T>, tagKey1: $TagKey$$Type<T>): $HolderSet$Named<T>
 }
 export abstract class $HolderSet$$Static<T> implements $HolderSet<T> {
 static "direct"<E, T>(function0: $Function$$Type<E, $Holder<T>>, list1: $List$$Type<E>): $HolderSet$Direct<T>
-static "direct"<E, T>(function0: $Function$$Type<E, $Holder<T>>, ...e1s: E[]): $HolderSet$Direct<T>
-static "direct"<T>(list0: $List$$Type<$Holder$$Type<T>>): $HolderSet$Direct<T>
 static "direct"<T>(...holder0s: $Holder$$Type<T>[]): $HolderSet$Direct<T>
+static "direct"<T>(list0: $List$$Type<$Holder$$Type<T>>): $HolderSet$Direct<T>
+static "direct"<E, T>(function0: $Function$$Type<E, $Holder<T>>, ...e1s: E[]): $HolderSet$Direct<T>
 /** @deprecated */
 static "emptyNamed"<T>(holderOwner0: $HolderOwner$$Type<T>, tagKey1: $TagKey$$Type<T>): $HolderSet$Named<T>
 }
@@ -807,8 +805,8 @@ constructor(vector3f0: $Vector3f$$Type, float1: float)
 public "getColor"(): $Vector3f
 public "getScale"(): float
 public "getType"(): $ParticleType<any>
-public static "readVector3f"(stringReader0: $StringReader$$Type): $Vector3f
 public static "readVector3f"(friendlyByteBuf0: $FriendlyByteBuf$$Type): $Vector3f
+public static "readVector3f"(stringReader0: $StringReader$$Type): $Vector3f
 public "writeToNetwork"(friendlyByteBuf0: $FriendlyByteBuf$$Type): void
 public "writeToString"(): string
 get "color"(): $Vector3f
@@ -917,8 +915,8 @@ public static "getFacingAxis"(entity0: $Entity$$Type, axis1: $Direction$Axis$$Ty
 public "getHorizontalIndex"(): integer
 public "getIndex"(): integer
 public "getName"(): string
-public static "getNearest"(float0: float, float1: float, float2: float): $Direction
 public static "getNearest"(double0: double, double1: double, double2: double): $Direction
+public static "getNearest"(float0: float, float1: float, float2: float): $Direction
 public "getNormal"(): $Vec3i
 public "getOpposite"(): $Direction
 public "getPitch"(): float
@@ -1093,20 +1091,20 @@ get "empty"(): boolean
 
 export namespace $WritableRegistry {
 function forStrings(supplier0: $Supplier$$Type<$Stream<string>>): $Keyable
-function register<T>(registry0: $Registry$$Type<T>, string1: string, t2: T): T
 function register<V, T extends V>(registry0: $Registry$$Type<V>, resourceLocation1: $ResourceLocation$$Type, t2: T): T
 function register<V, T extends V>(registry0: $Registry$$Type<V>, resourceKey1: $ResourceKey$$Type<V>, t2: T): T
-function registerForHolder<T>(registry0: $Registry$$Type<T>, resourceKey1: $ResourceKey$$Type<T>, t2: T): $Holder$Reference<T>
+function register<T>(registry0: $Registry$$Type<T>, string1: string, t2: T): T
 function registerForHolder<T>(registry0: $Registry$$Type<T>, resourceLocation1: $ResourceLocation$$Type, t2: T): $Holder$Reference<T>
+function registerForHolder<T>(registry0: $Registry$$Type<T>, resourceKey1: $ResourceKey$$Type<T>, t2: T): $Holder$Reference<T>
 function registerMapping<V, T extends V>(registry0: $Registry$$Type<V>, int1: integer, string2: string, t3: T): T
 }
 export abstract class $WritableRegistry$$Static<T> implements $WritableRegistry<T> {
 static "forStrings"(supplier0: $Supplier$$Type<$Stream<string>>): $Keyable
-static "register"<T>(registry0: $Registry$$Type<T>, string1: string, t2: T): T
 static "register"<V, T extends V>(registry0: $Registry$$Type<V>, resourceLocation1: $ResourceLocation$$Type, t2: T): T
 static "register"<V, T extends V>(registry0: $Registry$$Type<V>, resourceKey1: $ResourceKey$$Type<V>, t2: T): T
-static "registerForHolder"<T>(registry0: $Registry$$Type<T>, resourceKey1: $ResourceKey$$Type<T>, t2: T): $Holder$Reference<T>
+static "register"<T>(registry0: $Registry$$Type<T>, string1: string, t2: T): T
 static "registerForHolder"<T>(registry0: $Registry$$Type<T>, resourceLocation1: $ResourceLocation$$Type, t2: T): $Holder$Reference<T>
+static "registerForHolder"<T>(registry0: $Registry$$Type<T>, resourceKey1: $ResourceKey$$Type<T>, t2: T): $Holder$Reference<T>
 static "registerMapping"<V, T extends V>(registry0: $Registry$$Type<V>, int1: integer, string2: string, t3: T): T
 }
 }
@@ -1227,9 +1225,9 @@ public static "direct"<T>(t0: T): $Holder<T>
 public "get"(): T
 public "getTagKeys"(): $Stream<$TagKey<T>>
 public "getType"(): $Holder$Reference$Type
+public "is"(resourceKey0: $ResourceKey$$Type<T>): boolean
 public "is"(resourceLocation0: $ResourceLocation$$Type): boolean
 public "is"(predicate0: $Predicate$$Type<$ResourceKey$$Type<T>>): boolean
-public "is"(resourceKey0: $ResourceKey$$Type<T>): boolean
 public "is"(tagKey0: $TagKey$$Type<T>): boolean
 public "isBound"(): boolean
 public "key"(): $ResourceKey<T>
@@ -1252,10 +1250,10 @@ import { $ResourceKey$$Type } from "packages/net/minecraft/resources/$ResourceKe
 import { $TagKey$$Type } from "packages/net/minecraft/tags/$TagKey"
 
 export interface $HolderGetter<T> {
-"get"(tagKey0: $TagKey$$Type<T>): $Optional<$HolderSet$Named<T>>
 "get"(resourceKey0: $ResourceKey$$Type<T>): $Optional<$Holder$Reference<T>>
-"getOrThrow"(resourceKey0: $ResourceKey$$Type<T>): $Holder$Reference<T>
+"get"(tagKey0: $TagKey$$Type<T>): $Optional<$HolderSet$Named<T>>
 "getOrThrow"(tagKey0: $TagKey$$Type<T>): $HolderSet$Named<T>
+"getOrThrow"(resourceKey0: $ResourceKey$$Type<T>): $Holder$Reference<T>
 }
 
 export namespace $HolderGetter {
@@ -1288,9 +1286,9 @@ public "containsTag"(iTag0: $ITag$$Type<T>): boolean
 public static "direct"<T>(t0: T): $Holder<T>
 public "get"(): T
 public "getTagKeys"(): $Stream<$TagKey<T>>
+public "is"(resourceKey0: $ResourceKey$$Type<T>): boolean
 public "is"(resourceLocation0: $ResourceLocation$$Type): boolean
 public "is"(predicate0: $Predicate$$Type<$ResourceKey$$Type<T>>): boolean
-public "is"(resourceKey0: $ResourceKey$$Type<T>): boolean
 public "is"(tagKey0: $TagKey$$Type<T>): boolean
 public "isBound"(): boolean
 public "kind"(): $Holder$Kind
@@ -1319,9 +1317,9 @@ import { $TagKey, $TagKey$$Type } from "packages/net/minecraft/tags/$TagKey"
 export class $HolderSet$Named<T> extends $HolderSet$ListBacked<T> {
 public "bind"(list0: $List$$Type<$Holder$$Type<T>>): void
 public static "direct"<E, T>(function0: $Function$$Type<E, $Holder<T>>, list1: $List$$Type<E>): $HolderSet$Direct<T>
-public static "direct"<E, T>(function0: $Function$$Type<E, $Holder<T>>, ...e1s: E[]): $HolderSet$Direct<T>
-public static "direct"<T>(list0: $List$$Type<$Holder$$Type<T>>): $HolderSet$Direct<T>
 public static "direct"<T>(...holder0s: $Holder$$Type<T>[]): $HolderSet$Direct<T>
+public static "direct"<T>(list0: $List$$Type<$Holder$$Type<T>>): $HolderSet$Direct<T>
+public static "direct"<E, T>(function0: $Function$$Type<E, $Holder<T>>, ...e1s: E[]): $HolderSet$Direct<T>
 /** @deprecated */
 public static "emptyNamed"<T>(holderOwner0: $HolderOwner$$Type<T>, tagKey1: $TagKey$$Type<T>): $HolderSet$Named<T>
 public "forEach"(consumer0: $Consumer$$Type<$Holder$$Type<T>>): void
@@ -1522,9 +1520,9 @@ export interface $Holder<T> extends $Supplier<T>, $IReverseTag<T> {
 "containsTag"(iTag0: $ITag$$Type<T>): boolean
 "get"(): T
 "getTagKeys"(): $Stream<$TagKey<T>>
+"is"(resourceKey0: $ResourceKey$$Type<T>): boolean
 "is"(resourceLocation0: $ResourceLocation$$Type): boolean
 "is"(predicate0: $Predicate$$Type<$ResourceKey$$Type<T>>): boolean
-"is"(resourceKey0: $ResourceKey$$Type<T>): boolean
 "is"(tagKey0: $TagKey$$Type<T>): boolean
 "isBound"(): boolean
 "kind"(): $Holder$Kind
@@ -1559,8 +1557,8 @@ constructor(int0: integer, int1: integer, int2: integer)
 
 public "above"(int0: integer): $Vec3i
 public "above"(): $Vec3i
-public "below"(int0: integer): $Vec3i
 public "below"(): $Vec3i
+public "below"(int0: integer): $Vec3i
 public "closerThan"(vec3i0: $Vec3i$$Type, double1: double): boolean
 public "closerToCenterThan"(position0: $Position$$Type, double1: double): boolean
 public "compareTo"(vec3i0: $Vec3i$$Type): integer
@@ -1579,8 +1577,8 @@ public "getZ"(): integer
 public "multiply"(int0: integer): $Vec3i
 public "north"(int0: integer): $Vec3i
 public "north"(): $Vec3i
-public "offset"(int0: integer, int1: integer, int2: integer): $Vec3i
 public "offset"(vec3i0: $Vec3i$$Type): $Vec3i
+public "offset"(int0: integer, int1: integer, int2: integer): $Vec3i
 public static "offsetCodec"(int0: integer): $Codec<$Vec3i>
 public "relative"(direction0: $Direction$$Type, int1: integer): $Vec3i
 public "relative"(axis0: $Direction$Axis$$Type, int1: integer): $Vec3i
@@ -1642,10 +1640,10 @@ import { $HolderGetter } from "packages/net/minecraft/core/$HolderGetter"
 
 export interface $HolderLookup<T> extends $HolderGetter<T> {
 "filterElements"(predicate0: $Predicate$$Type<T>): $HolderLookup<T>
-"get"(tagKey0: $TagKey$$Type<T>): $Optional<$HolderSet$Named<T>>
 "get"(resourceKey0: $ResourceKey$$Type<T>): $Optional<$Holder$Reference<T>>
-"getOrThrow"(resourceKey0: $ResourceKey$$Type<T>): $Holder$Reference<T>
+"get"(tagKey0: $TagKey$$Type<T>): $Optional<$HolderSet$Named<T>>
 "getOrThrow"(tagKey0: $TagKey$$Type<T>): $HolderSet$Named<T>
+"getOrThrow"(resourceKey0: $ResourceKey$$Type<T>): $Holder$Reference<T>
 "listElementIds"(): $Stream<$ResourceKey<T>>
 "listElements"(): $Stream<$Holder$Reference<T>>
 "listTagIds"(): $Stream<$TagKey<T>>

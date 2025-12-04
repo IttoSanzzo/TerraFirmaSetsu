@@ -11,9 +11,7 @@ import { $Recipe, $Recipe$$Type } from "packages/net/minecraft/world/item/crafti
 export class $SimpleCraftingRecipeSerializer<T extends $CraftingRecipe> implements $RecipeSerializer<T> {
 constructor(factory0: $SimpleCraftingRecipeSerializer$Factory$$Type<T>)
 
-public "fromJson"(resourceLocation0: $ResourceLocation$$Type, jsonObject1: $JsonObject$$Type): T
 public "fromJson"(resourceLocation0: $ResourceLocation$$Type, jsonObject1: $JsonObject$$Type, iContext2: $ICondition$IContext$$Type): T
-public "fromNetwork"(resourceLocation0: $ResourceLocation$$Type, friendlyByteBuf1: $FriendlyByteBuf$$Type): T
 public static "register"<S extends $RecipeSerializer<T>, T extends $Recipe<any>>(string0: string, s1: S): S
 public "toNetwork"(friendlyByteBuf0: $FriendlyByteBuf$$Type, t1: T): void
 }
@@ -23,17 +21,17 @@ declare module "packages/net/minecraft/world/item/crafting/$RecipeManager" {
 import { $JsonObject$$Type } from "packages/com/google/gson/$JsonObject"
 import { $RecipeManagerAccessor } from "packages/net/dries007/tfc/mixin/accessor/$RecipeManagerAccessor"
 import { $NonNullList } from "packages/net/minecraft/core/$NonNullList"
+import { $RecipeManagerAccess } from "packages/snownee/lychee/mixin/$RecipeManagerAccess"
+import { $RecipeManagerAccess as $RecipeManagerAccess$0 } from "packages/snownee/kiwi/mixin/$RecipeManagerAccess"
 import { $ItemStack } from "packages/net/minecraft/world/item/$ItemStack"
 import { $ResourceLocation, $ResourceLocation$$Type } from "packages/net/minecraft/resources/$ResourceLocation"
 import { $Iterable$$Type } from "packages/java/lang/$Iterable"
 import { $Recipe, $Recipe$$Type } from "packages/net/minecraft/world/item/crafting/$Recipe"
-import { $ProfilerFiller$$Type } from "packages/net/minecraft/util/profiling/$ProfilerFiller"
 import { $RecipeType, $RecipeType$$Type } from "packages/net/minecraft/world/item/crafting/$RecipeType"
 import { $List } from "packages/java/util/$List"
 import { $Stream } from "packages/java/util/stream/$Stream"
 import { $Container, $Container$$Type } from "packages/net/minecraft/world/$Container"
 import { $RecipeManagerAccessor as $RecipeManagerAccessor$0 } from "packages/dev/latvian/mods/kubejs/core/mixin/forge/$RecipeManagerAccessor"
-import { $ResourceManager$$Type } from "packages/net/minecraft/server/packs/resources/$ResourceManager"
 import { $RecipeManagerAccessor as $RecipeManagerAccessor$1 } from "packages/com/possible_triangle/sliceanddice/mixins/$RecipeManagerAccessor"
 import { $Collection } from "packages/java/util/$Collection"
 import { $ICondition$IContext$$Type } from "packages/net/minecraftforge/common/crafting/conditions/$ICondition$IContext"
@@ -41,13 +39,12 @@ import { $Level$$Type } from "packages/net/minecraft/world/level/$Level"
 import { $RecipeManagerAccessor as $RecipeManagerAccessor$2 } from "packages/vazkii/botania/mixin/$RecipeManagerAccessor"
 import { $RecipeManagerAccessor as $RecipeManagerAccessor$3 } from "packages/vectorwing/farmersdelight/common/mixin/accessor/$RecipeManagerAccessor"
 import { $SimpleJsonResourceReloadListener } from "packages/net/minecraft/server/packs/resources/$SimpleJsonResourceReloadListener"
-import { $CallbackInfo$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfo"
 import { $Optional } from "packages/java/util/$Optional"
 import { $Pair } from "packages/com/mojang/datafixers/util/$Pair"
 import { $Map, $Map$$Type } from "packages/java/util/$Map"
 import { $RecipeManager$CachedCheck } from "packages/net/minecraft/world/item/crafting/$RecipeManager$CachedCheck"
 
-export class $RecipeManager extends $SimpleJsonResourceReloadListener implements $RecipeManagerAccessor$2, $RecipeManagerAccessor$1, $RecipeManagerAccessor, $RecipeManagerAccessor$3, $RecipeManagerAccessor$0 {
+export class $RecipeManager extends $SimpleJsonResourceReloadListener implements $RecipeManagerAccessor$2, $RecipeManagerAccess$0, $RecipeManagerAccessor, $RecipeManagerAccessor$3, $RecipeManagerAccessor$0, $RecipeManagerAccessor$1, $RecipeManagerAccess {
 /** @deprecated */
 constructor()
 constructor(iContext0: $ICondition$IContext$$Type)
@@ -55,9 +52,9 @@ constructor(iContext0: $ICondition$IContext$$Type)
 public "byKey"(resourceLocation0: $ResourceLocation$$Type): $Optional<$Recipe<any>>
 public "byType"<C extends $Container, T extends $Recipe<C>>(recipeType0: $RecipeType$$Type<T>): $Map<$ResourceLocation, T>
 public static "createCheck"<C extends $Container, T extends $Recipe<C>>(recipeType0: $RecipeType$$Type<T>): $RecipeManager$CachedCheck<C, T>
+public static "fromJson"(resourceLocation0: $ResourceLocation$$Type, jsonObject1: $JsonObject$$Type, iContext2: $ICondition$IContext$$Type): $Recipe<any>
 /** @deprecated */
 public static "fromJson"(resourceLocation0: $ResourceLocation$$Type, jsonObject1: $JsonObject$$Type): $Recipe<any>
-public static "fromJson"(resourceLocation0: $ResourceLocation$$Type, jsonObject1: $JsonObject$$Type, iContext2: $ICondition$IContext$$Type): $Recipe<any>
 public "getAllRecipesFor"<C extends $Container, T extends $Recipe<C>>(recipeType0: $RecipeType$$Type<T>): $List<T>
 public "getName"(): string
 public "getRecipeFor"<C extends $Container, T extends $Recipe<C>>(recipeType0: $RecipeType$$Type<T>, c1: C, level2: $Level$$Type, resourceLocation3: $ResourceLocation$$Type): $Optional<$Pair<$ResourceLocation, T>>
@@ -67,7 +64,6 @@ public "getRecipes"(): $Collection<$Recipe<any>>
 public "getRecipesFor"<C extends $Container, T extends $Recipe<C>>(recipeType0: $RecipeType$$Type<T>, c1: C, level2: $Level$$Type): $List<T>
 public "getRemainingItemsFor"<C extends $Container, T extends $Recipe<C>>(recipeType0: $RecipeType$$Type<T>, c1: C, level2: $Level$$Type): $NonNullList<$ItemStack>
 public "hadErrorsLoading"(): boolean
-public "handler$bmh000$injectRecipes"(map0: $Map$$Type<any, any>, resourceManager1: $ResourceManager$$Type, profilerFiller2: $ProfilerFiller$$Type, callbackInfo3: $CallbackInfo$$Type): void
 public "replaceRecipes"(iterable0: $Iterable$$Type<$Recipe$$Type<any>>): void
 get "byName"(): $Map<$ResourceLocation, $Recipe<any>>
 set "byName"(value: $Map$$Type<$ResourceLocation$$Type, $Recipe$$Type<any>>)
@@ -75,6 +71,53 @@ get "recipes"(): $Map<$RecipeType<any>, $Map<$ResourceLocation, $Recipe<any>>>
 set "recipes"(value: $Map$$Type<$RecipeType$$Type<any>, $Map$$Type<$ResourceLocation$$Type, $Recipe$$Type<any>>>)
 get "name"(): string
 get "recipeIds"(): $Stream<$ResourceLocation>
+}
+}
+
+declare module "packages/net/minecraft/world/item/crafting/$BookCloningRecipe" {
+import { $InputReplacement$$Type } from "packages/dev/latvian/mods/kubejs/recipe/$InputReplacement"
+import { $NonNullList } from "packages/net/minecraft/core/$NonNullList"
+import { $RecipeSchema } from "packages/dev/latvian/mods/kubejs/recipe/schema/$RecipeSchema"
+import { $Ingredient } from "packages/net/minecraft/world/item/crafting/$Ingredient"
+import { $Level$$Type } from "packages/net/minecraft/world/level/$Level"
+import { $ItemStack } from "packages/net/minecraft/world/item/$ItemStack"
+import { $ResourceLocation, $ResourceLocation$$Type } from "packages/net/minecraft/resources/$ResourceLocation"
+import { $CraftingBookCategory$$Type } from "packages/net/minecraft/world/item/crafting/$CraftingBookCategory"
+import { $RegistryAccess$$Type } from "packages/net/minecraft/core/$RegistryAccess"
+import { $CustomRecipe } from "packages/net/minecraft/world/item/crafting/$CustomRecipe"
+import { $CraftingContainer$$Type } from "packages/net/minecraft/world/inventory/$CraftingContainer"
+import { $ReplacementMatch$$Type } from "packages/dev/latvian/mods/kubejs/recipe/$ReplacementMatch"
+import { $OutputReplacement$$Type } from "packages/dev/latvian/mods/kubejs/recipe/$OutputReplacement"
+
+export class $BookCloningRecipe extends $CustomRecipe {
+constructor(resourceLocation0: $ResourceLocation$$Type, craftingBookCategory1: $CraftingBookCategory$$Type)
+
+public "assemble"(craftingContainer0: $CraftingContainer$$Type, registryAccess1: $RegistryAccess$$Type): $ItemStack
+public "getGroup"(): string
+public "getIngredients"(): $NonNullList<$Ingredient>
+public "getMod"(): string
+public "getOrCreateId"(): $ResourceLocation
+public "getRemainingItems"(craftingContainer0: $CraftingContainer$$Type): $NonNullList<$ItemStack>
+public "getSchema"(): $RecipeSchema
+public "getToastSymbol"(): $ItemStack
+public "getType"(): $ResourceLocation
+public "hasInput"(match: $ReplacementMatch$$Type): boolean
+public "hasOutput"(match: $ReplacementMatch$$Type): boolean
+public "isIncomplete"(): boolean
+public "matches"(craftingContainer0: $CraftingContainer$$Type, level1: $Level$$Type): boolean
+public "replaceInput"(match: $ReplacementMatch$$Type, with_: $InputReplacement$$Type): boolean
+public "replaceOutput"(match: $ReplacementMatch$$Type, with_: $OutputReplacement$$Type): boolean
+public "setGroup"(group: string): void
+public "showNotification"(): boolean
+get "group"(): string
+get "ingredients"(): $NonNullList<$Ingredient>
+get "mod"(): string
+get "orCreateId"(): $ResourceLocation
+get "schema"(): $RecipeSchema
+get "toastSymbol"(): $ItemStack
+get "type"(): $ResourceLocation
+get "incomplete"(): boolean
+set "group"(value: string)
 }
 }
 
@@ -136,53 +179,6 @@ export namespace $CraftingRecipe {
 const probejs$$marker: never
 }
 export abstract class $CraftingRecipe$$Static implements $CraftingRecipe {
-}
-}
-
-declare module "packages/net/minecraft/world/item/crafting/$BookCloningRecipe" {
-import { $InputReplacement$$Type } from "packages/dev/latvian/mods/kubejs/recipe/$InputReplacement"
-import { $NonNullList } from "packages/net/minecraft/core/$NonNullList"
-import { $RecipeSchema } from "packages/dev/latvian/mods/kubejs/recipe/schema/$RecipeSchema"
-import { $Ingredient } from "packages/net/minecraft/world/item/crafting/$Ingredient"
-import { $Level$$Type } from "packages/net/minecraft/world/level/$Level"
-import { $ItemStack } from "packages/net/minecraft/world/item/$ItemStack"
-import { $ResourceLocation, $ResourceLocation$$Type } from "packages/net/minecraft/resources/$ResourceLocation"
-import { $CraftingBookCategory$$Type } from "packages/net/minecraft/world/item/crafting/$CraftingBookCategory"
-import { $RegistryAccess$$Type } from "packages/net/minecraft/core/$RegistryAccess"
-import { $CustomRecipe } from "packages/net/minecraft/world/item/crafting/$CustomRecipe"
-import { $CraftingContainer$$Type } from "packages/net/minecraft/world/inventory/$CraftingContainer"
-import { $ReplacementMatch$$Type } from "packages/dev/latvian/mods/kubejs/recipe/$ReplacementMatch"
-import { $OutputReplacement$$Type } from "packages/dev/latvian/mods/kubejs/recipe/$OutputReplacement"
-
-export class $BookCloningRecipe extends $CustomRecipe {
-constructor(resourceLocation0: $ResourceLocation$$Type, craftingBookCategory1: $CraftingBookCategory$$Type)
-
-public "assemble"(craftingContainer0: $CraftingContainer$$Type, registryAccess1: $RegistryAccess$$Type): $ItemStack
-public "getGroup"(): string
-public "getIngredients"(): $NonNullList<$Ingredient>
-public "getMod"(): string
-public "getOrCreateId"(): $ResourceLocation
-public "getRemainingItems"(craftingContainer0: $CraftingContainer$$Type): $NonNullList<$ItemStack>
-public "getSchema"(): $RecipeSchema
-public "getToastSymbol"(): $ItemStack
-public "getType"(): $ResourceLocation
-public "hasInput"(match: $ReplacementMatch$$Type): boolean
-public "hasOutput"(match: $ReplacementMatch$$Type): boolean
-public "isIncomplete"(): boolean
-public "matches"(craftingContainer0: $CraftingContainer$$Type, level1: $Level$$Type): boolean
-public "replaceInput"(match: $ReplacementMatch$$Type, with_: $InputReplacement$$Type): boolean
-public "replaceOutput"(match: $ReplacementMatch$$Type, with_: $OutputReplacement$$Type): boolean
-public "setGroup"(group: string): void
-public "showNotification"(): boolean
-get "group"(): string
-get "ingredients"(): $NonNullList<$Ingredient>
-get "mod"(): string
-get "orCreateId"(): $ResourceLocation
-get "schema"(): $RecipeSchema
-get "toastSymbol"(): $ItemStack
-get "type"(): $ResourceLocation
-get "incomplete"(): boolean
-set "group"(value: string)
 }
 }
 
@@ -310,9 +306,7 @@ import { $Recipe, $Recipe$$Type } from "packages/net/minecraft/world/item/crafti
 export class $SmithingTrimRecipe$Serializer implements $RecipeSerializer<$SmithingTrimRecipe> {
 constructor()
 
-public "fromJson"(resourceLocation0: $ResourceLocation$$Type, jsonObject1: $JsonObject$$Type): $SmithingTrimRecipe
 public "fromJson"(resourceLocation0: $ResourceLocation$$Type, jsonObject1: $JsonObject$$Type, iContext2: $ICondition$IContext$$Type): $SmithingTrimRecipe
-public "fromNetwork"(resourceLocation0: $ResourceLocation$$Type, friendlyByteBuf1: $FriendlyByteBuf$$Type): $SmithingTrimRecipe
 public static "register"<S extends $RecipeSerializer<T>, T extends $Recipe<any>>(string0: string, s1: S): S
 public "toNetwork"(friendlyByteBuf0: $FriendlyByteBuf$$Type, smithingTrimRecipe1: $SmithingTrimRecipe$$Type): void
 }
@@ -631,6 +625,7 @@ import { $NonNullList, $NonNullList$$Type } from "packages/net/minecraft/core/$N
 import { $RecipeSchema } from "packages/dev/latvian/mods/kubejs/recipe/schema/$RecipeSchema"
 import { $RecipeSerializer } from "packages/net/minecraft/world/item/crafting/$RecipeSerializer"
 import { $ShapedRecipeAccessor } from "packages/ovh/corail/tombstone/mixin/accessor/$ShapedRecipeAccessor"
+import { $ShapedRecipeAccess } from "packages/snownee/kiwi/mixin/$ShapedRecipeAccess"
 import { $Ingredient, $Ingredient$$Type } from "packages/net/minecraft/world/item/crafting/$Ingredient"
 import { $Level$$Type } from "packages/net/minecraft/world/level/$Level"
 import { $IShapedRecipe } from "packages/net/minecraftforge/common/crafting/$IShapedRecipe"
@@ -638,6 +633,7 @@ import { $ItemStack, $ItemStack$$Type } from "packages/net/minecraft/world/item/
 import { $ResourceLocation, $ResourceLocation$$Type } from "packages/net/minecraft/resources/$ResourceLocation"
 import { $JsonArray$$Type } from "packages/com/google/gson/$JsonArray"
 import { $ShapedRecipeAccessor as $ShapedRecipeAccessor$0 } from "packages/ad_astra_giselle_addon/common/mixin/minecraft/$ShapedRecipeAccessor"
+import { $ShapedRecipeAccess as $ShapedRecipeAccess$0 } from "packages/snownee/lychee/mixin/$ShapedRecipeAccess"
 import { $CraftingBookCategory, $CraftingBookCategory$$Type } from "packages/net/minecraft/world/item/crafting/$CraftingBookCategory"
 import { $RegistryAccess$$Type } from "packages/net/minecraft/core/$RegistryAccess"
 import { $Item } from "packages/net/minecraft/world/item/$Item"
@@ -647,7 +643,7 @@ import { $ReplacementMatch$$Type } from "packages/dev/latvian/mods/kubejs/recipe
 import { $OutputReplacement$$Type } from "packages/dev/latvian/mods/kubejs/recipe/$OutputReplacement"
 import { $Map, $Map$$Type } from "packages/java/util/$Map"
 
-export class $ShapedRecipe implements $CraftingRecipe, $IShapedRecipe<$CraftingContainer>, $ShapedRecipeAccessor, $ShapedRecipeAccessor$0 {
+export class $ShapedRecipe implements $CraftingRecipe, $IShapedRecipe<$CraftingContainer>, $ShapedRecipeAccessor, $ShapedRecipeAccess, $ShapedRecipeAccessor$0, $ShapedRecipeAccess$0 {
 readonly "height": integer
 readonly "result": $ItemStack
 readonly "width": integer
@@ -681,8 +677,8 @@ public "isSpecial"(): boolean
 public static "itemFromJson"(jsonObject0: $JsonObject$$Type): $Item
 public static "itemStackFromJson"(jsonObject0: $JsonObject$$Type): $ItemStack
 public static "keyFromJson"(jsonObject0: $JsonObject$$Type): $Map<string, $Ingredient>
-public "matches"(craftingContainer0: $CraftingContainer$$Type, int1: integer, int2: integer, boolean3: boolean): boolean
 public "matches"(craftingContainer0: $CraftingContainer$$Type, level1: $Level$$Type): boolean
+public "matches"(craftingContainer0: $CraftingContainer$$Type, int1: integer, int2: integer, boolean3: boolean): boolean
 public static "patternFromJson"(jsonArray0: $JsonArray$$Type): string[]
 public "replaceInput"(match: $ReplacementMatch$$Type, with_: $InputReplacement$$Type): boolean
 public "replaceOutput"(match: $ReplacementMatch$$Type, with_: $OutputReplacement$$Type): boolean
@@ -795,8 +791,8 @@ public "hasInput"(match: $ReplacementMatch$$Type): boolean
 public "hasOutput"(match: $ReplacementMatch$$Type): boolean
 public "isIncomplete"(): boolean
 public "matches"(craftingContainer0: $CraftingContainer$$Type, level1: $Level$$Type): boolean
-public "modifyExpressionValue$eid000$getLimitAssemble"(int0: integer): integer
-public "modifyExpressionValue$eid000$getLimitMatches"(int0: integer): integer
+public "modifyExpressionValue$eof000$getLimitAssemble"(int0: integer): integer
+public "modifyExpressionValue$eof000$getLimitMatches"(int0: integer): integer
 public "replaceInput"(match: $ReplacementMatch$$Type, with_: $InputReplacement$$Type): boolean
 public "replaceOutput"(match: $ReplacementMatch$$Type, with_: $OutputReplacement$$Type): boolean
 public "setGroup"(group: string): void
@@ -887,7 +883,9 @@ import { $Recipe, $Recipe$$Type } from "packages/net/minecraft/world/item/crafti
 export class $ShapelessRecipe$Serializer implements $RecipeSerializer<$ShapelessRecipe> {
 constructor()
 
+public "fromJson"(resourceLocation0: $ResourceLocation$$Type, jsonObject1: $JsonObject$$Type): $ShapelessRecipe
 public "fromJson"(resourceLocation0: $ResourceLocation$$Type, jsonObject1: $JsonObject$$Type, iContext2: $ICondition$IContext$$Type): $ShapelessRecipe
+public "fromNetwork"(resourceLocation0: $ResourceLocation$$Type, friendlyByteBuf1: $FriendlyByteBuf$$Type): $ShapelessRecipe
 public static "register"<S extends $RecipeSerializer<T>, T extends $Recipe<any>>(string0: string, s1: S): S
 public "toNetwork"(friendlyByteBuf0: $FriendlyByteBuf$$Type, shapelessRecipe1: $ShapelessRecipe$$Type): void
 }
@@ -946,9 +944,7 @@ import { $Recipe, $Recipe$$Type } from "packages/net/minecraft/world/item/crafti
 export class $SmithingTransformRecipe$Serializer implements $RecipeSerializer<$SmithingTransformRecipe> {
 constructor()
 
-public "fromJson"(resourceLocation0: $ResourceLocation$$Type, jsonObject1: $JsonObject$$Type): $SmithingTransformRecipe
 public "fromJson"(resourceLocation0: $ResourceLocation$$Type, jsonObject1: $JsonObject$$Type, iContext2: $ICondition$IContext$$Type): $SmithingTransformRecipe
-public "fromNetwork"(resourceLocation0: $ResourceLocation$$Type, friendlyByteBuf1: $FriendlyByteBuf$$Type): $SmithingTransformRecipe
 public static "register"<S extends $RecipeSerializer<T>, T extends $Recipe<any>>(string0: string, s1: S): S
 public "toNetwork"(friendlyByteBuf0: $FriendlyByteBuf$$Type, smithingTransformRecipe1: $SmithingTransformRecipe$$Type): void
 }
@@ -1149,6 +1145,101 @@ set "group"(value: string)
 }
 }
 
+declare module "packages/net/minecraft/world/item/crafting/$Ingredient" {
+import { $JsonElement, $JsonElement$$Type } from "packages/com/google/gson/$JsonElement"
+import { $JsonObject$$Type } from "packages/com/google/gson/$JsonObject"
+import { $Ingredient$Value, $Ingredient$Value$$Type } from "packages/net/minecraft/world/item/crafting/$Ingredient$Value"
+import { $Predicate, $Predicate$$Type } from "packages/java/util/function/$Predicate"
+import { $IIngredientSerializer } from "packages/net/minecraftforge/common/crafting/$IIngredientSerializer"
+import { $Collection$$Type } from "packages/java/util/$Collection"
+import { $ItemStack, $ItemStack$$Type } from "packages/net/minecraft/world/item/$ItemStack"
+import { $AtomicInteger } from "packages/java/util/concurrent/atomic/$AtomicInteger"
+import { $TagKey$$Type } from "packages/net/minecraft/tags/$TagKey"
+import { $ExtendedIngredient } from "packages/org/embeddedt/modernfix/forge/recipe/$ExtendedIngredient"
+import { $CallbackInfoReturnable$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfoReturnable"
+import { $Item, $Item$$Type } from "packages/net/minecraft/world/item/$Item"
+import { $InputItem } from "packages/dev/latvian/mods/kubejs/item/$InputItem"
+import { $FriendlyByteBuf$$Type } from "packages/net/minecraft/network/$FriendlyByteBuf"
+import { $Set } from "packages/java/util/$Set"
+import { $IntList, $IntList$$Type } from "packages/it/unimi/dsi/fastutil/ints/$IntList"
+import { $Stream$$Type } from "packages/java/util/stream/$Stream"
+import { $IngredientKJS } from "packages/dev/latvian/mods/kubejs/core/$IngredientKJS"
+import { $ItemStackSet } from "packages/dev/latvian/mods/kubejs/item/$ItemStackSet"
+import { $ItemLike$$Type } from "packages/net/minecraft/world/level/$ItemLike"
+
+export class $Ingredient implements $Predicate<$ItemStack>, $ExtendedIngredient, $IngredientKJS {
+static readonly "EMPTY": $Ingredient
+static readonly "INVALIDATION_COUNTER": $AtomicInteger
+readonly "isVanilla": boolean
+
+constructor(stream0: $Stream$$Type<$Ingredient$Value$$Type>)
+
+public "and"(predicate0: $Predicate$$Type<$ItemStack$$Type>): $Predicate<$ItemStack>
+public "and"(ingredient: $Ingredient$$Type): $Ingredient
+public "asIngredient"(): $Ingredient
+public "asStack"(): $InputItem
+public "canBeUsedForMatching"(): boolean
+public "checkInvalidation"(): boolean
+public static "fromJson"(jsonElement0: $JsonElement$$Type): $Ingredient
+public static "fromJson"(jsonElement0: $JsonElement$$Type, boolean1: boolean): $Ingredient
+public static "fromNetwork"(friendlyByteBuf0: $FriendlyByteBuf$$Type): $Ingredient
+public static "fromValues"(stream0: $Stream$$Type<$Ingredient$Value$$Type>): $Ingredient
+public "getDisplayStacks"(): $ItemStackSet
+public "getFirst"(): $ItemStack
+public "getItemIds"(): $Set<string>
+public "getItemTypes"(): $Set<$Item>
+public "getSerializer"(): $IIngredientSerializer<$Ingredient>
+public "getStackingIds"(): $IntList
+public "getStacks"(): $ItemStackSet
+public "handler$cjg000$blah"(callbackInfoReturnable0: $CallbackInfoReturnable$$Type<any>): void
+public static "invalidateAll"(): void
+public "isEmpty"(): boolean
+public static "isEqual"<T>(object0: any): $Predicate<T>
+public "isSimple"(): boolean
+public "isVanilla"(): boolean
+public "isWildcard"(): boolean
+public static "merge"(collection0: $Collection$$Type<$Ingredient$$Type>): $Ingredient
+public "mfix$clearReference"(): void
+public "mfix$hasNoElements"(): boolean
+public "negate"(): $Predicate<$ItemStack>
+public static "not"<T>(predicate0: $Predicate$$Type<T>): $Predicate<T>
+public static "of"(...itemStack0s: $ItemStack$$Type[]): $Ingredient
+public static "of"(): $Ingredient
+public static "of"(tagKey0: $TagKey$$Type<$Item$$Type>): $Ingredient
+public static "of"(...itemLike0s: $ItemLike$$Type[]): $Ingredient
+public static "of"(stream0: $Stream$$Type<$ItemStack$$Type>): $Ingredient
+public "or"(predicate0: $Predicate$$Type<$ItemStack$$Type>): $Predicate<$ItemStack>
+public "or"(ingredient: $Ingredient$$Type): $Ingredient
+public "self"(): $Ingredient
+public "subtract"(subtracted: $Ingredient$$Type): $Ingredient
+public "test"(itemStack0: $ItemStack$$Type): boolean
+public "testItem"(item: $Item$$Type): boolean
+public "toJson"(): $JsonElement
+public "toJson"(): $JsonElement
+public "toNetwork"(friendlyByteBuf0: $FriendlyByteBuf$$Type): void
+public static "valueFromJson"(jsonObject0: $JsonObject$$Type): $Ingredient$Value
+public "withCount"(count: integer): $InputItem
+get "invalidationCounter"(): integer
+set "invalidationCounter"(value: integer)
+get "itemStacks"(): $ItemStack[]
+set "itemStacks"(value: $ItemStack$$Type[])
+get "stackingIds"(): $IntList
+set "stackingIds"(value: $IntList$$Type)
+get "values"(): $Ingredient$Value[]
+set "values"(value: $Ingredient$Value$$Type[])
+get "displayStacks"(): $ItemStackSet
+get "first"(): $ItemStack
+get "itemIds"(): $Set<string>
+get "itemTypes"(): $Set<$Item>
+get "serializer"(): $IIngredientSerializer<$Ingredient>
+get "stacks"(): $ItemStackSet
+get "empty"(): boolean
+get "simple"(): boolean
+get "vanilla"(): boolean
+get "wildcard"(): boolean
+}
+}
+
 declare module "packages/net/minecraft/world/item/crafting/$CookingBookCategory" {
 import { $StringRepresentable$EnumCodec } from "packages/net/minecraft/util/$StringRepresentable$EnumCodec"
 import { $StringRepresentable, $StringRepresentable$$Type } from "packages/net/minecraft/util/$StringRepresentable"
@@ -1183,9 +1274,7 @@ import { $ResourceLocation$$Type } from "packages/net/minecraft/resources/$Resou
 import { $Recipe, $Recipe$$Type } from "packages/net/minecraft/world/item/crafting/$Recipe"
 
 export class $SingleItemRecipe$Serializer<T extends $SingleItemRecipe> implements $RecipeSerializer<T> {
-public "fromJson"(resourceLocation0: $ResourceLocation$$Type, jsonObject1: $JsonObject$$Type): T
 public "fromJson"(resourceLocation0: $ResourceLocation$$Type, jsonObject1: $JsonObject$$Type, iContext2: $ICondition$IContext$$Type): T
-public "fromNetwork"(resourceLocation0: $ResourceLocation$$Type, friendlyByteBuf1: $FriendlyByteBuf$$Type): T
 public static "register"<S extends $RecipeSerializer<T>, T extends $Recipe<any>>(string0: string, s1: S): S
 public "toNetwork"(friendlyByteBuf0: $FriendlyByteBuf$$Type, t1: T): void
 }
@@ -1769,6 +1858,24 @@ get "type"(): $ResourceLocation
 get "incomplete"(): boolean
 get "special"(): boolean
 set "group"(value: string)
+}
+}
+
+declare module "packages/net/minecraft/world/item/crafting/$Ingredient$Value" {
+import { $JsonObject } from "packages/com/google/gson/$JsonObject"
+import { $Collection } from "packages/java/util/$Collection"
+import { $ItemStack } from "packages/net/minecraft/world/item/$ItemStack"
+
+export interface $Ingredient$Value {
+"getItems"(): $Collection<$ItemStack>
+"serialize"(): $JsonObject
+get "items"(): $Collection<$ItemStack>
+}
+
+export namespace $Ingredient$Value {
+const probejs$$marker: never
+}
+export abstract class $Ingredient$Value$$Static implements $Ingredient$Value {
 }
 }
 

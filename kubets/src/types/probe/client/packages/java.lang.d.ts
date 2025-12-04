@@ -1357,6 +1357,30 @@ export type $VarHandle$VarHandleDesc_ = $VarHandle$VarHandleDesc$$Type;
 }
 }
 
+declare module "packages/java/lang/$ThreadLocal" {
+import { $Supplier$$Type } from "packages/java/util/function/$Supplier"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $ThreadLocal<T> {
+constructor()
+
+public "get"(): T
+public "remove"(): void
+public "set"(t0: T): void
+public static "withInitial"<S>(supplier0: $Supplier$$Type<S>): $ThreadLocal<S>
+}
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $ThreadLocal$$Type<T> = ($ThreadLocal<T>);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $ThreadLocal_<T> = $ThreadLocal$$Type<T>;
+}
+}
+
 declare module "packages/java/lang/annotation/$ElementType" {
 import { $Enum } from "packages/java/lang/$Enum"
 

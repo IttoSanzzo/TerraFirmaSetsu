@@ -49,6 +49,16 @@ export type $GlyphInfo_ = $GlyphInfo$$Type;
 }
 }
 
+declare module "packages/com/mojang/blaze3d/platform/$GlStateManager$DestFactor" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $GlStateManager$DestFactor$$Type = ($GlStateManager$DestFactor | ("constant_alpha" | "constant_color" | "dst_alpha" | "dst_color" | "one" | "one_minus_constant_alpha" | "one_minus_constant_color" | "one_minus_dst_alpha" | "one_minus_dst_color" | "one_minus_src_alpha" | "one_minus_src_color" | "src_alpha" | "src_color" | "zero"));
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $GlStateManager$DestFactor_ = $GlStateManager$DestFactor$$Type;
+}
+}
+
 declare module "packages/com/mojang/blaze3d/shaders/$AbstractUniform" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
@@ -319,6 +329,16 @@ export type $SoundBuffer$$Type = ($SoundBuffer);
 /** Global type exported for convenience, use class-specific types if there's a naming conflict. */
 declare global {
 export type $SoundBuffer_ = $SoundBuffer$$Type;
+}
+}
+
+declare module "packages/com/mojang/blaze3d/platform/$GlStateManager$SourceFactor" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $GlStateManager$SourceFactor$$Type = ($GlStateManager$SourceFactor | ("constant_alpha" | "constant_color" | "dst_alpha" | "dst_color" | "one" | "one_minus_constant_alpha" | "one_minus_constant_color" | "one_minus_dst_alpha" | "one_minus_dst_color" | "one_minus_src_alpha" | "one_minus_src_color" | "src_alpha" | "src_alpha_saturate" | "src_color" | "zero"));
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $GlStateManager$SourceFactor_ = $GlStateManager$SourceFactor$$Type;
 }
 }
 

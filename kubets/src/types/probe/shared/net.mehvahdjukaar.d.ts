@@ -227,8 +227,8 @@ public "decode"<T>(dynamic0: $Dynamic$$Type<T>): $DataResult<$Pair<$Codec<T>, T>
 public "deprecated"(int0: integer): $Codec<$Codec<T>>
 public "dispatch"<E>(function0: $Function$$Type<E, $Codec<T>>, function1: $Function$$Type<$Codec$$Type<T>, $Codec<E>>): $Codec<E>
 public "dispatch"<E>(string0: string, function1: $Function$$Type<E, $Codec<T>>, function2: $Function$$Type<$Codec$$Type<T>, $Codec<E>>): $Codec<E>
-public "dispatchMap"<E>(string0: string, function1: $Function$$Type<E, $Codec<T>>, function2: $Function$$Type<$Codec$$Type<T>, $Codec<E>>): $MapCodec<E>
 public "dispatchMap"<E>(function0: $Function$$Type<E, $Codec<T>>, function1: $Function$$Type<$Codec$$Type<T>, $Codec<E>>): $MapCodec<E>
+public "dispatchMap"<E>(string0: string, function1: $Function$$Type<E, $Codec<T>>, function2: $Function$$Type<$Codec$$Type<T>, $Codec<E>>): $MapCodec<E>
 public "dispatchStable"<E>(function0: $Function$$Type<E, $Codec<T>>, function1: $Function$$Type<$Codec$$Type<T>, $Codec<E>>): $Codec<E>
 public static "doubleRange"(double0: double, double1: double): $Codec<double>
 public static "either"<F, S>(codec0: $Codec$$Type<F>, codec1: $Codec$$Type<S>): $Codec<$Either<F, S>>
@@ -257,8 +257,8 @@ public static "ofSimple"<A>(simple0: $Decoder$Simple$$Type<A>): $Decoder<A>
 public static "ofTerminal"<A>(terminal0: $Decoder$Terminal$$Type<A>): $Decoder<A>
 public static "optionalField"<F>(string0: string, codec1: $Codec$$Type<F>): $MapCodec<$Optional<F>>
 public "optionalFieldOf"(string0: string, lifecycle1: $Lifecycle$$Type, codec2: $Codec$$Type<T>, lifecycle3: $Lifecycle$$Type): $MapCodec<$Codec<T>>
-public "optionalFieldOf"(string0: string, codec1: $Codec$$Type<T>): $MapCodec<$Codec<T>>
 public "optionalFieldOf"(string0: string, codec1: $Codec$$Type<T>, lifecycle2: $Lifecycle$$Type): $MapCodec<$Codec<T>>
+public "optionalFieldOf"(string0: string, codec1: $Codec$$Type<T>): $MapCodec<$Codec<T>>
 public "optionalFieldOf"(string0: string): $MapCodec<$Optional<$Codec<T>>>
 public "orElse"(unaryOperator0: $UnaryOperator$$Type<string>, codec1: $Codec$$Type<T>): $Codec<$Codec<T>>
 public "orElse"(consumer0: $Consumer$$Type<string>, codec1: $Codec$$Type<T>): $Codec<$Codec<T>>
@@ -270,6 +270,7 @@ public static "pair"<F, S>(codec0: $Codec$$Type<F>, codec1: $Codec$$Type<S>): $C
 public "parse"<T>(dynamic0: $Dynamic$$Type<T>): $DataResult<$Codec<T>>
 public "parse"<T>(dynamicOps0: $DynamicOps$$Type<T>, t1: T): $DataResult<$Codec<T>>
 public "partialDispatch"<E>(string0: string, function1: $Function$$Type<E, $DataResult<$Codec<T>>>, function2: $Function$$Type<$Codec$$Type<T>, $DataResult<$Codec<E>>>): $Codec<E>
+public "promotePartial"(consumer0: $Consumer$$Type<string>): $Codec<$Codec<T>>
 public "register"<B extends T>(name: string, value: $Codec$$Type<B>): $Codec<B>
 public "register"<B extends T>(name: $ResourceLocation$$Type, value: $Codec$$Type<B>): $Codec<B>
 public "simple"(): $Decoder$Simple<$Codec<T>>
@@ -1157,9 +1158,9 @@ public "getType"(): $MapDecorationType<D, any>
 public "getTypeId"(): string
 public "hasFlag"(flag: integer): boolean
 public "loadFromNBT"(compound: $CompoundTag$$Type): void
-public "saveToNBT"(): $CompoundTag
 /** @deprecated */
 public "saveToNBT"(compound: $CompoundTag$$Type): $CompoundTag
+public "saveToNBT"(): $CompoundTag
 public "setName"(name: $Component$$Type): void
 public "setPersistent"(persistent: boolean): void
 public "setPos"(pos: $BlockPos$$Type): void
@@ -1439,9 +1440,8 @@ export abstract class $ISwingingTile$$Static implements $ISwingingTile {
 declare module "packages/net/mehvahdjukaar/supplementaries/api/$IAntiqueTextProvider" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $IAntiqueTextProvider {
-"hasAntiqueInk"(): boolean
-"setAntiqueInk"(boolean0: boolean): void
-set "antiqueInk"(value: boolean)
+"supp$hasAntiqueInk"(): boolean
+"supp$setAntiqueInk"(boolean0: boolean): void
 }
 
 export namespace $IAntiqueTextProvider {
@@ -1518,8 +1518,8 @@ public "deprecated"(int0: integer): $Codec<T>
 public "dispatch"<E>(type: $Function$$Type<E, T>): $Codec<E>
 public "dispatch"<E>(function0: $Function$$Type<E, T>, function1: $Function$$Type<T, $Codec<E>>): $Codec<E>
 public "dispatch"<E>(string0: string, function1: $Function$$Type<E, T>, function2: $Function$$Type<T, $Codec<E>>): $Codec<E>
-public "dispatchMap"<E>(string0: string, function1: $Function$$Type<E, T>, function2: $Function$$Type<T, $Codec<E>>): $MapCodec<E>
 public "dispatchMap"<E>(function0: $Function$$Type<E, T>, function1: $Function$$Type<T, $Codec<E>>): $MapCodec<E>
+public "dispatchMap"<E>(string0: string, function1: $Function$$Type<E, T>, function2: $Function$$Type<T, $Codec<E>>): $MapCodec<E>
 public "dispatchStable"<E>(function0: $Function$$Type<E, T>, function1: $Function$$Type<T, $Codec<E>>): $Codec<E>
 public static "doubleRange"(double0: double, double1: double): $Codec<double>
 public static "either"<F, S>(codec0: $Codec$$Type<F>, codec1: $Codec$$Type<S>): $Codec<$Either<F, S>>
@@ -1554,14 +1554,14 @@ public static "of"<A>(mapEncoder0: $MapEncoder$$Type<A>, mapDecoder1: $MapDecode
 public static "of"<A>(encoder0: $Encoder$$Type<A>, decoder1: $Decoder$$Type<A>, string2: string): $Codec<A>
 public static "of"<A>(encoder0: $Encoder$$Type<A>, decoder1: $Decoder$$Type<A>): $Codec<A>
 public static "ofBoxed"<A>(boxed0: $Decoder$Boxed$$Type<A>): $Decoder<A>
-public static "ofCodec"<B>(name: string): $CodecMapRegistry<B>
 public static "ofCodec"<B>(): $CodecMapRegistry<B>
+public static "ofCodec"<B>(name: string): $CodecMapRegistry<B>
 public static "ofSimple"<A>(simple0: $Decoder$Simple$$Type<A>): $Decoder<A>
 public static "ofTerminal"<A>(terminal0: $Decoder$Terminal$$Type<A>): $Decoder<A>
 public static "optionalField"<F>(string0: string, codec1: $Codec$$Type<F>): $MapCodec<$Optional<F>>
 public "optionalFieldOf"(string0: string, lifecycle1: $Lifecycle$$Type, t2: T, lifecycle3: $Lifecycle$$Type): $MapCodec<T>
-public "optionalFieldOf"(string0: string, t1: T): $MapCodec<T>
 public "optionalFieldOf"(string0: string, t1: T, lifecycle2: $Lifecycle$$Type): $MapCodec<T>
+public "optionalFieldOf"(string0: string, t1: T): $MapCodec<T>
 public "optionalFieldOf"(string0: string): $MapCodec<$Optional<T>>
 public "orElse"(unaryOperator0: $UnaryOperator$$Type<string>, t1: T): $Codec<T>
 public "orElse"(consumer0: $Consumer$$Type<string>, t1: T): $Codec<T>
@@ -1573,6 +1573,7 @@ public static "pair"<F, S>(codec0: $Codec$$Type<F>, codec1: $Codec$$Type<S>): $C
 public "parse"<T>(dynamic0: $Dynamic$$Type<T>): $DataResult<T>
 public "parse"<T>(dynamicOps0: $DynamicOps$$Type<T>, t1: T): $DataResult<T>
 public "partialDispatch"<E>(string0: string, function1: $Function$$Type<E, $DataResult<T>>, function2: $Function$$Type<T, $DataResult<$Codec<E>>>): $Codec<E>
+public "promotePartial"(consumer0: $Consumer$$Type<string>): $Codec<T>
 public "register"<B extends T>(name: string, value: B): T
 public "register"<B extends T>(name: $ResourceLocation$$Type, value: B): T
 public "simple"(): $Decoder$Simple<T>

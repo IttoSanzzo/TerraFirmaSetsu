@@ -437,7 +437,6 @@ public "blockY"(): integer
 public "blockZ"(): integer
 public "fillAllDirectly"(double0s: double[], densityFunction1: $DensityFunction$$Type): void
 public static "forChunk"(chunkAccess0: $ChunkAccess$$Type, randomState1: $RandomState$$Type, beardifierOrMarker2: $DensityFunctions$BeardifierOrMarker$$Type, noiseGeneratorSettings3: $NoiseGeneratorSettings$$Type, fluidPicker4: $Aquifer$FluidPicker$$Type, blender5: $Blender$$Type): $NoiseChunk
-public "forIndex"(int0: integer): $NoiseChunk
 public "getBlender"(): $Blender
 public "initializeForFirstCellX"(): void
 public "preliminarySurfaceLevel"(int0: integer, int1: integer): integer
@@ -567,8 +566,8 @@ public static "keysInOrder"(stream0: $Stream$$Type<$ResourceKey$$Type<$LevelStem
 public "levels"(): $ImmutableSet<$ResourceKey<$Level>>
 public "overworld"(): $ChunkGenerator
 public "replaceOverworldGenerator"(registryAccess0: $RegistryAccess$$Type, chunkGenerator1: $ChunkGenerator$$Type): $WorldDimensions
-public static "withOverworld"(registry0: $Registry$$Type<$LevelStem$$Type>, holder1: $Holder$$Type<$DimensionType$$Type>, chunkGenerator2: $ChunkGenerator$$Type): $Registry<$LevelStem>
 public static "withOverworld"(registry0: $Registry$$Type<$DimensionType$$Type>, registry1: $Registry$$Type<$LevelStem$$Type>, chunkGenerator2: $ChunkGenerator$$Type): $Registry<$LevelStem>
+public static "withOverworld"(registry0: $Registry$$Type<$LevelStem$$Type>, holder1: $Holder$$Type<$DimensionType$$Type>, chunkGenerator2: $ChunkGenerator$$Type): $Registry<$LevelStem>
 get "debug"(): boolean
 }
 }
@@ -901,8 +900,8 @@ import { $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
 import { $ResourceLocation$$Type } from "packages/net/minecraft/resources/$ResourceLocation"
 
 export interface $PositionalRandomFactory {
-"at"(blockPos0: $BlockPos$$Type): $RandomSource
 "at"(int0: integer, int1: integer, int2: integer): $RandomSource
+"at"(blockPos0: $BlockPos$$Type): $RandomSource
 "fromHashOf"(string0: string): $RandomSource
 "fromHashOf"(resourceLocation0: $ResourceLocation$$Type): $RandomSource
 "parityConfigString"(stringBuilder0: $StringBuilder$$Type): void

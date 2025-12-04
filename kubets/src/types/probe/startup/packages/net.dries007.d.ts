@@ -18,6 +18,16 @@ export type $OpenSimplex2D_ = $OpenSimplex2D$$Type;
 }
 }
 
+declare module "packages/net/dries007/tfc/util/$Metal$BlockType" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $Metal$BlockType$$Type = ($Metal$BlockType | ("anvil" | "block" | "block_slab" | "block_stairs" | "bars" | "chain" | "lamp" | "trapdoor"));
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $Metal$BlockType_ = $Metal$BlockType$$Type;
+}
+}
+
 declare module "packages/net/dries007/tfc/world/noise/$OpenSimplex3D" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
@@ -35,6 +45,16 @@ export type $ItemStackProvider$$Type = ($ItemStackProvider);
 /** Global type exported for convenience, use class-specific types if there's a naming conflict. */
 declare global {
 export type $ItemStackProvider_ = $ItemStackProvider$$Type;
+}
+}
+
+declare module "packages/net/dries007/tfc/world/noise/$FastNoiseLite$NoiseType" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $FastNoiseLite$NoiseType$$Type = ($FastNoiseLite$NoiseType | ("opensimplex2" | "opensimplex2s" | "cellular" | "perlin" | "valuecubic" | "value"));
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $FastNoiseLite$NoiseType_ = $FastNoiseLite$NoiseType$$Type;
 }
 }
 
@@ -124,6 +144,16 @@ export type $RockLayerSettings$LayerData_ = $RockLayerSettings$LayerData$$Type;
 }
 }
 
+declare module "packages/net/dries007/tfc/common/blocks/$IForgeBlockExtension" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $IForgeBlockExtension$$Type = ($IForgeBlockExtension);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $IForgeBlockExtension_ = $IForgeBlockExtension$$Type;
+}
+}
+
 declare module "packages/net/dries007/tfc/mixin/accessor/$GameRulesAccessor" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /**
@@ -147,6 +177,26 @@ export type $GameRulesAccessor_ = $GameRulesAccessor$$Type;
 }
 }
 
+declare module "packages/net/dries007/tfc/util/registry/$RegistryMetal" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $RegistryMetal$$Type = ($RegistryMetal);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $RegistryMetal_ = $RegistryMetal$$Type;
+}
+}
+
+declare module "packages/net/dries007/tfc/world/noise/$FastNoiseLite$CellularDistanceFunction" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $FastNoiseLite$CellularDistanceFunction$$Type = ($FastNoiseLite$CellularDistanceFunction | ("euclidean" | "euclideansq" | "manhattan" | "hybrid"));
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $FastNoiseLite$CellularDistanceFunction_ = $FastNoiseLite$CellularDistanceFunction$$Type;
+}
+}
+
 declare module "packages/net/dries007/tfc/world/biome/$BiomeBridge" {
 import { $BiomeExtension, $BiomeExtension$$Type } from "packages/net/dries007/tfc/world/biome/$BiomeExtension"
 import { $Supplier } from "packages/java/util/function/$Supplier"
@@ -156,6 +206,16 @@ export type $BiomeBridge$$Type = ($BiomeBridge | ((arg0: $Supplier<$BiomeExtensi
 /** Global type exported for convenience, use class-specific types if there's a naming conflict. */
 declare global {
 export type $BiomeBridge_ = $BiomeBridge$$Type;
+}
+}
+
+declare module "packages/net/dries007/tfc/world/noise/$FastNoiseLite$FractalType" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $FastNoiseLite$FractalType$$Type = ($FastNoiseLite$FractalType | ("none" | "fbm" | "ridged" | "pingpong" | "domainwarpprogressive" | "domainwarpindependent"));
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $FastNoiseLite$FractalType_ = $FastNoiseLite$FractalType$$Type;
 }
 }
 
@@ -206,6 +266,16 @@ export type $RockDisplayCategory_ = $RockDisplayCategory$$Type;
 }
 }
 
+declare module "packages/net/dries007/tfc/util/$Metal$Default" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $Metal$Default$$Type = ($Metal$Default | ("bismuth" | "bismuth_bronze" | "black_bronze" | "bronze" | "brass" | "copper" | "gold" | "nickel" | "rose_gold" | "silver" | "tin" | "zinc" | "sterling_silver" | "wrought_iron" | "cast_iron" | "pig_iron" | "steel" | "black_steel" | "blue_steel" | "red_steel" | "weak_steel" | "weak_blue_steel" | "weak_red_steel" | "high_carbon_steel" | "high_carbon_black_steel" | "high_carbon_blue_steel" | "high_carbon_red_steel" | "unknown"));
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $Metal$Default_ = $Metal$Default$$Type;
+}
+}
+
 declare module "packages/net/dries007/tfc/world/noise/$Metaballs3D" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
@@ -223,6 +293,27 @@ export type $DataManager$Reference$$Type<T> = ($DataManager$Reference<T>);
 /** Global type exported for convenience, use class-specific types if there's a naming conflict. */
 declare global {
 export type $DataManager$Reference_<T> = $DataManager$Reference$$Type<T>;
+}
+}
+
+declare module "packages/net/dries007/tfc/common/blocks/$GroundcoverBlockType" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $GroundcoverBlockType$$Type = ($GroundcoverBlockType | ("bone" | "clam" | "dead_grass" | "driftwood" | "feather" | "flint" | "guano" | "humus" | "mollusk" | "mussel" | "pinecone" | "pumice" | "rotten_flesh" | "salt_lick" | "seaweed" | "sea_urchin" | "stick"));
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $GroundcoverBlockType_ = $GroundcoverBlockType$$Type;
+}
+}
+
+declare module "packages/net/dries007/tfc/world/layer/framework/$AreaFactory" {
+import { $Area$$Type } from "packages/net/dries007/tfc/world/layer/framework/$Area"
+
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $AreaFactory$$Type = ($AreaFactory | (() => $Area$$Type));
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $AreaFactory_ = $AreaFactory$$Type;
 }
 }
 
@@ -367,6 +458,16 @@ export type $RiverEdge_ = $RiverEdge$$Type;
 }
 }
 
+declare module "packages/net/dries007/tfc/world/noise/$FastNoiseLite$RotationType3D" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $FastNoiseLite$RotationType3D$$Type = ($FastNoiseLite$RotationType3D | ("none" | "improvexyplanes" | "improvexzplanes"));
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $FastNoiseLite$RotationType3D_ = $FastNoiseLite$RotationType3D$$Type;
+}
+}
+
 declare module "packages/net/dries007/tfc/common/capabilities/food/$FoodTrait" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
@@ -451,6 +552,26 @@ export type $BrainBreeder_ = $BrainBreeder$$Type;
 }
 }
 
+declare module "packages/net/dries007/tfc/world/layer/framework/$ConcurrentArea" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $ConcurrentArea$$Type<T> = ($ConcurrentArea<T>);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $ConcurrentArea_<T> = $ConcurrentArea$$Type<T>;
+}
+}
+
+declare module "packages/net/dries007/tfc/world/noise/$Cellular2D$Cell" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $Cellular2D$Cell$$Type = ($Cellular2D$Cell);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $Cellular2D$Cell_ = $Cellular2D$Cell$$Type;
+}
+}
+
 declare module "packages/net/dries007/tfc/world/chunkdata/$ChunkData$Status" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
@@ -468,6 +589,26 @@ export type $IFood$$Type = ($IFood);
 /** Global type exported for convenience, use class-specific types if there's a naming conflict. */
 declare global {
 export type $IFood_ = $IFood$$Type;
+}
+}
+
+declare module "packages/net/dries007/tfc/world/noise/$Cellular3D" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $Cellular3D$$Type = ($Cellular3D);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $Cellular3D_ = $Cellular3D$$Type;
+}
+}
+
+declare module "packages/net/dries007/tfc/world/noise/$Cellular2D" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $Cellular2D$$Type = ($Cellular2D);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $Cellular2D_ = $Cellular2D$$Type;
 }
 }
 
@@ -526,6 +667,16 @@ export type $FluidProperty_ = $FluidProperty$$Type;
 }
 }
 
+declare module "packages/net/dries007/tfc/common/blocks/$ExtendedBlock" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $ExtendedBlock$$Type = ($ExtendedBlock);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $ExtendedBlock_ = $ExtendedBlock$$Type;
+}
+}
+
 declare module "packages/net/dries007/tfc/world/$BiomeNoiseSampler" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
@@ -543,6 +694,16 @@ export type $RockSettings$$Type = ($RockSettings);
 /** Global type exported for convenience, use class-specific types if there's a naming conflict. */
 declare global {
 export type $RockSettings_ = $RockSettings$$Type;
+}
+}
+
+declare module "packages/net/dries007/tfc/util/$Metal$ItemType" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $Metal$ItemType$$Type = ($Metal$ItemType | ("ingot" | "double_ingot" | "sheet" | "double_sheet" | "rod" | "tuyere" | "fish_hook" | "fishing_rod" | "unfinished_lamp" | "pickaxe" | "pickaxe_head" | "propick" | "propick_head" | "axe" | "axe_head" | "shovel" | "shovel_head" | "hoe" | "hoe_head" | "chisel" | "chisel_head" | "hammer" | "hammer_head" | "saw" | "saw_blade" | "javelin" | "javelin_head" | "sword" | "sword_blade" | "mace" | "mace_head" | "knife" | "knife_blade" | "scythe" | "scythe_blade" | "shears" | "unfinished_helmet" | "helmet" | "unfinished_chestplate" | "chestplate" | "unfinished_greaves" | "greaves" | "unfinished_boots" | "boots" | "horse_armor" | "shield"));
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $Metal$ItemType_ = $Metal$ItemType$$Type;
 }
 }
 
@@ -571,6 +732,16 @@ export type $ItemAccessor_ = $ItemAccessor$$Type;
 }
 }
 
+declare module "packages/net/dries007/tfc/world/layer/framework/$AreaSource" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $AreaSource$$Type = ($AreaSource | ((arg0: integer, arg1: integer) => integer));
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $AreaSource_ = $AreaSource$$Type;
+}
+}
+
 declare module "packages/net/dries007/tfc/common/blocks/$ExtendedProperties" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
@@ -578,6 +749,16 @@ export type $ExtendedProperties$$Type = ($ExtendedProperties);
 /** Global type exported for convenience, use class-specific types if there's a naming conflict. */
 declare global {
 export type $ExtendedProperties_ = $ExtendedProperties$$Type;
+}
+}
+
+declare module "packages/net/dries007/tfc/world/noise/$Cellular3D$Cell" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $Cellular3D$Cell$$Type = ($Cellular3D$Cell);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $Cellular3D$Cell_ = $Cellular3D$Cell$$Type;
 }
 }
 
@@ -598,6 +779,26 @@ export type $Noise2D$$Type = ($Noise2D | ((arg0: double, arg1: double) => double
 /** Global type exported for convenience, use class-specific types if there's a naming conflict. */
 declare global {
 export type $Noise2D_ = $Noise2D$$Type;
+}
+}
+
+declare module "packages/net/dries007/tfc/world/layer/framework/$Area" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $Area$$Type = ($Area);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $Area_ = $Area$$Type;
+}
+}
+
+declare module "packages/net/dries007/tfc/common/blocks/rock/$LooseRockBlock" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $LooseRockBlock$$Type = ($LooseRockBlock);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $LooseRockBlock_ = $LooseRockBlock$$Type;
 }
 }
 
@@ -768,6 +969,16 @@ export type $ClimateModelType_ = $ClimateModelType$$Type;
 }
 }
 
+declare module "packages/net/dries007/tfc/common/blocks/$GroundcoverBlock" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $GroundcoverBlock$$Type = ($GroundcoverBlock);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $GroundcoverBlock_ = $GroundcoverBlock$$Type;
+}
+}
+
 declare module "packages/net/dries007/tfc/world/surface/builder/$SurfaceBuilder" {
 import { $SurfaceBuilderContext } from "packages/net/dries007/tfc/world/surface/$SurfaceBuilderContext"
 
@@ -796,6 +1007,26 @@ export type $ProspectResult$$Type = ($ProspectResult | ("very_large" | "large" |
 /** Global type exported for convenience, use class-specific types if there's a naming conflict. */
 declare global {
 export type $ProspectResult_ = $ProspectResult$$Type;
+}
+}
+
+declare module "packages/net/dries007/tfc/world/noise/$FastNoiseLite$Vector3" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $FastNoiseLite$Vector3$$Type = ($FastNoiseLite$Vector3);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $FastNoiseLite$Vector3_ = $FastNoiseLite$Vector3$$Type;
+}
+}
+
+declare module "packages/net/dries007/tfc/world/noise/$FastNoiseLite$Vector2" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $FastNoiseLite$Vector2$$Type = ($FastNoiseLite$Vector2);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $FastNoiseLite$Vector2_ = $FastNoiseLite$Vector2$$Type;
 }
 }
 
@@ -1005,6 +1236,28 @@ export type $BiomeAccessor_ = $BiomeAccessor$$Type;
 }
 }
 
+declare module "packages/net/dries007/tfc/world/layer/framework/$MergeLayer" {
+import { $AreaContext } from "packages/net/dries007/tfc/world/layer/framework/$AreaContext"
+import { $Area } from "packages/net/dries007/tfc/world/layer/framework/$Area"
+
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $MergeLayer$$Type = ($MergeLayer | ((arg0: $AreaContext, arg1: $Area, arg2: $Area, arg3: integer, arg4: integer) => integer));
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $MergeLayer_ = $MergeLayer$$Type;
+}
+}
+
+declare module "packages/net/dries007/tfc/util/$Metal$Tier" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $Metal$Tier$$Type = ($Metal$Tier | ("tier_0" | "tier_i" | "tier_ii" | "tier_iii" | "tier_iv" | "tier_v" | "tier_vi"));
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $Metal$Tier_ = $Metal$Tier$$Type;
+}
+}
+
 declare module "packages/net/dries007/tfc/util/events/$ProspectedEvent" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
@@ -1132,6 +1385,17 @@ export type $BlockStateBaseAccessor$$Type = ($BlockStateBaseAccessor | ((arg0: b
 /** Global type exported for convenience, use class-specific types if there's a naming conflict. */
 declare global {
 export type $BlockStateBaseAccessor_ = $BlockStateBaseAccessor$$Type;
+}
+}
+
+declare module "packages/net/dries007/tfc/world/layer/framework/$AdjacentTransformLayer" {
+import { $AreaContext } from "packages/net/dries007/tfc/world/layer/framework/$AreaContext"
+
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $AdjacentTransformLayer$$Type = ($AdjacentTransformLayer | ((arg0: $AreaContext, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer) => integer));
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $AdjacentTransformLayer_ = $AdjacentTransformLayer$$Type;
 }
 }
 
@@ -1364,6 +1628,16 @@ export type $DataManager_<T> = $DataManager$$Type<T>;
 }
 }
 
+declare module "packages/net/dries007/tfc/world/noise/$FastNoiseLite$DomainWarpType" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $FastNoiseLite$DomainWarpType$$Type = ($FastNoiseLite$DomainWarpType | ("opensimplex2" | "opensimplex2reduced" | "basicgrid"));
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $FastNoiseLite$DomainWarpType_ = $FastNoiseLite$DomainWarpType$$Type;
+}
+}
+
 declare module "packages/net/dries007/tfc/common/entities/$GenderedRenderAnimal" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
@@ -1371,6 +1645,28 @@ export type $GenderedRenderAnimal$$Type = ($GenderedRenderAnimal);
 /** Global type exported for convenience, use class-specific types if there's a naming conflict. */
 declare global {
 export type $GenderedRenderAnimal_ = $GenderedRenderAnimal$$Type;
+}
+}
+
+declare module "packages/net/dries007/tfc/world/noise/$FastNoiseLite$CellularReturnType" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $FastNoiseLite$CellularReturnType$$Type = ($FastNoiseLite$CellularReturnType | ("cellvalue" | "distance" | "distance2" | "distance2add" | "distance2sub" | "distance2mul" | "distance2div"));
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $FastNoiseLite$CellularReturnType_ = $FastNoiseLite$CellularReturnType$$Type;
+}
+}
+
+declare module "packages/net/dries007/tfc/world/layer/framework/$TransformLayer" {
+import { $AreaContext } from "packages/net/dries007/tfc/world/layer/framework/$AreaContext"
+import { $Area } from "packages/net/dries007/tfc/world/layer/framework/$Area"
+
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $TransformLayer$$Type = ($TransformLayer | ((arg0: $AreaContext, arg1: $Area, arg2: integer, arg3: integer) => integer));
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $TransformLayer_ = $TransformLayer$$Type;
 }
 }
 
@@ -1401,6 +1697,26 @@ export type $TreePlacementConfig$GroundType$$Type = ($TreePlacementConfig$Ground
 /** Global type exported for convenience, use class-specific types if there's a naming conflict. */
 declare global {
 export type $TreePlacementConfig$GroundType_ = $TreePlacementConfig$GroundType$$Type;
+}
+}
+
+declare module "packages/net/dries007/tfc/world/noise/$FastNoiseLite" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $FastNoiseLite$$Type = ($FastNoiseLite);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $FastNoiseLite_ = $FastNoiseLite$$Type;
+}
+}
+
+declare module "packages/net/dries007/tfc/world/layer/framework/$AreaContext" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $AreaContext$$Type = ($AreaContext);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $AreaContext_ = $AreaContext$$Type;
 }
 }
 
@@ -1546,6 +1862,17 @@ export type $IndirectHashCollection$$Type<K, R> = ($IndirectHashCollection<K, R>
 /** Global type exported for convenience, use class-specific types if there's a naming conflict. */
 declare global {
 export type $IndirectHashCollection_<K, R> = $IndirectHashCollection$$Type<K, R>;
+}
+}
+
+declare module "packages/net/dries007/tfc/world/layer/framework/$SourceLayer" {
+import { $AreaContext } from "packages/net/dries007/tfc/world/layer/framework/$AreaContext"
+
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $SourceLayer$$Type = ($SourceLayer | ((arg0: $AreaContext, arg1: integer, arg2: integer) => integer));
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $SourceLayer_ = $SourceLayer$$Type;
 }
 }
 

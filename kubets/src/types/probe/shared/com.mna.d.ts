@@ -213,8 +213,8 @@ public "setAgePadding"(int0: integer): $MAParticleType
 public "setColor"(double0: double, double1: double, double2: double): $MAParticleType
 public "setColor"(int0: integer, int1: integer, int2: integer): $MAParticleType
 public "setColor"(int0: integer): $MAParticleType
-public "setColor"(affinity0: $Affinity$$Type): $MAParticleType
 public "setColor"(int0: integer, int1: integer, int2: integer, int3: integer): $MAParticleType
+public "setColor"(affinity0: $Affinity$$Type): $MAParticleType
 public "setColor"(float0: float, float1: float, float2: float, float3: float): $MAParticleType
 public "setColor"(float0: float, float1: float, float2: float): $MAParticleType
 public "setColor"(double0: double, double1: double, double2: double, double3: double): $MAParticleType
@@ -258,8 +258,8 @@ export interface $IParticleMoveType {
 "deserialize"(string0: string): void
 "deserialize"(friendlyByteBuf0: $FriendlyByteBuf$$Type): $IParticleMoveType
 "getId"(): integer
-"serialize"(): string
 "serialize"(friendlyByteBuf0: $FriendlyByteBuf$$Type): void
+"serialize"(): string
 get "id"(): integer
 }
 
@@ -298,8 +298,8 @@ public "getSpell"(): $ISpellDefinition
 public "hasBlockBeenAffected"(spellEffect0: $SpellEffect$$Type, blockPos1: $BlockPos$$Type): boolean
 public "hasEntityBeenAffected"(spellEffect0: $SpellEffect$$Type, entity1: $Entity$$Type): boolean
 public "isClientSide"(): boolean
-public "isReagentMissing"(item0: $Item$$Type): boolean
 public "isReagentMissing"(resourceLocation0: $ResourceLocation$$Type): boolean
+public "isReagentMissing"(item0: $Item$$Type): boolean
 public "setMissingReagents"(list0: $List$$Type<$Item$$Type>): void
 get "level"(): $Level
 get "meta"(): $CompoundTag
@@ -317,10 +317,10 @@ import { $FriendlyByteBuf$$Type } from "packages/net/minecraft/network/$Friendly
 export class $ParticleFloat {
 constructor(float0: float)
 
-public static "deserialize"(string0: string): $ParticleFloat
 public static "deserialize"(friendlyByteBuf0: $FriendlyByteBuf$$Type): $ParticleFloat
-public "serialize"(): string
+public static "deserialize"(string0: string): $ParticleFloat
 public static "serialize"(particleFloat0: $ParticleFloat$$Type, friendlyByteBuf1: $FriendlyByteBuf$$Type): void
+public "serialize"(): string
 public "value"(): float
 }
 }
@@ -870,8 +870,8 @@ import { $AuraEvent } from "packages/com/mna/api/events/$AuraEvent"
 import { $LivingEntity, $LivingEntity$$Type } from "packages/net/minecraft/world/entity/$LivingEntity"
 
 export class $AuraEvent$Numerics extends $AuraEvent {
-constructor()
 constructor(enchantment0: $Enchantment$$Type, player1: $Player$$Type, livingEntity2: $LivingEntity$$Type, double3: double, int4: integer, float5: float, boolean6: boolean)
+constructor()
 
 public "getAffecting"(): $LivingEntity
 public "getMagnitude"(): integer
@@ -1343,8 +1343,8 @@ public "getConstruct"(): $IConstruct<any>
 public "getConstructAsEntity"(): $AbstractGolem
 public "getHeldItems"(): $List<$ItemStack>
 public "getId"(): string
-public "getInteractTime"(constructCapability0: $ConstructCapability$$Type, int1: integer): integer
 public "getInteractTime"(constructCapability0: $ConstructCapability$$Type): integer
+public "getInteractTime"(constructCapability0: $ConstructCapability$$Type, int1: integer): integer
 public "getMoveBlockTarget"(): $BlockPos
 public "getMoveEntityTarget"(): $Entity
 public "getMutexManager"(): $IMutexManager
@@ -1375,8 +1375,8 @@ public "requiredCapabilities"(): $ConstructCapability[]
 public "saveParameterData"(): $ListTag
 public "setConstruct"(iConstruct0: $IConstruct$$Type<any>): void
 public "setIdAndIsStart"(string0: string, boolean1: boolean): void
-public "setMoveTarget"(blockPos0: $BlockPos$$Type): void
 public "setMoveTarget"(entity0: $Entity$$Type): void
+public "setMoveTarget"(blockPos0: $BlockPos$$Type): void
 public "setMutexManager"(iMutexManager0: $IMutexManager$$Type): void
 public "setOneOff"(player0: $Player$$Type): void
 public "setSuccessCode"(): void
@@ -1400,8 +1400,8 @@ get "oneOff"(): boolean
 get "start"(): boolean
 get "success"(): boolean
 set "construct"(value: $IConstruct$$Type<any>)
-set "moveTarget"(value: $BlockPos$$Type)
 set "moveTarget"(value: $Entity$$Type)
+set "moveTarget"(value: $BlockPos$$Type)
 set "mutexManager"(value: $IMutexManager$$Type)
 set "oneOff"(value: $Player$$Type)
 }
@@ -1416,8 +1416,8 @@ export class $AttributeValuePair {
 constructor(attribute0: $Attribute$$Type, float1: float, float2: float, float3: float, float4: float)
 constructor(attribute0: $Attribute$$Type, float1: float, float2: float, float3: float, float4: float, float5: float)
 
-public static "deepCopy"(immutableList0: $ImmutableList$$Type<$AttributeValuePair$$Type>): $ImmutableList<$AttributeValuePair>
 public "deepCopy"(): $AttributeValuePair
+public static "deepCopy"(immutableList0: $ImmutableList$$Type<$AttributeValuePair$$Type>): $ImmutableList<$AttributeValuePair>
 public "getAttribute"(): $Attribute
 public "getDefaultValue"(): float
 public "getMaximum"(): float
@@ -1432,8 +1432,8 @@ public "setMultiplier"(float0: float): void
 public "setValue"(float0: float): void
 public "stepDown"(): float
 public "stepDown"(float0: float): float
-public "stepUp"(float0: float): float
 public "stepUp"(): float
+public "stepUp"(float0: float): float
 public "stepUpIgnoreMax"(): float
 get "attribute"(): $Attribute
 get "defaultValue"(): float
@@ -1637,8 +1637,8 @@ export interface $IPlayerProgression {
 "incrementFactionAggro"(iFaction0: $IFaction$$Type, float1: float, float2: float): void
 "isCodexEntryRead"(long0: long): boolean
 "isCodexEntryUnlocked"(long0: long): boolean
-"loadCodexUnlocks"(compoundTag0: $CompoundTag$$Type): void
 "loadCodexUnlocks"(long0s: long[], byte1s: byte[]): void
+"loadCodexUnlocks"(compoundTag0: $CompoundTag$$Type): void
 "needsSync"(): boolean
 "peekCodexBreadcrumb"(): $CodexBreadcrumb
 "performedInitialSync"(): boolean
@@ -1656,8 +1656,8 @@ export interface $IPlayerProgression {
 "setFactionStanding"(int0: integer): void
 "setHasSynced"(): void
 "setRaidChance"(iFaction0: $IFaction$$Type, double1: double): void
-"setTier"(int0: integer, player1: $Player$$Type, boolean2: boolean): void
 "setTier"(int0: integer, player1: $Player$$Type): void
+"setTier"(int0: integer, player1: $Player$$Type, boolean2: boolean): void
 "setTierProgression"(list0: $List$$Type<$ResourceLocation$$Type>): void
 "summonRandomAlly"(player0: $Player$$Type): void
 "tickClassicRaids"(player0: $Player$$Type): void
@@ -1717,10 +1717,10 @@ import { $FriendlyByteBuf$$Type } from "packages/net/minecraft/network/$Friendly
 export class $ParticleInt {
 constructor(int0: integer)
 
-public static "deserialize"(string0: string): $ParticleInt
 public static "deserialize"(friendlyByteBuf0: $FriendlyByteBuf$$Type): $ParticleInt
-public "serialize"(): string
+public static "deserialize"(string0: string): $ParticleInt
 public static "serialize"(particleInt0: $ParticleInt$$Type, friendlyByteBuf1: $FriendlyByteBuf$$Type): void
+public "serialize"(): string
 public "value"(): integer
 }
 }
@@ -2220,8 +2220,8 @@ export interface $IConstructDiagnostics {
 "needsUpdate"(): boolean
 "pushDiagnosticMessage"(string0: string, resourceLocation1: $ResourceLocation$$Type, boolean2: boolean): void
 "pushTaskUpdate"(string0: string, resourceLocation1: $ResourceLocation$$Type, status2: $IConstructDiagnostics$Status$$Type, int3: integer): void
-"pushTaskUpdate"(string0: string, resourceLocation1: $ResourceLocation$$Type, status2: $IConstructDiagnostics$Status$$Type, vec33: $Vec3$$Type): void
 "pushTaskUpdate"(string0: string, resourceLocation1: $ResourceLocation$$Type, status2: $IConstructDiagnostics$Status$$Type, aABB3: $AABB$$Type): void
+"pushTaskUpdate"(string0: string, resourceLocation1: $ResourceLocation$$Type, status2: $IConstructDiagnostics$Status$$Type, vec33: $Vec3$$Type): void
 "setMovePos"(vec30: $Vec3$$Type): void
 set "movePos"(value: $Vec3$$Type)
 }
@@ -2319,8 +2319,8 @@ export class $ParticleItemStack {
 constructor(itemStack0: $ItemStack$$Type)
 constructor()
 
-public static "deserialize"(string0: string): $ParticleItemStack
 public static "deserialize"(friendlyByteBuf0: $FriendlyByteBuf$$Type): $ParticleItemStack
+public static "deserialize"(string0: string): $ParticleItemStack
 public static "serialize"(particleItemStack0: $ParticleItemStack$$Type, friendlyByteBuf1: $FriendlyByteBuf$$Type): void
 public "serialize"(): string
 public "value"(): $ItemStack
@@ -2419,8 +2419,8 @@ import { $Player, $Player$$Type } from "packages/net/minecraft/world/entity/play
 import { $ItemStack, $ItemStack$$Type } from "packages/net/minecraft/world/item/$ItemStack"
 
 export class $RuneforgeEnchantEvent extends $Event {
-constructor(itemStack0: $ItemStack$$Type, player1: $Player$$Type)
 constructor()
+constructor(itemStack0: $ItemStack$$Type, player1: $Player$$Type)
 
 public "getCrafter"(): $Player
 public "getOutput"(): $ItemStack
@@ -2618,8 +2618,8 @@ export interface $IRitualContext {
 "getLevel"(): $Level
 "getRecipe"(): $IRitualRecipe
 "replacePatterns"(nonNullList0: $NonNullList$$Type<$ResourceLocation$$Type>): void
-"replaceReagents"(resourceLocation0: $ResourceLocation$$Type, resourceLocation1: $ResourceLocation$$Type): void
 "replaceReagents"(resourceLocation0: $ResourceLocation$$Type, nonNullList1: $NonNullList$$Type<$ResourceLocation$$Type>): void
+"replaceReagents"(resourceLocation0: $ResourceLocation$$Type, resourceLocation1: $ResourceLocation$$Type): void
 get "allPositions"(): $NonNullList<$RitualBlockPos>
 get "caster"(): $Player
 get "center"(): $BlockPos
@@ -3283,13 +3283,13 @@ constructor(resourceLocation0: $ResourceLocation$$Type, ...attributeValuePair1s:
 public "ApplyEffect"(spellSource0: $SpellSource$$Type, spellTarget1: $SpellTarget$$Type, iModifiedSpellPart2: $IModifiedSpellPart$$Type<$SpellEffect$$Type>, spellContext3: $SpellContext$$Type): $ComponentApplicationResult
 public "SoundEffect"(): $SoundEvent
 /** Client only, do not use in server scripts */
-public "SpawnParticles"(level0: $Level$$Type, vec31: $Vec3$$Type, int2: integer, player3: $Player$$Type, iSpellDefinition4: $ISpellDefinition$$Type): void
-/** Client only, do not use in server scripts */
 public "SpawnParticles"(level0: $Level$$Type, vec31: $Vec3$$Type, vec32: $Vec3$$Type, int3: integer, livingEntity4: $LivingEntity$$Type, iSpellDefinition5: $ISpellDefinition$$Type): void
+/** Client only, do not use in server scripts */
+public "SpawnParticles"(level0: $Level$$Type, vec31: $Vec3$$Type, int2: integer, player3: $Player$$Type, iSpellDefinition4: $ISpellDefinition$$Type): void
 public "addOptionalReagent"(itemStack0: $ItemStack$$Type, boolean1: boolean, boolean2: boolean, boolean3: boolean, ...iFaction4s: $IFaction$$Type[]): void
 public "addOptionalReagent"(itemStack0: $ItemStack$$Type, ...iFaction1s: $IFaction$$Type[]): void
-public "addReagent"(itemStack0: $ItemStack$$Type, ...iFaction1s: $IFaction$$Type[]): void
 public "addReagent"(itemStack0: $ItemStack$$Type, boolean1: boolean, boolean2: boolean, boolean3: boolean, ...iFaction4s: $IFaction$$Type[]): void
+public "addReagent"(itemStack0: $ItemStack$$Type, ...iFaction1s: $IFaction$$Type[]): void
 public "addReagentTooltip"(player0: $Player$$Type, interactionHand1: $InteractionHand$$Type, list2: $List$$Type<$Component$$Type>, spellReagent3: $SpellReagent$$Type): void
 public "applyAtChanneledEntityPos"(boolean0: boolean): boolean
 public "autoConsumeReagents"(): boolean
@@ -3326,10 +3326,10 @@ public "replacesHeldItem"(): boolean
 public "requiredXPForRote"(): integer
 public "targetsBlocks"(): boolean
 public "targetsEntities"(): boolean
-public "tryPlaceBlock"(player0: $Player$$Type, serverLevel1: $ServerLevel$$Type, block2: $Block$$Type, blockPos3: $BlockPos$$Type, direction4: $Direction$$Type, boolean5: boolean, triPredicate6: $TriPredicate$$Type<$Level$$Type, $BlockPos$$Type, $BlockPos$$Type>, biFunction7: $BiFunction$$Type<$BlockPos$$Type, $BlockState$$Type, $BlockState>): $SpellEffect$BlockPlaceResult
 public "tryPlaceBlock"(player0: $Player$$Type, serverLevel1: $ServerLevel$$Type, block2: $Block$$Type, blockPos3: $BlockPos$$Type, direction4: $Direction$$Type, boolean5: boolean, triPredicate6: $TriPredicate$$Type<$Level$$Type, $BlockPos$$Type, $BlockPos$$Type>): $SpellEffect$BlockPlaceResult
 public "tryPlaceBlock"(player0: $Player$$Type, serverLevel1: $ServerLevel$$Type, block2: $Block$$Type, blockPos3: $BlockPos$$Type, direction4: $Direction$$Type, boolean5: boolean): $SpellEffect$BlockPlaceResult
 public "tryPlaceBlock"(player0: $Player$$Type, serverLevel1: $ServerLevel$$Type, block2: $Block$$Type, blockPos3: $BlockPos$$Type, direction4: $Direction$$Type, boolean5: boolean, biFunction6: $BiFunction$$Type<$BlockPos$$Type, $BlockState$$Type, $BlockState>): $SpellEffect$BlockPlaceResult
+public "tryPlaceBlock"(player0: $Player$$Type, serverLevel1: $ServerLevel$$Type, block2: $Block$$Type, blockPos3: $BlockPos$$Type, direction4: $Direction$$Type, boolean5: boolean, triPredicate6: $TriPredicate$$Type<$Level$$Type, $BlockPos$$Type, $BlockPos$$Type>, biFunction7: $BiFunction$$Type<$BlockPos$$Type, $BlockState$$Type, $BlockState>): $SpellEffect$BlockPlaceResult
 get "addingModName"(): string
 get "affinity"(): $Affinity
 get "factionRequirement"(): $IFaction
@@ -3412,16 +3412,16 @@ export interface $IConstruct<T extends $AbstractGolem> extends $IFluidHandler, $
 "clear"(): void
 "clear"(ingredient: $Ingredient$$Type): void
 "clearForcedAnimation"(): void
-"count"(ingredient: $Ingredient$$Type): integer
 "count"(): integer
-"countNonEmpty"(): integer
+"count"(ingredient: $Ingredient$$Type): integer
 "countNonEmpty"(ingredient: $Ingredient$$Type): integer
-"drain"(int0: integer, fluidAction1: $IFluidHandler$FluidAction$$Type): $FluidStack
+"countNonEmpty"(): integer
 "drain"(fluidStack0: $FluidStack$$Type, fluidAction1: $IFluidHandler$FluidAction$$Type): $FluidStack
+"drain"(int0: integer, fluidAction1: $IFluidHandler$FluidAction$$Type): $FluidStack
 "dropAllItems"(): void
 "expandFluidRange"(): boolean
-"extractItem"(i: integer, i1: integer, b: boolean): $ItemStack
 "extractItem"(int0: integer, int1: integer, boolean2: boolean): $ItemStack
+"extractItem"(i: integer, i1: integer, b: boolean): $ItemStack
 "fill"(fluidStack0: $FluidStack$$Type, fluidAction1: $IFluidHandler$FluidAction$$Type): integer
 "find"(ingredient: $Ingredient$$Type): integer
 "find"(): integer
@@ -3467,9 +3467,9 @@ export interface $IConstruct<T extends $AbstractGolem> extends $IFluidHandler, $
 "getValidAttackTargets"(livingEntity0: $LivingEntity$$Type): $List<$LivingEntity>
 "getValidAttackTargets"(): $List<$LivingEntity>
 "getWidth"(): integer
-"hasItem"(resourceLocation0: $ResourceLocation$$Type, int1: integer): boolean
 "hasItem"(dynamicItemFilter0: $DynamicItemFilter$$Type): boolean
 "hasItem"(itemStack0: $ItemStack$$Type, boolean1: boolean, boolean2: boolean): boolean
+"hasItem"(resourceLocation0: $ResourceLocation$$Type, int1: integer): boolean
 "insertItem"(i: integer, itemStack: $ItemStack$$Type, b: boolean): $ItemStack
 "insertItem"(int0: integer, itemStack1: $ItemStack$$Type, boolean2: boolean): $ItemStack
 "insertItem"(stack: $ItemStack$$Type, simulate: boolean): $ItemStack
@@ -3484,13 +3484,13 @@ export interface $IConstruct<T extends $AbstractGolem> extends $IFluidHandler, $
 "isRangedAttacking"(): boolean
 "kjs$self"(): $IItemHandler
 "level"(): $EntityGetter
-"lookTowards"(vec30: $Vec3$$Type, float1: float): void
 "lookTowards"(vec30: $Vec3$$Type): void
+"lookTowards"(vec30: $Vec3$$Type, float1: float): void
 "performRangedAttack"(livingEntity0: $LivingEntity$$Type): boolean
-"pushDiagnosticMessage"(component0: $Component$$Type, resourceLocation1: $ResourceLocation$$Type): void
-"pushDiagnosticMessage"(string0: string, resourceLocation1: $ResourceLocation$$Type, boolean2: boolean): void
 "pushDiagnosticMessage"(string0: string, resourceLocation1: $ResourceLocation$$Type): void
 "pushDiagnosticMessage"(component0: $Component$$Type, resourceLocation1: $ResourceLocation$$Type, boolean2: boolean): void
+"pushDiagnosticMessage"(string0: string, resourceLocation1: $ResourceLocation$$Type, boolean2: boolean): void
+"pushDiagnosticMessage"(component0: $Component$$Type, resourceLocation1: $ResourceLocation$$Type): void
 "resetActions"(): void
 "resetSpellCast"(): void
 "setAdventuring"(boolean0: boolean): void
@@ -3625,8 +3625,8 @@ import { $ArrayList, $ArrayList$$Type } from "packages/java/util/$ArrayList"
 import { $SpellReagent, $SpellReagent$$Type } from "packages/com/mna/api/spells/$SpellReagent"
 
 export class $SpellReagentsEvent extends $Event {
-constructor(iSpellDefinition0: $ISpellDefinition$$Type, player1: $Player$$Type, arrayList2: $ArrayList$$Type<$SpellReagent$$Type>)
 constructor()
+constructor(iSpellDefinition0: $ISpellDefinition$$Type, player1: $Player$$Type, arrayList2: $ArrayList$$Type<$SpellReagent$$Type>)
 
 public "getCaster"(): $Player
 public "getRequiredReagents"(): $ArrayList<$SpellReagent>
@@ -3689,10 +3689,10 @@ import { $FriendlyByteBuf$$Type } from "packages/net/minecraft/network/$Friendly
 export class $ParticleBoolean {
 constructor(boolean0: boolean)
 
-public static "deserialize"(string0: string): $ParticleBoolean
 public static "deserialize"(friendlyByteBuf0: $FriendlyByteBuf$$Type): $ParticleBoolean
-public "serialize"(): string
+public static "deserialize"(string0: string): $ParticleBoolean
 public static "serialize"(particleBoolean0: $ParticleBoolean$$Type, friendlyByteBuf1: $FriendlyByteBuf$$Type): void
+public "serialize"(): string
 public "value"(): boolean
 }
 }

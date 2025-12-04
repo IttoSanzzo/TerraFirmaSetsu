@@ -33,5 +33,6 @@ export const globalModify = [
 	"patchouli",
 	"hexerei",
 	"mna",
-	"iceandfire"
+	"iceandfire",
+	"butcher",
 ];

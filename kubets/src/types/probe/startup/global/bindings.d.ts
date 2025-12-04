@@ -8,6 +8,7 @@ import { $NBTUtils$$Static } from "packages/dev/latvian/mods/rhino/mod/util/$NBT
 import { $PlatformWrapper } from "packages/dev/latvian/mods/kubejs/script/$PlatformWrapper"
 import { $LootEntryWrapper } from "packages/com/almostreliable/lootjs/kube/$LootEntryWrapper"
 import { $ResourceLocation } from "packages/net/minecraft/resources/$ResourceLocation"
+import { $Reference } from "packages/snownee/lychee/core/$Reference"
 import { $LootContextType } from "packages/com/almostreliable/lootjs/core/$LootContextType"
 import { $Blocks } from "packages/net/minecraft/world/level/block/$Blocks"
 import { $NotificationBuilder } from "packages/dev/latvian/mods/kubejs/util/$NotificationBuilder"
@@ -19,6 +20,7 @@ import { $Items } from "packages/net/minecraft/world/item/$Items"
 import { $Vec3 } from "packages/net/minecraft/world/phys/$Vec3"
 import { $Matrix3f } from "packages/org/joml/$Matrix3f"
 import { $Stats } from "packages/net/minecraft/stats/$Stats"
+import { $LootContextParams } from "packages/net/minecraft/world/level/storage/loot/parameters/$LootContextParams"
 import { $Math } from "packages/java/lang/$Math"
 import { $ItemFilter$$Static } from "packages/com/almostreliable/lootjs/filters/$ItemFilter"
 import { $ItemWrapper$$Static } from "packages/dev/latvian/mods/kubejs/bindings/$ItemWrapper"
@@ -35,11 +37,13 @@ import { $InputItem } from "packages/dev/latvian/mods/kubejs/item/$InputItem"
 import { $BlockStateProperties } from "packages/net/minecraft/world/level/block/state/properties/$BlockStateProperties"
 import { $ForgeItemFilter$$Static } from "packages/com/almostreliable/lootjs/forge/filters/$ForgeItemFilter"
 import { $BlockPos } from "packages/net/minecraft/core/$BlockPos"
+import { $LycheeLootContextParams } from "packages/snownee/lychee/$LycheeLootContextParams"
 import { $UUIDWrapper$$Static } from "packages/dev/latvian/mods/rhino/mod/wrapper/$UUIDWrapper"
 import { $Vector4f } from "packages/org/joml/$Vector4f"
 import { $HashMap } from "packages/java/util/$HashMap"
 import { $AABBWrapper$$Static } from "packages/dev/latvian/mods/rhino/mod/wrapper/$AABBWrapper"
 import { $BlockStatePredicate$$Static } from "packages/dev/latvian/mods/kubejs/block/state/$BlockStatePredicate"
+import { $InteractionResult } from "packages/net/minecraft/world/$InteractionResult"
 import { $IngredientWrapper$$Static } from "packages/dev/latvian/mods/kubejs/bindings/$IngredientWrapper"
 import { $Duration } from "packages/java/time/$Duration"
 import { $ConsoleJS } from "packages/dev/latvian/mods/kubejs/util/$ConsoleJS"
@@ -73,6 +77,7 @@ const HOUR: double
 const Ingredient: (typeof $IngredientWrapper$$Static)
 const IngredientHelper: $IngredientForgeHelper
 const InputItem: (typeof $InputItem)
+const InteractionResult: (typeof $InteractionResult)
 const Interval: $IntervalJS
 const Item: (typeof $ItemWrapper$$Static)
 const ItemFilter: (typeof $ItemFilter$$Static)
@@ -81,8 +86,11 @@ const Java: $JavaWrapper
 const JavaMath: (typeof $Math)
 const JsonIO: (typeof $JsonIO)
 const KMath: (typeof $KMath)
+const LootContextParams: (typeof $LootContextParams)
 const LootEntry: (typeof $LootEntryWrapper)
 const LootType: (typeof $LootContextType)
+const LycheeLootContextParams: (typeof $LycheeLootContextParams)
+const LycheeReference: (typeof $Reference)
 const MINUTE: double
 const Matrix3f: (typeof $Matrix3f)
 const Matrix4f: (typeof $Matrix4f)

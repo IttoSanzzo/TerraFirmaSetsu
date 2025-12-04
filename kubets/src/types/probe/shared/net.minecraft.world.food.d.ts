@@ -1,11 +1,14 @@
 declare module "packages/net/minecraft/world/food/$FoodProperties" {
-import { $List } from "packages/java/util/$List"
-import { $MobEffectInstance } from "packages/net/minecraft/world/effect/$MobEffectInstance"
-import { $Pair } from "packages/com/mojang/datafixers/util/$Pair"
+import { $List, $List$$Type } from "packages/java/util/$List"
+import { $MobEffectInstance, $MobEffectInstance$$Type } from "packages/net/minecraft/world/effect/$MobEffectInstance"
+import { $Pair, $Pair$$Type } from "packages/com/mojang/datafixers/util/$Pair"
 import { $Supplier } from "packages/java/util/function/$Supplier"
 
 export class $FoodProperties {
 readonly "effects": $List<$Pair<$Supplier<$MobEffectInstance>, float>>
+
+/** @deprecated */
+constructor(int0: integer, float1: float, boolean2: boolean, boolean3: boolean, boolean4: boolean, list5: $List$$Type<$Pair$$Type<$MobEffectInstance$$Type, float>>)
 
 public "canAlwaysEat"(): boolean
 public "getEffects"(): $List<$Pair<$MobEffectInstance, float>>
@@ -32,9 +35,9 @@ constructor()
 
 public "addAdditionalSaveData"(compoundTag0: $CompoundTag$$Type): void
 public "addExhaustion"(float0: float): void
-public "eat"(int0: integer, float1: float): void
 /** @deprecated */
 public "eat"(item0: $Item$$Type, itemStack1: $ItemStack$$Type): void
+public "eat"(int0: integer, float1: float): void
 public "eat"(item0: $Item$$Type, itemStack1: $ItemStack$$Type, livingEntity2: $LivingEntity$$Type): void
 public "getExhaustionLevel"(): float
 public "getFoodLevel"(): integer

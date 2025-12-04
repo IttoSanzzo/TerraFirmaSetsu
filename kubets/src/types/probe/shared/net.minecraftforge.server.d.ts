@@ -76,8 +76,8 @@ import { $Iterable$$Type } from "packages/java/lang/$Iterable"
 export class $PermissionGatherEvent$Nodes extends $PermissionGatherEvent {
 constructor()
 
-public "addNodes"(iterable0: $Iterable$$Type<$PermissionNode$$Type<any>>): void
 public "addNodes"(...permissionNode0s: $PermissionNode$$Type<any>[]): void
+public "addNodes"(iterable0: $Iterable$$Type<$PermissionNode$$Type<any>>): void
 public "getNodes"(): $Collection<$PermissionNode<any>>
 get "nodes"(): $Collection<$PermissionNode<any>>
 }

@@ -75,17 +75,17 @@ public "rotateCentered"(radians: float, axisX: float, axisY: float, axisZ: float
 public "rotateCentered"(radians: float, axis: $Axis$$Type): $PoseTransformStack
 public "rotateCenteredDegrees"(degrees: float, axis: $Direction$Axis$$Type): $PoseTransformStack
 public "rotateCenteredDegrees"(degrees: float, axis: $Direction$$Type): $PoseTransformStack
-public "rotateCenteredDegrees"(degrees: float, axis: $Axis$$Type): $PoseTransformStack
 public "rotateCenteredDegrees"(degrees: float, axisX: float, axisY: float, axisZ: float): $PoseTransformStack
+public "rotateCenteredDegrees"(degrees: float, axis: $Axis$$Type): $PoseTransformStack
 public "rotateCenteredDegrees"(degrees: float, axis: $Vector3fc$$Type): $PoseTransformStack
 public "rotateDegrees"(degrees: float, axis: $Direction$Axis$$Type): $PoseTransformStack
+public "rotateDegrees"(degrees: float, axis: $Direction$$Type): $PoseTransformStack
 public "rotateDegrees"(degrees: float, axis: $Axis$$Type): $PoseTransformStack
 public "rotateDegrees"(degrees: float, axis: $Vector3fc$$Type): $PoseTransformStack
-public "rotateDegrees"(degrees: float, axis: $Direction$$Type): $PoseTransformStack
 public "rotateDegrees"(degrees: float, axisX: float, axisY: float, axisZ: float): $PoseTransformStack
-public "rotateTo"(from: $Direction$$Type, to: $Direction$$Type): $PoseTransformStack
-public "rotateTo"(fromX: float, fromY: float, fromZ: float, toX: float, toY: float, toZ: float): $PoseTransformStack
 public "rotateTo"(from: $Vector3fc$$Type, to: $Vector3fc$$Type): $PoseTransformStack
+public "rotateTo"(fromX: float, fromY: float, fromZ: float, toX: float, toY: float, toZ: float): $PoseTransformStack
+public "rotateTo"(from: $Direction$$Type, to: $Direction$$Type): $PoseTransformStack
 public "rotateToFace"(facing: $Direction$$Type): $PoseTransformStack
 public "rotateX"(radians: float): $PoseTransformStack
 public "rotateXCentered"(radians: float): $PoseTransformStack
@@ -112,15 +112,15 @@ public "translate"(vec: $Vec3i$$Type): $PoseTransformStack
 public "translate"(vec: $Vector3ic$$Type): $PoseTransformStack
 public "translate"(vec: $Vector3fc$$Type): $PoseTransformStack
 public "translate"(vec: $Vec3$$Type): $PoseTransformStack
-public "translate"(x: double, y: double, z: double): $PoseTransformStack
 public "translate"(v: float): $PoseTransformStack
-public "translateBack"(vec: $Vec3i$$Type): $PoseTransformStack
+public "translate"(x: double, y: double, z: double): $PoseTransformStack
 public "translateBack"(vec: $Vector3ic$$Type): $PoseTransformStack
 public "translateBack"(vec: $Vector3fc$$Type): $PoseTransformStack
 public "translateBack"(vec: $Vec3$$Type): $PoseTransformStack
 public "translateBack"(x: float, y: float, z: float): $PoseTransformStack
 public "translateBack"(x: double, y: double, z: double): $PoseTransformStack
 public "translateBack"(v: float): $PoseTransformStack
+public "translateBack"(vec: $Vec3i$$Type): $PoseTransformStack
 public "translateX"(x: float): $PoseTransformStack
 public "translateY"(y: float): $PoseTransformStack
 public "translateZ"(z: float): $PoseTransformStack
@@ -240,35 +240,35 @@ export interface $VisualizationLevel extends $LevelAccessor {
 "collidesWithSuffocatingBlock"(entity0: $Entity$$Type, aABB1: $AABB$$Type): boolean
 "containsAnyLiquid"(aABB0: $AABB$$Type): boolean
 "dayTime"(): long
-"destroyBlock"(blockPos0: $BlockPos$$Type, boolean1: boolean, entity2: $Entity$$Type, int3: integer): boolean
 "destroyBlock"(blockPos0: $BlockPos$$Type, boolean1: boolean, entity2: $Entity$$Type): boolean
+"destroyBlock"(blockPos0: $BlockPos$$Type, boolean1: boolean, entity2: $Entity$$Type, int3: integer): boolean
 "destroyBlock"(blockPos0: $BlockPos$$Type, boolean1: boolean): boolean
 "dimensionType"(): $DimensionType
 "enabledFeatures"(): $FeatureFlagSet
 "findFreePosition"(entity0: $Entity$$Type, voxelShape1: $VoxelShape$$Type, vec32: $Vec3$$Type, double3: double, double4: double, double5: double): $Optional<$Vec3>
 "findSupportingBlock"(entity0: $Entity$$Type, aABB1: $AABB$$Type): $Optional<$BlockPos>
-"gameEvent"(entity0: $Entity$$Type, gameEvent1: $GameEvent$$Type, blockPos2: $BlockPos$$Type): void
 "gameEvent"(gameEvent0: $GameEvent$$Type, blockPos1: $BlockPos$$Type, context2: $GameEvent$Context$$Type): void
-"gameEvent"(gameEvent0: $GameEvent$$Type, vec31: $Vec3$$Type, context2: $GameEvent$Context$$Type): void
+"gameEvent"(entity0: $Entity$$Type, gameEvent1: $GameEvent$$Type, blockPos2: $BlockPos$$Type): void
 "gameEvent"(entity0: $Entity$$Type, gameEvent1: $GameEvent$$Type, vec32: $Vec3$$Type): void
+"gameEvent"(gameEvent0: $GameEvent$$Type, vec31: $Vec3$$Type, context2: $GameEvent$Context$$Type): void
 "getBestNeighborSignal"(blockPos0: $BlockPos$$Type): integer
 "getBiome"(blockPos0: $BlockPos$$Type): $Holder<$Biome>
 "getBiomeManager"(): $BiomeManager
 "getBlockCollisions"(entity0: $Entity$$Type, aABB1: $AABB$$Type): $Iterable<$VoxelShape>
 "getBlockEntity"<T extends $BlockEntity>(blockPos0: $BlockPos$$Type, blockEntityType1: $BlockEntityType$$Type<T>): $Optional<T>
 "getBlockEntity"(blockPos0: $BlockPos$$Type): $BlockEntity
-"getBlockFloorHeight"(blockPos0: $BlockPos$$Type): double
 "getBlockFloorHeight"(voxelShape0: $VoxelShape$$Type, supplier1: $Supplier$$Type<$VoxelShape>): double
+"getBlockFloorHeight"(blockPos0: $BlockPos$$Type): double
 "getBlockState"(blockPos0: $BlockPos$$Type): $BlockState
 "getBlockStates"(aABB0: $AABB$$Type): $Stream<$BlockState>
 "getBlockStatesIfLoaded"(aABB0: $AABB$$Type): $Stream<$BlockState>
 "getBlockTicks"(): $LevelTickAccess<$Block>
 "getBlockTint"(blockPos0: $BlockPos$$Type, colorResolver1: $ColorResolver$$Type): integer
 "getBrightness"(lightLayer0: $LightLayer$$Type, blockPos1: $BlockPos$$Type): integer
+"getChunk"(blockPos0: $BlockPos$$Type): $ChunkAccess
 "getChunk"(int0: integer, int1: integer, chunkStatus2: $ChunkStatus$$Type, boolean3: boolean): $ChunkAccess
 "getChunk"(int0: integer, int1: integer, chunkStatus2: $ChunkStatus$$Type): $ChunkAccess
 "getChunk"(int0: integer, int1: integer): $ChunkAccess
-"getChunk"(blockPos0: $BlockPos$$Type): $ChunkAccess
 "getChunkForCollisions"(int0: integer, int1: integer): $BlockGetter
 "getChunkSource"(): $ChunkSource
 "getCollisions"(entity0: $Entity$$Type, aABB1: $AABB$$Type): $Iterable<$VoxelShape>
@@ -277,17 +277,17 @@ export interface $VisualizationLevel extends $LevelAccessor {
 "getDifficulty"(): $Difficulty
 "getDirectSignal"(blockPos0: $BlockPos$$Type, direction1: $Direction$$Type): integer
 "getDirectSignalTo"(blockPos0: $BlockPos$$Type): integer
-"getEntities"(entity0: $Entity$$Type, aABB1: $AABB$$Type): $List<$Entity>
 "getEntities"(entity0: $Entity$$Type, aABB1: $AABB$$Type, predicate2: $Predicate$$Type<$Entity$$Type>): $List<$Entity>
 "getEntities"<T extends $Entity>(entityTypeTest0: $EntityTypeTest$$Type<$Entity$$Type, T>, aABB1: $AABB$$Type, predicate2: $Predicate$$Type<T>): $List<T>
-"getEntitiesOfClass"<T extends $Entity>(class0: $Class$$Type<T>, aABB1: $AABB$$Type): $List<T>
+"getEntities"(entity0: $Entity$$Type, aABB1: $AABB$$Type): $List<$Entity>
 "getEntitiesOfClass"<T extends $Entity>(class0: $Class$$Type<T>, aABB1: $AABB$$Type, predicate2: $Predicate$$Type<T>): $List<T>
+"getEntitiesOfClass"<T extends $Entity>(class0: $Class$$Type<T>, aABB1: $AABB$$Type): $List<T>
 "getEntityCollisions"(entity0: $Entity$$Type, aABB1: $AABB$$Type): $List<$VoxelShape>
 "getExistingBlockEntity"(blockPos0: $BlockPos$$Type): $BlockEntity
 "getFluidState"(blockPos0: $BlockPos$$Type): $FluidState
 "getFluidTicks"(): $LevelTickAccess<$Fluid>
-"getHeight"(types0: $Heightmap$Types$$Type, int1: integer, int2: integer): integer
 "getHeight"(): integer
+"getHeight"(types0: $Heightmap$Types$$Type, int1: integer, int2: integer): integer
 "getHeightmapPos"(types0: $Heightmap$Types$$Type, blockPos1: $BlockPos$$Type): $BlockPos
 "getLevelData"(): $LevelData
 "getLightEmission"(blockPos0: $BlockPos$$Type): integer
@@ -306,14 +306,14 @@ export interface $VisualizationLevel extends $LevelAccessor {
 "getMoonPhase"(): integer
 "getNearbyEntities"<T extends $LivingEntity>(class0: $Class$$Type<T>, targetingConditions1: $TargetingConditions$$Type, livingEntity2: $LivingEntity$$Type, aABB3: $AABB$$Type): $List<T>
 "getNearbyPlayers"(targetingConditions0: $TargetingConditions$$Type, livingEntity1: $LivingEntity$$Type, aABB2: $AABB$$Type): $List<$Player>
-"getNearestEntity"<T extends $LivingEntity>(class0: $Class$$Type<T>, targetingConditions1: $TargetingConditions$$Type, livingEntity2: $LivingEntity$$Type, double3: double, double4: double, double5: double, aABB6: $AABB$$Type): T
 "getNearestEntity"<T extends $LivingEntity>(list0: $List$$Type<T>, targetingConditions1: $TargetingConditions$$Type, livingEntity2: $LivingEntity$$Type, double3: double, double4: double, double5: double): T
+"getNearestEntity"<T extends $LivingEntity>(class0: $Class$$Type<T>, targetingConditions1: $TargetingConditions$$Type, livingEntity2: $LivingEntity$$Type, double3: double, double4: double, double5: double, aABB6: $AABB$$Type): T
 "getNearestPlayer"(entity0: $Entity$$Type, double1: double): $Player
 "getNearestPlayer"(double0: double, double1: double, double2: double, double3: double, boolean4: boolean): $Player
 "getNearestPlayer"(double0: double, double1: double, double2: double, double3: double, predicate4: $Predicate$$Type<$Entity$$Type>): $Player
-"getNearestPlayer"(targetingConditions0: $TargetingConditions$$Type, livingEntity1: $LivingEntity$$Type): $Player
 "getNearestPlayer"(targetingConditions0: $TargetingConditions$$Type, livingEntity1: $LivingEntity$$Type, double2: double, double3: double, double4: double): $Player
 "getNearestPlayer"(targetingConditions0: $TargetingConditions$$Type, double1: double, double2: double, double3: double): $Player
+"getNearestPlayer"(targetingConditions0: $TargetingConditions$$Type, livingEntity1: $LivingEntity$$Type): $Player
 "getNoiseBiome"(int0: integer, int1: integer, int2: integer): $Holder<$Biome>
 "getPathfindingCostFromLightLevels"(blockPos0: $BlockPos$$Type): float
 "getPlayerByUUID"(uUID0: $UUID$$Type): $Player
@@ -339,11 +339,11 @@ export interface $VisualizationLevel extends $LevelAccessor {
 /** @deprecated */
 "hasChunkAt"(int0: integer, int1: integer): boolean
 /** @deprecated */
+"hasChunksAt"(int0: integer, int1: integer, int2: integer, int3: integer): boolean
+/** @deprecated */
 "hasChunksAt"(int0: integer, int1: integer, int2: integer, int3: integer, int4: integer, int5: integer): boolean
 /** @deprecated */
 "hasChunksAt"(blockPos0: $BlockPos$$Type, blockPos1: $BlockPos$$Type): boolean
-/** @deprecated */
-"hasChunksAt"(int0: integer, int1: integer, int2: integer, int3: integer): boolean
 "hasNearbyAlivePlayer"(double0: double, double1: double, double2: double, double3: double): boolean
 "hasNeighborSignal"(blockPos0: $BlockPos$$Type): boolean
 "hasSignal"(blockPos0: $BlockPos$$Type, direction1: $Direction$$Type): boolean
@@ -357,16 +357,16 @@ export interface $VisualizationLevel extends $LevelAccessor {
 "isOutsideBuildHeight"(int0: integer): boolean
 "isStateAtPosition"(blockPos0: $BlockPos$$Type, predicate1: $Predicate$$Type<$BlockState$$Type>): boolean
 "isUnobstructed"(entity0: $Entity$$Type, voxelShape1: $VoxelShape$$Type): boolean
-"isUnobstructed"(entity0: $Entity$$Type): boolean
 "isUnobstructed"(blockState0: $BlockState$$Type, blockPos1: $BlockPos$$Type, collisionContext2: $CollisionContext$$Type): boolean
+"isUnobstructed"(entity0: $Entity$$Type): boolean
 "isWaterAt"(blockPos0: $BlockPos$$Type): boolean
 "levelEvent"(int0: integer, blockPos1: $BlockPos$$Type, int2: integer): void
 "levelEvent"(player0: $Player$$Type, int1: integer, blockPos2: $BlockPos$$Type, int3: integer): void
 "neighborShapeChanged"(direction0: $Direction$$Type, blockState1: $BlockState$$Type, blockPos2: $BlockPos$$Type, blockPos3: $BlockPos$$Type, int4: integer, int5: integer): void
 "nextSubTickCount"(): long
 "noCollision"(entity0: $Entity$$Type): boolean
-"noCollision"(entity0: $Entity$$Type, aABB1: $AABB$$Type): boolean
 "noCollision"(aABB0: $AABB$$Type): boolean
+"noCollision"(entity0: $Entity$$Type, aABB1: $AABB$$Type): boolean
 "playSound"(player0: $Player$$Type, blockPos1: $BlockPos$$Type, soundEvent2: $SoundEvent$$Type, soundSource3: $SoundSource$$Type): void
 "playSound"(player0: $Player$$Type, blockPos1: $BlockPos$$Type, soundEvent2: $SoundEvent$$Type, soundSource3: $SoundSource$$Type, float4: float, float5: float): void
 "players"(): $List<$Player>
@@ -697,17 +697,17 @@ export interface $TransformStack<Self extends $TransformStack<Self>> extends $Tr
 "rotateCentered"(radians: float, axis: $Axis$$Type): Self
 "rotateCenteredDegrees"(degrees: float, axis: $Direction$Axis$$Type): Self
 "rotateCenteredDegrees"(degrees: float, axis: $Direction$$Type): Self
-"rotateCenteredDegrees"(degrees: float, axis: $Axis$$Type): Self
 "rotateCenteredDegrees"(degrees: float, axisX: float, axisY: float, axisZ: float): Self
+"rotateCenteredDegrees"(degrees: float, axis: $Axis$$Type): Self
 "rotateCenteredDegrees"(degrees: float, axis: $Vector3fc$$Type): Self
 "rotateDegrees"(degrees: float, axis: $Direction$Axis$$Type): Self
+"rotateDegrees"(degrees: float, axis: $Direction$$Type): Self
 "rotateDegrees"(degrees: float, axis: $Axis$$Type): Self
 "rotateDegrees"(degrees: float, axis: $Vector3fc$$Type): Self
-"rotateDegrees"(degrees: float, axis: $Direction$$Type): Self
 "rotateDegrees"(degrees: float, axisX: float, axisY: float, axisZ: float): Self
-"rotateTo"(from: $Direction$$Type, to: $Direction$$Type): Self
-"rotateTo"(fromX: float, fromY: float, fromZ: float, toX: float, toY: float, toZ: float): Self
 "rotateTo"(from: $Vector3fc$$Type, to: $Vector3fc$$Type): Self
+"rotateTo"(fromX: float, fromY: float, fromZ: float, toX: float, toY: float, toZ: float): Self
+"rotateTo"(from: $Direction$$Type, to: $Direction$$Type): Self
 "rotateToFace"(facing: $Direction$$Type): Self
 "rotateX"(radians: float): Self
 "rotateXCentered"(radians: float): Self
@@ -735,16 +735,16 @@ export interface $TransformStack<Self extends $TransformStack<Self>> extends $Tr
 "translate"(vec: $Vector3ic$$Type): Self
 "translate"(vec: $Vector3fc$$Type): Self
 "translate"(vec: $Vec3$$Type): Self
-"translate"(x: double, y: double, z: double): Self
-"translate"(float0: float, float1: float, float2: float): Self
 "translate"(v: float): Self
-"translateBack"(vec: $Vec3i$$Type): Self
+"translate"(float0: float, float1: float, float2: float): Self
+"translate"(x: double, y: double, z: double): Self
 "translateBack"(vec: $Vector3ic$$Type): Self
 "translateBack"(vec: $Vector3fc$$Type): Self
 "translateBack"(vec: $Vec3$$Type): Self
 "translateBack"(x: float, y: float, z: float): Self
 "translateBack"(x: double, y: double, z: double): Self
 "translateBack"(v: float): Self
+"translateBack"(vec: $Vec3i$$Type): Self
 "translateX"(x: float): Self
 "translateY"(y: float): Self
 "translateZ"(z: float): Self
@@ -839,8 +839,8 @@ export class $AbstractEntityVisual<T extends $Entity> extends $AbstractVisual im
 constructor(ctx: $VisualizationContext$$Type, entity: T, partialTick: float)
 
 public "distanceSquared"(x: double, y: double, z: double): double
-public "getVisualPosition"(partialTick: float): $Vector3f
 public "getVisualPosition"(): $Vector3f
+public "getVisualPosition"(partialTick: float): $Vector3f
 public "isVisible"(frustum: $FrustumIntersection$$Type): boolean
 get "visualPosition"(): $Vector3f
 }
@@ -945,13 +945,13 @@ export interface $Rotate<Self extends $Rotate<Self>> {
 "rotate"(axisAngle: $AxisAngle4f$$Type): Self
 "rotate"(radians: float, axisX: float, axisY: float, axisZ: float): Self
 "rotateDegrees"(degrees: float, axis: $Direction$Axis$$Type): Self
+"rotateDegrees"(degrees: float, axis: $Direction$$Type): Self
 "rotateDegrees"(degrees: float, axis: $Axis$$Type): Self
 "rotateDegrees"(degrees: float, axis: $Vector3fc$$Type): Self
-"rotateDegrees"(degrees: float, axis: $Direction$$Type): Self
 "rotateDegrees"(degrees: float, axisX: float, axisY: float, axisZ: float): Self
-"rotateTo"(from: $Direction$$Type, to: $Direction$$Type): Self
-"rotateTo"(fromX: float, fromY: float, fromZ: float, toX: float, toY: float, toZ: float): Self
 "rotateTo"(from: $Vector3fc$$Type, to: $Vector3fc$$Type): Self
+"rotateTo"(fromX: float, fromY: float, fromZ: float, toX: float, toY: float, toZ: float): Self
+"rotateTo"(from: $Direction$$Type, to: $Direction$$Type): Self
 "rotateToFace"(facing: $Direction$$Type): Self
 "rotateX"(radians: float): Self
 "rotateXDegrees"(degrees: float): Self
@@ -1178,16 +1178,16 @@ export interface $Translate<Self extends $Translate<Self>> {
 "translate"(vec: $Vector3ic$$Type): Self
 "translate"(vec: $Vector3fc$$Type): Self
 "translate"(vec: $Vec3$$Type): Self
-"translate"(x: double, y: double, z: double): Self
-"translate"(float0: float, float1: float, float2: float): Self
 "translate"(v: float): Self
-"translateBack"(vec: $Vec3i$$Type): Self
+"translate"(float0: float, float1: float, float2: float): Self
+"translate"(x: double, y: double, z: double): Self
 "translateBack"(vec: $Vector3ic$$Type): Self
 "translateBack"(vec: $Vector3fc$$Type): Self
 "translateBack"(vec: $Vec3$$Type): Self
 "translateBack"(x: float, y: float, z: float): Self
 "translateBack"(x: double, y: double, z: double): Self
 "translateBack"(v: float): Self
+"translateBack"(vec: $Vec3i$$Type): Self
 "translateX"(x: float): Self
 "translateY"(y: float): Self
 "translateZ"(z: float): Self
@@ -1344,17 +1344,17 @@ export interface $Transform<Self extends $Transform<Self>> extends $Affine<Self>
 "rotateCentered"(radians: float, axis: $Axis$$Type): Self
 "rotateCenteredDegrees"(degrees: float, axis: $Direction$Axis$$Type): Self
 "rotateCenteredDegrees"(degrees: float, axis: $Direction$$Type): Self
-"rotateCenteredDegrees"(degrees: float, axis: $Axis$$Type): Self
 "rotateCenteredDegrees"(degrees: float, axisX: float, axisY: float, axisZ: float): Self
+"rotateCenteredDegrees"(degrees: float, axis: $Axis$$Type): Self
 "rotateCenteredDegrees"(degrees: float, axis: $Vector3fc$$Type): Self
 "rotateDegrees"(degrees: float, axis: $Direction$Axis$$Type): Self
+"rotateDegrees"(degrees: float, axis: $Direction$$Type): Self
 "rotateDegrees"(degrees: float, axis: $Axis$$Type): Self
 "rotateDegrees"(degrees: float, axis: $Vector3fc$$Type): Self
-"rotateDegrees"(degrees: float, axis: $Direction$$Type): Self
 "rotateDegrees"(degrees: float, axisX: float, axisY: float, axisZ: float): Self
-"rotateTo"(from: $Direction$$Type, to: $Direction$$Type): Self
-"rotateTo"(fromX: float, fromY: float, fromZ: float, toX: float, toY: float, toZ: float): Self
 "rotateTo"(from: $Vector3fc$$Type, to: $Vector3fc$$Type): Self
+"rotateTo"(fromX: float, fromY: float, fromZ: float, toX: float, toY: float, toZ: float): Self
+"rotateTo"(from: $Direction$$Type, to: $Direction$$Type): Self
 "rotateToFace"(facing: $Direction$$Type): Self
 "rotateX"(radians: float): Self
 "rotateXCentered"(radians: float): Self
@@ -1382,16 +1382,16 @@ export interface $Transform<Self extends $Transform<Self>> extends $Affine<Self>
 "translate"(vec: $Vector3ic$$Type): Self
 "translate"(vec: $Vector3fc$$Type): Self
 "translate"(vec: $Vec3$$Type): Self
-"translate"(x: double, y: double, z: double): Self
-"translate"(float0: float, float1: float, float2: float): Self
 "translate"(v: float): Self
-"translateBack"(vec: $Vec3i$$Type): Self
+"translate"(float0: float, float1: float, float2: float): Self
+"translate"(x: double, y: double, z: double): Self
 "translateBack"(vec: $Vector3ic$$Type): Self
 "translateBack"(vec: $Vector3fc$$Type): Self
 "translateBack"(vec: $Vec3$$Type): Self
 "translateBack"(x: float, y: float, z: float): Self
 "translateBack"(x: double, y: double, z: double): Self
 "translateBack"(v: float): Self
+"translateBack"(vec: $Vec3i$$Type): Self
 "translateX"(x: float): Self
 "translateY"(y: float): Self
 "translateZ"(z: float): Self
@@ -1527,6 +1527,20 @@ export abstract class $VisualEmbedding$$Static implements $VisualEmbedding {
 }
 }
 
+declare module "packages/dev/engine_room/flywheel/backend/mixin/light/$LayerLightSectionStorageAccessor" {
+import { $DataLayer } from "packages/net/minecraft/world/level/chunk/$DataLayer"
+
+export interface $LayerLightSectionStorageAccessor {
+"flywheel$callGetDataLayer"(long0: long, boolean1: boolean): $DataLayer
+}
+
+export namespace $LayerLightSectionStorageAccessor {
+const probejs$$marker: never
+}
+export abstract class $LayerLightSectionStorageAccessor$$Static implements $LayerLightSectionStorageAccessor {
+}
+}
+
 declare module "packages/dev/engine_room/flywheel/lib/transform/$Scale" {
 import { $Vector3fc$$Type } from "packages/org/joml/$Vector3fc"
 
@@ -1658,17 +1672,17 @@ export interface $Affine<Self extends $Affine<Self>> extends $Translate<Self>, $
 "rotateCentered"(radians: float, axis: $Axis$$Type): Self
 "rotateCenteredDegrees"(degrees: float, axis: $Direction$Axis$$Type): Self
 "rotateCenteredDegrees"(degrees: float, axis: $Direction$$Type): Self
-"rotateCenteredDegrees"(degrees: float, axis: $Axis$$Type): Self
 "rotateCenteredDegrees"(degrees: float, axisX: float, axisY: float, axisZ: float): Self
+"rotateCenteredDegrees"(degrees: float, axis: $Axis$$Type): Self
 "rotateCenteredDegrees"(degrees: float, axis: $Vector3fc$$Type): Self
 "rotateDegrees"(degrees: float, axis: $Direction$Axis$$Type): Self
+"rotateDegrees"(degrees: float, axis: $Direction$$Type): Self
 "rotateDegrees"(degrees: float, axis: $Axis$$Type): Self
 "rotateDegrees"(degrees: float, axis: $Vector3fc$$Type): Self
-"rotateDegrees"(degrees: float, axis: $Direction$$Type): Self
 "rotateDegrees"(degrees: float, axisX: float, axisY: float, axisZ: float): Self
-"rotateTo"(from: $Direction$$Type, to: $Direction$$Type): Self
-"rotateTo"(fromX: float, fromY: float, fromZ: float, toX: float, toY: float, toZ: float): Self
 "rotateTo"(from: $Vector3fc$$Type, to: $Vector3fc$$Type): Self
+"rotateTo"(fromX: float, fromY: float, fromZ: float, toX: float, toY: float, toZ: float): Self
+"rotateTo"(from: $Direction$$Type, to: $Direction$$Type): Self
 "rotateToFace"(facing: $Direction$$Type): Self
 "rotateX"(radians: float): Self
 "rotateXCentered"(radians: float): Self
@@ -1693,16 +1707,16 @@ export interface $Affine<Self extends $Affine<Self>> extends $Translate<Self>, $
 "translate"(vec: $Vector3ic$$Type): Self
 "translate"(vec: $Vector3fc$$Type): Self
 "translate"(vec: $Vec3$$Type): Self
-"translate"(x: double, y: double, z: double): Self
-"translate"(float0: float, float1: float, float2: float): Self
 "translate"(v: float): Self
-"translateBack"(vec: $Vec3i$$Type): Self
+"translate"(float0: float, float1: float, float2: float): Self
+"translate"(x: double, y: double, z: double): Self
 "translateBack"(vec: $Vector3ic$$Type): Self
 "translateBack"(vec: $Vector3fc$$Type): Self
 "translateBack"(vec: $Vec3$$Type): Self
 "translateBack"(x: float, y: float, z: float): Self
 "translateBack"(x: double, y: double, z: double): Self
 "translateBack"(v: float): Self
+"translateBack"(vec: $Vec3i$$Type): Self
 "translateX"(x: float): Self
 "translateY"(y: float): Self
 "translateZ"(z: float): Self

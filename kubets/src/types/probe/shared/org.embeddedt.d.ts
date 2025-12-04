@@ -262,6 +262,20 @@ export abstract class $MeshAppender$$Static implements $MeshAppender {
 }
 }
 
+declare module "packages/org/embeddedt/modernfix/forge/recipe/$ExtendedIngredient" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+export interface $ExtendedIngredient {
+"mfix$clearReference"(): void
+"mfix$hasNoElements"(): boolean
+}
+
+export namespace $ExtendedIngredient {
+const probejs$$marker: never
+}
+export abstract class $ExtendedIngredient$$Static implements $ExtendedIngredient {
+}
+}
+
 declare module "packages/org/embeddedt/embeddium/api/eventbus/$EmbeddiumEvent" {
 import { $Event } from "packages/net/minecraftforge/eventbus/api/$Event"
 
@@ -383,8 +397,8 @@ public "clipWithInteractionOverride"(vec30: $Vec3$$Type, vec31: $Vec3$$Type, blo
 public static "create"(int0: integer, int1: integer): $LevelHeightAccessor
 public "getBlockEntity"(pos: $BlockPos$$Type): $BlockEntity
 public "getBlockEntity"<T extends $BlockEntity>(blockPos0: $BlockPos$$Type, blockEntityType1: $BlockEntityType$$Type<T>): $Optional<T>
-public "getBlockFloorHeight"(blockPos0: $BlockPos$$Type): double
 public "getBlockFloorHeight"(voxelShape0: $VoxelShape$$Type, supplier1: $Supplier$$Type<$VoxelShape>): double
+public "getBlockFloorHeight"(blockPos0: $BlockPos$$Type): double
 public "getBlockState"(pos: $BlockPos$$Type): $BlockState
 public "getBlockStates"(aABB0: $AABB$$Type): $Stream<$BlockState>
 public "getExistingBlockEntity"(blockPos0: $BlockPos$$Type): $BlockEntity

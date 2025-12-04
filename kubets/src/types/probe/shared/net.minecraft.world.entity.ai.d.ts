@@ -104,9 +104,9 @@ public "getWantedY"(): double
 public "getWantedZ"(): double
 public "isLookingAtTarget"(): boolean
 public "setLookAt"(entity0: $Entity$$Type): void
+public "setLookAt"(double0: double, double1: double, double2: double, float3: float, float4: float): void
 public "setLookAt"(double0: double, double1: double, double2: double): void
 public "setLookAt"(entity0: $Entity$$Type, float1: float, float2: float): void
-public "setLookAt"(double0: double, double1: double, double2: double, float3: float, float4: float): void
 public "setLookAt"(vec30: $Vec3$$Type): void
 public "tick"(): void
 get "wantedX"(): double
@@ -203,11 +203,11 @@ constructor(mob0: $Mob$$Type, level1: $Level$$Type)
 
 public "canCutCorner"(blockPathTypes0: $BlockPathTypes$$Type): boolean
 public "canFloat"(): boolean
-public "createPath"(stream0: $Stream$$Type<$BlockPos$$Type>, int1: integer): $Path
-public "createPath"(double0: double, double1: double, double2: double, int3: integer): $Path
-public "createPath"(blockPos0: $BlockPos$$Type, int1: integer, int2: integer): $Path
-public "createPath"(set0: $Set$$Type<$BlockPos$$Type>, int1: integer): $Path
 public "createPath"(entity0: $Entity$$Type, int1: integer): $Path
+public "createPath"(stream0: $Stream$$Type<$BlockPos$$Type>, int1: integer): $Path
+public "createPath"(blockPos0: $BlockPos$$Type, int1: integer, int2: integer): $Path
+public "createPath"(double0: double, double1: double, double2: double, int3: integer): $Path
+public "createPath"(set0: $Set$$Type<$BlockPos$$Type>, int1: integer): $Path
 public "createPath"(blockPos0: $BlockPos$$Type, int1: integer): $Path
 public "getMaxDistanceToWaypoint"(): float
 public "getNodeEvaluator"(): $NodeEvaluator
@@ -217,9 +217,9 @@ public "isDone"(): boolean
 public "isInProgress"(): boolean
 public "isStableDestination"(blockPos0: $BlockPos$$Type): boolean
 public "isStuck"(): boolean
+public "moveTo"(double0: double, double1: double, double2: double, double3: double): boolean
 public "moveTo"(entity0: $Entity$$Type, double1: double): boolean
 public "moveTo"(path0: $Path$$Type, double1: double): boolean
-public "moveTo"(double0: double, double1: double, double2: double, double3: double): boolean
 public "recomputePath"(): void
 public "resetMaxVisitedNodesMultiplier"(): void
 public "setCanFloat"(boolean0: boolean): void
@@ -343,12 +343,12 @@ public "getBaseValue"(attribute0: $Attribute$$Type): double
 public "getDirtyAttributes"(): $Set<$AttributeInstance>
 public "getInstance"(attribute0: $Attribute$$Type): $AttributeInstance
 public "getInstance"(holder0: $Holder$$Type<$Attribute$$Type>): $AttributeInstance
-public "getModifierValue"(attribute0: $Attribute$$Type, uUID1: $UUID$$Type): double
 public "getModifierValue"(holder0: $Holder$$Type<$Attribute$$Type>, uUID1: $UUID$$Type): double
+public "getModifierValue"(attribute0: $Attribute$$Type, uUID1: $UUID$$Type): double
 public "getOwner"(): $LivingEntity
 public "getSyncableAttributes"(): $Collection<$AttributeInstance>
 public "getValue"(attribute0: $Attribute$$Type): double
-public "handler$bjm000$apoth_attrModifiedEvent"(attributeInstance0: $AttributeInstance$$Type, callbackInfo1: $CallbackInfo$$Type): void
+public "handler$bni000$apoth_attrModifiedEvent"(attributeInstance0: $AttributeInstance$$Type, callbackInfo1: $CallbackInfo$$Type): void
 public "hasAttribute"(attribute0: $Attribute$$Type): boolean
 public "hasAttribute"(holder0: $Holder$$Type<$Attribute$$Type>): boolean
 public "hasModifier"(attribute0: $Attribute$$Type, uUID1: $UUID$$Type): boolean
@@ -508,8 +508,8 @@ import { $LivingEntity, $LivingEntity$$Type } from "packages/net/minecraft/world
 export class $NearestVisibleLivingEntities {
 constructor(livingEntity0: $LivingEntity$$Type, list1: $List$$Type<$LivingEntity$$Type>)
 
-public "contains"(predicate0: $Predicate$$Type<$LivingEntity$$Type>): boolean
 public "contains"(livingEntity0: $LivingEntity$$Type): boolean
+public "contains"(predicate0: $Predicate$$Type<$LivingEntity$$Type>): boolean
 public static "empty"(): $NearestVisibleLivingEntities
 public "find"(predicate0: $Predicate$$Type<$LivingEntity$$Type>): $Stream<$LivingEntity>
 public "findAll"(predicate0: $Predicate$$Type<$LivingEntity$$Type>): $Iterable<$LivingEntity>
@@ -781,8 +781,8 @@ public static "isNullOrAddition"(operation0: $AttributeModifier$Operation$$Type)
 public "ths"(): $Attribute
 public "toBaseComponent"(double0: double, double1: double, boolean2: boolean, tooltipFlag3: $TooltipFlag$$Type): $MutableComponent
 public static "toBaseComponent"(attribute0: $Attribute$$Type, double1: double, double2: double, boolean3: boolean, tooltipFlag4: $TooltipFlag$$Type): $MutableComponent
-public "toComponent"(attributeModifier0: $AttributeModifier$$Type, tooltipFlag1: $TooltipFlag$$Type): $MutableComponent
 public static "toComponent"(attribute0: $Attribute$$Type, attributeModifier1: $AttributeModifier$$Type, tooltipFlag2: $TooltipFlag$$Type): $MutableComponent
+public "toComponent"(attributeModifier0: $AttributeModifier$$Type, tooltipFlag1: $TooltipFlag$$Type): $MutableComponent
 public static "toValueComponent"(attribute0: $Attribute$$Type, operation1: $AttributeModifier$Operation$$Type, double2: double, tooltipFlag3: $TooltipFlag$$Type): $MutableComponent
 public "toValueComponent"(operation0: $AttributeModifier$Operation$$Type, double1: double, tooltipFlag2: $TooltipFlag$$Type): $MutableComponent
 get "baseUUID"(): $UUID
@@ -853,8 +853,8 @@ export class $AttributeSupplier$Builder {
 constructor()
 constructor(attributeSupplier0: $AttributeSupplier$$Type)
 
-public "add"(attribute0: $Attribute$$Type): $AttributeSupplier$Builder
 public "add"(attribute0: $Attribute$$Type, double1: double): $AttributeSupplier$Builder
+public "add"(attribute0: $Attribute$$Type): $AttributeSupplier$Builder
 public "build"(): $AttributeSupplier
 public "combine"(builder0: $AttributeSupplier$Builder$$Type): void
 public "hasAttribute"(attribute0: $Attribute$$Type): boolean
@@ -975,9 +975,9 @@ public "decay"(): void
 public "getCountForType"(gossipType0: $GossipType$$Type, doublePredicate1: $DoublePredicate$$Type): long
 public "getGossipEntries"(): $Map<$UUID, $Object2IntMap<$GossipType>>
 public "getReputation"(uUID0: $UUID$$Type, predicate1: $Predicate$$Type<$GossipType$$Type>): integer
+public "remove"(uUID0: $UUID$$Type, gossipType1: $GossipType$$Type, int2: integer): void
 public "remove"(uUID0: $UUID$$Type, gossipType1: $GossipType$$Type): void
 public "remove"(gossipType0: $GossipType$$Type): void
-public "remove"(uUID0: $UUID$$Type, gossipType1: $GossipType$$Type, int2: integer): void
 public "store"<T>(dynamicOps0: $DynamicOps$$Type<T>): T
 public "transferFrom"(gossipContainer0: $GossipContainer$$Type, randomSource1: $RandomSource$$Type, int2: integer): void
 public "update"(dynamic0: $Dynamic$$Type<any>): void
@@ -1006,7 +1006,7 @@ static readonly "TEMPTATION_RANGE": integer
 
 constructor(ingredient0: $Ingredient$$Type)
 
-public "modifyExpressionValue$elj000$quark$findTroughs"(object0: any, serverLevel1: $ServerLevel$$Type, pathfinderMob2: $PathfinderMob$$Type): any
+public "modifyExpressionValue$fbl000$quark$findTroughs"(object0: any, serverLevel1: $ServerLevel$$Type, pathfinderMob2: $PathfinderMob$$Type): any
 }
 }
 

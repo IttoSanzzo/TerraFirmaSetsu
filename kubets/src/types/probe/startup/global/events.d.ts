@@ -1,14 +1,19 @@
 import { $RegisterInteractionsEventJS } from "packages/com/notenoughmail/kubejs_tfc/event/$RegisterInteractionsEventJS"
-import { $RegisterClimateModelEventJS } from "packages/com/notenoughmail/kubejs_tfc/event/$RegisterClimateModelEventJS"
-import { $ClientInitEventJS } from "packages/dev/latvian/mods/kubejs/client/$ClientInitEventJS"
 import { $RegisterItemStackModifierEventJS } from "packages/com/notenoughmail/kubejs_tfc/event/$RegisterItemStackModifierEventJS"
 import { $ItemModelPropertiesEventJS } from "packages/dev/latvian/mods/kubejs/item/$ItemModelPropertiesEventJS"
 import { $RegisterFaunasEventJS } from "packages/com/notenoughmail/kubejs_tfc/event/$RegisterFaunasEventJS"
-import { $AddWorldgenEventJS } from "packages/dev/latvian/mods/kubejs/level/gen/$AddWorldgenEventJS"
-import { $ModifyDefaultWorldGenSettingsEventJS } from "packages/com/notenoughmail/kubejs_tfc/event/$ModifyDefaultWorldGenSettingsEventJS"
 import { $CreativeTabEvent } from "packages/dev/latvian/mods/kubejs/item/creativetab/$CreativeTabEvent"
 import { $RegisterFoodTraitEventJS } from "packages/com/notenoughmail/kubejs_tfc/event/$RegisterFoodTraitEventJS"
 import { $ItemModificationEventJS } from "packages/dev/latvian/mods/kubejs/item/$ItemModificationEventJS"
+import { $BirthdayEventJS } from "packages/com/notenoughmail/kubejs_tfc/event/$BirthdayEventJS"
+import { $CustomActionEventJS } from "packages/snownee/lychee/compat/kubejs/$CustomActionEventJS"
+import { $RemoveWorldgenEventJS } from "packages/dev/latvian/mods/kubejs/level/gen/$RemoveWorldgenEventJS"
+import { $ItemToolTierRegistryEventJS } from "packages/dev/latvian/mods/kubejs/item/custom/$ItemToolTierRegistryEventJS"
+import { $RegisterClimateModelEventJS } from "packages/com/notenoughmail/kubejs_tfc/event/$RegisterClimateModelEventJS"
+import { $ClientInitEventJS } from "packages/dev/latvian/mods/kubejs/client/$ClientInitEventJS"
+import { $AddWorldgenEventJS } from "packages/dev/latvian/mods/kubejs/level/gen/$AddWorldgenEventJS"
+import { $ModifyDefaultWorldGenSettingsEventJS } from "packages/com/notenoughmail/kubejs_tfc/event/$ModifyDefaultWorldGenSettingsEventJS"
+import { $CustomConditionEventJS } from "packages/snownee/lychee/compat/kubejs/$CustomConditionEventJS"
 import { $RegistryEventJS } from "packages/dev/latvian/mods/kubejs/registry/$RegistryEventJS"
 import { $StartupEventJS } from "packages/dev/latvian/mods/kubejs/event/$StartupEventJS"
 import { $BlockModificationEventJS } from "packages/dev/latvian/mods/kubejs/block/$BlockModificationEventJS"
@@ -16,15 +21,18 @@ import { $CreateGlassOperationsEventJS } from "packages/com/notenoughmail/kubejs
 import { $RockSettingsEventJS } from "packages/com/notenoughmail/kubejs_tfc/event/$RockSettingsEventJS"
 import { $ItemArmorTierRegistryEventJS } from "packages/dev/latvian/mods/kubejs/item/custom/$ItemArmorTierRegistryEventJS"
 import { $RegisterRepresentativeBlocksEventJS } from "packages/com/notenoughmail/kubejs_tfc/event/$RegisterRepresentativeBlocksEventJS"
-import { $BirthdayEventJS } from "packages/com/notenoughmail/kubejs_tfc/event/$BirthdayEventJS"
 import { $RecipeSchemaRegistryEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipeSchemaRegistryEventJS"
-import { $RemoveWorldgenEventJS } from "packages/dev/latvian/mods/kubejs/level/gen/$RemoveWorldgenEventJS"
-import { $ItemToolTierRegistryEventJS } from "packages/dev/latvian/mods/kubejs/item/custom/$ItemToolTierRegistryEventJS"
 
 declare global {
 export namespace WorldgenEvents {
 function add(handler: ((event: $AddWorldgenEventJS) => void)): void
 function remove(handler: ((event: $RemoveWorldgenEventJS) => void)): void
+}
+export namespace LycheeEvents {
+function customAction(extra: string, handler: ((event: $CustomActionEventJS) => void)): void
+function customAction(handler: ((event: $CustomActionEventJS) => void)): void
+function customCondition(extra: string, handler: ((event: $CustomConditionEventJS) => void)): void
+function customCondition(handler: ((event: $CustomConditionEventJS) => void)): void
 }
 export namespace ItemEvents {
 function modelProperties(handler: ((event: $ItemModelPropertiesEventJS) => void)): void

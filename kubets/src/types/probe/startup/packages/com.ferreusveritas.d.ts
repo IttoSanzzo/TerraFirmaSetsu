@@ -923,16 +923,6 @@ export type $SeedVoluntaryPlantEvent_ = $SeedVoluntaryPlantEvent$$Type;
 }
 }
 
-declare module "packages/com/ferreusveritas/dynamictrees/block/$GrowableBlock$Info" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
-export type $GrowableBlock$Info$$Type = ($GrowableBlock$Info);
-/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
-declare global {
-export type $GrowableBlock$Info_ = $GrowableBlock$Info$$Type;
-}
-}
-
 declare module "packages/com/ferreusveritas/dynamictrees/api/configuration/$PropertiesAccessor" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
@@ -940,6 +930,16 @@ export type $PropertiesAccessor$$Type = ($PropertiesAccessor);
 /** Global type exported for convenience, use class-specific types if there's a naming conflict. */
 declare global {
 export type $PropertiesAccessor_ = $PropertiesAccessor$$Type;
+}
+}
+
+declare module "packages/com/ferreusveritas/dynamictrees/block/$GrowableBlock$Info" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $GrowableBlock$Info$$Type = ($GrowableBlock$Info);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $GrowableBlock$Info_ = $GrowableBlock$Info$$Type;
 }
 }
 
@@ -1284,16 +1284,6 @@ export type $DirectionManipulationContext_ = $DirectionManipulationContext$$Type
 }
 }
 
-declare module "packages/com/ferreusveritas/dynamictrees/api/configuration/$ConfigurationProperty" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
-export type $ConfigurationProperty$$Type<T> = ($ConfigurationProperty<T>);
-/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
-declare global {
-export type $ConfigurationProperty_<T> = $ConfigurationProperty$$Type<T>;
-}
-}
-
 declare module "packages/com/ferreusveritas/dynamictrees/api/resource/$DTResource" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
@@ -1301,6 +1291,16 @@ export type $DTResource$$Type<R> = ($DTResource<R>);
 /** Global type exported for convenience, use class-specific types if there's a naming conflict. */
 declare global {
 export type $DTResource_<R> = $DTResource$$Type<R>;
+}
+}
+
+declare module "packages/com/ferreusveritas/dynamictrees/api/configuration/$ConfigurationProperty" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $ConfigurationProperty$$Type<T> = ($ConfigurationProperty<T>);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $ConfigurationProperty_<T> = $ConfigurationProperty$$Type<T>;
 }
 }
 

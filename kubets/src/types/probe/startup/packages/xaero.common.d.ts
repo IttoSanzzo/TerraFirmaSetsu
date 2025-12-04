@@ -28,6 +28,18 @@ export type $MinimapRadarList_ = $MinimapRadarList$$Type;
 }
 }
 
+declare module "packages/xaero/common/gui/widget/render/$WidgetRenderer" {
+import { $Widget, $Widget$$Type } from "packages/xaero/common/gui/widget/$Widget"
+import { $GuiGraphics } from "packages/net/minecraft/client/gui/$GuiGraphics"
+
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $WidgetRenderer$$Type<T extends $Widget> = ($WidgetRenderer<T> | ((arg0: $GuiGraphics, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: double, arg6: T) => void));
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $WidgetRenderer_<T extends $Widget> = $WidgetRenderer$$Type<T>;
+}
+}
+
 declare module "packages/xaero/common/interfaces/$InterfaceManager" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
@@ -108,6 +120,16 @@ export type $IMinecraftServer_ = $IMinecraftServer$$Type;
 }
 }
 
+declare module "packages/xaero/common/gui/widget/$ClickAction" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $ClickAction$$Type = ($ClickAction | ("nothing" | "url"));
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $ClickAction_ = $ClickAction$$Type;
+}
+}
+
 declare module "packages/xaero/common/icon/$XaeroIcon" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
@@ -147,6 +169,16 @@ export type $BlockStateShortShapeCache$$Type = ($BlockStateShortShapeCache);
 /** Global type exported for convenience, use class-specific types if there's a naming conflict. */
 declare global {
 export type $BlockStateShortShapeCache_ = $BlockStateShortShapeCache$$Type;
+}
+}
+
+declare module "packages/xaero/common/mods/pac/$SupportOpenPartiesAndClaims" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $SupportOpenPartiesAndClaims$$Type = ($SupportOpenPartiesAndClaims);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $SupportOpenPartiesAndClaims_ = $SupportOpenPartiesAndClaims$$Type;
 }
 }
 
@@ -277,6 +309,18 @@ export type $MinimapRendererHelper$$Type = ($MinimapRendererHelper);
 /** Global type exported for convenience, use class-specific types if there's a naming conflict. */
 declare global {
 export type $MinimapRendererHelper_ = $MinimapRendererHelper$$Type;
+}
+}
+
+declare module "packages/xaero/common/gui/widget/$WidgetClickHandler" {
+import { $Screen } from "packages/net/minecraft/client/gui/screens/$Screen"
+import { $Widget } from "packages/xaero/common/gui/widget/$Widget"
+
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $WidgetClickHandler$$Type = ($WidgetClickHandler | ((arg0: $Screen, arg1: $Widget) => void));
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $WidgetClickHandler_ = $WidgetClickHandler$$Type;
 }
 }
 
@@ -461,6 +505,18 @@ export type $WaypointsManager_ = $WaypointsManager$$Type;
 }
 }
 
+declare module "packages/xaero/common/gui/widget/init/$WidgetInitializer" {
+import { $WidgetScreen } from "packages/xaero/common/gui/widget/$WidgetScreen"
+import { $Widget } from "packages/xaero/common/gui/widget/$Widget"
+
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $WidgetInitializer$$Type = ($WidgetInitializer | ((arg0: $WidgetScreen, arg1: integer, arg2: integer, arg3: $Widget) => void));
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $WidgetInitializer_ = $WidgetInitializer$$Type;
+}
+}
+
 declare module "packages/xaero/common/minimap/element/render/$MinimapElementRenderProvider" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
@@ -570,6 +626,16 @@ export type $MinimapClientWorldData$$Type = ($MinimapClientWorldData);
 /** Global type exported for convenience, use class-specific types if there's a naming conflict. */
 declare global {
 export type $MinimapClientWorldData_ = $MinimapClientWorldData$$Type;
+}
+}
+
+declare module "packages/xaero/common/gui/widget/$Widget" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $Widget$$Type = ($Widget);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $Widget_ = $Widget$$Type;
 }
 }
 
@@ -781,6 +847,16 @@ export type $WidgetScreenHandler$$Type = ($WidgetScreenHandler);
 /** Global type exported for convenience, use class-specific types if there's a naming conflict. */
 declare global {
 export type $WidgetScreenHandler_ = $WidgetScreenHandler$$Type;
+}
+}
+
+declare module "packages/xaero/common/gui/widget/$HoverAction" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $HoverAction$$Type = ($HoverAction | ("nothing" | "tooltip"));
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $HoverAction_ = $HoverAction$$Type;
 }
 }
 
@@ -1186,6 +1262,16 @@ export type $ClientMessageConsumer_<T extends $MinimapMessage<T>> = $ClientMessa
 }
 }
 
+declare module "packages/xaero/common/gui/widget/loader/$WidgetLoader" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $WidgetLoader$$Type = ($WidgetLoader);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $WidgetLoader_ = $WidgetLoader$$Type;
+}
+}
+
 declare module "packages/xaero/common/server/level/$LevelMapProperties" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
@@ -1203,6 +1289,16 @@ export type $SupportIris$$Type = ($SupportIris);
 /** Global type exported for convenience, use class-specific types if there's a naming conflict. */
 declare global {
 export type $SupportIris_ = $SupportIris$$Type;
+}
+}
+
+declare module "packages/xaero/common/gui/widget/$WidgetType" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $WidgetType$$Type = ($WidgetType | ("image" | "button" | "text"));
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $WidgetType_ = $WidgetType$$Type;
 }
 }
 

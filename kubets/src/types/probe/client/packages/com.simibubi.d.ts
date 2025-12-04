@@ -157,6 +157,16 @@ export type $SignalBlock$SignalType_ = $SignalBlock$SignalType$$Type;
 }
 }
 
+declare module "packages/com/simibubi/create/content/trains/station/$GlobalPackagePort" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $GlobalPackagePort$$Type = ($GlobalPackagePort);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $GlobalPackagePort_ = $GlobalPackagePort$$Type;
+}
+}
+
 declare module "packages/com/simibubi/create/foundation/fluid/$CombinedTankWrapper" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
@@ -359,16 +369,6 @@ export type $SmartInventory_ = $SmartInventory$$Type;
 }
 }
 
-declare module "packages/com/simibubi/create/content/trains/entity/$TrainStatus" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
-export type $TrainStatus$$Type = ($TrainStatus);
-/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
-declare global {
-export type $TrainStatus_ = $TrainStatus$$Type;
-}
-}
-
 declare module "packages/com/simibubi/create/content/contraptions/$AbstractContraptionEntity" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
@@ -376,6 +376,16 @@ export type $AbstractContraptionEntity$$Type = ($AbstractContraptionEntity);
 /** Global type exported for convenience, use class-specific types if there's a naming conflict. */
 declare global {
 export type $AbstractContraptionEntity_ = $AbstractContraptionEntity$$Type;
+}
+}
+
+declare module "packages/com/simibubi/create/content/trains/entity/$TrainStatus" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $TrainStatus$$Type = ($TrainStatus);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $TrainStatus_ = $TrainStatus$$Type;
 }
 }
 
@@ -696,6 +706,16 @@ export type $CarriageSounds_ = $CarriageSounds$$Type;
 }
 }
 
+declare module "packages/com/simibubi/create/content/trains/entity/$CarriageContraptionVisual" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $CarriageContraptionVisual$$Type = ($CarriageContraptionVisual);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $CarriageContraptionVisual_ = $CarriageContraptionVisual$$Type;
+}
+}
+
 declare module "packages/com/simibubi/create/foundation/mixin/accessor/$ConcretePowderBlockAccessor" {
 import { $BlockState$$Type } from "packages/net/minecraft/world/level/block/state/$BlockState"
 
@@ -704,16 +724,6 @@ export type $ConcretePowderBlockAccessor$$Type = ($ConcretePowderBlockAccessor |
 /** Global type exported for convenience, use class-specific types if there's a naming conflict. */
 declare global {
 export type $ConcretePowderBlockAccessor_ = $ConcretePowderBlockAccessor$$Type;
-}
-}
-
-declare module "packages/com/simibubi/create/content/trains/entity/$CarriageContraptionVisual" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
-export type $CarriageContraptionVisual$$Type = ($CarriageContraptionVisual);
-/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
-declare global {
-export type $CarriageContraptionVisual_ = $CarriageContraptionVisual$$Type;
 }
 }
 
@@ -1252,16 +1262,6 @@ export type $MouseHandlerAccessor_ = $MouseHandlerAccessor$$Type;
 }
 }
 
-declare module "packages/com/simibubi/create/content/contraptions/$Contraption$RenderedBlocks" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
-export type $Contraption$RenderedBlocks$$Type = ($Contraption$RenderedBlocks);
-/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
-declare global {
-export type $Contraption$RenderedBlocks_ = $Contraption$RenderedBlocks$$Type;
-}
-}
-
 declare module "packages/com/simibubi/create/foundation/virtualWorld/$VirtualRenderWorld" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
@@ -1540,16 +1540,6 @@ export type $TravellingPoint_ = $TravellingPoint$$Type;
 }
 }
 
-declare module "packages/com/simibubi/create/content/trains/station/$GlobalStation$GlobalPackagePort" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
-export type $GlobalStation$GlobalPackagePort$$Type = ($GlobalStation$GlobalPackagePort);
-/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
-declare global {
-export type $GlobalStation$GlobalPackagePort_ = $GlobalStation$GlobalPackagePort$$Type;
-}
-}
-
 declare module "packages/com/simibubi/create/foundation/block/$IHaveBigOutline" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
@@ -1568,6 +1558,16 @@ export type $MountedItemStorageType$$Type<T extends $MountedItemStorage> = ($Mou
 /** Global type exported for convenience, use class-specific types if there's a naming conflict. */
 declare global {
 export type $MountedItemStorageType_<T extends $MountedItemStorage> = $MountedItemStorageType$$Type<T>;
+}
+}
+
+declare module "packages/com/simibubi/create/compat/computercraft/events/$ComputerEvent" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $ComputerEvent$$Type = ($ComputerEvent);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $ComputerEvent_ = $ComputerEvent$$Type;
 }
 }
 
@@ -1631,6 +1631,17 @@ export type $TrackBlock_ = $TrackBlock$$Type;
 }
 }
 
+declare module "packages/com/simibubi/create/foundation/mixin/accessor/$ItemFrameAccessor" {
+import { $ItemStack$$Type } from "packages/net/minecraft/world/item/$ItemStack"
+
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $ItemFrameAccessor$$Type = ($ItemFrameAccessor | (() => $ItemStack$$Type));
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $ItemFrameAccessor_ = $ItemFrameAccessor$$Type;
+}
+}
+
 declare module "packages/com/simibubi/create/content/trains/graph/$TrackGraphBounds" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
@@ -1648,6 +1659,16 @@ export type $ScheduleWaitCondition$$Type = ($ScheduleWaitCondition);
 /** Global type exported for convenience, use class-specific types if there's a naming conflict. */
 declare global {
 export type $ScheduleWaitCondition_ = $ScheduleWaitCondition$$Type;
+}
+}
+
+declare module "packages/com/simibubi/create/content/contraptions/render/$ClientContraption" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $ClientContraption$$Type = ($ClientContraption);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $ClientContraption_ = $ClientContraption$$Type;
 }
 }
 
@@ -1851,6 +1872,16 @@ export type $FallingBlockEntityAccessor$$Type = ($FallingBlockEntityAccessor);
 /** Global type exported for convenience, use class-specific types if there's a naming conflict. */
 declare global {
 export type $FallingBlockEntityAccessor_ = $FallingBlockEntityAccessor$$Type;
+}
+}
+
+declare module "packages/com/simibubi/create/content/contraptions/render/$ClientContraption$RenderedBlocks" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $ClientContraption$RenderedBlocks$$Type = ($ClientContraption$RenderedBlocks);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $ClientContraption$RenderedBlocks_ = $ClientContraption$RenderedBlocks$$Type;
 }
 }
 

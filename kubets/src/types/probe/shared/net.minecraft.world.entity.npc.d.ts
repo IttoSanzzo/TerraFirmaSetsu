@@ -4,9 +4,11 @@ import { $VillagerType, $VillagerType$$Type } from "packages/net/minecraft/world
 import { $VariantHolder } from "packages/net/minecraft/world/entity/$VariantHolder"
 
 export interface $VillagerDataHolder extends $VariantHolder<$VillagerType> {
+"getVariant"(): $VillagerType
 "getVillagerData"(): $VillagerData
 "setVariant"(villagerType0: $VillagerType$$Type): void
 "setVillagerData"(villagerData0: $VillagerData$$Type): void
+get "variant"(): $VillagerType
 get "villagerData"(): $VillagerData
 set "variant"(value: $VillagerType$$Type)
 set "villagerData"(value: $VillagerData$$Type)
@@ -110,12 +112,12 @@ public "canRestock"(): boolean
 public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -128,8 +130,8 @@ public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDespawnDelay"(): integer
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -163,7 +165,7 @@ public "getStepHeight"(): float
 public "getTeamId"(): string
 public "getTotalMovementSpeed"(): double
 public "getType"(): string
-public "handler$fai000$registerGoals"(ci: $CallbackInfo$$Type): void
+public "handler$fgl000$registerGoals"(ci: $CallbackInfo$$Type): void
 public "hasCustomOutlineRendering"(player0: $Player$$Type): boolean
 public "isAmbientCreature"(): boolean
 public "isAnimal"(): boolean
@@ -207,7 +209,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setDefaultMovementSpeed"(speed: double): void
@@ -437,12 +439,12 @@ public "canRestock"(): boolean
 public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -454,8 +456,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -495,7 +497,7 @@ public "getTradingPlayer"(): $Player
 public "getType"(): string
 public "getUnhappyCounter"(): integer
 public "getVillagerXp"(): integer
-public "handler$ehn000$replaceRandom"(merchantOffers0: $MerchantOffers$$Type, itemListing1s: $VillagerTrades$ItemListing$$Type[], int2: integer, callbackInfo3: $CallbackInfo$$Type, localRef4: $LocalRef$$Type<any>): void
+public "handler$enp000$replaceRandom"(merchantOffers0: $MerchantOffers$$Type, itemListing1s: $VillagerTrades$ItemListing$$Type[], int2: integer, callbackInfo3: $CallbackInfo$$Type, localRef4: $LocalRef$$Type<any>): void
 public "hasCustomOutlineRendering"(player0: $Player$$Type): boolean
 public "isAmbientCreature"(): boolean
 public "isAnimal"(): boolean
@@ -519,8 +521,8 @@ public "isUndead"(): boolean
 public "isWaterCreature"(): boolean
 public "mergeNbt"(tag: $CompoundTag$$Type): $Entity
 public "modifyAttribute"(attribute: $Attribute$$Type, identifier: string, d: double, operation: $AttributeModifier$Operation$$Type): void
-public "modifyExpressionValue$ehn000$replaceRandom"(randomSource0: $RandomSource$$Type, merchantOffers1: $MerchantOffers$$Type, localRef2: $LocalRef$$Type<any>): $RandomSource
-public "modifyExpressionValue$ehn000$setTierForOffer"(merchantOffer0: $MerchantOffer$$Type): $MerchantOffer
+public "modifyExpressionValue$enp000$replaceRandom"(randomSource0: $RandomSource$$Type, merchantOffers1: $MerchantOffers$$Type, localRef2: $LocalRef$$Type<any>): $RandomSource
+public "modifyExpressionValue$enp000$setTierForOffer"(merchantOffer0: $MerchantOffer$$Type): $MerchantOffer
 public "moveInFluid"(fluidState0: $FluidState$$Type, vec31: $Vec3$$Type, double2: double): boolean
 public "notifyTrade"(merchantOffer0: $MerchantOffer$$Type): void
 public "notifyTradeUpdated"(itemStack0: $ItemStack$$Type): void
@@ -547,7 +549,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setDefaultMovementSpeed"(speed: double): void
@@ -684,9 +686,10 @@ import { $Entity, $Entity$$Type } from "packages/net/minecraft/world/entity/$Ent
 import { $EntityArrayList } from "packages/dev/latvian/mods/kubejs/player/$EntityArrayList"
 import { $GossipContainer } from "packages/net/minecraft/world/entity/ai/gossip/$GossipContainer"
 import { $BiPredicate, $BiPredicate$$Type } from "packages/java/util/function/$BiPredicate"
+import { $VillagerAccess } from "packages/snownee/kiwi/mixin/$VillagerAccess"
 import { $ScriptType } from "packages/dev/latvian/mods/kubejs/script/$ScriptType"
 import { $ReputationEventType$$Type } from "packages/net/minecraft/world/entity/ai/village/$ReputationEventType"
-import { $VillagerType$$Type } from "packages/net/minecraft/world/entity/npc/$VillagerType"
+import { $VillagerType, $VillagerType$$Type } from "packages/net/minecraft/world/entity/npc/$VillagerType"
 import { $AbstractVillager } from "packages/net/minecraft/world/entity/npc/$AbstractVillager"
 import { $Level, $Level$$Type } from "packages/net/minecraft/world/level/$Level"
 import { $EquipmentSlot$$Type } from "packages/net/minecraft/world/entity/$EquipmentSlot"
@@ -730,9 +733,9 @@ import { $EntityDimensions$$Type } from "packages/net/minecraft/world/entity/$En
 import { $VillagerAccessor } from "packages/ovh/corail/tombstone/mixin/accessor/$VillagerAccessor"
 import { $Map } from "packages/java/util/$Map"
 
-export class $Villager extends $AbstractVillager implements $ReputationEventHandler, $VillagerDataHolder, $VillagerAccessor {
+export class $Villager extends $AbstractVillager implements $ReputationEventHandler, $VillagerDataHolder, $VillagerAccessor, $VillagerAccess {
 static readonly "BREEDING_FOOD_THRESHOLD": integer
-static readonly "FOOD_POINTS": $Map<$Item, integer>
+static "FOOD_POINTS": $Map<$Item, integer>
 static "MEMORY_TYPES": $ImmutableList<$MemoryModuleType<any>>
 static readonly "POI_MEMORIES": $Map<$MemoryModuleType<$GlobalPos>, $BiPredicate<$Villager, $Holder<$PoiType>>>
 static readonly "SPEED_MODIFIER": float
@@ -753,12 +756,12 @@ public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
 public static "createAttributes"(): $AttributeSupplier$Builder
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "eatAndDigestFood"(): void
 public "foodEaten"(is: $ItemStack$$Type): void
@@ -772,8 +775,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -809,10 +812,11 @@ public "getStepHeight"(): float
 public "getTeamId"(): string
 public "getTotalMovementSpeed"(): double
 public "getType"(): string
+public "getVariant"(): $VillagerType
 public "getVillagerData"(): $VillagerData
 public "gossip"(serverLevel0: $ServerLevel$$Type, villager1: $Villager$$Type, long2: long): void
-public "handler$ell000$resetRestocks"(callbackInfo0: $CallbackInfo$$Type): void
-public "handler$ell000$restock"(callbackInfo0: $CallbackInfo$$Type): void
+public "handler$fbn000$resetRestocks"(callbackInfo0: $CallbackInfo$$Type): void
+public "handler$fbn000$restock"(callbackInfo0: $CallbackInfo$$Type): void
 public "hasCustomOutlineRendering"(player0: $Player$$Type): boolean
 public "hasExcessFood"(): boolean
 public "hasFarmSeeds"(): boolean
@@ -864,7 +868,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChasing"(boolean0: boolean): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
@@ -944,6 +948,7 @@ get "stepHeight"(): float
 get "teamId"(): string
 get "totalMovementSpeed"(): double
 get "type"(): string
+get "variant"(): $VillagerType
 get "villagerData"(): $VillagerData
 get "ambientCreature"(): boolean
 get "animal"(): boolean

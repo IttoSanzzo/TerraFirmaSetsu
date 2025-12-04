@@ -219,8 +219,8 @@ public "onTeamAdded"(playerTeam0: $PlayerTeam$$Type): void
 public "onTeamChanged"(playerTeam0: $PlayerTeam$$Type): void
 public "onTeamRemoved"(playerTeam0: $PlayerTeam$$Type): void
 public "removeObjective"(objective0: $Objective$$Type): void
-public "removePlayerFromTeam"(string0: string, playerTeam1: $PlayerTeam$$Type): void
 public "removePlayerFromTeam"(string0: string): boolean
+public "removePlayerFromTeam"(string0: string, playerTeam1: $PlayerTeam$$Type): void
 public "removePlayerTeam"(playerTeam0: $PlayerTeam$$Type): void
 public "resetPlayerScore"(string0: string, objective1: $Objective$$Type): void
 public "setDisplayObjective"(int0: integer, objective1: $Objective$$Type): void

@@ -71,12 +71,12 @@ public "canHydrateInFluidType"(fluidType0: $FluidType$$Type): boolean
 public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -89,8 +89,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -129,7 +129,7 @@ public "getStepHeight"(): float
 public "getTeamId"(): string
 public "getTotalMovementSpeed"(): double
 public "getType"(): string
-public "handler$cip000$mna_convertToConstructStand"(player0: $Player$$Type, vec31: $Vec3$$Type, interactionHand2: $InteractionHand$$Type, callbackInfoReturnable3: $CallbackInfoReturnable$$Type<any>): void
+public "handler$cjk000$mna_convertToConstructStand"(player0: $Player$$Type, vec31: $Vec3$$Type, interactionHand2: $InteractionHand$$Type, callbackInfoReturnable3: $CallbackInfoReturnable$$Type<any>): void
 public "hasCustomOutlineRendering"(player0: $Player$$Type): boolean
 public "isAmbientCreature"(): boolean
 public "isAnimal"(): boolean
@@ -173,7 +173,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setBodyPose"(rotations0: $Rotations$$Type): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
@@ -343,8 +343,8 @@ import { $PartEntity } from "packages/net/minecraftforge/entity/$PartEntity"
 export class $Painting extends $HangingEntity implements $VariantHolder<$Holder<$PaintingVariant>> {
 static readonly "VARIANT_TAG": string
 
-constructor(level0: $Level$$Type, blockPos1: $BlockPos$$Type, direction2: $Direction$$Type, holder3: $Holder$$Type<$PaintingVariant$$Type>)
 constructor(entityType0: $EntityType$$Type<$Painting$$Type>, level1: $Level$$Type)
+constructor(level0: $Level$$Type, blockPos1: $BlockPos$$Type, direction2: $Direction$$Type, holder3: $Holder$$Type<$PaintingVariant$$Type>)
 
 public "alwaysAccepts"(): boolean
 public "attack"(hp: float): void
@@ -360,8 +360,8 @@ public "getBlock"(): $BlockContainerJS
 public "getCapability"<T>(capability0: $Capability$$Type<T>): $LazyOptional<T>
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 /** @deprecated */
 public "getEyeHeightForge"(pose0: $Pose$$Type, entityDimensions1: $EntityDimensions$$Type): float
@@ -385,6 +385,7 @@ public "getSoundFromFluidType"(fluidType0: $FluidType$$Type, soundAction1: $Soun
 public "getStepHeight"(): float
 public "getTeamId"(): string
 public "getType"(): string
+public "getVariant"(): $Holder<$PaintingVariant>
 public "hasCustomOutlineRendering"(player0: $Player$$Type): boolean
 public "isAmbientCreature"(): boolean
 public "isAnimal"(): boolean
@@ -421,7 +422,6 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $Entity
-public "serializeNBT"(): $CompoundTag
 public "setHexereiDynamicLightEnabled"(boolean0: boolean): void
 public "setMotionX"(x: double): void
 public "setMotionY"(y: double): void
@@ -462,6 +462,7 @@ get "server"(): $MinecraftServer
 get "stepHeight"(): float
 get "teamId"(): string
 get "type"(): string
+get "variant"(): $Holder<$PaintingVariant>
 get "ambientCreature"(): boolean
 get "animal"(): boolean
 get "dynamicLightEnabledH"(): boolean
@@ -506,14 +507,17 @@ import { $FluidType$$Type } from "packages/net/minecraftforge/fluids/$FluidType"
 import { $LevelRenderer$$Type } from "packages/net/minecraft/client/renderer/$LevelRenderer"
 import { $Entity, $Entity$$Type } from "packages/net/minecraft/world/entity/$Entity"
 import { $EntityArrayList } from "packages/dev/latvian/mods/kubejs/player/$EntityArrayList"
+import { $MoverType$$Type } from "packages/net/minecraft/world/entity/$MoverType"
 import { $BiPredicate$$Type } from "packages/java/util/function/$BiPredicate"
 import { $RayTraceResultJS } from "packages/dev/latvian/mods/kubejs/entity/$RayTraceResultJS"
 import { $SoundAction$$Type } from "packages/net/minecraftforge/common/$SoundAction"
 import { $ScriptType } from "packages/dev/latvian/mods/kubejs/script/$ScriptType"
 import { $Level } from "packages/net/minecraft/world/level/$Level"
+import { $Vec3$$Type } from "packages/net/minecraft/world/phys/$Vec3"
 import { $Pose$$Type } from "packages/net/minecraft/world/entity/$Pose"
 import { $Capability$$Type } from "packages/net/minecraftforge/common/capabilities/$Capability"
 import { $HitResult$$Type } from "packages/net/minecraft/world/phys/$HitResult"
+import { $CallbackInfo$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfo"
 import { $EntityDimensions$$Type } from "packages/net/minecraft/world/entity/$EntityDimensions"
 import { $PartEntity } from "packages/net/minecraftforge/entity/$PartEntity"
 import { $DynamicLightSource } from "packages/toni/sodiumdynamiclights/$DynamicLightSource"
@@ -534,8 +538,8 @@ public "getBlock"(): $BlockContainerJS
 public "getCapability"<T>(capability0: $Capability$$Type<T>): $LazyOptional<T>
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 /** @deprecated */
 public "getEyeHeightForge"(pose0: $Pose$$Type, entityDimensions1: $EntityDimensions$$Type): float
@@ -562,6 +566,7 @@ public "getStepHeight"(): float
 public "getTeamId"(): string
 public "getType"(): string
 public "getWidth"(): integer
+public "handler$zcb000$onMove"(moverType0: $MoverType$$Type, vec31: $Vec3$$Type, callbackInfo2: $CallbackInfo$$Type): void
 public "hasCustomOutlineRendering"(player0: $Player$$Type): boolean
 public "isAmbientCreature"(): boolean
 public "isAnimal"(): boolean
@@ -599,7 +604,6 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $Entity
-public "serializeNBT"(): $CompoundTag
 public "setDirection"(direction0: $Direction$$Type): void
 public "setHexereiDynamicLightEnabled"(boolean0: boolean): void
 public "setMotionX"(x: double): void
@@ -680,6 +684,7 @@ import { $ResourceLocation$$Type } from "packages/net/minecraft/resources/$Resou
 import { $ItemFrameEntityKJS } from "packages/dev/latvian/mods/kubejs/core/$ItemFrameEntityKJS"
 import { $FluidState$$Type } from "packages/net/minecraft/world/level/material/$FluidState"
 import { $EntityType$$Type } from "packages/net/minecraft/world/entity/$EntityType"
+import { $ItemFrameAccessor } from "packages/com/simibubi/create/foundation/mixin/accessor/$ItemFrameAccessor"
 import { $Player$$Type } from "packages/net/minecraft/world/entity/player/$Player"
 import { $MinecraftServer } from "packages/net/minecraft/server/$MinecraftServer"
 import { $Boat$$Type } from "packages/net/minecraft/world/entity/vehicle/$Boat"
@@ -702,7 +707,7 @@ import { $HitResult$$Type } from "packages/net/minecraft/world/phys/$HitResult"
 import { $EntityDimensions$$Type } from "packages/net/minecraft/world/entity/$EntityDimensions"
 import { $PartEntity } from "packages/net/minecraftforge/entity/$PartEntity"
 
-export class $ItemFrame extends $HangingEntity implements $ItemFrameEntityKJS {
+export class $ItemFrame extends $HangingEntity implements $ItemFrameEntityKJS, $ItemFrameAccessor {
 static readonly "NUM_ROTATIONS": integer
 
 constructor(entityType0: $EntityType$$Type<$ItemFrame$$Type>, level1: $Level$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type)
@@ -725,8 +730,8 @@ public "getBreakSound"(): $SoundEvent
 public "getCapability"<T>(capability0: $Capability$$Type<T>): $LazyOptional<T>
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 /** @deprecated */
 public "getEyeHeightForge"(pose0: $Pose$$Type, entityDimensions1: $EntityDimensions$$Type): float
@@ -791,10 +796,9 @@ public "sdl$isDynamicLightEnabled"(): boolean
 public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
-public "serializeNBT"(): $CompoundTag
 public "setHexereiDynamicLightEnabled"(boolean0: boolean): void
-public "setItem"(itemStack0: $ItemStack$$Type): void
 public "setItem"(itemStack0: $ItemStack$$Type, boolean1: boolean): void
+public "setItem"(itemStack0: $ItemStack$$Type): void
 public "setMotionX"(x: double): void
 public "setMotionY"(y: double): void
 public "setMotionZ"(z: double): void
@@ -919,8 +923,8 @@ public "getBlock"(): $BlockContainerJS
 public "getCapability"<T>(capability0: $Capability$$Type<T>): $LazyOptional<T>
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 /** @deprecated */
 public "getEyeHeightForge"(pose0: $Pose$$Type, entityDimensions1: $EntityDimensions$$Type): float
@@ -980,7 +984,6 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $Entity
-public "serializeNBT"(): $CompoundTag
 public "setHexereiDynamicLightEnabled"(boolean0: boolean): void
 public "setMotionX"(x: double): void
 public "setMotionY"(y: double): void
@@ -1092,8 +1095,8 @@ public "getBlock"(): $BlockContainerJS
 public "getCapability"<T>(capability0: $Capability$$Type<T>): $LazyOptional<T>
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 /** @deprecated */
 public "getEyeHeightForge"(pose0: $Pose$$Type, entityDimensions1: $EntityDimensions$$Type): float
@@ -1151,7 +1154,6 @@ public "sdl$isDynamicLightEnabled"(): boolean
 public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
-public "serializeNBT"(): $CompoundTag
 public "setHexereiDynamicLightEnabled"(boolean0: boolean): void
 public "setMotionX"(x: double): void
 public "setMotionY"(y: double): void

@@ -11,7 +11,7 @@ export function setRecipesToolbelt(event: $RecipesEventJS) {
 		V: "#tfc:metal/shearss",
 		S: "#forge:string",
 		N: "tfc:bone_needle",
-		L: "#tfc:leather_knapping",
+		L: "sns:bound_leather_strip",
 		B: "toolbelt:pouch",
 		U: "#forge:nuggets",
 	});

@@ -19,9 +19,9 @@ public "canPlace"(): boolean
 public "getNearestLookingDirection"(): $Direction
 public "getNearestLookingDirections"(): $Direction[]
 public "getNearestLookingVerticalDirection"(): $Direction
-public "handler$edo000$fixNotAccountingForNullPlayer1"(cir: $CallbackInfoReturnable$$Type<any>): void
-public "handler$edo000$fixNotAccountingForNullPlayer2"(cir: $CallbackInfoReturnable$$Type<any>): void
-public "handler$edo000$fixNotAccountingForNullPlayer3"(cir: $CallbackInfoReturnable$$Type<any>): void
+public "handler$ejp000$fixNotAccountingForNullPlayer1"(cir: $CallbackInfoReturnable$$Type<any>): void
+public "handler$ejp000$fixNotAccountingForNullPlayer2"(cir: $CallbackInfoReturnable$$Type<any>): void
+public "handler$ejp000$fixNotAccountingForNullPlayer3"(cir: $CallbackInfoReturnable$$Type<any>): void
 public "replacingClickedOnBlock"(): boolean
 get "replaceClicked"(): boolean
 set "replaceClicked"(value: boolean)

@@ -92,6 +92,16 @@ export type $ServerLevelKJS_ = $ServerLevelKJS$$Type;
 }
 }
 
+declare module "packages/dev/latvian/mods/kubejs/core/$IngredientKJS" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $IngredientKJS$$Type = ($IngredientKJS);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $IngredientKJS_ = $IngredientKJS$$Type;
+}
+}
+
 declare module "packages/dev/latvian/mods/kubejs/core/mixin/common/$EventHandlerInvoker" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */

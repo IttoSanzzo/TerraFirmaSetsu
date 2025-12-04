@@ -190,8 +190,8 @@ readonly "features": $List<$List<$Holder<$PlacedFeature>>>
 constructor()
 
 public "addCarver"(carving0: $GenerationStep$Carving$$Type, holder1: $Holder$$Type<$ConfiguredWorldCarver$$Type<any>>): $BiomeGenerationSettings$PlainBuilder
-public "addFeature"(decoration0: $GenerationStep$Decoration$$Type, holder1: $Holder$$Type<$PlacedFeature$$Type>): $BiomeGenerationSettings$PlainBuilder
 public "addFeature"(int0: integer, holder1: $Holder$$Type<$PlacedFeature$$Type>): $BiomeGenerationSettings$PlainBuilder
+public "addFeature"(decoration0: $GenerationStep$Decoration$$Type, holder1: $Holder$$Type<$PlacedFeature$$Type>): $BiomeGenerationSettings$PlainBuilder
 public "build"(): $BiomeGenerationSettings
 }
 }
@@ -476,12 +476,12 @@ public "continentalness"(): $Climate$Parameter
 public "depth"(): $Climate$Parameter
 public "erosion"(): $Climate$Parameter
 public "humidity"(): $Climate$Parameter
-public "modifyExpressionValue$eim000$giveMinimumOffsetIfDisabled"(long0: long): long
-public "modifyReturnValue$eim000$dummyOutDisabledParameters"(list0: $List$$Type<any>): $List<any>
+public "modifyExpressionValue$eoo000$giveMinimumOffsetIfDisabled"(long0: long): long
+public "modifyReturnValue$eoo000$dummyOutDisabledParameters"(list0: $List$$Type<any>): $List<any>
 public "offset"(): long
 public "temperature"(): $Climate$Parameter
 public "weirdness"(): $Climate$Parameter
-public "wrapOperation$eim000$giveMinimumDistanceForDisabledParameters"(parameter0: $Climate$Parameter$$Type, long1: long, operation2: $Operation$$Type<any>): long
+public "wrapOperation$eoo000$giveMinimumDistanceForDisabledParameters"(parameter0: $Climate$Parameter$$Type, long1: long, operation2: $Operation$$Type<any>): long
 }
 }
 
@@ -571,9 +571,9 @@ public "distance"(parameter0: $Climate$Parameter$$Type): long
 public "max"(): long
 public "min"(): long
 public static "point"(float0: float): $Climate$Parameter
-public static "span"(float0: float, float1: float): $Climate$Parameter
 public static "span"(parameter0: $Climate$Parameter$$Type, parameter1: $Climate$Parameter$$Type): $Climate$Parameter
 public "span"(parameter0: $Climate$Parameter$$Type): $Climate$Parameter
+public static "span"(float0: float, float1: float): $Climate$Parameter
 }
 }
 

@@ -70,8 +70,8 @@ readonly "x": double
 readonly "y": double
 readonly "z": double
 
-constructor(double0: double, double1: double, double2: double)
 constructor(vector3f0: $Vector3f$$Type)
+constructor(double0: double, double1: double, double2: double)
 
 public "add"(double0: double, double1: double, double2: double): $Vec3
 public "add"(vec30: $Vec3$$Type): $Vec3
@@ -102,8 +102,8 @@ public "offsetRandom"(randomSource0: $RandomSource$$Type, float1: float): $Vec3
 public "relative"(direction0: $Direction$$Type, double1: double): $Vec3
 public "reverse"(): $Vec3
 public "scale"(double0: double): $Vec3
-public "subtract"(vec30: $Vec3$$Type): $Vec3
 public "subtract"(double0: double, double1: double, double2: double): $Vec3
+public "subtract"(vec30: $Vec3$$Type): $Vec3
 public "toVector3f"(): $Vector3f
 public static "upFromBottomCenterOf"(vec3i0: $Vec3i$$Type, double1: double): $Vec3
 public "vectorTo"(vec30: $Vec3$$Type): $Vec3
@@ -139,8 +139,8 @@ import { $DiscreteVoxelShape$IntFaceConsumer$$Type } from "packages/net/minecraf
 
 export class $DiscreteVoxelShape implements $DiscreteVSAccess {
 public "fill"(int0: integer, int1: integer, int2: integer): void
-public "firstFull"(axis0: $Direction$Axis$$Type): integer
 public "firstFull"(axis0: $Direction$Axis$$Type, int1: integer, int2: integer): integer
+public "firstFull"(axis0: $Direction$Axis$$Type): integer
 public "forAllBoxes"(intLineConsumer0: $DiscreteVoxelShape$IntLineConsumer$$Type, boolean1: boolean): void
 public "forAllEdges"(intLineConsumer0: $DiscreteVoxelShape$IntLineConsumer$$Type, boolean1: boolean): void
 public "forAllFaces"(intFaceConsumer0: $DiscreteVoxelShape$IntFaceConsumer$$Type): void
@@ -149,8 +149,8 @@ public "getXSize"(): integer
 public "getYSize"(): integer
 public "getZSize"(): integer
 public "isEmpty"(): boolean
-public "isFull"(int0: integer, int1: integer, int2: integer): boolean
 public "isFull"(axisCycle0: $AxisCycle$$Type, int1: integer, int2: integer, int3: integer): boolean
+public "isFull"(int0: integer, int1: integer, int2: integer): boolean
 public "isFullWide"(int0: integer, int1: integer, int2: integer): boolean
 public "isFullWide"(axisCycle0: $AxisCycle$$Type, int1: integer, int2: integer, int3: integer): boolean
 public "lastFull"(axis0: $Direction$Axis$$Type): integer
@@ -190,10 +190,10 @@ public "forAllEdges"(doubleLineConsumer0: $Shapes$DoubleLineConsumer$$Type): voi
 public "getCoords"(axis0: $Direction$Axis$$Type): $DoubleList
 public "getFaceShape"(direction0: $Direction$$Type): $VoxelShape
 public "isEmpty"(): boolean
-public "max"(axis0: $Direction$Axis$$Type, double1: double, double2: double): double
 public "max"(axis0: $Direction$Axis$$Type): double
-public "min"(axis0: $Direction$Axis$$Type, double1: double, double2: double): double
+public "max"(axis0: $Direction$Axis$$Type, double1: double, double2: double): double
 public "min"(axis0: $Direction$Axis$$Type): double
+public "min"(axis0: $Direction$Axis$$Type, double1: double, double2: double): double
 public "move"(double0: double, double1: double, double2: double): $VoxelShape
 public "optimize"(): $VoxelShape
 public "toAabbs"(): $List<$AABB>
@@ -269,8 +269,8 @@ constructor(double0: double, double1: double, double2: double, double3: double, 
 
 public static "clip"(iterable0: $Iterable$$Type<$AABB$$Type>, vec31: $Vec3$$Type, vec32: $Vec3$$Type, blockPos3: $BlockPos$$Type): $BlockHitResult
 public "clip"(vec30: $Vec3$$Type, vec31: $Vec3$$Type): $Optional<$Vec3>
-public "contains"(vec30: $Vec3$$Type): boolean
 public "contains"(double0: double, double1: double, double2: double): boolean
+public "contains"(vec30: $Vec3$$Type): boolean
 public "contract"(double0: double, double1: double, double2: double): $AABB
 public "deflate"(double0: double): $AABB
 public "deflate"(double0: double, double1: double, double2: double): $AABB
@@ -283,8 +283,8 @@ public "getXsize"(): double
 public "getYsize"(): double
 public "getZsize"(): double
 public "hasNaN"(): boolean
-public "inflate"(double0: double, double1: double, double2: double): $AABB
 public "inflate"(double0: double): $AABB
+public "inflate"(double0: double, double1: double, double2: double): $AABB
 public "intersect"(aABB0: $AABB$$Type): $AABB
 public "intersects"(vec30: $Vec3$$Type, vec31: $Vec3$$Type): boolean
 public "intersects"(aABB0: $AABB$$Type): boolean
@@ -292,9 +292,9 @@ public "intersects"(double0: double, double1: double, double2: double, double3: 
 public "max"(axis0: $Direction$Axis$$Type): double
 public "min"(axis0: $Direction$Axis$$Type): double
 public "minmax"(aABB0: $AABB$$Type): $AABB
+public "move"(vec30: $Vec3$$Type): $AABB
 public "move"(blockPos0: $BlockPos$$Type): $AABB
 public "move"(double0: double, double1: double, double2: double): $AABB
-public "move"(vec30: $Vec3$$Type): $AABB
 public static "of"(boundingBox0: $BoundingBox$$Type): $AABB
 public static "ofSize"(vec30: $Vec3$$Type, double1: double, double2: double, double3: double): $AABB
 public "setMaxX"(double0: double): $AABB

@@ -24,8 +24,8 @@ public static "fromEnum"<E extends ($Enum<E> & $StringRepresentable)>(supplier0:
 public static "fromEnumWithMapping"<E extends ($Enum<E> & $StringRepresentable)>(supplier0: $Supplier$$Type<E[]>, function1: $Function$$Type<string, string>): $StringRepresentable$EnumCodec<E>
 public "getSerializedName"(): string
 public static "keys"(stringRepresentable0s: $StringRepresentable$$Type[]): $Keyable
-public static "valueOf"(int0: integer): $LostPage$Punishment
 public static "valueOf"(string0: string): $LostPage$Punishment
+public static "valueOf"(int0: integer): $LostPage$Punishment
 public static "values"(): $LostPage$Punishment[]
 get "serializedName"(): string
 }

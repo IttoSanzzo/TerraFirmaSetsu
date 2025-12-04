@@ -12,51 +12,6 @@ export abstract class $SignatureUpdater$$Static implements $SignatureUpdater {
 }
 }
 
-declare module "packages/net/minecraft/util/$FormattedCharSequence" {
-import { $Int2IntFunction$$Type } from "packages/it/unimi/dsi/fastutil/ints/$Int2IntFunction"
-import { $FormattedCharSink, $FormattedCharSink$$Type } from "packages/net/minecraft/util/$FormattedCharSink"
-import { $List$$Type } from "packages/java/util/$List"
-import { $Style$$Type } from "packages/net/minecraft/network/chat/$Style"
-
-export interface $FormattedCharSequence {
-"accept"(formattedCharSink0: $FormattedCharSink$$Type): boolean
-}
-
-export namespace $FormattedCharSequence {
-const EMPTY: $FormattedCharSequence
-function backward(string0: string, style1: $Style$$Type, int2IntFunction2: $Int2IntFunction$$Type): $FormattedCharSequence
-function backward(string0: string, style1: $Style$$Type): $FormattedCharSequence
-function codepoint(int0: integer, style1: $Style$$Type): $FormattedCharSequence
-function composite(formattedCharSequence0: $FormattedCharSequence$$Type): $FormattedCharSequence
-function composite(): $FormattedCharSequence
-function composite(formattedCharSequence0: $FormattedCharSequence$$Type, formattedCharSequence1: $FormattedCharSequence$$Type): $FormattedCharSequence
-function composite(list0: $List$$Type<$FormattedCharSequence$$Type>): $FormattedCharSequence
-function composite(...formattedCharSequence0s: $FormattedCharSequence$$Type[]): $FormattedCharSequence
-function decorateOutput(formattedCharSink0: $FormattedCharSink$$Type, int2IntFunction1: $Int2IntFunction$$Type): $FormattedCharSink
-function forward(string0: string, style1: $Style$$Type): $FormattedCharSequence
-function forward(string0: string, style1: $Style$$Type, int2IntFunction2: $Int2IntFunction$$Type): $FormattedCharSequence
-function fromList(list0: $List$$Type<$FormattedCharSequence$$Type>): $FormattedCharSequence
-function fromPair(formattedCharSequence0: $FormattedCharSequence$$Type, formattedCharSequence1: $FormattedCharSequence$$Type): $FormattedCharSequence
-}
-export abstract class $FormattedCharSequence$$Static implements $FormattedCharSequence {
-static readonly "EMPTY": $FormattedCharSequence
-
-static "backward"(string0: string, style1: $Style$$Type, int2IntFunction2: $Int2IntFunction$$Type): $FormattedCharSequence
-static "backward"(string0: string, style1: $Style$$Type): $FormattedCharSequence
-static "codepoint"(int0: integer, style1: $Style$$Type): $FormattedCharSequence
-static "composite"(formattedCharSequence0: $FormattedCharSequence$$Type): $FormattedCharSequence
-static "composite"(): $FormattedCharSequence
-static "composite"(formattedCharSequence0: $FormattedCharSequence$$Type, formattedCharSequence1: $FormattedCharSequence$$Type): $FormattedCharSequence
-static "composite"(list0: $List$$Type<$FormattedCharSequence$$Type>): $FormattedCharSequence
-static "composite"(...formattedCharSequence0s: $FormattedCharSequence$$Type[]): $FormattedCharSequence
-static "decorateOutput"(formattedCharSink0: $FormattedCharSink$$Type, int2IntFunction1: $Int2IntFunction$$Type): $FormattedCharSink
-static "forward"(string0: string, style1: $Style$$Type): $FormattedCharSequence
-static "forward"(string0: string, style1: $Style$$Type, int2IntFunction2: $Int2IntFunction$$Type): $FormattedCharSequence
-static "fromList"(list0: $List$$Type<$FormattedCharSequence$$Type>): $FormattedCharSequence
-static "fromPair"(formattedCharSequence0: $FormattedCharSequence$$Type, formattedCharSequence1: $FormattedCharSequence$$Type): $FormattedCharSequence
-}
-}
-
 declare module "packages/net/minecraft/util/$AbortableIterationConsumer" {
 import { $AbortableIterationConsumer$Continuation } from "packages/net/minecraft/util/$AbortableIterationConsumer$Continuation"
 import { $Consumer$$Type } from "packages/java/util/function/$Consumer"
@@ -70,6 +25,51 @@ function forConsumer<T>(consumer0: $Consumer$$Type<T>): $AbortableIterationConsu
 }
 export abstract class $AbortableIterationConsumer$$Static<T> implements $AbortableIterationConsumer<T> {
 static "forConsumer"<T>(consumer0: $Consumer$$Type<T>): $AbortableIterationConsumer<T>
+}
+}
+
+declare module "packages/net/minecraft/util/$FormattedCharSequence" {
+import { $Int2IntFunction$$Type } from "packages/it/unimi/dsi/fastutil/ints/$Int2IntFunction"
+import { $FormattedCharSink, $FormattedCharSink$$Type } from "packages/net/minecraft/util/$FormattedCharSink"
+import { $List$$Type } from "packages/java/util/$List"
+import { $Style$$Type } from "packages/net/minecraft/network/chat/$Style"
+
+export interface $FormattedCharSequence {
+"accept"(formattedCharSink0: $FormattedCharSink$$Type): boolean
+}
+
+export namespace $FormattedCharSequence {
+const EMPTY: $FormattedCharSequence
+function backward(string0: string, style1: $Style$$Type): $FormattedCharSequence
+function backward(string0: string, style1: $Style$$Type, int2IntFunction2: $Int2IntFunction$$Type): $FormattedCharSequence
+function codepoint(int0: integer, style1: $Style$$Type): $FormattedCharSequence
+function composite(formattedCharSequence0: $FormattedCharSequence$$Type): $FormattedCharSequence
+function composite(formattedCharSequence0: $FormattedCharSequence$$Type, formattedCharSequence1: $FormattedCharSequence$$Type): $FormattedCharSequence
+function composite(...formattedCharSequence0s: $FormattedCharSequence$$Type[]): $FormattedCharSequence
+function composite(list0: $List$$Type<$FormattedCharSequence$$Type>): $FormattedCharSequence
+function composite(): $FormattedCharSequence
+function decorateOutput(formattedCharSink0: $FormattedCharSink$$Type, int2IntFunction1: $Int2IntFunction$$Type): $FormattedCharSink
+function forward(string0: string, style1: $Style$$Type): $FormattedCharSequence
+function forward(string0: string, style1: $Style$$Type, int2IntFunction2: $Int2IntFunction$$Type): $FormattedCharSequence
+function fromList(list0: $List$$Type<$FormattedCharSequence$$Type>): $FormattedCharSequence
+function fromPair(formattedCharSequence0: $FormattedCharSequence$$Type, formattedCharSequence1: $FormattedCharSequence$$Type): $FormattedCharSequence
+}
+export abstract class $FormattedCharSequence$$Static implements $FormattedCharSequence {
+static readonly "EMPTY": $FormattedCharSequence
+
+static "backward"(string0: string, style1: $Style$$Type): $FormattedCharSequence
+static "backward"(string0: string, style1: $Style$$Type, int2IntFunction2: $Int2IntFunction$$Type): $FormattedCharSequence
+static "codepoint"(int0: integer, style1: $Style$$Type): $FormattedCharSequence
+static "composite"(formattedCharSequence0: $FormattedCharSequence$$Type): $FormattedCharSequence
+static "composite"(formattedCharSequence0: $FormattedCharSequence$$Type, formattedCharSequence1: $FormattedCharSequence$$Type): $FormattedCharSequence
+static "composite"(...formattedCharSequence0s: $FormattedCharSequence$$Type[]): $FormattedCharSequence
+static "composite"(list0: $List$$Type<$FormattedCharSequence$$Type>): $FormattedCharSequence
+static "composite"(): $FormattedCharSequence
+static "decorateOutput"(formattedCharSink0: $FormattedCharSink$$Type, int2IntFunction1: $Int2IntFunction$$Type): $FormattedCharSink
+static "forward"(string0: string, style1: $Style$$Type): $FormattedCharSequence
+static "forward"(string0: string, style1: $Style$$Type, int2IntFunction2: $Int2IntFunction$$Type): $FormattedCharSequence
+static "fromList"(list0: $List$$Type<$FormattedCharSequence$$Type>): $FormattedCharSequence
+static "fromPair"(formattedCharSequence0: $FormattedCharSequence$$Type, formattedCharSequence1: $FormattedCharSequence$$Type): $FormattedCharSequence
 }
 }
 
@@ -292,28 +292,6 @@ static "tee"(profilerFiller0: $ProfilerFiller$$Type, profilerFiller1: $ProfilerF
 }
 }
 
-declare module "packages/net/minecraft/util/valueproviders/$FloatProvider" {
-import { $FloatProviderType } from "packages/net/minecraft/util/valueproviders/$FloatProviderType"
-import { $RandomSource$$Type } from "packages/net/minecraft/util/$RandomSource"
-import { $SampledFloat } from "packages/net/minecraft/util/valueproviders/$SampledFloat"
-import { $Codec } from "packages/com/mojang/serialization/$Codec"
-
-export class $FloatProvider implements $SampledFloat {
-static readonly "CODEC": $Codec<$FloatProvider>
-
-constructor()
-
-public static "codec"(float0: float, float1: float): $Codec<$FloatProvider>
-public "getMaxValue"(): float
-public "getMinValue"(): float
-public "getType"(): $FloatProviderType<any>
-public "sample"(randomSource0: $RandomSource$$Type): float
-get "maxValue"(): float
-get "minValue"(): float
-get "type"(): $FloatProviderType<any>
-}
-}
-
 declare module "packages/net/minecraft/util/$BitStorage" {
 import { $IntConsumer$$Type } from "packages/java/util/function/$IntConsumer"
 
@@ -336,6 +314,28 @@ export namespace $BitStorage {
 const probejs$$marker: never
 }
 export abstract class $BitStorage$$Static implements $BitStorage {
+}
+}
+
+declare module "packages/net/minecraft/util/valueproviders/$FloatProvider" {
+import { $FloatProviderType } from "packages/net/minecraft/util/valueproviders/$FloatProviderType"
+import { $RandomSource$$Type } from "packages/net/minecraft/util/$RandomSource"
+import { $SampledFloat } from "packages/net/minecraft/util/valueproviders/$SampledFloat"
+import { $Codec } from "packages/com/mojang/serialization/$Codec"
+
+export class $FloatProvider implements $SampledFloat {
+static readonly "CODEC": $Codec<$FloatProvider>
+
+constructor()
+
+public static "codec"(float0: float, float1: float): $Codec<$FloatProvider>
+public "getMaxValue"(): float
+public "getMinValue"(): float
+public "getType"(): $FloatProviderType<any>
+public "sample"(randomSource0: $RandomSource$$Type): float
+get "maxValue"(): float
+get "minValue"(): float
+get "type"(): $FloatProviderType<any>
 }
 }
 
@@ -453,8 +453,8 @@ public "name"(): string
 public static "of"<Msg>(string0: string, consumer1: $Consumer$$Type<Msg>): $ProcessorHandle<Msg>
 public "pollTask"(): boolean
 public "profiledMetrics"(): $List<$MetricSampler>
-public "submit"(runnable0: $Runnable$$Type): $CompletableFuture<void>
 public "submit"<V>(supplier0: $Supplier$$Type<V>): $CompletableFuture<V>
+public "submit"(runnable0: $Runnable$$Type): $CompletableFuture<void>
 public "submitAsync"(runnable0: $Runnable$$Type): $CompletableFuture<void>
 public "tell"(r0: R): void
 get "pendingTasksCount"(): integer
@@ -522,8 +522,8 @@ export class $KeyDispatchDataCodec<A> extends $Record {
 constructor(codec0: $Codec$$Type<A>)
 
 public "codec"(): $Codec<A>
-public static "of"<A>(mapCodec0: $MapCodec$$Type<A>): $KeyDispatchDataCodec<A>
 public static "of"<A>(codec0: $Codec$$Type<A>): $KeyDispatchDataCodec<A>
+public static "of"<A>(mapCodec0: $MapCodec$$Type<A>): $KeyDispatchDataCodec<A>
 }
 }
 
@@ -688,8 +688,8 @@ import { $Codec, $Codec$$Type } from "packages/com/mojang/serialization/$Codec"
 export class $WeightedRandomList<E extends $WeightedEntry> {
 public static "codec"<E extends $WeightedEntry>(codec0: $Codec$$Type<E>): $Codec<$WeightedRandomList<E>>
 public static "create"<E extends $WeightedEntry>(...e0s: E[]): $WeightedRandomList<E>
-public static "create"<E extends $WeightedEntry>(): $WeightedRandomList<E>
 public static "create"<E extends $WeightedEntry>(list0: $List$$Type<E>): $WeightedRandomList<E>
+public static "create"<E extends $WeightedEntry>(): $WeightedRandomList<E>
 public "getRandom"(randomSource0: $RandomSource$$Type): $Optional<E>
 public "isEmpty"(): boolean
 public "unwrap"(): $List<E>
@@ -916,10 +916,10 @@ static readonly "STRUCTURE": $DataFixTypes
 static readonly "TYPES_FOR_LEVEL_LIST": $Set<$DSL$TypeReference>
 static readonly "WORLD_GEN_SETTINGS": $DataFixTypes
 
-public "update"(dataFixer0: $DataFixer$$Type, compoundTag1: $CompoundTag$$Type, int2: integer, int3: integer): $CompoundTag
 public "update"<T>(dataFixer0: $DataFixer$$Type, dynamic1: $Dynamic$$Type<T>, int2: integer, int3: integer): $Dynamic<T>
-public "updateToCurrentVersion"<T>(dataFixer0: $DataFixer$$Type, dynamic1: $Dynamic$$Type<T>, int2: integer): $Dynamic<T>
+public "update"(dataFixer0: $DataFixer$$Type, compoundTag1: $CompoundTag$$Type, int2: integer, int3: integer): $CompoundTag
 public "updateToCurrentVersion"(dataFixer0: $DataFixer$$Type, compoundTag1: $CompoundTag$$Type, int2: integer): $CompoundTag
+public "updateToCurrentVersion"<T>(dataFixer0: $DataFixer$$Type, dynamic1: $Dynamic$$Type<T>, int2: integer): $Dynamic<T>
 public static "valueOf"(string0: string): $DataFixTypes
 public static "values"(): $DataFixTypes[]
 }
@@ -1160,8 +1160,8 @@ public "decode"<T>(dynamic0: $Dynamic$$Type<T>): $DataResult<$Pair<E, T>>
 public "deprecated"(int0: integer): $Codec<E>
 public "dispatch"<E>(function0: $Function$$Type<E, E>, function1: $Function$$Type<E, $Codec<E>>): $Codec<E>
 public "dispatch"<E>(string0: string, function1: $Function$$Type<E, E>, function2: $Function$$Type<E, $Codec<E>>): $Codec<E>
-public "dispatchMap"<E>(string0: string, function1: $Function$$Type<E, E>, function2: $Function$$Type<E, $Codec<E>>): $MapCodec<E>
 public "dispatchMap"<E>(function0: $Function$$Type<E, E>, function1: $Function$$Type<E, $Codec<E>>): $MapCodec<E>
+public "dispatchMap"<E>(string0: string, function1: $Function$$Type<E, E>, function2: $Function$$Type<E, $Codec<E>>): $MapCodec<E>
 public "dispatchStable"<E>(function0: $Function$$Type<E, E>, function1: $Function$$Type<E, $Codec<E>>): $Codec<E>
 public static "doubleRange"(double0: double, double1: double): $Codec<double>
 public static "either"<F, S>(codec0: $Codec$$Type<F>, codec1: $Codec$$Type<S>): $Codec<$Either<F, S>>
@@ -1190,8 +1190,8 @@ public static "ofSimple"<A>(simple0: $Decoder$Simple$$Type<A>): $Decoder<A>
 public static "ofTerminal"<A>(terminal0: $Decoder$Terminal$$Type<A>): $Decoder<A>
 public static "optionalField"<F>(string0: string, codec1: $Codec$$Type<F>): $MapCodec<$Optional<F>>
 public "optionalFieldOf"(string0: string, lifecycle1: $Lifecycle$$Type, e2: E, lifecycle3: $Lifecycle$$Type): $MapCodec<E>
-public "optionalFieldOf"(string0: string, e1: E): $MapCodec<E>
 public "optionalFieldOf"(string0: string, e1: E, lifecycle2: $Lifecycle$$Type): $MapCodec<E>
+public "optionalFieldOf"(string0: string, e1: E): $MapCodec<E>
 public "optionalFieldOf"(string0: string): $MapCodec<$Optional<E>>
 public "orElse"(unaryOperator0: $UnaryOperator$$Type<string>, e1: E): $Codec<E>
 public "orElse"(consumer0: $Consumer$$Type<string>, e1: E): $Codec<E>
@@ -1203,6 +1203,7 @@ public static "pair"<F, S>(codec0: $Codec$$Type<F>, codec1: $Codec$$Type<S>): $C
 public "parse"<T>(dynamic0: $Dynamic$$Type<T>): $DataResult<E>
 public "parse"<T>(dynamicOps0: $DynamicOps$$Type<T>, t1: T): $DataResult<E>
 public "partialDispatch"<E>(string0: string, function1: $Function$$Type<E, $DataResult<E>>, function2: $Function$$Type<E, $DataResult<$Codec<E>>>): $Codec<E>
+public "promotePartial"(consumer0: $Consumer$$Type<string>): $Codec<E>
 public "simple"(): $Decoder$Simple<E>
 public static "simpleMap"<K, V>(codec0: $Codec$$Type<K>, codec1: $Codec$$Type<V>, keyable2: $Keyable$$Type): $SimpleMapCodec<K, V>
 public "stable"(): $Codec<E>

@@ -717,7 +717,7 @@ import { $List, $List$$Type } from "packages/java/util/$List"
 import { $RandomSource$$Type } from "packages/net/minecraft/util/$RandomSource"
 import { $Pair, $Pair$$Type } from "packages/com/mojang/datafixers/util/$Pair"
 
-export class $StructureTemplatePool implements $TemplatePoolAccess, $StructureTemplatePoolAccessor {
+export class $StructureTemplatePool implements $StructureTemplatePoolAccessor, $TemplatePoolAccess {
 static readonly "CODEC": $Codec<$Holder<$StructureTemplatePool>>
 static readonly "DIRECT_CODEC": $Codec<$StructureTemplatePool>
 

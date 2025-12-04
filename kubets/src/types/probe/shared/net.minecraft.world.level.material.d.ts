@@ -183,9 +183,9 @@ public "getShape"(blockGetter0: $BlockGetter$$Type, blockPos1: $BlockPos$$Type):
 public "getTags"(): $Stream<$TagKey<$Fluid>>
 public "getType"(): $Fluid
 public "holder"(): $Holder<$Fluid>
-public "is"(fluid0: $Fluid$$Type): boolean
 public "is"(holderSet0: $HolderSet$$Type<$Fluid$$Type>): boolean
 public "is"(tagKey0: $TagKey$$Type<$Fluid$$Type>): boolean
+public "is"(fluid0: $Fluid$$Type): boolean
 public "isEmpty"(): boolean
 public "isRandomlyTicking"(): boolean
 public "isSource"(): boolean
@@ -472,8 +472,9 @@ import { $IntegerProperty } from "packages/net/minecraft/world/level/block/state
 import { $FlowingFluidAccessor } from "packages/net/dries007/tfc/mixin/accessor/$FlowingFluidAccessor"
 import { $FlowingFluidAccessor as $FlowingFluidAccessor$0 } from "packages/com/simibubi/create/foundation/mixin/accessor/$FlowingFluidAccessor"
 import { $BooleanProperty } from "packages/net/minecraft/world/level/block/state/properties/$BooleanProperty"
-import { $Fluid } from "packages/net/minecraft/world/level/material/$Fluid"
+import { $Fluid, $Fluid$$Type } from "packages/net/minecraft/world/level/material/$Fluid"
 import { $BlockPathTypes, $BlockPathTypes$$Type } from "packages/net/minecraft/world/level/pathfinder/$BlockPathTypes"
+import { $Direction$$Type } from "packages/net/minecraft/core/$Direction"
 import { $BlockState$$Type } from "packages/net/minecraft/world/level/block/state/$BlockState"
 import { $Vec3, $Vec3$$Type } from "packages/net/minecraft/world/phys/$Vec3"
 import { $Level$$Type } from "packages/net/minecraft/world/level/$Level"
@@ -508,7 +509,8 @@ public "getFlowing"(int0: integer, boolean1: boolean): $FluidState
 public "getFlowing"(): $Fluid
 public "getSource"(boolean0: boolean): $FluidState
 public "getSource"(): $Fluid
-public "handler$cgc000$injectCanalSourceCreation"(level0: $Level$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, callbackInfoReturnable3: $CallbackInfoReturnable$$Type<any>): void
+public "handler$chj000$injectCanalSourceCreation"(level0: $Level$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, callbackInfoReturnable3: $CallbackInfoReturnable$$Type<any>): void
+public "handler$zbp000$onCanPassThrough"(blockGetter0: $BlockGetter$$Type, fluid1: $Fluid$$Type, blockPos2: $BlockPos$$Type, blockState3: $BlockState$$Type, direction4: $Direction$$Type, blockPos5: $BlockPos$$Type, blockState6: $BlockState$$Type, fluidState7: $FluidState$$Type, callbackInfoReturnable8: $CallbackInfoReturnable$$Type<any>): void
 public "move"(fluidState0: $FluidState$$Type, livingEntity1: $LivingEntity$$Type, vec32: $Vec3$$Type, double3: double): boolean
 public "shouldUpdateWhileBoating"(fluidState0: $FluidState$$Type, boat1: $Boat$$Type, entity2: $Entity$$Type): boolean
 public "supportsBoating"(fluidState0: $FluidState$$Type, boat1: $Boat$$Type): boolean

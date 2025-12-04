@@ -151,6 +151,16 @@ export type $MeshAppender_ = $MeshAppender$$Type;
 }
 }
 
+declare module "packages/org/embeddedt/modernfix/forge/recipe/$ExtendedIngredient" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $ExtendedIngredient$$Type = ($ExtendedIngredient);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $ExtendedIngredient_ = $ExtendedIngredient$$Type;
+}
+}
+
 declare module "packages/org/embeddedt/embeddium/api/eventbus/$EmbeddiumEvent" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */

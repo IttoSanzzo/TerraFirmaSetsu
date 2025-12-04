@@ -51,6 +51,7 @@ static readonly "TYPE": $TagType<$EndTag>
 public "accept"(tagVisitor0: $TagVisitor$$Type): void
 public "accept"(streamTagVisitor0: $StreamTagVisitor$$Type): $StreamTagVisitor$ValueResult
 public "acceptAsRoot"(streamTagVisitor0: $StreamTagVisitor$$Type): void
+public "copy"(): $EndTag
 public "getAsString"(): string
 public "getId"(): byte
 public "getType"(): $TagType<$EndTag>
@@ -119,7 +120,6 @@ import { $Collection$$Type } from "packages/java/util/$Collection"
 import { $Predicate$$Type } from "packages/java/util/function/$Predicate"
 import { $IntTag, $IntTag$$Type } from "packages/net/minecraft/nbt/$IntTag"
 import { $Spliterator } from "packages/java/util/$Spliterator"
-import { $Lockable } from "packages/dev/uncandango/alltheleaks/mixin/$Lockable"
 import { $StreamTagVisitor$$Type } from "packages/net/minecraft/nbt/$StreamTagVisitor"
 import { $Consumer$$Type } from "packages/java/util/function/$Consumer"
 import { $UnaryOperator$$Type } from "packages/java/util/function/$UnaryOperator"
@@ -127,7 +127,7 @@ import { $IntFunction$$Type } from "packages/java/util/function/$IntFunction"
 import { $List, $List$$Type } from "packages/java/util/$List"
 import { $Stream } from "packages/java/util/stream/$Stream"
 
-export class $IntArrayTag extends $CollectionTag<$IntTag> implements $Lockable {
+export class $IntArrayTag extends $CollectionTag<$IntTag> {
 static readonly "TYPE": $TagType<$IntArrayTag>
 
 constructor(int0s: integer[])
@@ -136,13 +136,11 @@ constructor(list0: $List$$Type<integer>)
 public "acceptAsRoot"(streamTagVisitor0: $StreamTagVisitor$$Type): void
 public "add"(int0: integer, intTag1: $IntTag$$Type): void
 public "addAll"(collection0: $Collection$$Type<$IntTag$$Type>): boolean
-public "atl$isLocked"(): boolean
-public "atl$setLocked"(boolean0: boolean): void
 public "contains"(object0: any): boolean
 public "containsAll"(collection0: $Collection$$Type<any>): boolean
+public "copy"(): $IntArrayTag
 public static "copyOf"<E>(collection0: $Collection$$Type<E>): $List<E>
 public "forEach"(consumer0: $Consumer$$Type<$IntTag$$Type>): void
-public "get"(int0: integer): $IntTag
 public "getAsIntArray"(): integer[]
 public "getAsString"(): string
 public "getType"(): $TagType<$IntArrayTag>
@@ -288,7 +286,6 @@ import { $Collection$$Type } from "packages/java/util/$Collection"
 import { $Predicate$$Type } from "packages/java/util/function/$Predicate"
 import { $LongSet$$Type } from "packages/it/unimi/dsi/fastutil/longs/$LongSet"
 import { $Spliterator } from "packages/java/util/$Spliterator"
-import { $Lockable } from "packages/dev/uncandango/alltheleaks/mixin/$Lockable"
 import { $StreamTagVisitor$$Type } from "packages/net/minecraft/nbt/$StreamTagVisitor"
 import { $Consumer$$Type } from "packages/java/util/function/$Consumer"
 import { $UnaryOperator$$Type } from "packages/java/util/function/$UnaryOperator"
@@ -297,7 +294,7 @@ import { $List, $List$$Type } from "packages/java/util/$List"
 import { $LongTag, $LongTag$$Type } from "packages/net/minecraft/nbt/$LongTag"
 import { $Stream } from "packages/java/util/stream/$Stream"
 
-export class $LongArrayTag extends $CollectionTag<$LongTag> implements $Lockable {
+export class $LongArrayTag extends $CollectionTag<$LongTag> {
 static readonly "TYPE": $TagType<$LongArrayTag>
 
 constructor(list0: $List$$Type<long>)
@@ -307,13 +304,11 @@ constructor(long0s: long[])
 public "acceptAsRoot"(streamTagVisitor0: $StreamTagVisitor$$Type): void
 public "add"(int0: integer, longTag1: $LongTag$$Type): void
 public "addAll"(collection0: $Collection$$Type<$LongTag$$Type>): boolean
-public "atl$isLocked"(): boolean
-public "atl$setLocked"(boolean0: boolean): void
 public "contains"(object0: any): boolean
 public "containsAll"(collection0: $Collection$$Type<any>): boolean
-public "copy"(): $LongArrayTag
 public static "copyOf"<E>(collection0: $Collection$$Type<E>): $List<E>
 public "forEach"(consumer0: $Consumer$$Type<$LongTag$$Type>): void
+public "get"(int0: integer): $LongTag
 public "getAsLongArray"(): long[]
 public "getAsString"(): string
 public "getType"(): $TagType<$LongArrayTag>
@@ -393,7 +388,6 @@ import { $Tag, $Tag$$Type } from "packages/net/minecraft/nbt/$Tag"
 import { $ListTag } from "packages/net/minecraft/nbt/$ListTag"
 import { $TagVisitor$$Type } from "packages/net/minecraft/nbt/$TagVisitor"
 import { $Codec } from "packages/com/mojang/serialization/$Codec"
-import { $Lockable } from "packages/dev/uncandango/alltheleaks/mixin/$Lockable"
 import { $DataOutput$$Type } from "packages/java/io/$DataOutput"
 import { $StreamTagVisitor$$Type } from "packages/net/minecraft/nbt/$StreamTagVisitor"
 import { $Set } from "packages/java/util/$Set"
@@ -401,7 +395,7 @@ import { $StreamTagVisitor$ValueResult } from "packages/net/minecraft/nbt/$Strea
 import { $List$$Type } from "packages/java/util/$List"
 import { $Map, $Map$$Type } from "packages/java/util/$Map"
 
-export class $CompoundTag implements $Tag, $Lockable {
+export class $CompoundTag implements $Tag {
 static readonly "CODEC": $Codec<$CompoundTag>
 static readonly "TYPE": $TagType<$CompoundTag>
 readonly "tags": $Map<string, $Tag>
@@ -412,11 +406,8 @@ constructor()
 public "accept"(tagVisitor0: $TagVisitor$$Type): void
 public "accept"(streamTagVisitor0: $StreamTagVisitor$$Type): $StreamTagVisitor$ValueResult
 public "acceptAsRoot"(streamTagVisitor0: $StreamTagVisitor$$Type): void
-public "atl$isLocked"(): boolean
-public "atl$setLocked"(boolean0: boolean): void
-public "contains"(string0: string, int1: integer): boolean
 public "contains"(string0: string): boolean
-public "copy"(): $CompoundTag
+public "contains"(string0: string, int1: integer): boolean
 public "get"(string0: string): $Tag
 public "getAllKeys"(): $Set<string>
 public "getAsString"(): string
@@ -448,11 +439,11 @@ public "putByteArray"(string0: string, byte1s: byte[]): void
 public "putDouble"(string0: string, double1: double): void
 public "putFloat"(string0: string, float1: float): void
 public "putInt"(string0: string, int1: integer): void
-public "putIntArray"(string0: string, int1s: integer[]): void
 public "putIntArray"(string0: string, list1: $List$$Type<integer>): void
+public "putIntArray"(string0: string, int1s: integer[]): void
 public "putLong"(string0: string, long1: long): void
-public "putLongArray"(string0: string, long1s: long[]): void
 public "putLongArray"(string0: string, list1: $List$$Type<long>): void
+public "putLongArray"(string0: string, long1s: long[]): void
 public "putShort"(string0: string, short1: short): void
 public "putString"(string0: string, string1: string): void
 public "putUUID"(string0: string, uUID1: $UUID$$Type): void
@@ -496,7 +487,6 @@ import { $CollectionTag } from "packages/net/minecraft/nbt/$CollectionTag"
 import { $Collection$$Type } from "packages/java/util/$Collection"
 import { $Predicate$$Type } from "packages/java/util/function/$Predicate"
 import { $Spliterator } from "packages/java/util/$Spliterator"
-import { $Lockable } from "packages/dev/uncandango/alltheleaks/mixin/$Lockable"
 import { $StreamTagVisitor$$Type } from "packages/net/minecraft/nbt/$StreamTagVisitor"
 import { $Consumer$$Type } from "packages/java/util/function/$Consumer"
 import { $UnaryOperator$$Type } from "packages/java/util/function/$UnaryOperator"
@@ -505,7 +495,7 @@ import { $List, $List$$Type } from "packages/java/util/$List"
 import { $Stream } from "packages/java/util/stream/$Stream"
 import { $ByteTag, $ByteTag$$Type } from "packages/net/minecraft/nbt/$ByteTag"
 
-export class $ByteArrayTag extends $CollectionTag<$ByteTag> implements $Lockable {
+export class $ByteArrayTag extends $CollectionTag<$ByteTag> {
 static readonly "TYPE": $TagType<$ByteArrayTag>
 
 constructor(byte0s: byte[])
@@ -514,12 +504,11 @@ constructor(list0: $List$$Type<byte>)
 public "acceptAsRoot"(streamTagVisitor0: $StreamTagVisitor$$Type): void
 public "add"(int0: integer, byteTag1: $ByteTag$$Type): void
 public "addAll"(collection0: $Collection$$Type<$ByteTag$$Type>): boolean
-public "atl$isLocked"(): boolean
-public "atl$setLocked"(boolean0: boolean): void
 public "contains"(object0: any): boolean
 public "containsAll"(collection0: $Collection$$Type<any>): boolean
 public static "copyOf"<E>(collection0: $Collection$$Type<E>): $List<E>
 public "forEach"(consumer0: $Consumer$$Type<$ByteTag$$Type>): void
+public "get"(int0: integer): $ByteTag
 public "getAsByteArray"(): byte[]
 public "getAsString"(): string
 public "getType"(): $TagType<$ByteArrayTag>
@@ -537,7 +526,6 @@ public static "of"<E>(e0: E, e1: E, e2: E, e3: E, e4: E, e5: E, e6: E, e7: E, e8
 public static "of"<E>(...e0s: E[]): $List<E>
 public static "of"<E>(e0: E, e1: E, e2: E, e3: E, e4: E, e5: E, e6: E, e7: E, e8: E, e9: E): $List<E>
 public "parallelStream"(): $Stream<$ByteTag>
-public "remove"(int0: integer): $ByteTag
 public "remove"(object0: any): boolean
 public "removeAll"(collection0: $Collection$$Type<any>): boolean
 public "removeIf"(predicate0: $Predicate$$Type<$ByteTag$$Type>): boolean
@@ -682,7 +670,6 @@ import { $Tag, $Tag$$Type } from "packages/net/minecraft/nbt/$Tag"
 import { $Collection$$Type } from "packages/java/util/$Collection"
 import { $Predicate$$Type } from "packages/java/util/function/$Predicate"
 import { $Spliterator } from "packages/java/util/$Spliterator"
-import { $Lockable } from "packages/dev/uncandango/alltheleaks/mixin/$Lockable"
 import { $StreamTagVisitor$$Type } from "packages/net/minecraft/nbt/$StreamTagVisitor"
 import { $Consumer$$Type } from "packages/java/util/function/$Consumer"
 import { $UnaryOperator$$Type } from "packages/java/util/function/$UnaryOperator"
@@ -690,20 +677,18 @@ import { $IntFunction$$Type } from "packages/java/util/function/$IntFunction"
 import { $List } from "packages/java/util/$List"
 import { $Stream } from "packages/java/util/stream/$Stream"
 
-export class $ListTag extends $CollectionTag<$Tag> implements $Lockable {
+export class $ListTag extends $CollectionTag<$Tag> {
 static readonly "TYPE": $TagType<$ListTag>
 
 constructor()
 
 public "acceptAsRoot"(streamTagVisitor0: $StreamTagVisitor$$Type): void
 public "addAll"(collection0: $Collection$$Type<$Tag$$Type>): boolean
-public "atl$isLocked"(): boolean
-public "atl$setLocked"(boolean0: boolean): void
 public "contains"(object0: any): boolean
 public "containsAll"(collection0: $Collection$$Type<any>): boolean
-public "copy"(): $ListTag
 public static "copyOf"<E>(collection0: $Collection$$Type<E>): $List<E>
 public "forEach"(consumer0: $Consumer$$Type<$Tag$$Type>): void
+public "get"(int0: integer): $Tag
 public "getAsString"(): string
 public "getCompound"(int0: integer): $CompoundTag
 public "getDouble"(int0: integer): double
@@ -818,21 +803,21 @@ import { $StreamTagVisitor$ValueResult } from "packages/net/minecraft/nbt/$Strea
 import { $StreamTagVisitor$EntryResult } from "packages/net/minecraft/nbt/$StreamTagVisitor$EntryResult"
 
 export interface $StreamTagVisitor {
-"visit"(byte0: byte): $StreamTagVisitor$ValueResult
-"visit"(string0: string): $StreamTagVisitor$ValueResult
 "visit"(float0: float): $StreamTagVisitor$ValueResult
+"visit"(int0: integer): $StreamTagVisitor$ValueResult
 "visit"(short0: short): $StreamTagVisitor$ValueResult
 "visit"(double0: double): $StreamTagVisitor$ValueResult
 "visit"(long0: long): $StreamTagVisitor$ValueResult
-"visit"(byte0s: byte[]): $StreamTagVisitor$ValueResult
-"visit"(int0: integer): $StreamTagVisitor$ValueResult
+"visit"(byte0: byte): $StreamTagVisitor$ValueResult
 "visit"(int0s: integer[]): $StreamTagVisitor$ValueResult
+"visit"(string0: string): $StreamTagVisitor$ValueResult
+"visit"(byte0s: byte[]): $StreamTagVisitor$ValueResult
 "visit"(long0s: long[]): $StreamTagVisitor$ValueResult
 "visitContainerEnd"(): $StreamTagVisitor$ValueResult
 "visitElement"(tagType0: $TagType$$Type<any>, int1: integer): $StreamTagVisitor$EntryResult
 "visitEnd"(): $StreamTagVisitor$ValueResult
-"visitEntry"(tagType0: $TagType$$Type<any>): $StreamTagVisitor$EntryResult
 "visitEntry"(tagType0: $TagType$$Type<any>, string1: string): $StreamTagVisitor$EntryResult
+"visitEntry"(tagType0: $TagType$$Type<any>): $StreamTagVisitor$EntryResult
 "visitList"(tagType0: $TagType$$Type<any>, int1: integer): $StreamTagVisitor$ValueResult
 "visitRootEntry"(tagType0: $TagType$$Type<any>): $StreamTagVisitor$ValueResult
 }

@@ -338,7 +338,11 @@ declare module "packages/dev/latvian/mods/kubejs/recipe/$RecipeTypeFunction" {
 			output: KjsItemStack,
 			input: KjsItemOrItemTagStack | KjsItemOrItemTagStack[]
 		): any;
-		(output: KjsItemStack, pattern: string[], key: VanillaShapedKey): any;
+		(
+			output: KjsItemStack,
+			pattern: [string] | [string, string] | [string, string, string],
+			key: VanillaShapedKey
+		): any;
 	}
 }
 

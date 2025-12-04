@@ -136,7 +136,7 @@ import { $LecternBlockEntity } from "packages/net/minecraft/world/level/block/en
 import { $BETypeAccess } from "packages/blusunrize/immersiveengineering/mixin/accessors/$BETypeAccess"
 import { $CampfireBlockEntity } from "packages/net/minecraft/world/level/block/entity/$CampfireBlockEntity"
 
-export class $BlockEntityType<T extends $BlockEntity> implements $BETypeAccess, $BlockEntityTypeExtension<any>, $AccessorBlockEntityType, $DynamicLightHandlerHolder<any>, $IRenderableEntity, $BlockEntityTypeAccessor, $BlockEntityTypeAccessor$0, $BlockEntityTypeAccessor$1 {
+export class $BlockEntityType<T extends $BlockEntity> implements $BlockEntityTypeExtension<any>, $AccessorBlockEntityType, $DynamicLightHandlerHolder<any>, $IRenderableEntity, $BlockEntityTypeAccessor, $BETypeAccess, $BlockEntityTypeAccessor$0, $BlockEntityTypeAccessor$1 {
 static readonly "BANNER": $BlockEntityType<$BannerBlockEntity>
 static readonly "BARREL": $BlockEntityType<$BarrelBlockEntity>
 static readonly "BEACON": $BlockEntityType<$BeaconBlockEntity>

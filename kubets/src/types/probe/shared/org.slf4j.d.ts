@@ -45,25 +45,25 @@ export interface $Logger {
 "isDebugEnabled"(): boolean
 "isDebugEnabled"(marker0: $Marker$$Type): boolean
 "isEnabledForLevel"(level0: $Level$$Type): boolean
-"isErrorEnabled"(): boolean
 "isErrorEnabled"(marker0: $Marker$$Type): boolean
-"isInfoEnabled"(): boolean
+"isErrorEnabled"(): boolean
 "isInfoEnabled"(marker0: $Marker$$Type): boolean
-"isTraceEnabled"(marker0: $Marker$$Type): boolean
+"isInfoEnabled"(): boolean
 "isTraceEnabled"(): boolean
+"isTraceEnabled"(marker0: $Marker$$Type): boolean
 "isWarnEnabled"(marker0: $Marker$$Type): boolean
 "isWarnEnabled"(): boolean
 "makeLoggingEventBuilder"(level0: $Level$$Type): $LoggingEventBuilder
-"trace"(string0: string, ...object1s: any[]): void
-"trace"(marker0: $Marker$$Type, string1: string, ...object2s: any[]): void
-"trace"(marker0: $Marker$$Type, string1: string, throwable2: $Throwable$$Type): void
-"trace"(marker0: $Marker$$Type, string1: string, object2: any, object3: any): void
 "trace"(string0: string, throwable1: $Throwable$$Type): void
+"trace"(marker0: $Marker$$Type, string1: string, throwable2: $Throwable$$Type): void
+"trace"(string0: string, ...object1s: any[]): void
 "trace"(marker0: $Marker$$Type, string1: string): void
-"trace"(string0: string): void
+"trace"(marker0: $Marker$$Type, string1: string, ...object2s: any[]): void
+"trace"(marker0: $Marker$$Type, string1: string, object2: any, object3: any): void
 "trace"(marker0: $Marker$$Type, string1: string, object2: any): void
-"trace"(string0: string, object1: any, object2: any): void
+"trace"(string0: string): void
 "trace"(string0: string, object1: any): void
+"trace"(string0: string, object1: any, object2: any): void
 "warn"(string0: string, ...object1s: any[]): void
 "warn"(string0: string): void
 "warn"(string0: string, object1: any): void
@@ -116,8 +116,8 @@ import { $Marker$$Type } from "packages/org/slf4j/$Marker"
 export interface $LoggingEventBuilder {
 "addArgument"(supplier0: $Supplier$$Type<any>): $LoggingEventBuilder
 "addArgument"(object0: any): $LoggingEventBuilder
-"addKeyValue"(string0: string, object1: any): $LoggingEventBuilder
 "addKeyValue"(string0: string, supplier1: $Supplier$$Type<any>): $LoggingEventBuilder
+"addKeyValue"(string0: string, object1: any): $LoggingEventBuilder
 "addMarker"(marker0: $Marker$$Type): $LoggingEventBuilder
 "log"(): void
 "log"(string0: string): void

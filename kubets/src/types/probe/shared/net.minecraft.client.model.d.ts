@@ -36,15 +36,15 @@ public "getInitialPose"(): $PartPose
 public "getInjectedMesh"(): $Mesh
 public "getOffsetProvider"(): $OffsetProvider
 public "getRandomCube"(randomSource0: $RandomSource$$Type): $ModelPart$Cube
-public "handler$chn000$onRender"(pose0: $PoseStack$Pose$$Type, vertexConsumer1: $VertexConsumer$$Type, int2: integer, int3: integer, float4: float, float5: float, float6: float, float7: float, callbackInfo8: $CallbackInfo$$Type): void
-public "handler$edk000$render"(poseStack: $PoseStack$$Type, vertexConsumer: $VertexConsumer$$Type, light: integer, overlay: integer, red: float, green: float, blue: float, alpha: float, ci: $CallbackInfo$$Type): void
+public "handler$cok000$onRender"(pose0: $PoseStack$Pose$$Type, vertexConsumer1: $VertexConsumer$$Type, int2: integer, int3: integer, float4: float, float5: float, float6: float, float7: float, callbackInfo8: $CallbackInfo$$Type): void
+public "handler$ein000$render"(poseStack: $PoseStack$$Type, vertexConsumer: $VertexConsumer$$Type, light: integer, overlay: integer, red: float, green: float, blue: float, alpha: float, ci: $CallbackInfo$$Type): void
 public "hasChild"(string0: string): boolean
 public "isEmpty"(): boolean
 public "isHidden"(): boolean
 public "isUpperPart"(): boolean
 public "isVisible"(): boolean
 public "loadPose"(partPose0: $PartPose$$Type): void
-public "localvar$cdl000$render"(float0: float): float
+public "localvar$cha000$render"(float0: float): float
 public "offsetPos"(vector3f0: $Vector3f$$Type): void
 public "offsetRotation"(vector3f0: $Vector3f$$Type): void
 public "offsetScale"(vector3f0: $Vector3f$$Type): void
@@ -119,7 +119,7 @@ readonly "babyZHeadOffset": float
 readonly "bodyYOffset": float
 readonly "scaleHead": boolean
 
-public "handler$chf001$onRender"(poseStack0: $PoseStack$$Type, vertexConsumer1: $VertexConsumer$$Type, int2: integer, int3: integer, float4: float, float5: float, float6: float, float7: float, callbackInfo8: $CallbackInfo$$Type): void
+public "handler$coc001$onRender"(poseStack0: $PoseStack$$Type, vertexConsumer1: $VertexConsumer$$Type, int2: integer, int3: integer, float4: float, float5: float, float6: float, float7: float, callbackInfo8: $CallbackInfo$$Type): void
 }
 }
 
@@ -133,15 +133,15 @@ import { $CubeDeformation$$Type } from "packages/net/minecraft/client/model/geom
 export class $CubeListBuilder {
 constructor()
 
-public "addBox"(float0: float, float1: float, float2: float, float3: float, float4: float, float5: float, cubeDeformation6: $CubeDeformation$$Type): $CubeListBuilder
-public "addBox"(string0: string, float1: float, float2: float, float3: float, int4: integer, int5: integer, int6: integer, cubeDeformation7: $CubeDeformation$$Type, int8: integer, int9: integer): $CubeListBuilder
-public "addBox"(string0: string, float1: float, float2: float, float3: float, int4: integer, int5: integer, int6: integer, int7: integer, int8: integer): $CubeListBuilder
-public "addBox"(string0: string, float1: float, float2: float, float3: float, float4: float, float5: float, float6: float, cubeDeformation7: $CubeDeformation$$Type): $CubeListBuilder
-public "addBox"(float0: float, float1: float, float2: float, float3: float, float4: float, float5: float, set6: $Set$$Type<$Direction$$Type>): $CubeListBuilder
-public "addBox"(string0: string, float1: float, float2: float, float3: float, float4: float, float5: float, float6: float): $CubeListBuilder
-public "addBox"(float0: float, float1: float, float2: float, float3: float, float4: float, float5: float, cubeDeformation6: $CubeDeformation$$Type, float7: float, float8: float): $CubeListBuilder
 public "addBox"(float0: float, float1: float, float2: float, float3: float, float4: float, float5: float): $CubeListBuilder
+public "addBox"(string0: string, float1: float, float2: float, float3: float, int4: integer, int5: integer, int6: integer, int7: integer, int8: integer): $CubeListBuilder
+public "addBox"(string0: string, float1: float, float2: float, float3: float, int4: integer, int5: integer, int6: integer, cubeDeformation7: $CubeDeformation$$Type, int8: integer, int9: integer): $CubeListBuilder
+public "addBox"(string0: string, float1: float, float2: float, float3: float, float4: float, float5: float, float6: float, cubeDeformation7: $CubeDeformation$$Type): $CubeListBuilder
+public "addBox"(string0: string, float1: float, float2: float, float3: float, float4: float, float5: float, float6: float): $CubeListBuilder
+public "addBox"(float0: float, float1: float, float2: float, float3: float, float4: float, float5: float, set6: $Set$$Type<$Direction$$Type>): $CubeListBuilder
+public "addBox"(float0: float, float1: float, float2: float, float3: float, float4: float, float5: float, cubeDeformation6: $CubeDeformation$$Type): $CubeListBuilder
 public "addBox"(float0: float, float1: float, float2: float, float3: float, float4: float, float5: float, boolean6: boolean): $CubeListBuilder
+public "addBox"(float0: float, float1: float, float2: float, float3: float, float4: float, float5: float, cubeDeformation6: $CubeDeformation$$Type, float7: float, float8: float): $CubeListBuilder
 public static "create"(): $CubeListBuilder
 public "getCubes"(): $List<$CubeDefinition>
 public "mirror"(): $CubeListBuilder
@@ -357,8 +357,8 @@ static readonly "NONE": $CubeDeformation
 constructor(float0: float, float1: float, float2: float)
 constructor(float0: float)
 
-public "extend"(float0: float): $CubeDeformation
 public "extend"(float0: float, float1: float, float2: float): $CubeDeformation
+public "extend"(float0: float): $CubeDeformation
 }
 }
 
@@ -391,7 +391,7 @@ constructor(int0: integer, int1: integer, float2: float, float3: float, float4: 
 
 public "compile"(pose0: $PoseStack$Pose$$Type, vertexConsumer1: $VertexConsumer$$Type, int2: integer, int3: integer, float4: float, float5: float, float6: float, float7: float): void
 public "embeddium$getSimpleCuboid"(): $ModelCuboid
-public "localvar$cdm000$compile"(float0: float): float
+public "localvar$chb000$compile"(float0: float): float
 public "sodium$copy"(): $ModelCuboid
 get "minX"(): float
 set "minX"(value: float)
@@ -438,16 +438,16 @@ public "copyPropertiesTo"(humanoidModel0: $HumanoidModel$$Type<T>): void
 public static "createMesh"(cubeDeformation0: $CubeDeformation$$Type, float1: float): $MeshDefinition
 public "getEmoteSupplier"(): $SetableSupplier<any>
 public "getHead"(): $ModelPart
-public "handler$cce000$rotationAngleCallback"(livingEntity0: $LivingEntity$$Type, float1: float, float2: float, float3: float, float4: float, float5: float, callbackInfo6: $CallbackInfo$$Type): void
-public "handler$ckg000$immersiveMelodies$injectSetupAnim"(entity: $LivingEntity$$Type, limbAngle: float, limbDistance: float, animationProgress: float, headYaw: float, headPitch: float, ci: $CallbackInfo$$Type): void
-public "handler$cnl000$poseLeftArm"(livingEntity0: $LivingEntity$$Type, callbackInfo1: $CallbackInfo$$Type): void
-public "handler$cnl000$poseRightArm"(livingEntity0: $LivingEntity$$Type, callbackInfo1: $CallbackInfo$$Type): void
-public "handler$cnl000$setupAnim"(livingEntity0: $LivingEntity$$Type, float1: float, float2: float, float3: float, float4: float, float5: float, callbackInfo6: $CallbackInfo$$Type): void
-public "handler$coc001$poseLeftArm"(livingEntity0: $LivingEntity$$Type, callbackInfo1: $CallbackInfo$$Type): void
-public "handler$coc001$poseRightArm"(livingEntity0: $LivingEntity$$Type, callbackInfo1: $CallbackInfo$$Type): void
-public "handler$efl002$poseLeftArm"(entity: $LivingEntity$$Type, ci: $CallbackInfo$$Type): void
-public "handler$efl002$poseRightArm"(entity: $LivingEntity$$Type, ci: $CallbackInfo$$Type): void
-public "handler$efl002$setupAnim"(entity: $LivingEntity$$Type, limbSwing: float, limbSwingAmount: float, ageInTicks: float, netHeadYaw: float, headPitch: float, ci: $CallbackInfo$$Type): void
+public "handler$cph000$immersiveMelodies$injectSetupAnim"(entity: $LivingEntity$$Type, limbAngle: float, limbDistance: float, animationProgress: float, headYaw: float, headPitch: float, ci: $CallbackInfo$$Type): void
+public "handler$dcm000$poseLeftArm"(livingEntity0: $LivingEntity$$Type, callbackInfo1: $CallbackInfo$$Type): void
+public "handler$dcm000$poseRightArm"(livingEntity0: $LivingEntity$$Type, callbackInfo1: $CallbackInfo$$Type): void
+public "handler$dcm000$setupAnim"(livingEntity0: $LivingEntity$$Type, float1: float, float2: float, float3: float, float4: float, float5: float, callbackInfo6: $CallbackInfo$$Type): void
+public "handler$ddd001$poseLeftArm"(livingEntity0: $LivingEntity$$Type, callbackInfo1: $CallbackInfo$$Type): void
+public "handler$ddd001$poseRightArm"(livingEntity0: $LivingEntity$$Type, callbackInfo1: $CallbackInfo$$Type): void
+public "handler$ejc000$rotationAngleCallback"(livingEntity0: $LivingEntity$$Type, float1: float, float2: float, float3: float, float4: float, float5: float, callbackInfo6: $CallbackInfo$$Type): void
+public "handler$eln002$poseLeftArm"(entity: $LivingEntity$$Type, ci: $CallbackInfo$$Type): void
+public "handler$eln002$poseRightArm"(entity: $LivingEntity$$Type, ci: $CallbackInfo$$Type): void
+public "handler$eln002$setupAnim"(entity: $LivingEntity$$Type, limbSwing: float, limbSwingAmount: float, ageInTicks: float, netHeadYaw: float, headPitch: float, ci: $CallbackInfo$$Type): void
 public "prepareMobModel"(t0: T, float1: float, float2: float, float3: float): void
 public "setAllVisible"(boolean0: boolean): void
 public "setEmoteSupplier"(emoteSupplier: $SetableSupplier$$Type<any>): void
@@ -528,11 +528,13 @@ constructor(modelPart0: $ModelPart$$Type, boolean1: boolean)
 
 public static "createMesh"(cubeDeformation0: $CubeDeformation$$Type, boolean1: boolean): $MeshDefinition
 public "getRandomModelPart"(randomSource0: $RandomSource$$Type): $ModelPart
-public "handler$eda001$setupAnim"(livingEntity0: $LivingEntity$$Type, float1: float, float2: float, float3: float, float4: float, float5: float, callbackInfo6: $CallbackInfo$$Type): void
+public "handler$eid001$setupAnim"(livingEntity0: $LivingEntity$$Type, float1: float, float2: float, float3: float, float4: float, float5: float, callbackInfo6: $CallbackInfo$$Type): void
 public "hasThinArms"(): boolean
 public "playerAnimator_prepForFirstPersonRender"(): void
 public "renderCloak"(poseStack0: $PoseStack$$Type, vertexConsumer1: $VertexConsumer$$Type, int2: integer, int3: integer): void
 public "renderEars"(poseStack0: $PoseStack$$Type, vertexConsumer1: $VertexConsumer$$Type, int2: integer, int3: integer): void
+public "setIgnored"(ignored: boolean): void
+set "ignored"(value: boolean)
 }
 }
 

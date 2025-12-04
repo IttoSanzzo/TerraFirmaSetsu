@@ -291,6 +291,13 @@ public "createObject"(): $SmithingTemplateItem
 public "crystalIcons"(): $SmithingTemplateItemBuilder
 /** Adds a diamond to the list of ingredient slot icons that the smithing table cycles through when this smithing template is put in */
 public "diamondIcon"(): $SmithingTemplateItemBuilder
+/**
+ * Sets the name for this smithing template.
+ * Note that the normal display name for all smithing templates is the same and cannot be changed, this instead sets the name in the tooltip (see vanilla smithing templates for what this looks like).
+ * 
+ * This will be overridden by a lang file if it exists.
+ */
+public "displayName"(name: $Component$$Type): $SmithingTemplateItemBuilder
 /** Adds a dust to the list of ingredient slot icons that the smithing table cycles through when this smithing template is put in */
 public "dustIcon"(): $SmithingTemplateItemBuilder
 /** Adds an emerald to the list of ingredient slot icons that the smithing table cycles through when this smithing template is put in */
@@ -474,10 +481,10 @@ export class $FoodBuilder {
 constructor()
 constructor(properties: $FoodProperties$$Type)
 
-/** Sets whether the food is always edible. */
-public "alwaysEdible"(flag: boolean): $FoodBuilder
 /** Sets the food is always edible. */
 public "alwaysEdible"(): $FoodBuilder
+/** Sets whether the food is always edible. */
+public "alwaysEdible"(flag: boolean): $FoodBuilder
 public "build"(): $FoodProperties
 /**
  * Sets a callback that is called when the food is eaten.
@@ -501,10 +508,10 @@ public "fastToEat"(flag: boolean): $FoodBuilder
 public "fastToEat"(): $FoodBuilder
 /** Sets the hunger restored. */
 public "hunger"(h: integer): $FoodBuilder
-/** Sets the food is meat. */
-public "meat"(): $FoodBuilder
 /** Sets whether the food is meat. */
 public "meat"(flag: boolean): $FoodBuilder
+/** Sets the food is meat. */
+public "meat"(): $FoodBuilder
 /** Removes an effect from the food. */
 public "removeEffect"(mobEffect: $MobEffect$$Type): $FoodBuilder
 /** Sets the saturation modifier. Note that the saturation restored is hunger * saturation. */
@@ -905,8 +912,8 @@ public "add"(items: $ItemStack$$Type[]): void
 public "add"(items: $ItemStack$$Type[], visibility: $CreativeModeTab$TabVisibility$$Type): void
 public "addAfter"(order: $ItemStack$$Type, items: $ItemStack$$Type[], visibility: $CreativeModeTab$TabVisibility$$Type): void
 public "addAfter"(order: $ItemStack$$Type, items: $ItemStack$$Type[]): void
-public "addBefore"(order: $ItemStack$$Type, items: $ItemStack$$Type[], visibility: $CreativeModeTab$TabVisibility$$Type): void
 public "addBefore"(order: $ItemStack$$Type, items: $ItemStack$$Type[]): void
+public "addBefore"(order: $ItemStack$$Type, items: $ItemStack$$Type[], visibility: $CreativeModeTab$TabVisibility$$Type): void
 public "remove"(filter: $Ingredient$$Type): void
 public "removeDisplay"(filter: $Ingredient$$Type): void
 public "removeSearch"(filter: $Ingredient$$Type): void

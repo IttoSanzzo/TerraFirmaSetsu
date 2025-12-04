@@ -9,8 +9,8 @@ static readonly "BYTES_PER_MEBIBYTE": long
 constructor()
 
 public "appendToCrashReportString"(stringBuilder0: $StringBuilder$$Type): void
-public "setDetail"(string0: string, supplier1: $Supplier$$Type<string>): void
 public "setDetail"(string0: string, string1: string): void
+public "setDetail"(string0: string, supplier1: $Supplier$$Type<string>): void
 public "toLineSeparatedString"(): string
 }
 }
@@ -180,8 +180,8 @@ constructor(string0: string)
 
 public "applyStackTrace"(throwable0: $Throwable$$Type): void
 public "fillInStackTrace"(int0: integer): integer
-public static "formatLocation"(levelHeightAccessor0: $LevelHeightAccessor$$Type, double1: double, double2: double, double3: double): string
 public static "formatLocation"(levelHeightAccessor0: $LevelHeightAccessor$$Type, blockPos1: $BlockPos$$Type): string
+public static "formatLocation"(levelHeightAccessor0: $LevelHeightAccessor$$Type, double1: double, double2: double, double3: double): string
 public static "formatLocation"(levelHeightAccessor0: $LevelHeightAccessor$$Type, int1: integer, int2: integer, int3: integer): string
 public "getDetails"(stringBuilder0: $StringBuilder$$Type): void
 public "getStacktrace"(): $StackTraceElement[]

@@ -168,6 +168,16 @@ export type $Reference2FloatFunction_<K> = $Reference2FloatFunction$$Type<K>;
 }
 }
 
+declare module "packages/it/unimi/dsi/fastutil/objects/$Object2ObjectMap$FastEntrySet" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $Object2ObjectMap$FastEntrySet$$Type<K, V> = ($Object2ObjectMap$FastEntrySet<K, V>);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $Object2ObjectMap$FastEntrySet_<K, V> = $Object2ObjectMap$FastEntrySet$$Type<K, V>;
+}
+}
+
 declare module "packages/it/unimi/dsi/fastutil/objects/$Object2FloatMap$Entry" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
@@ -399,6 +409,16 @@ export type $Reference2ObjectFunction_<K, V> = $Reference2ObjectFunction$$Type<K
 }
 }
 
+declare module "packages/it/unimi/dsi/fastutil/objects/$Object2BooleanMap" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $Object2BooleanMap$$Type<K> = ($Object2BooleanMap<K>);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $Object2BooleanMap_<K> = $Object2BooleanMap$$Type<K>;
+}
+}
+
 declare module "packages/it/unimi/dsi/fastutil/objects/$Reference2CharFunction" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
@@ -446,6 +466,16 @@ export type $Reference2DoubleFunction$$Type<K> = ($Reference2DoubleFunction<K> |
 /** Global type exported for convenience, use class-specific types if there's a naming conflict. */
 declare global {
 export type $Reference2DoubleFunction_<K> = $Reference2DoubleFunction$$Type<K>;
+}
+}
+
+declare module "packages/it/unimi/dsi/fastutil/objects/$Object2BooleanMap$Entry" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $Object2BooleanMap$Entry$$Type<K> = ($Object2BooleanMap$Entry<K>);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $Object2BooleanMap$Entry_<K> = $Object2BooleanMap$Entry$$Type<K>;
 }
 }
 

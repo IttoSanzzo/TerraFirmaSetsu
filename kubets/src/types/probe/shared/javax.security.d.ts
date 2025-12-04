@@ -11,16 +11,16 @@ export class $Subject implements $Serializable {
 constructor()
 constructor(boolean0: boolean, set1: $Set$$Type<$Principal$$Type>, set2: $Set$$Type<any>, set3: $Set$$Type<any>)
 
-public static "doAs"<T>(subject0: $Subject$$Type, privilegedExceptionAction1: $PrivilegedExceptionAction$$Type<T>): T
 public static "doAs"<T>(subject0: $Subject$$Type, privilegedAction1: $PrivilegedAction$$Type<T>): T
+public static "doAs"<T>(subject0: $Subject$$Type, privilegedExceptionAction1: $PrivilegedExceptionAction$$Type<T>): T
 /** @deprecated */
 public static "doAsPrivileged"<T>(subject0: $Subject$$Type, privilegedExceptionAction1: $PrivilegedExceptionAction$$Type<T>, accessControlContext2: $AccessControlContext$$Type): T
 /** @deprecated */
 public static "doAsPrivileged"<T>(subject0: $Subject$$Type, privilegedAction1: $PrivilegedAction$$Type<T>, accessControlContext2: $AccessControlContext$$Type): T
-public "getPrincipals"<T extends $Principal>(class0: $Class$$Type<T>): $Set<T>
 public "getPrincipals"(): $Set<$Principal>
-public "getPrivateCredentials"<T>(class0: $Class$$Type<T>): $Set<T>
+public "getPrincipals"<T extends $Principal>(class0: $Class$$Type<T>): $Set<T>
 public "getPrivateCredentials"(): $Set<any>
+public "getPrivateCredentials"<T>(class0: $Class$$Type<T>): $Set<T>
 public "getPublicCredentials"(): $Set<any>
 public "getPublicCredentials"<T>(class0: $Class$$Type<T>): $Set<T>
 /** @deprecated */

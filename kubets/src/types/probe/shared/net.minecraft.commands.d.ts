@@ -65,7 +65,6 @@ declare module "packages/net/minecraft/commands/arguments/$ScoreHolderArgument" 
 import { $Suggestions } from "packages/com/mojang/brigadier/suggestion/$Suggestions"
 import { $CommandSourceStack, $CommandSourceStack$$Type } from "packages/net/minecraft/commands/$CommandSourceStack"
 import { $CompletableFuture } from "packages/java/util/concurrent/$CompletableFuture"
-import { $StringReader$$Type } from "packages/com/mojang/brigadier/$StringReader"
 import { $Collection } from "packages/java/util/$Collection"
 import { $SuggestionProvider } from "packages/com/mojang/brigadier/suggestion/$SuggestionProvider"
 import { $SuggestionsBuilder$$Type } from "packages/com/mojang/brigadier/suggestion/$SuggestionsBuilder"
@@ -81,11 +80,10 @@ constructor(boolean0: boolean)
 
 public "getExamples"(): $Collection<string>
 public static "getName"(commandContext0: $CommandContext$$Type<$CommandSourceStack$$Type>, string1: string): string
-public static "getNames"(commandContext0: $CommandContext$$Type<$CommandSourceStack$$Type>, string1: string): $Collection<string>
 public static "getNames"(commandContext0: $CommandContext$$Type<$CommandSourceStack$$Type>, string1: string, supplier2: $Supplier$$Type<$Collection<string>>): $Collection<string>
+public static "getNames"(commandContext0: $CommandContext$$Type<$CommandSourceStack$$Type>, string1: string): $Collection<string>
 public static "getNamesWithDefaultWildcard"(commandContext0: $CommandContext$$Type<$CommandSourceStack$$Type>, string1: string): $Collection<string>
 public "listSuggestions"<S>(commandContext0: $CommandContext$$Type<S>, suggestionsBuilder1: $SuggestionsBuilder$$Type): $CompletableFuture<$Suggestions>
-public "parse"(stringReader0: $StringReader$$Type): $ScoreHolderArgument$Result
 public static "scoreHolder"(): $ScoreHolderArgument
 public static "scoreHolders"(): $ScoreHolderArgument
 get "examples"(): $Collection<string>
@@ -129,55 +127,56 @@ public "unpack"(resourceOrTagKeyArgument0: $ResourceOrTagKeyArgument$$Type<T>): 
 }
 
 declare module "packages/net/minecraft/commands/$CommandSourceStack" {
-import { $Component, $Component$$Type } from "packages/net/minecraft/network/chat/$Component"
-import { $Suggestions } from "packages/com/mojang/brigadier/suggestion/$Suggestions"
 import { $CompletableFuture } from "packages/java/util/concurrent/$CompletableFuture"
-import { $IForgeCommandSourceStack } from "packages/net/minecraftforge/common/extensions/$IForgeCommandSourceStack"
 import { $ResultConsumer$$Type } from "packages/com/mojang/brigadier/$ResultConsumer"
-import { $SharedSuggestionProvider$TextCoordinates, $SharedSuggestionProvider$TextCoordinates$$Type } from "packages/net/minecraft/commands/$SharedSuggestionProvider$TextCoordinates"
 import { $FeatureFlagSet } from "packages/net/minecraft/world/flag/$FeatureFlagSet"
 import { $LazyComponentKJS$$Type } from "packages/dev/latvian/mods/kubejs/core/$LazyComponentKJS"
 import { $Iterable$$Type } from "packages/java/lang/$Iterable"
 import { $ResourceLocation, $ResourceLocation$$Type } from "packages/net/minecraft/resources/$ResourceLocation"
 import { $ClientLevel } from "packages/net/minecraft/client/multiplayer/$ClientLevel"
 import { $BinaryOperator$$Type } from "packages/java/util/function/$BinaryOperator"
-import { $Function$$Type } from "packages/java/util/function/$Function"
 import { $CommandSigningContext, $CommandSigningContext$$Type } from "packages/net/minecraft/commands/$CommandSigningContext"
 import { $Consumer$$Type } from "packages/java/util/function/$Consumer"
-import { $Stream, $Stream$$Type } from "packages/java/util/stream/$Stream"
-import { $MinecraftServer, $MinecraftServer$$Type } from "packages/net/minecraft/server/$MinecraftServer"
 import { $SuggestionsBuilder$$Type } from "packages/com/mojang/brigadier/suggestion/$SuggestionsBuilder"
 import { $ServerLevel, $ServerLevel$$Type } from "packages/net/minecraft/server/level/$ServerLevel"
 import { $Supplier$$Type } from "packages/java/util/function/$Supplier"
-import { $SharedSuggestionProvider$ElementSuggestionType$$Type } from "packages/net/minecraft/commands/$SharedSuggestionProvider$ElementSuggestionType"
 import { $Entity, $Entity$$Type } from "packages/net/minecraft/world/entity/$Entity"
 import { $CommandContext$$Type } from "packages/com/mojang/brigadier/context/$CommandContext"
 import { $ServerPlayer, $ServerPlayer$$Type } from "packages/net/minecraft/server/level/$ServerPlayer"
-import { $Collection, $Collection$$Type } from "packages/java/util/$Collection"
-import { $Predicate$$Type } from "packages/java/util/function/$Predicate"
-import { $CommandSource, $CommandSource$$Type } from "packages/net/minecraft/commands/$CommandSource"
 import { $Vec2, $Vec2$$Type } from "packages/net/minecraft/world/phys/$Vec2"
 import { $Scoreboard } from "packages/net/minecraft/world/scores/$Scoreboard"
 import { $Registry, $Registry$$Type } from "packages/net/minecraft/core/$Registry"
 import { $Vec3, $Vec3$$Type } from "packages/net/minecraft/world/phys/$Vec3"
 import { $Level } from "packages/net/minecraft/world/level/$Level"
-import { $Advancement } from "packages/net/minecraft/advancements/$Advancement"
-import { $TaskChainer, $TaskChainer$$Type } from "packages/net/minecraft/util/$TaskChainer"
 import { $RegistryAccess } from "packages/net/minecraft/core/$RegistryAccess"
-import { $LocalPlayer } from "packages/net/minecraft/client/player/$LocalPlayer"
 import { $RecipeManager } from "packages/net/minecraft/world/item/crafting/$RecipeManager"
 import { $ClientCommandRegistrationEvent$ClientCommandSourceStack } from "packages/dev/architectury/event/events/client/$ClientCommandRegistrationEvent$ClientCommandSourceStack"
 import { $SimpleCommandExceptionType } from "packages/com/mojang/brigadier/exceptions/$SimpleCommandExceptionType"
+import { $IntConsumer, $IntConsumer$$Type } from "packages/java/util/function/$IntConsumer"
+import { $OutgoingChatMessage$$Type } from "packages/net/minecraft/network/chat/$OutgoingChatMessage"
+import { $SharedSuggestionProvider } from "packages/net/minecraft/commands/$SharedSuggestionProvider"
+import { $XPClientCommandSource } from "packages/xaeroplus/commands/$XPClientCommandSource"
+import { $EntityAnchorArgument$Anchor, $EntityAnchorArgument$Anchor$$Type } from "packages/net/minecraft/commands/arguments/$EntityAnchorArgument$Anchor"
+import { $Component, $Component$$Type } from "packages/net/minecraft/network/chat/$Component"
+import { $Suggestions } from "packages/com/mojang/brigadier/suggestion/$Suggestions"
+import { $IForgeCommandSourceStack } from "packages/net/minecraftforge/common/extensions/$IForgeCommandSourceStack"
+import { $SharedSuggestionProvider$TextCoordinates, $SharedSuggestionProvider$TextCoordinates$$Type } from "packages/net/minecraft/commands/$SharedSuggestionProvider$TextCoordinates"
+import { $Function$$Type } from "packages/java/util/function/$Function"
+import { $Stream, $Stream$$Type } from "packages/java/util/stream/$Stream"
+import { $MinecraftServer, $MinecraftServer$$Type } from "packages/net/minecraft/server/$MinecraftServer"
+import { $SharedSuggestionProvider$ElementSuggestionType$$Type } from "packages/net/minecraft/commands/$SharedSuggestionProvider$ElementSuggestionType"
+import { $Collection, $Collection$$Type } from "packages/java/util/$Collection"
+import { $Predicate$$Type } from "packages/java/util/function/$Predicate"
+import { $CommandSource, $CommandSource$$Type } from "packages/net/minecraft/commands/$CommandSource"
+import { $Advancement } from "packages/net/minecraft/advancements/$Advancement"
+import { $TaskChainer, $TaskChainer$$Type } from "packages/net/minecraft/util/$TaskChainer"
+import { $LocalPlayer } from "packages/net/minecraft/client/player/$LocalPlayer"
 import { $Set } from "packages/java/util/$Set"
 import { $Message } from "packages/com/mojang/brigadier/$Message"
-import { $IntConsumer, $IntConsumer$$Type } from "packages/java/util/function/$IntConsumer"
 import { $ResourceKey, $ResourceKey$$Type } from "packages/net/minecraft/resources/$ResourceKey"
-import { $OutgoingChatMessage$$Type } from "packages/net/minecraft/network/chat/$OutgoingChatMessage"
 import { $ChatType$Bound$$Type } from "packages/net/minecraft/network/chat/$ChatType$Bound"
-import { $SharedSuggestionProvider } from "packages/net/minecraft/commands/$SharedSuggestionProvider"
-import { $EntityAnchorArgument$Anchor, $EntityAnchorArgument$Anchor$$Type } from "packages/net/minecraft/commands/arguments/$EntityAnchorArgument$Anchor"
 
-export class $CommandSourceStack implements $SharedSuggestionProvider, $IForgeCommandSourceStack, $ClientCommandRegistrationEvent$ClientCommandSourceStack {
+export class $CommandSourceStack implements $SharedSuggestionProvider, $IForgeCommandSourceStack, $XPClientCommandSource, $ClientCommandRegistrationEvent$ClientCommandSourceStack {
 static readonly "ERROR_NOT_ENTITY": $SimpleCommandExceptionType
 static readonly "ERROR_NOT_PLAYER": $SimpleCommandExceptionType
 readonly "source": $CommandSource
@@ -194,8 +193,8 @@ public "customSuggestion"(commandContext0: $CommandContext$$Type<any>): $Complet
 public "enabledFeatures"(): $FeatureFlagSet
 public "facing"(entity0: $Entity$$Type, anchor1: $EntityAnchorArgument$Anchor$$Type): $CommandSourceStack
 public "facing"(vec30: $Vec3$$Type): $CommandSourceStack
-public static "filterResources"<T>(iterable0: $Iterable$$Type<T>, string1: string, function2: $Function$$Type<T, $ResourceLocation>, consumer3: $Consumer$$Type<T>): void
 public static "filterResources"<T>(iterable0: $Iterable$$Type<T>, string1: string, string2: string, function3: $Function$$Type<T, $ResourceLocation>, consumer4: $Consumer$$Type<T>): void
+public static "filterResources"<T>(iterable0: $Iterable$$Type<T>, string1: string, function2: $Function$$Type<T, $ResourceLocation>, consumer3: $Consumer$$Type<T>): void
 public "getAbsoluteCoordinates"(): $Collection<$SharedSuggestionProvider$TextCoordinates>
 public "getAdvancement"(resourceLocation0: $ResourceLocation$$Type): $Advancement
 public "getAllTeams"(): $Collection<string>
@@ -234,23 +233,23 @@ public "sendSuccess"(component: $Component$$Type, broadcastToAdmins: boolean): v
 public "sendSuccessLazy"(component: $LazyComponentKJS$$Type, broadcastToAdmins: boolean): void
 public "sendSystemMessage"(component0: $Component$$Type): void
 public "shouldFilterMessageTo"(serverPlayer0: $ServerPlayer$$Type): boolean
-public static "suggest"<T>(iterable0: $Iterable$$Type<T>, suggestionsBuilder1: $SuggestionsBuilder$$Type, function2: $Function$$Type<T, string>, function3: $Function$$Type<T, $Message>): $CompletableFuture<$Suggestions>
 public static "suggest"(string0s: string[], suggestionsBuilder1: $SuggestionsBuilder$$Type): $CompletableFuture<$Suggestions>
-public static "suggest"(stream0: $Stream$$Type<string>, suggestionsBuilder1: $SuggestionsBuilder$$Type): $CompletableFuture<$Suggestions>
+public static "suggest"<T>(iterable0: $Iterable$$Type<T>, suggestionsBuilder1: $SuggestionsBuilder$$Type, function2: $Function$$Type<T, string>, function3: $Function$$Type<T, $Message>): $CompletableFuture<$Suggestions>
 public static "suggest"(iterable0: $Iterable$$Type<string>, suggestionsBuilder1: $SuggestionsBuilder$$Type): $CompletableFuture<$Suggestions>
+public static "suggest"(stream0: $Stream$$Type<string>, suggestionsBuilder1: $SuggestionsBuilder$$Type): $CompletableFuture<$Suggestions>
 public static "suggest2DCoordinates"(string0: string, collection1: $Collection$$Type<$SharedSuggestionProvider$TextCoordinates$$Type>, suggestionsBuilder2: $SuggestionsBuilder$$Type, predicate3: $Predicate$$Type<string>): $CompletableFuture<$Suggestions>
 public static "suggestCoordinates"(string0: string, collection1: $Collection$$Type<$SharedSuggestionProvider$TextCoordinates$$Type>, suggestionsBuilder2: $SuggestionsBuilder$$Type, predicate3: $Predicate$$Type<string>): $CompletableFuture<$Suggestions>
 public "suggestRegistryElements"(resourceKey0: $ResourceKey$$Type<$Registry<any>>, elementSuggestionType1: $SharedSuggestionProvider$ElementSuggestionType$$Type, suggestionsBuilder2: $SuggestionsBuilder$$Type, commandContext3: $CommandContext$$Type<any>): $CompletableFuture<$Suggestions>
 public "suggestRegistryElements"(registry0: $Registry$$Type<any>, elementSuggestionType1: $SharedSuggestionProvider$ElementSuggestionType$$Type, suggestionsBuilder2: $SuggestionsBuilder$$Type): void
+public static "suggestResource"(stream0: $Stream$$Type<$ResourceLocation$$Type>, suggestionsBuilder1: $SuggestionsBuilder$$Type): $CompletableFuture<$Suggestions>
 public static "suggestResource"<T>(iterable0: $Iterable$$Type<T>, suggestionsBuilder1: $SuggestionsBuilder$$Type, function2: $Function$$Type<T, $ResourceLocation>, function3: $Function$$Type<T, $Message>): $CompletableFuture<$Suggestions>
 public static "suggestResource"<T>(stream0: $Stream$$Type<T>, suggestionsBuilder1: $SuggestionsBuilder$$Type, function2: $Function$$Type<T, $ResourceLocation>, function3: $Function$$Type<T, $Message>): $CompletableFuture<$Suggestions>
-public static "suggestResource"(stream0: $Stream$$Type<$ResourceLocation$$Type>, suggestionsBuilder1: $SuggestionsBuilder$$Type): $CompletableFuture<$Suggestions>
 public static "suggestResource"(iterable0: $Iterable$$Type<$ResourceLocation$$Type>, suggestionsBuilder1: $SuggestionsBuilder$$Type, string2: string): $CompletableFuture<$Suggestions>
 public static "suggestResource"(stream0: $Stream$$Type<$ResourceLocation$$Type>, suggestionsBuilder1: $SuggestionsBuilder$$Type, string2: string): $CompletableFuture<$Suggestions>
 public static "suggestResource"(iterable0: $Iterable$$Type<$ResourceLocation$$Type>, suggestionsBuilder1: $SuggestionsBuilder$$Type): $CompletableFuture<$Suggestions>
 public "withAnchor"(anchor0: $EntityAnchorArgument$Anchor$$Type): $CommandSourceStack
-public "withCallback"(resultConsumer0: $ResultConsumer$$Type<$CommandSourceStack$$Type>, binaryOperator1: $BinaryOperator$$Type<$ResultConsumer$$Type<$CommandSourceStack$$Type>>): $CommandSourceStack
 public "withCallback"(resultConsumer0: $ResultConsumer$$Type<$CommandSourceStack$$Type>): $CommandSourceStack
+public "withCallback"(resultConsumer0: $ResultConsumer$$Type<$CommandSourceStack$$Type>, binaryOperator1: $BinaryOperator$$Type<$ResultConsumer$$Type<$CommandSourceStack$$Type>>): $CommandSourceStack
 public "withChatMessageChainer"(taskChainer0: $TaskChainer$$Type): $CommandSourceStack
 public "withEntity"(entity0: $Entity$$Type): $CommandSourceStack
 public "withLevel"(serverLevel0: $ServerLevel$$Type): $CommandSourceStack
@@ -262,6 +261,8 @@ public "withRotation"(vec20: $Vec2$$Type): $CommandSourceStack
 public "withSigningContext"(commandSigningContext0: $CommandSigningContext$$Type): $CommandSourceStack
 public "withSource"(commandSource0: $CommandSource$$Type): $CommandSourceStack
 public "withSuppressedOutput"(): $CommandSourceStack
+public "xaeroplus$sendFailure"(message: $Component$$Type): void
+public "xaeroplus$sendSuccess"(message: $Component$$Type): void
 get "absoluteCoordinates"(): $Collection<$SharedSuggestionProvider$TextCoordinates>
 get "allTeams"(): $Collection<string>
 get "anchor"(): $EntityAnchorArgument$Anchor
@@ -493,8 +494,8 @@ export class $EntityAnchorArgument$Anchor extends $Enum<$EntityAnchorArgument$An
 static readonly "EYES": $EntityAnchorArgument$Anchor
 static readonly "FEET": $EntityAnchorArgument$Anchor
 
-public "apply"(commandSourceStack0: $CommandSourceStack$$Type): $Vec3
 public "apply"(entity0: $Entity$$Type): $Vec3
+public "apply"(commandSourceStack0: $CommandSourceStack$$Type): $Vec3
 public static "getByName"(string0: string): $EntityAnchorArgument$Anchor
 public static "valueOf"(string0: string): $EntityAnchorArgument$Anchor
 public static "values"(): $EntityAnchorArgument$Anchor[]
@@ -892,8 +893,8 @@ export interface $SharedSuggestionProvider {
 "hasPermission"(int0: integer): boolean
 "levels"(): $Set<$ResourceKey<$Level>>
 "registryAccess"(): $RegistryAccess
-"suggestRegistryElements"(resourceKey0: $ResourceKey$$Type<$Registry<any>>, elementSuggestionType1: $SharedSuggestionProvider$ElementSuggestionType$$Type, suggestionsBuilder2: $SuggestionsBuilder$$Type, commandContext3: $CommandContext$$Type<any>): $CompletableFuture<$Suggestions>
 "suggestRegistryElements"(registry0: $Registry$$Type<any>, elementSuggestionType1: $SharedSuggestionProvider$ElementSuggestionType$$Type, suggestionsBuilder2: $SuggestionsBuilder$$Type): void
+"suggestRegistryElements"(resourceKey0: $ResourceKey$$Type<$Registry<any>>, elementSuggestionType1: $SharedSuggestionProvider$ElementSuggestionType$$Type, suggestionsBuilder2: $SuggestionsBuilder$$Type, commandContext3: $CommandContext$$Type<any>): $CompletableFuture<$Suggestions>
 get "absoluteCoordinates"(): $Collection<$SharedSuggestionProvider$TextCoordinates>
 get "allTeams"(): $Collection<string>
 get "availableSounds"(): $Stream<$ResourceLocation>
@@ -905,35 +906,35 @@ get "selectedEntities"(): $Collection<string>
 }
 
 export namespace $SharedSuggestionProvider {
-function filterResources<T>(iterable0: $Iterable$$Type<T>, string1: string, function2: $Function$$Type<T, $ResourceLocation>, consumer3: $Consumer$$Type<T>): void
 function filterResources<T>(iterable0: $Iterable$$Type<T>, string1: string, string2: string, function3: $Function$$Type<T, $ResourceLocation>, consumer4: $Consumer$$Type<T>): void
+function filterResources<T>(iterable0: $Iterable$$Type<T>, string1: string, function2: $Function$$Type<T, $ResourceLocation>, consumer3: $Consumer$$Type<T>): void
 function matchesSubStr(string0: string, string1: string): boolean
-function suggest<T>(iterable0: $Iterable$$Type<T>, suggestionsBuilder1: $SuggestionsBuilder$$Type, function2: $Function$$Type<T, string>, function3: $Function$$Type<T, $Message>): $CompletableFuture<$Suggestions>
 function suggest(string0s: string[], suggestionsBuilder1: $SuggestionsBuilder$$Type): $CompletableFuture<$Suggestions>
-function suggest(stream0: $Stream$$Type<string>, suggestionsBuilder1: $SuggestionsBuilder$$Type): $CompletableFuture<$Suggestions>
+function suggest<T>(iterable0: $Iterable$$Type<T>, suggestionsBuilder1: $SuggestionsBuilder$$Type, function2: $Function$$Type<T, string>, function3: $Function$$Type<T, $Message>): $CompletableFuture<$Suggestions>
 function suggest(iterable0: $Iterable$$Type<string>, suggestionsBuilder1: $SuggestionsBuilder$$Type): $CompletableFuture<$Suggestions>
+function suggest(stream0: $Stream$$Type<string>, suggestionsBuilder1: $SuggestionsBuilder$$Type): $CompletableFuture<$Suggestions>
 function suggest2DCoordinates(string0: string, collection1: $Collection$$Type<$SharedSuggestionProvider$TextCoordinates$$Type>, suggestionsBuilder2: $SuggestionsBuilder$$Type, predicate3: $Predicate$$Type<string>): $CompletableFuture<$Suggestions>
 function suggestCoordinates(string0: string, collection1: $Collection$$Type<$SharedSuggestionProvider$TextCoordinates$$Type>, suggestionsBuilder2: $SuggestionsBuilder$$Type, predicate3: $Predicate$$Type<string>): $CompletableFuture<$Suggestions>
+function suggestResource(stream0: $Stream$$Type<$ResourceLocation$$Type>, suggestionsBuilder1: $SuggestionsBuilder$$Type): $CompletableFuture<$Suggestions>
 function suggestResource<T>(iterable0: $Iterable$$Type<T>, suggestionsBuilder1: $SuggestionsBuilder$$Type, function2: $Function$$Type<T, $ResourceLocation>, function3: $Function$$Type<T, $Message>): $CompletableFuture<$Suggestions>
 function suggestResource<T>(stream0: $Stream$$Type<T>, suggestionsBuilder1: $SuggestionsBuilder$$Type, function2: $Function$$Type<T, $ResourceLocation>, function3: $Function$$Type<T, $Message>): $CompletableFuture<$Suggestions>
-function suggestResource(stream0: $Stream$$Type<$ResourceLocation$$Type>, suggestionsBuilder1: $SuggestionsBuilder$$Type): $CompletableFuture<$Suggestions>
 function suggestResource(iterable0: $Iterable$$Type<$ResourceLocation$$Type>, suggestionsBuilder1: $SuggestionsBuilder$$Type, string2: string): $CompletableFuture<$Suggestions>
 function suggestResource(stream0: $Stream$$Type<$ResourceLocation$$Type>, suggestionsBuilder1: $SuggestionsBuilder$$Type, string2: string): $CompletableFuture<$Suggestions>
 function suggestResource(iterable0: $Iterable$$Type<$ResourceLocation$$Type>, suggestionsBuilder1: $SuggestionsBuilder$$Type): $CompletableFuture<$Suggestions>
 }
 export abstract class $SharedSuggestionProvider$$Static implements $SharedSuggestionProvider {
-static "filterResources"<T>(iterable0: $Iterable$$Type<T>, string1: string, function2: $Function$$Type<T, $ResourceLocation>, consumer3: $Consumer$$Type<T>): void
 static "filterResources"<T>(iterable0: $Iterable$$Type<T>, string1: string, string2: string, function3: $Function$$Type<T, $ResourceLocation>, consumer4: $Consumer$$Type<T>): void
+static "filterResources"<T>(iterable0: $Iterable$$Type<T>, string1: string, function2: $Function$$Type<T, $ResourceLocation>, consumer3: $Consumer$$Type<T>): void
 static "matchesSubStr"(string0: string, string1: string): boolean
-static "suggest"<T>(iterable0: $Iterable$$Type<T>, suggestionsBuilder1: $SuggestionsBuilder$$Type, function2: $Function$$Type<T, string>, function3: $Function$$Type<T, $Message>): $CompletableFuture<$Suggestions>
 static "suggest"(string0s: string[], suggestionsBuilder1: $SuggestionsBuilder$$Type): $CompletableFuture<$Suggestions>
-static "suggest"(stream0: $Stream$$Type<string>, suggestionsBuilder1: $SuggestionsBuilder$$Type): $CompletableFuture<$Suggestions>
+static "suggest"<T>(iterable0: $Iterable$$Type<T>, suggestionsBuilder1: $SuggestionsBuilder$$Type, function2: $Function$$Type<T, string>, function3: $Function$$Type<T, $Message>): $CompletableFuture<$Suggestions>
 static "suggest"(iterable0: $Iterable$$Type<string>, suggestionsBuilder1: $SuggestionsBuilder$$Type): $CompletableFuture<$Suggestions>
+static "suggest"(stream0: $Stream$$Type<string>, suggestionsBuilder1: $SuggestionsBuilder$$Type): $CompletableFuture<$Suggestions>
 static "suggest2DCoordinates"(string0: string, collection1: $Collection$$Type<$SharedSuggestionProvider$TextCoordinates$$Type>, suggestionsBuilder2: $SuggestionsBuilder$$Type, predicate3: $Predicate$$Type<string>): $CompletableFuture<$Suggestions>
 static "suggestCoordinates"(string0: string, collection1: $Collection$$Type<$SharedSuggestionProvider$TextCoordinates$$Type>, suggestionsBuilder2: $SuggestionsBuilder$$Type, predicate3: $Predicate$$Type<string>): $CompletableFuture<$Suggestions>
+static "suggestResource"(stream0: $Stream$$Type<$ResourceLocation$$Type>, suggestionsBuilder1: $SuggestionsBuilder$$Type): $CompletableFuture<$Suggestions>
 static "suggestResource"<T>(iterable0: $Iterable$$Type<T>, suggestionsBuilder1: $SuggestionsBuilder$$Type, function2: $Function$$Type<T, $ResourceLocation>, function3: $Function$$Type<T, $Message>): $CompletableFuture<$Suggestions>
 static "suggestResource"<T>(stream0: $Stream$$Type<T>, suggestionsBuilder1: $SuggestionsBuilder$$Type, function2: $Function$$Type<T, $ResourceLocation>, function3: $Function$$Type<T, $Message>): $CompletableFuture<$Suggestions>
-static "suggestResource"(stream0: $Stream$$Type<$ResourceLocation$$Type>, suggestionsBuilder1: $SuggestionsBuilder$$Type): $CompletableFuture<$Suggestions>
 static "suggestResource"(iterable0: $Iterable$$Type<$ResourceLocation$$Type>, suggestionsBuilder1: $SuggestionsBuilder$$Type, string2: string): $CompletableFuture<$Suggestions>
 static "suggestResource"(stream0: $Stream$$Type<$ResourceLocation$$Type>, suggestionsBuilder1: $SuggestionsBuilder$$Type, string2: string): $CompletableFuture<$Suggestions>
 static "suggestResource"(iterable0: $Iterable$$Type<$ResourceLocation$$Type>, suggestionsBuilder1: $SuggestionsBuilder$$Type): $CompletableFuture<$Suggestions>

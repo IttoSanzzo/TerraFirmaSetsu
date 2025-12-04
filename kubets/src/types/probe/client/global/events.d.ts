@@ -34,6 +34,7 @@ import { $AtlasSpriteRegistryEventJS } from "packages/dev/latvian/mods/kubejs/cl
 import { $SimplePlayerEventJS } from "packages/dev/latvian/mods/kubejs/player/$SimplePlayerEventJS"
 import { $InventoryChangedEventJS } from "packages/dev/latvian/mods/kubejs/player/$InventoryChangedEventJS"
 import { $FarmlandTrampledEventJS } from "packages/dev/latvian/mods/kubejs/block/$FarmlandTrampledEventJS"
+import { $ClickedInfoBadgeEventJS } from "packages/snownee/lychee/compat/kubejs/$ClickedInfoBadgeEventJS"
 import { $LivingEntityHurtEventJS } from "packages/dev/latvian/mods/kubejs/entity/$LivingEntityHurtEventJS"
 import { $TypeAssignmentEventJS } from "packages/zzzank/probejs/events/$TypeAssignmentEventJS"
 import { $NetworkEventJS } from "packages/dev/latvian/mods/kubejs/net/$NetworkEventJS"
@@ -57,6 +58,10 @@ function modifyClass(handler: ((event: $TypingModificationEventJS) => void)): vo
 }
 export namespace NetworkEvents {
 function dataReceived(extra: string, handler: ((event: $NetworkEventJS) => void)): void
+}
+export namespace LycheeEvents {
+function clickedInfoBadge(extra: string, handler: ((event: $ClickedInfoBadgeEventJS) => void)): void
+function clickedInfoBadge(handler: ((event: $ClickedInfoBadgeEventJS) => void)): void
 }
 export namespace JEIEvents {
 function hideItems(handler: ((event: $HideJEIEventJS<any>) => void)): void

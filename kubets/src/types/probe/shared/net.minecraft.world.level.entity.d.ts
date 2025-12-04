@@ -201,11 +201,11 @@ import { $Iterable } from "packages/java/lang/$Iterable"
 import { $AABB$$Type } from "packages/net/minecraft/world/phys/$AABB"
 
 export interface $LevelEntityGetter<T extends $EntityAccess> {
-"get"<U extends T>(entityTypeTest0: $EntityTypeTest$$Type<T, U>, abortableIterationConsumer1: $AbortableIterationConsumer$$Type<U>): void
-"get"(uUID0: $UUID$$Type): T
+"get"(int0: integer): T
 "get"(aABB0: $AABB$$Type, consumer1: $Consumer$$Type<T>): void
 "get"<U extends T>(entityTypeTest0: $EntityTypeTest$$Type<T, U>, aABB1: $AABB$$Type, abortableIterationConsumer2: $AbortableIterationConsumer$$Type<U>): void
-"get"(int0: integer): T
+"get"<U extends T>(entityTypeTest0: $EntityTypeTest$$Type<T, U>, abortableIterationConsumer1: $AbortableIterationConsumer$$Type<U>): void
+"get"(uUID0: $UUID$$Type): T
 "getAll"(): $Iterable<T>
 get "all"(): $Iterable<T>
 }
@@ -214,6 +214,26 @@ export namespace $LevelEntityGetter {
 const probejs$$marker: never
 }
 export abstract class $LevelEntityGetter$$Static<T extends $EntityAccess> implements $LevelEntityGetter<T> {
+}
+}
+
+declare module "packages/net/minecraft/world/level/entity/$TransientEntitySectionManager" {
+import { $ChunkPos$$Type } from "packages/net/minecraft/world/level/$ChunkPos"
+import { $LevelEntityGetter } from "packages/net/minecraft/world/level/entity/$LevelEntityGetter"
+import { $LevelCallback$$Type } from "packages/net/minecraft/world/level/entity/$LevelCallback"
+import { $Class$$Type } from "packages/java/lang/$Class"
+import { $EntityAccess, $EntityAccess$$Type } from "packages/net/minecraft/world/level/entity/$EntityAccess"
+
+export class $TransientEntitySectionManager<T extends $EntityAccess> {
+constructor(class0: $Class$$Type<T>, levelCallback1: $LevelCallback$$Type<T>)
+
+public "addEntity"(t0: T): void
+public "count"(): integer
+public "gatherStats"(): string
+public "getEntityGetter"(): $LevelEntityGetter<T>
+public "startTicking"(chunkPos0: $ChunkPos$$Type): void
+public "stopTicking"(chunkPos0: $ChunkPos$$Type): void
+get "entityGetter"(): $LevelEntityGetter<T>
 }
 }
 

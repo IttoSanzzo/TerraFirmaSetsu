@@ -30,8 +30,8 @@ public "clipWithInteractionOverride"(vec30: $Vec3$$Type, vec31: $Vec3$$Type, blo
 public static "create"(int0: integer, int1: integer): $LevelHeightAccessor
 public "getBlockEntity"(blockPos0: $BlockPos$$Type): $BlockEntity
 public "getBlockEntity"<T extends $BlockEntity>(blockPos0: $BlockPos$$Type, blockEntityType1: $BlockEntityType$$Type<T>): $Optional<T>
-public "getBlockFloorHeight"(blockPos0: $BlockPos$$Type): double
 public "getBlockFloorHeight"(voxelShape0: $VoxelShape$$Type, supplier1: $Supplier$$Type<$VoxelShape>): double
+public "getBlockFloorHeight"(blockPos0: $BlockPos$$Type): double
 public "getBlockState"(blockPos0: $BlockPos$$Type): $BlockState
 public "getBlockStates"(aABB0: $AABB$$Type): $Stream<$BlockState>
 public "getBlockTint"(blockPos0: $BlockPos$$Type, colorResolver1: $ColorResolver$$Type): integer
@@ -52,8 +52,8 @@ public "getSectionIndex"(int0: integer): integer
 public "getSectionIndexFromSectionY"(int0: integer): integer
 public "getSectionYFromSectionIndex"(int0: integer): integer
 public "getSectionsCount"(): integer
-public "getShade"(direction0: $Direction$$Type, boolean1: boolean): float
 public "getShade"(float0: float, float1: float, float2: float, boolean3: boolean): float
+public "getShade"(direction0: $Direction$$Type, boolean1: boolean): float
 public "isBlockInLine"(clipBlockStateContext0: $ClipBlockStateContext$$Type): $BlockHitResult
 public "isOutsideBuildHeight"(blockPos0: $BlockPos$$Type): boolean
 public "isOutsideBuildHeight"(int0: integer): boolean
@@ -507,6 +507,23 @@ set "level"(value: $ClientLevel$$Type)
 }
 }
 
+declare module "packages/net/minecraft/client/renderer/$ViewArea" {
+import { $ChunkRenderDispatcher$$Type } from "packages/net/minecraft/client/renderer/chunk/$ChunkRenderDispatcher"
+import { $Level$$Type } from "packages/net/minecraft/world/level/$Level"
+import { $ChunkRenderDispatcher$RenderChunk, $ChunkRenderDispatcher$RenderChunk$$Type } from "packages/net/minecraft/client/renderer/chunk/$ChunkRenderDispatcher$RenderChunk"
+import { $LevelRenderer$$Type } from "packages/net/minecraft/client/renderer/$LevelRenderer"
+
+export class $ViewArea {
+constructor(chunkRenderDispatcher0: $ChunkRenderDispatcher$$Type, level1: $Level$$Type, int2: integer, levelRenderer3: $LevelRenderer$$Type)
+
+public "releaseAllBuffers"(): void
+public "repositionCamera"(double0: double, double1: double): void
+public "setDirty"(int0: integer, int1: integer, int2: integer, boolean3: boolean): void
+get "chunks"(): $ChunkRenderDispatcher$RenderChunk[]
+set "chunks"(value: $ChunkRenderDispatcher$RenderChunk$$Type[])
+}
+}
+
 declare module "packages/net/minecraft/client/renderer/$RenderStateShard$BooleanStateShard" {
 import { $RenderStateShard } from "packages/net/minecraft/client/renderer/$RenderStateShard"
 import { $Runnable$$Type } from "packages/java/lang/$Runnable"
@@ -570,30 +587,33 @@ set "villageSection"(value: $SectionPos$$Type)
 
 declare module "packages/net/minecraft/client/renderer/$GameRenderer" {
 import { $PreparableReloadListener } from "packages/net/minecraft/server/packs/resources/$PreparableReloadListener"
-import { $OverlayTexture } from "packages/net/minecraft/client/renderer/texture/$OverlayTexture"
-import { $GameRendererAccessor } from "packages/net/irisshaders/iris/mixin/$GameRendererAccessor"
-import { $PostChain, $PostChain$$Type } from "packages/net/minecraft/client/renderer/$PostChain"
 import { $Camera, $Camera$$Type } from "packages/net/minecraft/client/$Camera"
 import { $ItemInHandRenderer, $ItemInHandRenderer$$Type } from "packages/net/minecraft/client/renderer/$ItemInHandRenderer"
 import { $Matrix4f, $Matrix4f$$Type } from "packages/org/joml/$Matrix4f"
 import { $ItemStack$$Type } from "packages/net/minecraft/world/item/$ItemStack"
-import { $LightTexture } from "packages/net/minecraft/client/renderer/$LightTexture"
 import { $ResourceLocation$$Type } from "packages/net/minecraft/resources/$ResourceLocation"
-import { $GameRendererAccessor as $GameRendererAccessor$0 } from "packages/com/github/exopandora/shouldersurfing/mixins/$GameRendererAccessor"
+import { $GameRendererAccessor } from "packages/com/github/exopandora/shouldersurfing/mixins/$GameRendererAccessor"
 import { $LivingEntity$$Type } from "packages/net/minecraft/world/entity/$LivingEntity"
-import { $GameRendererAccessor as $GameRendererAccessor$1 } from "packages/net/createmod/ponder/mixin/client/accessor/$GameRendererAccessor"
+import { $GameRendererAccessor as $GameRendererAccessor$0 } from "packages/net/createmod/ponder/mixin/client/accessor/$GameRendererAccessor"
 import { $MapRenderer } from "packages/net/minecraft/client/gui/$MapRenderer"
 import { $ResourceProvider$$Type } from "packages/net/minecraft/server/packs/resources/$ResourceProvider"
-import { $Minecraft, $Minecraft$$Type } from "packages/net/minecraft/client/$Minecraft"
-import { $RenderBuffers, $RenderBuffers$$Type } from "packages/net/minecraft/client/renderer/$RenderBuffers"
 import { $ShaderInstance, $ShaderInstance$$Type } from "packages/net/minecraft/client/renderer/$ShaderInstance"
-import { $CallbackInfo$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfo"
 import { $PoseStack$$Type } from "packages/com/mojang/blaze3d/vertex/$PoseStack"
 import { $AutoCloseable } from "packages/java/lang/$AutoCloseable"
 import { $ResourceManager$$Type } from "packages/net/minecraft/server/packs/resources/$ResourceManager"
 import { $Entity$$Type } from "packages/net/minecraft/world/entity/$Entity"
+import { $OverlayTexture } from "packages/net/minecraft/client/renderer/texture/$OverlayTexture"
+import { $GameRendererAccessor as $GameRendererAccessor$1 } from "packages/net/irisshaders/iris/mixin/$GameRendererAccessor"
+import { $PostChain, $PostChain$$Type } from "packages/net/minecraft/client/renderer/$PostChain"
+import { $LightTexture } from "packages/net/minecraft/client/renderer/$LightTexture"
+import { $OptionInstance$$Type } from "packages/net/minecraft/client/$OptionInstance"
+import { $Minecraft, $Minecraft$$Type } from "packages/net/minecraft/client/$Minecraft"
+import { $GameRendererAccess } from "packages/snownee/lychee/mixin/$GameRendererAccess"
+import { $RenderBuffers, $RenderBuffers$$Type } from "packages/net/minecraft/client/renderer/$RenderBuffers"
+import { $GameRendererAccessor as $GameRendererAccessor$2 } from "packages/waves/mixin/client/$GameRendererAccessor"
+import { $CallbackInfo$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfo"
 
-export class $GameRenderer implements $AutoCloseable, $GameRendererAccessor, $GameRendererAccessor$0, $GameRendererAccessor$1 {
+export class $GameRenderer implements $AutoCloseable, $GameRendererAccessor$2, $GameRendererAccessor$1, $GameRendererAccessor, $GameRendererAccessor$0, $GameRendererAccess {
 static readonly "EFFECT_NONE": integer
 static readonly "ITEM_ACTIVATION_ANIMATION_LENGTH": integer
 static readonly "PROJECTION_Z_NEAR": float
@@ -677,13 +697,14 @@ public static "getRendertypeTranslucentShader"(): $ShaderInstance
 public static "getRendertypeTripwireShader"(): $ShaderInstance
 public static "getRendertypeWaterMaskShader"(): $ShaderInstance
 public "getShader"(string0: string): $ShaderInstance
-public "handler$fin000$lodestone$injectionResizeListener"(int0: integer, int1: integer, callbackInfo2: $CallbackInfo$$Type): void
+public "handler$gag000$lodestone$injectionResizeListener"(int0: integer, int1: integer, callbackInfo2: $CallbackInfo$$Type): void
 public "isPanoramicMode"(): boolean
 public "lightTexture"(): $LightTexture
 public "loadEffect"(resourceLocation0: $ResourceLocation$$Type): void
 public "overlayTexture"(): $OverlayTexture
 public "pick"(float0: float): void
 public "preloadUiShader"(resourceProvider0: $ResourceProvider$$Type): void
+public "redirect$cgm000$bobView"(optionInstance0: $OptionInstance$$Type<any>): any
 public "render"(float0: float, long1: long, boolean2: boolean): void
 public "renderLevel"(float0: float, long1: long, poseStack2: $PoseStack$$Type): void
 public "renderZoomed"(float0: float, float1: float, float2: float): void
@@ -960,7 +981,7 @@ public "getName"(): string
 public "getPackedLightCoords"<E extends $Entity>(e0: E, float1: float): integer
 public "getRenderer"<T extends $Entity>(t0: T): $EntityRenderer<T>
 public "getSkinMap"(): $Map<string, $EntityRenderer<$Player>>
-public "handler$eaa000$inject$shouldRender"(entity0: $Entity$$Type, frustum1: $Frustum$$Type, double2: double, double3: double, double4: double, callbackInfoReturnable5: $CallbackInfoReturnable$$Type<any>): void
+public "handler$efd000$inject$shouldRender"(entity0: $Entity$$Type, frustum1: $Frustum$$Type, double2: double, double3: double, double4: double, callbackInfoReturnable5: $CallbackInfoReturnable$$Type<any>): void
 public "onResourceManagerReload"(resourceManager0: $ResourceManager$$Type): void
 public "overrideCameraOrientation"(quaternionf0: $Quaternionf$$Type): void
 public "prepare"(level0: $Level$$Type, camera1: $Camera$$Type, entity2: $Entity$$Type): void
@@ -1040,8 +1061,8 @@ public static "getFoilBufferDirect"(multiBufferSource0: $MultiBufferSource$$Type
 public "getItemModelShaper"(): $ItemModelShaper
 public "getModel"(itemStack0: $ItemStack$$Type, level1: $Level$$Type, livingEntity2: $LivingEntity$$Type, int3: integer): $BakedModel
 public "getName"(): string
-public "handler$blo000$onRenderItem"(itemStack0: $ItemStack$$Type, itemDisplayContext1: $ItemDisplayContext$$Type, boolean2: boolean, poseStack3: $PoseStack$$Type, multiBufferSource4: $MultiBufferSource$$Type, int5: integer, int6: integer, bakedModel7: $BakedModel$$Type, callbackInfo8: $CallbackInfo$$Type): void
-public "modifyExpressionValue$emm000$renderQuads"(float0: float): float
+public "handler$bpl000$onRenderItem"(itemStack0: $ItemStack$$Type, itemDisplayContext1: $ItemDisplayContext$$Type, boolean2: boolean, poseStack3: $PoseStack$$Type, multiBufferSource4: $MultiBufferSource$$Type, int5: integer, int6: integer, bakedModel7: $BakedModel$$Type, callbackInfo8: $CallbackInfo$$Type): void
+public "modifyExpressionValue$fco000$renderQuads"(float0: float): float
 public "onResourceManagerReload"(resourceManager0: $ResourceManager$$Type): void
 public "reload"(preparationBarrier0: $PreparableReloadListener$PreparationBarrier$$Type, resourceManager1: $ResourceManager$$Type, profilerFiller2: $ProfilerFiller$$Type, profilerFiller3: $ProfilerFiller$$Type, executor4: $Executor$$Type, executor5: $Executor$$Type): $CompletableFuture<void>
 public "render"(itemStack0: $ItemStack$$Type, itemDisplayContext1: $ItemDisplayContext$$Type, boolean2: boolean, poseStack3: $PoseStack$$Type, multiBufferSource4: $MultiBufferSource$$Type, int5: integer, int6: integer, bakedModel7: $BakedModel$$Type): void
@@ -1073,7 +1094,7 @@ public "getFont"(): $Font
 public "getPackedLightCoords"(t0: T, float1: float): integer
 public "getRenderOffset"(t0: T, float1: float): $Vec3
 public "getTextureLocation"(t0: T): $ResourceLocation
-public "handler$cmg000$adastra$shouldRender"(entity: $Entity$$Type, frustum: $Frustum$$Type, x: double, y: double, z: double, cir: $CallbackInfoReturnable$$Type<any>): void
+public "handler$dbh000$adastra$shouldRender"(entity: $Entity$$Type, frustum: $Frustum$$Type, x: double, y: double, z: double, cir: $CallbackInfoReturnable$$Type<any>): void
 public "render"(t0: T, float1: float, float2: float, poseStack3: $PoseStack$$Type, multiBufferSource4: $MultiBufferSource$$Type, int5: integer): void
 public "shouldRender"(t0: T, frustum1: $Frustum$$Type, double2: double, double3: double, double4: double): boolean
 get "shadowRadius"(): float
@@ -1300,8 +1321,8 @@ public "getName"(): string
 public "getTexture"(resourceLocation0: $ResourceLocation$$Type, abstractTexture1: $AbstractTexture$$Type): $AbstractTexture
 public "getTexture"(resourceLocation0: $ResourceLocation$$Type): $AbstractTexture
 public "preload"(resourceLocation0: $ResourceLocation$$Type, executor1: $Executor$$Type): $CompletableFuture<void>
-public "register"(resourceLocation0: $ResourceLocation$$Type, abstractTexture1: $AbstractTexture$$Type): void
 public "register"(string0: string, dynamicTexture1: $DynamicTexture$$Type): $ResourceLocation
+public "register"(resourceLocation0: $ResourceLocation$$Type, abstractTexture1: $AbstractTexture$$Type): void
 public "release"(resourceLocation0: $ResourceLocation$$Type): void
 public "reload"(preparationBarrier0: $PreparableReloadListener$PreparationBarrier$$Type, resourceManager1: $ResourceManager$$Type, profilerFiller2: $ProfilerFiller$$Type, profilerFiller3: $ProfilerFiller$$Type, executor4: $Executor$$Type, executor5: $Executor$$Type): $CompletableFuture<void>
 public "tick"(): void
@@ -1443,13 +1464,14 @@ import { $RenderBuffers, $RenderBuffers$$Type } from "packages/net/minecraft/cli
 import { $PreparableReloadListener$PreparationBarrier$$Type } from "packages/net/minecraft/server/packs/resources/$PreparableReloadListener$PreparationBarrier"
 import { $SodiumWorldRenderer } from "packages/me/jellysquid/mods/sodium/client/render/$SodiumWorldRenderer"
 import { $CallbackInfo$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfo"
+import { $ViewArea, $ViewArea$$Type } from "packages/net/minecraft/client/renderer/$ViewArea"
 import { $BlockEntityRenderDispatcher$$Type } from "packages/net/minecraft/client/renderer/blockentity/$BlockEntityRenderDispatcher"
 import { $ChunkRenderDispatcher$RenderChunk$$Type } from "packages/net/minecraft/client/renderer/chunk/$ChunkRenderDispatcher$RenderChunk"
 import { $MultiBufferSource$$Type } from "packages/net/minecraft/client/renderer/$MultiBufferSource"
 import { $LevelRendererAccessor as $LevelRendererAccessor$4 } from "packages/net/dries007/tfc/mixin/client/accessor/$LevelRendererAccessor"
 import { $Map } from "packages/java/util/$Map"
 
-export class $LevelRenderer implements $ResourceManagerReloadListener, $AutoCloseable, $WorldRendererAccessor, $LevelRendererAccessor, $LevelRendererAccessor$0, $CullingDataCache, $LevelRendererAccessor$4, $WorldRendererAccess, $LevelRendererAccessor$3, $LevelRendererAccessor$2, $AccessorLevelRenderer, $LevelRendererAccessor$1, $WorldRendererExtended {
+export class $LevelRenderer implements $ResourceManagerReloadListener, $AutoCloseable, $WorldRendererAccessor, $LevelRendererAccessor, $LevelRendererAccessor$0, $CullingDataCache, $LevelRendererAccessor$4, $LevelRendererAccessor$3, $LevelRendererAccessor$2, $AccessorLevelRenderer, $WorldRendererAccess, $LevelRendererAccessor$1, $WorldRendererExtended {
 static readonly "CHUNK_SIZE": integer
 static readonly "DIRECTIONS": $Direction[]
 readonly "frustumPos": $Vector3d
@@ -1458,12 +1480,12 @@ readonly "renderChunkStorage": $AtomicReference<$LevelRenderer$RenderChunkStorag
 
 constructor(minecraft0: $Minecraft$$Type, entityRenderDispatcher1: $EntityRenderDispatcher$$Type, blockEntityRenderDispatcher2: $BlockEntityRenderDispatcher$$Type, renderBuffers3: $RenderBuffers$$Type)
 
-public static "addChainedFilledBoxVertices"(poseStack0: $PoseStack$$Type, vertexConsumer1: $VertexConsumer$$Type, double2: double, double3: double, double4: double, double5: double, double6: double, double7: double, float8: float, float9: float, float10: float, float11: float): void
 public static "addChainedFilledBoxVertices"(poseStack0: $PoseStack$$Type, vertexConsumer1: $VertexConsumer$$Type, float2: float, float3: float, float4: float, float5: float, float6: float, float7: float, float8: float, float9: float, float10: float, float11: float): void
+public static "addChainedFilledBoxVertices"(poseStack0: $PoseStack$$Type, vertexConsumer1: $VertexConsumer$$Type, double2: double, double3: double, double4: double, double5: double, double6: double, double7: double, float8: float, float9: float, float10: float, float11: float): void
 public "addParticle"(particleOptions0: $ParticleOptions$$Type, boolean1: boolean, double2: double, double3: double, double4: double, double5: double, double6: double, double7: double): void
 public "addParticle"(particleOptions0: $ParticleOptions$$Type, boolean1: boolean, boolean2: boolean, double3: double, double4: double, double5: double, double6: double, double7: double, double8: double): void
-public "addParticleInternal"(particleOptions0: $ParticleOptions$$Type, boolean1: boolean, double2: double, double3: double, double4: double, double5: double, double6: double, double7: double): $Particle
 public "addParticleInternal"(particleOptions0: $ParticleOptions$$Type, boolean1: boolean, boolean2: boolean, double3: double, double4: double, double5: double, double6: double, double7: double, double8: double): $Particle
+public "addParticleInternal"(particleOptions0: $ParticleOptions$$Type, boolean1: boolean, double2: double, double3: double, double4: double, double5: double, double6: double, double7: double): $Particle
 public "addRecentlyCompiledChunk"(renderChunk0: $ChunkRenderDispatcher$RenderChunk$$Type): void
 public "allChanged"(): void
 public "blockChanged"(blockGetter0: $BlockGetter$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type, int4: integer): void
@@ -1490,45 +1512,46 @@ public "getTranslucentTarget"(): $RenderTarget
 public "getWeatherTarget"(): $RenderTarget
 public "globalLevelEvent"(int0: integer, blockPos1: $BlockPos$$Type, int2: integer): void
 public "graphicsChanged"(): void
-public "handler$ccf000$afterTESRRender"(poseStack0: $PoseStack$$Type, float1: float, long2: long, boolean3: boolean, camera4: $Camera$$Type, gameRenderer5: $GameRenderer$$Type, lightTexture6: $LightTexture$$Type, matrix4f7: $Matrix4f$$Type, callbackInfo8: $CallbackInfo$$Type): void
-public "handler$cdk000$postRender"(entity0: $Entity$$Type, double1: double, double2: double, double3: double, float4: float, poseStack5: $PoseStack$$Type, multiBufferSource6: $MultiBufferSource$$Type, callbackInfo7: $CallbackInfo$$Type): void
-public "handler$cdk000$preRender"(entity0: $Entity$$Type, double1: double, double2: double, double3: double, float4: float, poseStack5: $PoseStack$$Type, multiBufferSource6: $MultiBufferSource$$Type, callbackInfo7: $CallbackInfo$$Type): void
-public "handler$cmj000$adastra$tickRain"(camera: $Camera$$Type, ci: $CallbackInfo$$Type): void
-public "handler$dkn000$onRender"(poseStack0: $PoseStack$$Type, float1: float, long2: long, boolean3: boolean, camera4: $Camera$$Type, gameRenderer5: $GameRenderer$$Type, lightTexture6: $LightTexture$$Type, matrix4f7: $Matrix4f$$Type, callbackInfo8: $CallbackInfo$$Type): void
-public "handler$eam000$inject$tick"(camera0: $Camera$$Type, callbackInfo1: $CallbackInfo$$Type): void
-public "handler$eck000$renderClouds"(poseStack: $PoseStack$$Type, projectionMatrix: $Matrix4f$$Type, partialTicks: float, cameraX: double, cameraY: double, cameraZ: double, ci: $CallbackInfo$$Type): void
-public "handler$emo000$playStreamingMusic"(soundEvent0: $SoundEvent$$Type, blockPos1: $BlockPos$$Type, recordItem2: $RecordItem$$Type, callbackInfo3: $CallbackInfo$$Type): void
-public "handler$fhe000$endOpaque"(poseStack0: $PoseStack$$Type, float1: float, long2: long, boolean3: boolean, camera4: $Camera$$Type, gameRenderer5: $GameRenderer$$Type, lightTexture6: $LightTexture$$Type, matrix4f7: $Matrix4f$$Type, callbackInfo8: $CallbackInfo$$Type): void
-public "handler$fhe000$endTranslucent"(poseStack0: $PoseStack$$Type, float1: float, long2: long, boolean3: boolean, camera4: $Camera$$Type, gameRenderer5: $GameRenderer$$Type, lightTexture6: $LightTexture$$Type, matrix4f7: $Matrix4f$$Type, callbackInfo8: $CallbackInfo$$Type): void
-public "handler$fhe000$frameStart"(poseStack0: $PoseStack$$Type, float1: float, long2: long, boolean3: boolean, camera4: $Camera$$Type, gameRenderer5: $GameRenderer$$Type, lightTexture6: $LightTexture$$Type, matrix4f7: $Matrix4f$$Type, callbackInfo8: $CallbackInfo$$Type): void
-public "handler$fhe000$lightUpdated"(poseStack0: $PoseStack$$Type, float1: float, long2: long, boolean3: boolean, camera4: $Camera$$Type, gameRenderer5: $GameRenderer$$Type, lightTexture6: $LightTexture$$Type, matrix4f7: $Matrix4f$$Type, callbackInfo8: $CallbackInfo$$Type): void
-public "handler$fhe000$preOpaque"(poseStack0: $PoseStack$$Type, float1: float, long2: long, boolean3: boolean, camera4: $Camera$$Type, gameRenderer5: $GameRenderer$$Type, lightTexture6: $LightTexture$$Type, matrix4f7: $Matrix4f$$Type, callbackInfo8: $CallbackInfo$$Type): void
-public "handler$fhe000$preTerrainSetup"(poseStack0: $PoseStack$$Type, float1: float, long2: long, boolean3: boolean, camera4: $Camera$$Type, gameRenderer5: $GameRenderer$$Type, lightTexture6: $LightTexture$$Type, matrix4f7: $Matrix4f$$Type, callbackInfo8: $CallbackInfo$$Type): void
-public "handler$fhe000$setSectionDirty"(int0: integer, int1: integer, int2: integer, boolean3: boolean, callbackInfo4: $CallbackInfo$$Type): void
-public "handler$fja000$lodestone$injectionBeforeTransparencyChainProcess"(callbackInfo0: $CallbackInfo$$Type): void
-public "handler$zld000$renderCloudsFast"(poseStack0: $PoseStack$$Type, matrix4f1: $Matrix4f$$Type, float2: float, double3: double, double4: double, double5: double, callbackInfo6: $CallbackInfo$$Type): void
-public "handler$zpd000$renderLevel"(ci: $CallbackInfo$$Type): void
+public "handler$bcp000$renderLevel"(ci: $CallbackInfo$$Type): void
+public "handler$cgp000$postRender"(entity0: $Entity$$Type, double1: double, double2: double, double3: double, float4: float, poseStack5: $PoseStack$$Type, multiBufferSource6: $MultiBufferSource$$Type, callbackInfo7: $CallbackInfo$$Type): void
+public "handler$cgp000$preRender"(entity0: $Entity$$Type, double1: double, double2: double, double3: double, float4: float, poseStack5: $PoseStack$$Type, multiBufferSource6: $MultiBufferSource$$Type, callbackInfo7: $CallbackInfo$$Type): void
+public "handler$coa000$renderBlockEntitiesInject"(matrixStack: $PoseStack$$Type, tickDelta: float, limitTime: long, renderBlockOutline: boolean, camera: $Camera$$Type, gameRenderer: $GameRenderer$$Type, lightmapTextureManager: $LightTexture$$Type, positionMatrix: $Matrix4f$$Type, ci: $CallbackInfo$$Type): void
+public "handler$dbk000$adastra$tickRain"(camera: $Camera$$Type, ci: $CallbackInfo$$Type): void
+public "handler$dpl000$onRender"(poseStack0: $PoseStack$$Type, float1: float, long2: long, boolean3: boolean, camera4: $Camera$$Type, gameRenderer5: $GameRenderer$$Type, lightTexture6: $LightTexture$$Type, matrix4f7: $Matrix4f$$Type, callbackInfo8: $CallbackInfo$$Type): void
+public "handler$efp000$inject$tick"(camera0: $Camera$$Type, callbackInfo1: $CallbackInfo$$Type): void
+public "handler$ehn000$renderClouds"(poseStack: $PoseStack$$Type, projectionMatrix: $Matrix4f$$Type, partialTicks: float, cameraX: double, cameraY: double, cameraZ: double, ci: $CallbackInfo$$Type): void
+public "handler$ejd000$afterTESRRender"(poseStack0: $PoseStack$$Type, float1: float, long2: long, boolean3: boolean, camera4: $Camera$$Type, gameRenderer5: $GameRenderer$$Type, lightTexture6: $LightTexture$$Type, matrix4f7: $Matrix4f$$Type, callbackInfo8: $CallbackInfo$$Type): void
+public "handler$fda000$playStreamingMusic"(soundEvent0: $SoundEvent$$Type, blockPos1: $BlockPos$$Type, recordItem2: $RecordItem$$Type, callbackInfo3: $CallbackInfo$$Type): void
+public "handler$fnh000$endOpaque"(poseStack0: $PoseStack$$Type, float1: float, long2: long, boolean3: boolean, camera4: $Camera$$Type, gameRenderer5: $GameRenderer$$Type, lightTexture6: $LightTexture$$Type, matrix4f7: $Matrix4f$$Type, callbackInfo8: $CallbackInfo$$Type): void
+public "handler$fnh000$endTranslucent"(poseStack0: $PoseStack$$Type, float1: float, long2: long, boolean3: boolean, camera4: $Camera$$Type, gameRenderer5: $GameRenderer$$Type, lightTexture6: $LightTexture$$Type, matrix4f7: $Matrix4f$$Type, callbackInfo8: $CallbackInfo$$Type): void
+public "handler$fnh000$frameStart"(poseStack0: $PoseStack$$Type, float1: float, long2: long, boolean3: boolean, camera4: $Camera$$Type, gameRenderer5: $GameRenderer$$Type, lightTexture6: $LightTexture$$Type, matrix4f7: $Matrix4f$$Type, callbackInfo8: $CallbackInfo$$Type): void
+public "handler$fnh000$lightUpdated"(poseStack0: $PoseStack$$Type, float1: float, long2: long, boolean3: boolean, camera4: $Camera$$Type, gameRenderer5: $GameRenderer$$Type, lightTexture6: $LightTexture$$Type, matrix4f7: $Matrix4f$$Type, callbackInfo8: $CallbackInfo$$Type): void
+public "handler$fnh000$preOpaque"(poseStack0: $PoseStack$$Type, float1: float, long2: long, boolean3: boolean, camera4: $Camera$$Type, gameRenderer5: $GameRenderer$$Type, lightTexture6: $LightTexture$$Type, matrix4f7: $Matrix4f$$Type, callbackInfo8: $CallbackInfo$$Type): void
+public "handler$fnh000$preTerrainSetup"(poseStack0: $PoseStack$$Type, float1: float, long2: long, boolean3: boolean, camera4: $Camera$$Type, gameRenderer5: $GameRenderer$$Type, lightTexture6: $LightTexture$$Type, matrix4f7: $Matrix4f$$Type, callbackInfo8: $CallbackInfo$$Type): void
+public "handler$fnh000$setSectionDirty"(int0: integer, int1: integer, int2: integer, boolean3: boolean, callbackInfo4: $CallbackInfo$$Type): void
+public "handler$gaj000$lodestone$injectionBeforeTransparencyChainProcess"(callbackInfo0: $CallbackInfo$$Type): void
+public "handler$zop000$renderCloudsFast"(poseStack0: $PoseStack$$Type, matrix4f1: $Matrix4f$$Type, float2: float, double3: double, double4: double, double5: double, callbackInfo6: $CallbackInfo$$Type): void
 public "hasRenderedAllChunks"(): boolean
 public "initOutline"(): void
 public "isChunkCompiled"(blockPos0: $BlockPos$$Type): boolean
 public "killFrustum"(): void
 public "levelEvent"(int0: integer, blockPos1: $BlockPos$$Type, int2: integer): void
-public "localvar$zpd000$modifyPartialTicks"(partialTicks: float): float
-public "localvar$zpd000$modifyPoseStack"(poseStack: $PoseStack$$Type): $PoseStack
+public "localvar$bcp000$modifyPartialTicks"(partialTicks: float): float
+public "localvar$bcp000$modifyPoseStack"(poseStack: $PoseStack$$Type): $PoseStack
 public "needsUpdate"(): void
 public "onResourceManagerReload"(resourceManager0: $ResourceManager$$Type): void
+public "playStreamingMusic"(soundEvent0: $SoundEvent$$Type, blockPos1: $BlockPos$$Type, recordItem2: $RecordItem$$Type): void
 /** @deprecated */
 public "playStreamingMusic"(soundEvent0: $SoundEvent$$Type, blockPos1: $BlockPos$$Type): void
-public "playStreamingMusic"(soundEvent0: $SoundEvent$$Type, blockPos1: $BlockPos$$Type, recordItem2: $RecordItem$$Type): void
 public "prepareCullFrustum"(poseStack0: $PoseStack$$Type, vec31: $Vec3$$Type, matrix4f2: $Matrix4f$$Type): void
 public "reload"(preparationBarrier0: $PreparableReloadListener$PreparationBarrier$$Type, resourceManager1: $ResourceManager$$Type, profilerFiller2: $ProfilerFiller$$Type, profilerFiller3: $ProfilerFiller$$Type, executor4: $Executor$$Type, executor5: $Executor$$Type): $CompletableFuture<void>
 public "renderClouds"(poseStack0: $PoseStack$$Type, matrix4f1: $Matrix4f$$Type, float2: float, double3: double, double4: double, double5: double): void
 public "renderHitOutline"(poseStack0: $PoseStack$$Type, vertexConsumer1: $VertexConsumer$$Type, entity2: $Entity$$Type, double3: double, double4: double, double5: double, blockPos6: $BlockPos$$Type, blockState7: $BlockState$$Type): void
 public "renderLevel"(poseStack0: $PoseStack$$Type, float1: float, long2: long, boolean3: boolean, camera4: $Camera$$Type, gameRenderer5: $GameRenderer$$Type, lightTexture6: $LightTexture$$Type, matrix4f7: $Matrix4f$$Type): void
-public static "renderLineBox"(vertexConsumer0: $VertexConsumer$$Type, double1: double, double2: double, double3: double, double4: double, double5: double, double6: double, float7: float, float8: float, float9: float, float10: float): void
 public static "renderLineBox"(poseStack0: $PoseStack$$Type, vertexConsumer1: $VertexConsumer$$Type, aABB2: $AABB$$Type, float3: float, float4: float, float5: float, float6: float): void
-public static "renderLineBox"(poseStack0: $PoseStack$$Type, vertexConsumer1: $VertexConsumer$$Type, double2: double, double3: double, double4: double, double5: double, double6: double, double7: double, float8: float, float9: float, float10: float, float11: float, float12: float, float13: float, float14: float): void
 public static "renderLineBox"(poseStack0: $PoseStack$$Type, vertexConsumer1: $VertexConsumer$$Type, double2: double, double3: double, double4: double, double5: double, double6: double, double7: double, float8: float, float9: float, float10: float, float11: float): void
+public static "renderLineBox"(poseStack0: $PoseStack$$Type, vertexConsumer1: $VertexConsumer$$Type, double2: double, double3: double, double4: double, double5: double, double6: double, double7: double, float8: float, float9: float, float10: float, float11: float, float12: float, float13: float, float14: float): void
+public static "renderLineBox"(vertexConsumer0: $VertexConsumer$$Type, double1: double, double2: double, double3: double, double4: double, double5: double, double6: double, float7: float, float8: float, float9: float, float10: float): void
 public static "renderShape"(poseStack0: $PoseStack$$Type, vertexConsumer1: $VertexConsumer$$Type, voxelShape2: $VoxelShape$$Type, double3: double, double4: double, double5: double, float6: float, float7: float, float8: float, float9: float): void
 public "renderSky"(poseStack0: $PoseStack$$Type, matrix4f1: $Matrix4f$$Type, float2: float, camera3: $Camera$$Type, boolean4: boolean, runnable5: $Runnable$$Type): void
 public static "renderVoxelShape"(poseStack0: $PoseStack$$Type, vertexConsumer1: $VertexConsumer$$Type, voxelShape2: $VoxelShape$$Type, double3: double, double4: double, double5: double, float6: float, float7: float, float8: float, float9: float, boolean10: boolean): void
@@ -1538,8 +1561,8 @@ public "saveState"(): void
 public "setBlockDirty"(blockPos0: $BlockPos$$Type, blockState1: $BlockState$$Type, blockState2: $BlockState$$Type): void
 public "setBlocksDirty"(int0: integer, int1: integer, int2: integer, int3: integer, int4: integer, int5: integer): void
 public "setLevel"(clientLevel0: $ClientLevel$$Type): void
-public "setSectionDirty"(int0: integer, int1: integer, int2: integer, boolean3: boolean): void
 public "setSectionDirty"(int0: integer, int1: integer, int2: integer): void
+public "setSectionDirty"(int0: integer, int1: integer, int2: integer, boolean3: boolean): void
 public "setSectionDirtyWithNeighbors"(int0: integer, int1: integer, int2: integer): void
 public "shouldShowEntityOutlines"(): boolean
 public "sodium$getWorldRenderer"(): $SodiumWorldRenderer
@@ -1548,12 +1571,16 @@ public "tickRain"(camera0: $Camera$$Type): void
 public "updateGlobalBlockEntities"(collection0: $Collection$$Type<$BlockEntity$$Type>, collection1: $Collection$$Type<$BlockEntity$$Type>): void
 get "capturedFrustum"(): $Frustum
 set "capturedFrustum"(value: $Frustum$$Type)
+get "cullingFrustum"(): $Frustum
+set "cullingFrustum"(value: $Frustum$$Type)
 get "particlesTarget"(): $RenderTarget
 set "particlesTarget"(value: $RenderTarget$$Type)
 get "renderBuffers"(): $RenderBuffers
 set "renderBuffers"(value: $RenderBuffers$$Type)
 get "transparencyChain"(): $PostChain
 set "transparencyChain"(value: $PostChain$$Type)
+get "viewArea"(): $ViewArea
+set "viewArea"(value: $ViewArea$$Type)
 get "chunkRenderDispatcher"(): $ChunkRenderDispatcher
 get "chunkStatistics"(): string
 get "cloudsTarget"(): $RenderTarget
@@ -1613,7 +1640,7 @@ readonly "entityModelSet": $EntityModelSet
 constructor(blockEntityRenderDispatcher0: $BlockEntityRenderDispatcher$$Type, entityModelSet1: $EntityModelSet$$Type)
 
 public "getName"(): string
-public "handler$edi000$renderByItem"(itemStack: $ItemStack$$Type, itemDisplayContext: $ItemDisplayContext$$Type, poseStack: $PoseStack$$Type, multiBufferSource: $MultiBufferSource$$Type, i: integer, j: integer, info: $CallbackInfo$$Type): void
+public "handler$eil000$renderByItem"(itemStack: $ItemStack$$Type, itemDisplayContext: $ItemDisplayContext$$Type, poseStack: $PoseStack$$Type, multiBufferSource: $MultiBufferSource$$Type, i: integer, j: integer, info: $CallbackInfo$$Type): void
 public "onResourceManagerReload"(resourceManager0: $ResourceManager$$Type): void
 public "reload"(preparationBarrier0: $PreparableReloadListener$PreparationBarrier$$Type, resourceManager1: $ResourceManager$$Type, profilerFiller2: $ProfilerFiller$$Type, profilerFiller3: $ProfilerFiller$$Type, executor4: $Executor$$Type, executor5: $Executor$$Type): $CompletableFuture<void>
 public "renderByItem"(itemStack0: $ItemStack$$Type, itemDisplayContext1: $ItemDisplayContext$$Type, poseStack2: $PoseStack$$Type, multiBufferSource3: $MultiBufferSource$$Type, int4: integer, int5: integer): void
@@ -1643,8 +1670,8 @@ import { $RenderStateShard$CullStateShard$$Type } from "packages/net/minecraft/c
 export class $RenderType$CompositeState$CompositeStateBuilder {
 constructor()
 
-public "createCompositeState"(outlineProperty0: $RenderType$OutlineProperty$$Type): $RenderType$CompositeState
 public "createCompositeState"(boolean0: boolean): $RenderType$CompositeState
+public "createCompositeState"(outlineProperty0: $RenderType$OutlineProperty$$Type): $RenderType$CompositeState
 public "setColorLogicState"(colorLogicStateShard0: $RenderStateShard$ColorLogicStateShard$$Type): $RenderType$CompositeState$CompositeStateBuilder
 public "setCullState"(cullStateShard0: $RenderStateShard$CullStateShard$$Type): $RenderType$CompositeState$CompositeStateBuilder
 public "setDepthTestState"(depthTestStateShard0: $RenderStateShard$DepthTestStateShard$$Type): $RenderType$CompositeState$CompositeStateBuilder
@@ -1685,7 +1712,7 @@ import { $SpriteContents$$Type } from "packages/net/minecraft/client/renderer/te
 
 export class $SpriteContents$Ticker implements $SpriteTicker, $SpriteContentsTickerAccessor, $SpriteContentsAnimatorImplAccessor {
 public "close"(): void
-public "handler$zlj000$assignParent"(spriteContents0: $SpriteContents$$Type, animatedTexture1: $SpriteContents$AnimatedTexture$$Type, interpolationData2: $SpriteContents$InterpolationData$$Type, callbackInfo3: $CallbackInfo$$Type): void
+public "handler$zpf000$assignParent"(spriteContents0: $SpriteContents$$Type, animatedTexture1: $SpriteContents$AnimatedTexture$$Type, interpolationData2: $SpriteContents$InterpolationData$$Type, callbackInfo3: $CallbackInfo$$Type): void
 public "tickAndUpload"(int0: integer, int1: integer): void
 }
 }
@@ -1741,8 +1768,8 @@ public "iris$createExtraShaders"(provider: $ResourceProvider$$Type, name: $Resou
 public "markDirty"(): void
 public static "parseBlendNode"(jsonObject0: $JsonObject$$Type): $BlendMode
 public "parseUniformNode"(jsonElement0: $JsonElement$$Type): void
-public "redirect$bef000$iris$redirectBindAttributeLocation"(i: integer, j: integer, charSequence: charseq): void
-public "redirect$bef000$iris$setupGeometryShader"(reader: $Reader$$Type, resourceProvider: $ResourceProvider$$Type, name: $ResourceLocation$$Type, vertexFormat: $VertexFormat$$Type): $JsonObject
+public "redirect$bib000$iris$redirectBindAttributeLocation"(i: integer, j: integer, charSequence: charseq): void
+public "redirect$bib000$iris$setupGeometryShader"(reader: $Reader$$Type, resourceProvider: $ResourceProvider$$Type, name: $ResourceLocation$$Type, vertexFormat: $VertexFormat$$Type): $JsonObject
 public "safeGetUniform"(string0: string): $AbstractUniform
 public "setSampler"(string0: string, object1: any): void
 get "CHUNK_OFFSET"(): $Uniform
@@ -1866,8 +1893,8 @@ public "getDependencies"(): $Collection<$ResourceLocation>
 public "getElements"(): $List<$BlockElement>
 public "getGuiLight"(): $BlockModel$GuiLight
 public "getMaterial"(string0: string): $Material
-public "getOverrides"(modelBaker0: $ModelBaker$$Type, blockModel1: $BlockModel$$Type, function2: $Function$$Type<$Material$$Type, $TextureAtlasSprite>): $ItemOverrides
 public "getOverrides"(): $List<$ItemOverride>
+public "getOverrides"(modelBaker0: $ModelBaker$$Type, blockModel1: $BlockModel$$Type, function2: $Function$$Type<$Material$$Type, $TextureAtlasSprite>): $ItemOverrides
 public "getParentLocation"(): $ResourceLocation
 public "getRootModel"(): $BlockModel
 public "getTransforms"(): $ItemTransforms
@@ -1929,7 +1956,7 @@ constructor(font0: $Font$$Type, entityModelSet1: $EntityModelSet$$Type, supplier
 
 public "getName"(): string
 public "getRenderer"<E extends $BlockEntity>(e0: E): $BlockEntityRenderer<E>
-public "handler$eab000$render"(blockEntity0: $BlockEntity$$Type, float1: float, poseStack2: $PoseStack$$Type, multiBufferSource3: $MultiBufferSource$$Type, callbackInfo4: $CallbackInfo$$Type): void
+public "handler$efe000$render"(blockEntity0: $BlockEntity$$Type, float1: float, poseStack2: $PoseStack$$Type, multiBufferSource3: $MultiBufferSource$$Type, callbackInfo4: $CallbackInfo$$Type): void
 public "onResourceManagerReload"(resourceManager0: $ResourceManager$$Type): void
 public "prepare"(level0: $Level$$Type, camera1: $Camera$$Type, hitResult2: $HitResult$$Type): void
 public "reload"(preparationBarrier0: $PreparableReloadListener$PreparationBarrier$$Type, resourceManager1: $ResourceManager$$Type, profilerFiller2: $ProfilerFiller$$Type, profilerFiller3: $ProfilerFiller$$Type, executor4: $Executor$$Type, executor5: $Executor$$Type): $CompletableFuture<void>
@@ -2188,17 +2215,17 @@ constructor(minecraft0: $Minecraft$$Type)
 
 public "clear"(): void
 public static "getTargetedEntity"(entity0: $Entity$$Type, int1: integer): $Optional<$Entity>
-public "handler$cbo000$renderColliderDebug"(matrices: $PoseStack$$Type, vertexConsumers: $MultiBufferSource$BufferSource$$Type, cameraX: double, cameraY: double, cameraZ: double, ci: $CallbackInfo$$Type): void
+public "handler$cga000$renderColliderDebug"(matrices: $PoseStack$$Type, vertexConsumers: $MultiBufferSource$BufferSource$$Type, cameraX: double, cameraY: double, cameraZ: double, ci: $CallbackInfo$$Type): void
 public "printDebug"(obb: $OrientedBoundingBox$$Type): void
 public "render"(poseStack0: $PoseStack$$Type, bufferSource1: $MultiBufferSource$BufferSource$$Type, double2: double, double3: double, double4: double): void
-public static "renderFilledBox"(poseStack0: $PoseStack$$Type, multiBufferSource1: $MultiBufferSource$$Type, blockPos2: $BlockPos$$Type, float3: float, float4: float, float5: float, float6: float, float7: float): void
 public static "renderFilledBox"(poseStack0: $PoseStack$$Type, multiBufferSource1: $MultiBufferSource$$Type, blockPos2: $BlockPos$$Type, blockPos3: $BlockPos$$Type, float4: float, float5: float, float6: float, float7: float): void
 public static "renderFilledBox"(poseStack0: $PoseStack$$Type, multiBufferSource1: $MultiBufferSource$$Type, aABB2: $AABB$$Type, float3: float, float4: float, float5: float, float6: float): void
+public static "renderFilledBox"(poseStack0: $PoseStack$$Type, multiBufferSource1: $MultiBufferSource$$Type, blockPos2: $BlockPos$$Type, float3: float, float4: float, float5: float, float6: float, float7: float): void
 public static "renderFilledBox"(poseStack0: $PoseStack$$Type, multiBufferSource1: $MultiBufferSource$$Type, double2: double, double3: double, double4: double, double5: double, double6: double, double7: double, float8: float, float9: float, float10: float, float11: float): void
+public static "renderFloatingText"(poseStack0: $PoseStack$$Type, multiBufferSource1: $MultiBufferSource$$Type, string2: string, double3: double, double4: double, double5: double, int6: integer, float7: float): void
+public static "renderFloatingText"(poseStack0: $PoseStack$$Type, multiBufferSource1: $MultiBufferSource$$Type, string2: string, double3: double, double4: double, double5: double, int6: integer, float7: float, boolean8: boolean, float9: float, boolean10: boolean): void
 public static "renderFloatingText"(poseStack0: $PoseStack$$Type, multiBufferSource1: $MultiBufferSource$$Type, string2: string, double3: double, double4: double, double5: double, int6: integer): void
 public static "renderFloatingText"(poseStack0: $PoseStack$$Type, multiBufferSource1: $MultiBufferSource$$Type, string2: string, int3: integer, int4: integer, int5: integer, int6: integer): void
-public static "renderFloatingText"(poseStack0: $PoseStack$$Type, multiBufferSource1: $MultiBufferSource$$Type, string2: string, double3: double, double4: double, double5: double, int6: integer, float7: float, boolean8: boolean, float9: float, boolean10: boolean): void
-public static "renderFloatingText"(poseStack0: $PoseStack$$Type, multiBufferSource1: $MultiBufferSource$$Type, string2: string, double3: double, double4: double, double5: double, int6: integer, float7: float): void
 public "switchRenderChunkborder"(): boolean
 }
 }
@@ -2332,9 +2359,9 @@ constructor(minecraft0: $Minecraft$$Type, entityRenderDispatcher1: $EntityRender
 public "applyItemArmAttackTransform"(poseStack0: $PoseStack$$Type, humanoidArm1: $HumanoidArm$$Type, float2: float): void
 public "applyItemArmTransform"(poseStack0: $PoseStack$$Type, humanoidArm1: $HumanoidArm$$Type, float2: float): void
 /** Client only, do not use in server scripts */
-public "handler$cng000$renderArmWithItem"(abstractClientPlayer0: $AbstractClientPlayer$$Type, float1: float, float2: float, interactionHand3: $InteractionHand$$Type, float4: float, itemStack5: $ItemStack$$Type, float6: float, poseStack7: $PoseStack$$Type, multiBufferSource8: $MultiBufferSource$$Type, int9: integer, callbackInfo10: $CallbackInfo$$Type): void
-public "handler$efg000$moonlight$animateItem"(player: $AbstractClientPlayer$$Type, partialTicks: float, pitch: float, hand: $InteractionHand$$Type, swingProgress: float, stack: $ItemStack$$Type, handHeight: float, poseStack: $PoseStack$$Type, buffer: $MultiBufferSource$$Type, combinedLight: integer, ci: $CallbackInfo$$Type): void
-public "handler$efg000$moonlight$renderSpecial"(player: $AbstractClientPlayer$$Type, partialTicks: float, pitch: float, hand: $InteractionHand$$Type, swingProgress: float, stack: $ItemStack$$Type, equippedProgress: float, poseStack: $PoseStack$$Type, buffer: $MultiBufferSource$$Type, combinedLight: integer, ci: $CallbackInfo$$Type, arm: $HumanoidArm$$Type): void
+public "handler$dch000$renderArmWithItem"(abstractClientPlayer0: $AbstractClientPlayer$$Type, float1: float, float2: float, interactionHand3: $InteractionHand$$Type, float4: float, itemStack5: $ItemStack$$Type, float6: float, poseStack7: $PoseStack$$Type, multiBufferSource8: $MultiBufferSource$$Type, int9: integer, callbackInfo10: $CallbackInfo$$Type): void
+public "handler$eli000$moonlight$animateItem"(player: $AbstractClientPlayer$$Type, partialTicks: float, pitch: float, hand: $InteractionHand$$Type, swingProgress: float, stack: $ItemStack$$Type, handHeight: float, poseStack: $PoseStack$$Type, buffer: $MultiBufferSource$$Type, combinedLight: integer, ci: $CallbackInfo$$Type): void
+public "handler$eli000$moonlight$renderSpecial"(player: $AbstractClientPlayer$$Type, partialTicks: float, pitch: float, hand: $InteractionHand$$Type, swingProgress: float, stack: $ItemStack$$Type, equippedProgress: float, poseStack: $PoseStack$$Type, buffer: $MultiBufferSource$$Type, combinedLight: integer, ci: $CallbackInfo$$Type, arm: $HumanoidArm$$Type): void
 public "itemUsed"(interactionHand0: $InteractionHand$$Type): void
 public "renderHandsWithItems"(float0: float, poseStack1: $PoseStack$$Type, bufferSource2: $MultiBufferSource$BufferSource$$Type, localPlayer3: $LocalPlayer$$Type, int4: integer): void
 public "renderItem"(livingEntity0: $LivingEntity$$Type, itemStack1: $ItemStack$$Type, itemDisplayContext2: $ItemDisplayContext$$Type, boolean3: boolean, poseStack4: $PoseStack$$Type, multiBufferSource5: $MultiBufferSource$$Type, int6: integer): void
@@ -2431,7 +2458,7 @@ import { $SpriteContents$$Type } from "packages/net/minecraft/client/renderer/te
 
 export class $SpriteContents$InterpolationData implements $AutoCloseable {
 public "close"(): void
-public "handler$zni000$assignParent"(spriteContents0: $SpriteContents$$Type, callbackInfo1: $CallbackInfo$$Type): void
+public "handler$bbe000$assignParent"(spriteContents0: $SpriteContents$$Type, callbackInfo1: $CallbackInfo$$Type): void
 }
 }
 
@@ -2598,7 +2625,7 @@ public "addLayer"(renderLayer0: $RenderLayer$$Type<T, M>): boolean
 public "getModel"(): M
 public static "getOverlayCoords"(livingEntity0: $LivingEntity$$Type, float1: float): integer
 public "getTextureLocation"(t0: T): $ResourceLocation
-public "handler$cnh001$render"(livingEntity0: $LivingEntity$$Type, float1: float, float2: float, poseStack3: $PoseStack$$Type, multiBufferSource4: $MultiBufferSource$$Type, int5: integer, callbackInfo6: $CallbackInfo$$Type): void
+public "handler$dci001$render"(livingEntity0: $LivingEntity$$Type, float1: float, float2: float, poseStack3: $PoseStack$$Type, multiBufferSource4: $MultiBufferSource$$Type, int5: integer, callbackInfo6: $CallbackInfo$$Type): void
 public static "isEntityUpsideDown"(livingEntity0: $LivingEntity$$Type): boolean
 public "render"(t0: T, float1: float, float2: float, poseStack3: $PoseStack$$Type, multiBufferSource4: $MultiBufferSource$$Type, int5: integer): void
 get "layers"(): $List<$RenderLayer<T, M>>
@@ -2728,7 +2755,7 @@ constructor(context0: $EntityRendererProvider$Context$$Type, boolean1: boolean)
 
 public "getRenderOffset"(abstractClientPlayer0: $AbstractClientPlayer$$Type, float1: float): $Vec3
 public "getTextureLocation"(abstractClientPlayer0: $AbstractClientPlayer$$Type): $ResourceLocation
-public "handler$edg000$setModelProperties"(abstractClientPlayer: $AbstractClientPlayer$$Type, info: $CallbackInfo$$Type): void
+public "handler$eij000$setModelProperties"(abstractClientPlayer: $AbstractClientPlayer$$Type, info: $CallbackInfo$$Type): void
 public "render"(abstractClientPlayer0: $AbstractClientPlayer$$Type, float1: float, float2: float, poseStack3: $PoseStack$$Type, multiBufferSource4: $MultiBufferSource$$Type, int5: integer): void
 public "renderLeftHand"(poseStack0: $PoseStack$$Type, multiBufferSource1: $MultiBufferSource$$Type, int2: integer, abstractClientPlayer3: $AbstractClientPlayer$$Type): void
 public "renderRightHand"(poseStack0: $PoseStack$$Type, multiBufferSource1: $MultiBufferSource$$Type, int2: integer, abstractClientPlayer3: $AbstractClientPlayer$$Type): void
@@ -2856,8 +2883,8 @@ public static "beaconBeam"(resourceLocation0: $ResourceLocation$$Type, boolean1:
 public "bufferSize"(): integer
 public "canConsolidateConsecutiveGeometry"(): boolean
 public static "chunkBufferLayers"(): $List<$RenderType>
-public static "create"(string0: string, vertexFormat1: $VertexFormat$$Type, mode2: $VertexFormat$Mode$$Type, int3: integer, compositeState4: $RenderType$CompositeState$$Type): $RenderType$CompositeRenderType
 public static "create"(string0: string, vertexFormat1: $VertexFormat$$Type, mode2: $VertexFormat$Mode$$Type, int3: integer, boolean4: boolean, boolean5: boolean, compositeState6: $RenderType$CompositeState$$Type): $RenderType$CompositeRenderType
+public static "create"(string0: string, vertexFormat1: $VertexFormat$$Type, mode2: $VertexFormat$Mode$$Type, int3: integer, compositeState4: $RenderType$CompositeState$$Type): $RenderType$CompositeRenderType
 public static "crumbling"(resourceLocation0: $ResourceLocation$$Type): $RenderType
 public static "cutout"(): $RenderType
 public static "cutoutMipped"(): $RenderType
@@ -2871,10 +2898,10 @@ public static "endGateway"(): $RenderType
 public static "endPortal"(): $RenderType
 public static "energySwirl"(resourceLocation0: $ResourceLocation$$Type, float1: float, float2: float): $RenderType
 public static "entityCutout"(resourceLocation0: $ResourceLocation$$Type): $RenderType
-public static "entityCutoutNoCull"(resourceLocation0: $ResourceLocation$$Type): $RenderType
 public static "entityCutoutNoCull"(resourceLocation0: $ResourceLocation$$Type, boolean1: boolean): $RenderType
-public static "entityCutoutNoCullZOffset"(resourceLocation0: $ResourceLocation$$Type, boolean1: boolean): $RenderType
+public static "entityCutoutNoCull"(resourceLocation0: $ResourceLocation$$Type): $RenderType
 public static "entityCutoutNoCullZOffset"(resourceLocation0: $ResourceLocation$$Type): $RenderType
+public static "entityCutoutNoCullZOffset"(resourceLocation0: $ResourceLocation$$Type, boolean1: boolean): $RenderType
 public static "entityDecal"(resourceLocation0: $ResourceLocation$$Type): $RenderType
 public static "entityGlint"(): $RenderType
 public static "entityGlintDirect"(): $RenderType
@@ -2882,11 +2909,11 @@ public static "entityNoOutline"(resourceLocation0: $ResourceLocation$$Type): $Re
 public static "entityShadow"(resourceLocation0: $ResourceLocation$$Type): $RenderType
 public static "entitySmoothCutout"(resourceLocation0: $ResourceLocation$$Type): $RenderType
 public static "entitySolid"(resourceLocation0: $ResourceLocation$$Type): $RenderType
-public static "entityTranslucent"(resourceLocation0: $ResourceLocation$$Type, boolean1: boolean): $RenderType
 public static "entityTranslucent"(resourceLocation0: $ResourceLocation$$Type): $RenderType
+public static "entityTranslucent"(resourceLocation0: $ResourceLocation$$Type, boolean1: boolean): $RenderType
 public static "entityTranslucentCull"(resourceLocation0: $ResourceLocation$$Type): $RenderType
-public static "entityTranslucentEmissive"(resourceLocation0: $ResourceLocation$$Type, boolean1: boolean): $RenderType
 public static "entityTranslucentEmissive"(resourceLocation0: $ResourceLocation$$Type): $RenderType
+public static "entityTranslucentEmissive"(resourceLocation0: $ResourceLocation$$Type, boolean1: boolean): $RenderType
 public static "eyes"(resourceLocation0: $ResourceLocation$$Type): $RenderType
 public "format"(): $VertexFormat
 public "getChunkLayerId"(): integer
@@ -2905,8 +2932,8 @@ public static "lightning"(): $RenderType
 public static "lineStrip"(): $RenderType
 public static "lines"(): $RenderType
 public "mode"(): $VertexFormat$Mode
-public "outline"(): $Optional<$RenderType>
 public static "outline"(resourceLocation0: $ResourceLocation$$Type): $RenderType
+public "outline"(): $Optional<$RenderType>
 public "setTransparencyType"(transparencyType: $TransparencyType$$Type): void
 public static "solid"(): $RenderType
 public static "text"(resourceLocation0: $ResourceLocation$$Type): $RenderType
@@ -2996,8 +3023,8 @@ constructor()
 
 public static "shouldRenderFace"(blockAndTintGetter0: $BlockAndTintGetter$$Type, blockPos1: $BlockPos$$Type, fluidState2: $FluidState$$Type, blockState3: $BlockState$$Type, direction4: $Direction$$Type, fluidState5: $FluidState$$Type): boolean
 public "tesselate"(blockAndTintGetter0: $BlockAndTintGetter$$Type, blockPos1: $BlockPos$$Type, vertexConsumer2: $VertexConsumer$$Type, blockState3: $BlockState$$Type, fluidState4: $FluidState$$Type): void
-public "wrapOperation$fbf000$supplementaries$modifyLumiseneHeight"(instance: $Fluid$$Type, above: $Fluid$$Type, original: $Operation$$Type<any>): boolean
-public "wrapOperation$fbf000$supplementaries$modifyLumiseneLight"(level: $BlockAndTintGetter$$Type, pos: $BlockPos$$Type, original: $Operation$$Type<any>): integer
+public "wrapOperation$fhi000$supplementaries$modifyLumiseneHeight"(instance: $Fluid$$Type, above: $Fluid$$Type, original: $Operation$$Type<any>): boolean
+public "wrapOperation$fhi000$supplementaries$modifyLumiseneLight"(level: $BlockAndTintGetter$$Type, pos: $BlockPos$$Type, original: $Operation$$Type<any>): integer
 }
 }
 
@@ -3039,13 +3066,13 @@ public "reload"(preparationBarrier0: $PreparableReloadListener$PreparationBarrie
 /** @deprecated */
 public "renderBatched"(blockState0: $BlockState$$Type, blockPos1: $BlockPos$$Type, blockAndTintGetter2: $BlockAndTintGetter$$Type, poseStack3: $PoseStack$$Type, vertexConsumer4: $VertexConsumer$$Type, boolean5: boolean, randomSource6: $RandomSource$$Type): void
 public "renderBatched"(blockState0: $BlockState$$Type, blockPos1: $BlockPos$$Type, blockAndTintGetter2: $BlockAndTintGetter$$Type, poseStack3: $PoseStack$$Type, vertexConsumer4: $VertexConsumer$$Type, boolean5: boolean, randomSource6: $RandomSource$$Type, modelData7: $ModelData$$Type, renderType8: $RenderType$$Type): void
+public "renderBreakingTexture"(blockState0: $BlockState$$Type, blockPos1: $BlockPos$$Type, blockAndTintGetter2: $BlockAndTintGetter$$Type, poseStack3: $PoseStack$$Type, vertexConsumer4: $VertexConsumer$$Type, modelData5: $ModelData$$Type): void
 /** @deprecated */
 public "renderBreakingTexture"(blockState0: $BlockState$$Type, blockPos1: $BlockPos$$Type, blockAndTintGetter2: $BlockAndTintGetter$$Type, poseStack3: $PoseStack$$Type, vertexConsumer4: $VertexConsumer$$Type): void
-public "renderBreakingTexture"(blockState0: $BlockState$$Type, blockPos1: $BlockPos$$Type, blockAndTintGetter2: $BlockAndTintGetter$$Type, poseStack3: $PoseStack$$Type, vertexConsumer4: $VertexConsumer$$Type, modelData5: $ModelData$$Type): void
 public "renderLiquid"(blockPos0: $BlockPos$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, vertexConsumer2: $VertexConsumer$$Type, blockState3: $BlockState$$Type, fluidState4: $FluidState$$Type): void
+public "renderSingleBlock"(blockState0: $BlockState$$Type, poseStack1: $PoseStack$$Type, multiBufferSource2: $MultiBufferSource$$Type, int3: integer, int4: integer, modelData5: $ModelData$$Type, renderType6: $RenderType$$Type): void
 /** @deprecated */
 public "renderSingleBlock"(blockState0: $BlockState$$Type, poseStack1: $PoseStack$$Type, multiBufferSource2: $MultiBufferSource$$Type, int3: integer, int4: integer): void
-public "renderSingleBlock"(blockState0: $BlockState$$Type, poseStack1: $PoseStack$$Type, multiBufferSource2: $MultiBufferSource$$Type, int3: integer, int4: integer, modelData5: $ModelData$$Type, renderType6: $RenderType$$Type): void
 get "blockColors"(): $BlockColors
 set "blockColors"(value: $BlockColors$$Type)
 get "liquidBlockRenderer"(): $LiquidBlockRenderer
@@ -3424,8 +3451,8 @@ constructor(gameRenderer0: $GameRenderer$$Type, minecraft1: $Minecraft$$Type)
 public static "block"(int0: integer): integer
 public "close"(): void
 public static "getBrightness"(dimensionType0: $DimensionType$$Type, int1: integer): float
-public "handler$ebd000$inject$init"(gameRenderer0: $GameRenderer$$Type, minecraft1: $Minecraft$$Type, callbackInfo2: $CallbackInfo$$Type): void
-public "handler$ecl000$updateLightTexture"(partialTicks: float, ci: $CallbackInfo$$Type): void
+public "handler$egg000$inject$init"(gameRenderer0: $GameRenderer$$Type, minecraft1: $Minecraft$$Type, callbackInfo2: $CallbackInfo$$Type): void
+public "handler$eho000$updateLightTexture"(partialTicks: float, ci: $CallbackInfo$$Type): void
 public static "pack"(int0: integer, int1: integer): integer
 public static "sky"(int0: integer): integer
 public "tick"(): void
@@ -3455,8 +3482,8 @@ public "dumpContents"(pResourceLocation: $ResourceLocation$$Type, pPath: $Path$$
 public "getPixels"(): $NativeImage
 public "setPixels"(nativeImage0: $NativeImage$$Type): void
 public "upload"(): void
-public "wrapOperation$efe000$forceMipMap"(a: integer, b: integer, c: integer, op: $Operation$$Type<any>): void
-public "wrapOperation$efe000$forceMipMap"(instance: $NativeImage$$Type, a: integer, b: integer, c: integer, autoClose: boolean, op: $Operation$$Type<any>): void
+public "wrapOperation$elg000$forceMipMap"(a: integer, b: integer, c: integer, op: $Operation$$Type<any>): void
+public "wrapOperation$elg000$forceMipMap"(instance: $NativeImage$$Type, a: integer, b: integer, c: integer, autoClose: boolean, op: $Operation$$Type<any>): void
 get "pixels"(): $NativeImage
 set "pixels"(value: $NativeImage$$Type)
 }

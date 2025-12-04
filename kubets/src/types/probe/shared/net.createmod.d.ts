@@ -48,7 +48,6 @@ import { $Capability$$Type } from "packages/net/minecraftforge/common/capabiliti
 import { $TargetingConditions$$Type } from "packages/net/minecraft/world/entity/ai/targeting/$TargetingConditions"
 import { $Optional } from "packages/java/util/$Optional"
 import { $PartEntity } from "packages/net/minecraftforge/entity/$PartEntity"
-import { $Trackable } from "packages/dev/uncandango/alltheleaks/mixin/$Trackable"
 import { $LazyOptional } from "packages/net/minecraftforge/common/util/$LazyOptional"
 import { $ChunkStatus$$Type } from "packages/net/minecraft/world/level/chunk/$ChunkStatus"
 import { $Fluid$$Type } from "packages/net/minecraft/world/level/material/$Fluid"
@@ -62,15 +61,13 @@ import { $Biome } from "packages/net/minecraft/world/level/biome/$Biome"
 import { $Stream } from "packages/java/util/stream/$Stream"
 import { $ClipContext$$Type } from "packages/net/minecraft/world/level/$ClipContext"
 import { $ColorResolver$$Type } from "packages/net/minecraft/world/level/$ColorResolver"
-import { $WeakReference } from "packages/java/lang/ref/$WeakReference"
 import { $HolderLookup } from "packages/net/minecraft/core/$HolderLookup"
 import { $BlockPos, $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
 import { $LightLayer$$Type } from "packages/net/minecraft/world/level/$LightLayer"
 import { $VoxelShape, $VoxelShape$$Type } from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
 import { $Collection, $Collection$$Type } from "packages/java/util/$Collection"
 import { $Predicate$$Type } from "packages/java/util/function/$Predicate"
-import { $ObjectOpenCustomHashSet } from "packages/it/unimi/dsi/fastutil/objects/$ObjectOpenCustomHashSet"
-import { $Class, $Class$$Type } from "packages/java/lang/$Class"
+import { $Class$$Type } from "packages/java/lang/$Class"
 import { $CollisionContext$$Type } from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
 import { $FireworksJS$$Type } from "packages/dev/latvian/mods/kubejs/level/$FireworksJS"
 import { $Holder } from "packages/net/minecraft/core/$Holder"
@@ -78,7 +75,6 @@ import { $GameEvent$$Type } from "packages/net/minecraft/world/level/gameevent/$
 import { $ExplosionJS } from "packages/dev/latvian/mods/kubejs/level/$ExplosionJS"
 import { $TickPriority$$Type } from "packages/net/minecraft/world/ticks/$TickPriority"
 import { $ResourceKey$$Type } from "packages/net/minecraft/resources/$ResourceKey"
-import { $Map } from "packages/java/util/$Map"
 
 export class $WrappedLevel extends $Level {
 constructor(level0: $Level$$Type)
@@ -86,7 +82,6 @@ constructor(level0: $Level$$Type)
 public "blockUpdated"(blockPos0: $BlockPos$$Type, block1: $Block$$Type): void
 public "canSeeSky"(blockPos0: $BlockPos$$Type): boolean
 public "canSeeSkyFromBelowWater"(blockPos0: $BlockPos$$Type): boolean
-public static "clearNullReferences"(): void
 public "clip"(clipContext0: $ClipContext$$Type): $BlockHitResult
 public "clipWithInteractionOverride"(vec30: $Vec3$$Type, vec31: $Vec3$$Type, blockPos2: $BlockPos$$Type, voxelShape3: $VoxelShape$$Type, blockState4: $BlockState$$Type): $BlockHitResult
 public "collidesWithSuffocatingBlock"(entity0: $Entity$$Type, aABB1: $AABB$$Type): boolean
@@ -95,7 +90,6 @@ public static "create"(int0: integer, int1: integer): $LevelHeightAccessor
 public "createEntity"(type: $EntityType$$Type<any>): $Entity
 public "createEntityList"(entities: $Collection$$Type<$Entity$$Type>): $EntityArrayList
 public "createExplosion"(x: double, y: double, z: double): $ExplosionJS
-public static "createWeakRefBasedSet"(): $ObjectOpenCustomHashSet<$WeakReference<$Trackable>>
 public "dayTime"(): long
 public "destroyBlock"(blockPos0: $BlockPos$$Type, boolean1: boolean, entity2: $Entity$$Type): boolean
 public "destroyBlock"(blockPos0: $BlockPos$$Type, boolean1: boolean): boolean
@@ -106,20 +100,20 @@ public "gameEvent"(entity0: $Entity$$Type, gameEvent1: $GameEvent$$Type, vec32: 
 public static "getAllLoadedEntities"(level: $Level$$Type): $Iterable<$Entity>
 public "getBestNeighborSignal"(blockPos0: $BlockPos$$Type): integer
 public "getBiome"(blockPos0: $BlockPos$$Type): $Holder<$Biome>
-public "getBlock"(blockEntity: $BlockEntity$$Type): $BlockContainerJS
-public "getBlock"(pos: $BlockPos$$Type): $BlockContainerJS
 public "getBlock"(x: integer, y: integer, z: integer): $BlockContainerJS
+public "getBlock"(pos: $BlockPos$$Type): $BlockContainerJS
+public "getBlock"(blockEntity: $BlockEntity$$Type): $BlockContainerJS
 public "getBlockCollisions"(entity0: $Entity$$Type, aABB1: $AABB$$Type): $Iterable<$VoxelShape>
 public "getBlockEntity"<T extends $BlockEntity>(blockPos0: $BlockPos$$Type, blockEntityType1: $BlockEntityType$$Type<T>): $Optional<T>
-public "getBlockFloorHeight"(blockPos0: $BlockPos$$Type): double
 public "getBlockFloorHeight"(voxelShape0: $VoxelShape$$Type, supplier1: $Supplier$$Type<$VoxelShape>): double
+public "getBlockFloorHeight"(blockPos0: $BlockPos$$Type): double
 public "getBlockStates"(aABB0: $AABB$$Type): $Stream<$BlockState>
 public "getBlockStatesIfLoaded"(aABB0: $AABB$$Type): $Stream<$BlockState>
 public "getBlockTint"(blockPos0: $BlockPos$$Type, colorResolver1: $ColorResolver$$Type): integer
 public "getBrightness"(lightLayer0: $LightLayer$$Type, blockPos1: $BlockPos$$Type): integer
 public "getCapability"<T>(capability0: $Capability$$Type<T>): $LazyOptional<T>
-public "getChunk"(int0: integer, int1: integer, chunkStatus2: $ChunkStatus$$Type): $ChunkAccess
 public "getChunk"(blockPos0: $BlockPos$$Type): $ChunkAccess
+public "getChunk"(int0: integer, int1: integer, chunkStatus2: $ChunkStatus$$Type): $ChunkAccess
 public "getCollisions"(entity0: $Entity$$Type, aABB1: $AABB$$Type): $Iterable<$VoxelShape>
 public "getControlInputSignal"(blockPos0: $BlockPos$$Type, direction1: $Direction$$Type, boolean2: boolean): integer
 public "getDifficulty"(): $Difficulty
@@ -129,8 +123,8 @@ public "getDirectSignalTo"(blockPos0: $BlockPos$$Type): integer
 public "getDisplayName"(): $Component
 public "getEntities"(): $EntityArrayList
 public "getEntities"(entity0: $Entity$$Type, aABB1: $AABB$$Type): $List<$Entity>
-public "getEntitiesOfClass"<T extends $Entity>(class0: $Class$$Type<T>, aABB1: $AABB$$Type): $List<T>
 public "getEntitiesOfClass"<T extends $Entity>(class0: $Class$$Type<T>, aABB1: $AABB$$Type, predicate2: $Predicate$$Type<T>): $List<T>
+public "getEntitiesOfClass"<T extends $Entity>(class0: $Class$$Type<T>, aABB1: $AABB$$Type): $List<T>
 public "getEntitiesWithin"(aabb: $AABB$$Type): $EntityArrayList
 public "getEntityCollisions"(entity0: $Entity$$Type, aABB1: $AABB$$Type): $List<$VoxelShape>
 public "getExistingBlockEntity"(blockPos0: $BlockPos$$Type): $BlockEntity
@@ -149,14 +143,14 @@ public "getMoonPhase"(): integer
 public "getName"(): $Component
 public "getNearbyEntities"<T extends $LivingEntity>(class0: $Class$$Type<T>, targetingConditions1: $TargetingConditions$$Type, livingEntity2: $LivingEntity$$Type, aABB3: $AABB$$Type): $List<T>
 public "getNearbyPlayers"(targetingConditions0: $TargetingConditions$$Type, livingEntity1: $LivingEntity$$Type, aABB2: $AABB$$Type): $List<$Player>
-public "getNearestEntity"<T extends $LivingEntity>(class0: $Class$$Type<T>, targetingConditions1: $TargetingConditions$$Type, livingEntity2: $LivingEntity$$Type, double3: double, double4: double, double5: double, aABB6: $AABB$$Type): T
 public "getNearestEntity"<T extends $LivingEntity>(list0: $List$$Type<T>, targetingConditions1: $TargetingConditions$$Type, livingEntity2: $LivingEntity$$Type, double3: double, double4: double, double5: double): T
+public "getNearestEntity"<T extends $LivingEntity>(class0: $Class$$Type<T>, targetingConditions1: $TargetingConditions$$Type, livingEntity2: $LivingEntity$$Type, double3: double, double4: double, double5: double, aABB6: $AABB$$Type): T
 public "getNearestPlayer"(entity0: $Entity$$Type, double1: double): $Player
 public "getNearestPlayer"(double0: double, double1: double, double2: double, double3: double, boolean4: boolean): $Player
 public "getNearestPlayer"(double0: double, double1: double, double2: double, double3: double, predicate4: $Predicate$$Type<$Entity$$Type>): $Player
-public "getNearestPlayer"(targetingConditions0: $TargetingConditions$$Type, livingEntity1: $LivingEntity$$Type): $Player
 public "getNearestPlayer"(targetingConditions0: $TargetingConditions$$Type, livingEntity1: $LivingEntity$$Type, double2: double, double3: double, double4: double): $Player
 public "getNearestPlayer"(targetingConditions0: $TargetingConditions$$Type, double1: double, double2: double, double3: double): $Player
+public "getNearestPlayer"(targetingConditions0: $TargetingConditions$$Type, livingEntity1: $LivingEntity$$Type): $Player
 public "getNoiseBiome"(int0: integer, int1: integer, int2: integer): $Holder<$Biome>
 public "getPartEntities"(): $Collection<$PartEntity<any>>
 public "getPathfindingCostFromLightLevels"(blockPos0: $BlockPos$$Type): float
@@ -166,7 +160,6 @@ public "getRawBrightness"(blockPos0: $BlockPos$$Type, int1: integer): integer
 public "getShade"(float0: float, float1: float, float2: float, boolean3: boolean): float
 public "getSide"(): $ScriptType
 public "getSignal"(blockPos0: $BlockPos$$Type, direction1: $Direction$$Type): integer
-public static "getSummary"(): $Map<$Class<any>, $Map<$Class<any>, long>>
 public "getTimeOfDay"(float0: float): float
 public "hasChunk"(int0: integer, int1: integer): boolean
 /** @deprecated */
@@ -174,11 +167,11 @@ public "hasChunkAt"(blockPos0: $BlockPos$$Type): boolean
 /** @deprecated */
 public "hasChunkAt"(int0: integer, int1: integer): boolean
 /** @deprecated */
+public "hasChunksAt"(int0: integer, int1: integer, int2: integer, int3: integer): boolean
+/** @deprecated */
 public "hasChunksAt"(int0: integer, int1: integer, int2: integer, int3: integer, int4: integer, int5: integer): boolean
 /** @deprecated */
 public "hasChunksAt"(blockPos0: $BlockPos$$Type, blockPos1: $BlockPos$$Type): boolean
-/** @deprecated */
-public "hasChunksAt"(int0: integer, int1: integer, int2: integer, int3: integer): boolean
 public "hasNearbyAlivePlayer"(double0: double, double1: double, double2: double, double3: double): boolean
 public "hasNeighborSignal"(blockPos0: $BlockPos$$Type): boolean
 public "hasSignal"(blockPos0: $BlockPos$$Type, direction1: $Direction$$Type): boolean
@@ -188,13 +181,13 @@ public "isBlockInLine"(clipBlockStateContext0: $ClipBlockStateContext$$Type): $B
 public "isEmptyBlock"(blockPos0: $BlockPos$$Type): boolean
 public "isOverworld"(): boolean
 public "isUnobstructed"(entity0: $Entity$$Type, voxelShape1: $VoxelShape$$Type): boolean
-public "isUnobstructed"(entity0: $Entity$$Type): boolean
 public "isUnobstructed"(blockState0: $BlockState$$Type, blockPos1: $BlockPos$$Type, collisionContext2: $CollisionContext$$Type): boolean
+public "isUnobstructed"(entity0: $Entity$$Type): boolean
 public "isWaterAt"(blockPos0: $BlockPos$$Type): boolean
 public "levelEvent"(int0: integer, blockPos1: $BlockPos$$Type, int2: integer): void
 public "noCollision"(entity0: $Entity$$Type): boolean
-public "noCollision"(entity0: $Entity$$Type, aABB1: $AABB$$Type): boolean
 public "noCollision"(aABB0: $AABB$$Type): boolean
+public "noCollision"(entity0: $Entity$$Type, aABB1: $AABB$$Type): boolean
 public "playSound"(player0: $Player$$Type, blockPos1: $BlockPos$$Type, soundEvent2: $SoundEvent$$Type, soundSource3: $SoundSource$$Type): void
 public "runCommand"(command: string): integer
 public "runCommandSilent"(command: string): integer
@@ -207,11 +200,8 @@ public "setChunkSource"(chunkSource0: $ChunkSource$$Type): void
 public "setStatusMessage"(message: $Component$$Type): void
 public "spawnFireworks"(x: double, y: double, z: double, f: $FireworksJS$$Type): void
 public "spawnParticles"(options: $ParticleOptions$$Type, overrideLimiter: boolean, x: double, y: double, z: double, vx: double, vy: double, vz: double, count: integer, speed: double): void
-public "startTracking"(): void
-public static "startTracking"(object0: any): void
 public "tell"(message: $Component$$Type): void
 public static "traverseBlocks"<T, C>(vec30: $Vec3$$Type, vec31: $Vec3$$Type, c2: C, biFunction3: $BiFunction$$Type<C, $BlockPos$$Type, T>, function4: $Function$$Type<C, T>): T
-public "wrap"(): $WeakReference<$Trackable>
 get "difficulty"(): $Difficulty
 get "dimension"(): $ResourceLocation
 get "displayName"(): $Component
@@ -355,8 +345,8 @@ public "add"(langBuilder0: $LangBuilder$$Type): $LangBuilder
 public "add"(mutableComponent0: $MutableComponent$$Type): $LangBuilder
 public "add"(component0: $Component$$Type): $LangBuilder
 public "addTo"(list0: $List$$Type<$MutableComponent$$Type>): void
-public "color"(int0: integer): $LangBuilder
 public "color"(color0: $Color$$Type): $LangBuilder
+public "color"(int0: integer): $LangBuilder
 public "component"(): $MutableComponent
 public "forGoggles"(list0: $List$$Type<$MutableComponent$$Type>, int1: integer): void
 public "forGoggles"(list0: $List$$Type<$MutableComponent$$Type>): void
@@ -369,8 +359,8 @@ public "space"(): $LangBuilder
 public "string"(): string
 public "style"(chatFormatting0: $ChatFormatting$$Type): $LangBuilder
 public "text"(string0: string): $LangBuilder
-public "text"(int0: integer, string1: string): $LangBuilder
 public "text"(chatFormatting0: $ChatFormatting$$Type, string1: string): $LangBuilder
+public "text"(int0: integer, string1: string): $LangBuilder
 public "translate"(string0: string, ...object1s: any[]): $LangBuilder
 }
 }
@@ -441,8 +431,8 @@ public "runCallback"(double0: double, double1: double): void
 public "setActive"<T extends $AbstractSimiWidget>(boolean0: boolean): T
 public "setPosition"(int0: integer, int1: integer): void
 public "tick"(): void
-public "withCallback"<T extends $AbstractSimiWidget>(runnable0: $Runnable$$Type): T
 public "withCallback"<T extends $AbstractSimiWidget>(biConsumer0: $BiConsumer$$Type<integer, integer>): T
+public "withCallback"<T extends $AbstractSimiWidget>(runnable0: $Runnable$$Type): T
 get "lockedTooltipX"(): integer
 set "lockedTooltipX"(value: integer)
 get "lockedTooltipY"(): integer
@@ -570,9 +560,9 @@ public "getGreenAsFloat"(): float
 public "getRGB"(): integer
 public "getRed"(): integer
 public "getRedAsFloat"(): float
-public static "mixColors"(color0: $Color$$Type, color1: $Color$$Type, float2: float): $Color
-public static "mixColors"(couple0: $Couple$$Type<$Color$$Type>, float1: float): $Color
 public static "mixColors"(int0: integer, int1: integer, float2: float): integer
+public static "mixColors"(couple0: $Couple$$Type<$Color$$Type>, float1: float): $Color
+public static "mixColors"(color0: $Color$$Type, color1: $Color$$Type, float2: float): $Color
 public "mixWith"(color0: $Color$$Type, float1: float): $Color
 public "modifyValue"(unaryOperator0: $UnaryOperator$$Type<integer>): $Color
 public static "rainbowColor"(int0: integer): $Color
@@ -580,13 +570,13 @@ public "scaleAlpha"(float0: float): $Color
 public "scaleAlphaForText"(float0: float): $Color
 public "setAlpha"(float0: float): $Color
 public "setAlpha"(int0: integer): $Color
-public "setBlue"(float0: float): $Color
 public "setBlue"(int0: integer): $Color
+public "setBlue"(float0: float): $Color
 public "setGreen"(int0: integer): $Color
 public "setGreen"(float0: float): $Color
 public "setImmutable"(): $Color
-public "setRed"(float0: float): $Color
 public "setRed"(int0: integer): $Color
+public "setRed"(float0: float): $Color
 public "setValue"(int0: integer): $Color
 get "alpha"(): integer
 get "alphaAsFloat"(): float
@@ -599,12 +589,12 @@ get "red"(): integer
 get "redAsFloat"(): float
 set "alpha"(value: float)
 set "alpha"(value: integer)
-set "blue"(value: float)
 set "blue"(value: integer)
+set "blue"(value: float)
 set "green"(value: integer)
 set "green"(value: float)
-set "red"(value: float)
 set "red"(value: integer)
+set "red"(value: float)
 set "value"(value: integer)
 }
 }

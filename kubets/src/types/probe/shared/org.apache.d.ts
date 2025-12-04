@@ -488,54 +488,54 @@ export interface $Logger {
 "exit"<R>(result: R): R
 /** @deprecated */
 "exit"(): void
-"fatal"(marker: $Marker$$Type, message: string, p0: any, p1: any, p2: any, p3: any, p4: any): void
-"fatal"(marker: $Marker$$Type, message: string, p0: any, p1: any, p2: any): void
-"fatal"(marker: $Marker$$Type, message: string, throwable: $Throwable$$Type): void
-"fatal"(messageSupplier: $Supplier$$Type<any>, throwable: $Throwable$$Type): void
-"fatal"(marker: $Marker$$Type, message: string, p0: any): void
-"fatal"(marker: $Marker$$Type, message: string, p0: any, p1: any): void
-"fatal"(messageSupplier: $Supplier$$Type<any>): void
-"fatal"(marker: $Marker$$Type, message: string, p0: any, p1: any, p2: any, p3: any, p4: any, p5: any, p6: any, p7: any, p8: any, p9: any): void
-"fatal"(message: string, p0: any): void
-"fatal"(message: string, p0: any, p1: any): void
-"fatal"(message: string, p0: any, p1: any, p2: any): void
-"fatal"(marker: $Marker$$Type, message: string, p0: any, p1: any, p2: any, p3: any, p4: any, p5: any): void
-"fatal"(marker: $Marker$$Type, message: string, p0: any, p1: any, p2: any, p3: any, p4: any, p5: any, p6: any): void
-"fatal"(marker: $Marker$$Type, message: string, p0: any, p1: any, p2: any, p3: any, p4: any, p5: any, p6: any, p7: any): void
-"fatal"(marker: $Marker$$Type, message: string, p0: any, p1: any, p2: any, p3: any, p4: any, p5: any, p6: any, p7: any, p8: any): void
-"fatal"(message: $Message$$Type, throwable: $Throwable$$Type): void
+"fatal"(message: any): void
+"fatal"(message: any, throwable: $Throwable$$Type): void
+"fatal"(message: string): void
+"fatal"(message: string, ...params: any[]): void
 "fatal"(messageSupplier: $MessageSupplier$$Type): void
 "fatal"(messageSupplier: $MessageSupplier$$Type, throwable: $Throwable$$Type): void
 "fatal"(message: charseq): void
-"fatal"(message: $Message$$Type): void
-"fatal"(marker: $Marker$$Type, messageSupplier: $Supplier$$Type<any>, throwable: $Throwable$$Type): void
-"fatal"(marker: $Marker$$Type, messageSupplier: $Supplier$$Type<any>): void
-"fatal"(message: string): void
-"fatal"(message: string, ...params: any[]): void
+"fatal"(message: charseq, throwable: $Throwable$$Type): void
+"fatal"(marker: $Marker$$Type, message: string, p0: any): void
+"fatal"(marker: $Marker$$Type, message: string, p0: any, p1: any): void
+"fatal"(marker: $Marker$$Type, message: string, p0: any, p1: any, p2: any): void
+"fatal"(marker: $Marker$$Type, message: string, p0: any, p1: any, p2: any, p3: any): void
 "fatal"(message: string, ...paramSuppliers: $Supplier$$Type<any>[]): void
 "fatal"(message: string, throwable: $Throwable$$Type): void
-"fatal"(message: any, throwable: $Throwable$$Type): void
-"fatal"(message: any): void
-"fatal"(message: charseq, throwable: $Throwable$$Type): void
-"fatal"(marker: $Marker$$Type, messageSupplier: $MessageSupplier$$Type, throwable: $Throwable$$Type): void
+"fatal"(messageSupplier: $Supplier$$Type<any>): void
+"fatal"(messageSupplier: $Supplier$$Type<any>, throwable: $Throwable$$Type): void
 "fatal"(marker: $Marker$$Type, message: charseq): void
 "fatal"(marker: $Marker$$Type, message: charseq, throwable: $Throwable$$Type): void
 "fatal"(marker: $Marker$$Type, message: any): void
 "fatal"(marker: $Marker$$Type, message: any, throwable: $Throwable$$Type): void
-"fatal"(marker: $Marker$$Type, message: string, p0: any, p1: any, p2: any, p3: any): void
-"fatal"(message: string, p0: any, p1: any, p2: any, p3: any, p4: any, p5: any, p6: any, p7: any, p8: any, p9: any): void
 "fatal"(marker: $Marker$$Type, message: $Message$$Type): void
 "fatal"(marker: $Marker$$Type, message: $Message$$Type, throwable: $Throwable$$Type): void
 "fatal"(marker: $Marker$$Type, messageSupplier: $MessageSupplier$$Type): void
-"fatal"(message: string, p0: any, p1: any, p2: any, p3: any, p4: any, p5: any, p6: any, p7: any): void
-"fatal"(message: string, p0: any, p1: any, p2: any, p3: any, p4: any, p5: any, p6: any): void
-"fatal"(message: string, p0: any, p1: any, p2: any, p3: any, p4: any, p5: any): void
-"fatal"(message: string, p0: any, p1: any, p2: any, p3: any, p4: any): void
-"fatal"(message: string, p0: any, p1: any, p2: any, p3: any): void
+"fatal"(marker: $Marker$$Type, messageSupplier: $MessageSupplier$$Type, throwable: $Throwable$$Type): void
+"fatal"(marker: $Marker$$Type, messageSupplier: $Supplier$$Type<any>): void
+"fatal"(marker: $Marker$$Type, messageSupplier: $Supplier$$Type<any>, throwable: $Throwable$$Type): void
+"fatal"(message: $Message$$Type): void
+"fatal"(message: $Message$$Type, throwable: $Throwable$$Type): void
 "fatal"(marker: $Marker$$Type, message: string): void
 "fatal"(marker: $Marker$$Type, message: string, ...params: any[]): void
 "fatal"(marker: $Marker$$Type, message: string, ...paramSuppliers: $Supplier$$Type<any>[]): void
+"fatal"(marker: $Marker$$Type, message: string, throwable: $Throwable$$Type): void
+"fatal"(message: string, p0: any, p1: any, p2: any, p3: any, p4: any, p5: any): void
+"fatal"(message: string, p0: any, p1: any, p2: any, p3: any, p4: any): void
+"fatal"(message: string, p0: any, p1: any, p2: any, p3: any): void
+"fatal"(message: string, p0: any, p1: any, p2: any): void
+"fatal"(message: string, p0: any, p1: any, p2: any, p3: any, p4: any, p5: any, p6: any, p7: any, p8: any, p9: any): void
 "fatal"(message: string, p0: any, p1: any, p2: any, p3: any, p4: any, p5: any, p6: any, p7: any, p8: any): void
+"fatal"(message: string, p0: any, p1: any, p2: any, p3: any, p4: any, p5: any, p6: any, p7: any): void
+"fatal"(message: string, p0: any, p1: any, p2: any, p3: any, p4: any, p5: any, p6: any): void
+"fatal"(marker: $Marker$$Type, message: string, p0: any, p1: any, p2: any, p3: any, p4: any, p5: any, p6: any, p7: any): void
+"fatal"(marker: $Marker$$Type, message: string, p0: any, p1: any, p2: any, p3: any, p4: any, p5: any, p6: any): void
+"fatal"(marker: $Marker$$Type, message: string, p0: any, p1: any, p2: any, p3: any, p4: any, p5: any): void
+"fatal"(marker: $Marker$$Type, message: string, p0: any, p1: any, p2: any, p3: any, p4: any): void
+"fatal"(message: string, p0: any, p1: any): void
+"fatal"(message: string, p0: any): void
+"fatal"(marker: $Marker$$Type, message: string, p0: any, p1: any, p2: any, p3: any, p4: any, p5: any, p6: any, p7: any, p8: any, p9: any): void
+"fatal"(marker: $Marker$$Type, message: string, p0: any, p1: any, p2: any, p3: any, p4: any, p5: any, p6: any, p7: any, p8: any): void
 "getLevel"(): $Level
 "getMessageFactory"<MF extends $MessageFactory>(): MF
 "getName"(): string
@@ -587,16 +587,16 @@ export interface $Logger {
 "info"(marker: $Marker$$Type, message: string, p0: any, p1: any, p2: any, p3: any, p4: any, p5: any, p6: any, p7: any, p8: any, p9: any): void
 "info"(marker: $Marker$$Type, message: string, p0: any, p1: any, p2: any, p3: any, p4: any, p5: any, p6: any, p7: any, p8: any): void
 "info"(marker: $Marker$$Type, message: string, p0: any, p1: any, p2: any, p3: any, p4: any, p5: any, p6: any, p7: any): void
-"isDebugEnabled"(marker: $Marker$$Type): boolean
 "isDebugEnabled"(): boolean
+"isDebugEnabled"(marker: $Marker$$Type): boolean
 "isEnabled"(level: $Level$$Type, marker: $Marker$$Type): boolean
 "isEnabled"(level: $Level$$Type): boolean
-"isErrorEnabled"(): boolean
 "isErrorEnabled"(marker: $Marker$$Type): boolean
+"isErrorEnabled"(): boolean
 "isFatalEnabled"(): boolean
 "isFatalEnabled"(marker: $Marker$$Type): boolean
-"isInfoEnabled"(): boolean
 "isInfoEnabled"(marker: $Marker$$Type): boolean
+"isInfoEnabled"(): boolean
 "isTraceEnabled"(marker: $Marker$$Type): boolean
 "isTraceEnabled"(): boolean
 "isWarnEnabled"(marker: $Marker$$Type): boolean
@@ -702,17 +702,17 @@ export interface $Logger {
 "trace"(marker: $Marker$$Type, message: string, p0: any, p1: any, p2: any, p3: any, p4: any, p5: any, p6: any): void
 "trace"(marker: $Marker$$Type, message: string, p0: any, p1: any, p2: any, p3: any, p4: any, p5: any): void
 "trace"(marker: $Marker$$Type, message: charseq, throwable: $Throwable$$Type): void
+"traceEntry"(...paramSuppliers: $Supplier$$Type<any>[]): $EntryMessage
 "traceEntry"(): $EntryMessage
 "traceEntry"(format: string, ...params: any[]): $EntryMessage
-"traceEntry"(...paramSuppliers: $Supplier$$Type<any>[]): $EntryMessage
-"traceEntry"(format: string, ...paramSuppliers: $Supplier$$Type<any>[]): $EntryMessage
 "traceEntry"(message: $Message$$Type): $EntryMessage
-"traceExit"(message: $EntryMessage$$Type): void
+"traceEntry"(format: string, ...paramSuppliers: $Supplier$$Type<any>[]): $EntryMessage
+"traceExit"(): void
 "traceExit"<R>(message: $EntryMessage$$Type, result: R): R
 "traceExit"<R>(message: $Message$$Type, result: R): R
 "traceExit"<R>(result: R): R
+"traceExit"(message: $EntryMessage$$Type): void
 "traceExit"<R>(format: string, result: R): R
-"traceExit"(): void
 "warn"(marker: $Marker$$Type, message: string, p0: any, p1: any, p2: any, p3: any): void
 "warn"(marker: $Marker$$Type, message: string, p0: any, p1: any, p2: any, p3: any, p4: any): void
 "warn"(marker: $Marker$$Type, message: string, p0: any, p1: any, p2: any, p3: any, p4: any, p5: any): void
@@ -776,6 +776,21 @@ export namespace $Logger {
 const probejs$$marker: never
 }
 export abstract class $Logger$$Static implements $Logger {
+}
+}
+
+declare module "packages/org/apache/commons/lang3/mutable/$MutableObject" {
+import { $Mutable } from "packages/org/apache/commons/lang3/mutable/$Mutable"
+import { $Serializable } from "packages/java/io/$Serializable"
+
+export class $MutableObject<T> implements $Mutable<T>, $Serializable {
+constructor()
+constructor(t0: T)
+
+public "getValue"(): T
+public "setValue"(t0: T): void
+get "value"(): T
+set "value"(value: T)
 }
 }
 
@@ -1196,6 +1211,7 @@ static readonly "OFF": $Level
 static readonly "TRACE": $Level
 static readonly "WARN": $Level
 
+public "clone"(): $Level
 public "compareTo"(other: $Level$$Type): integer
 public static "forName"(name: string, intValue: integer): $Level
 public "getDeclaringClass"(): $Class<$Level>
@@ -1206,10 +1222,10 @@ public "isInRange"(minLevel: $Level$$Type, maxLevel: $Level$$Type): boolean
 public "isLessSpecificThan"(level: $Level$$Type): boolean
 public "isMoreSpecificThan"(level: $Level$$Type): boolean
 public "name"(): string
-public static "toLevel"(level: string): $Level
 public static "toLevel"(name: string, defaultLevel: $Level$$Type): $Level
-public static "valueOf"<T extends $Enum<T>>(enumType: $Class$$Type<T>, name: string): T
+public static "toLevel"(level: string): $Level
 public static "valueOf"(name: string): $Level
+public static "valueOf"<T extends $Enum<T>>(enumType: $Class$$Type<T>, name: string): T
 public static "values"(): $Level[]
 get "declaringClass"(): $Class<$Level>
 get "standardLevel"(): $StandardLevel

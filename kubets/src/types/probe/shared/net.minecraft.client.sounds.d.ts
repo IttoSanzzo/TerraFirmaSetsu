@@ -71,7 +71,6 @@ declare module "packages/net/minecraft/client/sounds/$WeighedSoundEvents" {
 import { $Sound, $Sound$$Type } from "packages/net/minecraft/client/resources/sounds/$Sound"
 import { $Component } from "packages/net/minecraft/network/chat/$Component"
 import { $Weighted, $Weighted$$Type } from "packages/net/minecraft/client/sounds/$Weighted"
-import { $RandomSource$$Type } from "packages/net/minecraft/util/$RandomSource"
 import { $ResourceLocation$$Type } from "packages/net/minecraft/resources/$ResourceLocation"
 import { $SoundEngine$$Type } from "packages/net/minecraft/client/sounds/$SoundEngine"
 
@@ -79,7 +78,6 @@ export class $WeighedSoundEvents implements $Weighted<$Sound> {
 constructor(resourceLocation0: $ResourceLocation$$Type, string1: string)
 
 public "addSound"(weighted0: $Weighted$$Type<$Sound$$Type>): void
-public "getSound"(randomSource0: $RandomSource$$Type): $Sound
 public "getSubtitle"(): $Component
 public "getWeight"(): integer
 public "preloadIfRequired"(soundEngine0: $SoundEngine$$Type): void
@@ -165,9 +163,9 @@ public "queueTickingSound"(tickableSoundInstance0: $TickableSoundInstance$$Type)
 public "reload"(): void
 public "removeListener"(soundEventListener0: $SoundEventListener$$Type): void
 public "resume"(): void
+public "stop"(): void
 public "stop"(soundInstance0: $SoundInstance$$Type): void
 public "stop"(resourceLocation0: $ResourceLocation$$Type, soundSource1: $SoundSource$$Type): void
-public "stop"(): void
 public "tick"(boolean0: boolean): void
 public "updateSource"(camera0: $Camera$$Type): void
 public "updateSourceVolume"(soundSource0: $SoundSource$$Type, float1: float): void
@@ -229,8 +227,8 @@ public "reload"(): void
 public "removeEventListener"(soundEventListener0: $SoundEventListener$$Type): void
 public "requestPreload"(sound0: $Sound$$Type): void
 public "resume"(): void
-public "stop"(soundInstance0: $SoundInstance$$Type): void
 public "stop"(resourceLocation0: $ResourceLocation$$Type, soundSource1: $SoundSource$$Type): void
+public "stop"(soundInstance0: $SoundInstance$$Type): void
 public "stopAll"(): void
 public "tick"(boolean0: boolean): void
 public "updateCategoryVolume"(soundSource0: $SoundSource$$Type, float1: float): void

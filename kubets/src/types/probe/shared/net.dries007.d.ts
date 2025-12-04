@@ -32,21 +32,69 @@ public "lazyProduct"(noise2D0: $Noise2D$$Type): $Noise2D
 public "map"(doubleUnaryOperator0: $DoubleUnaryOperator$$Type): $Noise2D
 public "noise"(double0: double, double1: double): double
 public "ridged"(): $Noise2D
+/** Rotates the coordinate grid by the given angle (in degrees) */
+public "rotate"(angle: double): $Noise2D
 public "scaled"(double0: double, double1: double, double2: double, double3: double): $OpenSimplex2D
 public "terraces"(int0: integer): $Noise2D
+/** Swaps the x and z coordinate */
+public "transpose"(): $Noise2D
 public "warped"(openSimplex2D0: $OpenSimplex2D$$Type): $Noise2D
 }
 }
 
+declare module "packages/net/dries007/tfc/util/$Metal$BlockType" {
+import { $Function } from "packages/java/util/function/$Function"
+import { $BlockItem } from "packages/net/minecraft/world/item/$BlockItem"
+import { $Enum } from "packages/java/lang/$Enum"
+import { $Item$Properties$$Type } from "packages/net/minecraft/world/item/$Item$Properties"
+import { $Supplier } from "packages/java/util/function/$Supplier"
+import { $Metal$Default$$Type } from "packages/net/dries007/tfc/util/$Metal$Default"
+import { $Block } from "packages/net/minecraft/world/level/block/$Block"
+import { $RegistryMetal$$Type } from "packages/net/dries007/tfc/util/registry/$RegistryMetal"
+
+export class $Metal$BlockType extends $Enum<$Metal$BlockType> {
+static readonly "ANVIL": $Metal$BlockType
+static readonly "BARS": $Metal$BlockType
+static readonly "BLOCK": $Metal$BlockType
+static readonly "BLOCK_SLAB": $Metal$BlockType
+static readonly "BLOCK_STAIRS": $Metal$BlockType
+static readonly "CHAIN": $Metal$BlockType
+static readonly "LAMP": $Metal$BlockType
+static readonly "TRAPDOOR": $Metal$BlockType
+
+public "create"(registryMetal0: $RegistryMetal$$Type): $Supplier<$Block>
+public "createBlockItem"(properties0: $Item$Properties$$Type): $Function<$Block, $BlockItem>
+public "createName"(registryMetal0: $RegistryMetal$$Type): string
+public "has"(default0: $Metal$Default$$Type): boolean
+public static "valueOf"(string0: string): $Metal$BlockType
+public static "values"(): $Metal$BlockType[]
+}
+}
+
 declare module "packages/net/dries007/tfc/world/noise/$OpenSimplex3D" {
+import { $Noise2D, $Noise2D$$Type } from "packages/net/dries007/tfc/world/noise/$Noise2D"
 import { $Noise3D } from "packages/net/dries007/tfc/world/noise/$Noise3D"
 
 export class $OpenSimplex3D implements $Noise3D {
 constructor(long0: long)
 constructor(int0: integer)
 
+/** Dissolves this `Noise3D` to a `Noise2D` by using the provided `Noise2D` as the y-value */
+public "dissolve"(yNoise: $Noise2D$$Type): $Noise2D
 public "noise"(double0: double, double1: double, double2: double): double
+/** Rotate this noise around the x-axis */
+public "rotateX"(angle: double): $Noise3D
+/** Rotate this noise around the y-axis */
+public "rotateY"(angle: double): $Noise3D
+/** Rotate this noise around the z-axis */
+public "rotateZ"(angle: double): $Noise3D
 public "scaled"(double0: double, double1: double, double2: double, double3: double): $OpenSimplex3D
+/** Swap the x and y coordinates */
+public "transposeXY"(): $Noise3D
+/** Swap the x and z coordinates */
+public "transposeXZ"(): $Noise3D
+/** Swap the y and z coordinates */
+public "transposeYZ"(): $Noise3D
 public "warped"(openSimplex3D0: $OpenSimplex3D$$Type): $Noise3D
 }
 }
@@ -76,6 +124,22 @@ public static "of"(itemStack0: $ItemStack$$Type, ...itemStackModifier1s: $ItemSt
 public "stack"(): $Supplier<$ItemStack>
 public "toNetwork"(friendlyByteBuf0: $FriendlyByteBuf$$Type): void
 get "emptyStack"(): $ItemStack
+}
+}
+
+declare module "packages/net/dries007/tfc/world/noise/$FastNoiseLite$NoiseType" {
+import { $Enum } from "packages/java/lang/$Enum"
+
+export class $FastNoiseLite$NoiseType extends $Enum<$FastNoiseLite$NoiseType> {
+static readonly "Cellular": $FastNoiseLite$NoiseType
+static readonly "OpenSimplex2": $FastNoiseLite$NoiseType
+static readonly "OpenSimplex2S": $FastNoiseLite$NoiseType
+static readonly "Perlin": $FastNoiseLite$NoiseType
+static readonly "Value": $FastNoiseLite$NoiseType
+static readonly "ValueCubic": $FastNoiseLite$NoiseType
+
+public static "valueOf"(string0: string): $FastNoiseLite$NoiseType
+public static "values"(): $FastNoiseLite$NoiseType[]
 }
 }
 
@@ -191,6 +255,21 @@ get "min"(): float
 }
 }
 
+declare module "packages/net/dries007/tfc/mixin/accessor/$FallingBlockEntityAccessor" {
+import { $BlockState$$Type } from "packages/net/minecraft/world/level/block/state/$BlockState"
+
+export interface $FallingBlockEntityAccessor {
+"setBlockState"(blockState0: $BlockState$$Type): void
+set "blockState"(value: $BlockState$$Type)
+}
+
+export namespace $FallingBlockEntityAccessor {
+const probejs$$marker: never
+}
+export abstract class $FallingBlockEntityAccessor$$Static implements $FallingBlockEntityAccessor {
+}
+}
+
 declare module "packages/net/dries007/tfc/world/settings/$RockLayerSettings$LayerData" {
 import { $Record } from "packages/java/lang/$Record"
 import { $Map, $Map$$Type } from "packages/java/util/$Map"
@@ -200,6 +279,163 @@ constructor(id: string, layers: $Map$$Type<string, string>)
 
 public "id"(): string
 public "layers"(): $Map<string, string>
+}
+}
+
+declare module "packages/net/dries007/tfc/common/blocks/$IForgeBlockExtension" {
+import { $ExtendedProperties } from "packages/net/dries007/tfc/common/blocks/$ExtendedProperties"
+import { $LevelAccessor$$Type } from "packages/net/minecraft/world/level/$LevelAccessor"
+import { $MapColor, $MapColor$$Type } from "packages/net/minecraft/world/level/material/$MapColor"
+import { $Direction, $Direction$$Type } from "packages/net/minecraft/core/$Direction"
+import { $ItemStack } from "packages/net/minecraft/world/item/$ItemStack"
+import { $PushReaction } from "packages/net/minecraft/world/level/material/$PushReaction"
+import { $LivingEntity$$Type } from "packages/net/minecraft/world/entity/$LivingEntity"
+import { $FluidState$$Type } from "packages/net/minecraft/world/level/material/$FluidState"
+import { $TreeConfiguration$$Type } from "packages/net/minecraft/world/level/levelgen/feature/configurations/$TreeConfiguration"
+import { $BlockGetter$$Type } from "packages/net/minecraft/world/level/$BlockGetter"
+import { $EntityType$$Type } from "packages/net/minecraft/world/entity/$EntityType"
+import { $Mob$$Type } from "packages/net/minecraft/world/entity/$Mob"
+import { $Player$$Type } from "packages/net/minecraft/world/entity/player/$Player"
+import { $ToolAction$$Type } from "packages/net/minecraftforge/common/$ToolAction"
+import { $RandomSource$$Type } from "packages/net/minecraft/util/$RandomSource"
+import { $IForgeBlock } from "packages/net/minecraftforge/common/extensions/$IForgeBlock"
+import { $ServerLevel$$Type } from "packages/net/minecraft/server/level/$ServerLevel"
+import { $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
+import { $Entity$$Type } from "packages/net/minecraft/world/entity/$Entity"
+import { $SpawnPlacements$Type$$Type } from "packages/net/minecraft/world/entity/$SpawnPlacements$Type"
+import { $SignalGetter$$Type } from "packages/net/minecraft/world/level/$SignalGetter"
+import { $BlockPathTypes, $BlockPathTypes$$Type } from "packages/net/minecraft/world/level/pathfinder/$BlockPathTypes"
+import { $BlockState, $BlockState$$Type } from "packages/net/minecraft/world/level/block/state/$BlockState"
+import { $Level$$Type } from "packages/net/minecraft/world/level/$Level"
+import { $Vec3, $Vec3$$Type } from "packages/net/minecraft/world/phys/$Vec3"
+import { $BiConsumer$$Type } from "packages/java/util/function/$BiConsumer"
+import { $LevelReader$$Type } from "packages/net/minecraft/world/level/$LevelReader"
+import { $UseOnContext$$Type } from "packages/net/minecraft/world/item/context/$UseOnContext"
+import { $HitResult$$Type } from "packages/net/minecraft/world/phys/$HitResult"
+import { $SoundType } from "packages/net/minecraft/world/level/block/$SoundType"
+import { $Optional } from "packages/java/util/$Optional"
+import { $IPlantable$$Type } from "packages/net/minecraftforge/common/$IPlantable"
+import { $Rotation$$Type } from "packages/net/minecraft/world/level/block/$Rotation"
+import { $Explosion$$Type } from "packages/net/minecraft/world/level/$Explosion"
+import { $BlockAndTintGetter$$Type } from "packages/net/minecraft/world/level/$BlockAndTintGetter"
+
+export interface $IForgeBlockExtension extends $IForgeBlock {
+"addLandingEffects"(blockState0: $BlockState$$Type, serverLevel1: $ServerLevel$$Type, blockPos2: $BlockPos$$Type, blockState3: $BlockState$$Type, livingEntity4: $LivingEntity$$Type, int5: integer): boolean
+"addRunningEffects"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
+"canBeHydrated"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, fluidState3: $FluidState$$Type, blockPos4: $BlockPos$$Type): boolean
+"canConnectRedstone"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): boolean
+"canDropFromExplosion"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, explosion3: $Explosion$$Type): boolean
+"canEntityDestroy"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
+"canHarvestBlock"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, player3: $Player$$Type): boolean
+"canStickTo"(blockState0: $BlockState$$Type, blockState1: $BlockState$$Type): boolean
+"canSustainPlant"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type, iPlantable4: $IPlantable$$Type): boolean
+"collisionExtendsVertically"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
+"getAdjacentBlockPathType"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, mob3: $Mob$$Type, blockPathTypes4: $BlockPathTypes$$Type): $BlockPathTypes
+"getAppearance"(blockState0: $BlockState$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type, blockState4: $BlockState$$Type, blockPos5: $BlockPos$$Type): $BlockState
+"getBeaconColorMultiplier"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, blockPos3: $BlockPos$$Type): float[]
+"getBedDirection"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): $Direction
+"getBlockPathType"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, mob3: $Mob$$Type): $BlockPathTypes
+"getCloneItemStack"(blockState0: $BlockState$$Type, hitResult1: $HitResult$$Type, blockGetter2: $BlockGetter$$Type, blockPos3: $BlockPos$$Type, player4: $Player$$Type): $ItemStack
+"getEnchantPowerBonus"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): float
+"getExpDrop"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, randomSource2: $RandomSource$$Type, blockPos3: $BlockPos$$Type, int4: integer, int5: integer): integer
+"getExplosionResistance"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, explosion3: $Explosion$$Type): float
+"getExtendedProperties"(): $ExtendedProperties
+"getFireSpreadSpeed"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): integer
+"getFlammability"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): integer
+"getFriction"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): float
+"getLightEmission"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): integer
+"getMapColor"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, mapColor3: $MapColor$$Type): $MapColor
+"getPistonPushReaction"(blockState0: $BlockState$$Type): $PushReaction
+"getRespawnPosition"(blockState0: $BlockState$$Type, entityType1: $EntityType$$Type<any>, levelReader2: $LevelReader$$Type, blockPos3: $BlockPos$$Type, float4: float, livingEntity5: $LivingEntity$$Type): $Optional<$Vec3>
+"getSoundType"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): $SoundType
+"getStateAtViewpoint"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, vec33: $Vec3$$Type): $BlockState
+"getToolModifiedState"(blockState0: $BlockState$$Type, useOnContext1: $UseOnContext$$Type, toolAction2: $ToolAction$$Type, boolean3: boolean): $BlockState
+"getWeakChanges"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): boolean
+"hidesNeighborFace"(blockGetter0: $BlockGetter$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type, direction4: $Direction$$Type): boolean
+"isBed"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
+"isBurning"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): boolean
+"isConduitFrame"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, blockPos3: $BlockPos$$Type): boolean
+"isFertile"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): boolean
+"isFireSource"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): boolean
+"isFlammable"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): boolean
+"isLadder"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, livingEntity3: $LivingEntity$$Type): boolean
+"isPortalFrame"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): boolean
+"isScaffolding"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, livingEntity3: $LivingEntity$$Type): boolean
+"isSlimeBlock"(blockState0: $BlockState$$Type): boolean
+"isStickyBlock"(blockState0: $BlockState$$Type): boolean
+"isValidSpawn"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, type3: $SpawnPlacements$Type$$Type, entityType4: $EntityType$$Type<any>): boolean
+"makesOpenTrapdoorAboveClimbable"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, blockState3: $BlockState$$Type): boolean
+"onBlockExploded"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, explosion3: $Explosion$$Type): void
+"onBlockStateChange"(levelReader0: $LevelReader$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type): void
+"onCaughtFire"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type, livingEntity4: $LivingEntity$$Type): void
+"onDestroyedByPlayer"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, player3: $Player$$Type, boolean4: boolean, fluidState5: $FluidState$$Type): boolean
+"onNeighborChange"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, blockPos3: $BlockPos$$Type): void
+"onTreeGrow"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, biConsumer2: $BiConsumer$$Type<$BlockPos$$Type, $BlockState$$Type>, randomSource3: $RandomSource$$Type, blockPos4: $BlockPos$$Type, treeConfiguration5: $TreeConfiguration$$Type): boolean
+"rotate"(blockState0: $BlockState$$Type, levelAccessor1: $LevelAccessor$$Type, blockPos2: $BlockPos$$Type, rotation3: $Rotation$$Type): $BlockState
+"setBedOccupied"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, livingEntity3: $LivingEntity$$Type, boolean4: boolean): void
+"shouldCheckWeakPower"(blockState0: $BlockState$$Type, signalGetter1: $SignalGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): boolean
+"shouldDisplayFluidOverlay"(blockState0: $BlockState$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type, fluidState3: $FluidState$$Type): boolean
+"supportsExternalFaceHiding"(blockState0: $BlockState$$Type): boolean
+get "extendedProperties"(): $ExtendedProperties
+}
+
+export namespace $IForgeBlockExtension {
+const probejs$$marker: never
+}
+export abstract class $IForgeBlockExtension$$Static implements $IForgeBlockExtension {
+}
+}
+
+declare module "packages/net/dries007/tfc/util/registry/$RegistryMetal" {
+import { $StringRepresentable$EnumCodec } from "packages/net/minecraft/util/$StringRepresentable$EnumCodec"
+import { $Keyable } from "packages/com/mojang/serialization/$Keyable"
+import { $MapColor } from "packages/net/minecraft/world/level/material/$MapColor"
+import { $Block } from "packages/net/minecraft/world/level/block/$Block"
+import { $Rarity } from "packages/net/minecraft/world/item/$Rarity"
+import { $Tier } from "packages/net/minecraft/world/item/$Tier"
+import { $Metal$Tier } from "packages/net/dries007/tfc/util/$Metal$Tier"
+import { $StringRepresentable, $StringRepresentable$$Type } from "packages/net/minecraft/util/$StringRepresentable"
+import { $Function$$Type } from "packages/java/util/function/$Function"
+import { $Enum, $Enum$$Type } from "packages/java/lang/$Enum"
+import { $ArmorMaterial } from "packages/net/minecraft/world/item/$ArmorMaterial"
+import { $Supplier, $Supplier$$Type } from "packages/java/util/function/$Supplier"
+
+export interface $RegistryMetal extends $StringRepresentable {
+"armorTier"(): $ArmorMaterial
+"getFullBlock"(): $Supplier<$Block>
+"getRarity"(): $Rarity
+"getSerializedName"(): string
+"mapColor"(): $MapColor
+"metalTier"(): $Metal$Tier
+"toolTier"(): $Tier
+get "fullBlock"(): $Supplier<$Block>
+get "rarity"(): $Rarity
+get "serializedName"(): string
+}
+
+export namespace $RegistryMetal {
+function fromEnum<E extends ($Enum<E> & $StringRepresentable)>(supplier0: $Supplier$$Type<E[]>): $StringRepresentable$EnumCodec<E>
+function fromEnumWithMapping<E extends ($Enum<E> & $StringRepresentable)>(supplier0: $Supplier$$Type<E[]>, function1: $Function$$Type<string, string>): $StringRepresentable$EnumCodec<E>
+function keys(stringRepresentable0s: $StringRepresentable$$Type[]): $Keyable
+}
+export abstract class $RegistryMetal$$Static implements $RegistryMetal {
+static "fromEnum"<E extends ($Enum<E> & $StringRepresentable)>(supplier0: $Supplier$$Type<E[]>): $StringRepresentable$EnumCodec<E>
+static "fromEnumWithMapping"<E extends ($Enum<E> & $StringRepresentable)>(supplier0: $Supplier$$Type<E[]>, function1: $Function$$Type<string, string>): $StringRepresentable$EnumCodec<E>
+static "keys"(stringRepresentable0s: $StringRepresentable$$Type[]): $Keyable
+}
+}
+
+declare module "packages/net/dries007/tfc/world/noise/$FastNoiseLite$CellularDistanceFunction" {
+import { $Enum } from "packages/java/lang/$Enum"
+
+export class $FastNoiseLite$CellularDistanceFunction extends $Enum<$FastNoiseLite$CellularDistanceFunction> {
+static readonly "Euclidean": $FastNoiseLite$CellularDistanceFunction
+static readonly "EuclideanSq": $FastNoiseLite$CellularDistanceFunction
+static readonly "Hybrid": $FastNoiseLite$CellularDistanceFunction
+static readonly "Manhattan": $FastNoiseLite$CellularDistanceFunction
+
+public static "valueOf"(string0: string): $FastNoiseLite$CellularDistanceFunction
+public static "values"(): $FastNoiseLite$CellularDistanceFunction[]
 }
 }
 
@@ -215,6 +451,22 @@ export namespace $BiomeBridge {
 const probejs$$marker: never
 }
 export abstract class $BiomeBridge$$Static implements $BiomeBridge {
+}
+}
+
+declare module "packages/net/dries007/tfc/world/noise/$FastNoiseLite$FractalType" {
+import { $Enum } from "packages/java/lang/$Enum"
+
+export class $FastNoiseLite$FractalType extends $Enum<$FastNoiseLite$FractalType> {
+static readonly "DomainWarpIndependent": $FastNoiseLite$FractalType
+static readonly "DomainWarpProgressive": $FastNoiseLite$FractalType
+static readonly "FBm": $FastNoiseLite$FractalType
+static readonly "None": $FastNoiseLite$FractalType
+static readonly "PingPong": $FastNoiseLite$FractalType
+static readonly "Ridged": $FastNoiseLite$FractalType
+
+public static "valueOf"(string0: string): $FastNoiseLite$FractalType
+public static "values"(): $FastNoiseLite$FractalType[]
 }
 }
 
@@ -271,6 +523,75 @@ public static "values"(): $RockDisplayCategory[]
 }
 }
 
+declare module "packages/net/dries007/tfc/util/$Metal$Default" {
+import { $StringRepresentable$EnumCodec } from "packages/net/minecraft/util/$StringRepresentable$EnumCodec"
+import { $Keyable } from "packages/com/mojang/serialization/$Keyable"
+import { $MapColor } from "packages/net/minecraft/world/level/material/$MapColor"
+import { $Block } from "packages/net/minecraft/world/level/block/$Block"
+import { $Rarity } from "packages/net/minecraft/world/item/$Rarity"
+import { $Tier } from "packages/net/minecraft/world/item/$Tier"
+import { $RegistryMetal } from "packages/net/dries007/tfc/util/registry/$RegistryMetal"
+import { $Metal$Tier } from "packages/net/dries007/tfc/util/$Metal$Tier"
+import { $StringRepresentable, $StringRepresentable$$Type } from "packages/net/minecraft/util/$StringRepresentable"
+import { $Function$$Type } from "packages/java/util/function/$Function"
+import { $Enum, $Enum$$Type } from "packages/java/lang/$Enum"
+import { $ArmorMaterial } from "packages/net/minecraft/world/item/$ArmorMaterial"
+import { $Supplier, $Supplier$$Type } from "packages/java/util/function/$Supplier"
+
+export class $Metal$Default extends $Enum<$Metal$Default> implements $StringRepresentable, $RegistryMetal {
+static readonly "BISMUTH": $Metal$Default
+static readonly "BISMUTH_BRONZE": $Metal$Default
+static readonly "BLACK_BRONZE": $Metal$Default
+static readonly "BLACK_STEEL": $Metal$Default
+static readonly "BLUE_STEEL": $Metal$Default
+static readonly "BRASS": $Metal$Default
+static readonly "BRONZE": $Metal$Default
+static readonly "CAST_IRON": $Metal$Default
+static readonly "COPPER": $Metal$Default
+static readonly "GOLD": $Metal$Default
+static readonly "HIGH_CARBON_BLACK_STEEL": $Metal$Default
+static readonly "HIGH_CARBON_BLUE_STEEL": $Metal$Default
+static readonly "HIGH_CARBON_RED_STEEL": $Metal$Default
+static readonly "HIGH_CARBON_STEEL": $Metal$Default
+static readonly "NICKEL": $Metal$Default
+static readonly "PIG_IRON": $Metal$Default
+static readonly "RED_STEEL": $Metal$Default
+static readonly "ROSE_GOLD": $Metal$Default
+static readonly "SILVER": $Metal$Default
+static readonly "STEEL": $Metal$Default
+static readonly "STERLING_SILVER": $Metal$Default
+static readonly "TIN": $Metal$Default
+static readonly "UNKNOWN": $Metal$Default
+static readonly "WEAK_BLUE_STEEL": $Metal$Default
+static readonly "WEAK_RED_STEEL": $Metal$Default
+static readonly "WEAK_STEEL": $Metal$Default
+static readonly "WROUGHT_IRON": $Metal$Default
+static readonly "ZINC": $Metal$Default
+
+public "armorTier"(): $ArmorMaterial
+public static "fromEnum"<E extends ($Enum<E> & $StringRepresentable)>(supplier0: $Supplier$$Type<E[]>): $StringRepresentable$EnumCodec<E>
+public static "fromEnumWithMapping"<E extends ($Enum<E> & $StringRepresentable)>(supplier0: $Supplier$$Type<E[]>, function1: $Function$$Type<string, string>): $StringRepresentable$EnumCodec<E>
+public "getColor"(): integer
+public "getFullBlock"(): $Supplier<$Block>
+public "getRarity"(): $Rarity
+public "getSerializedName"(): string
+public "hasArmor"(): boolean
+public "hasParts"(): boolean
+public "hasTools"(): boolean
+public "hasUtilities"(): boolean
+public static "keys"(stringRepresentable0s: $StringRepresentable$$Type[]): $Keyable
+public "mapColor"(): $MapColor
+public "metalTier"(): $Metal$Tier
+public "toolTier"(): $Tier
+public static "valueOf"(string0: string): $Metal$Default
+public static "values"(): $Metal$Default[]
+get "color"(): integer
+get "fullBlock"(): $Supplier<$Block>
+get "rarity"(): $Rarity
+get "serializedName"(): string
+}
+}
+
 declare module "packages/net/dries007/tfc/world/noise/$Metaballs3D" {
 import { $RandomSource$$Type } from "packages/net/minecraft/util/$RandomSource"
 
@@ -289,6 +610,59 @@ import { $ResourceLocation } from "packages/net/minecraft/resources/$ResourceLoc
 export class $DataManager$Reference<T> implements $Supplier<T> {
 public "get"(): T
 public "id"(): $ResourceLocation
+}
+}
+
+declare module "packages/net/dries007/tfc/common/blocks/$GroundcoverBlockType" {
+import { $Item } from "packages/net/minecraft/world/item/$Item"
+import { $Function } from "packages/java/util/function/$Function"
+import { $BlockItem } from "packages/net/minecraft/world/item/$BlockItem"
+import { $Enum } from "packages/java/lang/$Enum"
+import { $VoxelShape } from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
+import { $Supplier } from "packages/java/util/function/$Supplier"
+import { $Block } from "packages/net/minecraft/world/level/block/$Block"
+
+export class $GroundcoverBlockType extends $Enum<$GroundcoverBlockType> {
+static readonly "BONE": $GroundcoverBlockType
+static readonly "CLAM": $GroundcoverBlockType
+static readonly "DEAD_GRASS": $GroundcoverBlockType
+static readonly "DRIFTWOOD": $GroundcoverBlockType
+static readonly "FEATHER": $GroundcoverBlockType
+static readonly "FLINT": $GroundcoverBlockType
+static readonly "GUANO": $GroundcoverBlockType
+static readonly "HUMUS": $GroundcoverBlockType
+static readonly "MOLLUSK": $GroundcoverBlockType
+static readonly "MUSSEL": $GroundcoverBlockType
+static readonly "PINECONE": $GroundcoverBlockType
+static readonly "PUMICE": $GroundcoverBlockType
+static readonly "ROTTEN_FLESH": $GroundcoverBlockType
+static readonly "SALT_LICK": $GroundcoverBlockType
+static readonly "SEAWEED": $GroundcoverBlockType
+static readonly "SEA_URCHIN": $GroundcoverBlockType
+static readonly "STICK": $GroundcoverBlockType
+
+public "createBlockItem"(): $Function<$Block, $BlockItem>
+public "getShape"(): $VoxelShape
+public "getVanillaItem"(): $Supplier<$Item>
+public static "valueOf"(string0: string): $GroundcoverBlockType
+public static "values"(): $GroundcoverBlockType[]
+get "shape"(): $VoxelShape
+get "vanillaItem"(): $Supplier<$Item>
+}
+}
+
+declare module "packages/net/dries007/tfc/world/layer/framework/$AreaFactory" {
+import { $Area } from "packages/net/dries007/tfc/world/layer/framework/$Area"
+import { $Supplier } from "packages/java/util/function/$Supplier"
+
+export interface $AreaFactory extends $Supplier<$Area> {
+"get"(): $Area
+}
+
+export namespace $AreaFactory {
+const probejs$$marker: never
+}
+export abstract class $AreaFactory$$Static implements $AreaFactory {
 }
 }
 
@@ -382,7 +756,9 @@ public static "values"(): $StartFireEvent$FireStrength[]
 }
 
 declare module "packages/net/dries007/tfc/common/recipes/ingredients/$BlockIngredient" {
+import { $InputReplacement, $InputReplacement$$Type } from "packages/dev/latvian/mods/kubejs/recipe/$InputReplacement"
 import { $JsonElement, $JsonElement$$Type } from "packages/com/google/gson/$JsonElement"
+import { $InputReplacementTransformer$Replacement } from "packages/dev/latvian/mods/kubejs/recipe/$InputReplacementTransformer$Replacement"
 import { $Predicate, $Predicate$$Type } from "packages/java/util/function/$Predicate"
 import { $Collection } from "packages/java/util/$Collection"
 import { $BlockState$$Type } from "packages/net/minecraft/world/level/block/state/$BlockState"
@@ -391,9 +767,12 @@ import { $IngredientType$Factory$$Type } from "packages/net/dries007/tfc/common/
 import { $Record } from "packages/java/lang/$Record"
 import { $FriendlyByteBuf$$Type } from "packages/net/minecraft/network/$FriendlyByteBuf"
 import { $List, $List$$Type } from "packages/java/util/$List"
+import { $RecipeJS$$Type } from "packages/dev/latvian/mods/kubejs/recipe/$RecipeJS"
 import { $Stream } from "packages/java/util/stream/$Stream"
 import { $IngredientType, $IngredientType$$Type } from "packages/net/dries007/tfc/common/recipes/ingredients/$IngredientType"
 import { $IngredientType$Entry, $IngredientType$Entry$$Type } from "packages/net/dries007/tfc/common/recipes/ingredients/$IngredientType$Entry"
+import { $InputReplacementTransformer$$Type } from "packages/dev/latvian/mods/kubejs/recipe/$InputReplacementTransformer"
+import { $ReplacementMatch$$Type } from "packages/dev/latvian/mods/kubejs/recipe/$ReplacementMatch"
 
 export class $BlockIngredient extends $Record implements $IngredientType<$Block> {
 constructor(entries: $List$$Type<$IngredientType$Entry$$Type<$Block$$Type>>)
@@ -409,13 +788,16 @@ public static "fromNetwork"<T, I extends $IngredientType<T>>(friendlyByteBuf0: $
 public static "isEqual"<T>(object0: any): $Predicate<T>
 public "negate"(): $Predicate<$Block>
 public static "not"<T>(predicate0: $Predicate$$Type<T>): $Predicate<T>
+public static "of"(o: any): $InputReplacement
 public "or"(predicate0: $Predicate$$Type<$Block$$Type>): $Predicate<$Block>
+public "replaceInput"(recipe: $RecipeJS$$Type, match: $ReplacementMatch$$Type, original: $InputReplacement$$Type): any
 public "test"(blockState0: $BlockState$$Type): boolean
 public "test"(block0: $Block$$Type): boolean
 public "toJson"(): $JsonElement
 public static "toJson"<T, I extends $IngredientType<T>>(i0: I, factory1: $IngredientType$Factory$$Type<T, I>): $JsonElement
 public "toNetwork"(friendlyByteBuf0: $FriendlyByteBuf$$Type): void
 public static "toNetwork"<T, I extends $IngredientType<T>>(friendlyByteBuf0: $FriendlyByteBuf$$Type, i1: I, factory2: $IngredientType$Factory$$Type<T, I>): void
+public "transform"(transformer: $InputReplacementTransformer$$Type): $InputReplacementTransformer$Replacement
 }
 }
 
@@ -535,8 +917,8 @@ export class $LampFuel {
 static readonly "CACHE": $IndirectHashCollection<$Fluid, $LampFuel>
 static readonly "MANAGER": $DataManager<$LampFuel>
 
-constructor(resourceLocation0: $ResourceLocation$$Type, jsonObject1: $JsonObject$$Type)
 constructor(resourceLocation0: $ResourceLocation$$Type, friendlyByteBuf1: $FriendlyByteBuf$$Type)
+constructor(resourceLocation0: $ResourceLocation$$Type, jsonObject1: $JsonObject$$Type)
 
 public "encode"(friendlyByteBuf0: $FriendlyByteBuf$$Type): void
 public static "get"(fluid0: $Fluid$$Type, blockState1: $BlockState$$Type): $LampFuel
@@ -635,6 +1017,19 @@ public "widthSq"(double0: double, double1: double): double
 public "widthSq"(): integer
 get "width"(): integer
 set "width"(value: integer)
+}
+}
+
+declare module "packages/net/dries007/tfc/world/noise/$FastNoiseLite$RotationType3D" {
+import { $Enum } from "packages/java/lang/$Enum"
+
+export class $FastNoiseLite$RotationType3D extends $Enum<$FastNoiseLite$RotationType3D> {
+static readonly "ImproveXYPlanes": $FastNoiseLite$RotationType3D
+static readonly "ImproveXZPlanes": $FastNoiseLite$RotationType3D
+static readonly "None": $FastNoiseLite$RotationType3D
+
+public static "valueOf"(string0: string): $FastNoiseLite$RotationType3D
+public static "values"(): $FastNoiseLite$RotationType3D[]
 }
 }
 
@@ -769,6 +1164,33 @@ export abstract class $BrainBreeder$$Static implements $BrainBreeder {
 }
 }
 
+declare module "packages/net/dries007/tfc/world/layer/framework/$ConcurrentArea" {
+import { $IntFunction$$Type } from "packages/java/util/function/$IntFunction"
+import { $AreaFactory$$Type } from "packages/net/dries007/tfc/world/layer/framework/$AreaFactory"
+
+export class $ConcurrentArea<T> {
+constructor(areaFactory0: $AreaFactory$$Type, intFunction1: $IntFunction$$Type<T>)
+
+public "get"(int0: integer, int1: integer): T
+}
+}
+
+declare module "packages/net/dries007/tfc/world/noise/$Cellular2D$Cell" {
+import { $Record } from "packages/java/lang/$Record"
+
+export class $Cellular2D$Cell extends $Record {
+constructor(x: double, y: double, cx: integer, cy: integer, f1: double, f2: double, noise: double)
+
+public "cx"(): integer
+public "cy"(): integer
+public "f1"(): double
+public "f2"(): double
+public "noise"(): double
+public "x"(): double
+public "y"(): double
+}
+}
+
 declare module "packages/net/dries007/tfc/world/chunkdata/$ChunkData$Status" {
 import { $Enum } from "packages/java/lang/$Enum"
 
@@ -822,6 +1244,72 @@ export namespace $IFood {
 const probejs$$marker: never
 }
 export abstract class $IFood$$Static implements $IFood {
+}
+}
+
+declare module "packages/net/dries007/tfc/world/noise/$Cellular3D" {
+import { $Cellular3D$Cell } from "packages/net/dries007/tfc/world/noise/$Cellular3D$Cell"
+import { $OpenSimplex3D$$Type } from "packages/net/dries007/tfc/world/noise/$OpenSimplex3D"
+import { $Noise2D, $Noise2D$$Type } from "packages/net/dries007/tfc/world/noise/$Noise2D"
+import { $Noise3D } from "packages/net/dries007/tfc/world/noise/$Noise3D"
+
+export class $Cellular3D implements $Noise3D {
+constructor(long0: long)
+
+public "cell"(double0: double, double1: double, double2: double): $Cellular3D$Cell
+/** Dissolves this `Noise3D` to a `Noise2D` by using the provided `Noise2D` as the y-value */
+public "dissolve"(yNoise: $Noise2D$$Type): $Noise2D
+public "noise"(double0: double, double1: double, double2: double): double
+public "octaves"(int0: integer): $Noise3D
+/** Rotate this noise around the x-axis */
+public "rotateX"(angle: double): $Noise3D
+/** Rotate this noise around the y-axis */
+public "rotateY"(angle: double): $Noise3D
+/** Rotate this noise around the z-axis */
+public "rotateZ"(angle: double): $Noise3D
+public "scaled"(double0: double, double1: double, double2: double, double3: double): $Noise3D
+public "scaled"(double0: double, double1: double): $Noise3D
+/** Swap the x and y coordinates */
+public "transposeXY"(): $Noise3D
+/** Swap the x and z coordinates */
+public "transposeXZ"(): $Noise3D
+/** Swap the y and z coordinates */
+public "transposeYZ"(): $Noise3D
+public "warped"(openSimplex3D0: $OpenSimplex3D$$Type): $Noise3D
+}
+}
+
+declare module "packages/net/dries007/tfc/world/noise/$Cellular2D" {
+import { $Cellular2D$Cell, $Cellular2D$Cell$$Type } from "packages/net/dries007/tfc/world/noise/$Cellular2D$Cell"
+import { $OpenSimplex2D$$Type } from "packages/net/dries007/tfc/world/noise/$OpenSimplex2D"
+import { $Noise2D, $Noise2D$$Type } from "packages/net/dries007/tfc/world/noise/$Noise2D"
+import { $DoubleUnaryOperator$$Type } from "packages/java/util/function/$DoubleUnaryOperator"
+import { $ToDoubleFunction$$Type } from "packages/java/util/function/$ToDoubleFunction"
+
+export class $Cellular2D implements $Noise2D {
+static readonly "JITTER": double
+
+constructor(long0: long)
+
+public "abs"(): $Noise2D
+public "add"(noise2D0: $Noise2D$$Type): $Noise2D
+public "affine"(double0: double, double1: double): $Noise2D
+public "cell"(double0: double, double1: double): $Cellular2D$Cell
+public "clamped"(double0: double, double1: double): $Noise2D
+public "lazyProduct"(noise2D0: $Noise2D$$Type): $Noise2D
+public "map"(doubleUnaryOperator0: $DoubleUnaryOperator$$Type): $Noise2D
+public "noise"(double0: double, double1: double): double
+public "octaves"(int0: integer): $Noise2D
+public "ridged"(): $Noise2D
+/** Rotates the coordinate grid by the given angle (in degrees) */
+public "rotate"(angle: double): $Noise2D
+public "scaled"(double0: double, double1: double, double2: double, double3: double): $Noise2D
+public "scaled"(double0: double, double1: double): $Noise2D
+public "terraces"(int0: integer): $Noise2D
+public "then"(toDoubleFunction0: $ToDoubleFunction$$Type<$Cellular2D$Cell$$Type>): $Noise2D
+/** Swaps the x and z coordinate */
+public "transpose"(): $Noise2D
+public "warped"(openSimplex2D0: $OpenSimplex2D$$Type): $Noise2D
 }
 }
 
@@ -887,6 +1375,134 @@ get "possibleValues"(): $Collection<$FluidProperty$FluidKey>
 }
 }
 
+declare module "packages/net/dries007/tfc/common/blocks/$ExtendedBlock" {
+import { $ExtendedProperties, $ExtendedProperties$$Type } from "packages/net/dries007/tfc/common/blocks/$ExtendedProperties"
+import { $LevelAccessor$$Type } from "packages/net/minecraft/world/level/$LevelAccessor"
+import { $MapColor, $MapColor$$Type } from "packages/net/minecraft/world/level/material/$MapColor"
+import { $Direction, $Direction$$Type } from "packages/net/minecraft/core/$Direction"
+import { $ItemStack } from "packages/net/minecraft/world/item/$ItemStack"
+import { $FeatureFlagSet$$Type } from "packages/net/minecraft/world/flag/$FeatureFlagSet"
+import { $ResourceLocation } from "packages/net/minecraft/resources/$ResourceLocation"
+import { $Block } from "packages/net/minecraft/world/level/block/$Block"
+import { $PushReaction } from "packages/net/minecraft/world/level/material/$PushReaction"
+import { $LivingEntity$$Type } from "packages/net/minecraft/world/entity/$LivingEntity"
+import { $FluidState$$Type } from "packages/net/minecraft/world/level/material/$FluidState"
+import { $TreeConfiguration$$Type } from "packages/net/minecraft/world/level/levelgen/feature/configurations/$TreeConfiguration"
+import { $BlockGetter$$Type } from "packages/net/minecraft/world/level/$BlockGetter"
+import { $EntityType$$Type } from "packages/net/minecraft/world/entity/$EntityType"
+import { $Mob$$Type } from "packages/net/minecraft/world/entity/$Mob"
+import { $Player$$Type } from "packages/net/minecraft/world/entity/player/$Player"
+import { $ToolAction$$Type } from "packages/net/minecraftforge/common/$ToolAction"
+import { $List } from "packages/java/util/$List"
+import { $RandomSource$$Type } from "packages/net/minecraft/util/$RandomSource"
+import { $ServerLevel$$Type } from "packages/net/minecraft/server/level/$ServerLevel"
+import { $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
+import { $ParticleOptions } from "packages/net/minecraft/core/particles/$ParticleOptions"
+import { $Entity$$Type } from "packages/net/minecraft/world/entity/$Entity"
+import { $SpawnPlacements$Type$$Type } from "packages/net/minecraft/world/entity/$SpawnPlacements$Type"
+import { $SignalGetter$$Type } from "packages/net/minecraft/world/level/$SignalGetter"
+import { $BlockPathTypes, $BlockPathTypes$$Type } from "packages/net/minecraft/world/level/pathfinder/$BlockPathTypes"
+import { $IForgeBlockExtension } from "packages/net/dries007/tfc/common/blocks/$IForgeBlockExtension"
+import { $BlockState, $BlockState$$Type } from "packages/net/minecraft/world/level/block/state/$BlockState"
+import { $Level$$Type } from "packages/net/minecraft/world/level/$Level"
+import { $Vec3, $Vec3$$Type } from "packages/net/minecraft/world/phys/$Vec3"
+import { $BiConsumer$$Type } from "packages/java/util/function/$BiConsumer"
+import { $LevelReader$$Type } from "packages/net/minecraft/world/level/$LevelReader"
+import { $Holder } from "packages/net/minecraft/core/$Holder"
+import { $UseOnContext$$Type } from "packages/net/minecraft/world/item/context/$UseOnContext"
+import { $HitResult$$Type } from "packages/net/minecraft/world/phys/$HitResult"
+import { $Set } from "packages/java/util/$Set"
+import { $Enchantment } from "packages/net/minecraft/world/item/enchantment/$Enchantment"
+import { $SoundType } from "packages/net/minecraft/world/level/block/$SoundType"
+import { $Optional } from "packages/java/util/$Optional"
+import { $Rotation$$Type } from "packages/net/minecraft/world/level/block/$Rotation"
+import { $Explosion$$Type } from "packages/net/minecraft/world/level/$Explosion"
+import { $BlockAndTintGetter$$Type } from "packages/net/minecraft/world/level/$BlockAndTintGetter"
+
+export class $ExtendedBlock extends $Block implements $IForgeBlockExtension {
+constructor(extendedProperties0: $ExtendedProperties$$Type)
+
+public "addLandingEffects"(blockState0: $BlockState$$Type, serverLevel1: $ServerLevel$$Type, blockPos2: $BlockPos$$Type, blockState3: $BlockState$$Type, livingEntity4: $LivingEntity$$Type, int5: integer): boolean
+public "addRunningEffects"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
+public "allowsTreasure"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): boolean
+public "arch$holder"(): $Holder<$Block>
+public "arch$registryName"(): $ResourceLocation
+public "canBeHydrated"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, fluidState3: $FluidState$$Type, blockPos4: $BlockPos$$Type): boolean
+public "canConnectRedstone"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): boolean
+public "canDropFromExplosion"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, explosion3: $Explosion$$Type): boolean
+public "canEntityDestroy"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
+public "canHarvestBlock"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, player3: $Player$$Type): boolean
+public "canStickTo"(blockState0: $BlockState$$Type, blockState1: $BlockState$$Type): boolean
+public "collisionExtendsVertically"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
+public "getAdjacentBlockPathType"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, mob3: $Mob$$Type, blockPathTypes4: $BlockPathTypes$$Type): $BlockPathTypes
+public "getAppearance"(blockState0: $BlockState$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type, blockState4: $BlockState$$Type, blockPos5: $BlockPos$$Type): $BlockState
+public "getArcanaBonus"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): float
+public "getBeaconColorMultiplier"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, blockPos3: $BlockPos$$Type): float[]
+public "getBedDirection"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): $Direction
+public "getBlacklistedEnchantments"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): $Set<$Enchantment>
+public "getBlockPathType"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, mob3: $Mob$$Type): $BlockPathTypes
+public "getBlockStates"(): $List<$BlockState>
+public "getBonusClues"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): integer
+public "getCloneItemStack"(blockState0: $BlockState$$Type, hitResult1: $HitResult$$Type, blockGetter2: $BlockGetter$$Type, blockPos3: $BlockPos$$Type, player4: $Player$$Type): $ItemStack
+public "getEnchantPowerBonus"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): float
+public "getExpDrop"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, randomSource2: $RandomSource$$Type, blockPos3: $BlockPos$$Type, int4: integer, int5: integer): integer
+public "getExplosionResistance"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, explosion3: $Explosion$$Type): float
+public "getExtendedProperties"(): $ExtendedProperties
+public "getFireSpreadSpeed"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): integer
+public "getFlammability"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): integer
+public "getFriction"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): float
+public "getLightEmission"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): integer
+public "getMapColor"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, mapColor3: $MapColor$$Type): $MapColor
+public "getMaxEnchantingPower"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): float
+public "getMod"(): string
+public "getPistonPushReaction"(blockState0: $BlockState$$Type): $PushReaction
+public "getQuantaBonus"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): float
+public "getQuantaRectification"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): float
+public "getRespawnPosition"(blockState0: $BlockState$$Type, entityType1: $EntityType$$Type<any>, levelReader2: $LevelReader$$Type, blockPos3: $BlockPos$$Type, float4: float, livingEntity5: $LivingEntity$$Type): $Optional<$Vec3>
+public "getSoundType"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): $SoundType
+public "getStateAtViewpoint"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, vec33: $Vec3$$Type): $BlockState
+public "getTableParticle"(blockState0: $BlockState$$Type): $ParticleOptions
+public "getToolModifiedState"(blockState0: $BlockState$$Type, useOnContext1: $UseOnContext$$Type, toolAction2: $ToolAction$$Type, boolean3: boolean): $BlockState
+public "getWeakChanges"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): boolean
+public "hidesNeighborFace"(blockGetter0: $BlockGetter$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type, direction4: $Direction$$Type): boolean
+public "isBed"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
+public "isBurning"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): boolean
+public "isConduitFrame"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, blockPos3: $BlockPos$$Type): boolean
+public "isEnabled"(featureFlagSet0: $FeatureFlagSet$$Type): boolean
+public "isFertile"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): boolean
+public "isFireSource"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): boolean
+public "isFlammable"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): boolean
+public "isLadder"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, livingEntity3: $LivingEntity$$Type): boolean
+public "isPortalFrame"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): boolean
+public "isScaffolding"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, livingEntity3: $LivingEntity$$Type): boolean
+public "isSlimeBlock"(blockState0: $BlockState$$Type): boolean
+public "isStickyBlock"(blockState0: $BlockState$$Type): boolean
+public "isValidSpawn"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, type3: $SpawnPlacements$Type$$Type, entityType4: $EntityType$$Type<any>): boolean
+public "makesOpenTrapdoorAboveClimbable"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, blockState3: $BlockState$$Type): boolean
+public "onBlockExploded"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, explosion3: $Explosion$$Type): void
+public "onBlockStateChange"(levelReader0: $LevelReader$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type): void
+public "onCaughtFire"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type, livingEntity4: $LivingEntity$$Type): void
+public "onDestroyedByPlayer"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, player3: $Player$$Type, boolean4: boolean, fluidState5: $FluidState$$Type): boolean
+public "onNeighborChange"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, blockPos3: $BlockPos$$Type): void
+public "onTreeGrow"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, biConsumer2: $BiConsumer$$Type<$BlockPos$$Type, $BlockState$$Type>, randomSource3: $RandomSource$$Type, blockPos4: $BlockPos$$Type, treeConfiguration5: $TreeConfiguration$$Type): boolean
+public "rotate"(blockState0: $BlockState$$Type, levelAccessor1: $LevelAccessor$$Type, blockPos2: $BlockPos$$Type, rotation3: $Rotation$$Type): $BlockState
+public "setBedOccupied"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, livingEntity3: $LivingEntity$$Type, boolean4: boolean): void
+public "setDestroySpeed"(v: float): void
+public "setLightEmission"(v: integer): void
+public "setRequiresTool"(v: boolean): void
+public "shouldCheckWeakPower"(blockState0: $BlockState$$Type, signalGetter1: $SignalGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): boolean
+public "shouldDisplayFluidOverlay"(blockState0: $BlockState$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type, fluidState3: $FluidState$$Type): boolean
+public "spawnTableParticle"(blockState0: $BlockState$$Type, level1: $Level$$Type, randomSource2: $RandomSource$$Type, blockPos3: $BlockPos$$Type, blockPos4: $BlockPos$$Type): void
+public "supportsExternalFaceHiding"(blockState0: $BlockState$$Type): boolean
+get "blockStates"(): $List<$BlockState>
+get "extendedProperties"(): $ExtendedProperties
+get "mod"(): string
+set "destroySpeed"(value: float)
+set "lightEmission"(value: integer)
+set "requiresTool"(value: boolean)
+}
+}
+
 declare module "packages/net/dries007/tfc/world/$BiomeNoiseSampler" {
 import { $ChunkGeneratorExtension$$Type } from "packages/net/dries007/tfc/world/$ChunkGeneratorExtension"
 import { $ChunkAccess$$Type } from "packages/net/minecraft/world/level/chunk/$ChunkAccess"
@@ -937,6 +1553,83 @@ public static "registerDefaultRocks"(): void
 public "sand"(): $Block
 public "sandstone"(): $Block
 public "spike"(): $Optional<$Block>
+}
+}
+
+declare module "packages/net/dries007/tfc/util/$Metal$ItemType" {
+import { $Item } from "packages/net/minecraft/world/item/$Item"
+import { $Enum } from "packages/java/lang/$Enum"
+import { $Item$Properties } from "packages/net/minecraft/world/item/$Item$Properties"
+import { $Metal$Default$$Type } from "packages/net/dries007/tfc/util/$Metal$Default"
+import { $RegistryMetal$$Type } from "packages/net/dries007/tfc/util/registry/$RegistryMetal"
+
+export class $Metal$ItemType extends $Enum<$Metal$ItemType> {
+static readonly "AXE": $Metal$ItemType
+static readonly "AXE_HEAD": $Metal$ItemType
+static readonly "BOOTS": $Metal$ItemType
+static readonly "CHESTPLATE": $Metal$ItemType
+static readonly "CHISEL": $Metal$ItemType
+static readonly "CHISEL_HEAD": $Metal$ItemType
+static readonly "DOUBLE_INGOT": $Metal$ItemType
+static readonly "DOUBLE_SHEET": $Metal$ItemType
+static readonly "FISHING_ROD": $Metal$ItemType
+static readonly "FISH_HOOK": $Metal$ItemType
+static readonly "GREAVES": $Metal$ItemType
+static readonly "HAMMER": $Metal$ItemType
+static readonly "HAMMER_HEAD": $Metal$ItemType
+static readonly "HELMET": $Metal$ItemType
+static readonly "HOE": $Metal$ItemType
+static readonly "HOE_HEAD": $Metal$ItemType
+static readonly "HORSE_ARMOR": $Metal$ItemType
+static readonly "INGOT": $Metal$ItemType
+static readonly "JAVELIN": $Metal$ItemType
+static readonly "JAVELIN_HEAD": $Metal$ItemType
+static readonly "KNIFE": $Metal$ItemType
+static readonly "KNIFE_BLADE": $Metal$ItemType
+static readonly "MACE": $Metal$ItemType
+static readonly "MACE_HEAD": $Metal$ItemType
+static readonly "PICKAXE": $Metal$ItemType
+static readonly "PICKAXE_HEAD": $Metal$ItemType
+static readonly "PROPICK": $Metal$ItemType
+static readonly "PROPICK_HEAD": $Metal$ItemType
+static readonly "ROD": $Metal$ItemType
+static readonly "SAW": $Metal$ItemType
+static readonly "SAW_BLADE": $Metal$ItemType
+static readonly "SCYTHE": $Metal$ItemType
+static readonly "SCYTHE_BLADE": $Metal$ItemType
+static readonly "SHEARS": $Metal$ItemType
+static readonly "SHEET": $Metal$ItemType
+static readonly "SHIELD": $Metal$ItemType
+static readonly "SHOVEL": $Metal$ItemType
+static readonly "SHOVEL_HEAD": $Metal$ItemType
+static readonly "SWORD": $Metal$ItemType
+static readonly "SWORD_BLADE": $Metal$ItemType
+static readonly "TUYERE": $Metal$ItemType
+static readonly "UNFINISHED_BOOTS": $Metal$ItemType
+static readonly "UNFINISHED_CHESTPLATE": $Metal$ItemType
+static readonly "UNFINISHED_GREAVES": $Metal$ItemType
+static readonly "UNFINISHED_HELMET": $Metal$ItemType
+static readonly "UNFINISHED_LAMP": $Metal$ItemType
+
+public "create"(registryMetal0: $RegistryMetal$$Type): $Item
+public "has"(default0: $Metal$Default$$Type): boolean
+public "hasMold"(): boolean
+public static "properties"(registryMetal0: $RegistryMetal$$Type): $Item$Properties
+public static "valueOf"(string0: string): $Metal$ItemType
+public static "values"(): $Metal$ItemType[]
+}
+}
+
+declare module "packages/net/dries007/tfc/world/layer/framework/$AreaSource" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+export interface $AreaSource {
+"apply"(int0: integer, int1: integer): integer
+}
+
+export namespace $AreaSource {
+const probejs$$marker: never
+}
+export abstract class $AreaSource$$Static implements $AreaSource {
 }
 }
 
@@ -1000,8 +1693,8 @@ public "jumpFactor"(float0: float): $ExtendedProperties
 public "lightLevel"(toIntFunction0: $ToIntFunction$$Type<$BlockState$$Type>): $ExtendedProperties
 public "liquid"(): $ExtendedProperties
 public "mapColor"(dyeColor0: $DyeColor$$Type): $ExtendedProperties
-public "mapColor"(function0: $Function$$Type<$BlockState$$Type, $MapColor>): $ExtendedProperties
 public "mapColor"(mapColor0: $MapColor$$Type): $ExtendedProperties
+public "mapColor"(function0: $Function$$Type<$BlockState$$Type, $MapColor>): $ExtendedProperties
 public "noCollission"(): $ExtendedProperties
 public "noLootTable"(): $ExtendedProperties
 public "noOcclusion"(): $ExtendedProperties
@@ -1009,9 +1702,9 @@ public "noParticlesOnBreak"(): $ExtendedProperties
 public static "of"(properties0: $BlockBehaviour$Properties$$Type): $ExtendedProperties
 public static "of"(function0: $Function$$Type<$BlockState$$Type, $MapColor>): $ExtendedProperties
 public static "of"(mapColor0: $MapColor$$Type): $ExtendedProperties
-public static "of"(dyeColor0: $DyeColor$$Type): $ExtendedProperties
-public static "of"(): $ExtendedProperties
 public static "of"(blockBehaviour0: $BlockBehaviour$$Type): $ExtendedProperties
+public static "of"(): $ExtendedProperties
+public static "of"(dyeColor0: $DyeColor$$Type): $ExtendedProperties
 public "offsetType"(offsetType0: $BlockBehaviour$OffsetType$$Type): $ExtendedProperties
 public "pathType"(blockPathTypes0: $BlockPathTypes$$Type): $ExtendedProperties
 public "properties"(): $BlockBehaviour$Properties
@@ -1023,22 +1716,54 @@ public "requiresCorrectToolForDrops"(): $ExtendedProperties
 public "serverTicks"<T extends $BlockEntity>(blockEntityTicker0: $BlockEntityTicker$$Type<T>): $ExtendedProperties
 public "sound"(soundType0: $SoundType$$Type): $ExtendedProperties
 public "speedFactor"(float0: float): $ExtendedProperties
-public "strength"(float0: float): $ExtendedProperties
 public "strength"(float0: float, float1: float): $ExtendedProperties
-public "ticks"<T extends $BlockEntity>(blockEntityTicker0: $BlockEntityTicker$$Type<T>): $ExtendedProperties
+public "strength"(float0: float): $ExtendedProperties
 public "ticks"<T extends $BlockEntity>(blockEntityTicker0: $BlockEntityTicker$$Type<T>, blockEntityTicker1: $BlockEntityTicker$$Type<T>): $ExtendedProperties
+public "ticks"<T extends $BlockEntity>(blockEntityTicker0: $BlockEntityTicker$$Type<T>): $ExtendedProperties
+}
+}
+
+declare module "packages/net/dries007/tfc/world/noise/$Cellular3D$Cell" {
+import { $Record } from "packages/java/lang/$Record"
+
+export class $Cellular3D$Cell extends $Record {
+constructor(x: double, y: double, z: double, f1: double, f2: double, noise: double)
+
+public "f1"(): double
+public "f2"(): double
+public "noise"(): double
+public "x"(): double
+public "y"(): double
+public "z"(): double
 }
 }
 
 declare module "packages/net/dries007/tfc/world/noise/$Noise3D" {
 import { $OpenSimplex3D$$Type } from "packages/net/dries007/tfc/world/noise/$OpenSimplex3D"
+import { $Noise3DMixin } from "packages/com/notenoughmail/kubejs_tfc/util/implementation/mixin/$Noise3DMixin"
+import { $Noise2D, $Noise2D$$Type } from "packages/net/dries007/tfc/world/noise/$Noise2D"
+import { $Noise3DExtension } from "packages/com/notenoughmail/kubejs_tfc/util/helpers/ducks/extensions/$Noise3DExtension"
 
-export interface $Noise3D {
+export interface $Noise3D extends $Noise3DMixin, $Noise3DExtension {
+/** Dissolves this `Noise3D` to a `Noise2D` by using the provided `Noise2D` as the y-value */
+"dissolve"(yNoise: $Noise2D$$Type): $Noise2D
 "noise"(double0: double, double1: double, double2: double): double
 "octaves"(int0: integer): $Noise3D
-"scaled"(double0: double, double1: double): $Noise3D
+/** Rotate this noise around the x-axis */
+"rotateX"(angle: double): $Noise3D
+/** Rotate this noise around the y-axis */
+"rotateY"(angle: double): $Noise3D
+/** Rotate this noise around the z-axis */
+"rotateZ"(angle: double): $Noise3D
 "scaled"(double0: double, double1: double, double2: double, double3: double): $Noise3D
+"scaled"(double0: double, double1: double): $Noise3D
 "spread"(double0: double): $Noise3D
+/** Swap the x and y coordinates */
+"transposeXY"(): $Noise3D
+/** Swap the x and z coordinates */
+"transposeXZ"(): $Noise3D
+/** Swap the y and z coordinates */
+"transposeYZ"(): $Noise3D
 "warped"(openSimplex3D0: $OpenSimplex3D$$Type): $Noise3D
 }
 
@@ -1052,8 +1777,10 @@ export abstract class $Noise3D$$Static implements $Noise3D {
 declare module "packages/net/dries007/tfc/world/noise/$Noise2D" {
 import { $OpenSimplex2D$$Type } from "packages/net/dries007/tfc/world/noise/$OpenSimplex2D"
 import { $DoubleUnaryOperator$$Type } from "packages/java/util/function/$DoubleUnaryOperator"
+import { $Noise2DExtension } from "packages/com/notenoughmail/kubejs_tfc/util/helpers/ducks/extensions/$Noise2DExtension"
+import { $Noise2DMixin } from "packages/com/notenoughmail/kubejs_tfc/util/implementation/mixin/$Noise2DMixin"
 
-export interface $Noise2D {
+export interface $Noise2D extends $Noise2DExtension, $Noise2DMixin {
 "abs"(): $Noise2D
 "add"(noise2D0: $Noise2D$$Type): $Noise2D
 "affine"(double0: double, double1: double): $Noise2D
@@ -1063,10 +1790,14 @@ export interface $Noise2D {
 "noise"(double0: double, double1: double): double
 "octaves"(int0: integer): $Noise2D
 "ridged"(): $Noise2D
-"scaled"(double0: double, double1: double): $Noise2D
+/** Rotates the coordinate grid by the given angle (in degrees) */
+"rotate"(angle: double): $Noise2D
 "scaled"(double0: double, double1: double, double2: double, double3: double): $Noise2D
+"scaled"(double0: double, double1: double): $Noise2D
 "spread"(double0: double): $Noise2D
 "terraces"(int0: integer): $Noise2D
+/** Swaps the x and z coordinate */
+"transpose"(): $Noise2D
 "warped"(openSimplex2D0: $OpenSimplex2D$$Type): $Noise2D
 }
 
@@ -1074,6 +1805,156 @@ export namespace $Noise2D {
 const probejs$$marker: never
 }
 export abstract class $Noise2D$$Static implements $Noise2D {
+}
+}
+
+declare module "packages/net/dries007/tfc/world/layer/framework/$Area" {
+import { $AreaSource$$Type } from "packages/net/dries007/tfc/world/layer/framework/$AreaSource"
+
+export class $Area {
+constructor(areaSource0: $AreaSource$$Type, int1: integer)
+
+public "get"(int0: integer, int1: integer): integer
+}
+}
+
+declare module "packages/net/dries007/tfc/common/blocks/rock/$LooseRockBlock" {
+import { $IntegerProperty } from "packages/net/minecraft/world/level/block/state/properties/$IntegerProperty"
+import { $SoundEvent } from "packages/net/minecraft/sounds/$SoundEvent"
+import { $LevelAccessor$$Type } from "packages/net/minecraft/world/level/$LevelAccessor"
+import { $Fluid$$Type } from "packages/net/minecraft/world/level/material/$Fluid"
+import { $MapColor, $MapColor$$Type } from "packages/net/minecraft/world/level/material/$MapColor"
+import { $BlockBehaviour$Properties$$Type } from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
+import { $Direction, $Direction$$Type } from "packages/net/minecraft/core/$Direction"
+import { $FeatureFlagSet$$Type } from "packages/net/minecraft/world/flag/$FeatureFlagSet"
+import { $ItemStack } from "packages/net/minecraft/world/item/$ItemStack"
+import { $ResourceLocation } from "packages/net/minecraft/resources/$ResourceLocation"
+import { $Block } from "packages/net/minecraft/world/level/block/$Block"
+import { $PushReaction } from "packages/net/minecraft/world/level/material/$PushReaction"
+import { $LivingEntity$$Type } from "packages/net/minecraft/world/entity/$LivingEntity"
+import { $FluidState, $FluidState$$Type } from "packages/net/minecraft/world/level/material/$FluidState"
+import { $TreeConfiguration$$Type } from "packages/net/minecraft/world/level/levelgen/feature/configurations/$TreeConfiguration"
+import { $BlockGetter$$Type } from "packages/net/minecraft/world/level/$BlockGetter"
+import { $FluidProperty } from "packages/net/dries007/tfc/common/fluids/$FluidProperty"
+import { $EntityType$$Type } from "packages/net/minecraft/world/entity/$EntityType"
+import { $Mob$$Type } from "packages/net/minecraft/world/entity/$Mob"
+import { $Player$$Type } from "packages/net/minecraft/world/entity/player/$Player"
+import { $ToolAction$$Type } from "packages/net/minecraftforge/common/$ToolAction"
+import { $List } from "packages/java/util/$List"
+import { $RandomSource$$Type } from "packages/net/minecraft/util/$RandomSource"
+import { $ServerLevel$$Type } from "packages/net/minecraft/server/level/$ServerLevel"
+import { $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
+import { $ParticleOptions } from "packages/net/minecraft/core/particles/$ParticleOptions"
+import { $Entity$$Type } from "packages/net/minecraft/world/entity/$Entity"
+import { $SpawnPlacements$Type$$Type } from "packages/net/minecraft/world/entity/$SpawnPlacements$Type"
+import { $SignalGetter$$Type } from "packages/net/minecraft/world/level/$SignalGetter"
+import { $BlockPathTypes, $BlockPathTypes$$Type } from "packages/net/minecraft/world/level/pathfinder/$BlockPathTypes"
+import { $BlockState, $BlockState$$Type } from "packages/net/minecraft/world/level/block/state/$BlockState"
+import { $Level$$Type } from "packages/net/minecraft/world/level/$Level"
+import { $Vec3, $Vec3$$Type } from "packages/net/minecraft/world/phys/$Vec3"
+import { $BiConsumer$$Type } from "packages/java/util/function/$BiConsumer"
+import { $LevelReader$$Type } from "packages/net/minecraft/world/level/$LevelReader"
+import { $Holder } from "packages/net/minecraft/core/$Holder"
+import { $UseOnContext$$Type } from "packages/net/minecraft/world/item/context/$UseOnContext"
+import { $IFluidLoggable } from "packages/net/dries007/tfc/common/fluids/$IFluidLoggable"
+import { $Set } from "packages/java/util/$Set"
+import { $Enchantment } from "packages/net/minecraft/world/item/enchantment/$Enchantment"
+import { $GroundcoverBlock } from "packages/net/dries007/tfc/common/blocks/$GroundcoverBlock"
+import { $SoundType } from "packages/net/minecraft/world/level/block/$SoundType"
+import { $Optional } from "packages/java/util/$Optional"
+import { $Rotation$$Type } from "packages/net/minecraft/world/level/block/$Rotation"
+import { $Explosion$$Type } from "packages/net/minecraft/world/level/$Explosion"
+import { $BlockAndTintGetter$$Type } from "packages/net/minecraft/world/level/$BlockAndTintGetter"
+
+export class $LooseRockBlock extends $GroundcoverBlock implements $IFluidLoggable {
+static readonly "COUNT": $IntegerProperty
+
+constructor(properties0: $BlockBehaviour$Properties$$Type)
+
+public "addLandingEffects"(blockState0: $BlockState$$Type, serverLevel1: $ServerLevel$$Type, blockPos2: $BlockPos$$Type, blockState3: $BlockState$$Type, livingEntity4: $LivingEntity$$Type, int5: integer): boolean
+public "addRunningEffects"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
+public "allowsTreasure"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): boolean
+public "arch$holder"(): $Holder<$Block>
+public "arch$registryName"(): $ResourceLocation
+public "canBeHydrated"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, fluidState3: $FluidState$$Type, blockPos4: $BlockPos$$Type): boolean
+public "canConnectRedstone"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): boolean
+public "canDropFromExplosion"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, explosion3: $Explosion$$Type): boolean
+public "canEntityDestroy"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
+public "canHarvestBlock"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, player3: $Player$$Type): boolean
+public "canPlaceLiquid"(blockGetter0: $BlockGetter$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, fluid3: $Fluid$$Type): boolean
+public "canStickTo"(blockState0: $BlockState$$Type, blockState1: $BlockState$$Type): boolean
+public "collisionExtendsVertically"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
+public "getAdjacentBlockPathType"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, mob3: $Mob$$Type, blockPathTypes4: $BlockPathTypes$$Type): $BlockPathTypes
+public "getAppearance"(blockState0: $BlockState$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type, blockState4: $BlockState$$Type, blockPos5: $BlockPos$$Type): $BlockState
+public "getArcanaBonus"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): float
+public "getBeaconColorMultiplier"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, blockPos3: $BlockPos$$Type): float[]
+public "getBedDirection"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): $Direction
+public "getBlacklistedEnchantments"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): $Set<$Enchantment>
+public "getBlockPathType"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, mob3: $Mob$$Type): $BlockPathTypes
+public "getBlockStates"(): $List<$BlockState>
+public "getBonusClues"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): integer
+public "getEnchantPowerBonus"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): float
+public "getExpDrop"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, randomSource2: $RandomSource$$Type, blockPos3: $BlockPos$$Type, int4: integer, int5: integer): integer
+public "getExplosionResistance"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, explosion3: $Explosion$$Type): float
+public "getFireSpreadSpeed"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): integer
+public "getFlammability"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): integer
+public "getFluidLoggedState"(blockState0: $BlockState$$Type): $FluidState
+public "getFluidProperty"(): $FluidProperty
+public "getFriction"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): float
+public "getLightEmission"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): integer
+public "getMapColor"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, mapColor3: $MapColor$$Type): $MapColor
+public "getMaxEnchantingPower"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): float
+public "getMod"(): string
+public "getPickupSound"(): $Optional<$SoundEvent>
+public "getPickupSound"(blockState0: $BlockState$$Type): $Optional<$SoundEvent>
+public "getPistonPushReaction"(blockState0: $BlockState$$Type): $PushReaction
+public "getQuantaBonus"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): float
+public "getQuantaRectification"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): float
+public "getRespawnPosition"(blockState0: $BlockState$$Type, entityType1: $EntityType$$Type<any>, levelReader2: $LevelReader$$Type, blockPos3: $BlockPos$$Type, float4: float, livingEntity5: $LivingEntity$$Type): $Optional<$Vec3>
+public "getSoundType"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): $SoundType
+public "getStateAtViewpoint"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, vec33: $Vec3$$Type): $BlockState
+public "getTableParticle"(blockState0: $BlockState$$Type): $ParticleOptions
+public "getToolModifiedState"(blockState0: $BlockState$$Type, useOnContext1: $UseOnContext$$Type, toolAction2: $ToolAction$$Type, boolean3: boolean): $BlockState
+public "getWeakChanges"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): boolean
+public "hidesNeighborFace"(blockGetter0: $BlockGetter$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type, direction4: $Direction$$Type): boolean
+public "isBed"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
+public "isBurning"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): boolean
+public "isConduitFrame"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, blockPos3: $BlockPos$$Type): boolean
+public "isEnabled"(featureFlagSet0: $FeatureFlagSet$$Type): boolean
+public "isFertile"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): boolean
+public "isFireSource"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): boolean
+public "isFlammable"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): boolean
+public "isLadder"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, livingEntity3: $LivingEntity$$Type): boolean
+public "isPortalFrame"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): boolean
+public "isScaffolding"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, livingEntity3: $LivingEntity$$Type): boolean
+public "isSlimeBlock"(blockState0: $BlockState$$Type): boolean
+public "isStickyBlock"(blockState0: $BlockState$$Type): boolean
+public "isValidSpawn"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, type3: $SpawnPlacements$Type$$Type, entityType4: $EntityType$$Type<any>): boolean
+public "makesOpenTrapdoorAboveClimbable"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, blockState3: $BlockState$$Type): boolean
+public "onBlockExploded"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, explosion3: $Explosion$$Type): void
+public "onBlockStateChange"(levelReader0: $LevelReader$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type): void
+public "onCaughtFire"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type, livingEntity4: $LivingEntity$$Type): void
+public "onDestroyedByPlayer"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, player3: $Player$$Type, boolean4: boolean, fluidState5: $FluidState$$Type): boolean
+public "onNeighborChange"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, blockPos3: $BlockPos$$Type): void
+public "onTreeGrow"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, biConsumer2: $BiConsumer$$Type<$BlockPos$$Type, $BlockState$$Type>, randomSource3: $RandomSource$$Type, blockPos4: $BlockPos$$Type, treeConfiguration5: $TreeConfiguration$$Type): boolean
+public "pickupBlock"(levelAccessor0: $LevelAccessor$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type): $ItemStack
+public "placeLiquid"(levelAccessor0: $LevelAccessor$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, fluidState3: $FluidState$$Type): boolean
+public "rotate"(blockState0: $BlockState$$Type, levelAccessor1: $LevelAccessor$$Type, blockPos2: $BlockPos$$Type, rotation3: $Rotation$$Type): $BlockState
+public "setBedOccupied"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, livingEntity3: $LivingEntity$$Type, boolean4: boolean): void
+public "setDestroySpeed"(v: float): void
+public "setLightEmission"(v: integer): void
+public "setRequiresTool"(v: boolean): void
+public "shouldCheckWeakPower"(blockState0: $BlockState$$Type, signalGetter1: $SignalGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): boolean
+public "shouldDisplayFluidOverlay"(blockState0: $BlockState$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type, fluidState3: $FluidState$$Type): boolean
+public "spawnTableParticle"(blockState0: $BlockState$$Type, level1: $Level$$Type, randomSource2: $RandomSource$$Type, blockPos3: $BlockPos$$Type, blockPos4: $BlockPos$$Type): void
+public "supportsExternalFaceHiding"(blockState0: $BlockState$$Type): boolean
+get "blockStates"(): $List<$BlockState>
+get "fluidProperty"(): $FluidProperty
+get "mod"(): string
+get "pickupSound"(): $Optional<$SoundEvent>
+set "destroySpeed"(value: float)
+set "lightEmission"(value: integer)
+set "requiresTool"(value: boolean)
 }
 }
 
@@ -1122,8 +2003,8 @@ import { $ItemStack, $ItemStack$$Type } from "packages/net/minecraft/world/item/
 import { $BlockPos, $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
 
 export class $LoggingEvent extends $Event {
-constructor()
 constructor(levelAccessor0: $LevelAccessor$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, itemStack3: $ItemStack$$Type)
+constructor()
 
 public "getAxe"(): $ItemStack
 public "getLevel"(): $LevelAccessor
@@ -1185,6 +2066,158 @@ constructor(factory: $Supplier$$Type<$ClimateModel>, id: $ResourceLocation$$Type
 public "create"(): $ClimateModel
 public "factory"(): $Supplier<$ClimateModel>
 public "id"(): $ResourceLocation
+}
+}
+
+declare module "packages/net/dries007/tfc/common/blocks/$GroundcoverBlock" {
+import { $SoundEvent } from "packages/net/minecraft/sounds/$SoundEvent"
+import { $LevelAccessor$$Type } from "packages/net/minecraft/world/level/$LevelAccessor"
+import { $FeatureFlagSet$$Type } from "packages/net/minecraft/world/flag/$FeatureFlagSet"
+import { $ItemStack } from "packages/net/minecraft/world/item/$ItemStack"
+import { $ResourceLocation } from "packages/net/minecraft/resources/$ResourceLocation"
+import { $PushReaction } from "packages/net/minecraft/world/level/material/$PushReaction"
+import { $LivingEntity$$Type } from "packages/net/minecraft/world/entity/$LivingEntity"
+import { $FluidState, $FluidState$$Type } from "packages/net/minecraft/world/level/material/$FluidState"
+import { $BlockGetter$$Type } from "packages/net/minecraft/world/level/$BlockGetter"
+import { $EntityType$$Type } from "packages/net/minecraft/world/entity/$EntityType"
+import { $Player$$Type } from "packages/net/minecraft/world/entity/player/$Player"
+import { $ToolAction$$Type } from "packages/net/minecraftforge/common/$ToolAction"
+import { $List } from "packages/java/util/$List"
+import { $RandomSource$$Type } from "packages/net/minecraft/util/$RandomSource"
+import { $Supplier$$Type } from "packages/java/util/function/$Supplier"
+import { $ServerLevel$$Type } from "packages/net/minecraft/server/level/$ServerLevel"
+import { $ParticleOptions } from "packages/net/minecraft/core/particles/$ParticleOptions"
+import { $Entity$$Type } from "packages/net/minecraft/world/entity/$Entity"
+import { $BlockState, $BlockState$$Type } from "packages/net/minecraft/world/level/block/state/$BlockState"
+import { $Level$$Type } from "packages/net/minecraft/world/level/$Level"
+import { $Vec3, $Vec3$$Type } from "packages/net/minecraft/world/phys/$Vec3"
+import { $UseOnContext$$Type } from "packages/net/minecraft/world/item/context/$UseOnContext"
+import { $IFluidLoggable } from "packages/net/dries007/tfc/common/fluids/$IFluidLoggable"
+import { $Enchantment } from "packages/net/minecraft/world/item/enchantment/$Enchantment"
+import { $Optional } from "packages/java/util/$Optional"
+import { $Explosion$$Type } from "packages/net/minecraft/world/level/$Explosion"
+import { $BlockAndTintGetter$$Type } from "packages/net/minecraft/world/level/$BlockAndTintGetter"
+import { $ExtendedProperties$$Type } from "packages/net/dries007/tfc/common/blocks/$ExtendedProperties"
+import { $Fluid$$Type } from "packages/net/minecraft/world/level/material/$Fluid"
+import { $MapColor, $MapColor$$Type } from "packages/net/minecraft/world/level/material/$MapColor"
+import { $Direction, $Direction$$Type } from "packages/net/minecraft/core/$Direction"
+import { $BlockBehaviour$Properties$$Type } from "packages/net/minecraft/world/level/block/state/$BlockBehaviour$Properties"
+import { $Block } from "packages/net/minecraft/world/level/block/$Block"
+import { $TreeConfiguration$$Type } from "packages/net/minecraft/world/level/levelgen/feature/configurations/$TreeConfiguration"
+import { $FluidProperty } from "packages/net/dries007/tfc/common/fluids/$FluidProperty"
+import { $Mob$$Type } from "packages/net/minecraft/world/entity/$Mob"
+import { $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
+import { $ExtendedBlock } from "packages/net/dries007/tfc/common/blocks/$ExtendedBlock"
+import { $GroundcoverBlockType$$Type } from "packages/net/dries007/tfc/common/blocks/$GroundcoverBlockType"
+import { $SpawnPlacements$Type$$Type } from "packages/net/minecraft/world/entity/$SpawnPlacements$Type"
+import { $VoxelShape, $VoxelShape$$Type } from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
+import { $SignalGetter$$Type } from "packages/net/minecraft/world/level/$SignalGetter"
+import { $BlockPathTypes, $BlockPathTypes$$Type } from "packages/net/minecraft/world/level/pathfinder/$BlockPathTypes"
+import { $Item } from "packages/net/minecraft/world/item/$Item"
+import { $BiConsumer$$Type } from "packages/java/util/function/$BiConsumer"
+import { $LevelReader$$Type } from "packages/net/minecraft/world/level/$LevelReader"
+import { $Holder } from "packages/net/minecraft/core/$Holder"
+import { $Set } from "packages/java/util/$Set"
+import { $SoundType } from "packages/net/minecraft/world/level/block/$SoundType"
+import { $Rotation$$Type } from "packages/net/minecraft/world/level/block/$Rotation"
+
+export class $GroundcoverBlock extends $ExtendedBlock implements $IFluidLoggable {
+static readonly "FLAT": $VoxelShape
+static readonly "FLUID": $FluidProperty
+static readonly "MEDIUM": $VoxelShape
+static readonly "PIXEL_HIGH": $VoxelShape
+static readonly "SMALL": $VoxelShape
+static readonly "TWIG": $VoxelShape
+
+constructor(extendedProperties0: $ExtendedProperties$$Type, voxelShape1: $VoxelShape$$Type, supplier2: $Supplier$$Type<$Item>)
+constructor(groundcoverBlockType0: $GroundcoverBlockType$$Type)
+
+public "addLandingEffects"(blockState0: $BlockState$$Type, serverLevel1: $ServerLevel$$Type, blockPos2: $BlockPos$$Type, blockState3: $BlockState$$Type, livingEntity4: $LivingEntity$$Type, int5: integer): boolean
+public "addRunningEffects"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
+public "allowsTreasure"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): boolean
+public "arch$holder"(): $Holder<$Block>
+public "arch$registryName"(): $ResourceLocation
+public "canBeHydrated"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, fluidState3: $FluidState$$Type, blockPos4: $BlockPos$$Type): boolean
+public "canConnectRedstone"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): boolean
+public "canDropFromExplosion"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, explosion3: $Explosion$$Type): boolean
+public "canEntityDestroy"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
+public "canHarvestBlock"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, player3: $Player$$Type): boolean
+public "canPlaceLiquid"(blockGetter0: $BlockGetter$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, fluid3: $Fluid$$Type): boolean
+public "canStickTo"(blockState0: $BlockState$$Type, blockState1: $BlockState$$Type): boolean
+public "collisionExtendsVertically"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
+public "getAdjacentBlockPathType"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, mob3: $Mob$$Type, blockPathTypes4: $BlockPathTypes$$Type): $BlockPathTypes
+public "getAppearance"(blockState0: $BlockState$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type, blockState4: $BlockState$$Type, blockPos5: $BlockPos$$Type): $BlockState
+public "getArcanaBonus"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): float
+public "getBeaconColorMultiplier"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, blockPos3: $BlockPos$$Type): float[]
+public "getBedDirection"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): $Direction
+public "getBlacklistedEnchantments"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): $Set<$Enchantment>
+public "getBlockPathType"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, mob3: $Mob$$Type): $BlockPathTypes
+public "getBlockStates"(): $List<$BlockState>
+public "getBonusClues"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): integer
+public "getEnchantPowerBonus"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): float
+public "getExpDrop"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, randomSource2: $RandomSource$$Type, blockPos3: $BlockPos$$Type, int4: integer, int5: integer): integer
+public "getExplosionResistance"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, explosion3: $Explosion$$Type): float
+public "getFireSpreadSpeed"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): integer
+public "getFlammability"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): integer
+public "getFluidLoggedState"(blockState0: $BlockState$$Type): $FluidState
+public "getFluidProperty"(): $FluidProperty
+public "getFriction"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): float
+public "getLightEmission"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): integer
+public "getMapColor"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, mapColor3: $MapColor$$Type): $MapColor
+public "getMaxEnchantingPower"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): float
+public "getMod"(): string
+public "getPickupSound"(): $Optional<$SoundEvent>
+public "getPickupSound"(blockState0: $BlockState$$Type): $Optional<$SoundEvent>
+public "getPistonPushReaction"(blockState0: $BlockState$$Type): $PushReaction
+public "getQuantaBonus"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): float
+public "getQuantaRectification"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): float
+public "getRespawnPosition"(blockState0: $BlockState$$Type, entityType1: $EntityType$$Type<any>, levelReader2: $LevelReader$$Type, blockPos3: $BlockPos$$Type, float4: float, livingEntity5: $LivingEntity$$Type): $Optional<$Vec3>
+public "getSoundType"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): $SoundType
+public "getStateAtViewpoint"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, vec33: $Vec3$$Type): $BlockState
+public "getTableParticle"(blockState0: $BlockState$$Type): $ParticleOptions
+public "getToolModifiedState"(blockState0: $BlockState$$Type, useOnContext1: $UseOnContext$$Type, toolAction2: $ToolAction$$Type, boolean3: boolean): $BlockState
+public "getWeakChanges"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): boolean
+public "hidesNeighborFace"(blockGetter0: $BlockGetter$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type, direction4: $Direction$$Type): boolean
+public "isBed"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type): boolean
+public "isBurning"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): boolean
+public "isConduitFrame"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, blockPos3: $BlockPos$$Type): boolean
+public "isEnabled"(featureFlagSet0: $FeatureFlagSet$$Type): boolean
+public "isFertile"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): boolean
+public "isFireSource"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): boolean
+public "isFlammable"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): boolean
+public "isLadder"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, livingEntity3: $LivingEntity$$Type): boolean
+public "isPortalFrame"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type): boolean
+public "isScaffolding"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, livingEntity3: $LivingEntity$$Type): boolean
+public "isSlimeBlock"(blockState0: $BlockState$$Type): boolean
+public "isStickyBlock"(blockState0: $BlockState$$Type): boolean
+public "isValidSpawn"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, type3: $SpawnPlacements$Type$$Type, entityType4: $EntityType$$Type<any>): boolean
+public static "looseOre"(properties0: $BlockBehaviour$Properties$$Type): $GroundcoverBlock
+public "makesOpenTrapdoorAboveClimbable"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, blockState3: $BlockState$$Type): boolean
+public "onBlockExploded"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, explosion3: $Explosion$$Type): void
+public "onBlockStateChange"(levelReader0: $LevelReader$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, blockState3: $BlockState$$Type): void
+public "onCaughtFire"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type, livingEntity4: $LivingEntity$$Type): void
+public "onDestroyedByPlayer"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, player3: $Player$$Type, boolean4: boolean, fluidState5: $FluidState$$Type): boolean
+public "onNeighborChange"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, blockPos3: $BlockPos$$Type): void
+public "onTreeGrow"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, biConsumer2: $BiConsumer$$Type<$BlockPos$$Type, $BlockState$$Type>, randomSource3: $RandomSource$$Type, blockPos4: $BlockPos$$Type, treeConfiguration5: $TreeConfiguration$$Type): boolean
+public "pickupBlock"(levelAccessor0: $LevelAccessor$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type): $ItemStack
+public "placeLiquid"(levelAccessor0: $LevelAccessor$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, fluidState3: $FluidState$$Type): boolean
+public "rotate"(blockState0: $BlockState$$Type, levelAccessor1: $LevelAccessor$$Type, blockPos2: $BlockPos$$Type, rotation3: $Rotation$$Type): $BlockState
+public "setBedOccupied"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, livingEntity3: $LivingEntity$$Type, boolean4: boolean): void
+public "setDestroySpeed"(v: float): void
+public "setLightEmission"(v: integer): void
+public "setRequiresTool"(v: boolean): void
+public "shouldCheckWeakPower"(blockState0: $BlockState$$Type, signalGetter1: $SignalGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type): boolean
+public "shouldDisplayFluidOverlay"(blockState0: $BlockState$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type, fluidState3: $FluidState$$Type): boolean
+public "spawnTableParticle"(blockState0: $BlockState$$Type, level1: $Level$$Type, randomSource2: $RandomSource$$Type, blockPos3: $BlockPos$$Type, blockPos4: $BlockPos$$Type): void
+public "supportsExternalFaceHiding"(blockState0: $BlockState$$Type): boolean
+public static "twig"(extendedProperties0: $ExtendedProperties$$Type): $GroundcoverBlock
+get "blockStates"(): $List<$BlockState>
+get "fluidProperty"(): $FluidProperty
+get "mod"(): string
+get "pickupSound"(): $Optional<$SoundEvent>
+set "destroySpeed"(value: float)
+set "lightEmission"(value: integer)
+set "requiresTool"(value: boolean)
 }
 }
 
@@ -1251,6 +2284,32 @@ public "getText"(block0: $Block$$Type): $Component
 public static "valueOf"(int0: integer): $ProspectResult
 public static "valueOf"(string0: string): $ProspectResult
 public static "values"(): $ProspectResult[]
+}
+}
+
+declare module "packages/net/dries007/tfc/world/noise/$FastNoiseLite$Vector3" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+export class $FastNoiseLite$Vector3 {
+constructor(double0: double, double1: double, double2: double)
+
+get "x"(): double
+set "x"(value: double)
+get "y"(): double
+set "y"(value: double)
+get "z"(): double
+set "z"(value: double)
+}
+}
+
+declare module "packages/net/dries007/tfc/world/noise/$FastNoiseLite$Vector2" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+export class $FastNoiseLite$Vector2 {
+constructor(double0: double, double1: double)
+
+get "x"(): double
+set "x"(value: double)
+get "y"(): double
+set "y"(value: double)
 }
 }
 
@@ -1489,6 +2548,46 @@ static readonly "MINIMUM_RAINFALL": float
 }
 }
 
+declare module "packages/net/dries007/tfc/world/layer/framework/$MergeLayer" {
+import { $AreaContext$$Type } from "packages/net/dries007/tfc/world/layer/framework/$AreaContext"
+import { $Area$$Type } from "packages/net/dries007/tfc/world/layer/framework/$Area"
+import { $AreaFactory, $AreaFactory$$Type } from "packages/net/dries007/tfc/world/layer/framework/$AreaFactory"
+
+export interface $MergeLayer {
+"apply"(long0: long, areaFactory1: $AreaFactory$$Type, areaFactory2: $AreaFactory$$Type): $AreaFactory
+"apply"(areaContext0: $AreaContext$$Type, area1: $Area$$Type, area2: $Area$$Type, int3: integer, int4: integer): integer
+}
+
+export namespace $MergeLayer {
+const probejs$$marker: never
+}
+export abstract class $MergeLayer$$Static implements $MergeLayer {
+}
+}
+
+declare module "packages/net/dries007/tfc/util/$Metal$Tier" {
+import { $Component } from "packages/net/minecraft/network/chat/$Component"
+import { $Enum } from "packages/java/lang/$Enum"
+
+export class $Metal$Tier extends $Enum<$Metal$Tier> {
+static readonly "TIER_0": $Metal$Tier
+static readonly "TIER_I": $Metal$Tier
+static readonly "TIER_II": $Metal$Tier
+static readonly "TIER_III": $Metal$Tier
+static readonly "TIER_IV": $Metal$Tier
+static readonly "TIER_V": $Metal$Tier
+static readonly "TIER_VI": $Metal$Tier
+
+public "getDisplayName"(): $Component
+public "next"(): $Metal$Tier
+public "previous"(): $Metal$Tier
+public static "valueOf"(int0: integer): $Metal$Tier
+public static "valueOf"(string0: string): $Metal$Tier
+public static "values"(): $Metal$Tier[]
+get "displayName"(): $Component
+}
+}
+
 declare module "packages/net/dries007/tfc/util/events/$ProspectedEvent" {
 import { $Event } from "packages/net/minecraftforge/eventbus/api/$Event"
 import { $Player, $Player$$Type } from "packages/net/minecraft/world/entity/player/$Player"
@@ -1689,8 +2788,8 @@ function getFractionOfYear(long0: long, long1: long): float
 function getHourOfDay(long0: long): integer
 function getMinuteOfHour(long0: long): integer
 function getMonthOfYear(long0: long, long1: long): $Month
-function getTimeAndDate(int0: integer, int1: integer, month2: $Month$$Type, int3: integer, long4: long): $MutableComponent
 function getTimeAndDate(long0: long, long1: long): $MutableComponent
+function getTimeAndDate(int0: integer, int1: integer, month2: $Month$$Type, int3: integer, long4: long): $MutableComponent
 function getTimeDelta(long0: long, int1: integer): $MutableComponent
 function getTotalDays(long0: long): long
 function getTotalHours(long0: long): long
@@ -1713,14 +2812,33 @@ static "getFractionOfYear"(long0: long, long1: long): float
 static "getHourOfDay"(long0: long): integer
 static "getMinuteOfHour"(long0: long): integer
 static "getMonthOfYear"(long0: long, long1: long): $Month
-static "getTimeAndDate"(int0: integer, int1: integer, month2: $Month$$Type, int3: integer, long4: long): $MutableComponent
 static "getTimeAndDate"(long0: long, long1: long): $MutableComponent
+static "getTimeAndDate"(int0: integer, int1: integer, month2: $Month$$Type, int3: integer, long4: long): $MutableComponent
 static "getTimeDelta"(long0: long, int1: integer): $MutableComponent
 static "getTotalDays"(long0: long): long
 static "getTotalHours"(long0: long): long
 static "getTotalMinutes"(long0: long): float
 static "getTotalMonths"(long0: long, long1: long): long
 static "getTotalYears"(long0: long, long1: long): long
+}
+}
+
+declare module "packages/net/dries007/tfc/world/layer/framework/$AdjacentTransformLayer" {
+import { $AreaContext$$Type } from "packages/net/dries007/tfc/world/layer/framework/$AreaContext"
+import { $Area$$Type } from "packages/net/dries007/tfc/world/layer/framework/$Area"
+import { $AreaFactory, $AreaFactory$$Type } from "packages/net/dries007/tfc/world/layer/framework/$AreaFactory"
+import { $TransformLayer } from "packages/net/dries007/tfc/world/layer/framework/$TransformLayer"
+
+export interface $AdjacentTransformLayer extends $TransformLayer {
+"apply"(areaContext0: $AreaContext$$Type, area1: $Area$$Type, int2: integer, int3: integer): integer
+"apply"(areaContext0: $AreaContext$$Type, int1: integer, int2: integer, int3: integer, int4: integer, int5: integer): integer
+"apply"(long0: long, areaFactory1: $AreaFactory$$Type): $AreaFactory
+}
+
+export namespace $AdjacentTransformLayer {
+const probejs$$marker: never
+}
+export abstract class $AdjacentTransformLayer$$Static implements $AdjacentTransformLayer {
 }
 }
 
@@ -2119,11 +3237,11 @@ public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "generateFull"(int0s: integer[], int1s: integer[]): void
 public "generatePartial"(lerpFloatLayer0: $LerpFloatLayer$$Type, lerpFloatLayer1: $LerpFloatLayer$$Type, forestType2: $ForestType$$Type, float3: float, float4: float): void
 public static "get"(levelReader0: $LevelReader$$Type, blockPos1: $BlockPos$$Type): $ChunkData
-public static "get"(levelChunk0: $LevelChunk$$Type): $ChunkData
 public static "get"(levelReader0: $LevelReader$$Type, chunkPos1: $ChunkPos$$Type): $ChunkData
+public static "get"(levelChunk0: $LevelChunk$$Type): $ChunkData
 public "getAquiferSurfaceHeight"(): integer[]
-public "getAverageTemp"(blockPos0: $BlockPos$$Type): float
 public "getAverageTemp"(int0: integer, int1: integer): float
+public "getAverageTemp"(blockPos0: $BlockPos$$Type): float
 public "getForestDensity"(): float
 public "getForestType"(): $ForestType
 public "getForestWeirdness"(): float
@@ -2255,6 +3373,19 @@ get "values"(): $Set<T>
 }
 }
 
+declare module "packages/net/dries007/tfc/world/noise/$FastNoiseLite$DomainWarpType" {
+import { $Enum } from "packages/java/lang/$Enum"
+
+export class $FastNoiseLite$DomainWarpType extends $Enum<$FastNoiseLite$DomainWarpType> {
+static readonly "BasicGrid": $FastNoiseLite$DomainWarpType
+static readonly "OpenSimplex2": $FastNoiseLite$DomainWarpType
+static readonly "OpenSimplex2Reduced": $FastNoiseLite$DomainWarpType
+
+public static "valueOf"(string0: string): $FastNoiseLite$DomainWarpType
+public static "values"(): $FastNoiseLite$DomainWarpType[]
+}
+}
+
 declare module "packages/net/dries007/tfc/common/entities/$GenderedRenderAnimal" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $GenderedRenderAnimal {
@@ -2266,6 +3397,40 @@ export namespace $GenderedRenderAnimal {
 const probejs$$marker: never
 }
 export abstract class $GenderedRenderAnimal$$Static implements $GenderedRenderAnimal {
+}
+}
+
+declare module "packages/net/dries007/tfc/world/noise/$FastNoiseLite$CellularReturnType" {
+import { $Enum } from "packages/java/lang/$Enum"
+
+export class $FastNoiseLite$CellularReturnType extends $Enum<$FastNoiseLite$CellularReturnType> {
+static readonly "CellValue": $FastNoiseLite$CellularReturnType
+static readonly "Distance": $FastNoiseLite$CellularReturnType
+static readonly "Distance2": $FastNoiseLite$CellularReturnType
+static readonly "Distance2Add": $FastNoiseLite$CellularReturnType
+static readonly "Distance2Div": $FastNoiseLite$CellularReturnType
+static readonly "Distance2Mul": $FastNoiseLite$CellularReturnType
+static readonly "Distance2Sub": $FastNoiseLite$CellularReturnType
+
+public static "valueOf"(string0: string): $FastNoiseLite$CellularReturnType
+public static "values"(): $FastNoiseLite$CellularReturnType[]
+}
+}
+
+declare module "packages/net/dries007/tfc/world/layer/framework/$TransformLayer" {
+import { $AreaContext$$Type } from "packages/net/dries007/tfc/world/layer/framework/$AreaContext"
+import { $Area$$Type } from "packages/net/dries007/tfc/world/layer/framework/$Area"
+import { $AreaFactory, $AreaFactory$$Type } from "packages/net/dries007/tfc/world/layer/framework/$AreaFactory"
+
+export interface $TransformLayer {
+"apply"(long0: long, areaFactory1: $AreaFactory$$Type): $AreaFactory
+"apply"(areaContext0: $AreaContext$$Type, area1: $Area$$Type, int2: integer, int3: integer): integer
+}
+
+export namespace $TransformLayer {
+const probejs$$marker: never
+}
+export abstract class $TransformLayer$$Static implements $TransformLayer {
 }
 }
 
@@ -2344,6 +3509,73 @@ get "serializedName"(): string
 }
 }
 
+declare module "packages/net/dries007/tfc/world/noise/$FastNoiseLite" {
+import { $FastNoiseLite$DomainWarpType$$Type } from "packages/net/dries007/tfc/world/noise/$FastNoiseLite$DomainWarpType"
+import { $FastNoiseLite$NoiseType$$Type } from "packages/net/dries007/tfc/world/noise/$FastNoiseLite$NoiseType"
+import { $FastNoiseLite$CellularReturnType$$Type } from "packages/net/dries007/tfc/world/noise/$FastNoiseLite$CellularReturnType"
+import { $FastNoiseLite$Vector3$$Type } from "packages/net/dries007/tfc/world/noise/$FastNoiseLite$Vector3"
+import { $FastNoiseLite$Vector2$$Type } from "packages/net/dries007/tfc/world/noise/$FastNoiseLite$Vector2"
+import { $FastNoiseLite$FractalType$$Type } from "packages/net/dries007/tfc/world/noise/$FastNoiseLite$FractalType"
+import { $FastNoiseLite$CellularDistanceFunction$$Type } from "packages/net/dries007/tfc/world/noise/$FastNoiseLite$CellularDistanceFunction"
+import { $FastNoiseLite$RotationType3D$$Type } from "packages/net/dries007/tfc/world/noise/$FastNoiseLite$RotationType3D"
+
+export class $FastNoiseLite {
+static readonly "PrimeX": integer
+static readonly "PrimeY": integer
+static readonly "PrimeZ": integer
+static readonly "RandVecs2D": float[]
+static readonly "RandVecs3D": float[]
+
+constructor()
+constructor(int0: integer)
+
+public "DomainWarp"(vector30: $FastNoiseLite$Vector3$$Type): void
+public "DomainWarp"(vector20: $FastNoiseLite$Vector2$$Type): void
+public static "FastFloor"(double0: double): integer
+public static "FastMax"(double0: double, double1: double): double
+public static "FastMax"(float0: float, float1: float): float
+public static "FastMin"(float0: float, float1: float): float
+public static "FastMin"(double0: double, double1: double): double
+public static "FastRound"(double0: double): integer
+public "GetNoise"(double0: double, double1: double): float
+public "GetNoise"(double0: double, double1: double, double2: double): float
+public static "Hash"(int0: integer, int1: integer, int2: integer, int3: integer): integer
+public static "Hash"(int0: integer, int1: integer, int2: integer): integer
+public "SetCellularDistanceFunction"(cellularDistanceFunction0: $FastNoiseLite$CellularDistanceFunction$$Type): void
+public "SetCellularJitter"(float0: float): void
+public "SetCellularReturnType"(cellularReturnType0: $FastNoiseLite$CellularReturnType$$Type): void
+public "SetDomainWarpAmp"(double0: double): void
+public "SetDomainWarpType"(domainWarpType0: $FastNoiseLite$DomainWarpType$$Type): void
+public "SetFractalGain"(float0: float): void
+public "SetFractalLacunarity"(float0: float): void
+public "SetFractalOctaves"(int0: integer): void
+public "SetFractalPingPongStrength"(float0: float): void
+public "SetFractalType"(fractalType0: $FastNoiseLite$FractalType$$Type): void
+public "SetFractalWeightedStrength"(float0: float): void
+public "SetFrequency"(double0: double): void
+public "SetNoiseType"(noiseType0: $FastNoiseLite$NoiseType$$Type): void
+public "SetRotationType3D"(rotationType3D0: $FastNoiseLite$RotationType3D$$Type): void
+public "SetSeed"(int0: integer): void
+}
+}
+
+declare module "packages/net/dries007/tfc/world/layer/framework/$AreaContext" {
+import { $RandomSource } from "packages/net/minecraft/util/$RandomSource"
+
+export class $AreaContext {
+constructor(long0: long)
+
+public "choose"<A>(a0: A, a1: A): A
+public "choose"<A>(a0: A, a1: A, a2: A, a3: A): A
+public "choose"<A>(a0s: A[]): A
+public "choose"(int0s: integer[]): integer
+public "choose"(int0: integer, int1: integer, int2: integer, int3: integer): integer
+public "choose"(int0: integer, int1: integer): integer
+public "random"(): $RandomSource
+public "setSeed"(long0: long, long1: long): void
+}
+}
+
 declare module "packages/net/dries007/tfc/common/blocks/rock/$Rock$BlockType" {
 import { $RegistryRock$$Type } from "packages/net/dries007/tfc/util/registry/$RegistryRock"
 import { $StringRepresentable$EnumCodec } from "packages/net/minecraft/util/$StringRepresentable$EnumCodec"
@@ -2385,8 +3617,8 @@ public static "fromEnumWithMapping"<E extends ($Enum<E> & $StringRepresentable)>
 public "getSerializedName"(): string
 public "hasVariants"(): boolean
 public static "keys"(stringRepresentable0s: $StringRepresentable$$Type[]): $Keyable
-public static "valueOf"(int0: integer): $Rock$BlockType
 public static "valueOf"(string0: string): $Rock$BlockType
+public static "valueOf"(int0: integer): $Rock$BlockType
 public static "values"(): $Rock$BlockType[]
 get "serializedName"(): string
 }
@@ -2645,10 +3877,10 @@ public static "fromEnumWithMapping"<E extends ($Enum<E> & $StringRepresentable)>
 public "getSerializedName"(): string
 public "getVector"(): $Vec3
 public static "keys"(stringRepresentable0s: $StringRepresentable$$Type[]): $Keyable
-public static "lerp"(flow0: $Flow$$Type, flow1: $Flow$$Type, float2: float): $Flow
 public static "lerp"(flow0: $Flow$$Type, flow1: $Flow$$Type, flow2: $Flow$$Type, flow3: $Flow$$Type, float4: float, float5: float): $Flow
-public static "valueOf"(int0: integer): $Flow
+public static "lerp"(flow0: $Flow$$Type, flow1: $Flow$$Type, float2: float): $Flow
 public static "valueOf"(string0: string): $Flow
+public static "valueOf"(int0: integer): $Flow
 public static "values"(): $Flow[]
 get "serializedName"(): string
 get "vector"(): $Vec3
@@ -2685,8 +3917,8 @@ import { $AABB, $AABB$$Type } from "packages/net/minecraft/world/phys/$AABB"
 export class $DouseFireEvent extends $Event {
 constructor()
 
-public static "douse"(level0: $Level$$Type, blockPos1: $BlockPos$$Type, player2: $Player$$Type): boolean
 public static "douse"(level0: $Level$$Type, aABB1: $AABB$$Type, player2: $Player$$Type): void
+public static "douse"(level0: $Level$$Type, blockPos1: $BlockPos$$Type, player2: $Player$$Type): boolean
 public "getBounds"(): $AABB
 public "getLevel"(): $Level
 public "getPlayer"(): $Player
@@ -2724,6 +3956,22 @@ public static "reloadAllCaches"(recipeManager0: $RecipeManager$$Type): void
 }
 }
 
+declare module "packages/net/dries007/tfc/world/layer/framework/$SourceLayer" {
+import { $AreaContext$$Type } from "packages/net/dries007/tfc/world/layer/framework/$AreaContext"
+import { $AreaFactory } from "packages/net/dries007/tfc/world/layer/framework/$AreaFactory"
+
+export interface $SourceLayer {
+"apply"(long0: long): $AreaFactory
+"apply"(areaContext0: $AreaContext$$Type, int1: integer, int2: integer): integer
+}
+
+export namespace $SourceLayer {
+const probejs$$marker: never
+}
+export abstract class $SourceLayer$$Static implements $SourceLayer {
+}
+}
+
 declare module "packages/net/dries007/tfc/util/events/$AnimalProductEvent" {
 import { $TFCAnimalProperties, $TFCAnimalProperties$$Type } from "packages/net/dries007/tfc/common/entities/livestock/$TFCAnimalProperties"
 import { $Event } from "packages/net/minecraftforge/eventbus/api/$Event"
@@ -2736,8 +3984,8 @@ import { $Entity } from "packages/net/minecraft/world/entity/$Entity"
 
 export class $AnimalProductEvent extends $Event {
 constructor(level0: $Level$$Type, blockPos1: $BlockPos$$Type, player2: $Player$$Type, tFCAnimalProperties3: $TFCAnimalProperties$$Type, fluidStack4: $FluidStack$$Type, itemStack5: $ItemStack$$Type, int6: integer)
-constructor()
 constructor(level0: $Level$$Type, blockPos1: $BlockPos$$Type, player2: $Player$$Type, tFCAnimalProperties3: $TFCAnimalProperties$$Type, itemStack4: $ItemStack$$Type, itemStack5: $ItemStack$$Type, int6: integer)
+constructor()
 
 public "getAnimalProperties"(): $TFCAnimalProperties
 public "getEntity"(): $Entity
@@ -2797,23 +4045,31 @@ public "swap"(string0: string): $ConfigBuilder
 }
 
 declare module "packages/net/dries007/tfc/common/recipes/ingredients/$IngredientType" {
+import { $InputReplacement, $InputReplacement$$Type } from "packages/dev/latvian/mods/kubejs/recipe/$InputReplacement"
 import { $JsonElement, $JsonElement$$Type } from "packages/com/google/gson/$JsonElement"
-import { $IngredientType$Factory$$Type } from "packages/net/dries007/tfc/common/recipes/ingredients/$IngredientType$Factory"
-import { $FriendlyByteBuf$$Type } from "packages/net/minecraft/network/$FriendlyByteBuf"
+import { $InputReplacementTransformer$Replacement } from "packages/dev/latvian/mods/kubejs/recipe/$InputReplacementTransformer$Replacement"
 import { $Predicate, $Predicate$$Type } from "packages/java/util/function/$Predicate"
+import { $IngredientType$Factory$$Type } from "packages/net/dries007/tfc/common/recipes/ingredients/$IngredientType$Factory"
+import { $IngredientTypeMixin } from "packages/com/notenoughmail/kubejs_tfc/util/implementation/mixin/$IngredientTypeMixin"
+import { $FriendlyByteBuf$$Type } from "packages/net/minecraft/network/$FriendlyByteBuf"
 import { $List } from "packages/java/util/$List"
+import { $RecipeJS$$Type } from "packages/dev/latvian/mods/kubejs/recipe/$RecipeJS"
 import { $Stream } from "packages/java/util/stream/$Stream"
 import { $IngredientType$Entry } from "packages/net/dries007/tfc/common/recipes/ingredients/$IngredientType$Entry"
+import { $InputReplacementTransformer$$Type } from "packages/dev/latvian/mods/kubejs/recipe/$InputReplacementTransformer"
+import { $ReplacementMatch$$Type } from "packages/dev/latvian/mods/kubejs/recipe/$ReplacementMatch"
 
-export interface $IngredientType<T> extends $Predicate<T> {
+export interface $IngredientType<T> extends $Predicate<T>, $InputReplacement, $IngredientTypeMixin {
 "all"(): $Stream<T>
 "and"(predicate0: $Predicate$$Type<T>): $Predicate<T>
 "entries"(): $List<$IngredientType$Entry<T>>
 "negate"(): $Predicate<T>
 "or"(predicate0: $Predicate$$Type<T>): $Predicate<T>
+"replaceInput"(recipe: $RecipeJS$$Type, match: $ReplacementMatch$$Type, original: $InputReplacement$$Type): any
 "test"(t0: T): boolean
 "toJson"(): $JsonElement
 "toNetwork"(friendlyByteBuf0: $FriendlyByteBuf$$Type): void
+"transform"(transformer: $InputReplacementTransformer$$Type): $InputReplacementTransformer$Replacement
 }
 
 export namespace $IngredientType {
@@ -2821,6 +4077,7 @@ function fromJson<T, I extends $IngredientType<T>>(jsonElement0: $JsonElement$$T
 function fromNetwork<T, I extends $IngredientType<T>>(friendlyByteBuf0: $FriendlyByteBuf$$Type, factory1: $IngredientType$Factory$$Type<T, I>): I
 function isEqual<T>(object0: any): $Predicate<T>
 function not<T>(predicate0: $Predicate$$Type<T>): $Predicate<T>
+function of(o: any): $InputReplacement
 function toJson<T, I extends $IngredientType<T>>(i0: I, factory1: $IngredientType$Factory$$Type<T, I>): $JsonElement
 function toNetwork<T, I extends $IngredientType<T>>(friendlyByteBuf0: $FriendlyByteBuf$$Type, i1: I, factory2: $IngredientType$Factory$$Type<T, I>): void
 }
@@ -2829,23 +4086,29 @@ static "fromJson"<T, I extends $IngredientType<T>>(jsonElement0: $JsonElement$$T
 static "fromNetwork"<T, I extends $IngredientType<T>>(friendlyByteBuf0: $FriendlyByteBuf$$Type, factory1: $IngredientType$Factory$$Type<T, I>): I
 static "isEqual"<T>(object0: any): $Predicate<T>
 static "not"<T>(predicate0: $Predicate$$Type<T>): $Predicate<T>
+static "of"(o: any): $InputReplacement
 static "toJson"<T, I extends $IngredientType<T>>(i0: I, factory1: $IngredientType$Factory$$Type<T, I>): $JsonElement
 static "toNetwork"<T, I extends $IngredientType<T>>(friendlyByteBuf0: $FriendlyByteBuf$$Type, i1: I, factory2: $IngredientType$Factory$$Type<T, I>): void
 }
 }
 
 declare module "packages/net/dries007/tfc/common/recipes/ingredients/$FluidIngredient" {
+import { $InputReplacement, $InputReplacement$$Type } from "packages/dev/latvian/mods/kubejs/recipe/$InputReplacement"
 import { $Fluid, $Fluid$$Type } from "packages/net/minecraft/world/level/material/$Fluid"
 import { $JsonElement, $JsonElement$$Type } from "packages/com/google/gson/$JsonElement"
+import { $InputReplacementTransformer$Replacement } from "packages/dev/latvian/mods/kubejs/recipe/$InputReplacementTransformer$Replacement"
+import { $Predicate, $Predicate$$Type } from "packages/java/util/function/$Predicate"
+import { $Collection } from "packages/java/util/$Collection"
 import { $IngredientType$Factory$$Type } from "packages/net/dries007/tfc/common/recipes/ingredients/$IngredientType$Factory"
 import { $Record } from "packages/java/lang/$Record"
 import { $FriendlyByteBuf$$Type } from "packages/net/minecraft/network/$FriendlyByteBuf"
-import { $Predicate, $Predicate$$Type } from "packages/java/util/function/$Predicate"
-import { $Collection } from "packages/java/util/$Collection"
 import { $List, $List$$Type } from "packages/java/util/$List"
+import { $RecipeJS$$Type } from "packages/dev/latvian/mods/kubejs/recipe/$RecipeJS"
 import { $Stream } from "packages/java/util/stream/$Stream"
 import { $IngredientType, $IngredientType$$Type } from "packages/net/dries007/tfc/common/recipes/ingredients/$IngredientType"
 import { $IngredientType$Entry, $IngredientType$Entry$$Type } from "packages/net/dries007/tfc/common/recipes/ingredients/$IngredientType$Entry"
+import { $InputReplacementTransformer$$Type } from "packages/dev/latvian/mods/kubejs/recipe/$InputReplacementTransformer"
+import { $ReplacementMatch$$Type } from "packages/dev/latvian/mods/kubejs/recipe/$ReplacementMatch"
 
 export class $FluidIngredient extends $Record implements $IngredientType<$Fluid> {
 constructor(entries: $List$$Type<$IngredientType$Entry$$Type<$Fluid$$Type>>)
@@ -2861,12 +4124,15 @@ public static "fromNetwork"<T, I extends $IngredientType<T>>(friendlyByteBuf0: $
 public static "isEqual"<T>(object0: any): $Predicate<T>
 public "negate"(): $Predicate<$Fluid>
 public static "not"<T>(predicate0: $Predicate$$Type<T>): $Predicate<T>
+public static "of"(o: any): $InputReplacement
 public "or"(predicate0: $Predicate$$Type<$Fluid$$Type>): $Predicate<$Fluid>
+public "replaceInput"(recipe: $RecipeJS$$Type, match: $ReplacementMatch$$Type, original: $InputReplacement$$Type): any
 public "test"(fluid0: $Fluid$$Type): boolean
 public "toJson"(): $JsonElement
 public static "toJson"<T, I extends $IngredientType<T>>(i0: I, factory1: $IngredientType$Factory$$Type<T, I>): $JsonElement
 public "toNetwork"(friendlyByteBuf0: $FriendlyByteBuf$$Type): void
 public static "toNetwork"<T, I extends $IngredientType<T>>(friendlyByteBuf0: $FriendlyByteBuf$$Type, i1: I, factory2: $IngredientType$Factory$$Type<T, I>): void
+public "transform"(transformer: $InputReplacementTransformer$$Type): $InputReplacementTransformer$Replacement
 }
 }
 
@@ -2907,8 +4173,8 @@ public "pos"(): $BlockPos
 public "rainfall"(): float
 public "random"(): $RandomSource
 public "salty"(): boolean
-public "setBlockState"(int0: integer, surfaceState1: $SurfaceState$$Type): void
 public "setBlockState"(int0: integer, blockState1: $BlockState$$Type): void
+public "setBlockState"(int0: integer, surfaceState1: $SurfaceState$$Type): void
 public "setSlope"(double0: double): void
 public "weight"(): double
 get "bottomRock"(): $RockSettings
@@ -3016,8 +4282,8 @@ public static "values"(): $Size[]
 }
 
 declare module "packages/net/dries007/tfc/common/capabilities/food/$FoodData" {
-import { $CompoundTag, $CompoundTag$$Type } from "packages/net/minecraft/nbt/$CompoundTag"
 import { $JsonObject$$Type } from "packages/com/google/gson/$JsonObject"
+import { $CompoundTag, $CompoundTag$$Type } from "packages/net/minecraft/nbt/$CompoundTag"
 import { $Record } from "packages/java/lang/$Record"
 import { $FriendlyByteBuf$$Type } from "packages/net/minecraft/network/$FriendlyByteBuf"
 import { $Nutrient$$Type } from "packages/net/dries007/tfc/common/capabilities/food/$Nutrient"
@@ -3039,8 +4305,8 @@ public "hunger"(): integer
 public "nutrient"(nutrient0: $Nutrient$$Type): float
 public "nutrients"(): float[]
 public "protein"(): float
-public static "read"(compoundTag0: $CompoundTag$$Type): $FoodData
 public static "read"(jsonObject0: $JsonObject$$Type): $FoodData
+public static "read"(compoundTag0: $CompoundTag$$Type): $FoodData
 public "saturation"(): float
 public "vegetables"(): float
 public "water"(): float
@@ -3105,31 +4371,46 @@ get "serializedName"(): string
 }
 
 declare module "packages/net/dries007/tfc/common/recipes/ingredients/$FluidStackIngredient" {
+import { $InputReplacement, $InputReplacement$$Type } from "packages/dev/latvian/mods/kubejs/recipe/$InputReplacement"
 import { $JsonObject$$Type } from "packages/com/google/gson/$JsonObject"
 import { $JsonElement } from "packages/com/google/gson/$JsonElement"
+import { $InputReplacementTransformer$Replacement } from "packages/dev/latvian/mods/kubejs/recipe/$InputReplacementTransformer$Replacement"
 import { $FluidIngredient, $FluidIngredient$$Type } from "packages/net/dries007/tfc/common/recipes/ingredients/$FluidIngredient"
-import { $Record } from "packages/java/lang/$Record"
-import { $FriendlyByteBuf$$Type } from "packages/net/minecraft/network/$FriendlyByteBuf"
 import { $Predicate, $Predicate$$Type } from "packages/java/util/function/$Predicate"
 import { $FluidStack, $FluidStack$$Type } from "packages/net/minecraftforge/fluids/$FluidStack"
+import { $InputFluid } from "packages/dev/latvian/mods/kubejs/fluid/$InputFluid"
+import { $FluidLike, $FluidLike$$Type } from "packages/dev/latvian/mods/kubejs/fluid/$FluidLike"
+import { $Record } from "packages/java/lang/$Record"
+import { $FriendlyByteBuf$$Type } from "packages/net/minecraft/network/$FriendlyByteBuf"
+import { $RecipeJS$$Type } from "packages/dev/latvian/mods/kubejs/recipe/$RecipeJS"
+import { $InputReplacementTransformer$$Type } from "packages/dev/latvian/mods/kubejs/recipe/$InputReplacementTransformer"
+import { $ReplacementMatch$$Type } from "packages/dev/latvian/mods/kubejs/recipe/$ReplacementMatch"
 
-export class $FluidStackIngredient extends $Record implements $Predicate<$FluidStack> {
+export class $FluidStackIngredient extends $Record implements $Predicate<$FluidStack>, $InputFluid {
 static readonly "EMPTY": $FluidStackIngredient
 
 constructor(ingredient: $FluidIngredient$$Type, amount: integer)
 
 public "amount"(): integer
 public "and"(predicate0: $Predicate$$Type<$FluidStack$$Type>): $Predicate<$FluidStack>
+public "copy"(a: long): $FluidLike
 public static "fromJson"(jsonObject0: $JsonObject$$Type): $FluidStackIngredient
 public static "fromNetwork"(friendlyByteBuf0: $FriendlyByteBuf$$Type): $FluidStackIngredient
+public "getAmount"(): long
 public "ingredient"(): $FluidIngredient
+public "isEmpty"(): boolean
 public static "isEqual"<T>(object0: any): $Predicate<T>
+public "matches"(other: $FluidLike$$Type): boolean
 public "negate"(): $Predicate<$FluidStack>
 public static "not"<T>(predicate0: $Predicate$$Type<T>): $Predicate<T>
+public static "of"(o: any): $InputReplacement
 public "or"(predicate0: $Predicate$$Type<$FluidStack$$Type>): $Predicate<$FluidStack>
+public "replaceInput"(recipe: $RecipeJS$$Type, match: $ReplacementMatch$$Type, original: $InputReplacement$$Type): any
 public "test"(fluidStack0: $FluidStack$$Type): boolean
 public "toJson"(): $JsonElement
 public "toNetwork"(friendlyByteBuf0: $FriendlyByteBuf$$Type): void
+public "transform"(transformer: $InputReplacementTransformer$$Type): $InputReplacementTransformer$Replacement
+get "empty"(): boolean
 }
 }
 

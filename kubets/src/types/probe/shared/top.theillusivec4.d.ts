@@ -34,8 +34,8 @@ import { $AttributeModifier, $AttributeModifier$$Type } from "packages/net/minec
 import { $ItemStack, $ItemStack$$Type } from "packages/net/minecraft/world/item/$ItemStack"
 
 export class $CurioAttributeModifierEvent extends $Event {
-constructor()
 constructor(itemStack0: $ItemStack$$Type, slotContext1: $SlotContext$$Type, uUID2: $UUID$$Type, multimap3: $Multimap$$Type<$Attribute$$Type, $AttributeModifier$$Type>)
+constructor()
 
 public "addModifier"(attribute0: $Attribute$$Type, attributeModifier1: $AttributeModifier$$Type): boolean
 public "clearModifiers"(): void
@@ -102,8 +102,8 @@ import { $ICuriosItemHandler, $ICuriosItemHandler$$Type } from "packages/top/the
 import { $LivingEntity$$Type } from "packages/net/minecraft/world/entity/$LivingEntity"
 
 export class $DropRulesEvent extends $LivingEvent {
-constructor()
 constructor(livingEntity0: $LivingEntity$$Type, iCuriosItemHandler1: $ICuriosItemHandler$$Type, damageSource2: $DamageSource$$Type, int3: integer, boolean4: boolean)
+constructor()
 
 public "addOverride"(predicate0: $Predicate$$Type<$ItemStack$$Type>, dropRule1: $ICurio$DropRule$$Type): void
 public "getCurioHandler"(): $ICuriosItemHandler
@@ -261,11 +261,11 @@ export interface $ICuriosItemHandler {
 "clearCachedSlotModifiers"(): void
 "clearSlotModifiers"(): void
 "findCurio"(string0: string, int1: integer): $Optional<$SlotResult>
-"findCurios"(...string0s: string[]): $List<$SlotResult>
 "findCurios"(predicate0: $Predicate$$Type<$ItemStack$$Type>): $List<$SlotResult>
+"findCurios"(...string0s: string[]): $List<$SlotResult>
 "findCurios"(item0: $Item$$Type): $List<$SlotResult>
-"findFirstCurio"(item0: $Item$$Type): $Optional<$SlotResult>
 "findFirstCurio"(predicate0: $Predicate$$Type<$ItemStack$$Type>): $Optional<$SlotResult>
+"findFirstCurio"(item0: $Item$$Type): $Optional<$SlotResult>
 "getCurios"(): $Map<string, $ICurioStacksHandler>
 "getEquippedCurios"(): $IItemHandlerModifiable
 /** @deprecated */
@@ -297,8 +297,8 @@ export interface $ICuriosItemHandler {
 "removeSlotModifier"(string0: string, uUID1: $UUID$$Type): void
 "removeSlotModifiers"(multimap0: $Multimap$$Type<string, $AttributeModifier$$Type>): void
 "reset"(): void
-"saveInventory"(boolean0: boolean, predicate1: $Predicate$$Type<$ItemStack$$Type>): $ListTag
 "saveInventory"(boolean0: boolean, biPredicate1: $BiPredicate$$Type<$ItemStack$$Type, $SlotContext$$Type>): $ListTag
+"saveInventory"(boolean0: boolean, predicate1: $Predicate$$Type<$ItemStack$$Type>): $ListTag
 "saveInventory"(boolean0: boolean): $ListTag
 "setCurios"(map0: $Map$$Type<string, $ICurioStacksHandler$$Type>): void
 /** @deprecated */
@@ -361,13 +361,13 @@ export interface $IDynamicStackHandler extends $IItemHandlerModifiable {
 "asContainer"(): $Container
 "clear"(): void
 "clear"(ingredient: $Ingredient$$Type): void
-"count"(ingredient: $Ingredient$$Type): integer
 "count"(): integer
-"countNonEmpty"(): integer
+"count"(ingredient: $Ingredient$$Type): integer
 "countNonEmpty"(ingredient: $Ingredient$$Type): integer
+"countNonEmpty"(): integer
 "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
-"extractItem"(i: integer, i1: integer, b: boolean): $ItemStack
 "extractItem"(int0: integer, int1: integer, boolean2: boolean): $ItemStack
+"extractItem"(i: integer, i1: integer, b: boolean): $ItemStack
 "find"(ingredient: $Ingredient$$Type): integer
 "find"(): integer
 "getAllItems"(): $List<$ItemStack>

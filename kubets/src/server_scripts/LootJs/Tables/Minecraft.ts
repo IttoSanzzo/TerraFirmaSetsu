@@ -82,7 +82,10 @@ export function setLootMinecraft(event: $LootModificationEventJS) {
 	// Monster Drop Fixex
 	event
 		.addEntityLootModifier("minecraft:zombie")
-		.replaceLoot(Item.of("minecraft:iron_ingot"), "tfc:metal/shovel/cast_iron");
+		.replaceLoot(
+			Item.of("minecraft:iron_ingot"),
+			"tfc:metal/shovel/wrought_iron"
+		);
 	event
 		.addEntityLootModifier("minecraft:husk")
 		.replaceLoot(

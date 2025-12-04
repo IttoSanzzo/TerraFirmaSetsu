@@ -179,11 +179,11 @@ export class $FluidStack {
 public static "bucketAmount"(): long
 public "copy"(): $FluidStack
 public "copyWithAmount"(amount: long): $FluidStack
-public static "create"(fluid: $Fluid$$Type, amount: long, tag: $CompoundTag$$Type): $FluidStack
-public static "create"(stack: $FluidStack$$Type, amount: long): $FluidStack
 public static "create"(fluid: $Supplier$$Type<$Fluid>, amount: long, tag: $CompoundTag$$Type): $FluidStack
 public static "create"(fluid: $Fluid$$Type, amount: long): $FluidStack
 public static "create"(fluid: $Supplier$$Type<$Fluid>, amount: long): $FluidStack
+public static "create"(fluid: $Fluid$$Type, amount: long, tag: $CompoundTag$$Type): $FluidStack
+public static "create"(stack: $FluidStack$$Type, amount: long): $FluidStack
 public static "empty"(): $FluidStack
 public "getAmount"(): long
 public "getChildTag"(childName: string): $CompoundTag
@@ -202,14 +202,14 @@ public "isEmpty"(): boolean
 public "isFluidEqual"(other: $FluidStack$$Type): boolean
 public "isFluidStackEqual"(other: $FluidStack$$Type): boolean
 public "isTagEqual"(other: $FluidStack$$Type): boolean
-public static "read"(tag: $CompoundTag$$Type): $FluidStack
 public static "read"(buf: $FriendlyByteBuf$$Type): $FluidStack
+public static "read"(tag: $CompoundTag$$Type): $FluidStack
 public "removeChildTag"(childName: string): void
 public "setAmount"(amount: long): void
 public "setTag"(tag: $CompoundTag$$Type): void
 public "shrink"(amount: long): void
-public "write"(buf: $FriendlyByteBuf$$Type): void
 public "write"(tag: $CompoundTag$$Type): $CompoundTag
+public "write"(buf: $FriendlyByteBuf$$Type): void
 get "amount"(): long
 get "fluid"(): $Fluid
 get "name"(): $Component
@@ -272,8 +272,8 @@ export interface $ClientCommandRegistrationEvent$ClientCommandSourceStack extend
 "hasPermission"(int0: integer): boolean
 "levels"(): $Set<$ResourceKey<$Level>>
 "registryAccess"(): $RegistryAccess
-"suggestRegistryElements"(resourceKey0: $ResourceKey$$Type<$Registry<any>>, elementSuggestionType1: $SharedSuggestionProvider$ElementSuggestionType$$Type, suggestionsBuilder2: $SuggestionsBuilder$$Type, commandContext3: $CommandContext$$Type<any>): $CompletableFuture<$Suggestions>
 "suggestRegistryElements"(registry0: $Registry$$Type<any>, elementSuggestionType1: $SharedSuggestionProvider$ElementSuggestionType$$Type, suggestionsBuilder2: $SuggestionsBuilder$$Type): void
+"suggestRegistryElements"(resourceKey0: $ResourceKey$$Type<$Registry<any>>, elementSuggestionType1: $SharedSuggestionProvider$ElementSuggestionType$$Type, suggestionsBuilder2: $SuggestionsBuilder$$Type, commandContext3: $CommandContext$$Type<any>): $CompletableFuture<$Suggestions>
 get "absoluteCoordinates"(): $Collection<$SharedSuggestionProvider$TextCoordinates>
 get "allTeams"(): $Collection<string>
 get "availableSounds"(): $Stream<$ResourceLocation>
@@ -285,35 +285,35 @@ get "selectedEntities"(): $Collection<string>
 }
 
 export namespace $ClientCommandRegistrationEvent$ClientCommandSourceStack {
-function filterResources<T>(iterable0: $Iterable$$Type<T>, string1: string, function2: $Function$$Type<T, $ResourceLocation>, consumer3: $Consumer$$Type<T>): void
 function filterResources<T>(iterable0: $Iterable$$Type<T>, string1: string, string2: string, function3: $Function$$Type<T, $ResourceLocation>, consumer4: $Consumer$$Type<T>): void
+function filterResources<T>(iterable0: $Iterable$$Type<T>, string1: string, function2: $Function$$Type<T, $ResourceLocation>, consumer3: $Consumer$$Type<T>): void
 function matchesSubStr(string0: string, string1: string): boolean
-function suggest<T>(iterable0: $Iterable$$Type<T>, suggestionsBuilder1: $SuggestionsBuilder$$Type, function2: $Function$$Type<T, string>, function3: $Function$$Type<T, $Message>): $CompletableFuture<$Suggestions>
 function suggest(string0s: string[], suggestionsBuilder1: $SuggestionsBuilder$$Type): $CompletableFuture<$Suggestions>
-function suggest(stream0: $Stream$$Type<string>, suggestionsBuilder1: $SuggestionsBuilder$$Type): $CompletableFuture<$Suggestions>
+function suggest<T>(iterable0: $Iterable$$Type<T>, suggestionsBuilder1: $SuggestionsBuilder$$Type, function2: $Function$$Type<T, string>, function3: $Function$$Type<T, $Message>): $CompletableFuture<$Suggestions>
 function suggest(iterable0: $Iterable$$Type<string>, suggestionsBuilder1: $SuggestionsBuilder$$Type): $CompletableFuture<$Suggestions>
+function suggest(stream0: $Stream$$Type<string>, suggestionsBuilder1: $SuggestionsBuilder$$Type): $CompletableFuture<$Suggestions>
 function suggest2DCoordinates(string0: string, collection1: $Collection$$Type<$SharedSuggestionProvider$TextCoordinates$$Type>, suggestionsBuilder2: $SuggestionsBuilder$$Type, predicate3: $Predicate$$Type<string>): $CompletableFuture<$Suggestions>
 function suggestCoordinates(string0: string, collection1: $Collection$$Type<$SharedSuggestionProvider$TextCoordinates$$Type>, suggestionsBuilder2: $SuggestionsBuilder$$Type, predicate3: $Predicate$$Type<string>): $CompletableFuture<$Suggestions>
+function suggestResource(stream0: $Stream$$Type<$ResourceLocation$$Type>, suggestionsBuilder1: $SuggestionsBuilder$$Type): $CompletableFuture<$Suggestions>
 function suggestResource<T>(iterable0: $Iterable$$Type<T>, suggestionsBuilder1: $SuggestionsBuilder$$Type, function2: $Function$$Type<T, $ResourceLocation>, function3: $Function$$Type<T, $Message>): $CompletableFuture<$Suggestions>
 function suggestResource<T>(stream0: $Stream$$Type<T>, suggestionsBuilder1: $SuggestionsBuilder$$Type, function2: $Function$$Type<T, $ResourceLocation>, function3: $Function$$Type<T, $Message>): $CompletableFuture<$Suggestions>
-function suggestResource(stream0: $Stream$$Type<$ResourceLocation$$Type>, suggestionsBuilder1: $SuggestionsBuilder$$Type): $CompletableFuture<$Suggestions>
 function suggestResource(iterable0: $Iterable$$Type<$ResourceLocation$$Type>, suggestionsBuilder1: $SuggestionsBuilder$$Type, string2: string): $CompletableFuture<$Suggestions>
 function suggestResource(stream0: $Stream$$Type<$ResourceLocation$$Type>, suggestionsBuilder1: $SuggestionsBuilder$$Type, string2: string): $CompletableFuture<$Suggestions>
 function suggestResource(iterable0: $Iterable$$Type<$ResourceLocation$$Type>, suggestionsBuilder1: $SuggestionsBuilder$$Type): $CompletableFuture<$Suggestions>
 }
 export abstract class $ClientCommandRegistrationEvent$ClientCommandSourceStack$$Static implements $ClientCommandRegistrationEvent$ClientCommandSourceStack {
-static "filterResources"<T>(iterable0: $Iterable$$Type<T>, string1: string, function2: $Function$$Type<T, $ResourceLocation>, consumer3: $Consumer$$Type<T>): void
 static "filterResources"<T>(iterable0: $Iterable$$Type<T>, string1: string, string2: string, function3: $Function$$Type<T, $ResourceLocation>, consumer4: $Consumer$$Type<T>): void
+static "filterResources"<T>(iterable0: $Iterable$$Type<T>, string1: string, function2: $Function$$Type<T, $ResourceLocation>, consumer3: $Consumer$$Type<T>): void
 static "matchesSubStr"(string0: string, string1: string): boolean
-static "suggest"<T>(iterable0: $Iterable$$Type<T>, suggestionsBuilder1: $SuggestionsBuilder$$Type, function2: $Function$$Type<T, string>, function3: $Function$$Type<T, $Message>): $CompletableFuture<$Suggestions>
 static "suggest"(string0s: string[], suggestionsBuilder1: $SuggestionsBuilder$$Type): $CompletableFuture<$Suggestions>
-static "suggest"(stream0: $Stream$$Type<string>, suggestionsBuilder1: $SuggestionsBuilder$$Type): $CompletableFuture<$Suggestions>
+static "suggest"<T>(iterable0: $Iterable$$Type<T>, suggestionsBuilder1: $SuggestionsBuilder$$Type, function2: $Function$$Type<T, string>, function3: $Function$$Type<T, $Message>): $CompletableFuture<$Suggestions>
 static "suggest"(iterable0: $Iterable$$Type<string>, suggestionsBuilder1: $SuggestionsBuilder$$Type): $CompletableFuture<$Suggestions>
+static "suggest"(stream0: $Stream$$Type<string>, suggestionsBuilder1: $SuggestionsBuilder$$Type): $CompletableFuture<$Suggestions>
 static "suggest2DCoordinates"(string0: string, collection1: $Collection$$Type<$SharedSuggestionProvider$TextCoordinates$$Type>, suggestionsBuilder2: $SuggestionsBuilder$$Type, predicate3: $Predicate$$Type<string>): $CompletableFuture<$Suggestions>
 static "suggestCoordinates"(string0: string, collection1: $Collection$$Type<$SharedSuggestionProvider$TextCoordinates$$Type>, suggestionsBuilder2: $SuggestionsBuilder$$Type, predicate3: $Predicate$$Type<string>): $CompletableFuture<$Suggestions>
+static "suggestResource"(stream0: $Stream$$Type<$ResourceLocation$$Type>, suggestionsBuilder1: $SuggestionsBuilder$$Type): $CompletableFuture<$Suggestions>
 static "suggestResource"<T>(iterable0: $Iterable$$Type<T>, suggestionsBuilder1: $SuggestionsBuilder$$Type, function2: $Function$$Type<T, $ResourceLocation>, function3: $Function$$Type<T, $Message>): $CompletableFuture<$Suggestions>
 static "suggestResource"<T>(stream0: $Stream$$Type<T>, suggestionsBuilder1: $SuggestionsBuilder$$Type, function2: $Function$$Type<T, $ResourceLocation>, function3: $Function$$Type<T, $Message>): $CompletableFuture<$Suggestions>
-static "suggestResource"(stream0: $Stream$$Type<$ResourceLocation$$Type>, suggestionsBuilder1: $SuggestionsBuilder$$Type): $CompletableFuture<$Suggestions>
 static "suggestResource"(iterable0: $Iterable$$Type<$ResourceLocation$$Type>, suggestionsBuilder1: $SuggestionsBuilder$$Type, string2: string): $CompletableFuture<$Suggestions>
 static "suggestResource"(stream0: $Stream$$Type<$ResourceLocation$$Type>, suggestionsBuilder1: $SuggestionsBuilder$$Type, string2: string): $CompletableFuture<$Suggestions>
 static "suggestResource"(iterable0: $Iterable$$Type<$ResourceLocation$$Type>, suggestionsBuilder1: $SuggestionsBuilder$$Type): $CompletableFuture<$Suggestions>
@@ -556,13 +556,13 @@ export interface $ArchitecturyFluidAttributes {
 "canConvertToSource"(): boolean
 "getBlock"(): $LiquidBlock
 "getBucketItem"(): $Item
+"getColor"(state: $FluidState$$Type, level: $BlockAndTintGetter$$Type, pos: $BlockPos$$Type): integer
+"getColor"(stack: $FluidStack$$Type): integer
 /** @deprecated */
 "getColor"(fluidStack0: $FluidStack$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type): integer
 "getColor"(): integer
-"getColor"(state: $FluidState$$Type, level: $BlockAndTintGetter$$Type, pos: $BlockPos$$Type): integer
-"getColor"(stack: $FluidStack$$Type): integer
-"getDensity"(stack: $FluidStack$$Type): integer
 "getDensity"(): integer
+"getDensity"(stack: $FluidStack$$Type): integer
 "getDensity"(fluidStack0: $FluidStack$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type): integer
 "getDropOff"(levelReader0: $LevelReader$$Type): integer
 "getDropOff"(): integer
@@ -570,47 +570,47 @@ export interface $ArchitecturyFluidAttributes {
 "getEmptySound"(fluidStack0: $FluidStack$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type): $SoundEvent
 "getEmptySound"(stack: $FluidStack$$Type): $SoundEvent
 "getExplosionResistance"(): float
+"getFillSound"(): $SoundEvent
 "getFillSound"(stack: $FluidStack$$Type): $SoundEvent
 "getFillSound"(fluidStack0: $FluidStack$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type): $SoundEvent
-"getFillSound"(): $SoundEvent
 "getFlowingFluid"(): $Fluid
-"getFlowingTexture"(): $ResourceLocation
-"getFlowingTexture"(state: $FluidState$$Type, level: $BlockAndTintGetter$$Type, pos: $BlockPos$$Type): $ResourceLocation
 /** @deprecated */
 "getFlowingTexture"(fluidStack0: $FluidStack$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type): $ResourceLocation
+"getFlowingTexture"(state: $FluidState$$Type, level: $BlockAndTintGetter$$Type, pos: $BlockPos$$Type): $ResourceLocation
+"getFlowingTexture"(): $ResourceLocation
 "getFlowingTexture"(stack: $FluidStack$$Type): $ResourceLocation
+"getLuminosity"(stack: $FluidStack$$Type): integer
 "getLuminosity"(): integer
 "getLuminosity"(fluidStack0: $FluidStack$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type): integer
-"getLuminosity"(stack: $FluidStack$$Type): integer
 "getName"(): $Component
 "getName"(stack: $FluidStack$$Type): $Component
 "getOverlayTexture"(state: $FluidState$$Type, level: $BlockAndTintGetter$$Type, pos: $BlockPos$$Type): $ResourceLocation
 "getOverlayTexture"(): $ResourceLocation
 "getOverlayTexture"(stack: $FluidStack$$Type): $ResourceLocation
-"getRarity"(): $Rarity
-"getRarity"(fluidStack0: $FluidStack$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type): $Rarity
 "getRarity"(stack: $FluidStack$$Type): $Rarity
+"getRarity"(fluidStack0: $FluidStack$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type): $Rarity
+"getRarity"(): $Rarity
 "getSlopeFindDistance"(): integer
 "getSlopeFindDistance"(levelReader0: $LevelReader$$Type): integer
 "getSourceFluid"(): $Fluid
-"getSourceTexture"(state: $FluidState$$Type, level: $BlockAndTintGetter$$Type, pos: $BlockPos$$Type): $ResourceLocation
 "getSourceTexture"(): $ResourceLocation
-"getSourceTexture"(stack: $FluidStack$$Type): $ResourceLocation
 /** @deprecated */
 "getSourceTexture"(fluidStack0: $FluidStack$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type): $ResourceLocation
+"getSourceTexture"(state: $FluidState$$Type, level: $BlockAndTintGetter$$Type, pos: $BlockPos$$Type): $ResourceLocation
+"getSourceTexture"(stack: $FluidStack$$Type): $ResourceLocation
 "getTemperature"(): integer
 "getTemperature"(stack: $FluidStack$$Type): integer
 "getTemperature"(fluidStack0: $FluidStack$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type): integer
-"getTickDelay"(levelReader0: $LevelReader$$Type): integer
 "getTickDelay"(): integer
+"getTickDelay"(levelReader0: $LevelReader$$Type): integer
 "getTranslationKey"(fluidStack0: $FluidStack$$Type): string
 "getTranslationKey"(): string
-"getViscosity"(): integer
 "getViscosity"(fluidStack0: $FluidStack$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type): integer
 "getViscosity"(stack: $FluidStack$$Type): integer
-"isLighterThanAir"(): boolean
-"isLighterThanAir"(stack: $FluidStack$$Type): boolean
+"getViscosity"(): integer
 "isLighterThanAir"(fluidStack0: $FluidStack$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type): boolean
+"isLighterThanAir"(stack: $FluidStack$$Type): boolean
+"isLighterThanAir"(): boolean
 get "block"(): $LiquidBlock
 get "bucketItem"(): $Item
 get "color"(): integer

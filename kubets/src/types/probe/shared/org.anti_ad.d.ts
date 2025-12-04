@@ -14,6 +14,20 @@ export abstract class $IMixinItemGroup$$Static implements $IMixinItemGroup {
 }
 }
 
+declare module "packages/org/anti_ad/mc/ipnext/mixinhelpers/$IMixinItemIndexValue" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+export interface $IMixinItemIndexValue {
+"ipn$getIndex"(): integer
+"ipn$setIndex"(int0: integer): void
+}
+
+export namespace $IMixinItemIndexValue {
+const probejs$$marker: never
+}
+export abstract class $IMixinItemIndexValue$$Static implements $IMixinItemIndexValue {
+}
+}
+
 declare module "packages/org/anti_ad/mc/ipnext/mixinhelpers/$IMixinSerializedCapsAccessor" {
 import { $CompoundTag } from "packages/net/minecraft/nbt/$CompoundTag"
 

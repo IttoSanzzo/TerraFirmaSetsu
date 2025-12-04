@@ -343,8 +343,8 @@ constructor(globalWireNetwork0: $GlobalWireNetwork$$Type)
 public "addAsFutureTask"(runnable0: $Runnable$$Type): void
 public "getAllHandlers"(): $Collection<$LocalNetworkHandler>
 public "getConnectionPoints"(): $Collection<$ConnectionPoint>
-public "getConnections"(blockPos0: $BlockPos$$Type): $Collection<$Connection>
 public "getConnections"(connectionPoint0: $ConnectionPoint$$Type): $Collection<$Connection>
+public "getConnections"(blockPos0: $BlockPos$$Type): $Collection<$Connection>
 public "getConnector"(connectionPoint0: $ConnectionPoint$$Type): $IImmersiveConnectable
 public "getConnector"(blockPos0: $BlockPos$$Type): $IImmersiveConnectable
 public "getConnectors"(): $Collection<$BlockPos>
@@ -566,14 +566,14 @@ public "addConnection"(connection0: $Connection$$Type): void
 public "getAllConnectorsIn"(chunkPos0: $ChunkPos$$Type): $Collection<$ConnectionPoint>
 public "getCollisionData"(): $WireCollisionData
 public "getExistingConnector"(connectionPoint0: $ConnectionPoint$$Type): $IImmersiveConnectable
-public "getLocalNet"(blockPos0: $BlockPos$$Type): $LocalWireNetwork
 public "getLocalNet"(connectionPoint0: $ConnectionPoint$$Type): $LocalWireNetwork
+public "getLocalNet"(blockPos0: $BlockPos$$Type): $LocalWireNetwork
 public static "getNetwork"(level0: $Level$$Type): $GlobalWireNetwork
 public "getNullableLocalNet"(connectionPoint0: $ConnectionPoint$$Type): $LocalWireNetwork
 public "getNullableLocalNet"(blockPos0: $BlockPos$$Type): $LocalWireNetwork
 public "getProxyProvider"(): $IICProxyProvider
-public "onConnectorLoad"(iImmersiveConnectable0: $IImmersiveConnectable$$Type, level1: $Level$$Type): void
 public "onConnectorLoad"(iImmersiveConnectable0: $IImmersiveConnectable$$Type, boolean1: boolean): void
+public "onConnectorLoad"(iImmersiveConnectable0: $IImmersiveConnectable$$Type, level1: $Level$$Type): void
 public "onConnectorUnload"(iImmersiveConnectable0: $IImmersiveConnectable$$Type): void
 public static "onWorldUnload"(unload0: $LevelEvent$Unload$$Type): void
 public "readFromNBT"(compoundTag0: $CompoundTag$$Type): void

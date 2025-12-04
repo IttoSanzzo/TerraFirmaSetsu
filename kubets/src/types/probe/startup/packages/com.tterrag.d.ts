@@ -54,6 +54,17 @@ export type $EntityEntry_<T extends $Entity> = $EntityEntry$$Type<T>;
 }
 }
 
+declare module "packages/com/tterrag/registrate/util/entry/$ItemProviderEntry" {
+import { $ItemLike, $ItemLike$$Type } from "packages/net/minecraft/world/level/$ItemLike"
+
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $ItemProviderEntry$$Type<T extends $ItemLike> = ($ItemProviderEntry<T>);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $ItemProviderEntry_<T extends $ItemLike> = $ItemProviderEntry$$Type<T>;
+}
+}
+
 declare module "packages/com/tterrag/registrate/builders/$MenuBuilder$ScreenFactory" {
 import { $Component } from "packages/net/minecraft/network/chat/$Component"
 import { $Screen, $Screen$$Type } from "packages/net/minecraft/client/gui/screens/$Screen"
@@ -171,6 +182,17 @@ export type $NonNullUnaryOperator_<T> = $NonNullUnaryOperator$$Type<T>;
 }
 }
 
+declare module "packages/com/tterrag/registrate/util/entry/$FluidEntry" {
+import { $ForgeFlowingFluid, $ForgeFlowingFluid$$Type } from "packages/net/minecraftforge/fluids/$ForgeFlowingFluid"
+
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $FluidEntry$$Type<T extends $ForgeFlowingFluid> = ($FluidEntry<T>);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $FluidEntry_<T extends $ForgeFlowingFluid> = $FluidEntry$$Type<T>;
+}
+}
+
 declare module "packages/com/tterrag/registrate/builders/$MenuBuilder$ForgeMenuFactory" {
 import { $FriendlyByteBuf } from "packages/net/minecraft/network/$FriendlyByteBuf"
 import { $AbstractContainerMenu, $AbstractContainerMenu$$Type } from "packages/net/minecraft/world/inventory/$AbstractContainerMenu"
@@ -255,6 +277,17 @@ export type $DataIngredient$$Type = ($DataIngredient);
 /** Global type exported for convenience, use class-specific types if there's a naming conflict. */
 declare global {
 export type $DataIngredient_ = $DataIngredient$$Type;
+}
+}
+
+declare module "packages/com/tterrag/registrate/util/entry/$BlockEntry" {
+import { $Block, $Block$$Type } from "packages/net/minecraft/world/level/block/$Block"
+
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $BlockEntry$$Type<T extends $Block> = ($BlockEntry<T>);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $BlockEntry_<T extends $Block> = $BlockEntry$$Type<T>;
 }
 }
 

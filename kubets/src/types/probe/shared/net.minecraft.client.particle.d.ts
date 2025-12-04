@@ -3,8 +3,8 @@ import { $RandomSource$$Type } from "packages/net/minecraft/util/$RandomSource"
 import { $TextureAtlasSprite } from "packages/net/minecraft/client/renderer/texture/$TextureAtlasSprite"
 
 export interface $SpriteSet {
-"get"(int0: integer, int1: integer): $TextureAtlasSprite
 "get"(randomSource0: $RandomSource$$Type): $TextureAtlasSprite
+"get"(int0: integer, int1: integer): $TextureAtlasSprite
 }
 
 export namespace $SpriteSet {
@@ -29,8 +29,8 @@ import { $SpriteSet } from "packages/net/minecraft/client/particle/$SpriteSet"
 import { $TextureAtlasSprite, $TextureAtlasSprite$$Type } from "packages/net/minecraft/client/renderer/texture/$TextureAtlasSprite"
 
 export class $ParticleEngine$MutableSpriteSet implements $SpriteSet {
-public "get"(int0: integer, int1: integer): $TextureAtlasSprite
 public "get"(randomSource0: $RandomSource$$Type): $TextureAtlasSprite
+public "get"(int0: integer, int1: integer): $TextureAtlasSprite
 public "rebind"(list0: $List$$Type<$TextureAtlasSprite$$Type>): void
 get "sprites"(): $List<$TextureAtlasSprite>
 set "sprites"(value: $List$$Type<$TextureAtlasSprite$$Type>)
@@ -210,7 +210,7 @@ import { $PreparableReloadListener$PreparationBarrier$$Type } from "packages/net
 import { $CallbackInfo$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfo"
 import { $Map } from "packages/java/util/$Map"
 
-export class $ParticleEngine implements $PreparableReloadListener, $PhasedParticleEngine, $ParticleManagerAccess, $ParticleEngineAccessor {
+export class $ParticleEngine implements $PreparableReloadListener, $PhasedParticleEngine, $ParticleEngineAccessor, $ParticleManagerAccess {
 readonly "random": $RandomSource
 readonly "spriteSets": $Map<$ResourceLocation, $ParticleEngine$MutableSpriteSet>
 readonly "textureAtlas": $TextureAtlas
@@ -227,16 +227,16 @@ public "createTrackingEmitter"(entity0: $Entity$$Type, particleOptions1: $Partic
 public "createTrackingEmitter"(entity0: $Entity$$Type, particleOptions1: $ParticleOptions$$Type, int2: integer): void
 public "destroy"(blockPos0: $BlockPos$$Type, blockState1: $BlockState$$Type): void
 public "getName"(): string
-public "handler$eak000$inject$crack"(blockPos0: $BlockPos$$Type, direction1: $Direction$$Type, callbackInfo2: $CallbackInfo$$Type): void
-public "handler$eak000$inject$create"(particleOptions0: $ParticleOptions$$Type, double1: double, double2: double, double3: double, double4: double, double5: double, double6: double, callbackInfoReturnable7: $CallbackInfoReturnable$$Type<any>): void
-public "handler$eak000$inject$destroy"(blockPos0: $BlockPos$$Type, blockState1: $BlockState$$Type, callbackInfo2: $CallbackInfo$$Type): void
-public "redirect$eak000$redirect$particleRegistry"(registry0: $Registry$$Type<any>, object1: any): $ResourceLocation
+public "handler$efn000$inject$crack"(blockPos0: $BlockPos$$Type, direction1: $Direction$$Type, callbackInfo2: $CallbackInfo$$Type): void
+public "handler$efn000$inject$create"(particleOptions0: $ParticleOptions$$Type, double1: double, double2: double, double3: double, double4: double, double5: double, double6: double, callbackInfoReturnable7: $CallbackInfoReturnable$$Type<any>): void
+public "handler$efn000$inject$destroy"(blockPos0: $BlockPos$$Type, blockState1: $BlockState$$Type, callbackInfo2: $CallbackInfo$$Type): void
+public "redirect$efn000$redirect$particleRegistry"(registry0: $Registry$$Type<any>, object1: any): $ResourceLocation
+/** @deprecated */
+public "register"<T extends $ParticleOptions>(particleType0: $ParticleType$$Type<T>, spriteParticleRegistration1: $ParticleEngine$SpriteParticleRegistration$$Type<T>): void
 /** @deprecated */
 public "register"<T extends $ParticleOptions>(particleType0: $ParticleType$$Type<T>, sprite1: $ParticleProvider$Sprite$$Type<T>): void
 /** @deprecated */
 public "register"<T extends $ParticleOptions>(particleType0: $ParticleType$$Type<T>, particleProvider1: $ParticleProvider$$Type<T>): void
-/** @deprecated */
-public "register"<T extends $ParticleOptions>(particleType0: $ParticleType$$Type<T>, spriteParticleRegistration1: $ParticleEngine$SpriteParticleRegistration$$Type<T>): void
 public "reload"(preparationBarrier0: $PreparableReloadListener$PreparationBarrier$$Type, resourceManager1: $ResourceManager$$Type, profilerFiller2: $ProfilerFiller$$Type, profilerFiller3: $ProfilerFiller$$Type, executor4: $Executor$$Type, executor5: $Executor$$Type): $CompletableFuture<void>
 public "render"(poseStack0: $PoseStack$$Type, bufferSource1: $MultiBufferSource$BufferSource$$Type, lightTexture2: $LightTexture$$Type, camera3: $Camera$$Type, float4: float, frustum5: $Frustum$$Type): void
 /** @deprecated */

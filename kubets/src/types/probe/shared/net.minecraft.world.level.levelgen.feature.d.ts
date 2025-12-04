@@ -422,7 +422,7 @@ import { $Codec$$Type } from "packages/com/mojang/serialization/$Codec"
 export class $HugeBrownMushroomFeature extends $AbstractHugeMushroomFeature {
 constructor(codec0: $Codec$$Type<$HugeMushroomFeatureConfiguration$$Type>)
 
-public "wrapWithCondition$ejn000$isValidRepairItem"(hugeBrownMushroomFeature0: $HugeBrownMushroomFeature$$Type, levelWriter1: $LevelWriter$$Type, blockPos2: $BlockPos$$Type, blockState3: $BlockState$$Type): boolean
+public "wrapWithCondition$epp000$isValidRepairItem"(hugeBrownMushroomFeature0: $HugeBrownMushroomFeature$$Type, levelWriter1: $LevelWriter$$Type, blockPos2: $BlockPos$$Type, blockState3: $BlockState$$Type): boolean
 }
 }
 
@@ -980,8 +980,8 @@ constructor(blockStateProvider0: $BlockStateProvider$$Type, list1: $List$$Type<$
 public "fallback"(): $BlockStateProvider
 public "getState"(worldGenLevel0: $WorldGenLevel$$Type, randomSource1: $RandomSource$$Type, blockPos2: $BlockPos$$Type): $BlockState
 public "rules"(): $List<$RuleBasedBlockStateProvider$Rule>
-public static "simple"(block0: $Block$$Type): $RuleBasedBlockStateProvider
 public static "simple"(blockStateProvider0: $BlockStateProvider$$Type): $RuleBasedBlockStateProvider
+public static "simple"(block0: $Block$$Type): $RuleBasedBlockStateProvider
 }
 }
 
@@ -1564,10 +1564,13 @@ constructor(int0: integer, int1: integer, int2: integer)
 }
 
 declare module "packages/net/minecraft/world/level/levelgen/feature/$ScatteredOreFeature" {
-import { $OreConfiguration } from "packages/net/minecraft/world/level/levelgen/feature/configurations/$OreConfiguration"
+import { $OreConfiguration, $OreConfiguration$$Type } from "packages/net/minecraft/world/level/levelgen/feature/configurations/$OreConfiguration"
 import { $Feature } from "packages/net/minecraft/world/level/levelgen/feature/$Feature"
+import { $Codec$$Type } from "packages/com/mojang/serialization/$Codec"
 
 export class $ScatteredOreFeature extends $Feature<$OreConfiguration> {
+constructor(codec0: $Codec$$Type<$OreConfiguration$$Type>)
+
 }
 }
 
@@ -1922,18 +1925,6 @@ get "features"(): $Stream<$ConfiguredFeature<any, any>>
 }
 }
 
-declare module "packages/net/minecraft/world/level/levelgen/feature/treedecorators/$CocoaDecorator" {
-import { $TreeDecorator } from "packages/net/minecraft/world/level/levelgen/feature/treedecorators/$TreeDecorator"
-import { $Codec } from "packages/com/mojang/serialization/$Codec"
-
-export class $CocoaDecorator extends $TreeDecorator {
-static readonly "CODEC": $Codec<$CocoaDecorator>
-
-constructor(float0: float)
-
-}
-}
-
 declare module "packages/net/minecraft/world/level/levelgen/feature/rootplacers/$RootPlacer" {
 import { $BiConsumer$$Type } from "packages/java/util/function/$BiConsumer"
 import { $BlockStateProvider$$Type } from "packages/net/minecraft/world/level/levelgen/feature/stateproviders/$BlockStateProvider"
@@ -1954,6 +1945,18 @@ constructor(intProvider0: $IntProvider$$Type, blockStateProvider1: $BlockStatePr
 
 public "getTrunkOrigin"(blockPos0: $BlockPos$$Type, randomSource1: $RandomSource$$Type): $BlockPos
 public "placeRoots"(levelSimulatedReader0: $LevelSimulatedReader$$Type, biConsumer1: $BiConsumer$$Type<$BlockPos$$Type, $BlockState$$Type>, randomSource2: $RandomSource$$Type, blockPos3: $BlockPos$$Type, blockPos4: $BlockPos$$Type, treeConfiguration5: $TreeConfiguration$$Type): boolean
+}
+}
+
+declare module "packages/net/minecraft/world/level/levelgen/feature/treedecorators/$CocoaDecorator" {
+import { $TreeDecorator } from "packages/net/minecraft/world/level/levelgen/feature/treedecorators/$TreeDecorator"
+import { $Codec } from "packages/com/mojang/serialization/$Codec"
+
+export class $CocoaDecorator extends $TreeDecorator {
+static readonly "CODEC": $Codec<$CocoaDecorator>
+
+constructor(float0: float)
+
 }
 }
 
@@ -2408,7 +2411,7 @@ import { $Codec$$Type } from "packages/com/mojang/serialization/$Codec"
 export class $HugeRedMushroomFeature extends $AbstractHugeMushroomFeature {
 constructor(codec0: $Codec$$Type<$HugeMushroomFeatureConfiguration$$Type>)
 
-public "wrapWithCondition$ejo000$isValidRepairItem"(hugeRedMushroomFeature0: $HugeRedMushroomFeature$$Type, levelWriter1: $LevelWriter$$Type, blockPos2: $BlockPos$$Type, blockState3: $BlockState$$Type): boolean
+public "wrapWithCondition$faa000$isValidRepairItem"(hugeRedMushroomFeature0: $HugeRedMushroomFeature$$Type, levelWriter1: $LevelWriter$$Type, blockPos2: $BlockPos$$Type, blockState3: $BlockState$$Type): boolean
 }
 }
 

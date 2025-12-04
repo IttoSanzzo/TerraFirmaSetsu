@@ -58,8 +58,8 @@ import { $Codec } from "packages/com/mojang/serialization/$Codec"
 export class $TrapezoidHeight extends $HeightProvider {
 static readonly "CODEC": $Codec<$TrapezoidHeight>
 
-public static "of"(verticalAnchor0: $VerticalAnchor$$Type, verticalAnchor1: $VerticalAnchor$$Type, int2: integer): $TrapezoidHeight
 public static "of"(verticalAnchor0: $VerticalAnchor$$Type, verticalAnchor1: $VerticalAnchor$$Type): $TrapezoidHeight
+public static "of"(verticalAnchor0: $VerticalAnchor$$Type, verticalAnchor1: $VerticalAnchor$$Type, int2: integer): $TrapezoidHeight
 }
 }
 

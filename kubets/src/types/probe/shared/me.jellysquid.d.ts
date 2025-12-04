@@ -163,7 +163,7 @@ public "addConditionally"(boolean0: boolean, supplier1: $Supplier$$Type<$Option<
 public "build"(): $OptionGroup
 public static "createBuilder"(id: $ResourceLocation$$Type): $OptionGroup$Builder
 public static "createBuilder"(id: $OptionIdentifier$0$$Type<void>): $OptionGroup$Builder
-public "handler$die000$onBuild"(cir: $CallbackInfoReturnable$$Type<any>): void
+public "handler$dnc000$onBuild"(cir: $CallbackInfoReturnable$$Type<any>): void
 public "setId"(resourceLocation0: $ResourceLocation$$Type): $OptionGroup$Builder
 public "setId"(optionIdentifier0: $OptionIdentifier$$Type<void>): $OptionGroup$Builder
 public "sodiumOptionsAPI$setId"(id: $ResourceLocation$$Type): $OptionGroup$Builder
@@ -1327,8 +1327,8 @@ public "overlayCoords"(int0: integer): $VertexConsumer
 public "overlayCoords"(int0: integer, int1: integer): $VertexConsumer
 public "push"(memoryStack0: $MemoryStack$$Type, long1: long, int2: integer, vertexFormatDescription3: $VertexFormatDescription$$Type): void
 public "putBulkData"(pose0: $PoseStack$Pose$$Type, bakedQuad1: $BakedQuad$$Type, float2: float, float3: float, float4: float, int5: integer, int6: integer): void
-public "putBulkData"(pose0: $PoseStack$Pose$$Type, bakedQuad1: $BakedQuad$$Type, float2s: float[], float3: float, float4: float, float5: float, int6s: integer[], int7: integer, boolean8: boolean): void
 public "putBulkData"(pose0: $PoseStack$Pose$$Type, bakedQuad1: $BakedQuad$$Type, float2s: float[], float3: float, float4: float, float5: float, float6: float, int7s: integer[], int8: integer, boolean9: boolean): void
+public "putBulkData"(pose0: $PoseStack$Pose$$Type, bakedQuad1: $BakedQuad$$Type, float2s: float[], float3: float, float4: float, float5: float, int6s: integer[], int7: integer, boolean8: boolean): void
 public "putBulkData"(pose0: $PoseStack$Pose$$Type, bakedQuad1: $BakedQuad$$Type, float2: float, float3: float, float4: float, float5: float, int6: integer, int7: integer, boolean8: boolean): void
 public "reset"(): void
 public static "tryOf"(vertexConsumer0: $VertexConsumer$$Type): $VertexBufferWriter
@@ -1336,8 +1336,8 @@ public "unsetDefaultColor"(): void
 public "uv"(float0: float, float1: float): $VertexConsumer
 public "uv2"(int0: integer, int1: integer): $VertexConsumer
 public "uv2"(int0: integer): $VertexConsumer
-public "vertex"(double0: double, double1: double, double2: double): $VertexConsumer
 public "vertex"(float0: float, float1: float, float2: float, float3: float, float4: float, float5: float, float6: float, float7: float, float8: float, int9: integer, int10: integer, float11: float, float12: float, float13: float): void
+public "vertex"(double0: double, double1: double, double2: double): $VertexConsumer
 public "vertex"(matrix4f0: $Matrix4f$$Type, float1: float, float2: float, float3: float): $VertexConsumer
 get "originalBufferBuilder"(): $BufferBuilder
 get "fullWriter"(): boolean
@@ -1402,7 +1402,7 @@ public "getGroups"(): $ImmutableList<$OptionGroup>
 public "getId"(): $OptionIdentifier<void>
 public "getName"(): $Component
 public "getOptions"(): $ImmutableList<$Option<any>>
-public "handler$dif000$onInit"(id: $OptionIdentifier$$Type<any>, name: $Component$$Type, groups: $ImmutableList$$Type<any>, ci: $CallbackInfo$$Type): void
+public "handler$dnd000$onInit"(id: $OptionIdentifier$$Type<any>, name: $Component$$Type, groups: $ImmutableList$$Type<any>, ci: $CallbackInfo$$Type): void
 public "sodiumOptionsAPI$getId"(): $OptionIdentifier$0<any>
 public "sodiumOptionsAPI$setId"(id: $OptionIdentifier$0$$Type<any>): void
 public "sodiumOptionsAPI$setId"(id: $ResourceLocation$$Type): void

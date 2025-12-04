@@ -13,8 +13,8 @@ constructor()
 
 public "and"(ingredients: $Ingredient$$Type[]): $Ingredient
 public "creativeTab"(tab: $CreativeModeTab$$Type): $Ingredient
-public "custom"(parent: $Ingredient$$Type, uuid: $UUID$$Type): $Ingredient
 public "custom"(parent: $Ingredient$$Type, predicate: $Predicate$$Type<$ItemStack$$Type>): $Ingredient
+public "custom"(parent: $Ingredient$$Type, uuid: $UUID$$Type): $Ingredient
 public static "get"(): $IngredientPlatformHelper
 public "isWildcard"(ingredient: $Ingredient$$Type): boolean
 public "mod"(mod: string): $Ingredient

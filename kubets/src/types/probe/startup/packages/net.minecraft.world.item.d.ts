@@ -724,6 +724,7 @@ import { $RecipeType$$Type } from "packages/net/minecraft/world/item/crafting/$R
 import { $EnchantmentInstance, $EnchantmentInstance$$Type } from "packages/net/minecraft/world/item/enchantment/$EnchantmentInstance"
 import { $BlockHitResult } from "packages/net/minecraft/world/phys/$BlockHitResult"
 import { $FeatureElement } from "packages/net/minecraft/world/flag/$FeatureElement"
+import { $IMixinItemIndexValue } from "packages/org/anti_ad/mc/ipnext/mixinhelpers/$IMixinItemIndexValue"
 import { $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
 import { $ItemForgeAccessor } from "packages/fuzs/puzzleslib/mixin/client/accessor/$ItemForgeAccessor"
 import { $Item$Properties$$Type } from "packages/net/minecraft/world/item/$Item$Properties"
@@ -747,7 +748,7 @@ import { $ItemLike } from "packages/net/minecraft/world/level/$ItemLike"
 import { $UseAnim } from "packages/net/minecraft/world/item/$UseAnim"
 import { $Map } from "packages/java/util/$Map"
 
-export class $Item implements $FeatureElement, $ItemLike, $IForgeItem, $DelegateHolder<any>, $IEnchantableItem, $IrisItemLightProvider, $ItemAccessor, $IZetaForgeItemStuff, $ItemForgeAccessor, $InjectedItemExtension, $IExtendedItem, $ItemKJS {
+export class $Item implements $FeatureElement, $ItemLike, $IForgeItem, $DelegateHolder<any>, $IEnchantableItem, $IrisItemLightProvider, $ItemAccessor, $IZetaForgeItemStuff, $ItemForgeAccessor, $IMixinItemIndexValue, $InjectedItemExtension, $IExtendedItem, $ItemKJS {
 static readonly "BASE_ATTACK_DAMAGE_UUID": $UUID
 static readonly "BY_BLOCK": $Map<$Block, $Item>
 static readonly "EAT_DURATION": integer
@@ -803,8 +804,8 @@ public "getDefaultAttributeModifiers"(equipmentSlot0: $EquipmentSlot$$Type): $Mu
 public "getDefaultInstance"(): $ItemStack
 public "getDefaultTooltipHideFlags"(itemStack0: $ItemStack$$Type): integer
 public "getDescription"(): $Component
-public "getDescriptionId"(): string
 public "getDescriptionId"(itemStack0: $ItemStack$$Type): string
+public "getDescriptionId"(): string
 public "getDestroySpeed"(itemStack0: $ItemStack$$Type, blockState1: $BlockState$$Type): float
 public "getDigSpeed"(): float
 public "getDrinkingSound"(): $SoundEvent
@@ -844,7 +845,7 @@ public "getTypeItemStackKey"(): $ItemStackKey
 public "getUseAnimation"(itemStack0: $ItemStack$$Type): $UseAnim
 public "getUseDuration"(itemStack0: $ItemStack$$Type): integer
 public "getXpRepairRatio"(itemStack0: $ItemStack$$Type): float
-public "handler$efp001$initializeClient"(consumer: $Consumer$$Type<any>, ci: $CallbackInfo$$Type): void
+public "handler$emb001$initializeClient"(consumer: $Consumer$$Type<any>, ci: $CallbackInfo$$Type): void
 /** @deprecated */
 public "hasCraftingRemainingItem"(): boolean
 public "hasCraftingRemainingItem"(itemStack0: $ItemStack$$Type): boolean
@@ -854,6 +855,8 @@ public "initCapabilities"(itemStack0: $ItemStack$$Type, compoundTag1: $CompoundT
 public "initializeClient"(consumer0: $Consumer$$Type<$IClientItemExtensions$$Type>): void
 public "interactLivingEntity"(itemStack0: $ItemStack$$Type, player1: $Player$$Type, livingEntity2: $LivingEntity$$Type, interactionHand3: $InteractionHand$$Type): $InteractionResult
 public "inventoryTick"(itemStack0: $ItemStack$$Type, level1: $Level$$Type, entity2: $Entity$$Type, int3: integer, boolean4: boolean): void
+public "ipn$getIndex"(): integer
+public "ipn$setIndex"(int0: integer): void
 public "isBarVisible"(itemStack0: $ItemStack$$Type): boolean
 public "isBookEnchantable"(itemStack0: $ItemStack$$Type, itemStack1: $ItemStack$$Type): boolean
 public "isComplex"(): boolean
@@ -876,8 +879,8 @@ public "makesPiglinsNeutral"(itemStack0: $ItemStack$$Type, livingEntity1: $Livin
 public "mfix$getDelegate"(registryKey: $ResourceKey$$Type<any>): $Holder$Reference<any>
 public "mfix$setDelegate"(registryKey: $ResourceKey$$Type<any>, holder: $Holder$Reference$$Type<any>): void
 public "mineBlock"(itemStack0: $ItemStack$$Type, level1: $Level$$Type, blockState2: $BlockState$$Type, blockPos3: $BlockPos$$Type, livingEntity4: $LivingEntity$$Type): boolean
-public "modifyReturnValue$eka000$overrideOtherStackedOnMe"(boolean0: boolean, itemStack1: $ItemStack$$Type, itemStack2: $ItemStack$$Type, slot3: $Slot$$Type, clickAction4: $ClickAction$$Type, player5: $Player$$Type, slotAccess6: $SlotAccess$$Type): boolean
-public "modifyReturnValue$eka000$overrideStackedOnOther"(boolean0: boolean, itemStack1: $ItemStack$$Type, slot2: $Slot$$Type, clickAction3: $ClickAction$$Type, player4: $Player$$Type): boolean
+public "modifyReturnValue$fac000$overrideOtherStackedOnMe"(boolean0: boolean, itemStack1: $ItemStack$$Type, itemStack2: $ItemStack$$Type, slot3: $Slot$$Type, clickAction4: $ClickAction$$Type, player5: $Player$$Type, slotAccess6: $SlotAccess$$Type): boolean
+public "modifyReturnValue$fac000$overrideStackedOnOther"(boolean0: boolean, itemStack1: $ItemStack$$Type, slot2: $Slot$$Type, clickAction3: $ClickAction$$Type, player4: $Player$$Type): boolean
 public "moonlight$addAdditionalBehavior"(placementOverride: $AdditionalItemPlacement$$Type): void
 public "moonlight$getAdditionalBehavior"(): $AdditionalItemPlacement
 public "moonlight$getClientAnimationExtension"(): any

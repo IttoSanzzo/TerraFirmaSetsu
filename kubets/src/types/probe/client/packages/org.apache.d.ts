@@ -98,6 +98,16 @@ export type $Logger_ = $Logger$$Type;
 }
 }
 
+declare module "packages/org/apache/commons/lang3/mutable/$MutableObject" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $MutableObject$$Type<T> = ($MutableObject<T>);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $MutableObject_<T> = $MutableObject$$Type<T>;
+}
+}
+
 declare module "packages/org/apache/logging/log4j/util/$Supplier" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */

@@ -78,13 +78,13 @@ export interface $IForgeRegistry<V> extends $Iterable<V> {
 "getDelegate"(v0: V): $Optional<$Holder$Reference<V>>
 "getDelegate"(resourceKey0: $ResourceKey$$Type<V>): $Optional<$Holder$Reference<V>>
 "getDelegate"(resourceLocation0: $ResourceLocation$$Type): $Optional<$Holder$Reference<V>>
-"getDelegateOrThrow"(resourceLocation0: $ResourceLocation$$Type): $Holder$Reference<V>
-"getDelegateOrThrow"(v0: V): $Holder$Reference<V>
 "getDelegateOrThrow"(resourceKey0: $ResourceKey$$Type<V>): $Holder$Reference<V>
+"getDelegateOrThrow"(v0: V): $Holder$Reference<V>
+"getDelegateOrThrow"(resourceLocation0: $ResourceLocation$$Type): $Holder$Reference<V>
 "getEntries"(): $Set<$Map$Entry<$ResourceKey<V>, V>>
+"getHolder"(resourceKey0: $ResourceKey$$Type<V>): $Optional<$Holder<V>>
 "getHolder"(v0: V): $Optional<$Holder<V>>
 "getHolder"(resourceLocation0: $ResourceLocation$$Type): $Optional<$Holder<V>>
-"getHolder"(resourceKey0: $ResourceKey$$Type<V>): $Optional<$Holder<V>>
 "getKey"(v0: V): $ResourceLocation
 "getKeys"(): $Set<$ResourceLocation>
 "getRegistryKey"(): $ResourceKey<$Registry<V>>
@@ -157,16 +157,16 @@ export interface $ICustomHolderSet<T> extends $HolderSet<T> {
 
 export namespace $ICustomHolderSet {
 function direct<E, T>(function0: $Function$$Type<E, $Holder<T>>, list1: $List$$Type<E>): $HolderSet$Direct<T>
-function direct<E, T>(function0: $Function$$Type<E, $Holder<T>>, ...e1s: E[]): $HolderSet$Direct<T>
-function direct<T>(list0: $List$$Type<$Holder$$Type<T>>): $HolderSet$Direct<T>
 function direct<T>(...holder0s: $Holder$$Type<T>[]): $HolderSet$Direct<T>
+function direct<T>(list0: $List$$Type<$Holder$$Type<T>>): $HolderSet$Direct<T>
+function direct<E, T>(function0: $Function$$Type<E, $Holder<T>>, ...e1s: E[]): $HolderSet$Direct<T>
 function emptyNamed<T>(holderOwner0: $HolderOwner$$Type<T>, tagKey1: $TagKey$$Type<T>): $HolderSet$Named<T>
 }
 export abstract class $ICustomHolderSet$$Static<T> implements $ICustomHolderSet<T> {
 static "direct"<E, T>(function0: $Function$$Type<E, $Holder<T>>, list1: $List$$Type<E>): $HolderSet$Direct<T>
-static "direct"<E, T>(function0: $Function$$Type<E, $Holder<T>>, ...e1s: E[]): $HolderSet$Direct<T>
-static "direct"<T>(list0: $List$$Type<$Holder$$Type<T>>): $HolderSet$Direct<T>
 static "direct"<T>(...holder0s: $Holder$$Type<T>[]): $HolderSet$Direct<T>
+static "direct"<T>(list0: $List$$Type<$Holder$$Type<T>>): $HolderSet$Direct<T>
+static "direct"<E, T>(function0: $Function$$Type<E, $Holder<T>>, ...e1s: E[]): $HolderSet$Direct<T>
 /** @deprecated */
 static "emptyNamed"<T>(holderOwner0: $HolderOwner$$Type<T>, tagKey1: $TagKey$$Type<T>): $HolderSet$Named<T>
 }
@@ -219,9 +219,9 @@ public "addInvalidationListener"(runnable0: $Runnable$$Type): void
 public "canSerializeIn"(holderOwner0: $HolderOwner$$Type<T>): boolean
 public "contains"(holder0: $Holder$$Type<T>): boolean
 public static "direct"<E, T>(function0: $Function$$Type<E, $Holder<T>>, list1: $List$$Type<E>): $HolderSet$Direct<T>
-public static "direct"<E, T>(function0: $Function$$Type<E, $Holder<T>>, ...e1s: E[]): $HolderSet$Direct<T>
-public static "direct"<T>(list0: $List$$Type<$Holder$$Type<T>>): $HolderSet$Direct<T>
 public static "direct"<T>(...holder0s: $Holder$$Type<T>[]): $HolderSet$Direct<T>
+public static "direct"<T>(list0: $List$$Type<$Holder$$Type<T>>): $HolderSet$Direct<T>
+public static "direct"<E, T>(function0: $Function$$Type<E, $Holder<T>>, ...e1s: E[]): $HolderSet$Direct<T>
 /** @deprecated */
 public static "emptyNamed"<T>(holderOwner0: $HolderOwner$$Type<T>, tagKey1: $TagKey$$Type<T>): $HolderSet$Named<T>
 public "forEach"(consumer0: $Consumer$$Type<$Holder$$Type<T>>): void
@@ -350,8 +350,8 @@ import { $ResourceLocation, $ResourceLocation$$Type } from "packages/net/minecra
 import { $Map$$Type } from "packages/java/util/$Map"
 
 export class $IdMappingEvent extends $Event {
-constructor(map0: $Map$$Type<$ResourceLocation$$Type, $Map$$Type<$ResourceLocation$$Type, $IdMappingEvent$IdRemapping$$Type>>, boolean1: boolean)
 constructor()
+constructor(map0: $Map$$Type<$ResourceLocation$$Type, $Map$$Type<$ResourceLocation$$Type, $IdMappingEvent$IdRemapping$$Type>>, boolean1: boolean)
 
 public "getRegistries"(): $ImmutableSet<$ResourceLocation>
 public "getRemaps"(resourceLocation0: $ResourceLocation$$Type): $ImmutableList<$IdMappingEvent$ModRemapping>
@@ -512,13 +512,13 @@ export interface $IForgeRegistryInternal<V> extends $IForgeRegistry<V> {
 "getDelegate"(v0: V): $Optional<$Holder$Reference<V>>
 "getDelegate"(resourceKey0: $ResourceKey$$Type<V>): $Optional<$Holder$Reference<V>>
 "getDelegate"(resourceLocation0: $ResourceLocation$$Type): $Optional<$Holder$Reference<V>>
-"getDelegateOrThrow"(resourceLocation0: $ResourceLocation$$Type): $Holder$Reference<V>
-"getDelegateOrThrow"(v0: V): $Holder$Reference<V>
 "getDelegateOrThrow"(resourceKey0: $ResourceKey$$Type<V>): $Holder$Reference<V>
+"getDelegateOrThrow"(v0: V): $Holder$Reference<V>
+"getDelegateOrThrow"(resourceLocation0: $ResourceLocation$$Type): $Holder$Reference<V>
 "getEntries"(): $Set<$Map$Entry<$ResourceKey<V>, V>>
+"getHolder"(resourceKey0: $ResourceKey$$Type<V>): $Optional<$Holder<V>>
 "getHolder"(v0: V): $Optional<$Holder<V>>
 "getHolder"(resourceLocation0: $ResourceLocation$$Type): $Optional<$Holder<V>>
-"getHolder"(resourceKey0: $ResourceKey$$Type<V>): $Optional<$Holder<V>>
 "getKey"(v0: V): $ResourceLocation
 "getKeys"(): $Set<$ResourceLocation>
 "getRegistryKey"(): $ResourceKey<$Registry<V>>
@@ -573,8 +573,8 @@ public "create"<V>(registryBuilder0: $RegistryBuilder$$Type<V>, consumer1: $Cons
 declare module "packages/net/minecraftforge/registries/$RegistryBuilder" {
 import { $IForgeRegistry$MissingFactory, $IForgeRegistry$MissingFactory$$Type } from "packages/net/minecraftforge/registries/$IForgeRegistry$MissingFactory"
 import { $IForgeRegistry$BakeCallback, $IForgeRegistry$BakeCallback$$Type } from "packages/net/minecraftforge/registries/$IForgeRegistry$BakeCallback"
-import { $IForgeRegistry$CreateCallback, $IForgeRegistry$CreateCallback$$Type } from "packages/net/minecraftforge/registries/$IForgeRegistry$CreateCallback"
 import { $IForgeRegistry$AddCallback, $IForgeRegistry$AddCallback$$Type } from "packages/net/minecraftforge/registries/$IForgeRegistry$AddCallback"
+import { $IForgeRegistry$CreateCallback, $IForgeRegistry$CreateCallback$$Type } from "packages/net/minecraftforge/registries/$IForgeRegistry$CreateCallback"
 import { $Set } from "packages/java/util/$Set"
 import { $IForgeRegistry$ClearCallback, $IForgeRegistry$ClearCallback$$Type } from "packages/net/minecraftforge/registries/$IForgeRegistry$ClearCallback"
 import { $IForgeRegistry$ValidateCallback, $IForgeRegistry$ValidateCallback$$Type } from "packages/net/minecraftforge/registries/$IForgeRegistry$ValidateCallback"
@@ -583,11 +583,11 @@ import { $ResourceLocation, $ResourceLocation$$Type } from "packages/net/minecra
 export class $RegistryBuilder<T> {
 constructor()
 
-public "add"(createCallback0: $IForgeRegistry$CreateCallback$$Type<T>): $RegistryBuilder<T>
-public "add"(validateCallback0: $IForgeRegistry$ValidateCallback$$Type<T>): $RegistryBuilder<T>
-public "add"(bakeCallback0: $IForgeRegistry$BakeCallback$$Type<T>): $RegistryBuilder<T>
-public "add"(addCallback0: $IForgeRegistry$AddCallback$$Type<T>): $RegistryBuilder<T>
 public "add"(clearCallback0: $IForgeRegistry$ClearCallback$$Type<T>): $RegistryBuilder<T>
+public "add"(addCallback0: $IForgeRegistry$AddCallback$$Type<T>): $RegistryBuilder<T>
+public "add"(validateCallback0: $IForgeRegistry$ValidateCallback$$Type<T>): $RegistryBuilder<T>
+public "add"(createCallback0: $IForgeRegistry$CreateCallback$$Type<T>): $RegistryBuilder<T>
+public "add"(bakeCallback0: $IForgeRegistry$BakeCallback$$Type<T>): $RegistryBuilder<T>
 public "addCallback"(object0: any): $RegistryBuilder<T>
 public "allowModification"(): $RegistryBuilder<T>
 public "disableOverrides"(): $RegistryBuilder<T>
@@ -608,12 +608,12 @@ public "getSaveToDisc"(): boolean
 public "getSync"(): boolean
 public "getValidate"(): $IForgeRegistry$ValidateCallback<T>
 public "hasTags"(): $RegistryBuilder<T>
-public "legacyName"(resourceLocation0: $ResourceLocation$$Type): $RegistryBuilder<T>
 public "legacyName"(string0: string): $RegistryBuilder<T>
+public "legacyName"(resourceLocation0: $ResourceLocation$$Type): $RegistryBuilder<T>
 public "missing"(missingFactory0: $IForgeRegistry$MissingFactory$$Type<T>): $RegistryBuilder<T>
 public static "of"<T>(string0: string): $RegistryBuilder<T>
-public static "of"<T>(): $RegistryBuilder<T>
 public static "of"<T>(resourceLocation0: $ResourceLocation$$Type): $RegistryBuilder<T>
+public static "of"<T>(): $RegistryBuilder<T>
 public "onAdd"(addCallback0: $IForgeRegistry$AddCallback$$Type<T>): $RegistryBuilder<T>
 public "onBake"(bakeCallback0: $IForgeRegistry$BakeCallback$$Type<T>): $RegistryBuilder<T>
 public "onClear"(clearCallback0: $IForgeRegistry$ClearCallback$$Type<T>): $RegistryBuilder<T>
@@ -682,17 +682,17 @@ public "freeze"(): void
 public "getCodec"(): $Codec<V>
 public "getDefaultKey"(): $ResourceLocation
 public "getDelegate"(resourceKey0: $ResourceKey$$Type<V>): $Optional<$Holder$Reference<V>>
-public "getDelegate"(resourceLocation0: $ResourceLocation$$Type): $Optional<$Holder$Reference<V>>
 public "getDelegate"(v0: V): $Optional<$Holder$Reference<V>>
-public "getDelegateOrThrow"(value: any): $Holder$Reference<any>
+public "getDelegate"(resourceLocation0: $ResourceLocation$$Type): $Optional<$Holder$Reference<V>>
 public "getDelegateOrThrow"(location: $ResourceLocation$$Type): $Holder$Reference<any>
 public "getDelegateOrThrow"(rkey: $ResourceKey$$Type<any>): $Holder$Reference<any>
+public "getDelegateOrThrow"(value: any): $Holder$Reference<any>
 public "getEntries"(): $Set<$Map$Entry<$ResourceKey<V>, V>>
 public "getHolder"(v0: V): $Optional<$Holder<V>>
-public "getHolder"(resourceKey0: $ResourceKey$$Type<V>): $Optional<$Holder<V>>
 public "getHolder"(resourceLocation0: $ResourceLocation$$Type): $Optional<$Holder<V>>
-public "getID"(resourceLocation0: $ResourceLocation$$Type): integer
+public "getHolder"(resourceKey0: $ResourceKey$$Type<V>): $Optional<$Holder<V>>
 public "getID"(v0: V): integer
+public "getID"(resourceLocation0: $ResourceLocation$$Type): integer
 public "getKey"(int0: integer): $ResourceKey<V>
 public "getKey"(v0: V): $ResourceLocation
 public "getKeys"(): $Set<$ResourceLocation>
@@ -710,9 +710,9 @@ public "isLocked"(): boolean
 public "iterator"(): $Iterator<V>
 public "loadIds"(object2IntMap0: $Object2IntMap$$Type<$ResourceLocation$$Type>, map1: $Map$$Type<$ResourceLocation$$Type, string>, object2IntMap2: $Object2IntMap$$Type<$ResourceLocation$$Type>, map3: $Map$$Type<$ResourceLocation$$Type, $IdMappingEvent$IdRemapping$$Type>, forgeRegistry4: $ForgeRegistry$$Type<V>, resourceLocation5: $ResourceLocation$$Type): void
 public "makeSnapshot"(): $ForgeRegistry$Snapshot
+public "register"(resourceLocation0: $ResourceLocation$$Type, v1: V): void
 public "register"(int0: integer, resourceLocation1: $ResourceLocation$$Type, v2: V): void
 public "register"(string0: string, v1: V): void
-public "register"(resourceLocation0: $ResourceLocation$$Type, v1: V): void
 public "remove"(resourceLocation0: $ResourceLocation$$Type): V
 public "setSlaveMap"(resourceLocation0: $ResourceLocation$$Type, object1: any): void
 public "spliterator"(): $Spliterator<V>
@@ -775,13 +775,13 @@ export interface $IForgeRegistryModifiable<V> extends $IForgeRegistry<V> {
 "getDelegate"(v0: V): $Optional<$Holder$Reference<V>>
 "getDelegate"(resourceKey0: $ResourceKey$$Type<V>): $Optional<$Holder$Reference<V>>
 "getDelegate"(resourceLocation0: $ResourceLocation$$Type): $Optional<$Holder$Reference<V>>
-"getDelegateOrThrow"(resourceLocation0: $ResourceLocation$$Type): $Holder$Reference<V>
-"getDelegateOrThrow"(v0: V): $Holder$Reference<V>
 "getDelegateOrThrow"(resourceKey0: $ResourceKey$$Type<V>): $Holder$Reference<V>
+"getDelegateOrThrow"(v0: V): $Holder$Reference<V>
+"getDelegateOrThrow"(resourceLocation0: $ResourceLocation$$Type): $Holder$Reference<V>
 "getEntries"(): $Set<$Map$Entry<$ResourceKey<V>, V>>
+"getHolder"(resourceKey0: $ResourceKey$$Type<V>): $Optional<$Holder<V>>
 "getHolder"(v0: V): $Optional<$Holder<V>>
 "getHolder"(resourceLocation0: $ResourceLocation$$Type): $Optional<$Holder<V>>
-"getHolder"(resourceKey0: $ResourceKey$$Type<V>): $Optional<$Holder<V>>
 "getKey"(v0: V): $ResourceLocation
 "getKeys"(): $Set<$ResourceLocation>
 "getRegistryKey"(): $ResourceKey<$Registry<V>>

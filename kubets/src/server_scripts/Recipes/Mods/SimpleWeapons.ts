@@ -156,8 +156,8 @@ export function setRecipesSimpleWeapons(event: $RecipesEventJS) {
 	smithAllWeapons(
 		6,
 		"pendorite",
-		"kubejs:metal/double_ingot/purple_steel",
-		"kubejs:metal/ingot/purple_steel"
+		"rosia:purple_steel_double_ingot",
+		"rosia:purple_steel_ingot"
 	);
 
 	// 'fiery and warden' /////////////////////////////////////////////

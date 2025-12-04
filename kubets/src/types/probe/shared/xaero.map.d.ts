@@ -145,7 +145,6 @@ public "clean"(mapProcessor0: $MapProcessor$$Type): void
 public "clearRegion"(mapProcessor0: $MapProcessor$$Type): void
 public "convertCacheToOutdated"(mapSaveLoad0: $MapSaveLoad$$Type, string1: string): void
 public "countChunks"(): integer
-public "createTexture"(int0: integer, int1: integer): $LeafRegionTexture
 public "destroyBufferUpdateObjects"(): void
 public "getBiomeRegistry"(): $Registry<$Biome>
 public "getCacheFile"(): $File
@@ -168,7 +167,6 @@ public "getRegionZ"(): integer
 public "getReloadVersion"(): integer
 public "getSaveExists"(): boolean
 public "getTargetHighlightsHash"(): integer
-public "getTexture"(int0: integer, int1: integer): $LeafRegionTexture
 public "getTimeSinceVisit"(): long
 public "getUpToDateCaveStart"(): integer
 public "getVersion"(): integer
@@ -186,8 +184,8 @@ public "popWriterPause"(): void
 public "pushWriterPause"(): void
 public "putTexture"(int0: integer, int1: integer, leafRegionTexture2: $LeafRegionTexture$$Type): void
 public "registerVisit"(): void
-public "requestRefresh"(mapProcessor0: $MapProcessor$$Type): void
 public "requestRefresh"(mapProcessor0: $MapProcessor$$Type, boolean1: boolean): void
+public "requestRefresh"(mapProcessor0: $MapProcessor$$Type): void
 public "restoreBufferUpdateObjects"(): void
 public "restoreMetaData"(int0ss: integer[][], int1: integer, int2: integer, int3: integer, int4: integer, boolean5: boolean, mapProcessor6: $MapProcessor$$Type): void
 public "setBeingWritten"(boolean0: boolean): void
@@ -366,8 +364,8 @@ public "equalsSlopesExcluded"(mapBlock0: $MapBlock$$Type): boolean
 public "fixHeightType"(int0: integer, int1: integer, mapTile2: $MapTile$$Type, mapTileChunk3: $MapTileChunk$$Type, mapTileChunk4: $MapTileChunk$$Type, mapTileChunk5: $MapTileChunk$$Type, mapTileChunk6: $MapTileChunk$$Type, int7: integer, boolean8: boolean, blockStateShortShapeCache9: $BlockStateShortShapeCache$$Type): void
 public "getBiome"(): $ResourceKey<$Biome>
 public "getDiagonalSlope"(): byte
-public "getEffectiveHeight"(boolean0: boolean): integer
 public "getEffectiveHeight"(blockStateShortShapeCache0: $BlockStateShortShapeCache$$Type): integer
+public "getEffectiveHeight"(boolean0: boolean): integer
 public "getEffectiveTopHeight"(boolean0: boolean): integer
 public "getHeight"(): integer
 public "getNumberOfOverlays"(): integer
@@ -407,22 +405,33 @@ set "verticalSlope"(value: byte)
 declare module "packages/xaero/map/$MapProcessor" {
 import { $MapTile } from "packages/xaero/map/region/$MapTile"
 import { $BlockTintProvider } from "packages/xaero/map/biome/$BlockTintProvider"
-import { $Fluid$$Type } from "packages/net/minecraft/world/level/material/$Fluid"
-import { $MapWorld } from "packages/xaero/map/world/$MapWorld"
+import { $MapWorld, $MapWorld$$Type } from "packages/xaero/map/world/$MapWorld"
 import { $WorldDataHandler, $WorldDataHandler$$Type } from "packages/xaero/map/file/worldsave/$WorldDataHandler"
 import { $Field, $Field$$Type } from "packages/java/lang/reflect/$Field"
+import { $Operation$$Type } from "packages/com/llamalad7/mixinextras/injector/wrapoperation/$Operation"
 import { $MapWriter, $MapWriter$$Type } from "packages/xaero/map/$MapWriter"
-import { $MapDimension$$Type } from "packages/xaero/map/world/$MapDimension"
 import { $CustomVertexConsumers, $CustomVertexConsumers$$Type } from "packages/xaero/map/graphics/$CustomVertexConsumers"
-import { $Block, $Block$$Type } from "packages/net/minecraft/world/level/block/$Block"
-import { $Runnable, $Runnable$$Type } from "packages/java/lang/$Runnable"
 import { $ByteBufferDeallocator, $ByteBufferDeallocator$$Type } from "packages/xaero/map/deallocator/$ByteBufferDeallocator"
+import { $CallbackInfoReturnable$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfoReturnable"
 import { $MapRegionHighlightsPreparer, $MapRegionHighlightsPreparer$$Type } from "packages/xaero/map/highlight/$MapRegionHighlightsPreparer"
 import { $ClientLevel, $ClientLevel$$Type } from "packages/net/minecraft/client/multiplayer/$ClientLevel"
+import { $CustomMapProcessor } from "packages/xaeroplus/feature/extensions/$CustomMapProcessor"
+import { $CaveStartCalculator$$Type } from "packages/xaero/map/misc/$CaveStartCalculator"
+import { $BiomeGetter$$Type } from "packages/xaero/map/biome/$BiomeGetter"
+import { $Registry, $Registry$$Type } from "packages/net/minecraft/core/$Registry"
+import { $MapRegion, $MapRegion$$Type } from "packages/xaero/map/region/$MapRegion"
+import { $Level, $Level$$Type } from "packages/net/minecraft/world/level/$Level"
+import { $BranchTextureRenderer$$Type } from "packages/xaero/map/region/texture/$BranchTextureRenderer"
+import { $TextureUploader$$Type } from "packages/xaero/map/graphics/$TextureUploader"
+import { $ClientPacketListener$$Type } from "packages/net/minecraft/client/multiplayer/$ClientPacketListener"
+import { $Queue } from "packages/java/util/$Queue"
+import { $Fluid$$Type } from "packages/net/minecraft/world/level/material/$Fluid"
+import { $MapDimension, $MapDimension$$Type } from "packages/xaero/map/world/$MapDimension"
+import { $Block, $Block$$Type } from "packages/net/minecraft/world/level/block/$Block"
+import { $Runnable, $Runnable$$Type } from "packages/java/lang/$Runnable"
 import { $MessageBox, $MessageBox$$Type } from "packages/xaero/map/gui/message/$MessageBox"
 import { $LeveledRegion, $LeveledRegion$$Type } from "packages/xaero/map/region/$LeveledRegion"
 import { $MessageBoxRenderer, $MessageBoxRenderer$$Type } from "packages/xaero/map/gui/message/render/$MessageBoxRenderer"
-import { $CaveStartCalculator$$Type } from "packages/xaero/map/misc/$CaveStartCalculator"
 import { $Biome, $Biome$$Type } from "packages/net/minecraft/world/level/biome/$Biome"
 import { $HolderLookup, $HolderLookup$$Type } from "packages/net/minecraft/core/$HolderLookup"
 import { $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
@@ -430,28 +439,23 @@ import { $HighlighterRegistry, $HighlighterRegistry$$Type } from "packages/xaero
 import { $MapSaveLoad, $MapSaveLoad$$Type } from "packages/xaero/map/file/$MapSaveLoad"
 import { $ClientSyncedTrackedPlayerManager, $ClientSyncedTrackedPlayerManager$$Type } from "packages/xaero/map/radar/tracker/synced/$ClientSyncedTrackedPlayerManager"
 import { $MapLimiter, $MapLimiter$$Type } from "packages/xaero/map/$MapLimiter"
-import { $BiomeGetter$$Type } from "packages/xaero/map/biome/$BiomeGetter"
-import { $Registry, $Registry$$Type } from "packages/net/minecraft/core/$Registry"
-import { $MapRegion, $MapRegion$$Type } from "packages/xaero/map/region/$MapRegion"
-import { $Level, $Level$$Type } from "packages/net/minecraft/world/level/$Level"
+import { $Path, $Path$$Type } from "packages/java/nio/file/$Path"
 import { $DimensionType, $DimensionType$$Type } from "packages/net/minecraft/world/level/dimension/$DimensionType"
+import { $ThreadLocal } from "packages/java/lang/$ThreadLocal"
 import { $MultiTextureRenderTypeRendererProvider, $MultiTextureRenderTypeRendererProvider$$Type } from "packages/xaero/map/graphics/renderer/multitexture/$MultiTextureRenderTypeRendererProvider"
 import { $BiomeColorCalculator, $BiomeColorCalculator$$Type } from "packages/xaero/map/biome/$BiomeColorCalculator"
 import { $MapTileChunk } from "packages/xaero/map/region/$MapTileChunk"
 import { $Minecraft$$Type } from "packages/net/minecraft/client/$Minecraft"
 import { $BlockStateShortShapeCache, $BlockStateShortShapeCache$$Type } from "packages/xaero/map/cache/$BlockStateShortShapeCache"
 import { $MapRunner$$Type } from "packages/xaero/map/$MapRunner"
-import { $BranchTextureRenderer$$Type } from "packages/xaero/map/region/texture/$BranchTextureRenderer"
+import { $CallbackInfo$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfo"
 import { $ArrayList } from "packages/java/util/$ArrayList"
 import { $MapTilePool, $MapTilePool$$Type } from "packages/xaero/map/pool/$MapTilePool"
-import { $TextureUploader$$Type } from "packages/xaero/map/graphics/$TextureUploader"
 import { $ResourceKey, $ResourceKey$$Type } from "packages/net/minecraft/resources/$ResourceKey"
-import { $ClientPacketListener$$Type } from "packages/net/minecraft/client/multiplayer/$ClientPacketListener"
 import { $OverlayManager, $OverlayManager$$Type } from "packages/xaero/map/region/$OverlayManager"
 import { $BrokenBlockTintCache$$Type } from "packages/xaero/map/cache/$BrokenBlockTintCache"
-import { $Queue } from "packages/java/util/$Queue"
 
-export class $MapProcessor {
+export class $MapProcessor implements $CustomMapProcessor {
 static readonly "DEFAULT_LIGHT_LEVELS": integer
 static readonly "ROOT_FOLDER_FORMAT": integer
 readonly "mainStuffSync": any
@@ -474,9 +478,9 @@ public "getAffectingLoadingFrequencyCount"(): integer
 public "getAmbientBrightness"(dimensionType0: $DimensionType$$Type): float
 public "getBiomeColorCalculator"(): $BiomeColorCalculator
 public "getBlockStateShortShapeCache"(): $BlockStateShortShapeCache
-public "getBrightness"(boolean0: boolean): float
 public "getBrightness"(int0: integer, clientLevel1: $ClientLevel$$Type, boolean2: boolean): float
 public "getBrightness"(): float
+public "getBrightness"(boolean0: boolean): float
 public "getBufferDeallocator"(): $ByteBufferDeallocator
 public "getClientSyncedTrackedPlayerManager"(): $ClientSyncedTrackedPlayerManager
 public "getCrosshairMessage"(): string
@@ -520,6 +524,11 @@ public "getWorldBlockRegistry"(): $Registry<$Block>
 public "getWorldBlockTintProvider"(): $BlockTintProvider
 public "getWorldDataHandler"(): $WorldDataHandler
 public "getWorldDimensionTypeRegistry"(): $Registry<$DimensionType>
+public "handler$cll000$capturePrevStateForWorldChangeEvent"(ci: $CallbackInfo$$Type): void
+public "handler$cll000$fireWorldChangedEvent"(ci: $CallbackInfo$$Type): void
+public "handler$cll000$getActualDimIfSignalSet"(cir: $CallbackInfoReturnable$$Type<any>): void
+public "handler$cll000$getDimensionName"(id: $ResourceKey$$Type<any>, cir: $CallbackInfoReturnable$$Type<any>): void
+public "handler$cll000$resetCustomDimOnWorldUnload"(ci: $CallbackInfo$$Type): void
 public "ignoreWorld"(level0: $Level$$Type): boolean
 public "initMinimapRender"(int0: integer, int1: integer): void
 public "isConsideringNetherFairPlay"(): boolean
@@ -552,6 +561,9 @@ public "pushRenderPause"(boolean0: boolean, boolean1: boolean): void
 public "pushUIPause"(): void
 public "pushWriterPause"(): void
 public "quickConfirmMultiworld"(): void
+public "redirect$cll000$createMapRegionInActualDimensionIfSignalled"(worldId: string, dimId: string, mwId: string, dim: $MapDimension$$Type, x: integer, z: integer, caveLayer: integer, initialVersion: integer, normalMapData: boolean, biomeRegistry: $Registry$$Type<any>): $MapRegion
+public "redirect$cll000$decreaseThreadSleepTime"(millis: long): void
+public "redirect$cll000$replaceLockPath"(instance: $Path$$Type, other: string): $Path
 public "regionDetectionExists"(int0: integer, int1: integer, int2: integer): boolean
 public "regionExists"(int0: integer, int1: integer, int2: integer): boolean
 public "removeMapRegion"(leveledRegion0: $LeveledRegion$$Type<any>): void
@@ -574,6 +586,11 @@ public "updateFootprints"(int0: integer): void
 public "updateVisitedDimension"(clientLevel0: $ClientLevel$$Type): void
 public "updateWorldSpawn"(blockPos0: $BlockPos$$Type, clientLevel1: $ClientLevel$$Type): void
 public "waitForLoadingToFinish"(runnable0: $Runnable$$Type): void
+public "wrapOperation$cll000$getLeafMapRegionActualDimensionIfSignalled"(instance: $MapWorld$$Type, original: $Operation$$Type<any>): $MapDimension
+public "wrapOperation$cll000$storePrevWorldVarStates"(instance: $MapProcessor$$Type, value: string, original: $Operation$$Type<any>): void
+public "wrapOperation$cll000$updateWorldSyncedGetActualDimension"(mapWorld: $MapWorld$$Type, original: $Operation$$Type<any>): $MapDimension
+public "xaeroPlus$getCurrentDimensionActualDimSignal"(): $ThreadLocal<any>
+public "xaeroPlus$getLeafRegionActualDimSignal"(): $ThreadLocal<any>
 get "freeFramePeriod"(): long
 set "freeFramePeriod"(value: long)
 get "mainPlayerX"(): double
@@ -854,24 +871,34 @@ get "finished"(): boolean
 
 declare module "packages/xaero/map/$MapWriter" {
 import { $BlockTintProvider$$Type } from "packages/xaero/map/biome/$BlockTintProvider"
+import { $MapWorld$$Type } from "packages/xaero/map/world/$MapWorld"
+import { $LocalIntRef$$Type } from "packages/com/llamalad7/mixinextras/sugar/ref/$LocalIntRef"
+import { $Operation$$Type } from "packages/com/llamalad7/mixinextras/injector/wrapoperation/$Operation"
+import { $BlockPos$MutableBlockPos$$Type } from "packages/net/minecraft/core/$BlockPos$MutableBlockPos"
+import { $Block$$Type } from "packages/net/minecraft/world/level/block/$Block"
+import { $BlockGetter$$Type } from "packages/net/minecraft/world/level/$BlockGetter"
+import { $LevelChunk$$Type } from "packages/net/minecraft/world/level/chunk/$LevelChunk"
+import { $Player$$Type } from "packages/net/minecraft/world/entity/player/$Player"
+import { $Biome$$Type } from "packages/net/minecraft/world/level/biome/$Biome"
+import { $StateHolder$$Type } from "packages/net/minecraft/world/level/block/state/$StateHolder"
+import { $OverlayBuilder$$Type } from "packages/xaero/map/region/$OverlayBuilder"
+import { $LocalLongRef$$Type } from "packages/com/llamalad7/mixinextras/sugar/ref/$LocalLongRef"
+import { $LocalRef$$Type } from "packages/com/llamalad7/mixinextras/sugar/ref/$LocalRef"
+import { $MapBlock$$Type } from "packages/xaero/map/region/$MapBlock"
+import { $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
 import { $BiomeGetter$$Type } from "packages/xaero/map/biome/$BiomeGetter"
 import { $Registry$$Type } from "packages/net/minecraft/core/$Registry"
 import { $BlockState$$Type } from "packages/net/minecraft/world/level/block/state/$BlockState"
 import { $Level$$Type } from "packages/net/minecraft/world/level/$Level"
-import { $BlockPos$MutableBlockPos$$Type } from "packages/net/minecraft/core/$BlockPos$MutableBlockPos"
-import { $MapRegion$$Type } from "packages/xaero/map/region/$MapRegion"
-import { $Block$$Type } from "packages/net/minecraft/world/level/block/$Block"
-import { $LevelChunk$$Type } from "packages/net/minecraft/world/level/chunk/$LevelChunk"
+import { $MapRegion, $MapRegion$$Type } from "packages/xaero/map/region/$MapRegion"
 import { $BiomeColorCalculator$$Type } from "packages/xaero/map/biome/$BiomeColorCalculator"
 import { $MapTileChunk$$Type } from "packages/xaero/map/region/$MapTileChunk"
-import { $Player$$Type } from "packages/net/minecraft/world/entity/player/$Player"
 import { $BlockStateShortShapeCache$$Type } from "packages/xaero/map/cache/$BlockStateShortShapeCache"
+import { $CallbackInfo$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfo"
 import { $MapProcessor$$Type } from "packages/xaero/map/$MapProcessor"
-import { $Biome$$Type } from "packages/net/minecraft/world/level/biome/$Biome"
-import { $StateHolder$$Type } from "packages/net/minecraft/world/level/block/state/$StateHolder"
-import { $MapBlock$$Type } from "packages/xaero/map/region/$MapBlock"
+import { $LocalBooleanRef$$Type } from "packages/com/llamalad7/mixinextras/sugar/ref/$LocalBooleanRef"
+import { $ResourceKey } from "packages/net/minecraft/resources/$ResourceKey"
 import { $OverlayManager$$Type } from "packages/xaero/map/region/$OverlayManager"
-import { $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
 
 export class $MapWriter {
 static readonly "DEFAULT_RESOURCE": string[]
@@ -883,11 +910,19 @@ constructor(overlayManager0: $OverlayManager$$Type, blockStateShortShapeCache1: 
 public "getBlockTintIndex"(blockState0: $BlockState$$Type): integer
 public "getSectionBasedHeight"(levelChunk0: $LevelChunk$$Type, int1: integer): integer
 public "getUpdateCounter"(): long
+public "handler$cma000$fastMapMaxTilesPerCycleSetting"(ci: $CallbackInfo$$Type, tilesToUpdateRef: $LocalLongRef$$Type, sizeTiles: integer): void
+public "handler$cma000$netherCaveFixInject"(ci: $CallbackInfo$$Type, world: $Level$$Type, caveRef: $LocalBooleanRef$$Type, fullCaveRef: $LocalBooleanRef$$Type): void
+public "handler$cma000$obsidianRoofHeadInject"(ci: $CallbackInfo$$Type, bchunk: $LevelChunk$$Type, stateRef: $LocalRef$$Type<any>, hRef: $LocalIntRef$$Type, transparentSkipYRef: $LocalIntRef$$Type, columnRoofObsidianRef: $LocalBooleanRef$$Type): void
+public "handler$cma000$resetSignals"(ci: $CallbackInfo$$Type): void
+public "handler$cma000$setCrossDimWriteSignals"(ci: $CallbackInfo$$Type): void
+public "handler$cma000$setObsidianColumnLocalVar"(ci: $CallbackInfo$$Type, columnRoofObsidianRef: $LocalBooleanRef$$Type): void
 public "hasVanillaColor"(blockState0: $BlockState$$Type, level1: $Level$$Type, registry2: $Registry$$Type<$Block$$Type>, blockPos3: $BlockPos$$Type): boolean
 public "isGlowing"(blockState0: $BlockState$$Type): boolean
 public "isInvisible"(blockState0: $BlockState$$Type, block1: $Block$$Type, boolean2: boolean): boolean
 public "loadBlockColourFromTexture"(blockState0: $BlockState$$Type, boolean1: boolean, level2: $Level$$Type, registry3: $Registry$$Type<$Block$$Type>, blockPos4: $BlockPos$$Type): integer
 public "loadPixel"(level0: $Level$$Type, registry1: $Registry$$Type<$Block$$Type>, mapBlock2: $MapBlock$$Type, mapBlock3: $MapBlock$$Type, levelChunk4: $LevelChunk$$Type, int5: integer, int6: integer, int7: integer, int8: integer, boolean9: boolean, boolean10: boolean, int11: integer, boolean12: boolean, boolean13: boolean, registry14: $Registry$$Type<$Biome$$Type>, boolean15: boolean, int16: integer, mutableBlockPos17: $BlockPos$MutableBlockPos$$Type): void
+public "modifyExpressionValue$cma000$obsidianRoofOverlayMod"(original: boolean, bChunk: $LevelChunk$$Type, b: $Block$$Type, h: integer): boolean
+public "modifyExpressionValue$cma000$removeWriteTimeLimiterPerFrame"(original: long): long
 public "onRender"(biomeColorCalculator0: $BiomeColorCalculator$$Type, overlayManager1: $OverlayManager$$Type): void
 public "requestCachedColoursClear"(): void
 public "resetPosition"(): void
@@ -895,6 +930,12 @@ public "setDirtyInWriteDistance"(player0: $Player$$Type, level1: $Level$$Type): 
 public "setMapProcessor"(mapProcessor0: $MapProcessor$$Type): void
 public "shouldOverlay"(stateHolder0: $StateHolder$$Type<any, any>): boolean
 public "updateBottomRightTile"(mapRegion0: $MapRegion$$Type, mapTileChunk1: $MapTileChunk$$Type, mapTileChunk2: $MapTileChunk$$Type, int3: integer, int4: integer): void
+public "wrapOperation$cma000$checkObsidianRoofColumn"(instance: $OverlayBuilder$$Type, original: $Operation$$Type<any>, columnRoofObsidianRef: $LocalBooleanRef$$Type): boolean
+public "wrapOperation$cma000$fastMap"(instance: $MapWriter$$Type, world: $Level$$Type, blockRegistry: $Registry$$Type<any>, distance: integer, onlyLoad: boolean, biomeRegistry: $Registry$$Type<any>, overlayManager: $OverlayManager$$Type, loadChunks: boolean, updateChunks: boolean, ignoreHeightmaps: boolean, flowers: boolean, detailedDebug: boolean, mutableBlockPos3: $BlockPos$MutableBlockPos$$Type, blockTintProvider: $BlockTintProvider$$Type, caveDepth: integer, caveStart: integer, layerToWrite: integer, tileChunkX: integer, tileChunkZ: integer, tileChunkLocalX: integer, tileChunkLocalZ: integer, chunkX: integer, chunkZ: integer, original: $Operation$$Type<any>): boolean
+public "wrapOperation$cma000$getActualMapRegionInOnRender"(mapProcessor: $MapProcessor$$Type, caveLayer: integer, regX: integer, regZ: integer, create: boolean, original: $Operation$$Type<any>): $MapRegion
+public "wrapOperation$cma000$getOpacityForObsidianRoof"(instance: $BlockState$$Type, world: $BlockGetter$$Type, pos: $BlockPos$$Type, original: $Operation$$Type<any>, h: integer): integer
+public "wrapOperation$cma000$getOpacityForObsidianRoof$mixinextras$bridge$41"(instance: $BlockState$$Type, world: $BlockGetter$$Type, pos: $BlockPos$$Type, original: $Operation$$Type<any>, h: $LocalIntRef$$Type): integer
+public "wrapOperation$cma000$removeCustomDimSwitchWriterPrevention"(mapWorld: $MapWorld$$Type, original: $Operation$$Type<any>): $ResourceKey<any>
 public "writeChunk"(level0: $Level$$Type, registry1: $Registry$$Type<$Block$$Type>, int2: integer, boolean3: boolean, registry4: $Registry$$Type<$Biome$$Type>, overlayManager5: $OverlayManager$$Type, boolean6: boolean, boolean7: boolean, boolean8: boolean, boolean9: boolean, boolean10: boolean, mutableBlockPos11: $BlockPos$MutableBlockPos$$Type, blockTintProvider12: $BlockTintProvider$$Type, int13: integer, int14: integer, int15: integer, int16: integer, int17: integer, int18: integer, int19: integer, int20: integer, int21: integer): boolean
 public "writeMap"(level0: $Level$$Type, registry1: $Registry$$Type<$Block$$Type>, double2: double, double3: double, double4: double, registry5: $Registry$$Type<$Biome$$Type>, biomeColorCalculator6: $BiomeColorCalculator$$Type, overlayManager7: $OverlayManager$$Type, boolean8: boolean, boolean9: boolean, boolean10: boolean, boolean11: boolean, boolean12: boolean, mutableBlockPos13: $BlockPos$MutableBlockPos$$Type, blockTintProvider14: $BlockTintProvider$$Type, int15: integer): boolean
 get "writeFreeSinceLastWrite"(): long
@@ -1073,8 +1114,8 @@ export class $OldFormatSupport {
 constructor()
 
 public "fixBiome"(int0: integer, int1: integer): string
-public "fixBiome"(int0: integer, int1: integer, string2: string): string
 public "fixBiome"(string0: string, int1: integer): string
+public "fixBiome"(int0: integer, int1: integer, string2: string): string
 public "fixBlock"(compoundTag0: $CompoundTag$$Type, int1: integer): void
 public "getStateForId"(int0: integer): $BlockState
 public "loadModdedStates"(mapProcessor0: $MapProcessor$$Type, string1: string, string2: string, string3: string): void
@@ -1088,17 +1129,22 @@ set "cc2BiomeRenames"(value: $ImmutableMap$$Type<string, string>)
 declare module "packages/xaero/map/region/$MapTileChunk" {
 import { $MapTile, $MapTile$$Type } from "packages/xaero/map/region/$MapTile"
 import { $BlockTintProvider$$Type } from "packages/xaero/map/biome/$BlockTintProvider"
+import { $MapWorld$$Type } from "packages/xaero/map/world/$MapWorld"
+import { $SeenChunksTrackingMapTileChunk } from "packages/xaeroplus/feature/extensions/$SeenChunksTrackingMapTileChunk"
+import { $DataOutputStream$$Type } from "packages/java/io/$DataOutputStream"
+import { $Operation$$Type } from "packages/com/llamalad7/mixinextras/injector/wrapoperation/$Operation"
+import { $MapRegion, $MapRegion$$Type } from "packages/xaero/map/region/$MapRegion"
+import { $ByteBuffer$$Type } from "packages/java/nio/$ByteBuffer"
+import { $MapDimension } from "packages/xaero/map/world/$MapDimension"
 import { $LeafRegionTexture, $LeafRegionTexture$$Type } from "packages/xaero/map/region/texture/$LeafRegionTexture"
 import { $BlockStateShortShapeCache$$Type } from "packages/xaero/map/cache/$BlockStateShortShapeCache"
 import { $LeveledRegion$$Type } from "packages/xaero/map/region/$LeveledRegion"
 import { $MapProcessor$$Type } from "packages/xaero/map/$MapProcessor"
+import { $CallbackInfo$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfo"
 import { $DataInputStream$$Type } from "packages/java/io/$DataInputStream"
-import { $DataOutputStream$$Type } from "packages/java/io/$DataOutputStream"
-import { $MapRegion, $MapRegion$$Type } from "packages/xaero/map/region/$MapRegion"
-import { $ByteBuffer$$Type } from "packages/java/nio/$ByteBuffer"
 import { $OverlayManager$$Type } from "packages/xaero/map/region/$OverlayManager"
 
-export class $MapTileChunk {
+export class $MapTileChunk implements $SeenChunksTrackingMapTileChunk {
 static readonly "SIDE_LENGTH": integer
 
 constructor(mapRegion0: $MapRegion$$Type, int1: integer, int2: integer)
@@ -1109,12 +1155,15 @@ public "getInRegion"(): $MapRegion
 public "getLeafTexture"(): $LeafRegionTexture
 public "getLoadState"(): integer
 public "getNeighbourTileChunk"(int0: integer, int1: integer, mapProcessor2: $MapProcessor$$Type, boolean3: boolean): $MapTileChunk
+public "getSeenTiles"(): boolean[][]
 public "getTile"(int0: integer, int1: integer): $MapTile
 public "getTileGridsCache"(): byte[][]
 public "getTimer"(): integer
 public "getToUpdateBuffers"(): boolean
 public "getX"(): integer
 public "getZ"(): integer
+public "handler$clo000$readCacheData"(ci: $CallbackInfo$$Type): void
+public "handler$clo000$setTile"(x: integer, z: integer, tile: $MapTile$$Type, blockStateShortShapeCache: $BlockStateShortShapeCache$$Type, ci: $CallbackInfo$$Type): void
 public "hasHadTerrain"(): boolean
 public "hasHighlights"(): boolean
 public "hasHighlightsIfUndiscovered"(): boolean
@@ -1133,10 +1182,12 @@ public "unincludeInSave"(): void
 public "unsetHasHadTerrain"(): void
 public "updateBuffers"(mapProcessor0: $MapProcessor$$Type, blockTintProvider1: $BlockTintProvider$$Type, overlayManager2: $OverlayManager$$Type, boolean3: boolean, blockStateShortShapeCache4: $BlockStateShortShapeCache$$Type): void
 public "wasChanged"(): boolean
+public "wrapOperation$clo000$useRegionDimensionInsteadOfMapWorld"(mapWorld: $MapWorld$$Type, original: $Operation$$Type<any>): $MapDimension
 public "writeCacheData"(dataOutputStream0: $DataOutputStream$$Type, byte1s: byte[], byte2s: byte[], leveledRegion3: $LeveledRegion$$Type<$LeafRegionTexture$$Type>): void
 get "inRegion"(): $MapRegion
 get "leafTexture"(): $LeafRegionTexture
 get "loadState"(): integer
+get "seenTiles"(): boolean[][]
 get "tileGridsCache"(): byte[][]
 get "timer"(): integer
 get "toUpdateBuffers"(): boolean
@@ -1316,8 +1367,8 @@ public "getCaveModeType"(): integer
 public "getCurrentMultiworld"(): string
 public "getDimId"(): $ResourceKey<$Level>
 public "getDimensionEffects"(registry0: $Registry$$Type<$DimensionType$$Type>): $DimensionSpecialEffects
-public static "getDimensionType"(mapDimension0: $MapDimension$$Type, resourceKey1: $ResourceKey$$Type<$Level>, registry2: $Registry$$Type<$DimensionType$$Type>): $DimensionType
 public "getDimensionType"(registry0: $Registry$$Type<$DimensionType$$Type>): $DimensionType
+public static "getDimensionType"(mapDimension0: $MapDimension$$Type, resourceKey1: $ResourceKey$$Type<$Level>, registry2: $Registry$$Type<$DimensionType$$Type>): $DimensionType
 public "getDimensionTypeId"(): $ResourceLocation
 public "getFullReloader"(): $MapFullReloader
 public "getFutureCustomSelectedMultiworld"(): string
@@ -1501,14 +1552,20 @@ constructor()
 }
 
 declare module "packages/xaero/map/gui/$GuiSettings" {
-import { $ScreenBase } from "packages/xaero/map/gui/$ScreenBase"
+import { $AbstractWidget } from "packages/net/minecraft/client/gui/components/$AbstractWidget"
 import { $Component$$Type } from "packages/net/minecraft/network/chat/$Component"
+import { $LocalIntRef$$Type } from "packages/com/llamalad7/mixinextras/sugar/ref/$LocalIntRef"
+import { $FocusNavigationEvent$$Type } from "packages/net/minecraft/client/gui/navigation/$FocusNavigationEvent"
+import { $Screen$$Type } from "packages/net/minecraft/client/gui/screens/$Screen"
+import { $Operation$$Type } from "packages/com/llamalad7/mixinextras/injector/wrapoperation/$Operation"
+import { $GuiGraphics$$Type } from "packages/net/minecraft/client/gui/$GuiGraphics"
+import { $ISettingEntry, $ISettingEntry$$Type } from "packages/xaero/map/gui/$ISettingEntry"
+import { $ScreenBase } from "packages/xaero/map/gui/$ScreenBase"
 import { $GuiEventListener, $GuiEventListener$$Type } from "packages/net/minecraft/client/gui/components/events/$GuiEventListener"
 import { $ComponentPath } from "packages/net/minecraft/client/gui/$ComponentPath"
-import { $FocusNavigationEvent$$Type } from "packages/net/minecraft/client/gui/navigation/$FocusNavigationEvent"
+import { $CallbackInfo$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfo"
 import { $Optional } from "packages/java/util/$Optional"
-import { $Screen$$Type } from "packages/net/minecraft/client/gui/screens/$Screen"
-import { $ISettingEntry } from "packages/xaero/map/gui/$ISettingEntry"
+import { $ArrayList$$Type } from "packages/java/util/$ArrayList"
 
 export class $GuiSettings extends $ScreenBase {
 constructor(component0: $Component$$Type, screen1: $Screen$$Type, screen2: $Screen$$Type)
@@ -1518,6 +1575,9 @@ public "getCurrentFocusPath"(): $ComponentPath
 public "getEntriesCopy"(): $ISettingEntry[]
 public "getIndex"(guiEventListener0: $GuiEventListener$$Type): integer
 public "getTabOrderGroup"(): integer
+public "handler$clb000$drawScreen"(guiGraphics: $GuiGraphics$$Type, mouseX: integer, mouseY: integer, delta: float, ci: $CallbackInfo$$Type): void
+public "handler$cnh001$adjustEntriesPerPage"(ci: $CallbackInfo$$Type): void
+public "handler$cnh001$adjustForwardBackButtonPositionsForExtraRows"(ci: $CallbackInfo$$Type): void
 public "isFocused"(): boolean
 public "keyReleased"(int0: integer, int1: integer, int2: integer): boolean
 public "m_7856_"(): void
@@ -1525,8 +1585,11 @@ public "magicalSpecialHackyFocus"(guiEventListener0: $GuiEventListener$$Type): v
 public "mouseDragged"(double0: double, double1: double, int2: integer, double3: double, double4: double): boolean
 public "mouseMoved"(double0: double, double1: double): void
 public "nextFocusPath"(focusNavigationEvent0: $FocusNavigationEvent$$Type): $ComponentPath
+public "redirect$cnh001$settingListToRenderRedirect"(instance: $ArrayList$$Type<any>, entryObject: any): boolean
 public "restoreFocus"(int0: integer): void
 public "setFocused"(boolean0: boolean): void
+public "wrapOperation$cnh000$adjustSettingEntryWidth"(instance: $ISettingEntry$$Type, x: integer, y: integer, w: integer, canEditIngameSettings: boolean, original: $Operation$$Type<any>, i: integer): $AbstractWidget
+public "wrapOperation$cnh000$adjustSettingEntryWidth$mixinextras$bridge$31"(instance: $ISettingEntry$$Type, x: integer, y: integer, w: integer, canEditIngameSettings: boolean, original: $Operation$$Type<any>, i: $LocalIntRef$$Type): $AbstractWidget
 get "currentFocusPath"(): $ComponentPath
 get "entriesCopy"(): $ISettingEntry[]
 get "tabOrderGroup"(): integer
@@ -1638,14 +1701,17 @@ public static "values"(): $WorldDataHandler$Result[]
 }
 
 declare module "packages/xaero/map/region/$LeveledRegion" {
+import { $ZipOutputStream$$Type } from "packages/java/util/zip/$ZipOutputStream"
 import { $Comparable } from "packages/java/lang/$Comparable"
 import { $RegionTexture, $RegionTexture$$Type } from "packages/xaero/map/region/texture/$RegionTexture"
 import { $OldFormatSupport$$Type } from "packages/xaero/map/file/$OldFormatSupport"
+import { $OutputStream$$Type } from "packages/java/io/$OutputStream"
 import { $FastPalette } from "packages/xaero/map/palette/$FastPalette"
-import { $DataOutputStream$$Type } from "packages/java/io/$DataOutputStream"
+import { $DataOutputStream, $DataOutputStream$$Type } from "packages/java/io/$DataOutputStream"
 import { $Registry$$Type } from "packages/net/minecraft/core/$Registry"
 import { $BranchLeveledRegion, $BranchLeveledRegion$$Type } from "packages/xaero/map/region/$BranchLeveledRegion"
 import { $MapDimension, $MapDimension$$Type } from "packages/xaero/map/world/$MapDimension"
+import { $CallbackInfoReturnable$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfoReturnable"
 import { $File, $File$$Type } from "packages/java/io/$File"
 import { $MapProcessor$$Type } from "packages/xaero/map/$MapProcessor"
 import { $List$$Type } from "packages/java/util/$List"
@@ -1688,6 +1754,7 @@ public "getRegionX"(): integer
 public "getRegionZ"(): integer
 public "getRootRegion"(): $LeveledRegion<any>
 public "getTexture"(int0: integer, int1: integer): T
+public "handler$clj000$writeSaveCacheTexturesZipOutputStream"(tempFile: $File$$Type, extraAttempts: integer, cir: $CallbackInfoReturnable$$Type<any>, zipOutputRef: $ZipOutputStream$$Type): void
 public "hasRemovableSourceData"(): boolean
 public "hasTextures"(): boolean
 public "isAllCachePrepared"(): boolean
@@ -1707,6 +1774,7 @@ public "preCache"(): void
 public "processWhenLoadedChunksExist"(int0: integer): void
 public "putTexture"(int0: integer, int1: integer, t2: T): void
 public "recacheHasBeenRequested"(): boolean
+public "redirect$clj000$replaceSaveCacheTexturesZipOutputStream"(out: $OutputStream$$Type): $DataOutputStream
 public "reloadHasBeenRequested"(): boolean
 public "resetBiomePalette"(): void
 public "saveBiomePalette"(dataOutputStream0: $DataOutputStream$$Type): void
@@ -1828,9 +1896,11 @@ import { $MapConnectionManager } from "packages/xaero/map/world/$MapConnectionMa
 import { $MapProcessor, $MapProcessor$$Type } from "packages/xaero/map/$MapProcessor"
 import { $List, $List$$Type } from "packages/java/util/$List"
 import { $MapConnectionNode } from "packages/xaero/map/world/$MapConnectionNode"
+import { $Operation$$Type } from "packages/com/llamalad7/mixinextras/injector/wrapoperation/$Operation"
 import { $Level } from "packages/net/minecraft/world/level/$Level"
 import { $ResourceKey, $ResourceKey$$Type } from "packages/net/minecraft/resources/$ResourceKey"
 import { $MapDimension, $MapDimension$$Type } from "packages/xaero/map/world/$MapDimension"
+import { $CallbackInfoReturnable$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfoReturnable"
 
 export class $MapWorld {
 constructor(string0: string, string1: string, mapProcessor2: $MapProcessor$$Type)
@@ -1860,6 +1930,7 @@ public "getPlayerMapKey"(): $MapConnectionNode
 public "getPlayerTeleportCommandFormat"(): string
 public "getPotentialDimId"(): $ResourceKey<$Level>
 public "getTeleportCommandFormat"(): string
+public "handler$clp000$checkTeleportGloballyDisabled"(cir: $CallbackInfoReturnable$$Type<any>): void
 public "isCacheOnlyMode"(): boolean
 public "isCurrentMultiworldTypeConfirmed"(): boolean
 public "isFutureMultiworldTypeConfirmed"(mapDimension0: $MapDimension$$Type): boolean
@@ -1884,6 +1955,7 @@ public "switchToFutureUnsynced"(): void
 public "toggleDimension"(boolean0: boolean): void
 public "toggleMultiworldTypeUnsynced"(): void
 public "unconfirmMultiworldTypeUnsynced"(): void
+public "wrapOperation$clp000$setCurrentDimensionRef"(instance: $MapWorld$$Type, value: $ResourceKey$$Type<any>, original: $Operation$$Type<any>): void
 get "currentDimension"(): $MapDimension
 get "currentDimensionId"(): $ResourceKey<$Level>
 get "currentMultiworld"(): string
@@ -2043,8 +2115,8 @@ public static "create"(int0: integer, int1: integer): $LevelHeightAccessor
 public "getBiomeColor"(blockPos0: $BlockPos$$Type, blockState1: $BlockState$$Type, boolean2: boolean, mapTile3: $MapTile$$Type, int4: integer): integer
 public "getBlockEntity"(blockPos0: $BlockPos$$Type): $BlockEntity
 public "getBlockEntity"<T extends $BlockEntity>(blockPos0: $BlockPos$$Type, blockEntityType1: $BlockEntityType$$Type<T>): $Optional<T>
-public "getBlockFloorHeight"(blockPos0: $BlockPos$$Type): double
 public "getBlockFloorHeight"(voxelShape0: $VoxelShape$$Type, supplier1: $Supplier$$Type<$VoxelShape>): double
+public "getBlockFloorHeight"(blockPos0: $BlockPos$$Type): double
 public "getBlockState"(blockPos0: $BlockPos$$Type): $BlockState
 public "getBlockStates"(aABB0: $AABB$$Type): $Stream<$BlockState>
 public "getBlockTint"(blockPos0: $BlockPos$$Type, colorResolver1: $ColorResolver$$Type): integer
@@ -2095,6 +2167,32 @@ public "getCapacity"(): integer
 public "getIterator"(): $Iterator<$Message>
 get "capacity"(): integer
 get "iterator"(): $Iterator<$Message>
+}
+}
+
+declare module "packages/xaero/map/region/$OverlayBuilder" {
+import { $MapProcessor$$Type } from "packages/xaero/map/$MapProcessor"
+import { $Overlay } from "packages/xaero/map/region/$Overlay"
+import { $Biome } from "packages/net/minecraft/world/level/biome/$Biome"
+import { $BlockState$$Type } from "packages/net/minecraft/world/level/block/state/$BlockState"
+import { $ResourceKey, $ResourceKey$$Type } from "packages/net/minecraft/resources/$ResourceKey"
+import { $MapBlock$$Type } from "packages/xaero/map/region/$MapBlock"
+import { $OverlayManager$$Type } from "packages/xaero/map/region/$OverlayManager"
+
+export class $OverlayBuilder {
+constructor(overlayManager0: $OverlayManager$$Type)
+
+public "build"(blockState0: $BlockState$$Type, int1: integer, byte2: byte, mapProcessor3: $MapProcessor$$Type, resourceKey4: $ResourceKey$$Type<$Biome>): void
+public "finishBuilding"(mapBlock0: $MapBlock$$Type): void
+public "getCurrentOverlay"(): $Overlay
+public "getOverlayBiome"(): $ResourceKey<$Biome>
+public "isEmpty"(): boolean
+public "setOverlayBiome"(resourceKey0: $ResourceKey$$Type<$Biome>): void
+public "startBuilding"(): void
+get "currentOverlay"(): $Overlay
+get "overlayBiome"(): $ResourceKey<$Biome>
+get "empty"(): boolean
+set "overlayBiome"(value: $ResourceKey$$Type<$Biome>)
 }
 }
 
@@ -2284,7 +2382,9 @@ public "stop"(): void
 }
 
 declare module "packages/xaero/map/cache/$BlockStateShortShapeCache" {
+import { $Operation$$Type } from "packages/com/llamalad7/mixinextras/injector/wrapoperation/$Operation"
 import { $BlockState$$Type } from "packages/net/minecraft/world/level/block/state/$BlockState"
+import { $Supplier } from "packages/java/util/function/$Supplier"
 
 export class $BlockStateShortShapeCache {
 constructor()
@@ -2292,6 +2392,7 @@ constructor()
 public "isShort"(blockState0: $BlockState$$Type): boolean
 public "reset"(): void
 public "supplyForIOThread"(): void
+public "wrapOperation$ckh000$patchConcurrencyCrash"(instance: $BlockStateShortShapeCache$$Type, original: $Operation$$Type<any>): $Supplier<any>
 }
 }
 
@@ -2383,8 +2484,8 @@ public "preUpload"(mapProcessor0: $MapProcessor$$Type, blockTintProvider1: $Bloc
 public "prepareBuffer"(): void
 public "putHeight"(int0: integer, int1: integer): void
 public "putHeight"(int0: integer, int1: integer, int2: integer): void
-public "putTopHeight"(int0: integer, int1: integer, int2: integer): void
 public "putTopHeight"(int0: integer, int1: integer): void
+public "putTopHeight"(int0: integer, int1: integer, int2: integer): void
 public "readCacheData"(int0: integer, int1: integer, dataInputStream2: $DataInputStream$$Type, byte3s: byte[], byte4s: byte[], leveledRegion5: $LeveledRegion$$Type<T>, mapProcessor6: $MapProcessor$$Type, int7: integer, int8: integer, boolean9: boolean): void
 public "removeHeight"(int0: integer, int1: integer): void
 public "removeTopHeight"(int0: integer, int1: integer): void
@@ -2580,27 +2681,32 @@ public "shouldApplyTileChunkHighlights"(int0: integer, int1: integer, int2: inte
 }
 
 declare module "packages/xaero/map/file/$MapSaveLoad" {
+import { $ZipOutputStream$$Type } from "packages/java/util/zip/$ZipOutputStream"
 import { $Fluid$$Type } from "packages/net/minecraft/world/level/material/$Fluid"
-import { $Path, $Path$$Type } from "packages/java/nio/file/$Path"
 import { $OldFormatSupport, $OldFormatSupport$$Type } from "packages/xaero/map/file/$OldFormatSupport"
-import { $BiomeGetter$$Type } from "packages/xaero/map/biome/$BiomeGetter"
-import { $MapRegionInfo$$Type } from "packages/xaero/map/file/$MapRegionInfo"
-import { $Registry$$Type } from "packages/net/minecraft/core/$Registry"
-import { $MapRegion, $MapRegion$$Type } from "packages/xaero/map/region/$MapRegion"
 import { $BranchLeveledRegion$$Type } from "packages/xaero/map/region/$BranchLeveledRegion"
 import { $MapDimension$$Type } from "packages/xaero/map/world/$MapDimension"
 import { $RegionDetection$$Type } from "packages/xaero/map/file/$RegionDetection"
 import { $Block$$Type } from "packages/net/minecraft/world/level/block/$Block"
+import { $CallbackInfoReturnable$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfoReturnable"
 import { $Consumer$$Type } from "packages/java/util/function/$Consumer"
-import { $BlockStateShortShapeCache$$Type } from "packages/xaero/map/cache/$BlockStateShortShapeCache"
 import { $File, $File$$Type } from "packages/java/io/$File"
 import { $LeveledRegion, $LeveledRegion$$Type } from "packages/xaero/map/region/$LeveledRegion"
+import { $Biome$$Type } from "packages/net/minecraft/world/level/biome/$Biome"
+import { $LocalRef$$Type } from "packages/com/llamalad7/mixinextras/sugar/ref/$LocalRef"
+import { $HolderLookup$$Type } from "packages/net/minecraft/core/$HolderLookup"
+import { $Path, $Path$$Type } from "packages/java/nio/file/$Path"
+import { $OutputStream$$Type } from "packages/java/io/$OutputStream"
+import { $BiomeGetter$$Type } from "packages/xaero/map/biome/$BiomeGetter"
+import { $MapRegionInfo$$Type } from "packages/xaero/map/file/$MapRegionInfo"
+import { $DataOutputStream } from "packages/java/io/$DataOutputStream"
+import { $Registry$$Type } from "packages/net/minecraft/core/$Registry"
+import { $MapRegion, $MapRegion$$Type } from "packages/xaero/map/region/$MapRegion"
+import { $BlockStateShortShapeCache$$Type } from "packages/xaero/map/cache/$BlockStateShortShapeCache"
 import { $PNGExporter$$Type } from "packages/xaero/map/file/export/$PNGExporter"
 import { $ExportScreen$$Type } from "packages/xaero/map/gui/$ExportScreen"
 import { $MapProcessor$$Type } from "packages/xaero/map/$MapProcessor"
 import { $ArrayList } from "packages/java/util/$ArrayList"
-import { $Biome$$Type } from "packages/net/minecraft/world/level/biome/$Biome"
-import { $HolderLookup$$Type } from "packages/net/minecraft/core/$HolderLookup"
 import { $OverlayManager$$Type } from "packages/xaero/map/region/$OverlayManager"
 import { $MapTileSelection$$Type } from "packages/xaero/map/gui/$MapTileSelection"
 
@@ -2633,8 +2739,13 @@ public "getSizeOfToLoad"(): integer
 public "getSizeOfToLoadBranchCache"(): integer
 public "getTempFile"(file0: $File$$Type): $File
 public "getToSave"(): $ArrayList<$MapRegion>
+public "handler$clm000$closeZipOutputStream"(cir: $CallbackInfoReturnable$$Type<any>, zipOutShare: $LocalRef$$Type<any>): void
+public "handler$clm000$getOldFolder"(oldUnfixedMainId: string, dim: string, cir: $CallbackInfoReturnable$$Type<any>): void
+public "handler$clm000$saveRegionWriteZipOutputStream"(cir: $CallbackInfoReturnable$$Type<any>, zipOut: $ZipOutputStream$$Type): void
 public "isRegionDetectionComplete"(): boolean
 public "loadRegion"(mapRegion0: $MapRegion$$Type, holderLookup1: $HolderLookup$$Type<$Block$$Type>, registry2: $Registry$$Type<$Block$$Type>, registry3: $Registry$$Type<$Fluid$$Type>, biomeGetter4: $BiomeGetter$$Type, int5: integer): boolean
+public "redirect$clm000$replaceSaveRegionZipOutputStream"(out: $OutputStream$$Type, zipOut: $ZipOutputStream$$Type, zipOutShare: $LocalRef$$Type<any>): $DataOutputStream
+public "redirect$clm000$replaceSaveRegionZipOutputStream$mixinextras$bridge$59"(out: $OutputStream$$Type, zipOut: $LocalRef$$Type<any>, zipOutShare: $LocalRef$$Type<any>): $DataOutputStream
 public "removeTempCacheRequest"(file0: $File$$Type): boolean
 public "removeToCache"(mapDimension0: $MapDimension$$Type, int1: integer): $LeveledRegion<any>
 public "removeToCache"(leveledRegion0: $LeveledRegion$$Type<any>): void
@@ -2642,8 +2753,8 @@ public "removeToLoad"(mapRegion0: $MapRegion$$Type): void
 public "requestBranchCache"(branchLeveledRegion0: $BranchLeveledRegion$$Type, string1: string): void
 public "requestBranchCache"(branchLeveledRegion0: $BranchLeveledRegion$$Type, string1: string, boolean2: boolean): void
 public "requestCache"(leveledRegion0: $LeveledRegion$$Type<any>): void
-public "requestLoad"(mapRegion0: $MapRegion$$Type, string1: string, boolean2: boolean): void
 public "requestLoad"(mapRegion0: $MapRegion$$Type, string1: string): void
+public "requestLoad"(mapRegion0: $MapRegion$$Type, string1: string, boolean2: boolean): void
 public "run"(holderLookup0: $HolderLookup$$Type<$Block$$Type>, registry1: $Registry$$Type<$Block$$Type>, registry2: $Registry$$Type<$Fluid$$Type>, biomeGetter3: $BiomeGetter$$Type, registry4: $Registry$$Type<$Biome$$Type>): void
 public "safeDelete"(path0: $Path$$Type, string1: string): void
 public "safeMoveAndReplace"(path0: $Path$$Type, path1: $Path$$Type, string2: string, string3: string): void
@@ -2695,6 +2806,7 @@ public "getDimId"(): string
 public "getInitialVersion"(): integer
 public "getMwId"(): string
 public "getNext"(): $RegionDetection
+public "getPrevious"(): $RegionDetection
 public "getRegionFile"(): $File
 public "getRegionX"(): integer
 public "getRegionZ"(): integer
@@ -2718,6 +2830,7 @@ get "dimId"(): string
 get "initialVersion"(): integer
 get "mwId"(): string
 get "next"(): $RegionDetection
+get "previous"(): $RegionDetection
 get "regionFile"(): $File
 get "regionX"(): integer
 get "regionZ"(): integer
@@ -2766,10 +2879,13 @@ declare module "packages/xaero/map/file/worldsave/$WorldDataReader" {
 import { $ChunkPos$$Type } from "packages/net/minecraft/world/level/$ChunkPos"
 import { $Fluid$$Type } from "packages/net/minecraft/world/level/material/$Fluid"
 import { $CompoundTag } from "packages/net/minecraft/nbt/$CompoundTag"
+import { $LocalIntRef$$Type } from "packages/com/llamalad7/mixinextras/sugar/ref/$LocalIntRef"
 import { $Registry$$Type } from "packages/net/minecraft/core/$Registry"
 import { $MapRegion$$Type } from "packages/xaero/map/region/$MapRegion"
 import { $Block$$Type } from "packages/net/minecraft/world/level/block/$Block"
+import { $CallbackInfoReturnable$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfoReturnable"
 import { $RegionFile$$Type } from "packages/net/minecraft/world/level/chunk/storage/$RegionFile"
+import { $MapTileChunk$$Type } from "packages/xaero/map/region/$MapTileChunk"
 import { $WorldDataBiomeManager$$Type } from "packages/xaero/map/file/worldsave/biome/$WorldDataBiomeManager"
 import { $BlockStateShortShapeCache$$Type } from "packages/xaero/map/cache/$BlockStateShortShapeCache"
 import { $MapProcessor$$Type } from "packages/xaero/map/$MapProcessor"
@@ -2782,6 +2898,7 @@ export class $WorldDataReader {
 constructor(overlayManager0: $OverlayManager$$Type, blockStateShortShapeCache1: $BlockStateShortShapeCache$$Type, worldDataBiomeManager2: $WorldDataBiomeManager$$Type, long3: long)
 
 public "buildRegion"(mapRegion0: $MapRegion$$Type, serverLevel1: $ServerLevel$$Type, holderLookup2: $HolderLookup$$Type<$Block$$Type>, registry3: $Registry$$Type<$Block$$Type>, registry4: $Registry$$Type<$Fluid$$Type>, boolean5: boolean, int6s: integer[], executor7: $Executor$$Type): boolean
+public "handler$cng000$applyNetherCaveFix"(cir: $CallbackInfoReturnable$$Type<any>, tileChunk: $MapTileChunk$$Type, caveStartRef: $LocalIntRef$$Type): void
 public "readChunk"(regionFile0: $RegionFile$$Type, chunkPos1: $ChunkPos$$Type): $CompoundTag
 public "setMapProcessor"(mapProcessor0: $MapProcessor$$Type): void
 get "taskCreationSync"(): any
@@ -2956,8 +3073,8 @@ public "m_87963_"(guiGraphics0: $GuiGraphics$$Type, int1: integer, int2: integer
 public "mouseClicked"(int0: integer, int1: integer, int2: integer, int3: integer): boolean
 public "mouseReleased"(int0: integer, int1: integer, int2: integer, int3: integer): void
 public "mouseScrolled"(int0: integer, int1: integer, int2: integer, int3: integer): void
-public "onDropDown"(int0: integer, int1: integer, boolean2: boolean, int3: integer): boolean
 public "onDropDown"(int0: integer, int1: integer, int2: integer): boolean
+public "onDropDown"(int0: integer, int1: integer, boolean2: boolean, int3: integer): boolean
 public "render"(guiGraphics0: $GuiGraphics$$Type, int1: integer, int2: integer, int3: integer, boolean4: boolean): void
 public "selectId"(int0: integer, boolean1: boolean): void
 public "setActive"(boolean0: boolean): void
@@ -3016,6 +3133,7 @@ import { $Block$$Type } from "packages/net/minecraft/world/level/block/$Block"
 import { $MapTileChunk$$Type } from "packages/xaero/map/region/$MapTileChunk"
 import { $BlockStateShortShapeCache$$Type } from "packages/xaero/map/cache/$BlockStateShortShapeCache"
 import { $MapProcessor$$Type } from "packages/xaero/map/$MapProcessor"
+import { $CallbackInfo$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfo"
 import { $Overlay$$Type } from "packages/xaero/map/region/$Overlay"
 import { $ArrayList$$Type } from "packages/java/util/$ArrayList"
 import { $Biome$$Type } from "packages/net/minecraft/world/level/biome/$Biome"
@@ -3028,6 +3146,7 @@ constructor()
 public "getBlockBrightness"(float0: float, int1: integer, int2: integer): float
 public "getPixelColours"(int0s: integer[], mapWriter1: $MapWriter$$Type, level2: $Level$$Type, mapDimension3: $MapDimension$$Type, registry4: $Registry$$Type<$Block$$Type>, mapTileChunk5: $MapTileChunk$$Type, mapTileChunk6: $MapTileChunk$$Type, mapTileChunk7: $MapTileChunk$$Type, mapTileChunk8: $MapTileChunk$$Type, mapTile9: $MapTile$$Type, int10: integer, int11: integer, mapBlock12: $MapBlock$$Type, int13: integer, int14: integer, int15: integer, int16: integer, arrayList17: $ArrayList$$Type<$Overlay$$Type>, mutableBlockPos18: $BlockPos$MutableBlockPos$$Type, registry19: $Registry$$Type<$Biome$$Type>, registry20: $Registry$$Type<$DimensionType$$Type>, float21: float, float22: float, float23: float, blockTintProvider24: $BlockTintProvider$$Type, mapProcessor25: $MapProcessor$$Type, overlayManager26: $OverlayManager$$Type, blockStateShortShapeCache27: $BlockStateShortShapeCache$$Type): void
 public "getState"(): $BlockState
+public "handler$clk000$getPixelColours"(ci: $CallbackInfo$$Type, result_dest: integer[]): void
 public "setGlowing"(boolean0: boolean): void
 public "setLight"(byte0: byte): void
 public "setState"(blockState0: $BlockState$$Type): void

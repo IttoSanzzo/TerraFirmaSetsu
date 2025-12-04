@@ -563,10 +563,10 @@ public "getRemaining"(): string
 public "getRemainingLowerCase"(): string
 public "getStart"(): integer
 public "restart"(): $SuggestionsBuilder
-public "suggest"(int0: integer, message1: $Message$$Type): $SuggestionsBuilder
 public "suggest"(int0: integer): $SuggestionsBuilder
 public "suggest"(string0: string, message1: $Message$$Type): $SuggestionsBuilder
 public "suggest"(string0: string): $SuggestionsBuilder
+public "suggest"(int0: integer, message1: $Message$$Type): $SuggestionsBuilder
 get "input"(): string
 get "remaining"(): string
 get "remainingLowerCase"(): string
@@ -704,13 +704,13 @@ public "execute"(string0: string, s1: S): integer
 public "findAmbiguities"(ambiguityConsumer0: $AmbiguityConsumer$$Type<S>): void
 public "findNode"(collection0: $Collection$$Type<string>): $CommandNode<S>
 public "getAllUsage"(commandNode0: $CommandNode$$Type<S>, s1: S, boolean2: boolean): string[]
-public "getCompletionSuggestions"(parseResults0: $ParseResults$$Type<S>, int1: integer): $CompletableFuture<$Suggestions>
 public "getCompletionSuggestions"(parseResults0: $ParseResults$$Type<S>): $CompletableFuture<$Suggestions>
+public "getCompletionSuggestions"(parseResults0: $ParseResults$$Type<S>, int1: integer): $CompletableFuture<$Suggestions>
 public "getPath"(commandNode0: $CommandNode$$Type<S>): $Collection<string>
 public "getRoot"(): $RootCommandNode<S>
 public "getSmartUsage"(commandNode0: $CommandNode$$Type<S>, s1: S): $Map<$CommandNode<S>, string>
-public "parse"(stringReader0: $StringReader$$Type, s1: S): $ParseResults<S>
 public "parse"(string0: string, s1: S): $ParseResults<S>
+public "parse"(stringReader0: $StringReader$$Type, s1: S): $ParseResults<S>
 public "register"(literalArgumentBuilder0: $LiteralArgumentBuilder$$Type<S>): $LiteralCommandNode<S>
 public "setConsumer"(resultConsumer0: $ResultConsumer$$Type<S>): void
 get "root"(): $RootCommandNode<S>

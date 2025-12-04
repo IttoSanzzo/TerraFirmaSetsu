@@ -126,6 +126,7 @@ import { $TransformableBlockEntity } from "packages/com/simibubi/create/api/cont
 import { $ModelData } from "packages/net/minecraftforge/client/model/data/$ModelData"
 import { $SignalBlockEntity$SignalState, $SignalBlockEntity$SignalState$$Type } from "packages/com/simibubi/create/content/trains/signal/$SignalBlockEntity$SignalState"
 import { $StructureTransform$$Type } from "packages/com/simibubi/create/content/contraptions/$StructureTransform"
+import { $Direction$$Type } from "packages/net/minecraft/core/$Direction"
 import { $BlockEntityType$$Type } from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
 import { $BlockState$$Type } from "packages/net/minecraft/world/level/block/state/$BlockState"
 import { $TrackTargetingBehaviour, $TrackTargetingBehaviour$$Type } from "packages/com/simibubi/create/content/trains/track/$TrackTargetingBehaviour"
@@ -135,6 +136,7 @@ import { $SignalBlockEntity$OverlayState, $SignalBlockEntity$OverlayState$$Type 
 import { $SmartBlockEntity } from "packages/com/simibubi/create/foundation/blockEntity/$SmartBlockEntity"
 import { $Player$$Type } from "packages/net/minecraft/world/entity/player/$Player"
 import { $BlockEntity$$Type } from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
+import { $AbstractComputerBehaviour, $AbstractComputerBehaviour$$Type } from "packages/com/simibubi/create/compat/computercraft/$AbstractComputerBehaviour"
 import { $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
 
 export class $SignalBlockEntity extends $SmartBlockEntity implements $TransformableBlockEntity {
@@ -142,6 +144,7 @@ constructor(blockEntityType0: $BlockEntityType$$Type<any>, blockPos1: $BlockPos$
 
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "enterState"(signalState0: $SignalBlockEntity$SignalState$$Type): void
+public "getCapability"<T>(capability0: $Capability$$Type<T>, direction1: $Direction$$Type): $LazyOptional<T>
 public "getCapability"<T>(capability0: $Capability$$Type<T>): $LazyOptional<T>
 public "getModelData"(): $ModelData
 public "getOverlay"(): $SignalBlockEntity$OverlayState
@@ -156,6 +159,8 @@ public "sdl$isDynamicLightEnabled"(): boolean
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "setOverlay"(overlayState0: $SignalBlockEntity$OverlayState$$Type): void
 public "transform"(blockEntity0: $BlockEntity$$Type, structureTransform1: $StructureTransform$$Type): void
+get "computerBehaviour"(): $AbstractComputerBehaviour
+set "computerBehaviour"(value: $AbstractComputerBehaviour$$Type)
 get "edgePoint"(): $TrackTargetingBehaviour<$SignalBoundary>
 set "edgePoint"(value: $TrackTargetingBehaviour$$Type<$SignalBoundary$$Type>)
 get "modelData"(): $ModelData
@@ -469,6 +474,24 @@ get "serializedName"(): string
 }
 }
 
+declare module "packages/com/simibubi/create/content/trains/station/$GlobalPackagePort" {
+import { $ItemStackHandler, $ItemStackHandler$$Type } from "packages/net/minecraftforge/items/$ItemStackHandler"
+import { $IItemHandlerModifiable$$Type } from "packages/net/minecraftforge/items/$IItemHandlerModifiable"
+
+export class $GlobalPackagePort {
+constructor()
+
+public "restoreOfflineBuffer"(iItemHandlerModifiable0: $IItemHandlerModifiable$$Type): void
+public "saveOfflineBuffer"(iItemHandlerModifiable0: $IItemHandlerModifiable$$Type): void
+get "address"(): string
+set "address"(value: string)
+get "offlineBuffer"(): $ItemStackHandler
+set "offlineBuffer"(value: $ItemStackHandler$$Type)
+get "primed"(): boolean
+set "primed"(value: boolean)
+}
+}
+
 declare module "packages/com/simibubi/create/foundation/fluid/$CombinedTankWrapper" {
 import { $IFluidHandler, $IFluidHandler$$Type } from "packages/net/minecraftforge/fluids/capability/$IFluidHandler"
 import { $FluidStack, $FluidStack$$Type } from "packages/net/minecraftforge/fluids/$FluidStack"
@@ -594,7 +617,6 @@ import { $Capability$$Type } from "packages/net/minecraftforge/common/capabiliti
 import { $TargetingConditions$$Type } from "packages/net/minecraft/world/entity/ai/targeting/$TargetingConditions"
 import { $Optional } from "packages/java/util/$Optional"
 import { $PartEntity } from "packages/net/minecraftforge/entity/$PartEntity"
-import { $Trackable } from "packages/dev/uncandango/alltheleaks/mixin/$Trackable"
 import { $LazyOptional } from "packages/net/minecraftforge/common/util/$LazyOptional"
 import { $ChunkStatus$$Type } from "packages/net/minecraft/world/level/chunk/$ChunkStatus"
 import { $Fluid$$Type } from "packages/net/minecraft/world/level/material/$Fluid"
@@ -609,15 +631,13 @@ import { $Biome } from "packages/net/minecraft/world/level/biome/$Biome"
 import { $Stream } from "packages/java/util/stream/$Stream"
 import { $ClipContext$$Type } from "packages/net/minecraft/world/level/$ClipContext"
 import { $ColorResolver$$Type } from "packages/net/minecraft/world/level/$ColorResolver"
-import { $WeakReference } from "packages/java/lang/ref/$WeakReference"
 import { $HolderLookup } from "packages/net/minecraft/core/$HolderLookup"
 import { $BlockPos, $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
 import { $LightLayer$$Type } from "packages/net/minecraft/world/level/$LightLayer"
 import { $VoxelShape, $VoxelShape$$Type } from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
 import { $Collection, $Collection$$Type } from "packages/java/util/$Collection"
 import { $Predicate$$Type } from "packages/java/util/function/$Predicate"
-import { $ObjectOpenCustomHashSet } from "packages/it/unimi/dsi/fastutil/objects/$ObjectOpenCustomHashSet"
-import { $Class, $Class$$Type } from "packages/java/lang/$Class"
+import { $Class$$Type } from "packages/java/lang/$Class"
 import { $CollisionContext$$Type } from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
 import { $FireworksJS$$Type } from "packages/dev/latvian/mods/kubejs/level/$FireworksJS"
 import { $Holder } from "packages/net/minecraft/core/$Holder"
@@ -625,7 +645,6 @@ import { $GameEvent$$Type } from "packages/net/minecraft/world/level/gameevent/$
 import { $ExplosionJS } from "packages/dev/latvian/mods/kubejs/level/$ExplosionJS"
 import { $TickPriority$$Type } from "packages/net/minecraft/world/ticks/$TickPriority"
 import { $ResourceKey$$Type } from "packages/net/minecraft/resources/$ResourceKey"
-import { $Map } from "packages/java/util/$Map"
 
 export class $ContraptionWorld extends $WrappedLevel {
 constructor(level0: $Level$$Type, contraption1: $Contraption$$Type)
@@ -633,7 +652,6 @@ constructor(level0: $Level$$Type, contraption1: $Contraption$$Type)
 public "blockUpdated"(blockPos0: $BlockPos$$Type, block1: $Block$$Type): void
 public "canSeeSky"(blockPos0: $BlockPos$$Type): boolean
 public "canSeeSkyFromBelowWater"(blockPos0: $BlockPos$$Type): boolean
-public static "clearNullReferences"(): void
 public "clip"(clipContext0: $ClipContext$$Type): $BlockHitResult
 public "clipWithInteractionOverride"(vec30: $Vec3$$Type, vec31: $Vec3$$Type, blockPos2: $BlockPos$$Type, voxelShape3: $VoxelShape$$Type, blockState4: $BlockState$$Type): $BlockHitResult
 public "collidesWithSuffocatingBlock"(entity0: $Entity$$Type, aABB1: $AABB$$Type): boolean
@@ -642,7 +660,6 @@ public static "create"(int0: integer, int1: integer): $LevelHeightAccessor
 public "createEntity"(type: $EntityType$$Type<any>): $Entity
 public "createEntityList"(entities: $Collection$$Type<$Entity$$Type>): $EntityArrayList
 public "createExplosion"(x: double, y: double, z: double): $ExplosionJS
-public static "createWeakRefBasedSet"(): $ObjectOpenCustomHashSet<$WeakReference<$Trackable>>
 public "dayTime"(): long
 public "destroyBlock"(blockPos0: $BlockPos$$Type, boolean1: boolean, entity2: $Entity$$Type): boolean
 public "destroyBlock"(blockPos0: $BlockPos$$Type, boolean1: boolean): boolean
@@ -653,20 +670,20 @@ public "gameEvent"(entity0: $Entity$$Type, gameEvent1: $GameEvent$$Type, vec32: 
 public static "getAllLoadedEntities"(level: $Level$$Type): $Iterable<$Entity>
 public "getBestNeighborSignal"(blockPos0: $BlockPos$$Type): integer
 public "getBiome"(blockPos0: $BlockPos$$Type): $Holder<$Biome>
-public "getBlock"(blockEntity: $BlockEntity$$Type): $BlockContainerJS
-public "getBlock"(pos: $BlockPos$$Type): $BlockContainerJS
 public "getBlock"(x: integer, y: integer, z: integer): $BlockContainerJS
+public "getBlock"(pos: $BlockPos$$Type): $BlockContainerJS
+public "getBlock"(blockEntity: $BlockEntity$$Type): $BlockContainerJS
 public "getBlockCollisions"(entity0: $Entity$$Type, aABB1: $AABB$$Type): $Iterable<$VoxelShape>
 public "getBlockEntity"<T extends $BlockEntity>(blockPos0: $BlockPos$$Type, blockEntityType1: $BlockEntityType$$Type<T>): $Optional<T>
-public "getBlockFloorHeight"(blockPos0: $BlockPos$$Type): double
 public "getBlockFloorHeight"(voxelShape0: $VoxelShape$$Type, supplier1: $Supplier$$Type<$VoxelShape>): double
+public "getBlockFloorHeight"(blockPos0: $BlockPos$$Type): double
 public "getBlockStates"(aABB0: $AABB$$Type): $Stream<$BlockState>
 public "getBlockStatesIfLoaded"(aABB0: $AABB$$Type): $Stream<$BlockState>
 public "getBlockTint"(blockPos0: $BlockPos$$Type, colorResolver1: $ColorResolver$$Type): integer
 public "getBrightness"(lightLayer0: $LightLayer$$Type, blockPos1: $BlockPos$$Type): integer
 public "getCapability"<T>(capability0: $Capability$$Type<T>): $LazyOptional<T>
-public "getChunk"(int0: integer, int1: integer, chunkStatus2: $ChunkStatus$$Type): $ChunkAccess
 public "getChunk"(blockPos0: $BlockPos$$Type): $ChunkAccess
+public "getChunk"(int0: integer, int1: integer, chunkStatus2: $ChunkStatus$$Type): $ChunkAccess
 public "getCollisions"(entity0: $Entity$$Type, aABB1: $AABB$$Type): $Iterable<$VoxelShape>
 public "getControlInputSignal"(blockPos0: $BlockPos$$Type, direction1: $Direction$$Type, boolean2: boolean): integer
 public "getDifficulty"(): $Difficulty
@@ -676,8 +693,8 @@ public "getDirectSignalTo"(blockPos0: $BlockPos$$Type): integer
 public "getDisplayName"(): $Component
 public "getEntities"(): $EntityArrayList
 public "getEntities"(entity0: $Entity$$Type, aABB1: $AABB$$Type): $List<$Entity>
-public "getEntitiesOfClass"<T extends $Entity>(class0: $Class$$Type<T>, aABB1: $AABB$$Type): $List<T>
 public "getEntitiesOfClass"<T extends $Entity>(class0: $Class$$Type<T>, aABB1: $AABB$$Type, predicate2: $Predicate$$Type<T>): $List<T>
+public "getEntitiesOfClass"<T extends $Entity>(class0: $Class$$Type<T>, aABB1: $AABB$$Type): $List<T>
 public "getEntitiesWithin"(aabb: $AABB$$Type): $EntityArrayList
 public "getEntityCollisions"(entity0: $Entity$$Type, aABB1: $AABB$$Type): $List<$VoxelShape>
 public "getExistingBlockEntity"(blockPos0: $BlockPos$$Type): $BlockEntity
@@ -693,14 +710,14 @@ public "getMoonPhase"(): integer
 public "getName"(): $Component
 public "getNearbyEntities"<T extends $LivingEntity>(class0: $Class$$Type<T>, targetingConditions1: $TargetingConditions$$Type, livingEntity2: $LivingEntity$$Type, aABB3: $AABB$$Type): $List<T>
 public "getNearbyPlayers"(targetingConditions0: $TargetingConditions$$Type, livingEntity1: $LivingEntity$$Type, aABB2: $AABB$$Type): $List<$Player>
-public "getNearestEntity"<T extends $LivingEntity>(class0: $Class$$Type<T>, targetingConditions1: $TargetingConditions$$Type, livingEntity2: $LivingEntity$$Type, double3: double, double4: double, double5: double, aABB6: $AABB$$Type): T
 public "getNearestEntity"<T extends $LivingEntity>(list0: $List$$Type<T>, targetingConditions1: $TargetingConditions$$Type, livingEntity2: $LivingEntity$$Type, double3: double, double4: double, double5: double): T
+public "getNearestEntity"<T extends $LivingEntity>(class0: $Class$$Type<T>, targetingConditions1: $TargetingConditions$$Type, livingEntity2: $LivingEntity$$Type, double3: double, double4: double, double5: double, aABB6: $AABB$$Type): T
 public "getNearestPlayer"(entity0: $Entity$$Type, double1: double): $Player
 public "getNearestPlayer"(double0: double, double1: double, double2: double, double3: double, boolean4: boolean): $Player
 public "getNearestPlayer"(double0: double, double1: double, double2: double, double3: double, predicate4: $Predicate$$Type<$Entity$$Type>): $Player
-public "getNearestPlayer"(targetingConditions0: $TargetingConditions$$Type, livingEntity1: $LivingEntity$$Type): $Player
 public "getNearestPlayer"(targetingConditions0: $TargetingConditions$$Type, livingEntity1: $LivingEntity$$Type, double2: double, double3: double, double4: double): $Player
 public "getNearestPlayer"(targetingConditions0: $TargetingConditions$$Type, double1: double, double2: double, double3: double): $Player
+public "getNearestPlayer"(targetingConditions0: $TargetingConditions$$Type, livingEntity1: $LivingEntity$$Type): $Player
 public "getNoiseBiome"(int0: integer, int1: integer, int2: integer): $Holder<$Biome>
 public "getPartEntities"(): $Collection<$PartEntity<any>>
 public "getPathfindingCostFromLightLevels"(blockPos0: $BlockPos$$Type): float
@@ -710,7 +727,6 @@ public "getRawBrightness"(blockPos0: $BlockPos$$Type, int1: integer): integer
 public "getShade"(float0: float, float1: float, float2: float, boolean3: boolean): float
 public "getSide"(): $ScriptType
 public "getSignal"(blockPos0: $BlockPos$$Type, direction1: $Direction$$Type): integer
-public static "getSummary"(): $Map<$Class<any>, $Map<$Class<any>, long>>
 public "getTimeOfDay"(float0: float): float
 public "hasChunk"(int0: integer, int1: integer): boolean
 /** @deprecated */
@@ -718,11 +734,11 @@ public "hasChunkAt"(blockPos0: $BlockPos$$Type): boolean
 /** @deprecated */
 public "hasChunkAt"(int0: integer, int1: integer): boolean
 /** @deprecated */
+public "hasChunksAt"(int0: integer, int1: integer, int2: integer, int3: integer): boolean
+/** @deprecated */
 public "hasChunksAt"(int0: integer, int1: integer, int2: integer, int3: integer, int4: integer, int5: integer): boolean
 /** @deprecated */
 public "hasChunksAt"(blockPos0: $BlockPos$$Type, blockPos1: $BlockPos$$Type): boolean
-/** @deprecated */
-public "hasChunksAt"(int0: integer, int1: integer, int2: integer, int3: integer): boolean
 public "hasNearbyAlivePlayer"(double0: double, double1: double, double2: double, double3: double): boolean
 public "hasNeighborSignal"(blockPos0: $BlockPos$$Type): boolean
 public "hasSignal"(blockPos0: $BlockPos$$Type, direction1: $Direction$$Type): boolean
@@ -732,13 +748,13 @@ public "isBlockInLine"(clipBlockStateContext0: $ClipBlockStateContext$$Type): $B
 public "isEmptyBlock"(blockPos0: $BlockPos$$Type): boolean
 public "isOverworld"(): boolean
 public "isUnobstructed"(entity0: $Entity$$Type, voxelShape1: $VoxelShape$$Type): boolean
-public "isUnobstructed"(entity0: $Entity$$Type): boolean
 public "isUnobstructed"(blockState0: $BlockState$$Type, blockPos1: $BlockPos$$Type, collisionContext2: $CollisionContext$$Type): boolean
+public "isUnobstructed"(entity0: $Entity$$Type): boolean
 public "isWaterAt"(blockPos0: $BlockPos$$Type): boolean
 public "levelEvent"(int0: integer, blockPos1: $BlockPos$$Type, int2: integer): void
 public "noCollision"(entity0: $Entity$$Type): boolean
-public "noCollision"(entity0: $Entity$$Type, aABB1: $AABB$$Type): boolean
 public "noCollision"(aABB0: $AABB$$Type): boolean
+public "noCollision"(entity0: $Entity$$Type, aABB1: $AABB$$Type): boolean
 public "playSound"(player0: $Player$$Type, blockPos1: $BlockPos$$Type, soundEvent2: $SoundEvent$$Type, soundSource3: $SoundSource$$Type): void
 public "runCommand"(command: string): integer
 public "runCommandSilent"(command: string): integer
@@ -750,11 +766,8 @@ public "self"(): $Level
 public "setStatusMessage"(message: $Component$$Type): void
 public "spawnFireworks"(x: double, y: double, z: double, f: $FireworksJS$$Type): void
 public "spawnParticles"(options: $ParticleOptions$$Type, overrideLimiter: boolean, x: double, y: double, z: double, vx: double, vy: double, vz: double, count: integer, speed: double): void
-public "startTracking"(): void
-public static "startTracking"(object0: any): void
 public "tell"(message: $Component$$Type): void
 public static "traverseBlocks"<T, C>(vec30: $Vec3$$Type, vec31: $Vec3$$Type, c2: C, biFunction3: $BiFunction$$Type<C, $BlockPos$$Type, T>, function4: $Function$$Type<C, T>): T
-public "wrap"(): $WeakReference<$Trackable>
 get "difficulty"(): $Difficulty
 get "dimension"(): $ResourceLocation
 get "displayName"(): $Component
@@ -791,8 +804,8 @@ public "allAdjacent"(): $Collection<$BlockPos>
 public "equalsIgnoreDim"(object0: any): boolean
 public "getDimension"(): $ResourceKey<$Level>
 public "getLocation"(): $Vec3
-public "in"(level0: $Level$$Type): $TrackNodeLocation
 public "in"(resourceKey0: $ResourceKey$$Type<$Level>): $TrackNodeLocation
+public "in"(level0: $Level$$Type): $TrackNodeLocation
 public static "read"(compoundTag0: $CompoundTag$$Type, dimensionPalette1: $DimensionPalette$$Type): $TrackNodeLocation
 public static "receive"(friendlyByteBuf0: $FriendlyByteBuf$$Type, dimensionPalette1: $DimensionPalette$$Type): $TrackNodeLocation
 public "send"(friendlyByteBuf0: $FriendlyByteBuf$$Type, dimensionPalette1: $DimensionPalette$$Type): void
@@ -964,6 +977,7 @@ import { $Capability$$Type } from "packages/net/minecraftforge/common/capabiliti
 import { $Recipe } from "packages/net/minecraft/world/item/crafting/$Recipe"
 import { $BeltProcessingBehaviour, $BeltProcessingBehaviour$$Type } from "packages/com/simibubi/create/content/kinetics/belt/behaviour/$BeltProcessingBehaviour"
 import { $Player$$Type } from "packages/net/minecraft/world/entity/player/$Player"
+import { $CallbackInfo$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfo"
 import { $List$$Type } from "packages/java/util/$List"
 import { $Container } from "packages/net/minecraft/world/$Container"
 import { $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
@@ -985,6 +999,7 @@ public "getIcon"(boolean0: boolean): $ItemStack
 public "getModelData"(): $ModelData
 public "getPlayer"(): $DeployerFakePlayer
 public "getRecipe"(itemStack0: $ItemStack$$Type): $Recipe<$Container>
+public "handler$zdk000$onActivate"(callbackInfo0: $CallbackInfo$$Type): void
 public "hasCustomOutlineRendering"(player0: $Player$$Type): boolean
 public "onLoad"(): void
 public "redstoneUpdate"(): void
@@ -1020,6 +1035,7 @@ declare module "packages/com/simibubi/create/compat/computercraft/$AbstractCompu
 import { $LazyOptional } from "packages/net/minecraftforge/common/util/$LazyOptional"
 import { $SmartBlockEntity$$Type } from "packages/com/simibubi/create/foundation/blockEntity/$SmartBlockEntity"
 import { $BlockEntityBehaviour } from "packages/com/simibubi/create/foundation/blockEntity/behaviour/$BlockEntityBehaviour"
+import { $ComputerEvent$$Type } from "packages/com/simibubi/create/compat/computercraft/events/$ComputerEvent"
 import { $BehaviourType } from "packages/com/simibubi/create/foundation/blockEntity/behaviour/$BehaviourType"
 import { $Capability$$Type } from "packages/net/minecraftforge/common/capabilities/$Capability"
 
@@ -1031,6 +1047,7 @@ constructor(smartBlockEntity0: $SmartBlockEntity$$Type)
 public "getPeripheralCapability"<T>(): $LazyOptional<T>
 public "hasAttachedComputer"(): boolean
 public "isPeripheralCap"<T>(capability0: $Capability$$Type<T>): boolean
+public "prepareComputerEvent"(computerEvent0: $ComputerEvent$$Type): void
 public "removePeripheral"(): void
 public "setHasAttachedComputer"(boolean0: boolean): void
 get "peripheralCapability"(): $LazyOptional<T>
@@ -1069,8 +1086,8 @@ public "getGroup"(trackNode0: $TrackNode$$Type): $UUID
 public "getOverlayFor"(blockPos0: $BlockPos$$Type): $SignalBlockEntity$OverlayState
 public "getStateFor"(blockPos0: $BlockPos$$Type): $SignalBlockEntity$SignalState
 public "getTypeFor"(blockPos0: $BlockPos$$Type): $SignalBlock$SignalType
-public "isForcedRed"(boolean0: boolean): boolean
 public "isForcedRed"(trackNode0: $TrackNode$$Type): boolean
+public "isForcedRed"(boolean0: boolean): boolean
 public "queueUpdate"(trackNode0: $TrackNode$$Type): void
 public "setGroup"(boolean0: boolean, uUID1: $UUID$$Type): void
 public "setGroupAndUpdate"(trackNode0: $TrackNode$$Type, uUID1: $UUID$$Type): void
@@ -1115,8 +1132,8 @@ public "mirrorFacing"(direction0: $Direction$$Type): $Direction
 public "rotateAxis"(axis0: $Direction$Axis$$Type): $Direction$Axis
 public "rotateFacing"(direction0: $Direction$$Type): $Direction
 public "unapply"(blockPos0: $BlockPos$$Type): $BlockPos
-public "unapplyWithoutOffset"(blockPos0: $BlockPos$$Type): $BlockPos
 public "unapplyWithoutOffset"(vec30: $Vec3$$Type): $Vec3
+public "unapplyWithoutOffset"(blockPos0: $BlockPos$$Type): $BlockPos
 public "writeToBuffer"(friendlyByteBuf0: $FriendlyByteBuf$$Type): void
 get "angle"(): integer
 set "angle"(value: integer)
@@ -1132,46 +1149,39 @@ set "rotationAxis"(value: $Direction$Axis$$Type)
 }
 
 declare module "packages/com/simibubi/create/content/contraptions/render/$ContraptionVisual" {
+import { $SectionTrackedVisual$SectionCollector$$Type } from "packages/dev/engine_room/flywheel/api/visual/$SectionTrackedVisual$SectionCollector"
 import { $AbstractEntityVisual } from "packages/dev/engine_room/flywheel/lib/visual/$AbstractEntityVisual"
 import { $AbstractContraptionEntity, $AbstractContraptionEntity$$Type } from "packages/com/simibubi/create/content/contraptions/$AbstractContraptionEntity"
-import { $LightUpdatedVisual } from "packages/dev/engine_room/flywheel/api/visual/$LightUpdatedVisual"
+import { $VisualizationContext$$Type } from "packages/dev/engine_room/flywheel/api/visualization/$VisualizationContext"
 import { $DynamicVisual$Context } from "packages/dev/engine_room/flywheel/api/visual/$DynamicVisual$Context"
 import { $TickableVisual$Context } from "packages/dev/engine_room/flywheel/api/visual/$TickableVisual$Context"
-import { $LongSet } from "packages/it/unimi/dsi/fastutil/longs/$LongSet"
-import { $ShaderLightVisual } from "packages/dev/engine_room/flywheel/api/visual/$ShaderLightVisual"
-import { $DynamicVisual } from "packages/dev/engine_room/flywheel/api/visual/$DynamicVisual"
-import { $SectionTrackedVisual$SectionCollector$$Type } from "packages/dev/engine_room/flywheel/api/visual/$SectionTrackedVisual$SectionCollector"
-import { $VisualizationContext$$Type } from "packages/dev/engine_room/flywheel/api/visualization/$VisualizationContext"
 import { $Plan } from "packages/dev/engine_room/flywheel/api/task/$Plan"
 import { $TickableVisual } from "packages/dev/engine_room/flywheel/api/visual/$TickableVisual"
+import { $ShaderLightVisual } from "packages/dev/engine_room/flywheel/api/visual/$ShaderLightVisual"
+import { $DynamicVisual } from "packages/dev/engine_room/flywheel/api/visual/$DynamicVisual"
 
-export class $ContraptionVisual<E extends $AbstractContraptionEntity> extends $AbstractEntityVisual<E> implements $DynamicVisual, $TickableVisual, $LightUpdatedVisual, $ShaderLightVisual {
+export class $ContraptionVisual<E extends $AbstractContraptionEntity> extends $AbstractEntityVisual<E> implements $DynamicVisual, $TickableVisual, $ShaderLightVisual {
 constructor(visualizationContext0: $VisualizationContext$$Type, e1: E, float2: float)
 
-public "collectLightSections"(): $LongSet
 public "delete"(): void
-public static "maxLight"(double0: double): integer
-public static "maxLightSection"(double0: double): integer
-public static "minLight"(double0: double): integer
-public static "minLightSection"(double0: double): integer
 public "planFrame"(): $Plan<$DynamicVisual$Context>
 public "planTick"(): $Plan<$TickableVisual$Context>
 public "setSectionCollector"(sectionCollector0: $SectionTrackedVisual$SectionCollector$$Type): void
 public "update"(float0: float): void
-public "updateLight"(float0: float): void
 set "sectionCollector"(value: $SectionTrackedVisual$SectionCollector$$Type)
 }
 }
 
 declare module "packages/com/simibubi/create/foundation/item/$SmartInventory" {
 import { $CompoundTag, $CompoundTag$$Type } from "packages/net/minecraft/nbt/$CompoundTag"
+import { $BiPredicate$$Type } from "packages/java/util/function/$BiPredicate"
 import { $RecipeWrapper } from "packages/net/minecraftforge/items/wrapper/$RecipeWrapper"
 import { $Predicate$$Type } from "packages/java/util/function/$Predicate"
 import { $Ingredient$$Type } from "packages/net/minecraft/world/item/crafting/$Ingredient"
 import { $Level$$Type } from "packages/net/minecraft/world/level/$Level"
+import { $IItemHandlerModifiable, $IItemHandlerModifiable$$Type } from "packages/net/minecraftforge/items/$IItemHandlerModifiable"
 import { $ItemStack, $ItemStack$$Type } from "packages/net/minecraft/world/item/$ItemStack"
 import { $BlockContainerJS } from "packages/dev/latvian/mods/kubejs/level/$BlockContainerJS"
-import { $IItemHandlerModifiable } from "packages/net/minecraftforge/items/$IItemHandlerModifiable"
 import { $IItemHandler } from "packages/net/minecraftforge/items/$IItemHandler"
 import { $Item$$Type } from "packages/net/minecraft/world/item/$Item"
 import { $Consumer$$Type } from "packages/java/util/function/$Consumer"
@@ -1184,8 +1194,11 @@ import { $SyncedBlockEntity$$Type } from "packages/com/simibubi/create/foundatio
 import { $Container, $Container$$Type } from "packages/net/minecraft/world/$Container"
 
 export class $SmartInventory extends $RecipeWrapper implements $IItemHandlerModifiable, $INBTSerializable<$CompoundTag> {
-constructor(int0: integer, syncedBlockEntity1: $SyncedBlockEntity$$Type)
+constructor(iItemHandlerModifiable0: $IItemHandlerModifiable$$Type, int1: integer, boolean2: boolean)
+constructor(int0: integer, syncedBlockEntity1: $SyncedBlockEntity$$Type, int2: integer, boolean3: boolean, biPredicate4: $BiPredicate$$Type<integer, $ItemStack$$Type>)
 constructor(int0: integer, syncedBlockEntity1: $SyncedBlockEntity$$Type, int2: integer, boolean3: boolean)
+constructor(int0: integer, syncedBlockEntity1: $SyncedBlockEntity$$Type, biPredicate2: $BiPredicate$$Type<integer, $ItemStack$$Type>)
+constructor(int0: integer, syncedBlockEntity1: $SyncedBlockEntity$$Type)
 
 public "allowExtraction"(): $SmartInventory
 public "allowInsertion"(): $SmartInventory
@@ -1193,11 +1206,11 @@ public "asContainer"(): $Container
 public "canTakeItem"(container0: $Container$$Type, int1: integer, itemStack2: $ItemStack$$Type): boolean
 public "clear"(): void
 public "clear"(ingredient: $Ingredient$$Type): void
-public "count"(ingredient: $Ingredient$$Type): integer
 public "count"(): integer
+public "count"(ingredient: $Ingredient$$Type): integer
 public "countItem"(item0: $Item$$Type): integer
-public "countNonEmpty"(): integer
 public "countNonEmpty"(ingredient: $Ingredient$$Type): integer
+public "countNonEmpty"(): integer
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "extractItem"(int0: integer, int1: integer, boolean2: boolean): $ItemStack
 public "extractItem"(i: integer, i1: integer, b: boolean): $ItemStack
@@ -1232,6 +1245,7 @@ public "setStackInSlot"(int0: integer, itemStack1: $ItemStack$$Type): void
 public "setStackInSlot"(slot: integer, stack: $ItemStack$$Type): void
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 public static "tryClear"(object0: any): void
 public "whenContentsChanged"(consumer0: $Consumer$$Type<integer>): $SmartInventory
 public "withMaxStackSize"(int0: integer): $SmartInventory
@@ -1245,42 +1259,6 @@ get "mutable"(): boolean
 }
 }
 
-declare module "packages/com/simibubi/create/content/trains/entity/$TrainStatus" {
-import { $TrainStatus$StatusMessage$$Type } from "packages/com/simibubi/create/content/trains/entity/$TrainStatus$StatusMessage"
-import { $Level$$Type } from "packages/net/minecraft/world/level/$Level"
-import { $Train$$Type } from "packages/com/simibubi/create/content/trains/entity/$Train"
-
-export class $TrainStatus {
-constructor(train0: $Train$$Type)
-
-public "addMessage"(statusMessage0: $TrainStatus$StatusMessage$$Type): void
-public "crash"(): void
-public "displayInformation"(string0: string, boolean1: boolean, ...object2s: any[]): void
-public "doublePortal"(): void
-public "endOfTrack"(): void
-public "failedMigration"(): void
-public "failedNavigation"(): void
-public "failedNavigationNoTarget"(string0: string): void
-public "failedPackageNoTarget"(string0: string): void
-public "foundConductor"(): void
-public "highStress"(): void
-public "manualControls"(): void
-public "missingConductor"(): void
-public "missingCorrectConductor"(): void
-public "newSchedule"(): void
-public "successfulMigration"(): void
-public "successfulNavigation"(): void
-public "tick"(level0: $Level$$Type): void
-public "trackOK"(): void
-get "conductor"(): boolean
-set "conductor"(value: boolean)
-get "navigation"(): boolean
-set "navigation"(value: boolean)
-get "track"(): boolean
-set "track"(value: boolean)
-}
-}
-
 declare module "packages/com/simibubi/create/content/contraptions/$AbstractContraptionEntity" {
 import { $SoundEvent, $SoundEvent$$Type } from "packages/net/minecraft/sounds/$SoundEvent"
 import { $CompoundTag, $CompoundTag$$Type } from "packages/net/minecraft/nbt/$CompoundTag"
@@ -1291,6 +1269,7 @@ import { $Contraption } from "packages/com/simibubi/create/content/contraptions/
 import { $BlockContainerJS, $BlockContainerJS$$Type } from "packages/dev/latvian/mods/kubejs/level/$BlockContainerJS"
 import { $ItemStack } from "packages/net/minecraft/world/item/$ItemStack"
 import { $ResourceLocation$$Type } from "packages/net/minecraft/resources/$ResourceLocation"
+import { $ICreateContraption } from "packages/xaero/pac/common/server/core/accessor/$ICreateContraption"
 import { $FluidState$$Type } from "packages/net/minecraft/world/level/material/$FluidState"
 import { $Entity$MoveFunction$$Type } from "packages/net/minecraft/world/entity/$Entity$MoveFunction"
 import { $IEntityAdditionalSpawnData } from "packages/net/minecraftforge/entity/$IEntityAdditionalSpawnData"
@@ -1323,12 +1302,13 @@ import { $MutableInt } from "packages/org/apache/commons/lang3/mutable/$MutableI
 import { $HitResult$$Type } from "packages/net/minecraft/world/phys/$HitResult"
 import { $InteractionHand$$Type } from "packages/net/minecraft/world/$InteractionHand"
 import { $FriendlyByteBuf$$Type } from "packages/net/minecraft/network/$FriendlyByteBuf"
+import { $ICreateContraptionEntity } from "packages/xaero/pac/common/server/core/accessor/$ICreateContraptionEntity"
 import { $Optional } from "packages/java/util/$Optional"
 import { $EntityDimensions$$Type } from "packages/net/minecraft/world/entity/$EntityDimensions"
 import { $PartEntity } from "packages/net/minecraftforge/entity/$PartEntity"
 import { $Map } from "packages/java/util/$Map"
 
-export class $AbstractContraptionEntity extends $Entity implements $IEntityAdditionalSpawnData, $AccessorAbstractContraptionEntity {
+export class $AbstractContraptionEntity extends $Entity implements $IEntityAdditionalSpawnData, $ICreateContraptionEntity, $AccessorAbstractContraptionEntity {
 readonly "collidingEntities": $Map<$Entity, $MutableInt>
 
 constructor(entityType0: $EntityType$$Type<any>, level1: $Level$$Type)
@@ -1360,8 +1340,8 @@ public "getContraption"(): $Contraption
 public "getContraptionName"(): $Component
 public "getControllingPlayer"(): $Optional<$UUID>
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 /** @deprecated */
 public "getEyeHeightForge"(pose0: $Pose$$Type, entityDimensions1: $EntityDimensions$$Type): float
@@ -1389,6 +1369,7 @@ public "getSoundFromFluidType"(fluidType0: $FluidType$$Type, soundAction1: $Soun
 public "getStepHeight"(): float
 public "getTeamId"(): string
 public "getType"(): string
+public "getXaero_OPAC_contraption"(): $ICreateContraption
 public "getYawOffset"(): float
 public "handlePlayerInteraction"(player0: $Player$$Type, blockPos1: $BlockPos$$Type, direction2: $Direction$$Type, interactionHand3: $InteractionHand$$Type): boolean
 public "hasCustomOutlineRendering"(player0: $Player$$Type): boolean
@@ -1429,7 +1410,6 @@ public "runCommandSilent"(command: string): integer
 public "sdl$isDynamicLightEnabled"(): boolean
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "self"(): $Entity
-public "serializeNBT"(): $CompoundTag
 public "setBlock"(blockPos0: $BlockPos$$Type, structureBlockInfo1: $StructureTemplate$StructureBlockInfo$$Type): void
 public "setContraptionMotion"(vec30: $Vec3$$Type): void
 public "setControllingPlayer"(uUID0: $UUID$$Type): void
@@ -1488,6 +1468,7 @@ get "server"(): $MinecraftServer
 get "stepHeight"(): float
 get "teamId"(): string
 get "type"(): string
+get "xaero_OPAC_contraption"(): $ICreateContraption
 get "yawOffset"(): float
 get "aliveOrStale"(): boolean
 get "ambientCreature"(): boolean
@@ -1515,6 +1496,42 @@ set "statusMessage"(value: $Component$$Type)
 set "x"(value: double)
 set "y"(value: double)
 set "z"(value: double)
+}
+}
+
+declare module "packages/com/simibubi/create/content/trains/entity/$TrainStatus" {
+import { $TrainStatus$StatusMessage$$Type } from "packages/com/simibubi/create/content/trains/entity/$TrainStatus$StatusMessage"
+import { $Level$$Type } from "packages/net/minecraft/world/level/$Level"
+import { $Train$$Type } from "packages/com/simibubi/create/content/trains/entity/$Train"
+
+export class $TrainStatus {
+constructor(train0: $Train$$Type)
+
+public "addMessage"(statusMessage0: $TrainStatus$StatusMessage$$Type): void
+public "crash"(): void
+public "displayInformation"(string0: string, boolean1: boolean, ...object2s: any[]): void
+public "doublePortal"(): void
+public "endOfTrack"(): void
+public "failedMigration"(): void
+public "failedNavigation"(): void
+public "failedNavigationNoTarget"(string0: string): void
+public "failedPackageNoTarget"(string0: string): void
+public "foundConductor"(): void
+public "highStress"(): void
+public "manualControls"(): void
+public "missingConductor"(): void
+public "missingCorrectConductor"(): void
+public "newSchedule"(): void
+public "successfulMigration"(): void
+public "successfulNavigation"(): void
+public "tick"(level0: $Level$$Type): void
+public "trackOK"(): void
+get "conductor"(): boolean
+set "conductor"(value: boolean)
+get "navigation"(): boolean
+set "navigation"(value: boolean)
+get "track"(): boolean
+set "track"(value: boolean)
 }
 }
 
@@ -1567,6 +1584,7 @@ public "isStalled"(): boolean
 public "prepareForCoupling"(boolean0: boolean): void
 public "removeConnection"(boolean0: boolean): void
 public "sendData"(): void
+public "serializeNBT"(): $CompoundTag
 public "setStalledExternally"(boolean0: boolean): void
 public "tick"(): void
 get "connectedToCoupling"(): boolean
@@ -1776,12 +1794,13 @@ import { $StructureTransform$$Type } from "packages/com/simibubi/create/content/
 import { $AbstractContraptionEntity, $AbstractContraptionEntity$$Type } from "packages/com/simibubi/create/content/contraptions/$AbstractContraptionEntity"
 import { $Vec3i$$Type } from "packages/net/minecraft/core/$Vec3i"
 import { $Direction$$Type } from "packages/net/minecraft/core/$Direction"
-import { $Contraption$RenderedBlocks } from "packages/com/simibubi/create/content/contraptions/$Contraption$RenderedBlocks"
 import { $ItemStack, $ItemStack$$Type } from "packages/net/minecraft/world/item/$ItemStack"
 import { $Iterable$$Type } from "packages/java/lang/$Iterable"
 import { $MovementContext, $MovementContext$$Type } from "packages/com/simibubi/create/content/contraptions/behaviour/$MovementContext"
+import { $CallbackInfoReturnable$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfoReturnable"
+import { $ICreateContraption } from "packages/xaero/pac/common/server/core/accessor/$ICreateContraption"
 import { $IContraptionFuel } from "packages/com/railwayteam/railways/mixin_interfaces/$IContraptionFuel"
-import { $BlockEntity, $BlockEntity$$Type } from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
+import { $BlockEntity } from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
 import { $StructureTemplate$StructureBlockInfo } from "packages/net/minecraft/world/level/levelgen/structure/templatesystem/$StructureTemplate$StructureBlockInfo"
 import { $MountedFluidStorageWrapper } from "packages/com/simibubi/create/api/contraption/storage/fluid/$MountedFluidStorageWrapper"
 import { $List, $List$$Type } from "packages/java/util/$List"
@@ -1789,20 +1808,22 @@ import { $BlockPos, $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPo
 import { $AABB, $AABB$$Type } from "packages/net/minecraft/world/phys/$AABB"
 import { $ContraptionType } from "packages/com/simibubi/create/api/contraption/$ContraptionType"
 import { $Entity$$Type } from "packages/net/minecraft/world/entity/$Entity"
-import { $ModelData, $ModelData$$Type } from "packages/net/minecraftforge/client/model/data/$ModelData"
 import { $UUID, $UUID$$Type } from "packages/java/util/$UUID"
-import { $Collection } from "packages/java/util/$Collection"
+import { $Object2BooleanMap, $Object2BooleanMap$$Type } from "packages/it/unimi/dsi/fastutil/objects/$Object2BooleanMap"
 import { $MovingInteractionBehaviour } from "packages/com/simibubi/create/api/behaviour/interaction/$MovingInteractionBehaviour"
 import { $Level$$Type } from "packages/net/minecraft/world/level/$Level"
+import { $BlockState, $BlockState$$Type } from "packages/net/minecraft/world/level/block/state/$BlockState"
 import { $BiConsumer$$Type } from "packages/java/util/function/$BiConsumer"
 import { $MutablePair } from "packages/org/apache/commons/lang3/tuple/$MutablePair"
+import { $CallbackInfo$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfo"
 import { $Direction$Axis$$Type } from "packages/net/minecraft/core/$Direction$Axis"
 import { $Optional, $Optional$$Type } from "packages/java/util/$Optional"
 import { $MountedStorageManager } from "packages/com/simibubi/create/content/contraptions/$MountedStorageManager"
+import { $ClientContraption } from "packages/com/simibubi/create/content/contraptions/render/$ClientContraption"
 import { $MovementBehaviour$$Type } from "packages/com/simibubi/create/api/behaviour/movement/$MovementBehaviour"
 import { $Map, $Map$$Type } from "packages/java/util/$Map"
 
-export class $Contraption implements $IContraptionFuel {
+export class $Contraption implements $IContraptionFuel, $ICreateContraption {
 constructor()
 
 public "addBlocksToWorld"(level0: $Level$$Type, structureTransform1: $StructureTransform$$Type): void
@@ -1816,31 +1837,43 @@ public static "fromNBT"(level0: $Level$$Type, compoundTag1: $CompoundTag$$Type, 
 public "getActorAt"(blockPos0: $BlockPos$$Type): $MutablePair<$StructureTemplate$StructureBlockInfo, $MovementContext>
 public "getActors"(): $List<$MutablePair<$StructureTemplate$StructureBlockInfo, $MovementContext>>
 public "getBearingPosOf"(uUID0: $UUID$$Type): $BlockPos
+public "getBlockEntityClientSide"(blockPos0: $BlockPos$$Type): $BlockEntity
 public "getBlocks"(): $Map<$BlockPos, $StructureTemplate$StructureBlockInfo>
 public "getContraptionWorld"(): $ContraptionWorld
 public "getDisabledActors"(): $List<$ItemStack>
 public "getInteractors"(): $Map<$BlockPos, $MovingInteractionBehaviour>
+public "getIsLegacy"(): $Object2BooleanMap<$BlockPos>
+public "getOrCreateClientContraptionLazy"(): $ClientContraption
 public static "getRadius"(iterable0: $Iterable$$Type<$Vec3i$$Type>, axis1: $Direction$Axis$$Type): double
-public "getRenderedBEs"(): $Collection<$BlockEntity>
-public "getRenderedBlocks"(): $Contraption$RenderedBlocks
 public "getSeatMapping"(): $Map<$UUID, integer>
 public "getSeatOf"(uUID0: $UUID$$Type): $BlockPos
 public "getSeats"(): $List<$BlockPos>
 public "getSimplifiedEntityColliders"(): $Optional<$List<$AABB>>
 public "getStorage"(): $MountedStorageManager
 public "getType"(): $ContraptionType
+public "getXaero_OPAC_anchor"(): $BlockPos
+public "getXaero_OPAC_placementPos"(): $BlockPos
+public "handler$zdh000$onMovementAllowed"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, callbackInfoReturnable3: $CallbackInfoReturnable$$Type<any>): void
+public "handler$zdh000$postAddSuperGlueToWorld"(level0: $Level$$Type, structureTransform1: $StructureTransform$$Type, callbackInfo2: $CallbackInfo$$Type): void
+public "handler$zdh000$preAddSuperGlueToWorld"(level0: $Level$$Type, structureTransform1: $StructureTransform$$Type, callbackInfo2: $CallbackInfo$$Type): void
+public "invalidateClientContraptionChildren"(): void
+public "invalidateClientContraptionStructure"(): void
 public "invalidateColliders"(): void
 public "isActorTypeDisabled"(itemStack0: $ItemStack$$Type): boolean
 public "isHiddenInPortal"(blockPos0: $BlockPos$$Type): boolean
+public "localvar$zdh000$onAddBlocksToWorld"(blockState0: $BlockState$$Type, level1: $Level$$Type, structureTransform2: $StructureTransform$$Type): $BlockState
+public "modify$zdh000$onAddBlocksToWorld"(blockPos0: $BlockPos$$Type): $BlockPos
 public "onEntityCreated"(abstractContraptionEntity0: $AbstractContraptionEntity$$Type): void
 public "onEntityInitialize"(level0: $Level$$Type, abstractContraptionEntity1: $AbstractContraptionEntity$$Type): void
 public "onEntityRemoved"(abstractContraptionEntity0: $AbstractContraptionEntity$$Type): void
 public "railways$getFluidFuels"(): $MountedFluidStorageWrapper
 public "readNBT"(level0: $Level$$Type, compoundTag1: $CompoundTag$$Type, boolean2: boolean): void
 public "removeBlocksFromWorld"(level0: $Level$$Type, blockPos1: $BlockPos$$Type): void
+public "resetClientContraption"(): void
 public "searchMovedStructure"(level0: $Level$$Type, blockPos1: $BlockPos$$Type, direction2: $Direction$$Type): boolean
 public "setActorsActive"(itemStack0: $ItemStack$$Type, boolean1: boolean): void
 public "setSeatMapping"(map0: $Map$$Type<$UUID$$Type, integer>): void
+public "setXaero_OPAC_placementPos"(blockPos0: $BlockPos$$Type): void
 public "startMoving"(level0: $Level$$Type): void
 public "stop"(level0: $Level$$Type): void
 public "tickStorage"(abstractContraptionEntity0: $AbstractContraptionEntity$$Type): void
@@ -1850,20 +1883,14 @@ get "anchor"(): $BlockPos
 set "anchor"(value: $BlockPos$$Type)
 get "bounds"(): $AABB
 set "bounds"(value: $AABB$$Type)
-get "deferInvalidate"(): boolean
-set "deferInvalidate"(value: boolean)
 get "disassembled"(): boolean
 set "disassembled"(value: boolean)
 get "entity"(): $AbstractContraptionEntity
 set "entity"(value: $AbstractContraptionEntity$$Type)
 get "hasUniversalCreativeCrate"(): boolean
 set "hasUniversalCreativeCrate"(value: boolean)
-get "modelData"(): $Map<$BlockPos, $ModelData>
-set "modelData"(value: $Map$$Type<$BlockPos$$Type, $ModelData$$Type>)
-get "presentBlockEntities"(): $Map<$BlockPos, $BlockEntity>
-set "presentBlockEntities"(value: $Map$$Type<$BlockPos$$Type, $BlockEntity$$Type>)
-get "renderedBlockEntities"(): $List<$BlockEntity>
-set "renderedBlockEntities"(value: $List$$Type<$BlockEntity$$Type>)
+get "isLegacy"(): $Object2BooleanMap<$BlockPos>
+set "isLegacy"(value: $Object2BooleanMap$$Type<$BlockPos$$Type>)
 get "simplifiedEntityColliders"(): $Optional<$List<$AABB>>
 set "simplifiedEntityColliders"(value: $Optional$$Type<$List$$Type<$AABB$$Type>>)
 get "stalled"(): boolean
@@ -1873,13 +1900,15 @@ get "blocks"(): $Map<$BlockPos, $StructureTemplate$StructureBlockInfo>
 get "contraptionWorld"(): $ContraptionWorld
 get "disabledActors"(): $List<$ItemStack>
 get "interactors"(): $Map<$BlockPos, $MovingInteractionBehaviour>
-get "renderedBEs"(): $Collection<$BlockEntity>
-get "renderedBlocks"(): $Contraption$RenderedBlocks
+get "orCreateClientContraptionLazy"(): $ClientContraption
 get "seatMapping"(): $Map<$UUID, integer>
 get "seats"(): $List<$BlockPos>
 get "storage"(): $MountedStorageManager
 get "type"(): $ContraptionType
+get "xaero_OPAC_anchor"(): $BlockPos
+get "xaero_OPAC_placementPos"(): $BlockPos
 set "seatMapping"(value: $Map$$Type<$UUID$$Type, integer>)
+set "xaero_OPAC_placementPos"(value: $BlockPos$$Type)
 }
 }
 
@@ -1933,8 +1962,8 @@ public "getPoints"<T extends $TrackEdgePoint>(edgePointType0: $EdgePointType$$Ty
 public "invalidateBounds"(): void
 public "isEmpty"(): boolean
 public "loadNode"(trackNodeLocation0: $TrackNodeLocation$$Type, int1: integer, vec32: $Vec3$$Type): void
-public "locateNode"(level0: $Level$$Type, vec31: $Vec3$$Type): $TrackNode
 public "locateNode"(trackNodeLocation0: $TrackNodeLocation$$Type): $TrackNode
+public "locateNode"(level0: $Level$$Type, vec31: $Vec3$$Type): $TrackNode
 public "markDirty"(): void
 public static "nextGraphId"(): integer
 public static "nextNodeId"(): integer
@@ -2022,6 +2051,7 @@ import { $FluidType$$Type } from "packages/net/minecraftforge/fluids/$FluidType"
 import { $Entity, $Entity$$Type } from "packages/net/minecraft/world/entity/$Entity"
 import { $EntityArrayList } from "packages/dev/latvian/mods/kubejs/player/$EntityArrayList"
 import { $BiPredicate$$Type } from "packages/java/util/function/$BiPredicate"
+import { $MixinAccessorDeployerFakePlayer } from "packages/xaero/pac/common/mixin/create/$MixinAccessorDeployerFakePlayer"
 import { $KubeJSGUI$$Type } from "packages/dev/latvian/mods/kubejs/gui/$KubeJSGUI"
 import { $UUID, $UUID$$Type } from "packages/java/util/$UUID"
 import { $ScriptType } from "packages/dev/latvian/mods/kubejs/script/$ScriptType"
@@ -2035,7 +2065,6 @@ import { $Capability$$Type } from "packages/net/minecraftforge/common/capabiliti
 import { $AttributeModifier$Operation$$Type } from "packages/net/minecraft/world/entity/ai/attributes/$AttributeModifier$Operation"
 import { $PartEntity } from "packages/net/minecraftforge/entity/$PartEntity"
 import { $LivingChangeTargetEvent$$Type } from "packages/net/minecraftforge/event/entity/living/$LivingChangeTargetEvent"
-import { $Trackable } from "packages/dev/uncandango/alltheleaks/mixin/$Trackable"
 import { $LazyOptional } from "packages/net/minecraftforge/common/util/$LazyOptional"
 import { $Component, $Component$$Type } from "packages/net/minecraft/network/chat/$Component"
 import { $ChestMenuData$$Type } from "packages/dev/latvian/mods/kubejs/gui/chest/$ChestMenuData"
@@ -2044,7 +2073,6 @@ import { $LivingExperienceDropEvent$$Type } from "packages/net/minecraftforge/ev
 import { $BlockContainerJS, $BlockContainerJS$$Type } from "packages/dev/latvian/mods/kubejs/level/$BlockContainerJS"
 import { $MinecraftServer } from "packages/net/minecraft/server/$MinecraftServer"
 import { $Boat$$Type } from "packages/net/minecraft/world/entity/vehicle/$Boat"
-import { $WeakReference } from "packages/java/lang/ref/$WeakReference"
 import { $AbstractContainerMenu } from "packages/net/minecraft/world/inventory/$AbstractContainerMenu"
 import { $GameProfile } from "packages/com/mojang/authlib/$GameProfile"
 import { $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
@@ -2055,17 +2083,14 @@ import { $AnimationApplier } from "packages/dev/kosmx/playerAnim/impl/animation/
 import { $PlayerStatsJS } from "packages/dev/latvian/mods/kubejs/player/$PlayerStatsJS"
 import { $RayTraceResultJS } from "packages/dev/latvian/mods/kubejs/entity/$RayTraceResultJS"
 import { $SoundAction$$Type } from "packages/net/minecraftforge/common/$SoundAction"
-import { $ObjectOpenCustomHashSet } from "packages/it/unimi/dsi/fastutil/objects/$ObjectOpenCustomHashSet"
-import { $Class } from "packages/java/lang/$Class"
 import { $Ingredient$$Type } from "packages/net/minecraft/world/item/crafting/$Ingredient"
 import { $Item$$Type } from "packages/net/minecraft/world/item/$Item"
 import { $HitResult$$Type } from "packages/net/minecraft/world/phys/$HitResult"
 import { $InteractionHand$$Type } from "packages/net/minecraft/world/$InteractionHand"
 import { $Attribute$$Type } from "packages/net/minecraft/world/entity/ai/attributes/$Attribute"
 import { $EntityDimensions$$Type } from "packages/net/minecraft/world/entity/$EntityDimensions"
-import { $Map } from "packages/java/util/$Map"
 
-export class $DeployerFakePlayer extends $FakePlayer {
+export class $DeployerFakePlayer extends $FakePlayer implements $MixinAccessorDeployerFakePlayer {
 static readonly "fallbackID": $UUID
 
 constructor(serverLevel0: $ServerLevel$$Type, uUID1: $UUID$$Type)
@@ -2087,19 +2112,19 @@ public "canHydrateInFluidType"(fluidType0: $FluidType$$Type): boolean
 public "canReach"(vec30: $Vec3$$Type, double1: double): boolean
 public "canReach"(blockPos0: $BlockPos$$Type, double1: double): boolean
 public "canReach"(entity0: $Entity$$Type, double1: double): boolean
+public "canReachRaw"(entity0: $Entity$$Type, double1: double): boolean
+public "canReachRaw"(blockPos0: $BlockPos$$Type, double1: double): boolean
 public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
 public "captureInventory"(autoRestore: boolean): $Container
 public "clearMeshes"(): void
-public static "clearNullReferences"(): void
-public static "createWeakRefBasedSet"(): $ObjectOpenCustomHashSet<$WeakReference<$Trackable>>
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public static "deployerCollectsDropsFromKilledEntities"(livingDropsEvent0: $LivingDropsEvent$$Type): void
 public static "deployerHasEyesOnHisFeet"(size0: $EntityEvent$Size$$Type): void
 public static "deployerKillsDoNotSpawnXP"(livingExperienceDropEvent0: $LivingExperienceDropEvent$$Type): void
@@ -2118,8 +2143,8 @@ public "getChestArmorItem"(): $ItemStack
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEntityReach"(): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
@@ -2158,7 +2183,6 @@ public "getSoundFromFluidType"(fluidType0: $FluidType$$Type, soundAction1: $Soun
 public "getSpawnLocation"(): $BlockContainerJS
 public "getStats"(): $PlayerStatsJS
 public "getStepHeight"(): float
-public static "getSummary"(): $Map<$Class<any>, $Map<$Class<any>, long>>
 public "getTeamId"(): string
 public "getTotalMovementSpeed"(): double
 public "getType"(): string
@@ -2190,8 +2214,8 @@ public "isPlayer"(): boolean
 public "isPushedByFluid"(fluidType0: $FluidType$$Type): boolean
 public "isUndead"(): boolean
 public "isWaterCreature"(): boolean
-public "kick"(reason: $Component$$Type): void
 public "kick"(): void
+public "kick"(reason: $Component$$Type): void
 public "mergeNbt"(tag: $CompoundTag$$Type): $Entity
 public "modifyAttribute"(attribute: $Attribute$$Type, identifier: string, d: double, operation: $AttributeModifier$Operation$$Type): void
 public "moveInFluid"(fluidState0: $FluidState$$Type, vec31: $Vec3$$Type, double2: double): boolean
@@ -2222,7 +2246,6 @@ public "self"(): $LivingEntity
 public "sendData"(channel: string, data: $CompoundTag$$Type): void
 public "sendData"(channel: string): void
 public "sendInventoryUpdate"(): void
-public "serializeNBT"(): $CompoundTag
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setCreativeMode"(mode: boolean): void
@@ -2264,8 +2287,6 @@ public "sinkInFluid"(fluidType0: $FluidType$$Type): void
 public "sodiumdynamiclights$scheduleTrackedChunksRebuild"(levelRenderer0: $LevelRenderer$$Type): void
 public "sodiumdynamiclights$updateDynamicLight"(levelRenderer0: $LevelRenderer$$Type): boolean
 public "spawn"(): void
-public "startTracking"(): void
-public static "startTracking"(object0: any): void
 public "supplementaries$hasQuiver"(): boolean
 public "swing"(): void
 public "swing"(hand: $InteractionHand$$Type): void
@@ -2273,7 +2294,6 @@ public "teleportTo"(dimension: $ResourceLocation$$Type, x: double, y: double, z:
 public "tell"(message: $Component$$Type): void
 public static "tickEntity"(entity: $LivingEntity$$Type): void
 public "unlockAdvancement"(id: $ResourceLocation$$Type): void
-public "wrap"(): $WeakReference<$Trackable>
 get "onMinecartContraption"(): boolean
 set "onMinecartContraption"(value: boolean)
 get "placedTracks"(): boolean
@@ -2459,12 +2479,12 @@ readonly "type": $MountedItemStorageType<$MountedItemStorage>
 public "asContainer"(): $Container
 public "clear"(): void
 public "clear"(ingredient: $Ingredient$$Type): void
-public "count"(ingredient: $Ingredient$$Type): integer
 public "count"(): integer
-public "countNonEmpty"(): integer
+public "count"(ingredient: $Ingredient$$Type): integer
 public "countNonEmpty"(ingredient: $Ingredient$$Type): integer
-public "extractItem"(i: integer, i1: integer, b: boolean): $ItemStack
+public "countNonEmpty"(): integer
 public "extractItem"(int0: integer, int1: integer, boolean2: boolean): $ItemStack
+public "extractItem"(i: integer, i1: integer, b: boolean): $ItemStack
 public "find"(ingredient: $Ingredient$$Type): integer
 public "find"(): integer
 public "getAllItems"(): $List<$ItemStack>
@@ -2509,8 +2529,8 @@ import { $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
 import { $BlockEntityConfigurationPacket } from "packages/com/simibubi/create/foundation/networking/$BlockEntityConfigurationPacket"
 
 export class $StationEditPacket extends $BlockEntityConfigurationPacket<$StationBlockEntity> implements $ILimited {
-constructor(blockPos0: $BlockPos$$Type)
 constructor(friendlyByteBuf0: $FriendlyByteBuf$$Type)
+constructor(blockPos0: $BlockPos$$Type)
 
 public static "configure"(blockPos0: $BlockPos$$Type, boolean1: boolean, string2: string, doorControl3: $DoorControl$$Type): $StationEditPacket
 public static "dropSchedule"(blockPos0: $BlockPos$$Type): $StationEditPacket
@@ -2832,6 +2852,29 @@ public "tick"(dimensionalCarriageEntity0: $Carriage$DimensionalCarriageEntity$$T
 }
 }
 
+declare module "packages/com/simibubi/create/content/trains/entity/$CarriageContraptionVisual" {
+import { $IUpdateCount, $IUpdateCount$$Type } from "packages/com/railwayteam/railways/mixin_interfaces/$IUpdateCount"
+import { $ContraptionVisual } from "packages/com/simibubi/create/content/contraptions/render/$ContraptionVisual"
+import { $VisualizationContext$$Type } from "packages/dev/engine_room/flywheel/api/visualization/$VisualizationContext"
+import { $DynamicVisual$Context$$Type } from "packages/dev/engine_room/flywheel/api/visual/$DynamicVisual$Context"
+import { $CarriageContraptionEntity, $CarriageContraptionEntity$$Type } from "packages/com/simibubi/create/content/trains/entity/$CarriageContraptionEntity"
+
+export class $CarriageContraptionVisual extends $ContraptionVisual<$CarriageContraptionEntity> implements $IUpdateCount {
+static readonly "MAX_NUM_BOGEYS": integer
+
+constructor(visualizationContext0: $VisualizationContext$$Type, carriageContraptionEntity1: $CarriageContraptionEntity$$Type, float2: float)
+
+public "_delete"(): void
+public "beginFrame"(context0: $DynamicVisual$Context$$Type): void
+public "delete"(): void
+public static "outOfSync"(a: $IUpdateCount$$Type, b: $IUpdateCount$$Type): boolean
+public "railways$fromParent"(parent: $IUpdateCount$$Type): void
+public "railways$getUpdateCount"(): integer
+public "railways$markUpdate"(): void
+public "update"(float0: float): void
+}
+}
+
 declare module "packages/com/simibubi/create/foundation/mixin/accessor/$ConcretePowderBlockAccessor" {
 import { $BlockState } from "packages/net/minecraft/world/level/block/state/$BlockState"
 
@@ -2843,28 +2886,6 @@ export namespace $ConcretePowderBlockAccessor {
 const probejs$$marker: never
 }
 export abstract class $ConcretePowderBlockAccessor$$Static implements $ConcretePowderBlockAccessor {
-}
-}
-
-declare module "packages/com/simibubi/create/content/trains/entity/$CarriageContraptionVisual" {
-import { $IUpdateCount, $IUpdateCount$$Type } from "packages/com/railwayteam/railways/mixin_interfaces/$IUpdateCount"
-import { $ContraptionVisual } from "packages/com/simibubi/create/content/contraptions/render/$ContraptionVisual"
-import { $VisualizationContext$$Type } from "packages/dev/engine_room/flywheel/api/visualization/$VisualizationContext"
-import { $DynamicVisual$Context$$Type } from "packages/dev/engine_room/flywheel/api/visual/$DynamicVisual$Context"
-import { $CarriageContraptionEntity, $CarriageContraptionEntity$$Type } from "packages/com/simibubi/create/content/trains/entity/$CarriageContraptionEntity"
-
-export class $CarriageContraptionVisual extends $ContraptionVisual<$CarriageContraptionEntity> implements $IUpdateCount {
-constructor(visualizationContext0: $VisualizationContext$$Type, carriageContraptionEntity1: $CarriageContraptionEntity$$Type, float2: float)
-
-public "_delete"(): void
-public "beginFrame"(context0: $DynamicVisual$Context$$Type): void
-public "delete"(): void
-public static "outOfSync"(a: $IUpdateCount$$Type, b: $IUpdateCount$$Type): boolean
-public "railways$fromParent"(parent: $IUpdateCount$$Type): void
-public "railways$getUpdateCount"(): integer
-public "railways$markUpdate"(): void
-public "setBogeyVisibility"(boolean0: boolean, boolean1: boolean): void
-public "update"(float0: float): void
 }
 }
 
@@ -2911,7 +2932,9 @@ set "bogeyStyle"(value: $BogeyStyle$$Type)
 }
 
 declare module "packages/com/simibubi/create/foundation/networking/$BlockEntityConfigurationPacket" {
+import { $NetworkEvent$Context$$Type } from "packages/net/minecraftforge/network/$NetworkEvent$Context"
 import { $FriendlyByteBuf$$Type } from "packages/net/minecraft/network/$FriendlyByteBuf"
+import { $CallbackInfo$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfo"
 import { $SyncedBlockEntity } from "packages/com/simibubi/create/foundation/blockEntity/$SyncedBlockEntity"
 import { $SimplePacketBase } from "packages/com/simibubi/create/foundation/networking/$SimplePacketBase"
 import { $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
@@ -2920,6 +2943,7 @@ export class $BlockEntityConfigurationPacket<BE extends $SyncedBlockEntity> exte
 constructor(friendlyByteBuf0: $FriendlyByteBuf$$Type)
 constructor(blockPos0: $BlockPos$$Type)
 
+public "handler$zeb000$onHandle"(context0: $NetworkEvent$Context$$Type, callbackInfo1: $CallbackInfo$$Type): void
 }
 }
 
@@ -2970,19 +2994,16 @@ export abstract class $IMergeableBE$$Static implements $IMergeableBE {
 }
 
 declare module "packages/com/simibubi/create/content/trains/track/$BezierConnection$SegmentAngles" {
-import { $PoseStack$Pose, $PoseStack$Pose$$Type } from "packages/com/mojang/blaze3d/vertex/$PoseStack$Pose"
-import { $BlockPos, $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
-import { $Couple, $Couple$$Type } from "packages/net/createmod/catnip/data/$Couple"
+import { $PoseStack$Pose } from "packages/com/mojang/blaze3d/vertex/$PoseStack$Pose"
+import { $BlockPos } from "packages/net/minecraft/core/$BlockPos"
+import { $Couple } from "packages/net/createmod/catnip/data/$Couple"
 
 export class $BezierConnection$SegmentAngles {
-constructor()
+readonly "length": integer
+readonly "lightPosition": $BlockPos[]
+readonly "railTransforms": $Couple<$PoseStack$Pose>[]
+readonly "tieTransform": $PoseStack$Pose[]
 
-get "lightPosition"(): $BlockPos
-set "lightPosition"(value: $BlockPos$$Type)
-get "railTransforms"(): $Couple<$PoseStack$Pose>
-set "railTransforms"(value: $Couple$$Type<$PoseStack$Pose$$Type>)
-get "tieTransform"(): $PoseStack$Pose
-set "tieTransform"(value: $PoseStack$Pose$$Type)
 }
 }
 
@@ -3196,8 +3217,8 @@ public "getClassification"(boolean0: boolean): $MobCategory
 public "getCoupledCartsIfPresent"(): $Couple<$MinecartController>
 public "getCouplingId"(): $UUID
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 /** @deprecated */
 public "getEyeHeightForge"(pose0: $Pose$$Type, entityDimensions1: $EntityDimensions$$Type): float
@@ -3253,7 +3274,6 @@ public "runCommandSilent"(command: string): integer
 public "sdl$isDynamicLightEnabled"(): boolean
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "self"(): $Entity
-public "serializeNBT"(): $CompoundTag
 public "setCouplingId"(uUID0: $UUID$$Type): void
 public "setHexereiDynamicLightEnabled"(boolean0: boolean): void
 public "setInitialOrientation"(direction0: $Direction$$Type): void
@@ -3372,7 +3392,6 @@ import { $Pose$$Type } from "packages/net/minecraft/world/entity/$Pose"
 import { $Capability$$Type } from "packages/net/minecraftforge/common/capabilities/$Capability"
 import { $IDistanceTravelled } from "packages/com/railwayteam/railways/mixin_interfaces/$IDistanceTravelled"
 import { $HitResult$$Type } from "packages/net/minecraft/world/phys/$HitResult"
-import { $CarriageContraptionVisual$$Type } from "packages/com/simibubi/create/content/trains/entity/$CarriageContraptionVisual"
 import { $CarriageSyncData } from "packages/com/simibubi/create/content/trains/entity/$CarriageSyncData"
 import { $EntityDimensions$$Type } from "packages/net/minecraft/world/entity/$EntityDimensions"
 import { $Couple } from "packages/net/createmod/catnip/data/$Couple"
@@ -3384,8 +3403,6 @@ constructor(entityType0: $EntityType$$Type<any>, level1: $Level$$Type)
 
 public "alwaysAccepts"(): boolean
 public "attack"(hp: float): void
-/** Client only, do not use in server scripts */
-public "bindInstance"(carriageContraptionVisual0: $CarriageContraptionVisual$$Type): void
 public "canBeRiddenUnderFluidType"(fluidType0: $FluidType$$Type, entity1: $Entity$$Type): boolean
 public "canFluidExtinguish"(fluidType0: $FluidType$$Type): boolean
 public "canHydrateInFluidType"(fluidType0: $FluidType$$Type): boolean
@@ -3401,8 +3418,8 @@ public "getCarriage"(): $Carriage
 public "getCarriageData"(): $CarriageSyncData
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 /** @deprecated */
 public "getEyeHeightForge"(pose0: $Pose$$Type, entityDimensions1: $EntityDimensions$$Type): float
@@ -3460,7 +3477,6 @@ public "runCommandSilent"(command: string): integer
 public "sdl$isDynamicLightEnabled"(): boolean
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "self"(): $Entity
-public "serializeNBT"(): $CompoundTag
 public "setCarriage"(carriage0: $Carriage$$Type): void
 public "setHexereiDynamicLightEnabled"(boolean0: boolean): void
 public "setMotionX"(x: double): void
@@ -3569,10 +3585,10 @@ constructor(immutableMap0: $ImmutableMap$$Type<$BlockPos$$Type, $MountedItemStor
 public "asContainer"(): $Container
 public "clear"(): void
 public "clear"(ingredient: $Ingredient$$Type): void
-public "count"(ingredient: $Ingredient$$Type): integer
 public "count"(): integer
-public "countNonEmpty"(): integer
+public "count"(ingredient: $Ingredient$$Type): integer
 public "countNonEmpty"(ingredient: $Ingredient$$Type): integer
+public "countNonEmpty"(): integer
 public "extractItem"(i: integer, i1: integer, b: boolean): $ItemStack
 public "find"(ingredient: $Ingredient$$Type): integer
 public "find"(): integer
@@ -3688,19 +3704,16 @@ get "id"(): $ResourceLocation
 }
 
 declare module "packages/com/simibubi/create/content/trains/track/$BezierConnection$GirderAngles" {
-import { $PoseStack$Pose, $PoseStack$Pose$$Type } from "packages/com/mojang/blaze3d/vertex/$PoseStack$Pose"
-import { $BlockPos, $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
-import { $Couple, $Couple$$Type } from "packages/net/createmod/catnip/data/$Couple"
+import { $PoseStack$Pose } from "packages/com/mojang/blaze3d/vertex/$PoseStack$Pose"
+import { $BlockPos } from "packages/net/minecraft/core/$BlockPos"
+import { $Couple } from "packages/net/createmod/catnip/data/$Couple"
 
 export class $BezierConnection$GirderAngles {
-constructor()
+readonly "beamCaps": $Couple<$Couple<$PoseStack$Pose>>[]
+readonly "beams": $Couple<$PoseStack$Pose>[]
+readonly "length": integer
+readonly "lightPosition": $BlockPos[]
 
-get "beamCaps"(): $Couple<$Couple<$PoseStack$Pose>>
-set "beamCaps"(value: $Couple$$Type<$Couple$$Type<$PoseStack$Pose$$Type>>)
-get "beams"(): $Couple<$PoseStack$Pose>
-set "beams"(value: $Couple$$Type<$PoseStack$Pose$$Type>)
-get "lightPosition"(): $BlockPos
-set "lightPosition"(value: $BlockPos$$Type)
 }
 }
 
@@ -3747,17 +3760,17 @@ public "cancelNavigation"(): void
 public "control"(travellingPoint0: $TravellingPoint$$Type): $TravellingPoint$ITrackSelector
 public "controlSignalScout"(): $TravellingPoint$ITrackSelector
 public "findNearestApproachable"(boolean0: boolean): $GlobalStation
-public "findPathTo"(globalStation0: $GlobalStation$$Type, double1: double): $DiscoveredPath
 public "findPathTo"(arrayList0: $ArrayList$$Type<$GlobalStation$$Type>, double1: double): $DiscoveredPath
+public "findPathTo"(globalStation0: $GlobalStation$$Type, double1: double): $DiscoveredPath
 public "isActive"(): boolean
 public "railways$findNearestApproachableSwitch"(forward: boolean): $Pair<any, any>
 public "railways$isWaypointMode"(): boolean
-public "railways$searchGeneral"(maxDistance: double, forward: boolean, pointTest: $IGenerallySearchableNavigation$PointTest$$Type): void
 public "railways$searchGeneral"(maxDistance: double, maxCost: double, forward: boolean, pointTest: $IGenerallySearchableNavigation$PointTest$$Type): void
+public "railways$searchGeneral"(maxDistance: double, forward: boolean, pointTest: $IGenerallySearchableNavigation$PointTest$$Type): void
 public "railways$updateControlsBlock"(forceBackwards: boolean): void
 public "read"(compoundTag0: $CompoundTag$$Type, trackGraph1: $TrackGraph$$Type, dimensionPalette2: $DimensionPalette$$Type): void
-public "search"(double0: double, boolean1: boolean, arrayList2: $ArrayList$$Type<$GlobalStation$$Type>, stationTest3: $Navigation$StationTest$$Type): void
 public "search"(double0: double, double1: double, boolean2: boolean, arrayList3: $ArrayList$$Type<$GlobalStation$$Type>, stationTest4: $Navigation$StationTest$$Type): void
+public "search"(double0: double, boolean1: boolean, arrayList2: $ArrayList$$Type<$GlobalStation$$Type>, stationTest3: $Navigation$StationTest$$Type): void
 public "startNavigation"(discoveredPath0: $DiscoveredPath$$Type): double
 public "tick"(level0: $Level$$Type): void
 public "write"(dimensionPalette0: $DimensionPalette$$Type): $CompoundTag
@@ -3827,7 +3840,6 @@ set "lazyTickRate"(value: integer)
 }
 
 declare module "packages/com/simibubi/create/content/trains/track/$BezierConnection" {
-import { $IMonorailBezier } from "packages/com/railwayteam/railways/mixin_interfaces/$IMonorailBezier"
 import { $CompoundTag, $CompoundTag$$Type } from "packages/net/minecraft/nbt/$CompoundTag"
 import { $Pair } from "packages/net/createmod/catnip/data/$Pair"
 import { $BezierConnection$SegmentAngles } from "packages/com/simibubi/create/content/trains/track/$BezierConnection$SegmentAngles"
@@ -3842,7 +3854,6 @@ import { $Player$$Type } from "packages/net/minecraft/world/entity/player/$Playe
 import { $FriendlyByteBuf$$Type } from "packages/net/minecraft/network/$FriendlyByteBuf"
 import { $BezierConnection$Segment, $BezierConnection$Segment$$Type } from "packages/com/simibubi/create/content/trains/track/$BezierConnection$Segment"
 import { $BezierConnection$GirderAngles } from "packages/com/simibubi/create/content/trains/track/$BezierConnection$GirderAngles"
-import { $IMonorailBezier$MonorailAngles } from "packages/com/railwayteam/railways/mixin_interfaces/$IMonorailBezier$MonorailAngles"
 import { $SlabBlock, $SlabBlock$$Type } from "packages/net/minecraft/world/level/block/$SlabBlock"
 import { $BlockPos, $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
 import { $Iterator } from "packages/java/util/$Iterator"
@@ -3850,20 +3861,23 @@ import { $AABB } from "packages/net/minecraft/world/phys/$AABB"
 import { $Couple, $Couple$$Type } from "packages/net/createmod/catnip/data/$Couple"
 import { $Map } from "packages/java/util/$Map"
 
-export class $BezierConnection implements $Iterable<$BezierConnection$Segment>, $IHasTrackCasing, $IMonorailBezier {
-constructor(couple0: $Couple$$Type<$BlockPos$$Type>, couple1: $Couple$$Type<$Vec3$$Type>, couple2: $Couple$$Type<$Vec3$$Type>, couple3: $Couple$$Type<$Vec3$$Type>, boolean4: boolean, boolean5: boolean, trackMaterial6: $TrackMaterial$$Type)
+export class $BezierConnection implements $Iterable<$BezierConnection$Segment>, $IHasTrackCasing {
+readonly "axes": $Couple<$Vec3>
+readonly "bePositions": $Couple<$BlockPos>
+readonly "hasGirder": boolean
+readonly "normals": $Couple<$Vec3>
+readonly "primary": boolean
+readonly "starts": $Couple<$Vec3>
+
 constructor(friendlyByteBuf0: $FriendlyByteBuf$$Type)
 constructor(compoundTag0: $CompoundTag$$Type, blockPos1: $BlockPos$$Type)
+constructor(couple0: $Couple$$Type<$BlockPos$$Type>, couple1: $Couple$$Type<$Vec3$$Type>, couple2: $Couple$$Type<$Vec3$$Type>, couple3: $Couple$$Type<$Vec3$$Type>, boolean4: boolean, boolean5: boolean, trackMaterial6: $TrackMaterial$$Type)
 
 public "addItemsToPlayer"(player0: $Player$$Type): void
 public "equalsSansMaterial"(bezierConnection0: $BezierConnection$$Type): boolean
 public "forEach"(consumer0: $Consumer$$Type<$BezierConnection$Segment$$Type>): void
-/** Client only, do not use in server scripts */
-public "getBakedGirders"(): $BezierConnection$GirderAngles[]
-/** Client only, do not use in server scripts */
-public "getBakedMonorails"(): $IMonorailBezier$MonorailAngles[]
-/** Client only, do not use in server scripts */
-public "getBakedSegments"(): $BezierConnection$SegmentAngles[]
+public "getBakedGirders"(): $BezierConnection$GirderAngles
+public "getBakedSegments"(): $BezierConnection$SegmentAngles
 public "getBounds"(): $AABB
 public "getGirderItemCost"(): integer
 public "getHandleLength"(): double
@@ -3898,23 +3912,10 @@ public "write"(blockPos0: $BlockPos$$Type): $CompoundTag
 public "write"(friendlyByteBuf0: $FriendlyByteBuf$$Type): void
 public "yOffsetAt"(vec30: $Vec3$$Type): integer
 [Symbol.iterator](): IterableIterator<$BezierConnection$Segment>;
-get "axes"(): $Couple<$Vec3>
-set "axes"(value: $Couple$$Type<$Vec3$$Type>)
-get "bePositions"(): $Couple<$BlockPos>
-set "bePositions"(value: $Couple$$Type<$BlockPos$$Type>)
-get "hasGirder"(): boolean
-set "hasGirder"(value: boolean)
-get "normals"(): $Couple<$Vec3>
-set "normals"(value: $Couple$$Type<$Vec3$$Type>)
-get "primary"(): boolean
-set "primary"(value: boolean)
 get "smoothing"(): $Couple<integer>
 set "smoothing"(value: $Couple$$Type<integer>)
-get "starts"(): $Couple<$Vec3>
-set "starts"(value: $Couple$$Type<$Vec3$$Type>)
-get "bakedGirders"(): $BezierConnection$GirderAngles[]
-get "bakedMonorails"(): $IMonorailBezier$MonorailAngles[]
-get "bakedSegments"(): $BezierConnection$SegmentAngles[]
+get "bakedGirders"(): $BezierConnection$GirderAngles
+get "bakedSegments"(): $BezierConnection$SegmentAngles
 get "bounds"(): $AABB
 get "girderItemCost"(): integer
 get "handleLength"(): double
@@ -4386,9 +4387,9 @@ public "getOwner"(level0: $Level$$Type): $LivingEntity
 public "getPositionInDimension"(resourceKey0: $ResourceKey$$Type<$Level>): $Optional<$BlockPos>
 public "getPresentDimensions"(): $List<$ResourceKey<$Level>>
 public "getTotalLength"(): integer
-public "handler$ddi000$acceleration"(cir: $CallbackInfoReturnable$$Type<any>): void
-public "handler$ddi000$maxSpeed"(cir: $CallbackInfoReturnable$$Type<any>): void
-public "handler$ddi000$maxTurnSpeed"(cir: $CallbackInfoReturnable$$Type<any>): void
+public "handler$dij000$acceleration"(cir: $CallbackInfoReturnable$$Type<any>): void
+public "handler$dij000$maxSpeed"(cir: $CallbackInfoReturnable$$Type<any>): void
+public "handler$dij000$maxTurnSpeed"(cir: $CallbackInfoReturnable$$Type<any>): void
 public "hasBackwardConductor"(): boolean
 public "hasForwardConductor"(): boolean
 public "isTravellingOn"(trackNode0: $TrackNode$$Type): boolean
@@ -4834,21 +4835,6 @@ export abstract class $MouseHandlerAccessor$$Static implements $MouseHandlerAcce
 }
 }
 
-declare module "packages/com/simibubi/create/content/contraptions/$Contraption$RenderedBlocks" {
-import { $Function, $Function$$Type } from "packages/java/util/function/$Function"
-import { $Record } from "packages/java/lang/$Record"
-import { $BlockState } from "packages/net/minecraft/world/level/block/state/$BlockState"
-import { $BlockPos, $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
-import { $Iterable, $Iterable$$Type } from "packages/java/lang/$Iterable"
-
-export class $Contraption$RenderedBlocks extends $Record {
-constructor(lookup: $Function$$Type<$BlockPos$$Type, $BlockState>, positions: $Iterable$$Type<$BlockPos$$Type>)
-
-public "lookup"(): $Function<$BlockPos, $BlockState>
-public "positions"(): $Iterable<$BlockPos>
-}
-}
-
 declare module "packages/com/simibubi/create/foundation/virtualWorld/$VirtualRenderWorld" {
 import { $ModelDataManager } from "packages/net/minecraftforge/client/model/data/$ModelDataManager"
 import { $SoundEvent$$Type } from "packages/net/minecraft/sounds/$SoundEvent"
@@ -4884,13 +4870,13 @@ import { $Capability$$Type } from "packages/net/minecraftforge/common/capabiliti
 import { $TargetingConditions$$Type } from "packages/net/minecraft/world/entity/ai/targeting/$TargetingConditions"
 import { $Optional } from "packages/java/util/$Optional"
 import { $PartEntity } from "packages/net/minecraftforge/entity/$PartEntity"
-import { $Trackable } from "packages/dev/uncandango/alltheleaks/mixin/$Trackable"
 import { $LazyOptional } from "packages/net/minecraftforge/common/util/$LazyOptional"
 import { $ChunkStatus$$Type } from "packages/net/minecraft/world/level/chunk/$ChunkStatus"
 import { $Fluid$$Type } from "packages/net/minecraft/world/level/material/$Fluid"
 import { $Component, $Component$$Type } from "packages/net/minecraft/network/chat/$Component"
 import { $Direction$$Type } from "packages/net/minecraft/core/$Direction"
 import { $BlockContainerJS } from "packages/dev/latvian/mods/kubejs/level/$BlockContainerJS"
+import { $Runnable$$Type } from "packages/java/lang/$Runnable"
 import { $Block$$Type } from "packages/net/minecraft/world/level/block/$Block"
 import { $LevelChunk } from "packages/net/minecraft/world/level/chunk/$LevelChunk"
 import { $Function$$Type } from "packages/java/util/function/$Function"
@@ -4898,27 +4884,22 @@ import { $BlockHitResult } from "packages/net/minecraft/world/phys/$BlockHitResu
 import { $Stream } from "packages/java/util/stream/$Stream"
 import { $ClipContext$$Type } from "packages/net/minecraft/world/level/$ClipContext"
 import { $ColorResolver$$Type } from "packages/net/minecraft/world/level/$ColorResolver"
-import { $WeakReference } from "packages/java/lang/ref/$WeakReference"
 import { $HolderLookup } from "packages/net/minecraft/core/$HolderLookup"
 import { $BlockPos, $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
 import { $VisualizationLevel } from "packages/dev/engine_room/flywheel/api/visualization/$VisualizationLevel"
 import { $VoxelShape, $VoxelShape$$Type } from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
 import { $Collection, $Collection$$Type } from "packages/java/util/$Collection"
 import { $Predicate$$Type } from "packages/java/util/function/$Predicate"
-import { $ObjectOpenCustomHashSet } from "packages/it/unimi/dsi/fastutil/objects/$ObjectOpenCustomHashSet"
-import { $Class, $Class$$Type } from "packages/java/lang/$Class"
+import { $Class$$Type } from "packages/java/lang/$Class"
 import { $CollisionContext$$Type } from "packages/net/minecraft/world/phys/shapes/$CollisionContext"
 import { $FireworksJS$$Type } from "packages/dev/latvian/mods/kubejs/level/$FireworksJS"
 import { $GameEvent$$Type } from "packages/net/minecraft/world/level/gameevent/$GameEvent"
 import { $ExplosionJS } from "packages/dev/latvian/mods/kubejs/level/$ExplosionJS"
 import { $TickPriority$$Type } from "packages/net/minecraft/world/ticks/$TickPriority"
 import { $ResourceKey$$Type } from "packages/net/minecraft/resources/$ResourceKey"
-import { $Map } from "packages/java/util/$Map"
 
 export class $VirtualRenderWorld extends $Level implements $VisualizationLevel {
-constructor(level0: $Level$$Type, int1: integer, int2: integer, vec3i3: $Vec3i$$Type)
-constructor(level0: $Level$$Type, vec3i1: $Vec3i$$Type)
-constructor(level0: $Level$$Type)
+constructor(level0: $Level$$Type, int1: integer, int2: integer, vec3i3: $Vec3i$$Type, runnable4: $Runnable$$Type)
 
 public "actuallyGetChunk"(int0: integer, int1: integer): $ChunkAccess
 public "addFreshEntity"(entity0: $Entity$$Type): boolean
@@ -4926,7 +4907,6 @@ public "blockUpdated"(blockPos0: $BlockPos$$Type, block1: $Block$$Type): void
 public "canSeeSky"(blockPos0: $BlockPos$$Type): boolean
 public "canSeeSkyFromBelowWater"(blockPos0: $BlockPos$$Type): boolean
 public "clear"(): void
-public static "clearNullReferences"(): void
 public "clip"(clipContext0: $ClipContext$$Type): $BlockHitResult
 public "clipWithInteractionOverride"(vec30: $Vec3$$Type, vec31: $Vec3$$Type, blockPos2: $BlockPos$$Type, voxelShape3: $VoxelShape$$Type, blockState4: $BlockState$$Type): $BlockHitResult
 public "collidesWithSuffocatingBlock"(entity0: $Entity$$Type, aABB1: $AABB$$Type): boolean
@@ -4935,25 +4915,24 @@ public static "create"(int0: integer, int1: integer): $LevelHeightAccessor
 public "createEntity"(type: $EntityType$$Type<any>): $Entity
 public "createEntityList"(entities: $Collection$$Type<$Entity$$Type>): $EntityArrayList
 public "createExplosion"(x: double, y: double, z: double): $ExplosionJS
-public static "createWeakRefBasedSet"(): $ObjectOpenCustomHashSet<$WeakReference<$Trackable>>
 public "dayTime"(): long
 public "destroyBlock"(blockPos0: $BlockPos$$Type, boolean1: boolean, entity2: $Entity$$Type): boolean
 public "destroyBlock"(blockPos0: $BlockPos$$Type, boolean1: boolean): boolean
 public "findFreePosition"(entity0: $Entity$$Type, voxelShape1: $VoxelShape$$Type, vec32: $Vec3$$Type, double3: double, double4: double, double5: double): $Optional<$Vec3>
 public "findSupportingBlock"(entity0: $Entity$$Type, aABB1: $AABB$$Type): $Optional<$BlockPos>
-public "gameEvent"(entity0: $Entity$$Type, gameEvent1: $GameEvent$$Type, blockPos2: $BlockPos$$Type): void
 public "gameEvent"(gameEvent0: $GameEvent$$Type, blockPos1: $BlockPos$$Type, context2: $GameEvent$Context$$Type): void
+public "gameEvent"(entity0: $Entity$$Type, gameEvent1: $GameEvent$$Type, blockPos2: $BlockPos$$Type): void
 public "gameEvent"(entity0: $Entity$$Type, gameEvent1: $GameEvent$$Type, vec32: $Vec3$$Type): void
 public static "getAllLoadedEntities"(level: $Level$$Type): $Iterable<$Entity>
 public "getAnyChunkImmediately"(int0: integer, int1: integer): $ChunkAccess
 public "getBestNeighborSignal"(blockPos0: $BlockPos$$Type): integer
-public "getBlock"(blockEntity: $BlockEntity$$Type): $BlockContainerJS
-public "getBlock"(pos: $BlockPos$$Type): $BlockContainerJS
 public "getBlock"(x: integer, y: integer, z: integer): $BlockContainerJS
+public "getBlock"(pos: $BlockPos$$Type): $BlockContainerJS
+public "getBlock"(blockEntity: $BlockEntity$$Type): $BlockContainerJS
 public "getBlockCollisions"(entity0: $Entity$$Type, aABB1: $AABB$$Type): $Iterable<$VoxelShape>
 public "getBlockEntity"<T extends $BlockEntity>(blockPos0: $BlockPos$$Type, blockEntityType1: $BlockEntityType$$Type<T>): $Optional<T>
-public "getBlockFloorHeight"(blockPos0: $BlockPos$$Type): double
 public "getBlockFloorHeight"(voxelShape0: $VoxelShape$$Type, supplier1: $Supplier$$Type<$VoxelShape>): double
+public "getBlockFloorHeight"(blockPos0: $BlockPos$$Type): double
 public "getBlockState"(int0: integer, int1: integer, int2: integer): $BlockState
 public "getBlockStates"(aABB0: $AABB$$Type): $Stream<$BlockState>
 public "getBlockStatesIfLoaded"(aABB0: $AABB$$Type): $Stream<$BlockState>
@@ -4970,8 +4949,8 @@ public "getDirectSignalTo"(blockPos0: $BlockPos$$Type): integer
 public "getDisplayName"(): $Component
 public "getEntities"(): $EntityArrayList
 public "getEntities"(entity0: $Entity$$Type, aABB1: $AABB$$Type): $List<$Entity>
-public "getEntitiesOfClass"<T extends $Entity>(class0: $Class$$Type<T>, aABB1: $AABB$$Type): $List<T>
 public "getEntitiesOfClass"<T extends $Entity>(class0: $Class$$Type<T>, aABB1: $AABB$$Type, predicate2: $Predicate$$Type<T>): $List<T>
+public "getEntitiesOfClass"<T extends $Entity>(class0: $Class$$Type<T>, aABB1: $AABB$$Type): $List<T>
 public "getEntitiesWithin"(aabb: $AABB$$Type): $EntityArrayList
 public "getEntityCollisions"(entity0: $Entity$$Type, aABB1: $AABB$$Type): $List<$VoxelShape>
 public "getExistingBlockEntity"(blockPos0: $BlockPos$$Type): $BlockEntity
@@ -4987,14 +4966,14 @@ public "getMoonPhase"(): integer
 public "getName"(): $Component
 public "getNearbyEntities"<T extends $LivingEntity>(class0: $Class$$Type<T>, targetingConditions1: $TargetingConditions$$Type, livingEntity2: $LivingEntity$$Type, aABB3: $AABB$$Type): $List<T>
 public "getNearbyPlayers"(targetingConditions0: $TargetingConditions$$Type, livingEntity1: $LivingEntity$$Type, aABB2: $AABB$$Type): $List<$Player>
-public "getNearestEntity"<T extends $LivingEntity>(class0: $Class$$Type<T>, targetingConditions1: $TargetingConditions$$Type, livingEntity2: $LivingEntity$$Type, double3: double, double4: double, double5: double, aABB6: $AABB$$Type): T
 public "getNearestEntity"<T extends $LivingEntity>(list0: $List$$Type<T>, targetingConditions1: $TargetingConditions$$Type, livingEntity2: $LivingEntity$$Type, double3: double, double4: double, double5: double): T
+public "getNearestEntity"<T extends $LivingEntity>(class0: $Class$$Type<T>, targetingConditions1: $TargetingConditions$$Type, livingEntity2: $LivingEntity$$Type, double3: double, double4: double, double5: double, aABB6: $AABB$$Type): T
 public "getNearestPlayer"(entity0: $Entity$$Type, double1: double): $Player
 public "getNearestPlayer"(double0: double, double1: double, double2: double, double3: double, boolean4: boolean): $Player
 public "getNearestPlayer"(double0: double, double1: double, double2: double, double3: double, predicate4: $Predicate$$Type<$Entity$$Type>): $Player
-public "getNearestPlayer"(targetingConditions0: $TargetingConditions$$Type, livingEntity1: $LivingEntity$$Type): $Player
 public "getNearestPlayer"(targetingConditions0: $TargetingConditions$$Type, livingEntity1: $LivingEntity$$Type, double2: double, double3: double, double4: double): $Player
 public "getNearestPlayer"(targetingConditions0: $TargetingConditions$$Type, double1: double, double2: double, double3: double): $Player
+public "getNearestPlayer"(targetingConditions0: $TargetingConditions$$Type, livingEntity1: $LivingEntity$$Type): $Player
 public "getPartEntities"(): $Collection<$PartEntity<any>>
 public "getPathfindingCostFromLightLevels"(blockPos0: $BlockPos$$Type): float
 public "getPlayerByUUID"(uUID0: $UUID$$Type): $Player
@@ -5003,7 +4982,6 @@ public "getRawBrightness"(blockPos0: $BlockPos$$Type, int1: integer): integer
 public "getShade"(float0: float, float1: float, float2: float, boolean3: boolean): float
 public "getSide"(): $ScriptType
 public "getSignal"(blockPos0: $BlockPos$$Type, direction1: $Direction$$Type): integer
-public static "getSummary"(): $Map<$Class<any>, $Map<$Class<any>, long>>
 public "getTimeOfDay"(float0: float): float
 public "hasChunk"(int0: integer, int1: integer): boolean
 /** @deprecated */
@@ -5011,11 +4989,11 @@ public "hasChunkAt"(blockPos0: $BlockPos$$Type): boolean
 /** @deprecated */
 public "hasChunkAt"(int0: integer, int1: integer): boolean
 /** @deprecated */
+public "hasChunksAt"(int0: integer, int1: integer, int2: integer, int3: integer): boolean
+/** @deprecated */
 public "hasChunksAt"(int0: integer, int1: integer, int2: integer, int3: integer, int4: integer, int5: integer): boolean
 /** @deprecated */
 public "hasChunksAt"(blockPos0: $BlockPos$$Type, blockPos1: $BlockPos$$Type): boolean
-/** @deprecated */
-public "hasChunksAt"(int0: integer, int1: integer, int2: integer, int3: integer): boolean
 public "hasNearbyAlivePlayer"(double0: double, double1: double, double2: double, double3: double): boolean
 public "hasNeighborSignal"(blockPos0: $BlockPos$$Type): boolean
 public "hasSignal"(blockPos0: $BlockPos$$Type, direction1: $Direction$$Type): boolean
@@ -5024,14 +5002,14 @@ public "isBlockInLine"(clipBlockStateContext0: $ClipBlockStateContext$$Type): $B
 public "isEmptyBlock"(blockPos0: $BlockPos$$Type): boolean
 public "isOverworld"(): boolean
 public "isUnobstructed"(entity0: $Entity$$Type, voxelShape1: $VoxelShape$$Type): boolean
-public "isUnobstructed"(entity0: $Entity$$Type): boolean
 public "isUnobstructed"(blockState0: $BlockState$$Type, blockPos1: $BlockPos$$Type, collisionContext2: $CollisionContext$$Type): boolean
+public "isUnobstructed"(entity0: $Entity$$Type): boolean
 public "isWaterAt"(blockPos0: $BlockPos$$Type): boolean
 public "levelEvent"(int0: integer, blockPos1: $BlockPos$$Type, int2: integer): void
 public static "nextMultipleOf16"(int0: integer): integer
 public "noCollision"(entity0: $Entity$$Type): boolean
-public "noCollision"(entity0: $Entity$$Type, aABB1: $AABB$$Type): boolean
 public "noCollision"(aABB0: $AABB$$Type): boolean
+public "noCollision"(entity0: $Entity$$Type, aABB1: $AABB$$Type): boolean
 public "playSound"(player0: $Player$$Type, blockPos1: $BlockPos$$Type, soundEvent2: $SoundEvent$$Type, soundSource3: $SoundSource$$Type): void
 public "resetExternalLight"(): void
 public "runCommand"(command: string): integer
@@ -5047,12 +5025,9 @@ public "setExternalLight"(int0: integer): void
 public "setStatusMessage"(message: $Component$$Type): void
 public "spawnFireworks"(x: double, y: double, z: double, f: $FireworksJS$$Type): void
 public "spawnParticles"(options: $ParticleOptions$$Type, overrideLimiter: boolean, x: double, y: double, z: double, vx: double, vy: double, vz: double, count: integer, speed: double): void
-public "startTracking"(): void
-public static "startTracking"(object0: any): void
 public "supportsVisualization"(): boolean
 public "tell"(message: $Component$$Type): void
 public static "traverseBlocks"<T, C>(vec30: $Vec3$$Type, vec31: $Vec3$$Type, c2: C, biFunction3: $BiFunction$$Type<C, $BlockPos$$Type, T>, function4: $Function$$Type<C, T>): T
-public "wrap"(): $WeakReference<$Trackable>
 get "difficulty"(): $Difficulty
 get "dimension"(): $ResourceLocation
 get "displayName"(): $Component
@@ -5431,8 +5406,8 @@ export class $MountedFluidStorage implements $IFluidHandler {
 static readonly "CODEC": $Codec<$MountedFluidStorage>
 readonly "type": $MountedFluidStorageType<$MountedFluidStorage>
 
-public "drain"(int0: integer, fluidAction1: $IFluidHandler$FluidAction$$Type): $FluidStack
 public "drain"(fluidStack0: $FluidStack$$Type, fluidAction1: $IFluidHandler$FluidAction$$Type): $FluidStack
+public "drain"(int0: integer, fluidAction1: $IFluidHandler$FluidAction$$Type): $FluidStack
 public "fill"(fluidStack0: $FluidStack$$Type, fluidAction1: $IFluidHandler$FluidAction$$Type): integer
 public "getFluidInTank"(int0: integer): $FluidStack
 public "getTankCapacity"(int0: integer): integer
@@ -5681,8 +5656,8 @@ export class $TravellingPoint {
 constructor()
 constructor(trackNode0: $TrackNode$$Type, trackNode1: $TrackNode$$Type, trackEdge2: $TrackEdge$$Type, double3: double, boolean4: boolean)
 
-public "follow"(travellingPoint0: $TravellingPoint$$Type, consumer1: $Consumer$$Type<boolean>): $TravellingPoint$ITrackSelector
 public "follow"(travellingPoint0: $TravellingPoint$$Type): $TravellingPoint$ITrackSelector
+public "follow"(travellingPoint0: $TravellingPoint$$Type, consumer1: $Consumer$$Type<boolean>): $TravellingPoint$ITrackSelector
 public "getPosition"(trackGraph0: $TrackGraph$$Type): $Vec3
 public "getPosition"(trackGraph0: $TrackGraph$$Type, boolean1: boolean): $Vec3
 public "getPositionWithOffset"(trackGraph0: $TrackGraph$$Type, double1: double, boolean2: boolean): $Vec3
@@ -5694,10 +5669,10 @@ public "random"(): $TravellingPoint$ITrackSelector
 public static "read"(compoundTag0: $CompoundTag$$Type, trackGraph1: $TrackGraph$$Type, dimensionPalette2: $DimensionPalette$$Type): $TravellingPoint
 public "reverse"(trackGraph0: $TrackGraph$$Type): void
 public "steer"(steerDirection0: $TravellingPoint$SteerDirection$$Type, vec31: $Vec3$$Type): $TravellingPoint$ITrackSelector
-public "travel"(trackGraph0: $TrackGraph$$Type, double1: double, iTrackSelector2: $TravellingPoint$ITrackSelector$$Type, iEdgePointListener3: $TravellingPoint$IEdgePointListener$$Type, iTurnListener4: $TravellingPoint$ITurnListener$$Type, iPortalListener5: $TravellingPoint$IPortalListener$$Type): double
-public "travel"(trackGraph0: $TrackGraph$$Type, double1: double, iTrackSelector2: $TravellingPoint$ITrackSelector$$Type): double
-public "travel"(trackGraph0: $TrackGraph$$Type, double1: double, iTrackSelector2: $TravellingPoint$ITrackSelector$$Type, iEdgePointListener3: $TravellingPoint$IEdgePointListener$$Type): double
 public "travel"(trackGraph0: $TrackGraph$$Type, double1: double, iTrackSelector2: $TravellingPoint$ITrackSelector$$Type, iEdgePointListener3: $TravellingPoint$IEdgePointListener$$Type, iTurnListener4: $TravellingPoint$ITurnListener$$Type): double
+public "travel"(trackGraph0: $TrackGraph$$Type, double1: double, iTrackSelector2: $TravellingPoint$ITrackSelector$$Type, iEdgePointListener3: $TravellingPoint$IEdgePointListener$$Type): double
+public "travel"(trackGraph0: $TrackGraph$$Type, double1: double, iTrackSelector2: $TravellingPoint$ITrackSelector$$Type): double
+public "travel"(trackGraph0: $TrackGraph$$Type, double1: double, iTrackSelector2: $TravellingPoint$ITrackSelector$$Type, iEdgePointListener3: $TravellingPoint$IEdgePointListener$$Type, iTurnListener4: $TravellingPoint$ITurnListener$$Type, iPortalListener5: $TravellingPoint$IPortalListener$$Type): double
 public "write"(dimensionPalette0: $DimensionPalette$$Type): $CompoundTag
 get "blocked"(): boolean
 set "blocked"(value: boolean)
@@ -5711,21 +5686,6 @@ get "position"(): double
 set "position"(value: double)
 get "upsideDown"(): boolean
 set "upsideDown"(value: boolean)
-}
-}
-
-declare module "packages/com/simibubi/create/content/trains/station/$GlobalStation$GlobalPackagePort" {
-import { $ItemStackHandler, $ItemStackHandler$$Type } from "packages/net/minecraftforge/items/$ItemStackHandler"
-
-export class $GlobalStation$GlobalPackagePort {
-constructor()
-
-get "address"(): string
-set "address"(value: string)
-get "offlineBuffer"(): $ItemStackHandler
-set "offlineBuffer"(value: $ItemStackHandler$$Type)
-get "primed"(): boolean
-set "primed"(value: boolean)
 }
 }
 
@@ -5768,6 +5728,18 @@ public static "mountedItemStorage"<B extends $Block, P>(registryEntry0: $Registr
 }
 }
 
+declare module "packages/com/simibubi/create/compat/computercraft/events/$ComputerEvent" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+export interface $ComputerEvent {
+}
+
+export namespace $ComputerEvent {
+const probejs$$marker: never
+}
+export abstract class $ComputerEvent$$Static implements $ComputerEvent {
+}
+}
+
 declare module "packages/com/simibubi/create/api/event/$PipeCollisionEvent$Flow" {
 import { $Fluid, $Fluid$$Type } from "packages/net/minecraft/world/level/material/$Fluid"
 import { $PipeCollisionEvent } from "packages/com/simibubi/create/api/event/$PipeCollisionEvent"
@@ -5807,8 +5779,8 @@ static readonly "UPSIDE_DOWN_KEY": string
 
 constructor(abstractBogeyBlock0: $AbstractBogeyBlock$$Type<any>, boolean1: boolean, compoundTag2: $CompoundTag$$Type, travellingPoint3: $TravellingPoint$$Type, travellingPoint4: $TravellingPoint$$Type)
 
-public "getAnchorPosition"(boolean0: boolean): $Vec3
 public "getAnchorPosition"(): $Vec3
+public "getAnchorPosition"(boolean0: boolean): $Vec3
 public "getDimension"(): $ResourceKey<$Level>
 public "getSize"(): $BogeySizes$BogeySize
 public "getStress"(): double
@@ -5861,16 +5833,19 @@ export class $CarriageContraption extends $Contraption {
 constructor()
 constructor(direction0: $Direction$$Type)
 
+public "atSeam"(int0: integer): boolean
 public "atSeam"(blockPos0: $BlockPos$$Type): boolean
 public "getAssemblyDirection"(): $Direction
 public "getSecondBogeyPos"(): $BlockPos
 public "hasBackwardControls"(): boolean
 public "hasForwardControls"(): boolean
 public "inControl"(blockPos0: $BlockPos$$Type, direction1: $Direction$$Type): boolean
+public "isHiddenInPortal"(int0: integer): boolean
 public "notInPortal"(): boolean
 public "returnStorageForDisassembly"(mountedStorageManager0: $MountedStorageManager$$Type): void
 public "setSoundQueueOffset"(int0: integer): void
 public "swapStorageAfterAssembly"(carriageContraptionEntity0: $CarriageContraptionEntity$$Type): void
+public "withinVisible"(int0: integer): boolean
 public "withinVisible"(blockPos0: $BlockPos$$Type): boolean
 get "blockConductors"(): $Couple<boolean>
 set "blockConductors"(value: $Couple$$Type<boolean>)
@@ -6195,6 +6170,20 @@ set "requiresTool"(value: boolean)
 }
 }
 
+declare module "packages/com/simibubi/create/foundation/mixin/accessor/$ItemFrameAccessor" {
+import { $ItemStack } from "packages/net/minecraft/world/item/$ItemStack"
+
+export interface $ItemFrameAccessor {
+"create$getFrameItemStack"(): $ItemStack
+}
+
+export namespace $ItemFrameAccessor {
+const probejs$$marker: never
+}
+export abstract class $ItemFrameAccessor$$Static implements $ItemFrameAccessor {
+}
+}
+
 declare module "packages/com/simibubi/create/content/trains/graph/$TrackGraphBounds" {
 import { $List, $List$$Type } from "packages/java/util/$List"
 import { $Level } from "packages/net/minecraft/world/level/$Level"
@@ -6249,6 +6238,45 @@ public "write"(): $CompoundTag
 get "id"(): $ResourceLocation
 get "secondLineIcon"(): $ItemStack
 get "summary"(): $Pair<$ItemStack, $Component>
+}
+}
+
+declare module "packages/com/simibubi/create/content/contraptions/render/$ClientContraption" {
+import { $ContraptionMatrices } from "packages/com/simibubi/create/content/contraptions/render/$ContraptionMatrices"
+import { $VirtualRenderWorld } from "packages/com/simibubi/create/foundation/virtualWorld/$VirtualRenderWorld"
+import { $ModelData } from "packages/net/minecraftforge/client/model/data/$ModelData"
+import { $BlockEntity } from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
+import { $StructureTemplate$StructureBlockInfo$$Type } from "packages/net/minecraft/world/level/levelgen/structure/templatesystem/$StructureTemplate$StructureBlockInfo"
+import { $List } from "packages/java/util/$List"
+import { $Contraption$$Type } from "packages/com/simibubi/create/content/contraptions/$Contraption"
+import { $Level$$Type } from "packages/net/minecraft/world/level/$Level"
+import { $BitSet } from "packages/java/util/$BitSet"
+import { $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
+import { $ClientContraption$RenderedBlocks } from "packages/com/simibubi/create/content/contraptions/render/$ClientContraption$RenderedBlocks"
+
+export class $ClientContraption {
+readonly "renderedBlockEntityView": $List<$BlockEntity>
+readonly "scratchErroredBlockEntities": $BitSet
+readonly "shouldRenderBlockEntities": $BitSet
+
+constructor(contraption0: $Contraption$$Type)
+
+public "childrenVersion"(): integer
+public "getAndAdjustShouldRenderBlockEntities"(): $BitSet
+public "getBlockEntity"(blockPos0: $BlockPos$$Type): $BlockEntity
+public "getMatrices"(): $ContraptionMatrices
+public "getModelData"(blockPos0: $BlockPos$$Type): $ModelData
+public "getRenderLevel"(): $VirtualRenderWorld
+public "getRenderedBlocks"(): $ClientContraption$RenderedBlocks
+public "invalidateChildren"(): void
+public "invalidateStructure"(): void
+public "readBlockEntity"(level0: $Level$$Type, structureBlockInfo1: $StructureTemplate$StructureBlockInfo$$Type, boolean2: boolean): $BlockEntity
+public "resetRenderLevel"(): void
+public "structureVersion"(): integer
+get "andAdjustShouldRenderBlockEntities"(): $BitSet
+get "matrices"(): $ContraptionMatrices
+get "renderLevel"(): $VirtualRenderWorld
+get "renderedBlocks"(): $ClientContraption$RenderedBlocks
 }
 }
 
@@ -6388,11 +6416,11 @@ export abstract class $SystemReportAccessor$$Static implements $SystemReportAcce
 declare module "packages/com/simibubi/create/content/trains/station/$GlobalStation" {
 import { $SingleBlockEntityEdgePoint } from "packages/com/simibubi/create/content/trains/signal/$SingleBlockEntityEdgePoint"
 import { $TrackNode$$Type } from "packages/com/simibubi/create/content/trains/graph/$TrackNode"
-import { $GlobalStation$GlobalPackagePort, $GlobalStation$GlobalPackagePort$$Type } from "packages/com/simibubi/create/content/trains/station/$GlobalStation$GlobalPackagePort"
 import { $WeakReference, $WeakReference$$Type } from "packages/java/lang/ref/$WeakReference"
 import { $StationEditPacket } from "packages/com/simibubi/create/content/trains/station/$StationEditPacket"
 import { $Train, $Train$$Type } from "packages/com/simibubi/create/content/trains/entity/$Train"
 import { $BlockPos, $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
+import { $GlobalPackagePort, $GlobalPackagePort$$Type } from "packages/com/simibubi/create/content/trains/station/$GlobalPackagePort"
 import { $ILimitedGlobalStation } from "packages/com/railwayteam/railways/mixin_interfaces/$ILimitedGlobalStation"
 import { $Map, $Map$$Type } from "packages/java/util/$Map"
 
@@ -6415,8 +6443,8 @@ public "setLimitEnabled"(limitEnabled: boolean): void
 public "trainDeparted"(train0: $Train$$Type): void
 get "assembling"(): boolean
 set "assembling"(value: boolean)
-get "connectedPorts"(): $Map<$BlockPos, $GlobalStation$GlobalPackagePort>
-set "connectedPorts"(value: $Map$$Type<$BlockPos$$Type, $GlobalStation$GlobalPackagePort$$Type>)
+get "connectedPorts"(): $Map<$BlockPos, $GlobalPackagePort>
+set "connectedPorts"(value: $Map$$Type<$BlockPos$$Type, $GlobalPackagePort$$Type>)
 get "name"(): string
 set "name"(value: string)
 get "nearestTrain"(): $WeakReference<$Train>
@@ -6662,6 +6690,21 @@ export namespace $FallingBlockEntityAccessor {
 const probejs$$marker: never
 }
 export abstract class $FallingBlockEntityAccessor$$Static implements $FallingBlockEntityAccessor {
+}
+}
+
+declare module "packages/com/simibubi/create/content/contraptions/render/$ClientContraption$RenderedBlocks" {
+import { $Function, $Function$$Type } from "packages/java/util/function/$Function"
+import { $Record } from "packages/java/lang/$Record"
+import { $BlockState } from "packages/net/minecraft/world/level/block/state/$BlockState"
+import { $BlockPos, $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
+import { $Iterable, $Iterable$$Type } from "packages/java/lang/$Iterable"
+
+export class $ClientContraption$RenderedBlocks extends $Record {
+constructor(lookup: $Function$$Type<$BlockPos$$Type, $BlockState>, positions: $Iterable$$Type<$BlockPos$$Type>)
+
+public "lookup"(): $Function<$BlockPos, $BlockState>
+public "positions"(): $Iterable<$BlockPos>
 }
 }
 
@@ -6947,10 +6990,10 @@ public "getMapColor"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$
 public "getMatchingBogey"(direction0: $Direction$$Type, boolean1: boolean): $BlockState
 public "getMaxEnchantingPower"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type): float
 public "getMod"(): string
-public "getNextSize"(level0: $Level$$Type, blockPos1: $BlockPos$$Type): $BlockState
 public "getNextSize"(abstractBogeyBlockEntity0: $AbstractBogeyBlockEntity$$Type): $BlockState
-public "getNextStyle"(bogeyStyle0: $BogeyStyle$$Type): $BogeyStyle
+public "getNextSize"(level0: $Level$$Type, blockPos1: $BlockPos$$Type): $BlockState
 public "getNextStyle"(level0: $Level$$Type, blockPos1: $BlockPos$$Type): $BogeyStyle
+public "getNextStyle"(bogeyStyle0: $BogeyStyle$$Type): $BogeyStyle
 public "getPickupSound"(): $Optional<$SoundEvent>
 public "getPickupSound"(blockState0: $BlockState$$Type): $Optional<$SoundEvent>
 public "getPistonPushReaction"(blockState0: $BlockState$$Type): $PushReaction
@@ -7093,8 +7136,8 @@ public "setId"(uUID0: $UUID$$Type): void
 public "setLocation"(couple0: $Couple$$Type<$TrackNodeLocation$$Type>, double1: double): void
 public "setType"(edgePointType0: $EdgePointType$$Type<any>): void
 public "tick"(trackGraph0: $TrackGraph$$Type, boolean1: boolean): void
-public "write"(compoundTag0: $CompoundTag$$Type, dimensionPalette1: $DimensionPalette$$Type): void
 public "write"(friendlyByteBuf0: $FriendlyByteBuf$$Type, dimensionPalette1: $DimensionPalette$$Type): void
+public "write"(compoundTag0: $CompoundTag$$Type, dimensionPalette1: $DimensionPalette$$Type): void
 get "edgeLocation"(): $Couple<$TrackNodeLocation>
 set "edgeLocation"(value: $Couple$$Type<$TrackNodeLocation$$Type>)
 get "id"(): $UUID

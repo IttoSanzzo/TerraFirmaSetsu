@@ -22,8 +22,8 @@ import { $SoulNetwork, $SoulNetwork$$Type } from "packages/wayoftime/bloodmagic/
 import { $SoulTicket, $SoulTicket$$Type } from "packages/wayoftime/bloodmagic/core/data/$SoulTicket"
 
 export class $SoulNetworkEvent extends $Event {
-constructor(soulNetwork0: $SoulNetwork$$Type, soulTicket1: $SoulTicket$$Type)
 constructor()
+constructor(soulNetwork0: $SoulNetwork$$Type, soulTicket1: $SoulTicket$$Type)
 
 public "getNetwork"(): $SoulNetwork
 public "getTicket"(): $SoulTicket
@@ -538,13 +538,13 @@ public "serializeNBT"(): $CompoundTag
 public "setCurrentEssence"(int0: integer): $SoulNetwork
 public "setOrbTier"(int0: integer): $SoulNetwork
 public "setParent"(bMWorldSavedData0: $BMWorldSavedData$$Type): $SoulNetwork
+public "syphon"(soulTicket0: $SoulTicket$$Type): integer
 /** @deprecated */
 public "syphon"(int0: integer): integer
-public "syphon"(soulTicket0: $SoulTicket$$Type): integer
 public "syphon"(soulTicket0: $SoulTicket$$Type, boolean1: boolean): integer
+public "syphonAndDamage"(player0: $Player$$Type, soulTicket1: $SoulTicket$$Type): $BooleanResult<integer>
 /** @deprecated */
 public "syphonAndDamage"(player0: $Player$$Type, int1: integer): boolean
-public "syphonAndDamage"(player0: $Player$$Type, soulTicket1: $SoulTicket$$Type): $BooleanResult<integer>
 get "cachedPlayer"(): $Player
 get "currentEssence"(): integer
 get "orbTier"(): integer
@@ -880,8 +880,6 @@ import { $ResourceLocation$$Type } from "packages/net/minecraft/resources/$Resou
 import { $Map, $Map$$Type } from "packages/java/util/$Map"
 
 export class $LivingStats {
-static readonly "DEFAULT_UPGRADE_POINTS": integer
-
 constructor(map0: $Map$$Type<$LivingUpgrade$$Type, double>)
 constructor()
 
@@ -894,13 +892,16 @@ public "getLevel"(resourceLocation0: $ResourceLocation$$Type): integer
 public "getMaxPoints"(): integer
 public "getUpgrades"(): $Map<$LivingUpgrade, double>
 public "getUsedPoints"(): integer
+public "isEvolved"(): boolean
 public "resetExperience"(resourceLocation0: $ResourceLocation$$Type): $LivingStats
 public "serialize"(): $CompoundTag
+public "setEvolved"(): $LivingStats
 public "setMaxPoints"(int0: integer): $LivingStats
 public static "toPlayer"(player0: $Player$$Type, livingStats1: $LivingStats$$Type): void
 get "maxPoints"(): integer
 get "upgrades"(): $Map<$LivingUpgrade, double>
 get "usedPoints"(): integer
+get "evolved"(): boolean
 set "maxPoints"(value: integer)
 }
 }

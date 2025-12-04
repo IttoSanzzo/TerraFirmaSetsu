@@ -72,9 +72,9 @@ public static "read"(stringReader0: $StringReader$$Type): $ResourceLocation
 public static "read"(string0: string): $DataResult<$ResourceLocation>
 public "specialEquals"(o: any, shallow: boolean): boolean
 public "toDebugFileName"(): string
-public "toLanguageKey"(): string
-public "toLanguageKey"(string0: string, string1: string): string
 public "toLanguageKey"(string0: string): string
+public "toLanguageKey"(string0: string, string1: string): string
+public "toLanguageKey"(): string
 public "toShortLanguageKey"(): string
 public static "tryBuild"(string0: string, string1: string): $ResourceLocation
 public static "tryBySeparator"(string0: string, char1: character): $ResourceLocation
@@ -82,8 +82,8 @@ public static "tryParse"(string0: string): $ResourceLocation
 public static "validNamespaceChar"(char0: character): boolean
 public static "validPathChar"(char0: character): boolean
 public static "withDefaultNamespace"(string0: string): $ResourceLocation
-public "withPath"(unaryOperator0: $UnaryOperator$$Type<string>): $ResourceLocation
 public "withPath"(string0: string): $ResourceLocation
+public "withPath"(unaryOperator0: $UnaryOperator$$Type<string>): $ResourceLocation
 public "withPrefix"(string0: string): $ResourceLocation
 public "withSuffix"(string0: string): $ResourceLocation
 get "namespace"(): string

@@ -17,8 +17,8 @@ public "malum$copyWithoutExpansion"(): $FeatureFlagSet
 public "malum$getAttachedFeatureSet"(resourceLocation0: $ResourceLocation$$Type): $FeatureFlagSet
 public "malum$getAttachedUncappedFeatureSet"(resourceLocation0: $ResourceLocation$$Type): $UncappedFeatureFlagSet
 public static "of"(featureFlag0: $FeatureFlag$$Type): $FeatureFlagSet
-public static "of"(): $FeatureFlagSet
 public static "of"(featureFlag0: $FeatureFlag$$Type, ...featureFlag1s: $FeatureFlag$$Type[]): $FeatureFlagSet
+public static "of"(): $FeatureFlagSet
 }
 }
 
@@ -42,8 +42,8 @@ import { $Codec } from "packages/com/mojang/serialization/$Codec"
 export class $FeatureFlagRegistry {
 public "allFlags"(): $FeatureFlagSet
 public "codec"(): $Codec<$FeatureFlagSet>
-public "fromNames"(iterable0: $Iterable$$Type<$ResourceLocation$$Type>, consumer1: $Consumer$$Type<$ResourceLocation$$Type>): $FeatureFlagSet
 public "fromNames"(iterable0: $Iterable$$Type<$ResourceLocation$$Type>): $FeatureFlagSet
+public "fromNames"(iterable0: $Iterable$$Type<$ResourceLocation$$Type>, consumer1: $Consumer$$Type<$ResourceLocation$$Type>): $FeatureFlagSet
 public "isSubset"(featureFlagSet0: $FeatureFlagSet$$Type): boolean
 public "subset"(...featureFlag0s: $FeatureFlag$$Type[]): $FeatureFlagSet
 public "toNames"(featureFlagSet0: $FeatureFlagSet$$Type): $Set<$ResourceLocation>

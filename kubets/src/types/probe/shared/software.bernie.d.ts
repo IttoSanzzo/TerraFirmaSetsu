@@ -5,8 +5,8 @@ import { $AnimationPoint$$Type } from "packages/software/bernie/geckolib/core/ke
 import { $Map } from "packages/java/util/$Map"
 
 export interface $EasingType {
-"apply"(animationPoint0: $AnimationPoint$$Type, double1: double, double2: double): double
 "apply"(animationPoint0: $AnimationPoint$$Type): double
+"apply"(animationPoint0: $AnimationPoint$$Type, double1: double, double2: double): double
 "buildTransformer"(double0: double): $Double2DoubleFunction
 }
 
@@ -58,8 +58,8 @@ function exp(double0: double): double
 function fromJson(jsonElement0: $JsonElement$$Type): $EasingType
 function fromString(string0: string): $EasingType
 function lerpWithOverride(animationPoint0: $AnimationPoint$$Type, easingType1: $EasingType$$Type): double
-function linear(double0: double): double
 function linear(double2DoubleFunction0: $Double2DoubleFunction$$Type): $Double2DoubleFunction
+function linear(double0: double): double
 function pow(double0: double): $Double2DoubleFunction
 function quadratic(double0: double): double
 function register(string0: string, easingType1: $EasingType$$Type): $EasingType
@@ -117,8 +117,8 @@ static "exp"(double0: double): double
 static "fromJson"(jsonElement0: $JsonElement$$Type): $EasingType
 static "fromString"(string0: string): $EasingType
 static "lerpWithOverride"(animationPoint0: $AnimationPoint$$Type, easingType1: $EasingType$$Type): double
-static "linear"(double0: double): double
 static "linear"(double2DoubleFunction0: $Double2DoubleFunction$$Type): $Double2DoubleFunction
+static "linear"(double0: double): double
 static "pow"(double0: double): $Double2DoubleFunction
 static "quadratic"(double0: double): double
 static "register"(string0: string, easingType1: $EasingType$$Type): $EasingType
@@ -130,7 +130,7 @@ static "stepPositive"(double2DoubleFunction0: $Double2DoubleFunction$$Type): $Do
 }
 
 declare module "packages/software/bernie/geckolib/event/$GeoRenderEvent$Object" {
-import { $GeoObjectRenderer, $GeoObjectRenderer$$Type } from "packages/software/bernie/geckolib/renderer/$GeoObjectRenderer"
+import { $GeoObjectRenderer$$Type } from "packages/software/bernie/geckolib/renderer/$GeoObjectRenderer"
 import { $Event } from "packages/net/minecraftforge/eventbus/api/$Event"
 import { $GeoRenderEvent } from "packages/software/bernie/geckolib/event/$GeoRenderEvent"
 
@@ -138,8 +138,6 @@ export class $GeoRenderEvent$Object extends $Event implements $GeoRenderEvent {
 constructor()
 constructor(geoObjectRenderer0: $GeoObjectRenderer$$Type<any>)
 
-public "getRenderer"(): $GeoObjectRenderer<any>
-get "renderer"(): $GeoObjectRenderer<any>
 }
 }
 
@@ -203,8 +201,8 @@ import { $BakedGeoModel, $BakedGeoModel$$Type } from "packages/software/bernie/g
 import { $MultiBufferSource, $MultiBufferSource$$Type } from "packages/net/minecraft/client/renderer/$MultiBufferSource"
 
 export class $GeoRenderEvent$Block$Post extends $GeoRenderEvent$Block {
-constructor(geoBlockRenderer0: $GeoBlockRenderer$$Type<any>, poseStack1: $PoseStack$$Type, bakedGeoModel2: $BakedGeoModel$$Type, multiBufferSource3: $MultiBufferSource$$Type, float4: float, int5: integer)
 constructor()
+constructor(geoBlockRenderer0: $GeoBlockRenderer$$Type<any>, poseStack1: $PoseStack$$Type, bakedGeoModel2: $BakedGeoModel$$Type, multiBufferSource3: $MultiBufferSource$$Type, float4: float, int5: integer)
 
 public "getBufferSource"(): $MultiBufferSource
 public "getModel"(): $BakedGeoModel
@@ -360,6 +358,7 @@ import { $VertexConsumer$$Type } from "packages/com/mojang/blaze3d/vertex/$Verte
 import { $GeoRenderLayer, $GeoRenderLayer$$Type } from "packages/software/bernie/geckolib/renderer/layer/$GeoRenderLayer"
 import { $Vector3f$$Type } from "packages/org/joml/$Vector3f"
 import { $GeoAnimatable, $GeoAnimatable$$Type } from "packages/software/bernie/geckolib/core/animatable/$GeoAnimatable"
+import { $BlockEntityType$$Type } from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
 import { $Matrix4f$$Type } from "packages/org/joml/$Matrix4f"
 import { $Vec3$$Type } from "packages/net/minecraft/world/phys/$Vec3"
 import { $ResourceLocation, $ResourceLocation$$Type } from "packages/net/minecraft/resources/$ResourceLocation"
@@ -378,6 +377,7 @@ import { $MultiBufferSource$$Type } from "packages/net/minecraft/client/renderer
 import { $BlockEntityRenderer } from "packages/net/minecraft/client/renderer/blockentity/$BlockEntityRenderer"
 
 export class $GeoBlockRenderer<T extends ($BlockEntity & $GeoAnimatable)> implements $GeoRenderer<T>, $BlockEntityRenderer<T> {
+constructor(blockEntityType0: $BlockEntityType$$Type<T>)
 constructor(geoModel0: $GeoModel$$Type<T>)
 
 public "actuallyRender"(poseStack0: $PoseStack$$Type, t1: T, bakedGeoModel2: $BakedGeoModel$$Type, renderType3: $RenderType$$Type, multiBufferSource4: $MultiBufferSource$$Type, vertexConsumer5: $VertexConsumer$$Type, boolean6: boolean, float7: float, int8: integer, int9: integer, float10: float, float11: float, float12: float, float13: float): void
@@ -469,8 +469,8 @@ import { $GeoItemRenderer$$Type } from "packages/software/bernie/geckolib/render
 import { $GeoRenderEvent$Item } from "packages/software/bernie/geckolib/event/$GeoRenderEvent$Item"
 
 export class $GeoRenderEvent$Item$Post extends $GeoRenderEvent$Item {
-constructor(geoItemRenderer0: $GeoItemRenderer$$Type<any>, poseStack1: $PoseStack$$Type, bakedGeoModel2: $BakedGeoModel$$Type, multiBufferSource3: $MultiBufferSource$$Type, float4: float, int5: integer)
 constructor()
+constructor(geoItemRenderer0: $GeoItemRenderer$$Type<any>, poseStack1: $PoseStack$$Type, bakedGeoModel2: $BakedGeoModel$$Type, multiBufferSource3: $MultiBufferSource$$Type, float4: float, int5: integer)
 
 public "getBufferSource"(): $MultiBufferSource
 public "getModel"(): $BakedGeoModel
@@ -605,8 +605,8 @@ public "renderFinal"(poseStack0: $PoseStack$$Type, t1: T, bakedGeoModel2: $Baked
 public "renderRecursively"(poseStack0: $PoseStack$$Type, t1: T, geoBone2: $GeoBone$$Type, renderType3: $RenderType$$Type, multiBufferSource4: $MultiBufferSource$$Type, vertexConsumer5: $VertexConsumer$$Type, boolean6: boolean, float7: float, int8: integer, int9: integer, float10: float, float11: float, float12: float, float13: float): void
 public "scaleModelForRender"(float0: float, float1: float, poseStack2: $PoseStack$$Type, t3: T, bakedGeoModel4: $BakedGeoModel$$Type, boolean5: boolean, float6: float, int7: integer, int8: integer): void
 public "updateAnimatedTextureFrame"(t0: T): void
-public "withScale"(float0: float, float1: float): $GeoObjectRenderer<T>
 public "withScale"(float0: float): $GeoObjectRenderer<T>
+public "withScale"(float0: float, float1: float): $GeoObjectRenderer<T>
 get "animatable"(): T
 get "geoModel"(): $GeoModel<T>
 get "renderLayers"(): $List<$GeoRenderLayer<T>>
@@ -628,17 +628,15 @@ public "addLayer"(geoRenderLayer0: $GeoRenderLayer$$Type<any>): void
 
 declare module "packages/software/bernie/geckolib/event/$GeoRenderEvent$ReplacedEntity" {
 import { $Event } from "packages/net/minecraftforge/eventbus/api/$Event"
-import { $GeoReplacedEntityRenderer, $GeoReplacedEntityRenderer$$Type } from "packages/software/bernie/geckolib/renderer/$GeoReplacedEntityRenderer"
+import { $GeoReplacedEntityRenderer$$Type } from "packages/software/bernie/geckolib/renderer/$GeoReplacedEntityRenderer"
 import { $Entity } from "packages/net/minecraft/world/entity/$Entity"
 import { $GeoRenderEvent } from "packages/software/bernie/geckolib/event/$GeoRenderEvent"
 
 export class $GeoRenderEvent$ReplacedEntity extends $Event implements $GeoRenderEvent {
-constructor(geoReplacedEntityRenderer0: $GeoReplacedEntityRenderer$$Type<any, any>)
 constructor()
+constructor(geoReplacedEntityRenderer0: $GeoReplacedEntityRenderer$$Type<any, any>)
 
-public "getRenderer"(): $GeoReplacedEntityRenderer<any, any>
 public "getReplacedEntity"(): $Entity
-get "renderer"(): $GeoReplacedEntityRenderer<any, any>
 get "replacedEntity"(): $Entity
 }
 }
@@ -651,8 +649,8 @@ import { $MultiBufferSource, $MultiBufferSource$$Type } from "packages/net/minec
 import { $GeoRenderEvent$Armor } from "packages/software/bernie/geckolib/event/$GeoRenderEvent$Armor"
 
 export class $GeoRenderEvent$Armor$Post extends $GeoRenderEvent$Armor {
-constructor(geoArmorRenderer0: $GeoArmorRenderer$$Type<any>, poseStack1: $PoseStack$$Type, bakedGeoModel2: $BakedGeoModel$$Type, multiBufferSource3: $MultiBufferSource$$Type, float4: float, int5: integer)
 constructor()
+constructor(geoArmorRenderer0: $GeoArmorRenderer$$Type<any>, poseStack1: $PoseStack$$Type, bakedGeoModel2: $BakedGeoModel$$Type, multiBufferSource3: $MultiBufferSource$$Type, float4: float, int5: integer)
 
 public "getBufferSource"(): $MultiBufferSource
 public "getModel"(): $BakedGeoModel
@@ -675,8 +673,8 @@ import { $MultiBufferSource, $MultiBufferSource$$Type } from "packages/net/minec
 import { $GeoRenderEvent$Entity } from "packages/software/bernie/geckolib/event/$GeoRenderEvent$Entity"
 
 export class $GeoRenderEvent$Entity$Post extends $GeoRenderEvent$Entity {
-constructor(geoEntityRenderer0: $GeoEntityRenderer$$Type<any>, poseStack1: $PoseStack$$Type, bakedGeoModel2: $BakedGeoModel$$Type, multiBufferSource3: $MultiBufferSource$$Type, float4: float, int5: integer)
 constructor()
+constructor(geoEntityRenderer0: $GeoEntityRenderer$$Type<any>, poseStack1: $PoseStack$$Type, bakedGeoModel2: $BakedGeoModel$$Type, multiBufferSource3: $MultiBufferSource$$Type, float4: float, int5: integer)
 
 public "getBufferSource"(): $MultiBufferSource
 public "getModel"(): $BakedGeoModel
@@ -699,7 +697,7 @@ import { $AnimationController$CustomKeyframeHandler$$Type } from "packages/softw
 import { $BoneSnapshot$$Type } from "packages/software/bernie/geckolib/core/state/$BoneSnapshot"
 import { $RawAnimation, $RawAnimation$$Type } from "packages/software/bernie/geckolib/core/animation/$RawAnimation"
 import { $CoreGeoModel$$Type } from "packages/software/bernie/geckolib/core/animatable/model/$CoreGeoModel"
-import { $AnimationController$AnimationStateHandler$$Type } from "packages/software/bernie/geckolib/core/animation/$AnimationController$AnimationStateHandler"
+import { $AnimationController$AnimationStateHandler, $AnimationController$AnimationStateHandler$$Type } from "packages/software/bernie/geckolib/core/animation/$AnimationController$AnimationStateHandler"
 import { $AnimationProcessor$QueuedAnimation } from "packages/software/bernie/geckolib/core/animation/$AnimationProcessor$QueuedAnimation"
 import { $Function$$Type } from "packages/java/util/function/$Function"
 import { $AnimationController$ParticleKeyframeHandler$$Type } from "packages/software/bernie/geckolib/core/animation/$AnimationController$ParticleKeyframeHandler"
@@ -711,8 +709,8 @@ import { $Map, $Map$$Type } from "packages/java/util/$Map"
 
 export class $AnimationController<T extends $GeoAnimatable> {
 constructor(t0: T, animationStateHandler1: $AnimationController$AnimationStateHandler$$Type<T>)
-constructor(t0: T, string1: string, animationStateHandler2: $AnimationController$AnimationStateHandler$$Type<T>)
 constructor(t0: T, string1: string, int2: integer, animationStateHandler3: $AnimationController$AnimationStateHandler$$Type<T>)
+constructor(t0: T, string1: string, animationStateHandler2: $AnimationController$AnimationStateHandler$$Type<T>)
 constructor(t0: T, int1: integer, animationStateHandler2: $AnimationController$AnimationStateHandler$$Type<T>)
 
 public "forceAnimationReset"(): void
@@ -722,6 +720,7 @@ public "getBoneAnimationQueues"(): $Map<string, $BoneAnimationQueue>
 public "getCurrentAnimation"(): $AnimationProcessor$QueuedAnimation
 public "getCurrentRawAnimation"(): $RawAnimation
 public "getName"(): string
+public "getStateHandler"(): $AnimationController$AnimationStateHandler<T>
 public "getTriggeredAnimation"(): $RawAnimation
 public "hasAnimationFinished"(): boolean
 public "isPlayingTriggeredAnimation"(): boolean
@@ -747,6 +746,7 @@ get "boneAnimationQueues"(): $Map<string, $BoneAnimationQueue>
 get "currentAnimation"(): $AnimationProcessor$QueuedAnimation
 get "currentRawAnimation"(): $RawAnimation
 get "name"(): string
+get "stateHandler"(): $AnimationController$AnimationStateHandler<T>
 get "triggeredAnimation"(): $RawAnimation
 get "playingTriggeredAnimation"(): boolean
 set "animation"(value: $RawAnimation$$Type)
@@ -801,6 +801,7 @@ import { $GeoBone$$Type } from "packages/software/bernie/geckolib/cache/object/$
 import { $RenderType, $RenderType$$Type } from "packages/net/minecraft/client/renderer/$RenderType"
 import { $GeoRenderer } from "packages/software/bernie/geckolib/renderer/$GeoRenderer"
 import { $EntityRendererProvider$Context$$Type } from "packages/net/minecraft/client/renderer/entity/$EntityRendererProvider$Context"
+import { $EntityType$$Type } from "packages/net/minecraft/world/entity/$EntityType"
 import { $Color } from "packages/software/bernie/geckolib/core/object/$Color"
 import { $Mob, $Mob$$Type } from "packages/net/minecraft/world/entity/$Mob"
 import { $PoseStack$$Type } from "packages/com/mojang/blaze3d/vertex/$PoseStack"
@@ -814,6 +815,7 @@ import { $MultiBufferSource$$Type } from "packages/net/minecraft/client/renderer
 import { $Entity, $Entity$$Type } from "packages/net/minecraft/world/entity/$Entity"
 
 export class $GeoEntityRenderer<T extends ($Entity & $GeoAnimatable)> extends $EntityRenderer<T> implements $GeoRenderer<T> {
+constructor(context0: $EntityRendererProvider$Context$$Type, entityType1: $EntityType$$Type<T>)
 constructor(context0: $EntityRendererProvider$Context$$Type, geoModel1: $GeoModel$$Type<T>)
 
 public "actuallyRender"(poseStack0: $PoseStack$$Type, t1: T, bakedGeoModel2: $BakedGeoModel$$Type, renderType3: $RenderType$$Type, multiBufferSource4: $MultiBufferSource$$Type, vertexConsumer5: $VertexConsumer$$Type, boolean6: boolean, float7: float, int8: integer, int9: integer, float10: float, float11: float, float12: float, float13: float): void
@@ -826,12 +828,13 @@ public "doPostRenderCleanup"(): void
 public "fireCompileRenderLayersEvent"(): void
 public "firePostRenderEvent"(poseStack0: $PoseStack$$Type, bakedGeoModel1: $BakedGeoModel$$Type, multiBufferSource2: $MultiBufferSource$$Type, float3: float, int4: integer): void
 public "firePreRenderEvent"(poseStack0: $PoseStack$$Type, bakedGeoModel1: $BakedGeoModel$$Type, multiBufferSource2: $MultiBufferSource$$Type, float3: float, int4: integer): boolean
+public "getAnimatable"(): T
 public "getGeoModel"(): $GeoModel<T>
 public "getInstanceId"(t0: T): long
 public "getMotionAnimThreshold"(t0: T): float
 public "getNameRenderCutoffDistance"(t0: T): double
-public "getPackedOverlay"(t0: T, float1: float): integer
 public "getPackedOverlay"(t0: T, float1: float, float2: float): integer
+public "getPackedOverlay"(t0: T, float1: float): integer
 public "getRenderColor"(t0: T, float1: float, int2: integer): $Color
 public "getRenderLayers"(): $List<$GeoRenderLayer<T>>
 public "getRenderType"(t0: T, resourceLocation1: $ResourceLocation$$Type, multiBufferSource2: $MultiBufferSource$$Type, float3: float): $RenderType
@@ -849,8 +852,9 @@ public "renderLeash"<E extends $Entity, M extends $Mob>(m0: M, float1: float, po
 public "renderRecursively"(poseStack0: $PoseStack$$Type, t1: T, geoBone2: $GeoBone$$Type, renderType3: $RenderType$$Type, multiBufferSource4: $MultiBufferSource$$Type, vertexConsumer5: $VertexConsumer$$Type, boolean6: boolean, float7: float, int8: integer, int9: integer, float10: float, float11: float, float12: float, float13: float): void
 public "scaleModelForRender"(float0: float, float1: float, poseStack2: $PoseStack$$Type, t3: T, bakedGeoModel4: $BakedGeoModel$$Type, boolean5: boolean, float6: float, int7: integer, int8: integer): void
 public "updateAnimatedTextureFrame"(t0: T): void
-public "withScale"(float0: float): $GeoEntityRenderer<T>
 public "withScale"(float0: float, float1: float): $GeoEntityRenderer<T>
+public "withScale"(float0: float): $GeoEntityRenderer<T>
+get "animatable"(): T
 get "geoModel"(): $GeoModel<T>
 get "renderLayers"(): $List<$GeoRenderLayer<T>>
 }
@@ -1008,7 +1012,9 @@ import { $Animation$$Type } from "packages/software/bernie/geckolib/core/animati
 import { $Map } from "packages/java/util/$Map"
 
 export interface $Animation$LoopType {
+"getId"(): string
 "shouldPlayAgain"(geoAnimatable0: $GeoAnimatable$$Type, animationController1: $AnimationController$$Type<$GeoAnimatable$$Type>, animation2: $Animation$$Type): boolean
+get "id"(): string
 }
 
 export namespace $Animation$LoopType {
@@ -1080,7 +1086,7 @@ export class $GeoModel<T extends $GeoAnimatable> implements $CoreGeoModel<T> {
 constructor()
 
 public "addAdditionalStateData"(t0: T, long1: long, biConsumer2: $BiConsumer$$Type<$DataTicket$$Type<T>, T>): void
-public "applyMolangQueries"(geoAnimatable0: $GeoAnimatable$$Type, double1: double): void
+public "applyMolangQueries"(t0: T, double1: double): void
 public "crashIfBoneMissing"(): boolean
 public "getAnimation"(t0: T, string1: string): $Animation
 public "getAnimationProcessor"(): $AnimationProcessor<T>
@@ -1091,8 +1097,8 @@ public "getBone"(string0: string): $Optional<$GeoBone>
 public "getModelResource"(t0: T): $ResourceLocation
 public "getModelResource"(t0: T, geoRenderer1: $GeoRenderer$$Type<T>): $ResourceLocation
 public "getRenderType"(t0: T, resourceLocation1: $ResourceLocation$$Type): $RenderType
-public "getTextureResource"(t0: T): $ResourceLocation
 public "getTextureResource"(t0: T, geoRenderer1: $GeoRenderer$$Type<T>): $ResourceLocation
+public "getTextureResource"(t0: T): $ResourceLocation
 public "handleAnimations"(t0: T, long1: long, animationState2: $AnimationState$$Type<T>): void
 public "setCustomAnimations"(t0: T, long1: long, animationState2: $AnimationState$$Type<T>): void
 get "animationProcessor"(): $AnimationProcessor<T>
@@ -1100,33 +1106,32 @@ get "animationProcessor"(): $AnimationProcessor<T>
 }
 
 declare module "packages/software/bernie/geckolib/renderer/$GeoArmorRenderer" {
-import { $Vector3f$$Type } from "packages/org/joml/$Vector3f"
-import { $Matrix4f$$Type } from "packages/org/joml/$Matrix4f"
-import { $ItemStack, $ItemStack$$Type } from "packages/net/minecraft/world/item/$ItemStack"
-import { $ModelPart$$Type } from "packages/net/minecraft/client/model/geom/$ModelPart"
-import { $ResourceLocation, $ResourceLocation$$Type } from "packages/net/minecraft/resources/$ResourceLocation"
-import { $RenderType, $RenderType$$Type } from "packages/net/minecraft/client/renderer/$RenderType"
-import { $ClientLevel$$Type } from "packages/net/minecraft/client/multiplayer/$ClientLevel"
-import { $PoseStack$$Type } from "packages/com/mojang/blaze3d/vertex/$PoseStack"
-import { $List } from "packages/java/util/$List"
-import { $GeoCube$$Type } from "packages/software/bernie/geckolib/cache/object/$GeoCube"
-import { $Entity, $Entity$$Type } from "packages/net/minecraft/world/entity/$Entity"
 import { $VertexConsumer$$Type } from "packages/com/mojang/blaze3d/vertex/$VertexConsumer"
 import { $GeoRenderLayer, $GeoRenderLayer$$Type } from "packages/software/bernie/geckolib/renderer/layer/$GeoRenderLayer"
 import { $HumanoidModel, $HumanoidModel$$Type } from "packages/net/minecraft/client/model/$HumanoidModel"
 import { $GeoItem, $GeoItem$$Type } from "packages/software/bernie/geckolib/animatable/$GeoItem"
+import { $Vector3f$$Type } from "packages/org/joml/$Vector3f"
 import { $EquipmentSlot, $EquipmentSlot$$Type } from "packages/net/minecraft/world/entity/$EquipmentSlot"
+import { $Matrix4f$$Type } from "packages/org/joml/$Matrix4f"
+import { $ItemStack, $ItemStack$$Type } from "packages/net/minecraft/world/item/$ItemStack"
+import { $ModelPart$$Type } from "packages/net/minecraft/client/model/geom/$ModelPart"
+import { $ResourceLocation, $ResourceLocation$$Type } from "packages/net/minecraft/resources/$ResourceLocation"
 import { $GeoBone, $GeoBone$$Type } from "packages/software/bernie/geckolib/cache/object/$GeoBone"
+import { $RenderType, $RenderType$$Type } from "packages/net/minecraft/client/renderer/$RenderType"
 import { $Item, $Item$$Type } from "packages/net/minecraft/world/item/$Item"
 import { $GeoRenderer } from "packages/software/bernie/geckolib/renderer/$GeoRenderer"
-import { $UpdateableLevel, $UpdateableLevel$$Type } from "packages/dev/uncandango/alltheleaks/mixin/$UpdateableLevel"
 import { $Color } from "packages/software/bernie/geckolib/core/object/$Color"
+import { $PoseStack$$Type } from "packages/com/mojang/blaze3d/vertex/$PoseStack"
+import { $List } from "packages/java/util/$List"
 import { $GeoModel, $GeoModel$$Type } from "packages/software/bernie/geckolib/model/$GeoModel"
 import { $GeoQuad$$Type } from "packages/software/bernie/geckolib/cache/object/$GeoQuad"
+import { $GeoCube$$Type } from "packages/software/bernie/geckolib/cache/object/$GeoCube"
 import { $BakedGeoModel$$Type } from "packages/software/bernie/geckolib/cache/object/$BakedGeoModel"
 import { $MultiBufferSource$$Type } from "packages/net/minecraft/client/renderer/$MultiBufferSource"
+import { $Entity, $Entity$$Type } from "packages/net/minecraft/world/entity/$Entity"
 
-export class $GeoArmorRenderer<T extends ($Item & $GeoItem)> extends $HumanoidModel<any> implements $GeoRenderer<T>, $UpdateableLevel<any> {
+export class $GeoArmorRenderer<T extends ($Item & $GeoItem)> extends $HumanoidModel<any> implements $GeoRenderer<T> {
+constructor<I extends T>(i0: I)
 constructor(geoModel0: $GeoModel$$Type<T>)
 
 public "actuallyRender"(poseStack0: $PoseStack$$Type, t1: T, bakedGeoModel2: $BakedGeoModel$$Type, renderType3: $RenderType$$Type, multiBufferSource4: $MultiBufferSource$$Type, vertexConsumer5: $VertexConsumer$$Type, boolean6: boolean, float7: float, int8: integer, int9: integer, float10: float, float11: float, float12: float, float13: float): void
@@ -1134,7 +1139,6 @@ public "addRenderLayer"(geoRenderLayer0: $GeoRenderLayer$$Type<T>): $GeoArmorRen
 public "applyBoneVisibilityByPart"(equipmentSlot0: $EquipmentSlot$$Type, modelPart1: $ModelPart$$Type, humanoidModel2: $HumanoidModel$$Type<any>): void
 public "applyRenderLayers"(poseStack0: $PoseStack$$Type, t1: T, bakedGeoModel2: $BakedGeoModel$$Type, renderType3: $RenderType$$Type, multiBufferSource4: $MultiBufferSource$$Type, vertexConsumer5: $VertexConsumer$$Type, float6: float, int7: integer, int8: integer): void
 public "applyRenderLayersForBone"(poseStack0: $PoseStack$$Type, t1: T, geoBone2: $GeoBone$$Type, renderType3: $RenderType$$Type, multiBufferSource4: $MultiBufferSource$$Type, vertexConsumer5: $VertexConsumer$$Type, float6: float, int7: integer, int8: integer): void
-public "atl$onClientLevelUpdated"(clientLevel0: $ClientLevel$$Type): void
 public "createVerticesOfQuad"(geoQuad0: $GeoQuad$$Type, matrix4f1: $Matrix4f$$Type, vector3f2: $Vector3f$$Type, vertexConsumer3: $VertexConsumer$$Type, int4: integer, int5: integer, float6: float, float7: float, float8: float, float9: float): void
 public "defaultRender"(poseStack0: $PoseStack$$Type, t1: T, multiBufferSource2: $MultiBufferSource$$Type, renderType3: $RenderType$$Type, vertexConsumer4: $VertexConsumer$$Type, float5: float, float6: float, int7: integer): void
 public "doPostRenderCleanup"(): void
@@ -1168,7 +1172,6 @@ public "preApplyRenderLayers"(poseStack0: $PoseStack$$Type, t1: T, bakedGeoModel
 public "preRender"(poseStack0: $PoseStack$$Type, t1: T, bakedGeoModel2: $BakedGeoModel$$Type, multiBufferSource3: $MultiBufferSource$$Type, vertexConsumer4: $VertexConsumer$$Type, boolean5: boolean, float6: float, int7: integer, int8: integer, float9: float, float10: float, float11: float, float12: float): void
 public "prepForRender"(entity0: $Entity$$Type, itemStack1: $ItemStack$$Type, equipmentSlot2: $EquipmentSlot$$Type, humanoidModel3: $HumanoidModel$$Type<any>): void
 public "reRender"(bakedGeoModel0: $BakedGeoModel$$Type, poseStack1: $PoseStack$$Type, multiBufferSource2: $MultiBufferSource$$Type, t3: T, renderType4: $RenderType$$Type, vertexConsumer5: $VertexConsumer$$Type, float6: float, int7: integer, int8: integer, float9: float, float10: float, float11: float, float12: float): void
-public static "register"<O extends $UpdateableLevel<any>>(o0: O): void
 public "renderChildBones"(poseStack0: $PoseStack$$Type, t1: T, geoBone2: $GeoBone$$Type, renderType3: $RenderType$$Type, multiBufferSource4: $MultiBufferSource$$Type, vertexConsumer5: $VertexConsumer$$Type, boolean6: boolean, float7: float, int8: integer, int9: integer, float10: float, float11: float, float12: float, float13: float): void
 public "renderCube"(poseStack0: $PoseStack$$Type, geoCube1: $GeoCube$$Type, vertexConsumer2: $VertexConsumer$$Type, int3: integer, int4: integer, float5: float, float6: float, float7: float, float8: float): void
 public "renderCubesOfBone"(poseStack0: $PoseStack$$Type, geoBone1: $GeoBone$$Type, vertexConsumer2: $VertexConsumer$$Type, int3: integer, int4: integer, float5: float, float6: float, float7: float, float8: float): void
@@ -1177,8 +1180,8 @@ public "renderRecursively"(poseStack0: $PoseStack$$Type, t1: T, geoBone2: $GeoBo
 public "scaleModelForBaby"(poseStack0: $PoseStack$$Type, t1: T, float2: float, boolean3: boolean): void
 public "scaleModelForRender"(float0: float, float1: float, poseStack2: $PoseStack$$Type, t3: T, bakedGeoModel4: $BakedGeoModel$$Type, boolean5: boolean, float6: float, int7: integer, int8: integer): void
 public "updateAnimatedTextureFrame"(t0: T): void
-public "withScale"(float0: float, float1: float): $GeoArmorRenderer<T>
 public "withScale"(float0: float): $GeoArmorRenderer<T>
+public "withScale"(float0: float, float1: float): $GeoArmorRenderer<T>
 get "animatable"(): T
 get "bodyBone"(): $GeoBone
 get "currentEntity"(): $Entity
@@ -1471,8 +1474,8 @@ import { $MultiBufferSource, $MultiBufferSource$$Type } from "packages/net/minec
 import { $GeoRenderEvent$Object } from "packages/software/bernie/geckolib/event/$GeoRenderEvent$Object"
 
 export class $GeoRenderEvent$Object$Post extends $GeoRenderEvent$Object {
-constructor(geoObjectRenderer0: $GeoObjectRenderer$$Type<any>, poseStack1: $PoseStack$$Type, bakedGeoModel2: $BakedGeoModel$$Type, multiBufferSource3: $MultiBufferSource$$Type, float4: float, int5: integer)
 constructor()
+constructor(geoObjectRenderer0: $GeoObjectRenderer$$Type<any>, poseStack1: $PoseStack$$Type, bakedGeoModel2: $BakedGeoModel$$Type, multiBufferSource3: $MultiBufferSource$$Type, float4: float, int5: integer)
 
 public "getBufferSource"(): $MultiBufferSource
 public "getModel"(): $BakedGeoModel
@@ -1489,13 +1492,16 @@ get "poseStack"(): $PoseStack
 
 declare module "packages/software/bernie/geckolib/core/animation/$RawAnimation" {
 import { $Animation$LoopType$$Type } from "packages/software/bernie/geckolib/core/animation/$Animation$LoopType"
-import { $List } from "packages/java/util/$List"
-import { $RawAnimation$Stage } from "packages/software/bernie/geckolib/core/animation/$RawAnimation$Stage"
+import { $List, $List$$Type } from "packages/java/util/$List"
+import { $RawAnimation$Stage, $RawAnimation$Stage$$Type } from "packages/software/bernie/geckolib/core/animation/$RawAnimation$Stage"
 
 export class $RawAnimation {
+constructor(list0: $List$$Type<$RawAnimation$Stage$$Type>)
+
 public static "begin"(): $RawAnimation
 public static "copyOf"(rawAnimation0: $RawAnimation$$Type): $RawAnimation
 public "getAnimationStages"(): $List<$RawAnimation$Stage>
+public "getStageCount"(): integer
 public "then"(string0: string, loopType1: $Animation$LoopType$$Type): $RawAnimation
 public "thenLoop"(string0: string): $RawAnimation
 public "thenPlay"(string0: string): $RawAnimation
@@ -1503,6 +1509,7 @@ public "thenPlayAndHold"(string0: string): $RawAnimation
 public "thenPlayXTimes"(string0: string, int1: integer): $RawAnimation
 public "thenWait"(int0: integer): $RawAnimation
 get "animationStages"(): $List<$RawAnimation$Stage>
+get "stageCount"(): integer
 }
 }
 
@@ -1850,12 +1857,12 @@ export interface $GeoItem extends $SingletonGeoAnimatable {
 "registerControllers"(controllerRegistrar0: $AnimatableManager$ControllerRegistrar$$Type): void
 "setAnimData"<D>(entity0: $Entity$$Type, long1: long, serializableDataTicket2: $SerializableDataTicket$$Type<D>, d3: D): void
 "shouldPlayAnimsWhileGamePaused"(): boolean
-"stopTriggeredAnim"(entity0: $Entity$$Type, long1: long, string2: string, string3: string, packetTarget4: $PacketDistributor$PacketTarget$$Type): void
 "stopTriggeredAnim"(entity0: $Entity$$Type, long1: long, string2: string, string3: string): void
+"stopTriggeredAnim"(entity0: $Entity$$Type, long1: long, string2: string, string3: string, packetTarget4: $PacketDistributor$PacketTarget$$Type): void
 "stopTriggeredArmorAnim"(entity0: $Entity$$Type, long1: long, string2: string, string3: string): void
 "syncAnimData"<D>(long0: long, serializableDataTicket1: $SerializableDataTicket$$Type<D>, d2: D, packetTarget3: $PacketDistributor$PacketTarget$$Type): void
-"triggerAnim"<D>(long0: long, string1: string, string2: string, packetTarget3: $PacketDistributor$PacketTarget$$Type): void
 "triggerAnim"<D>(entity0: $Entity$$Type, long1: long, string2: string, string3: string): void
+"triggerAnim"<D>(long0: long, string1: string, string2: string, packetTarget3: $PacketDistributor$PacketTarget$$Type): void
 "triggerArmorAnim"(entity0: $Entity$$Type, long1: long, string2: string, string3: string): void
 get "animatableInstanceCache"(): $AnimatableInstanceCache
 get "boneResetTime"(): double
@@ -1939,16 +1946,17 @@ import { $Item, $Item$$Type } from "packages/net/minecraft/world/item/$Item"
 import { $GeoRenderer } from "packages/software/bernie/geckolib/renderer/$GeoRenderer"
 import { $Color } from "packages/software/bernie/geckolib/core/object/$Color"
 import { $PreparableReloadListener$PreparationBarrier$$Type } from "packages/net/minecraft/server/packs/resources/$PreparableReloadListener$PreparationBarrier"
-import { $GeoModel, $GeoModel$$Type } from "packages/software/bernie/geckolib/model/$GeoModel"
 import { $EntityModelSet$$Type } from "packages/net/minecraft/client/model/geom/$EntityModelSet"
+import { $GeoModel, $GeoModel$$Type } from "packages/software/bernie/geckolib/model/$GeoModel"
 import { $BlockEntityRenderDispatcher$$Type } from "packages/net/minecraft/client/renderer/blockentity/$BlockEntityRenderDispatcher"
 import { $GeoQuad$$Type } from "packages/software/bernie/geckolib/cache/object/$GeoQuad"
 import { $BakedGeoModel$$Type } from "packages/software/bernie/geckolib/cache/object/$BakedGeoModel"
 import { $MultiBufferSource$$Type } from "packages/net/minecraft/client/renderer/$MultiBufferSource"
 
 export class $GeoItemRenderer<T extends ($Item & $GeoAnimatable)> extends $BlockEntityWithoutLevelRenderer implements $GeoRenderer<T> {
-constructor(geoModel0: $GeoModel$$Type<T>)
 constructor(blockEntityRenderDispatcher0: $BlockEntityRenderDispatcher$$Type, entityModelSet1: $EntityModelSet$$Type, geoModel2: $GeoModel$$Type<T>)
+constructor(geoModel0: $GeoModel$$Type<T>)
+constructor<I extends T>(i0: I)
 
 public "actuallyRender"(poseStack0: $PoseStack$$Type, t1: T, bakedGeoModel2: $BakedGeoModel$$Type, renderType3: $RenderType$$Type, multiBufferSource4: $MultiBufferSource$$Type, vertexConsumer5: $VertexConsumer$$Type, boolean6: boolean, float7: float, int8: integer, int9: integer, float10: float, float11: float, float12: float, float13: float): void
 public "addRenderLayer"(geoRenderLayer0: $GeoRenderLayer$$Type<T>): $GeoItemRenderer<T>
@@ -1960,6 +1968,7 @@ public "doPostRenderCleanup"(): void
 public "fireCompileRenderLayersEvent"(): void
 public "firePostRenderEvent"(poseStack0: $PoseStack$$Type, bakedGeoModel1: $BakedGeoModel$$Type, multiBufferSource2: $MultiBufferSource$$Type, float3: float, int4: integer): void
 public "firePreRenderEvent"(poseStack0: $PoseStack$$Type, bakedGeoModel1: $BakedGeoModel$$Type, multiBufferSource2: $MultiBufferSource$$Type, float3: float, int4: integer): boolean
+public "getAnimatable"(): T
 public "getCurrentItemStack"(): $ItemStack
 public "getGeoModel"(): $GeoModel<T>
 public "getInstanceId"(t0: T): long
@@ -1988,6 +1997,7 @@ public "updateAnimatedTextureFrame"(t0: T): void
 public "useAlternateGuiLighting"(): $GeoItemRenderer<T>
 public "withScale"(float0: float): $GeoItemRenderer<T>
 public "withScale"(float0: float, float1: float): $GeoItemRenderer<T>
+get "animatable"(): T
 get "currentItemStack"(): $ItemStack
 get "geoModel"(): $GeoModel<T>
 get "name"(): string
@@ -2175,8 +2185,8 @@ import { $BakedGeoModel, $BakedGeoModel$$Type } from "packages/software/bernie/g
 import { $MultiBufferSource, $MultiBufferSource$$Type } from "packages/net/minecraft/client/renderer/$MultiBufferSource"
 
 export class $GeoRenderEvent$ReplacedEntity$Post extends $GeoRenderEvent$ReplacedEntity {
-constructor(geoReplacedEntityRenderer0: $GeoReplacedEntityRenderer$$Type<any, any>, poseStack1: $PoseStack$$Type, bakedGeoModel2: $BakedGeoModel$$Type, multiBufferSource3: $MultiBufferSource$$Type, float4: float, int5: integer)
 constructor()
+constructor(geoReplacedEntityRenderer0: $GeoReplacedEntityRenderer$$Type<any, any>, poseStack1: $PoseStack$$Type, bakedGeoModel2: $BakedGeoModel$$Type, multiBufferSource3: $MultiBufferSource$$Type, float4: float, int5: integer)
 
 public "getBufferSource"(): $MultiBufferSource
 public "getModel"(): $BakedGeoModel
@@ -2236,12 +2246,12 @@ export interface $SingletonGeoAnimatable extends $GeoAnimatable {
 "registerControllers"(controllerRegistrar0: $AnimatableManager$ControllerRegistrar$$Type): void
 "setAnimData"<D>(entity0: $Entity$$Type, long1: long, serializableDataTicket2: $SerializableDataTicket$$Type<D>, d3: D): void
 "shouldPlayAnimsWhileGamePaused"(): boolean
-"stopTriggeredAnim"(entity0: $Entity$$Type, long1: long, string2: string, string3: string, packetTarget4: $PacketDistributor$PacketTarget$$Type): void
 "stopTriggeredAnim"(entity0: $Entity$$Type, long1: long, string2: string, string3: string): void
+"stopTriggeredAnim"(entity0: $Entity$$Type, long1: long, string2: string, string3: string, packetTarget4: $PacketDistributor$PacketTarget$$Type): void
 "stopTriggeredArmorAnim"(entity0: $Entity$$Type, long1: long, string2: string, string3: string): void
 "syncAnimData"<D>(long0: long, serializableDataTicket1: $SerializableDataTicket$$Type<D>, d2: D, packetTarget3: $PacketDistributor$PacketTarget$$Type): void
-"triggerAnim"<D>(long0: long, string1: string, string2: string, packetTarget3: $PacketDistributor$PacketTarget$$Type): void
 "triggerAnim"<D>(entity0: $Entity$$Type, long1: long, string2: string, string3: string): void
+"triggerAnim"<D>(long0: long, string1: string, string2: string, packetTarget3: $PacketDistributor$PacketTarget$$Type): void
 "triggerArmorAnim"(entity0: $Entity$$Type, long1: long, string2: string, string3: string): void
 get "animatableInstanceCache"(): $AnimatableInstanceCache
 get "boneResetTime"(): double
@@ -2403,7 +2413,7 @@ get "poseStack"(): $PoseStack
 }
 
 declare module "packages/software/bernie/geckolib/event/$GeoRenderEvent$Armor" {
-import { $GeoArmorRenderer$$Type } from "packages/software/bernie/geckolib/renderer/$GeoArmorRenderer"
+import { $GeoArmorRenderer, $GeoArmorRenderer$$Type } from "packages/software/bernie/geckolib/renderer/$GeoArmorRenderer"
 import { $Event } from "packages/net/minecraftforge/eventbus/api/$Event"
 import { $EquipmentSlot } from "packages/net/minecraft/world/entity/$EquipmentSlot"
 import { $ItemStack } from "packages/net/minecraft/world/item/$ItemStack"
@@ -2417,9 +2427,11 @@ constructor(geoArmorRenderer0: $GeoArmorRenderer$$Type<any>)
 public "getEntity"(): $Entity
 public "getEquipmentSlot"(): $EquipmentSlot
 public "getItemStack"(): $ItemStack
+public "getRenderer"(): $GeoArmorRenderer<any>
 get "entity"(): $Entity
 get "equipmentSlot"(): $EquipmentSlot
 get "itemStack"(): $ItemStack
+get "renderer"(): $GeoArmorRenderer<any>
 }
 }
 
@@ -2446,8 +2458,8 @@ public "setData"<D>(dataTicket0: $DataTicket$$Type<D>, d1: D): void
 public "startedAt"(double0: double): void
 public "stopTriggeredAnimation"(string0: string): void
 public "stopTriggeredAnimation"(string0: string, string1: string): void
-public "tryTriggerAnimation"(string0: string): void
 public "tryTriggerAnimation"(string0: string, string1: string): void
+public "tryTriggerAnimation"(string0: string): void
 public "updatedAt"(double0: double): void
 get "animationControllers"(): $Map<string, $AnimationController<T>>
 get "boneSnapshotCollection"(): $Map<string, $BoneSnapshot>

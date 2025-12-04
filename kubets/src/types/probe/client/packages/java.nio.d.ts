@@ -17,8 +17,8 @@ public "attach"(object0: any): any
 public "attachment"(): any
 public "cancel"(): void
 public "channel"(): $SelectableChannel
-public "interestOps"(): integer
 public "interestOps"(int0: integer): $SelectionKey
+public "interestOps"(): integer
 public "interestOpsAnd"(int0: integer): integer
 public "interestOpsOr"(int0: integer): integer
 public "isAcceptable"(): boolean
@@ -1102,7 +1102,6 @@ import { $AbstractSelectableChannel } from "packages/java/nio/channels/spi/$Abst
  * Loading the class using require() will not throw an error, but the class will be undefined.
  */
 export class $SocketChannel extends $AbstractSelectableChannel implements $ByteChannel, $ScatteringByteChannel, $GatheringByteChannel, $NetworkChannel {
-public "bind"(socketAddress0: $SocketAddress$$Type): $SocketChannel
 public "close"(): void
 public "connect"(socketAddress0: $SocketAddress$$Type): boolean
 public "finishConnect"(): boolean
@@ -1118,7 +1117,6 @@ public static "open"(protocolFamily0: $ProtocolFamily$$Type): $SocketChannel
 public "read"(byteBuffer0s: $ByteBuffer$$Type[], int1: integer, int2: integer): long
 public "read"(byteBuffer0: $ByteBuffer$$Type): integer
 public "read"(byteBuffer0s: $ByteBuffer$$Type[]): long
-public "setOption"<T>(socketOption0: $SocketOption$$Type<T>, t1: T): $SocketChannel
 public "shutdownInput"(): $SocketChannel
 public "shutdownOutput"(): $SocketChannel
 public "socket"(): $Socket
@@ -2224,10 +2222,10 @@ public "isOpen"(): boolean
 public "keys"(): $Set<$SelectionKey>
 public static "open"(): $Selector
 public "provider"(): $SelectorProvider
-public "select"(consumer0: $Consumer$$Type<$SelectionKey$$Type>, long1: long): integer
-public "select"(consumer0: $Consumer$$Type<$SelectionKey$$Type>): integer
 public "select"(): integer
 public "select"(long0: long): integer
+public "select"(consumer0: $Consumer$$Type<$SelectionKey$$Type>, long1: long): integer
+public "select"(consumer0: $Consumer$$Type<$SelectionKey$$Type>): integer
 public "selectNow"(consumer0: $Consumer$$Type<$SelectionKey$$Type>): integer
 public "selectNow"(): integer
 public "selectedKeys"(): $Set<$SelectionKey>

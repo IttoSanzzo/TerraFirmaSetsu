@@ -103,18 +103,18 @@ public "getIds"(context0: $Context$$Type): any[]
 public "getParentScope"(): $Scriptable
 public "getPrototype"(context0: $Context$$Type): $Scriptable
 public "has"(context0: $Context$$Type, int1: integer, scriptable2: $Scriptable$$Type): boolean
-public "hasListeners"(): boolean
 public "hasListeners"(extraId: any): boolean
+public "hasListeners"(): boolean
 public "hasResult"(): $EventHandler
 public "listen"(type: $ScriptType$$Type, extraId: any, handler: $IEventHandler$$Type): void
-public "post"(type: $ScriptTypeHolder$$Type, extraId: any, event: $EventJS$$Type, exh: $EventExceptionHandler$$Type): $EventResult
 public "post"(event: $EventJS$$Type, extraId: any, exh: $EventExceptionHandler$$Type): $EventResult
 public "post"(type: $ScriptTypeHolder$$Type, extraId: any, event: $EventJS$$Type): $EventResult
-public "post"(event: $EventJS$$Type): boolean
+public "post"(type: $ScriptTypeHolder$$Type, extraId: any, event: $EventJS$$Type, exh: $EventExceptionHandler$$Type): $EventResult
 public "post"(extraId: any, event: $EventJS$$Type): boolean
+public "post"(event: $EventJS$$Type): boolean
 public "post"(scriptType: $ScriptTypeHolder$$Type, event: $EventJS$$Type): $EventResult
-public "post"(scriptType: $ScriptTypeHolder$$Type, event: $EventJS$$Type, exh: $EventExceptionHandler$$Type): $EventResult
 public "post"(event: $EventJS$$Type, extraId: any): $EventResult
+public "post"(scriptType: $ScriptTypeHolder$$Type, event: $EventJS$$Type, exh: $EventExceptionHandler$$Type): $EventResult
 public "put"(context0: $Context$$Type, int1: integer, scriptable2: $Scriptable$$Type, object3: any): void
 public "setParentScope"(scriptable0: $Scriptable$$Type): void
 public "setPrototype"(scriptable0: $Scriptable$$Type): void

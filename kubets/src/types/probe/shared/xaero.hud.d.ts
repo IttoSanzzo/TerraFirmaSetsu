@@ -100,8 +100,12 @@ import { $MinimapElementRenderInfo$$Type } from "packages/xaero/hud/minimap/elem
 import { $WaypointWorldRenderContext } from "packages/xaero/hud/minimap/waypoint/render/world/$WaypointWorldRenderContext"
 import { $MinimapElementRenderer } from "packages/xaero/hud/minimap/element/render/$MinimapElementRenderer"
 import { $GuiGraphics$$Type } from "packages/net/minecraft/client/gui/$GuiGraphics"
+import { $CallbackInfoReturnable$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfoReturnable"
 
 export class $WaypointWorldRenderer extends $MinimapElementRenderer<$Waypoint, $WaypointWorldRenderContext> {
+public "handler$cnf001$limitDeathpointsRenderDistance"(cir: $CallbackInfoReturnable$$Type<any>, w: $Waypoint$$Type, scaledDistance2D: double): void
+public "modify$cnf000$modifyDistanceText"(text: string, waypoint: $Waypoint$$Type): string
+public "modify$cnf000$preferOwWaypointsRemoveSubworldText"(name: string): string
 public "renderElement"(waypoint0: $Waypoint$$Type, boolean1: boolean, boolean2: boolean, double3: double, float4: float, double5: double, double6: double, minimapElementRenderInfo7: $MinimapElementRenderInfo$$Type, guiGraphics8: $GuiGraphics$$Type, bufferSource9: $MultiBufferSource$BufferSource$$Type): boolean
 }
 }
@@ -203,6 +207,7 @@ import { $EditorSettingsNode$Builder } from "packages/xaero/hud/category/ui/node
 export class $EditorCategoryNode$Builder<C extends $ObjectCategory<any, C>, ED extends $EditorCategoryNode<C, SD, ED>, SD extends $EditorSettingsNode<any>, SDB extends $EditorSettingsNode$Builder<SD, SDB>, EDB extends $EditorCategoryNode$Builder<C, ED, SD, SDB, EDB>> extends $EditorNode$Builder<EDB> {
 public "addSubCategoryBuilder"(edb0: EDB): EDB
 public "getSettingDataBuilder"(): SDB
+public "setDefault"(): EDB
 public "setName"(string0: string): EDB
 public "setNewCategorySupplier"(function0: $Function$$Type<$EditorAdderNode$$Type, ED>): EDB
 public "setSubIndex"(int0: integer): EDB
@@ -357,8 +362,8 @@ import { $Iterable } from "packages/java/lang/$Iterable"
 
 export class $MinimapWorldContainer {
 public "addSubContainer"(xaeroPath0: $XaeroPath$$Type): $MinimapWorldContainer
-public "addWorld"(string0: string): $MinimapWorld
 public "addWorld"(minimapWorld0: $MinimapWorld$$Type): void
+public "addWorld"(string0: string): $MinimapWorld
 public "containsSubContainer"(xaeroPath0: $XaeroPath$$Type): boolean
 public "deleteSubContainer"(xaeroPath0: $XaeroPath$$Type): boolean
 public "fixPathCharacterCases"(xaeroPath0: $XaeroPath$$Type): $XaeroPath
@@ -1106,9 +1111,13 @@ public "onSelected"(editorOptionNode0: $EditorOptionNode$$Type<V>): boolean
 declare module "packages/xaero/hud/minimap/world/state/$MinimapWorldStateUpdater" {
 import { $MinimapSession$$Type } from "packages/xaero/hud/minimap/module/$MinimapSession"
 import { $HudMod$$Type } from "packages/xaero/common/$HudMod"
-import { $MinimapWorldRootContainer$$Type } from "packages/xaero/hud/minimap/world/container/$MinimapWorldRootContainer"
+import { $Operation$$Type } from "packages/com/llamalad7/mixinextras/injector/wrapoperation/$Operation"
 import { $XaeroPath, $XaeroPath$$Type } from "packages/xaero/hud/path/$XaeroPath"
 import { $Level } from "packages/net/minecraft/world/level/$Level"
+import { $CallbackInfoReturnable$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfoReturnable"
+import { $MinimapWorldState$$Type } from "packages/xaero/hud/minimap/world/state/$MinimapWorldState"
+import { $MinimapWorldRootContainer$$Type } from "packages/xaero/hud/minimap/world/container/$MinimapWorldRootContainer"
+import { $LocalRef$$Type } from "packages/com/llamalad7/mixinextras/sugar/ref/$LocalRef"
 import { $ClientPacketListener$$Type } from "packages/net/minecraft/client/multiplayer/$ClientPacketListener"
 import { $ResourceKey$$Type } from "packages/net/minecraft/resources/$ResourceKey"
 import { $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
@@ -1128,16 +1137,19 @@ public "getPotentialContainerPath"(): $XaeroPath
 public "getPotentialWorldNode"(resourceKey0: $ResourceKey$$Type<$Level>, boolean1: boolean): string
 /** @deprecated */
 public "getPotentialWorldNode"(resourceKey0: $ResourceKey$$Type<$Level>, boolean1: boolean, minimapSession2: $MinimapSession$$Type): string
+public "handler$cmh000$customDataFolderResolve"(cir: $CallbackInfoReturnable$$Type<any>): void
 public "hasServerLevelId"(minimapWorldRootContainer0: $MinimapWorldRootContainer$$Type): boolean
+public "ignoreContainerCase"(xaeroPath0: $XaeroPath$$Type, xaeroPath1: $XaeroPath$$Type): $XaeroPath
 /** @deprecated */
 public "ignoreContainerCase"(xaeroPath0: $XaeroPath$$Type, xaeroPath1: $XaeroPath$$Type, minimapSession2: $MinimapSession$$Type): $XaeroPath
-public "ignoreContainerCase"(xaeroPath0: $XaeroPath$$Type, xaeroPath1: $XaeroPath$$Type): $XaeroPath
 public "init"(): void
 public "onServerLevelId"(int0: integer): void
 public "setCurrentWorldSpawn"(blockPos0: $BlockPos$$Type): void
 public "update"(): void
 /** @deprecated */
 public "update"(minimapSession0: $MinimapSession$$Type): void
+public "wrapOperation$cmh000$preferOverworldWpSetCustomPathOnDimUpdate"(instance: $MinimapWorldState$$Type, autoWorldPath: $XaeroPath$$Type, original: $Operation$$Type<any>, oldAutoWorldPath: $XaeroPath$$Type, potentialAutoWorldNode: string): void
+public "wrapOperation$cmh000$preferOverworldWpSetCustomPathOnDimUpdate$mixinextras$bridge$18"(instance: $MinimapWorldState$$Type, autoWorldPath: $XaeroPath$$Type, original: $Operation$$Type<any>, oldAutoWorldPath: $LocalRef$$Type<any>, potentialAutoWorldNode: $LocalRef$$Type<any>): void
 get "potentialContainerPath"(): $XaeroPath
 set "currentWorldSpawn"(value: $BlockPos$$Type)
 }
@@ -1242,8 +1254,8 @@ public "mouseDragged"(double0: double, double1: double, int2: integer, double3: 
 public "mouseMoved"(double0: double, double1: double): void
 public "mouseReleased"(double0: double, double1: double, int2: integer): boolean
 public "mouseScrolled"(double0: double, double1: double, double2: double): boolean
-public "moveFocus"(int0: integer, boolean1: boolean): boolean
 public "moveFocus"(int0: integer): boolean
+public "moveFocus"(int0: integer, boolean1: boolean): boolean
 public "onSelected"(): $EditorListEntry
 public "postRender"(guiGraphics0: $GuiGraphics$$Type): void
 public "preRender"(guiGraphics0: $GuiGraphics$$Type, boolean1: boolean, boolean2: boolean): void
@@ -1325,20 +1337,24 @@ import { $VertexConsumer$$Type } from "packages/com/mojang/blaze3d/vertex/$Verte
 import { $MultiBufferSource$BufferSource$$Type } from "packages/net/minecraft/client/renderer/$MultiBufferSource$BufferSource"
 import { $MinimapSession$$Type } from "packages/xaero/hud/minimap/module/$MinimapSession"
 import { $MinimapElementRenderer } from "packages/xaero/common/minimap/element/render/$MinimapElementRenderer"
-import { $MinimapElementRenderInfo$$Type } from "packages/xaero/hud/minimap/element/render/$MinimapElementRenderInfo"
-import { $Window$$Type } from "packages/com/mojang/blaze3d/platform/$Window"
 import { $WaypointsManager$$Type } from "packages/xaero/common/minimap/waypoints/$WaypointsManager"
-import { $WaypointMapRenderContext } from "packages/xaero/hud/minimap/waypoint/render/$WaypointMapRenderContext"
+import { $Window$$Type } from "packages/com/mojang/blaze3d/platform/$Window"
 import { $GuiGraphics$$Type } from "packages/net/minecraft/client/gui/$GuiGraphics"
+import { $CallbackInfoReturnable$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfoReturnable"
+import { $CallbackInfo$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfo"
+import { $MinimapElementRenderInfo$$Type } from "packages/xaero/hud/minimap/element/render/$MinimapElementRenderInfo"
+import { $WaypointMapRenderContext } from "packages/xaero/hud/minimap/waypoint/render/$WaypointMapRenderContext"
 import { $MinimapRendererHelper$$Type } from "packages/xaero/common/minimap/render/$MinimapRendererHelper"
 
 export class $WaypointMapRenderer extends $MinimapElementRenderer<$Waypoint, $WaypointMapRenderContext> {
-public "drawIconOnGUI"(guiGraphics0: $GuiGraphics$$Type, minimapRendererHelper1: $MinimapRendererHelper$$Type, waypoint2: $Waypoint$$Type, int3: integer, int4: integer, int5: integer, bufferSource6: $MultiBufferSource$BufferSource$$Type, vertexConsumer7: $VertexConsumer$$Type, vertexConsumer8: $VertexConsumer$$Type): void
 /** @deprecated */
 public "drawIconOnGUI"(guiGraphics0: $GuiGraphics$$Type, minimapRendererHelper1: $MinimapRendererHelper$$Type, waypoint2: $Waypoint$$Type, int3: integer, int4: integer, bufferSource5: $MultiBufferSource$BufferSource$$Type, vertexConsumer6: $VertexConsumer$$Type, vertexConsumer7: $VertexConsumer$$Type): void
-public "drawSetChange"(minimapSession0: $MinimapSession$$Type, guiGraphics1: $GuiGraphics$$Type, window2: $Window$$Type): void
+public "drawIconOnGUI"(guiGraphics0: $GuiGraphics$$Type, minimapRendererHelper1: $MinimapRendererHelper$$Type, waypoint2: $Waypoint$$Type, int3: integer, int4: integer, int5: integer, bufferSource6: $MultiBufferSource$BufferSource$$Type, vertexConsumer7: $VertexConsumer$$Type, vertexConsumer8: $VertexConsumer$$Type): void
 /** @deprecated */
 public "drawSetChange"(waypointsManager0: $WaypointsManager$$Type, guiGraphics1: $GuiGraphics$$Type, window2: $Window$$Type): void
+public "drawSetChange"(minimapSession0: $MinimapSession$$Type, guiGraphics1: $GuiGraphics$$Type, window2: $Window$$Type): void
+public "handler$cna000$cancelWaypointSetChangeTooltip"(ci: $CallbackInfo$$Type): void
+public "handler$cna000$limitDeathpointsRenderDistance"(cir: $CallbackInfoReturnable$$Type<any>, w: $Waypoint$$Type, scaledDistance2D: double): void
 public "renderElement"(waypoint0: $Waypoint$$Type, boolean1: boolean, boolean2: boolean, double3: double, float4: float, double5: double, double6: double, minimapElementRenderInfo7: $MinimapElementRenderInfo$$Type, guiGraphics8: $GuiGraphics$$Type, bufferSource9: $MultiBufferSource$BufferSource$$Type): boolean
 /** @deprecated */
 public "updateWaypointCollection"(): void
@@ -1481,8 +1497,8 @@ import { $XaeroPath$$Type } from "packages/xaero/hud/path/$XaeroPath"
 import { $PrintWriter$$Type } from "packages/java/io/$PrintWriter"
 
 export class $MinimapWorldConnectionManager {
-public "addConnection"(xaeroPath0: $XaeroPath$$Type, xaeroPath1: $XaeroPath$$Type): void
 public "addConnection"(minimapWorld0: $MinimapWorld$$Type, minimapWorld1: $MinimapWorld$$Type): void
+public "addConnection"(xaeroPath0: $XaeroPath$$Type, xaeroPath1: $XaeroPath$$Type): void
 public "isConnected"(minimapWorld0: $MinimapWorld$$Type, minimapWorld1: $MinimapWorld$$Type): boolean
 public "isEmpty"(): boolean
 public "removeConnection"(minimapWorld0: $MinimapWorld$$Type, minimapWorld1: $MinimapWorld$$Type): void
@@ -2355,11 +2371,12 @@ export class $EntityRadarCategoryData extends $FilterObjectCategoryData<$EntityR
 
 declare module "packages/xaero/hud/minimap/waypoint/set/$WaypointSet" {
 import { $Waypoint, $Waypoint$$Type } from "packages/xaero/common/minimap/waypoints/$Waypoint"
+import { $AccessorWaypointSet } from "packages/xaeroplus/mixin/client/$AccessorWaypointSet"
 import { $Collection$$Type } from "packages/java/util/$Collection"
 import { $List$$Type } from "packages/java/util/$List"
 import { $Iterable } from "packages/java/lang/$Iterable"
 
-export class $WaypointSet {
+export class $WaypointSet implements $AccessorWaypointSet {
 public "add"(waypoint0: $Waypoint$$Type): void
 public "add"(waypoint0: $Waypoint$$Type, boolean1: boolean): void
 public "addAll"(collection0: $Collection$$Type<$Waypoint$$Type>, boolean1: boolean): void
@@ -2571,6 +2588,7 @@ import { $MinimapWorld$$Type } from "packages/xaero/hud/minimap/world/$MinimapWo
 import { $MinimapSession$$Type } from "packages/xaero/hud/minimap/module/$MinimapSession"
 import { $HudMod$$Type } from "packages/xaero/common/$HudMod"
 import { $MinimapWorldRootContainer$$Type } from "packages/xaero/hud/minimap/world/container/$MinimapWorldRootContainer"
+import { $Operation$$Type } from "packages/com/llamalad7/mixinextras/injector/wrapoperation/$Operation"
 import { $RootConfigIO } from "packages/xaero/hud/minimap/world/container/config/io/$RootConfigIO"
 import { $ClientPacketListener$$Type } from "packages/net/minecraft/client/multiplayer/$ClientPacketListener"
 import { $MinimapWorldContainer$$Type } from "packages/xaero/hud/minimap/world/container/$MinimapWorldContainer"
@@ -2590,9 +2608,10 @@ public "loadWorldFile"(minimapWorldContainer0: $MinimapWorldContainer$$Type, str
 public "loadWorldsFromAllSources"(minimapSession0: $MinimapSession$$Type, clientPacketListener1: $ClientPacketListener$$Type): void
 public "onRootContainerAdded"(minimapWorldRootContainer0: $MinimapWorldRootContainer$$Type): void
 public "saveAllWorlds"(minimapSession0: $MinimapSession$$Type): void
-public "saveWorld"(minimapWorld0: $MinimapWorld$$Type, boolean1: boolean): void
 public "saveWorld"(minimapWorld0: $MinimapWorld$$Type): void
+public "saveWorld"(minimapWorld0: $MinimapWorld$$Type, boolean1: boolean): void
 public "saveWorlds"(minimapWorldContainer0: $MinimapWorldContainer$$Type): void
+public "wrapOperation$cmg000$reduceChanceOfFileNameCollisions"(instance: $Path$$Type, other: string, original: $Operation$$Type<any>): $Path
 get "rootConfigIO"(): $RootConfigIO
 }
 }
@@ -2902,13 +2921,19 @@ declare module "packages/xaero/hud/minimap/radar/render/element/$RadarRenderer" 
 import { $RadarRenderContext } from "packages/xaero/hud/minimap/radar/render/element/$RadarRenderContext"
 import { $MultiBufferSource$BufferSource$$Type } from "packages/net/minecraft/client/renderer/$MultiBufferSource$BufferSource"
 import { $MinimapElementRenderer } from "packages/xaero/common/minimap/element/render/$MinimapElementRenderer"
-import { $MinimapElementRenderInfo$$Type } from "packages/xaero/hud/minimap/element/render/$MinimapElementRenderInfo"
+import { $LocalFloatRef$$Type } from "packages/com/llamalad7/mixinextras/sugar/ref/$LocalFloatRef"
 import { $GuiGraphics$$Type } from "packages/net/minecraft/client/gui/$GuiGraphics"
+import { $CallbackInfoReturnable$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfoReturnable"
+import { $RenderTarget$$Type } from "packages/com/mojang/blaze3d/pipeline/$RenderTarget"
+import { $CallbackInfo$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfo"
+import { $MinimapElementRenderInfo$$Type } from "packages/xaero/hud/minimap/element/render/$MinimapElementRenderInfo"
+import { $LocalRef$$Type } from "packages/com/llamalad7/mixinextras/sugar/ref/$LocalRef"
 import { $MinimapElementRenderLocation$$Type } from "packages/xaero/hud/minimap/element/render/$MinimapElementRenderLocation"
 import { $Entity, $Entity$$Type } from "packages/net/minecraft/world/entity/$Entity"
-import { $RenderTarget$$Type } from "packages/com/mojang/blaze3d/pipeline/$RenderTarget"
 
 export class $RadarRenderer extends $MinimapElementRenderer<$Entity, $RadarRenderContext> {
+public "handler$cmm000$adjustElementScaleForMinimapScaling"(cir: $CallbackInfoReturnable$$Type<any>, renderInfoRef: $LocalRef$$Type<any>, optionalScaleRef: $LocalFloatRef$$Type): void
+public "handler$cmm000$forceEntityRadarRenderSettings"(e: $Entity$$Type, ci: $CallbackInfo$$Type): void
 public "renderElement"(entity0: $Entity$$Type, boolean1: boolean, boolean2: boolean, double3: double, float4: float, double5: double, double6: double, minimapElementRenderInfo7: $MinimapElementRenderInfo$$Type, guiGraphics8: $GuiGraphics$$Type, bufferSource9: $MultiBufferSource$BufferSource$$Type): boolean
 public "renderSingleEntity"(entity0: $Entity$$Type, boolean1: boolean, boolean2: boolean, float3: float, boolean4: boolean, boolean5: boolean, minimapElementRenderLocation6: $MinimapElementRenderLocation$$Type, renderTarget7: $RenderTarget$$Type, guiGraphics8: $GuiGraphics$$Type): void
 }
@@ -3029,6 +3054,7 @@ set "setChangedTime"(value: long)
 declare module "packages/xaero/hud/minimap/world/container/config/$RootConfig" {
 import { $MinimapWorldConnectionManager } from "packages/xaero/hud/minimap/world/connection/$MinimapWorldConnectionManager"
 import { $WaypointsSort, $WaypointsSort$$Type } from "packages/xaero/common/minimap/waypoints/$WaypointsSort"
+import { $CallbackInfoReturnable$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfoReturnable"
 
 export class $RootConfig {
 constructor(boolean0: boolean)
@@ -3038,6 +3064,7 @@ public "getServerTeleportCommandFormat"(): string
 public "getServerTeleportCommandRotationFormat"(): string
 public "getSortType"(): $WaypointsSort
 public "getSubWorldConnections"(): $MinimapWorldConnectionManager
+public "handler$cmn000$checkGloballyDisabledTeleportation"(cir: $CallbackInfoReturnable$$Type<any>): void
 public "isIgnoreHeightmaps"(): boolean
 public "isIgnoreServerLevelId"(): boolean
 public "isLoaded"(): boolean
@@ -3095,8 +3122,8 @@ import { $MinimapWorldRootContainer, $MinimapWorldRootContainer$$Type } from "pa
 import { $XaeroPath$$Type } from "packages/xaero/hud/path/$XaeroPath"
 import { $Int2ObjectMap } from "packages/it/unimi/dsi/fastutil/ints/$Int2ObjectMap"
 import { $MinimapWorldContainer } from "packages/xaero/hud/minimap/world/container/$MinimapWorldContainer"
-import { $Iterable } from "packages/java/lang/$Iterable"
 import { $ResourceLocation$$Type } from "packages/net/minecraft/resources/$ResourceLocation"
+import { $Iterable } from "packages/java/lang/$Iterable"
 
 export class $MinimapWorldManager {
 constructor(hudMod0: $HudMod$$Type, minimapSession1: $MinimapSession$$Type)
@@ -3108,10 +3135,10 @@ public "containerExists"(xaeroPath0: $XaeroPath$$Type): boolean
 public "getAutoRootContainer"(): $MinimapWorldRootContainer
 public "getAutoWorld"(): $MinimapWorld
 public "getCurrentRootContainer"(): $MinimapWorldRootContainer
-public "getCurrentWorld"(xaeroPath0: $XaeroPath$$Type): $MinimapWorld
 public "getCurrentWorld"(): $MinimapWorld
-public "getCustomWaypoints"(): $Iterable<$Waypoint>
+public "getCurrentWorld"(xaeroPath0: $XaeroPath$$Type): $MinimapWorld
 public "getCustomWaypoints"(resourceLocation0: $ResourceLocation$$Type): $Int2ObjectMap<$Waypoint>
+public "getCustomWaypoints"(): $Iterable<$Waypoint>
 public "getRootContainers"(): $Iterable<$MinimapWorldRootContainer>
 /** @deprecated */
 public "getRootContainersDirect"(): $HashMap<string, $MinimapWorldRootContainer>
@@ -3185,13 +3212,17 @@ get "flippedVer"(): boolean
 declare module "packages/xaero/hud/minimap/waypoint/$WaypointSharingHandler" {
 import { $Waypoint$$Type } from "packages/xaero/common/minimap/waypoints/$Waypoint"
 import { $MinimapWorld$$Type } from "packages/xaero/hud/minimap/world/$MinimapWorld"
+import { $CallbackInfo$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfo"
 import { $Screen$$Type } from "packages/net/minecraft/client/gui/screens/$Screen"
+import { $LocalRef$$Type } from "packages/com/llamalad7/mixinextras/sugar/ref/$LocalRef"
 
 export class $WaypointSharingHandler {
 static readonly "WAYPOINT_ADD_PREFIX": string
 static readonly "WAYPOINT_OLD_SHARE_PREFIX": string
 static readonly "WAYPOINT_SHARE_PREFIX": string
 
+public "handler$cnd000$mutateWaypointSharingText"(ci: $CallbackInfo$$Type, containerIdRef: $LocalRef$$Type<any>): void
+public "handler$cnd000$shareWaypoint"(ci: $CallbackInfo$$Type): void
 public "onShareConfirmationResult"(boolean0: boolean): void
 public "onWaypointAdd"(string0s: string[]): void
 public "onWaypointReceived"(string0: string, string1: string): void
@@ -3205,6 +3236,7 @@ import { $Waypoint$$Type } from "packages/xaero/common/minimap/waypoints/$Waypoi
 import { $MinimapWorld$$Type } from "packages/xaero/hud/minimap/world/$MinimapWorld"
 import { $MinimapSession$$Type } from "packages/xaero/hud/minimap/module/$MinimapSession"
 import { $HudMod$$Type } from "packages/xaero/common/$HudMod"
+import { $CallbackInfo$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfo"
 import { $Screen$$Type } from "packages/net/minecraft/client/gui/screens/$Screen"
 
 export class $WaypointTeleport {
@@ -3214,6 +3246,8 @@ static readonly "TELEPORT_ANYWAY_COMMAND": string
 constructor(hudMod0: $HudMod$$Type, waypointSession1: $WaypointSession$$Type, minimapSession2: $MinimapSession$$Type)
 
 public "canTeleport"(boolean0: boolean, minimapWorld1: $MinimapWorld$$Type): boolean
+public "handler$cne002$onTeleportAttemptA"(ci: $CallbackInfo$$Type): void
+public "handler$cne002$onTeleportAttemptB"(ci: $CallbackInfo$$Type): void
 public "isTeleportationSafe"(minimapWorld0: $MinimapWorld$$Type): boolean
 public "isWorldTeleportable"(minimapWorld0: $MinimapWorld$$Type): boolean
 public "teleportAnyway"(): void

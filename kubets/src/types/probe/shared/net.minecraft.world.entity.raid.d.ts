@@ -9,6 +9,7 @@ import { $Level } from "packages/net/minecraft/world/level/$Level"
 import { $ItemStack } from "packages/net/minecraft/world/item/$ItemStack"
 import { $BlockPos, $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
 import { $Entity$$Type } from "packages/net/minecraft/world/entity/$Entity"
+import { $CallbackInfoReturnable$$Type } from "packages/org/spongepowered/asm/mixin/injection/callback/$CallbackInfoReturnable"
 
 export class $Raid {
 static readonly "DEFAULT_MAX_BAD_OMEN_LEVEL": integer
@@ -39,6 +40,8 @@ public "getMaxBadOmenLevel"(): integer
 public "getNumGroups"(difficulty0: $Difficulty$$Type): integer
 public "getTotalHealth"(): float
 public "getTotalRaidersAlive"(): integer
+public "handler$zci000$onFindRandomSpawnPosPost"(callbackInfoReturnable0: $CallbackInfoReturnable$$Type<any>): void
+public "handler$zci000$onFindRandomSpawnPosPre"(callbackInfoReturnable0: $CallbackInfoReturnable$$Type<any>): void
 public "hasFirstWaveSpawned"(): boolean
 public "isActive"(): boolean
 public "isBetweenWaves"(): boolean
@@ -157,12 +160,12 @@ public "canJoinRaid"(): boolean
 public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -176,8 +179,8 @@ public "getClassification"(boolean0: boolean): $MobCategory
 public "getCurrentRaid"(): $Raid
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
 /** @deprecated */
@@ -254,7 +257,7 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $LivingEntity
-public "serializeNBT"(): $CompoundTag
+public "self"(): $LivingEntity
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setCanJoinRaid"(boolean0: boolean): void
 public "setCelebrating"(boolean0: boolean): void

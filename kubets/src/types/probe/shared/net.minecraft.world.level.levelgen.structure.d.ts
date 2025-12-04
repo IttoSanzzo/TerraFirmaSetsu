@@ -647,9 +647,9 @@ constructor(blockPos0: $BlockPos$$Type)
 constructor(int0: integer, int1: integer, int2: integer, int3: integer, int4: integer, int5: integer)
 
 /** @deprecated */
-public "encapsulate"(blockPos0: $BlockPos$$Type): $BoundingBox
-/** @deprecated */
 public "encapsulate"(boundingBox0: $BoundingBox$$Type): $BoundingBox
+/** @deprecated */
+public "encapsulate"(blockPos0: $BlockPos$$Type): $BoundingBox
 public static "encapsulatingBoxes"(iterable0: $Iterable$$Type<$BoundingBox$$Type>): $Optional<$BoundingBox>
 public static "encapsulatingPositions"(iterable0: $Iterable$$Type<$BlockPos$$Type>): $Optional<$BoundingBox>
 public "forAllCorners"(consumer0: $Consumer$$Type<$BlockPos$$Type>): void
@@ -672,9 +672,9 @@ public "minX"(): integer
 public "minY"(): integer
 public "minZ"(): integer
 /** @deprecated */
-public "move"(int0: integer, int1: integer, int2: integer): $BoundingBox
-/** @deprecated */
 public "move"(vec3i0: $Vec3i$$Type): $BoundingBox
+/** @deprecated */
+public "move"(int0: integer, int1: integer, int2: integer): $BoundingBox
 public "moved"(int0: integer, int1: integer, int2: integer): $BoundingBox
 public static "orientBox"(int0: integer, int1: integer, int2: integer, int3: integer, int4: integer, int5: integer, int6: integer, int7: integer, int8: integer, direction9: $Direction$$Type): $BoundingBox
 get "center"(): $BlockPos
@@ -917,8 +917,8 @@ public "getShuffledJigsawBlocks"(structureTemplateManager0: $StructureTemplateMa
 public "getSize"(structureTemplateManager0: $StructureTemplateManager$$Type, rotation1: $Rotation$$Type): $Vec3i
 public "getType"(): $StructurePoolElementType<any>
 public "handleDataMarker"(levelAccessor0: $LevelAccessor$$Type, structureBlockInfo1: $StructureTemplate$StructureBlockInfo$$Type, blockPos2: $BlockPos$$Type, rotation3: $Rotation$$Type, randomSource4: $RandomSource$$Type, boundingBox5: $BoundingBox$$Type): void
-public static "legacy"(string0: string, holder1: $Holder$$Type<$StructureProcessorList$$Type>): $Function<$StructureTemplatePool$Projection, $LegacySinglePoolElement>
 public static "legacy"(string0: string): $Function<$StructureTemplatePool$Projection, $LegacySinglePoolElement>
+public static "legacy"(string0: string, holder1: $Holder$$Type<$StructureProcessorList$$Type>): $Function<$StructureTemplatePool$Projection, $LegacySinglePoolElement>
 public static "list"(list0: $List$$Type<$Function$$Type<$StructureTemplatePool$Projection$$Type, $StructurePoolElement$$Type>>): $Function<$StructureTemplatePool$Projection, $ListPoolElement>
 public "place"(structureTemplateManager0: $StructureTemplateManager$$Type, worldGenLevel1: $WorldGenLevel$$Type, structureManager2: $StructureManager$$Type, chunkGenerator3: $ChunkGenerator$$Type, blockPos4: $BlockPos$$Type, blockPos5: $BlockPos$$Type, rotation6: $Rotation$$Type, boundingBox7: $BoundingBox$$Type, randomSource8: $RandomSource$$Type, boolean9: boolean): boolean
 public "setProjection"(projection0: $StructureTemplatePool$Projection$$Type): $StructurePoolElement
@@ -1512,20 +1512,20 @@ constructor()
 public "calculateConnectedPosition"(structurePlaceSettings0: $StructurePlaceSettings$$Type, blockPos1: $BlockPos$$Type, structurePlaceSettings2: $StructurePlaceSettings$$Type, blockPos3: $BlockPos$$Type): $BlockPos
 public static "calculateRelativePosition"(structurePlaceSettings0: $StructurePlaceSettings$$Type, blockPos1: $BlockPos$$Type): $BlockPos
 public "fillFromWorld"(level0: $Level$$Type, blockPos1: $BlockPos$$Type, vec3i2: $Vec3i$$Type, boolean3: boolean, block4: $Block$$Type): void
-public "filterBlocks"(blockPos0: $BlockPos$$Type, structurePlaceSettings1: $StructurePlaceSettings$$Type, block2: $Block$$Type, boolean3: boolean): $ObjectArrayList<$StructureTemplate$StructureBlockInfo>
 public "filterBlocks"(blockPos0: $BlockPos$$Type, structurePlaceSettings1: $StructurePlaceSettings$$Type, block2: $Block$$Type): $List<$StructureTemplate$StructureBlockInfo>
+public "filterBlocks"(blockPos0: $BlockPos$$Type, structurePlaceSettings1: $StructurePlaceSettings$$Type, block2: $Block$$Type, boolean3: boolean): $ObjectArrayList<$StructureTemplate$StructureBlockInfo>
 public "getAuthor"(): string
-public "getBoundingBox"(blockPos0: $BlockPos$$Type, rotation1: $Rotation$$Type, blockPos2: $BlockPos$$Type, mirror3: $Mirror$$Type): $BoundingBox
 public "getBoundingBox"(structurePlaceSettings0: $StructurePlaceSettings$$Type, blockPos1: $BlockPos$$Type): $BoundingBox
+public "getBoundingBox"(blockPos0: $BlockPos$$Type, rotation1: $Rotation$$Type, blockPos2: $BlockPos$$Type, mirror3: $Mirror$$Type): $BoundingBox
 public "getSize"(rotation0: $Rotation$$Type): $Vec3i
 public "getSize"(): $Vec3i
 public "getStoredConnections"(): $List<any>
 public "getZeroPositionWithTransform"(blockPos0: $BlockPos$$Type, mirror1: $Mirror$$Type, rotation2: $Rotation$$Type): $BlockPos
 public static "getZeroPositionWithTransform"(blockPos0: $BlockPos$$Type, mirror1: $Mirror$$Type, rotation2: $Rotation$$Type, int3: integer, int4: integer): $BlockPos
-public "handler$ccd000$addConnectionsToWorld"(serverLevelAccessor0: $ServerLevelAccessor$$Type, blockPos1: $BlockPos$$Type, blockPos2: $BlockPos$$Type, structurePlaceSettings3: $StructurePlaceSettings$$Type, randomSource4: $RandomSource$$Type, int5: integer, callbackInfoReturnable6: $CallbackInfoReturnable$$Type<any>): void
-public "handler$ccd000$readConnectionsFromNBT"(holderGetter0: $HolderGetter$$Type<any>, compoundTag1: $CompoundTag$$Type, callbackInfo2: $CallbackInfo$$Type): void
-public "handler$ccd000$takeConnectionsFromWorld"(level0: $Level$$Type, blockPos1: $BlockPos$$Type, vec3i2: $Vec3i$$Type, boolean3: boolean, block4: $Block$$Type, callbackInfo5: $CallbackInfo$$Type): void
-public "handler$ccd000$writeConnectionsToNBT"(compoundTag0: $CompoundTag$$Type, callbackInfoReturnable1: $CallbackInfoReturnable$$Type<any>): void
+public "handler$ejb000$addConnectionsToWorld"(serverLevelAccessor0: $ServerLevelAccessor$$Type, blockPos1: $BlockPos$$Type, blockPos2: $BlockPos$$Type, structurePlaceSettings3: $StructurePlaceSettings$$Type, randomSource4: $RandomSource$$Type, int5: integer, callbackInfoReturnable6: $CallbackInfoReturnable$$Type<any>): void
+public "handler$ejb000$readConnectionsFromNBT"(holderGetter0: $HolderGetter$$Type<any>, compoundTag1: $CompoundTag$$Type, callbackInfo2: $CallbackInfo$$Type): void
+public "handler$ejb000$takeConnectionsFromWorld"(level0: $Level$$Type, blockPos1: $BlockPos$$Type, vec3i2: $Vec3i$$Type, boolean3: boolean, block4: $Block$$Type, callbackInfo5: $CallbackInfo$$Type): void
+public "handler$ejb000$writeConnectionsToNBT"(compoundTag0: $CompoundTag$$Type, callbackInfoReturnable1: $CallbackInfoReturnable$$Type<any>): void
 public "load"(holderGetter0: $HolderGetter$$Type<$Block$$Type>, compoundTag1: $CompoundTag$$Type): void
 public "placeInWorld"(serverLevelAccessor0: $ServerLevelAccessor$$Type, blockPos1: $BlockPos$$Type, blockPos2: $BlockPos$$Type, structurePlaceSettings3: $StructurePlaceSettings$$Type, randomSource4: $RandomSource$$Type, int5: integer): boolean
 /** @deprecated */
@@ -1694,7 +1694,7 @@ export class $SinglePoolElement extends $StructurePoolElement implements $Waysto
 static readonly "CODEC": $Codec<$SinglePoolElement>
 
 public "getDataMarkers"(structureTemplateManager0: $StructureTemplateManager$$Type, blockPos1: $BlockPos$$Type, rotation2: $Rotation$$Type, boolean3: boolean): $List<$StructureTemplate$StructureBlockInfo>
-public "handler$ebg000$place"(structureTemplateManager0: $StructureTemplateManager$$Type, worldGenLevel1: $WorldGenLevel$$Type, structureManager2: $StructureManager$$Type, chunkGenerator3: $ChunkGenerator$$Type, blockPos4: $BlockPos$$Type, blockPos5: $BlockPos$$Type, rotation6: $Rotation$$Type, boundingBox7: $BoundingBox$$Type, randomSource8: $RandomSource$$Type, boolean9: boolean, callbackInfoReturnable10: $CallbackInfoReturnable$$Type<any>): void
+public "handler$egj000$place"(structureTemplateManager0: $StructureTemplateManager$$Type, worldGenLevel1: $WorldGenLevel$$Type, structureManager2: $StructureManager$$Type, chunkGenerator3: $ChunkGenerator$$Type, blockPos4: $BlockPos$$Type, blockPos5: $BlockPos$$Type, rotation6: $Rotation$$Type, boundingBox7: $BoundingBox$$Type, randomSource8: $RandomSource$$Type, boolean9: boolean, callbackInfoReturnable10: $CallbackInfoReturnable$$Type<any>): void
 public "waystones$isWaystone"(): boolean
 public "waystones$setIsWaystone"(boolean0: boolean): void
 }
@@ -1747,8 +1747,8 @@ public "getChunkPos"(): $ChunkPos
 public "getPieces"(): $List<$StructurePiece>
 public "getReferences"(): integer
 public "getStructure"(): $Structure
-public "handler$cij000$injectReference"(worldGenLevel0: $WorldGenLevel$$Type, structureManager1: $StructureManager$$Type, chunkGenerator2: $ChunkGenerator$$Type, randomSource3: $RandomSource$$Type, boundingBox4: $BoundingBox$$Type, chunkPos5: $ChunkPos$$Type, callbackInfo6: $CallbackInfo$$Type): void
-public "handler$cij000$resetReference"(worldGenLevel0: $WorldGenLevel$$Type, structureManager1: $StructureManager$$Type, chunkGenerator2: $ChunkGenerator$$Type, randomSource3: $RandomSource$$Type, boundingBox4: $BoundingBox$$Type, chunkPos5: $ChunkPos$$Type, callbackInfo6: $CallbackInfo$$Type): void
+public "handler$cje000$injectReference"(worldGenLevel0: $WorldGenLevel$$Type, structureManager1: $StructureManager$$Type, chunkGenerator2: $ChunkGenerator$$Type, randomSource3: $RandomSource$$Type, boundingBox4: $BoundingBox$$Type, chunkPos5: $ChunkPos$$Type, callbackInfo6: $CallbackInfo$$Type): void
+public "handler$cje000$resetReference"(worldGenLevel0: $WorldGenLevel$$Type, structureManager1: $StructureManager$$Type, chunkGenerator2: $ChunkGenerator$$Type, randomSource3: $RandomSource$$Type, boundingBox4: $BoundingBox$$Type, chunkPos5: $ChunkPos$$Type, callbackInfo6: $CallbackInfo$$Type): void
 public "isValid"(): boolean
 public static "loadStaticStart"(structurePieceSerializationContext0: $StructurePieceSerializationContext$$Type, compoundTag1: $CompoundTag$$Type, long2: long): $StructureStart
 public "placeInChunk"(worldGenLevel0: $WorldGenLevel$$Type, structureManager1: $StructureManager$$Type, chunkGenerator2: $ChunkGenerator$$Type, randomSource3: $RandomSource$$Type, boundingBox4: $BoundingBox$$Type, chunkPos5: $ChunkPos$$Type): void

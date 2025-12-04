@@ -24,7 +24,6 @@ import { $AttributeModifier$Operation$$Type } from "packages/net/minecraft/world
 import { $PlayerInfo, $PlayerInfo$$Type } from "packages/net/minecraft/client/multiplayer/$PlayerInfo"
 import { $PartEntity } from "packages/net/minecraftforge/entity/$PartEntity"
 import { $ClientPlayerKJS } from "packages/dev/latvian/mods/kubejs/core/$ClientPlayerKJS"
-import { $Trackable } from "packages/dev/uncandango/alltheleaks/mixin/$Trackable"
 import { $LazyOptional } from "packages/net/minecraftforge/common/util/$LazyOptional"
 import { $Component, $Component$$Type } from "packages/net/minecraft/network/chat/$Component"
 import { $Direction } from "packages/net/minecraft/core/$Direction"
@@ -33,7 +32,6 @@ import { $PlayerAttackAnimatable } from "packages/net/bettercombat/client/animat
 import { $MinecraftServer } from "packages/net/minecraft/server/$MinecraftServer"
 import { $Boat$$Type } from "packages/net/minecraft/world/entity/vehicle/$Boat"
 import { $GameProfile, $GameProfile$$Type } from "packages/com/mojang/authlib/$GameProfile"
-import { $WeakReference } from "packages/java/lang/ref/$WeakReference"
 import { $AbstractContainerMenu } from "packages/net/minecraft/world/inventory/$AbstractContainerMenu"
 import { $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
 import { $MobCategory } from "packages/net/minecraft/world/entity/$MobCategory"
@@ -44,8 +42,6 @@ import { $AnimationApplier } from "packages/dev/kosmx/playerAnim/impl/animation/
 import { $PlayerStatsJS } from "packages/dev/latvian/mods/kubejs/player/$PlayerStatsJS"
 import { $RayTraceResultJS } from "packages/dev/latvian/mods/kubejs/entity/$RayTraceResultJS"
 import { $SoundAction$$Type } from "packages/net/minecraftforge/common/$SoundAction"
-import { $ObjectOpenCustomHashSet } from "packages/it/unimi/dsi/fastutil/objects/$ObjectOpenCustomHashSet"
-import { $Class } from "packages/java/lang/$Class"
 import { $Ingredient$$Type } from "packages/net/minecraft/world/item/crafting/$Ingredient"
 import { $Item$$Type } from "packages/net/minecraft/world/item/$Item"
 import { $HitResult$$Type } from "packages/net/minecraft/world/phys/$HitResult"
@@ -53,7 +49,6 @@ import { $InteractionHand$$Type } from "packages/net/minecraft/world/$Interactio
 import { $Attribute$$Type } from "packages/net/minecraft/world/entity/ai/attributes/$Attribute"
 import { $AnimatedHand$$Type } from "packages/net/bettercombat/logic/$AnimatedHand"
 import { $EntityDimensions$$Type } from "packages/net/minecraft/world/entity/$EntityDimensions"
-import { $Map } from "packages/java/util/$Map"
 
 export class $AbstractClientPlayer extends $Player implements $PlayerAttackAnimatable, $AbstractClientPlayerAccessor, $ClientPlayerKJS {
 readonly "clientLevel": $ClientLevel
@@ -76,18 +71,18 @@ public "canHydrateInFluidType"(fluidType0: $FluidType$$Type): boolean
 public "canReach"(vec30: $Vec3$$Type, double1: double): boolean
 public "canReach"(blockPos0: $BlockPos$$Type, double1: double): boolean
 public "canReach"(entity0: $Entity$$Type, double1: double): boolean
+public "canReachRaw"(entity0: $Entity$$Type, double1: double): boolean
+public "canReachRaw"(blockPos0: $BlockPos$$Type, double1: double): boolean
 public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
 public "clearMeshes"(): void
-public static "clearNullReferences"(): void
-public static "createWeakRefBasedSet"(): $ObjectOpenCustomHashSet<$WeakReference<$Trackable>>
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "foodEaten"(is: $ItemStack$$Type): void
 public static "getAlpha"(le: $LivingEntity$$Type, partialTicks: float): float
@@ -104,8 +99,8 @@ public "getCloakTextureLocation"(): $ResourceLocation
 public "getDefaultMovementSpeed"(): double
 public "getDeltaMovementLerped"(float0: float): $Vec3
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getElytraTextureLocation"(): $ResourceLocation
 public "getEntityReach"(): double
@@ -149,7 +144,6 @@ public "getSkinTextureLocation"(): $ResourceLocation
 public "getSoundFromFluidType"(fluidType0: $FluidType$$Type, soundAction1: $SoundAction$$Type): $SoundEvent
 public "getStats"(): $PlayerStatsJS
 public "getStepHeight"(): float
-public static "getSummary"(): $Map<$Class<any>, $Map<$Class<any>, long>>
 public "getTeamId"(): string
 public "getTotalMovementSpeed"(): double
 public "getType"(): string
@@ -157,7 +151,7 @@ public "getXp"(): integer
 public "getXpLevel"(): integer
 public "give"(item: $ItemStack$$Type): void
 public "giveInHand"(item: $ItemStack$$Type): void
-public "handler$fep000$getCloakTextureLocation"(callbackInfoReturnable0: $CallbackInfoReturnable$$Type<any>): void
+public "handler$flc000$getCloakTextureLocation"(callbackInfoReturnable0: $CallbackInfoReturnable$$Type<any>): void
 public "hasCustomOutlineRendering"(player0: $Player$$Type): boolean
 public "isAmbientCreature"(): boolean
 public "isAnimal"(): boolean
@@ -213,7 +207,6 @@ public "self"(): $LivingEntity
 public "sendData"(channel: string, data: $CompoundTag$$Type): void
 public "sendData"(channel: string): void
 public "sendInventoryUpdate"(): void
-public "serializeNBT"(): $CompoundTag
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setDefaultMovementSpeed"(speed: double): void
@@ -253,8 +246,6 @@ public "sinkInFluid"(fluidType0: $FluidType$$Type): void
 public "sodiumdynamiclights$scheduleTrackedChunksRebuild"(levelRenderer0: $LevelRenderer$$Type): void
 public "sodiumdynamiclights$updateDynamicLight"(levelRenderer0: $LevelRenderer$$Type): boolean
 public "spawn"(): void
-public "startTracking"(): void
-public static "startTracking"(object0: any): void
 public "stopAttackAnimation"(length: float): void
 public "supplementaries$hasQuiver"(): boolean
 public "swing"(): void
@@ -263,7 +254,6 @@ public "teleportTo"(dimension: $ResourceLocation$$Type, x: double, y: double, z:
 public "tell"(message: $Component$$Type): void
 public static "tickEntity"(entity: $LivingEntity$$Type): void
 public "updateAnimationsOnTick"(): void
-public "wrap"(): $WeakReference<$Trackable>
 get "elytraRotX"(): float
 set "elytraRotX"(value: float)
 get "elytraRotY"(): float
@@ -395,7 +385,6 @@ import { $Capability$$Type } from "packages/net/minecraftforge/common/capabiliti
 import { $AttributeModifier$Operation$$Type } from "packages/net/minecraft/world/entity/ai/attributes/$AttributeModifier$Operation"
 import { $ClientPacketListener, $ClientPacketListener$$Type } from "packages/net/minecraft/client/multiplayer/$ClientPacketListener"
 import { $PartEntity } from "packages/net/minecraftforge/entity/$PartEntity"
-import { $Trackable } from "packages/dev/uncandango/alltheleaks/mixin/$Trackable"
 import { $LazyOptional } from "packages/net/minecraftforge/common/util/$LazyOptional"
 import { $Component, $Component$$Type } from "packages/net/minecraft/network/chat/$Component"
 import { $Direction } from "packages/net/minecraft/core/$Direction"
@@ -404,7 +393,6 @@ import { $BlockContainerJS, $BlockContainerJS$$Type } from "packages/dev/latvian
 import { $Logger } from "packages/org/slf4j/$Logger"
 import { $MinecraftServer } from "packages/net/minecraft/server/$MinecraftServer"
 import { $Boat$$Type } from "packages/net/minecraft/world/entity/vehicle/$Boat"
-import { $WeakReference } from "packages/java/lang/ref/$WeakReference"
 import { $AbstractContainerMenu } from "packages/net/minecraft/world/inventory/$AbstractContainerMenu"
 import { $GameProfile } from "packages/com/mojang/authlib/$GameProfile"
 import { $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
@@ -416,8 +404,6 @@ import { $AnimationApplier } from "packages/dev/kosmx/playerAnim/impl/animation/
 import { $PlayerStatsJS } from "packages/dev/latvian/mods/kubejs/player/$PlayerStatsJS"
 import { $RayTraceResultJS } from "packages/dev/latvian/mods/kubejs/entity/$RayTraceResultJS"
 import { $SoundAction$$Type } from "packages/net/minecraftforge/common/$SoundAction"
-import { $ObjectOpenCustomHashSet } from "packages/it/unimi/dsi/fastutil/objects/$ObjectOpenCustomHashSet"
-import { $Class } from "packages/java/lang/$Class"
 import { $Ingredient$$Type } from "packages/net/minecraft/world/item/crafting/$Ingredient"
 import { $Item$$Type } from "packages/net/minecraft/world/item/$Item"
 import { $Minecraft$$Type } from "packages/net/minecraft/client/$Minecraft"
@@ -428,7 +414,6 @@ import { $CallbackInfo$$Type } from "packages/org/spongepowered/asm/mixin/inject
 import { $Attribute$$Type } from "packages/net/minecraft/world/entity/ai/attributes/$Attribute"
 import { $IQuiverPlayer } from "packages/net/mehvahdjukaar/supplementaries/common/utils/$IQuiverPlayer"
 import { $EntityDimensions$$Type } from "packages/net/minecraft/world/entity/$EntityDimensions"
-import { $Map } from "packages/java/util/$Map"
 
 export class $LocalPlayer extends $AbstractClientPlayer implements $LocalPlayerAccessor, $IQuiverPlayer {
 static readonly "LOGGER": $Logger
@@ -452,19 +437,19 @@ public "canHydrateInFluidType"(fluidType0: $FluidType$$Type): boolean
 public "canReach"(vec30: $Vec3$$Type, double1: double): boolean
 public "canReach"(blockPos0: $BlockPos$$Type, double1: double): boolean
 public "canReach"(entity0: $Entity$$Type, double1: double): boolean
+public "canReachRaw"(entity0: $Entity$$Type, double1: double): boolean
+public "canReachRaw"(blockPos0: $BlockPos$$Type, double1: double): boolean
 public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
 public "clearMeshes"(): void
-public static "clearNullReferences"(): void
 public "clientSideCloseContainer"(): void
-public static "createWeakRefBasedSet"(): $ObjectOpenCustomHashSet<$WeakReference<$Trackable>>
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "drop"(boolean0: boolean): boolean
 public "foodEaten"(is: $ItemStack$$Type): void
@@ -481,8 +466,8 @@ public "getClassification"(boolean0: boolean): $MobCategory
 public "getCurrentMood"(): float
 public "getDefaultMovementSpeed"(): double
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEntityReach"(): double
 public "getEquipment"(slot: $EquipmentSlot$$Type): $ItemStack
@@ -525,7 +510,6 @@ public "getSoundFromFluidType"(fluidType0: $FluidType$$Type, soundAction1: $Soun
 public "getStats"(): $PlayerStatsJS
 public "getStatsCounter"(): $StatsCounter
 public "getStepHeight"(): float
-public static "getSummary"(): $Map<$Class<any>, $Map<$Class<any>, long>>
 public "getTeamId"(): string
 public "getTotalMovementSpeed"(): double
 public "getType"(): string
@@ -534,11 +518,11 @@ public "getXp"(): integer
 public "getXpLevel"(): integer
 public "give"(item: $ItemStack$$Type): void
 public "giveInHand"(item: $ItemStack$$Type): void
-public "handler$chh000$onTickStart"(callbackInfo0: $CallbackInfo$$Type): void
-public "handler$fgp000$onAiStep"(callbackInfo0: $CallbackInfo$$Type): void
-public "handler$fgp000$onIsShiftKeyDown"(callbackInfoReturnable0: $CallbackInfoReturnable$$Type<any>): void
-public "handler$fgp000$onMove"(moverType0: $MoverType$$Type, vec31: $Vec3$$Type, callbackInfo2: $CallbackInfo$$Type): void
-public "handler$fld000$create$noSwimmingWithHeavyBootsOn"(callbackInfoReturnable0: $CallbackInfoReturnable$$Type<any>): void
+public "handler$coe000$onTickStart"(callbackInfo0: $CallbackInfo$$Type): void
+public "handler$fnc000$onAiStep"(callbackInfo0: $CallbackInfo$$Type): void
+public "handler$fnc000$onIsShiftKeyDown"(callbackInfoReturnable0: $CallbackInfoReturnable$$Type<any>): void
+public "handler$fnc001$onMove"(moverType0: $MoverType$$Type, vec31: $Vec3$$Type, callbackInfo2: $CallbackInfo$$Type): void
+public "handler$gcm000$create$noSwimmingWithHeavyBootsOn"(callbackInfoReturnable0: $CallbackInfoReturnable$$Type<any>): void
 public "hasCustomOutlineRendering"(player0: $Player$$Type): boolean
 public "hurtTo"(float0: float): void
 public "isAmbientCreature"(): boolean
@@ -569,7 +553,7 @@ public "isWaterCreature"(): boolean
 public "jumpableVehicle"(): $PlayerRideableJumping
 public "mergeNbt"(tag: $CompoundTag$$Type): $Entity
 public "modifyAttribute"(attribute: $Attribute$$Type, identifier: string, d: double, operation: $AttributeModifier$Operation$$Type): void
-public "modifyExpressionValue$cjc000$elytraOverride"(boolean0: boolean): boolean
+public "modifyExpressionValue$cjn000$elytraOverride"(boolean0: boolean): boolean
 public "moveInFluid"(fluidState0: $FluidState$$Type, vec31: $Vec3$$Type, double2: double): boolean
 public "notify"(notification: $NotificationBuilder$$Type): void
 public "notify"(title: $Component$$Type, text: $Component$$Type): void
@@ -598,7 +582,6 @@ public "sendData"(channel: string, data: $CompoundTag$$Type): void
 public "sendData"(channel: string): void
 public "sendInventoryUpdate"(): void
 public "sendOpenInventory"(): void
-public "serializeNBT"(): $CompoundTag
 public "serverAiStep"(): void
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
@@ -644,8 +627,6 @@ public "sinkInFluid"(fluidType0: $FluidType$$Type): void
 public "sodiumdynamiclights$scheduleTrackedChunksRebuild"(levelRenderer0: $LevelRenderer$$Type): void
 public "sodiumdynamiclights$updateDynamicLight"(levelRenderer0: $LevelRenderer$$Type): boolean
 public "spawn"(): void
-public "startTracking"(): void
-public static "startTracking"(object0: any): void
 public "supplementaries$getQuiverSlot"(): $SlotReference
 public "supplementaries$hasQuiver"(): boolean
 public "supplementaries$setQuiverSlot"(slotReference0: $SlotReference$$Type): void
@@ -655,8 +636,7 @@ public "teleportTo"(dimension: $ResourceLocation$$Type, x: double, y: double, z:
 public "tell"(message: $Component$$Type): void
 public static "tickEntity"(entity: $LivingEntity$$Type): void
 public "updateSyncFields"(localPlayer0: $LocalPlayer$$Type): void
-public "wrap"(): $WeakReference<$Trackable>
-public "wrapWithCondition$fbg000$suppl$preventMovementWhileOperatingCannon"(instance: $Input$$Type, bl: boolean, f: float): boolean
+public "wrapWithCondition$fhj000$suppl$preventMovementWhileOperatingCannon"(instance: $Input$$Type, bl: boolean, f: float): boolean
 get "input"(): $Input
 set "input"(value: $Input$$Type)
 get "oSpinningEffectIntensity"(): float

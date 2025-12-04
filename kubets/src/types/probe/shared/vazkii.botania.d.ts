@@ -46,8 +46,8 @@ import { $ManaBlockType, $ManaBlockType$$Type } from "packages/vazkii/botania/ap
 import { $ManaNetworkAction, $ManaNetworkAction$$Type } from "packages/vazkii/botania/api/mana/$ManaNetworkAction"
 
 export class $ManaNetworkEvent extends $Event {
-constructor()
 constructor(manaReceiver0: $ManaReceiver$$Type, manaBlockType1: $ManaBlockType$$Type, manaNetworkAction2: $ManaNetworkAction$$Type)
+constructor()
 
 public "getAction"(): $ManaNetworkAction
 public "getReceiver"(): $ManaReceiver
@@ -459,8 +459,8 @@ import { $List, $List$$Type } from "packages/java/util/$List"
 import { $ItemStack, $ItemStack$$Type } from "packages/net/minecraft/world/item/$ItemStack"
 
 export class $ManaItemsEvent extends $Event {
-constructor(player0: $Player$$Type, list1: $List$$Type<$ItemStack$$Type>)
 constructor()
+constructor(player0: $Player$$Type, list1: $List$$Type<$ItemStack$$Type>)
 
 public "getItems"(): $List<$ItemStack>
 public "getPlayer"(): $Player

@@ -380,15 +380,15 @@ export interface $BakedModel extends $IForgeBakedModel, $BakedModelMixin, $Embed
 "getQuads"(blockState0: $BlockState$$Type, direction1: $Direction$$Type, randomSource2: $RandomSource$$Type): $List<$BakedQuad>
 "getQuads"(blockState0: $BlockState$$Type, direction1: $Direction$$Type, randomSource2: $RandomSource$$Type, modelData3: $ModelData$$Type, renderType4: $RenderType$$Type): $List<$BakedQuad>
 "getRenderPasses"(itemStack0: $ItemStack$$Type, boolean1: boolean): $List<$BakedModel>
-"getRenderTypes"(itemStack0: $ItemStack$$Type, boolean1: boolean): $List<$RenderType>
 "getRenderTypes"(blockState0: $BlockState$$Type, randomSource1: $RandomSource$$Type, modelData2: $ModelData$$Type): $ChunkRenderTypeSet
+"getRenderTypes"(itemStack0: $ItemStack$$Type, boolean1: boolean): $List<$RenderType>
 /** @deprecated */
 "getTransforms"(): $ItemTransforms
 "isCustomRenderer"(): boolean
 "isGui3d"(): boolean
 "useAmbientOcclusion"(): boolean
-"useAmbientOcclusion"(blockState0: $BlockState$$Type): boolean
 "useAmbientOcclusion"(blockState0: $BlockState$$Type, renderType1: $RenderType$$Type): boolean
+"useAmbientOcclusion"(blockState0: $BlockState$$Type): boolean
 "useAmbientOcclusionWithLightEmission"(blockState0: $BlockState$$Type, renderType1: $RenderType$$Type): boolean
 "usesBlockLight"(): boolean
 get "overrides"(): $ItemOverrides
@@ -480,7 +480,7 @@ public "getBakedTopLevelModels"(): $Map<$ResourceLocation, $BakedModel>
 public "getBlockStatesForMRL"(stateDefinition: $StateDefinition$$Type<any, any>, location: $ModelResourceLocation$$Type): $ImmutableList<any>
 public "getModel"(resourceLocation0: $ResourceLocation$$Type): $UnbakedModel
 public "getModelGroups"(): $Object2IntMap<$BlockState>
-public "handler$zim000$getOrLoadModelDynamic"(modelLocation: $ResourceLocation$$Type, cir: $CallbackInfoReturnable$$Type<any>): void
+public "handler$zmi000$getOrLoadModelDynamic"(modelLocation: $ResourceLocation$$Type, cir: $CallbackInfoReturnable$$Type<any>): void
 public "loadTopLevel"(modelResourceLocation0: $ModelResourceLocation$$Type): void
 public "mfix$clearModels"(): void
 public "mfix$getUnbakedMissingModel"(): $UnbakedModel
@@ -735,7 +735,7 @@ constructor(user0: $User$$Type)
 
 public "getName"(): string
 public "getSplash"(): $SplashRenderer
-public "handler$bbi000$addSplashes"(list0: $List$$Type<any>, resourceManager1: $ResourceManager$$Type, profilerFiller2: $ProfilerFiller$$Type, callbackInfo3: $CallbackInfo$$Type): void
+public "handler$bfe000$addSplashes"(list0: $List$$Type<any>, resourceManager1: $ResourceManager$$Type, profilerFiller2: $ProfilerFiller$$Type, callbackInfo3: $CallbackInfo$$Type): void
 get "name"(): string
 get "splash"(): $SplashRenderer
 }

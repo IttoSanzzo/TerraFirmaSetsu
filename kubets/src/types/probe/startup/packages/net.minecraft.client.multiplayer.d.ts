@@ -78,16 +78,6 @@ export type $ReportingContext_ = $ReportingContext$$Type;
 }
 }
 
-declare module "packages/net/minecraft/client/multiplayer/chat/report/$ReportEnvironment" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
-export type $ReportEnvironment$$Type = ($ReportEnvironment);
-/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
-declare global {
-export type $ReportEnvironment_ = $ReportEnvironment$$Type;
-}
-}
-
 declare module "packages/net/minecraft/client/multiplayer/chat/$LoggedChatEvent$Type" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
@@ -95,6 +85,16 @@ export type $LoggedChatEvent$Type$$Type = ($LoggedChatEvent$Type | ("player" | "
 /** Global type exported for convenience, use class-specific types if there's a naming conflict. */
 declare global {
 export type $LoggedChatEvent$Type_ = $LoggedChatEvent$Type$$Type;
+}
+}
+
+declare module "packages/net/minecraft/client/multiplayer/chat/report/$ReportEnvironment" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $ReportEnvironment$$Type = ($ReportEnvironment);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $ReportEnvironment_ = $ReportEnvironment$$Type;
 }
 }
 

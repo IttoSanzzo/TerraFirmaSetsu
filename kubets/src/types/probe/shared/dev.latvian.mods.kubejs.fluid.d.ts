@@ -121,6 +121,7 @@ export class $FluidStackJS implements $WrappedJS, $InputFluid, $OutputFluid {
 constructor()
 
 public "copy"(): $FluidStackJS
+public "copy"(long0: long): $FluidStackJS
 public static "fromJson"(e: $JsonElement$$Type): $FluidStackJS
 public "getAmount"(): long
 public "getChance"(): double
@@ -133,8 +134,8 @@ public "hasChance"(): boolean
 public "hasTag"(tag: $ResourceLocation$$Type): boolean
 public "isEmpty"(): boolean
 public "matches"(other: $FluidLike$$Type): boolean
-public static "of"(o: any, amount: long, nbt: $CompoundTag$$Type): $FluidStackJS
 public static "of"(o: any): $FluidStackJS
+public static "of"(o: any, amount: long, nbt: $CompoundTag$$Type): $FluidStackJS
 public "removeChance"(): void
 public "replaceInput"(recipe: $RecipeJS$$Type, match: $ReplacementMatch$$Type, original: $InputReplacement$$Type): any
 public "replaceOutput"(recipe: $RecipeJS$$Type, match: $ReplacementMatch$$Type, original: $OutputReplacement$$Type): any
@@ -181,8 +182,8 @@ public static "getEmpty"(): $FluidStackJS
 public static "getId"(fluid: $Fluid$$Type): $ResourceLocation
 public static "getType"(id: $ResourceLocation$$Type): $Fluid
 public static "getTypes"(): $List<string>
-public static "lava"(amount: integer): $FluidStackJS
 public static "lava"(): $FluidStackJS
+public static "lava"(amount: integer): $FluidStackJS
 public static "of"(o: $FluidStackJS$$Type): $FluidStackJS
 public static "of"(o: $FluidStackJS$$Type, amount: integer, nbt: $CompoundTag$$Type): $FluidStackJS
 public static "of"(o: $FluidStackJS$$Type, nbt: $CompoundTag$$Type): $FluidStackJS
@@ -211,6 +212,7 @@ public "bucketColor"(c: $Color$$Type): $FluidBuilder
 public "builtinTextures"(): $FluidBuilder
 public "color"(c: $Color$$Type): $FluidBuilder
 public "createAttributes"(): $ArchitecturyFluidAttributes
+public "createObject"(): $FlowingFluid
 public "density"(density: integer): $FluidBuilder
 public "displayName"(name: $Component$$Type): $BuilderBase<$FlowingFluid>
 public "flowingTexture"(id: $ResourceLocation$$Type): $FluidBuilder

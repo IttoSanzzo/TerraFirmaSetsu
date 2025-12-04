@@ -38,8 +38,8 @@ import { $RandomSource$$Type } from "packages/net/minecraft/util/$RandomSource"
 import { $NormalNoise$NoiseParameters, $NormalNoise$NoiseParameters$$Type } from "packages/net/minecraft/world/level/levelgen/synth/$NormalNoise$NoiseParameters"
 
 export class $NormalNoise {
-public static "create"(randomSource0: $RandomSource$$Type, noiseParameters1: $NormalNoise$NoiseParameters$$Type): $NormalNoise
 public static "create"(randomSource0: $RandomSource$$Type, int1: integer, ...double2s: double[]): $NormalNoise
+public static "create"(randomSource0: $RandomSource$$Type, noiseParameters1: $NormalNoise$NoiseParameters$$Type): $NormalNoise
 /** @deprecated */
 public static "createLegacyNetherBiome"(randomSource0: $RandomSource$$Type, noiseParameters1: $NormalNoise$NoiseParameters$$Type): $NormalNoise
 public "getValue"(double0: double, double1: double, double2: double): double

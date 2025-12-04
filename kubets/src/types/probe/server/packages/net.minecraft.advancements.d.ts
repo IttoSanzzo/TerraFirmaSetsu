@@ -161,6 +161,16 @@ export type $MinMaxBounds_<T extends number> = $MinMaxBounds$$Type<T>;
 }
 }
 
+declare module "packages/net/minecraft/advancements/critereon/$BlockPredicate" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $BlockPredicate$$Type = ($BlockPredicate);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $BlockPredicate_ = $BlockPredicate$$Type;
+}
+}
+
 declare module "packages/net/minecraft/advancements/critereon/$AbstractCriterionTriggerInstance" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
@@ -309,6 +319,16 @@ export type $EnterBlockTrigger$TriggerInstance$$Type = ($EnterBlockTrigger$Trigg
 /** Global type exported for convenience, use class-specific types if there's a naming conflict. */
 declare global {
 export type $EnterBlockTrigger$TriggerInstance_ = $EnterBlockTrigger$TriggerInstance$$Type;
+}
+}
+
+declare module "packages/net/minecraft/advancements/critereon/$StatePropertiesPredicate$PropertyMatcher" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $StatePropertiesPredicate$PropertyMatcher$$Type = ($StatePropertiesPredicate$PropertyMatcher);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $StatePropertiesPredicate$PropertyMatcher_ = $StatePropertiesPredicate$PropertyMatcher$$Type;
 }
 }
 

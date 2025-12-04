@@ -74,8 +74,8 @@ import { $ModMismatchEvent$MismatchedVersionInfo } from "packages/net/minecraftf
 import { $Map$$Type } from "packages/java/util/$Map"
 
 export class $ModMismatchEvent extends $Event implements $IModBusEvent {
-constructor(levelDirectory0: $LevelStorageSource$LevelDirectory$$Type, map1: $Map$$Type<string, $ArtifactVersion$$Type>, map2: $Map$$Type<string, $ArtifactVersion$$Type>)
 constructor()
+constructor(levelDirectory0: $LevelStorageSource$LevelDirectory$$Type, map1: $Map$$Type<string, $ArtifactVersion$$Type>, map2: $Map$$Type<string, $ArtifactVersion$$Type>)
 
 public "anyResolved"(): boolean
 public "anyUnresolved"(): boolean
@@ -120,8 +120,8 @@ import { $EquipmentSlot, $EquipmentSlot$$Type } from "packages/net/minecraft/wor
 import { $ItemStack, $ItemStack$$Type } from "packages/net/minecraft/world/item/$ItemStack"
 
 export class $ItemAttributeModifierEvent extends $Event {
-constructor()
 constructor(itemStack0: $ItemStack$$Type, equipmentSlot1: $EquipmentSlot$$Type, multimap2: $Multimap$$Type<$Attribute$$Type, $AttributeModifier$$Type>)
+constructor()
 
 public "addModifier"(attribute0: $Attribute$$Type, attributeModifier1: $AttributeModifier$$Type): boolean
 public "clearModifiers"(): void
@@ -165,8 +165,8 @@ import { $Player, $Player$$Type } from "packages/net/minecraft/world/entity/play
 import { $ItemStack, $ItemStack$$Type } from "packages/net/minecraft/world/item/$ItemStack"
 
 export class $AnvilUpdateEvent extends $Event {
-constructor()
 constructor(itemStack0: $ItemStack$$Type, itemStack1: $ItemStack$$Type, string2: string, int3: integer, player4: $Player$$Type)
+constructor()
 
 public "getCost"(): integer
 public "getLeft"(): $ItemStack
@@ -210,12 +210,12 @@ export class $BuildCreativeModeTabContentsEvent extends $Event implements $IModB
 constructor()
 constructor(creativeModeTab0: $CreativeModeTab$$Type, resourceKey1: $ResourceKey$$Type<$CreativeModeTab>, itemDisplayParameters2: $CreativeModeTab$ItemDisplayParameters$$Type, mutableHashedLinkedMap3: $MutableHashedLinkedMap$$Type<$ItemStack$$Type, $CreativeModeTab$TabVisibility$$Type>)
 
-public "accept"(supplier0: $Supplier$$Type<$ItemLike>, tabVisibility1: $CreativeModeTab$TabVisibility$$Type): void
 public "accept"(supplier0: $Supplier$$Type<$ItemLike>): void
+public "accept"(supplier0: $Supplier$$Type<$ItemLike>, tabVisibility1: $CreativeModeTab$TabVisibility$$Type): void
 public "accept"(itemStack0: $ItemStack$$Type, tabVisibility1: $CreativeModeTab$TabVisibility$$Type): void
-public "accept"(itemStack0: $ItemStack$$Type): void
-public "accept"(itemLike0: $ItemLike$$Type): void
 public "accept"(itemLike0: $ItemLike$$Type, tabVisibility1: $CreativeModeTab$TabVisibility$$Type): void
+public "accept"(itemLike0: $ItemLike$$Type): void
+public "accept"(itemStack0: $ItemStack$$Type): void
 public "acceptAll"(collection0: $Collection$$Type<$ItemStack$$Type>, tabVisibility1: $CreativeModeTab$TabVisibility$$Type): void
 public "acceptAll"(collection0: $Collection$$Type<$ItemStack$$Type>): void
 public "getEntries"(): $MutableHashedLinkedMap<$ItemStack, $CreativeModeTab$TabVisibility>
@@ -407,8 +407,8 @@ import { $ItemStack, $ItemStack$$Type } from "packages/net/minecraft/world/item/
 import { $ClickAction, $ClickAction$$Type } from "packages/net/minecraft/world/inventory/$ClickAction"
 
 export class $ItemStackedOnOtherEvent extends $Event {
-constructor(itemStack0: $ItemStack$$Type, itemStack1: $ItemStack$$Type, slot2: $Slot$$Type, clickAction3: $ClickAction$$Type, player4: $Player$$Type, slotAccess5: $SlotAccess$$Type)
 constructor()
+constructor(itemStack0: $ItemStack$$Type, itemStack1: $ItemStack$$Type, slot2: $Slot$$Type, clickAction3: $ClickAction$$Type, player4: $Player$$Type, slotAccess5: $SlotAccess$$Type)
 
 public "getCarriedItem"(): $ItemStack
 public "getCarriedSlotAccess"(): $SlotAccess
@@ -531,8 +531,8 @@ import { $List } from "packages/java/util/$List"
 import { $PlayerList, $PlayerList$$Type } from "packages/net/minecraft/server/players/$PlayerList"
 
 export class $OnDatapackSyncEvent extends $Event {
-constructor(playerList0: $PlayerList$$Type, serverPlayer1: $ServerPlayer$$Type)
 constructor()
+constructor(playerList0: $PlayerList$$Type, serverPlayer1: $ServerPlayer$$Type)
 
 public "getPlayer"(): $ServerPlayer
 public "getPlayerList"(): $PlayerList
@@ -643,8 +643,8 @@ import { $ICondition$IContext } from "packages/net/minecraftforge/common/craftin
 import { $ReloadableServerResources, $ReloadableServerResources$$Type } from "packages/net/minecraft/server/$ReloadableServerResources"
 
 export class $AddReloadListenerEvent extends $Event {
-constructor(reloadableServerResources0: $ReloadableServerResources$$Type, registryAccess1: $RegistryAccess$$Type)
 constructor()
+constructor(reloadableServerResources0: $ReloadableServerResources$$Type, registryAccess1: $RegistryAccess$$Type)
 
 public "addListener"(preparableReloadListener0: $PreparableReloadListener$$Type): void
 public "getConditionContext"(): $ICondition$IContext

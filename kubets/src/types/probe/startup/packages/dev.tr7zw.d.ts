@@ -44,7 +44,7 @@ export type $SkullData_ = $SkullData$$Type;
 declare module "packages/dev/tr7zw/skinlayers/accessor/$PlayerEntityModelAccessor" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
-export type $PlayerEntityModelAccessor$$Type = ($PlayerEntityModelAccessor | (() => boolean));
+export type $PlayerEntityModelAccessor$$Type = ($PlayerEntityModelAccessor);
 /** Global type exported for convenience, use class-specific types if there's a naming conflict. */
 declare global {
 export type $PlayerEntityModelAccessor_ = $PlayerEntityModelAccessor$$Type;

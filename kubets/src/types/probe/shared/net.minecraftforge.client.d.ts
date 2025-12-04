@@ -118,19 +118,19 @@ import { $FluidType$$Type } from "packages/net/minecraftforge/fluids/$FluidType"
 import { $BlockAndTintGetter$$Type } from "packages/net/minecraft/world/level/$BlockAndTintGetter"
 
 export interface $IClientFluidTypeExtensions {
-"getFlowingTexture"(): $ResourceLocation
 "getFlowingTexture"(fluidStack0: $FluidStack$$Type): $ResourceLocation
+"getFlowingTexture"(): $ResourceLocation
 "getFlowingTexture"(fluidState0: $FluidState$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type): $ResourceLocation
-"getOverlayTexture"(fluidState0: $FluidState$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type): $ResourceLocation
-"getOverlayTexture"(): $ResourceLocation
 "getOverlayTexture"(fluidStack0: $FluidStack$$Type): $ResourceLocation
+"getOverlayTexture"(): $ResourceLocation
+"getOverlayTexture"(fluidState0: $FluidState$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type): $ResourceLocation
 "getRenderOverlayTexture"(minecraft0: $Minecraft$$Type): $ResourceLocation
-"getStillTexture"(fluidStack0: $FluidStack$$Type): $ResourceLocation
 "getStillTexture"(): $ResourceLocation
 "getStillTexture"(fluidState0: $FluidState$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type): $ResourceLocation
-"getTintColor"(): integer
+"getStillTexture"(fluidStack0: $FluidStack$$Type): $ResourceLocation
 "getTintColor"(fluidStack0: $FluidStack$$Type): integer
 "getTintColor"(fluidState0: $FluidState$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type): integer
+"getTintColor"(): integer
 "modifyFogColor"(camera0: $Camera$$Type, float1: float, clientLevel2: $ClientLevel$$Type, int3: integer, float4: float, vector3f5: $Vector3f$$Type): $Vector3f
 "modifyFogRender"(camera0: $Camera$$Type, fogMode1: $FogRenderer$FogMode$$Type, float2: float, float3: float, float4: float, float5: float, fogShape6: $FogShape$$Type): void
 "renderOverlay"(minecraft0: $Minecraft$$Type, poseStack1: $PoseStack$$Type): void
@@ -210,8 +210,8 @@ export class $ModelDataManager implements $AppearanceHelper$ModelDataAccessor {
 constructor(level0: $Level$$Type)
 
 public "framedblocks$getCachedAt"(blockPos0: $BlockPos$$Type): $ModelData
-public "getAt"(chunkPos0: $ChunkPos$$Type): $Map<$BlockPos, $ModelData>
 public "getAt"(blockPos0: $BlockPos$$Type): $ModelData
+public "getAt"(chunkPos0: $ChunkPos$$Type): $Map<$BlockPos, $ModelData>
 public static "onChunkUnload"(unload0: $ChunkEvent$Unload$$Type): void
 public "requestRefresh"(blockEntity0: $BlockEntity$$Type): void
 }
@@ -249,8 +249,8 @@ import { $LerpingBossEvent, $LerpingBossEvent$$Type } from "packages/net/minecra
 import { $GuiGraphics$$Type } from "packages/net/minecraft/client/gui/$GuiGraphics"
 
 export class $CustomizeGuiOverlayEvent$BossEventProgress extends $CustomizeGuiOverlayEvent {
-constructor()
 constructor(window0: $Window$$Type, guiGraphics1: $GuiGraphics$$Type, float2: float, lerpingBossEvent3: $LerpingBossEvent$$Type, int4: integer, int5: integer, int6: integer)
+constructor()
 
 public "getBossEvent"(): $LerpingBossEvent
 public "getIncrement"(): integer
@@ -751,8 +751,8 @@ import { $ParticleOptions, $ParticleOptions$$Type } from "packages/net/minecraft
 import { $ParticleProvider$Sprite$$Type } from "packages/net/minecraft/client/particle/$ParticleProvider$Sprite"
 
 export class $RegisterParticleProvidersEvent extends $Event implements $IModBusEvent {
-constructor()
 constructor(particleEngine0: $ParticleEngine$$Type)
+constructor()
 
 public "registerSpecial"<T extends $ParticleOptions>(particleType0: $ParticleType$$Type<T>, particleProvider1: $ParticleProvider$$Type<T>): void
 public "registerSprite"<T extends $ParticleOptions>(particleType0: $ParticleType$$Type<T>, sprite1: $ParticleProvider$Sprite$$Type<T>): void
@@ -829,8 +829,8 @@ import { $MultiBufferSource, $MultiBufferSource$$Type } from "packages/net/minec
 import { $ItemStack } from "packages/net/minecraft/world/item/$ItemStack"
 
 export class $RenderItemInFrameEvent extends $Event {
-constructor(itemFrame0: $ItemFrame$$Type, itemFrameRenderer1: $ItemFrameRenderer$$Type<any>, poseStack2: $PoseStack$$Type, multiBufferSource3: $MultiBufferSource$$Type, int4: integer)
 constructor()
+constructor(itemFrame0: $ItemFrame$$Type, itemFrameRenderer1: $ItemFrameRenderer$$Type<any>, poseStack2: $PoseStack$$Type, multiBufferSource3: $MultiBufferSource$$Type, int4: integer)
 
 public "getItemFrameEntity"(): $ItemFrame
 public "getItemStack"(): $ItemStack
@@ -927,8 +927,8 @@ import { $GameRenderer, $GameRenderer$$Type } from "packages/net/minecraft/clien
 import { $Camera, $Camera$$Type } from "packages/net/minecraft/client/$Camera"
 
 export class $ViewportEvent extends $Event {
-constructor(gameRenderer0: $GameRenderer$$Type, camera1: $Camera$$Type, double2: double)
 constructor()
+constructor(gameRenderer0: $GameRenderer$$Type, camera1: $Camera$$Type, double2: double)
 
 public "getCamera"(): $Camera
 public "getPartialTick"(): double
@@ -1001,9 +1001,9 @@ public static "all"(): $ChunkRenderTypeSet
 public "asList"(): $List<any>
 public "contains"(renderType0: $RenderType$$Type): boolean
 public "forEach"(consumer0: $Consumer$$Type<$RenderType$$Type>): void
-public static "intersection"(iterable0: $Iterable$$Type<any>): $ChunkRenderTypeSet
-public static "intersection"(...chunkRenderTypeSet0s: $ChunkRenderTypeSet$$Type[]): $ChunkRenderTypeSet
 public static "intersection"(collection0: $Collection$$Type<$ChunkRenderTypeSet$$Type>): $ChunkRenderTypeSet
+public static "intersection"(...chunkRenderTypeSet0s: $ChunkRenderTypeSet$$Type[]): $ChunkRenderTypeSet
+public static "intersection"(iterable0: $Iterable$$Type<any>): $ChunkRenderTypeSet
 public "isEmpty"(): boolean
 public "iterator"(): $Iterator<any>
 public static "none"(): $ChunkRenderTypeSet
@@ -1072,8 +1072,8 @@ import { $List$$Type } from "packages/java/util/$List"
 import { $Pair$$Type } from "packages/com/mojang/datafixers/util/$Pair"
 
 export class $RegisterShadersEvent extends $Event implements $IModBusEvent {
-constructor(resourceProvider0: $ResourceProvider$$Type, list1: $List$$Type<$Pair$$Type<$ShaderInstance$$Type, $Consumer$$Type<$ShaderInstance$$Type>>>)
 constructor()
+constructor(resourceProvider0: $ResourceProvider$$Type, list1: $List$$Type<$Pair$$Type<$ShaderInstance$$Type, $Consumer$$Type<$ShaderInstance$$Type>>>)
 
 public "getResourceProvider"(): $ResourceProvider
 public "registerShader"(shaderInstance0: $ShaderInstance$$Type, consumer1: $Consumer$$Type<$ShaderInstance$$Type>): void
@@ -1090,8 +1090,8 @@ import { $GuiGraphics$$Type } from "packages/net/minecraft/client/gui/$GuiGraphi
 import { $ClientTooltipComponent$$Type } from "packages/net/minecraft/client/gui/screens/inventory/tooltip/$ClientTooltipComponent"
 
 export class $RenderTooltipEvent$Color extends $RenderTooltipEvent {
-constructor(itemStack0: $ItemStack$$Type, guiGraphics1: $GuiGraphics$$Type, int2: integer, int3: integer, font4: $Font$$Type, int5: integer, int6: integer, int7: integer, list8: $List$$Type<$ClientTooltipComponent$$Type>)
 constructor()
+constructor(itemStack0: $ItemStack$$Type, guiGraphics1: $GuiGraphics$$Type, int2: integer, int3: integer, font4: $Font$$Type, int5: integer, int6: integer, int7: integer, list8: $List$$Type<$ClientTooltipComponent$$Type>)
 
 public "getBackgroundEnd"(): integer
 public "getBackgroundStart"(): integer
@@ -1325,8 +1325,8 @@ import { $MultiBufferSource, $MultiBufferSource$$Type } from "packages/net/minec
 import { $Entity$$Type } from "packages/net/minecraft/world/entity/$Entity"
 
 export class $RenderNameTagEvent extends $EntityEvent {
-constructor(entity0: $Entity$$Type, component1: $Component$$Type, entityRenderer2: $EntityRenderer$$Type<any>, poseStack3: $PoseStack$$Type, multiBufferSource4: $MultiBufferSource$$Type, int5: integer, float6: float)
 constructor()
+constructor(entity0: $Entity$$Type, component1: $Component$$Type, entityRenderer2: $EntityRenderer$$Type<any>, poseStack3: $PoseStack$$Type, multiBufferSource4: $MultiBufferSource$$Type, int5: integer, float6: float)
 
 public "getContent"(): $Component
 public "getEntityRenderer"(): $EntityRenderer<any>
@@ -1359,12 +1359,12 @@ readonly "rotationY": integer
 readonly "uvLock": boolean
 readonly "weight": integer
 
-constructor(modelFile0: $ModelFile$$Type, int1: integer, int2: integer, boolean3: boolean, int4: integer)
 constructor(modelFile0: $ModelFile$$Type)
+constructor(modelFile0: $ModelFile$$Type, int1: integer, int2: integer, boolean3: boolean, int4: integer)
 constructor(modelFile0: $ModelFile$$Type, int1: integer, int2: integer, boolean3: boolean)
 
-public static "allRotations"(modelFile0: $ModelFile$$Type, boolean1: boolean): $ConfiguredModel[]
 public static "allRotations"(modelFile0: $ModelFile$$Type, boolean1: boolean, int2: integer): $ConfiguredModel[]
+public static "allRotations"(modelFile0: $ModelFile$$Type, boolean1: boolean): $ConfiguredModel[]
 public static "allYRotations"(modelFile0: $ModelFile$$Type, int1: integer, boolean2: boolean): $ConfiguredModel[]
 public static "allYRotations"(modelFile0: $ModelFile$$Type, int1: integer, boolean2: boolean, int3: integer): $ConfiguredModel[]
 public static "builder"(): $ConfiguredModel$Builder<any>
@@ -1789,8 +1789,8 @@ import { $LevelRenderer, $LevelRenderer$$Type } from "packages/net/minecraft/cli
 import { $RenderLevelStageEvent$Stage, $RenderLevelStageEvent$Stage$$Type } from "packages/net/minecraftforge/client/event/$RenderLevelStageEvent$Stage"
 
 export class $RenderLevelStageEvent extends $Event {
-constructor(stage0: $RenderLevelStageEvent$Stage$$Type, levelRenderer1: $LevelRenderer$$Type, poseStack2: $PoseStack$$Type, matrix4f3: $Matrix4f$$Type, int4: integer, float5: float, camera6: $Camera$$Type, frustum7: $Frustum$$Type)
 constructor()
+constructor(stage0: $RenderLevelStageEvent$Stage$$Type, levelRenderer1: $LevelRenderer$$Type, poseStack2: $PoseStack$$Type, matrix4f3: $Matrix4f$$Type, int4: integer, float5: float, camera6: $Camera$$Type, frustum7: $Frustum$$Type)
 
 public "getCamera"(): $Camera
 public "getFrustum"(): $Frustum
@@ -1920,10 +1920,10 @@ public "element"(int0: integer): $ModelBuilder$ElementBuilder<>
 public "getElementCount"(): integer
 public "guiLight"(guiLight0: $BlockModel$GuiLight$$Type): T
 public "parent"(modelFile0: $ModelFile$$Type): T
-public "renderType"(string0: string): T
-public "renderType"(resourceLocation0: $ResourceLocation$$Type, resourceLocation1: $ResourceLocation$$Type): T
-public "renderType"(resourceLocation0: $ResourceLocation$$Type): T
 public "renderType"(string0: string, string1: string): T
+public "renderType"(resourceLocation0: $ResourceLocation$$Type): T
+public "renderType"(resourceLocation0: $ResourceLocation$$Type, resourceLocation1: $ResourceLocation$$Type): T
+public "renderType"(string0: string): T
 public "rootTransforms"(): $ModelBuilder$RootTransformsBuilder<>
 public "texture"(string0: string, string1: string): T
 public "texture"(string0: string, resourceLocation1: $ResourceLocation$$Type): T
@@ -1966,8 +1966,8 @@ static readonly "ITEM_FOLDER": string
 readonly "existingFileHelper": $ExistingFileHelper
 readonly "generatedModels": $Map<$ResourceLocation, T>
 
-constructor(packOutput0: $PackOutput$$Type, string1: string, string2: string, function3: $Function$$Type<$ResourceLocation$$Type, T>, existingFileHelper4: $ExistingFileHelper$$Type)
 constructor(packOutput0: $PackOutput$$Type, string1: string, string2: string, biFunction3: $BiFunction$$Type<$ResourceLocation$$Type, $ExistingFileHelper$$Type, T>, existingFileHelper4: $ExistingFileHelper$$Type)
+constructor(packOutput0: $PackOutput$$Type, string1: string, string2: string, function3: $Function$$Type<$ResourceLocation$$Type, T>, existingFileHelper4: $ExistingFileHelper$$Type)
 
 public "button"(string0: string, resourceLocation1: $ResourceLocation$$Type): T
 public "buttonInventory"(string0: string, resourceLocation1: $ResourceLocation$$Type): T
@@ -2016,8 +2016,8 @@ public "pressurePlateDown"(string0: string, resourceLocation1: $ResourceLocation
 public "run"(cachedOutput0: $CachedOutput$$Type): $CompletableFuture<any>
 public static "saveStable"(cachedOutput0: $CachedOutput$$Type, jsonElement1: $JsonElement$$Type, path2: $Path$$Type): $CompletableFuture<any>
 public "sign"(string0: string, resourceLocation1: $ResourceLocation$$Type): T
-public "singleTexture"(string0: string, resourceLocation1: $ResourceLocation$$Type, string2: string, resourceLocation3: $ResourceLocation$$Type): T
 public "singleTexture"(string0: string, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type): T
+public "singleTexture"(string0: string, resourceLocation1: $ResourceLocation$$Type, string2: string, resourceLocation3: $ResourceLocation$$Type): T
 public "slab"(string0: string, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type): T
 public "slabTop"(string0: string, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type): T
 public "stairs"(string0: string, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type): T
@@ -2193,9 +2193,9 @@ import { $ResourceLocation$$Type } from "packages/net/minecraft/resources/$Resou
 export interface $IForgeGuiGraphics {
 "blitInscribed"(resourceLocation0: $ResourceLocation$$Type, int1: integer, int2: integer, int3: integer, int4: integer, int5: integer, int6: integer, boolean7: boolean, boolean8: boolean): void
 "blitInscribed"(resourceLocation0: $ResourceLocation$$Type, int1: integer, int2: integer, int3: integer, int4: integer, int5: integer, int6: integer): void
-"blitNineSlicedSized"(resourceLocation0: $ResourceLocation$$Type, int1: integer, int2: integer, int3: integer, int4: integer, int5: integer, int6: integer, int7: integer, int8: integer, int9: integer, int10: integer, int11: integer): void
 "blitNineSlicedSized"(resourceLocation0: $ResourceLocation$$Type, int1: integer, int2: integer, int3: integer, int4: integer, int5: integer, int6: integer, int7: integer, int8: integer, int9: integer, int10: integer, int11: integer, int12: integer, int13: integer, int14: integer): void
 "blitNineSlicedSized"(resourceLocation0: $ResourceLocation$$Type, int1: integer, int2: integer, int3: integer, int4: integer, int5: integer, int6: integer, int7: integer, int8: integer, int9: integer, int10: integer, int11: integer, int12: integer): void
+"blitNineSlicedSized"(resourceLocation0: $ResourceLocation$$Type, int1: integer, int2: integer, int3: integer, int4: integer, int5: integer, int6: integer, int7: integer, int8: integer, int9: integer, int10: integer, int11: integer): void
 "blitWithBorder"(resourceLocation0: $ResourceLocation$$Type, int1: integer, int2: integer, int3: integer, int4: integer, int5: integer, int6: integer, int7: integer, int8: integer, int9: integer, int10: integer, int11: integer, int12: integer): void
 "blitWithBorder"(resourceLocation0: $ResourceLocation$$Type, int1: integer, int2: integer, int3: integer, int4: integer, int5: integer, int6: integer, int7: integer, int8: integer, int9: integer): void
 "getColorFromFormattingCharacter"(char0: character, boolean1: boolean): integer
@@ -2346,8 +2346,8 @@ import { $SoundEngine$$Type } from "packages/net/minecraft/client/sounds/$SoundE
 import { $SoundEvent } from "packages/net/minecraftforge/client/event/sound/$SoundEvent"
 
 export class $PlaySoundEvent extends $SoundEvent {
-constructor()
 constructor(soundEngine0: $SoundEngine$$Type, soundInstance1: $SoundInstance$$Type)
+constructor()
 
 public "getName"(): string
 public "getOriginalSound"(): $SoundInstance
@@ -2370,8 +2370,8 @@ import { $ClientTooltipComponent$$Type } from "packages/net/minecraft/client/gui
 import { $ClientTooltipPositioner, $ClientTooltipPositioner$$Type } from "packages/net/minecraft/client/gui/screens/inventory/tooltip/$ClientTooltipPositioner"
 
 export class $RenderTooltipEvent$Pre extends $RenderTooltipEvent {
-constructor(itemStack0: $ItemStack$$Type, guiGraphics1: $GuiGraphics$$Type, int2: integer, int3: integer, int4: integer, int5: integer, font6: $Font$$Type, list7: $List$$Type<$ClientTooltipComponent$$Type>, clientTooltipPositioner8: $ClientTooltipPositioner$$Type)
 constructor()
+constructor(itemStack0: $ItemStack$$Type, guiGraphics1: $GuiGraphics$$Type, int2: integer, int3: integer, int4: integer, int5: integer, font6: $Font$$Type, list7: $List$$Type<$ClientTooltipComponent$$Type>, clientTooltipPositioner8: $ClientTooltipPositioner$$Type)
 
 public "getScreenHeight"(): integer
 public "getScreenWidth"(): integer
@@ -2881,154 +2881,154 @@ static readonly "WALL_PROPS": $ImmutableMap<$Direction, $Property<$WallSide>>
 
 constructor(packOutput0: $PackOutput$$Type, string1: string, existingFileHelper2: $ExistingFileHelper$$Type)
 
-public "axisBlock"(rotatedPillarBlock0: $RotatedPillarBlock$$Type, modelFile1: $ModelFile$$Type, modelFile2: $ModelFile$$Type): void
-public "axisBlock"(rotatedPillarBlock0: $RotatedPillarBlock$$Type): void
 public "axisBlock"(rotatedPillarBlock0: $RotatedPillarBlock$$Type, resourceLocation1: $ResourceLocation$$Type): void
+public "axisBlock"(rotatedPillarBlock0: $RotatedPillarBlock$$Type): void
 public "axisBlock"(rotatedPillarBlock0: $RotatedPillarBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type): void
-public "axisBlockWithRenderType"(rotatedPillarBlock0: $RotatedPillarBlock$$Type, resourceLocation1: $ResourceLocation$$Type): void
-public "axisBlockWithRenderType"(rotatedPillarBlock0: $RotatedPillarBlock$$Type, string1: string): void
+public "axisBlock"(rotatedPillarBlock0: $RotatedPillarBlock$$Type, modelFile1: $ModelFile$$Type, modelFile2: $ModelFile$$Type): void
 public "axisBlockWithRenderType"(rotatedPillarBlock0: $RotatedPillarBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type): void
 public "axisBlockWithRenderType"(rotatedPillarBlock0: $RotatedPillarBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type): void
+public "axisBlockWithRenderType"(rotatedPillarBlock0: $RotatedPillarBlock$$Type, resourceLocation1: $ResourceLocation$$Type): void
 public "axisBlockWithRenderType"(rotatedPillarBlock0: $RotatedPillarBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type, string3: string): void
 public "axisBlockWithRenderType"(rotatedPillarBlock0: $RotatedPillarBlock$$Type, resourceLocation1: $ResourceLocation$$Type, string2: string): void
-public "axisBlockWithRenderTypeAndFast"(rotatedPillarBlock0: $RotatedPillarBlock$$Type, string1: string, string2: string): void
-public "axisBlockWithRenderTypeAndFast"(rotatedPillarBlock0: $RotatedPillarBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type): void
-public "axisBlockWithRenderTypeAndFast"(rotatedPillarBlock0: $RotatedPillarBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type, resourceLocation4: $ResourceLocation$$Type): void
+public "axisBlockWithRenderType"(rotatedPillarBlock0: $RotatedPillarBlock$$Type, string1: string): void
 public "axisBlockWithRenderTypeAndFast"(rotatedPillarBlock0: $RotatedPillarBlock$$Type, resourceLocation1: $ResourceLocation$$Type, string2: string, string3: string): void
 public "axisBlockWithRenderTypeAndFast"(rotatedPillarBlock0: $RotatedPillarBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type, string3: string, string4: string): void
+public "axisBlockWithRenderTypeAndFast"(rotatedPillarBlock0: $RotatedPillarBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type, resourceLocation4: $ResourceLocation$$Type): void
+public "axisBlockWithRenderTypeAndFast"(rotatedPillarBlock0: $RotatedPillarBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type): void
 public "axisBlockWithRenderTypeAndFast"(rotatedPillarBlock0: $RotatedPillarBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type): void
+public "axisBlockWithRenderTypeAndFast"(rotatedPillarBlock0: $RotatedPillarBlock$$Type, string1: string, string2: string): void
 public "blockTexture"(block0: $Block$$Type): $ResourceLocation
-public "buttonBlock"(buttonBlock0: $ButtonBlock$$Type, modelFile1: $ModelFile$$Type, modelFile2: $ModelFile$$Type): void
 public "buttonBlock"(buttonBlock0: $ButtonBlock$$Type, resourceLocation1: $ResourceLocation$$Type): void
+public "buttonBlock"(buttonBlock0: $ButtonBlock$$Type, modelFile1: $ModelFile$$Type, modelFile2: $ModelFile$$Type): void
 public "cubeAll"(block0: $Block$$Type): $ModelFile
 public "directionalBlock"(block0: $Block$$Type, modelFile1: $ModelFile$$Type, int2: integer): void
-public "directionalBlock"(block0: $Block$$Type, function1: $Function$$Type<$BlockState$$Type, $ModelFile>): void
 public "directionalBlock"(block0: $Block$$Type, function1: $Function$$Type<$BlockState$$Type, $ModelFile>, int2: integer): void
+public "directionalBlock"(block0: $Block$$Type, function1: $Function$$Type<$BlockState$$Type, $ModelFile>): void
 public "directionalBlock"(block0: $Block$$Type, modelFile1: $ModelFile$$Type): void
-public "doorBlock"(doorBlock0: $DoorBlock$$Type, modelFile1: $ModelFile$$Type, modelFile2: $ModelFile$$Type, modelFile3: $ModelFile$$Type, modelFile4: $ModelFile$$Type, modelFile5: $ModelFile$$Type, modelFile6: $ModelFile$$Type, modelFile7: $ModelFile$$Type, modelFile8: $ModelFile$$Type): void
 public "doorBlock"(doorBlock0: $DoorBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type): void
 public "doorBlock"(doorBlock0: $DoorBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type): void
+public "doorBlock"(doorBlock0: $DoorBlock$$Type, modelFile1: $ModelFile$$Type, modelFile2: $ModelFile$$Type, modelFile3: $ModelFile$$Type, modelFile4: $ModelFile$$Type, modelFile5: $ModelFile$$Type, modelFile6: $ModelFile$$Type, modelFile7: $ModelFile$$Type, modelFile8: $ModelFile$$Type): void
 public "doorBlockWithRenderType"(doorBlock0: $DoorBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type, string4: string): void
 public "doorBlockWithRenderType"(doorBlock0: $DoorBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type, string3: string): void
-public "doorBlockWithRenderType"(doorBlock0: $DoorBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type): void
 public "doorBlockWithRenderType"(doorBlock0: $DoorBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type, resourceLocation4: $ResourceLocation$$Type): void
+public "doorBlockWithRenderType"(doorBlock0: $DoorBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type): void
 public "doorBlockWithRenderTypeAndFast"(doorBlock0: $DoorBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type, resourceLocation4: $ResourceLocation$$Type, resourceLocation5: $ResourceLocation$$Type): void
-public "doorBlockWithRenderTypeAndFast"(doorBlock0: $DoorBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type, string3: string, string4: string): void
 public "doorBlockWithRenderTypeAndFast"(doorBlock0: $DoorBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type, resourceLocation4: $ResourceLocation$$Type): void
 public "doorBlockWithRenderTypeAndFast"(doorBlock0: $DoorBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type, string4: string, string5: string): void
-public "fenceBlock"(fenceBlock0: $FenceBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type): void
+public "doorBlockWithRenderTypeAndFast"(doorBlock0: $DoorBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type, string3: string, string4: string): void
 public "fenceBlock"(fenceBlock0: $FenceBlock$$Type, resourceLocation1: $ResourceLocation$$Type): void
+public "fenceBlock"(fenceBlock0: $FenceBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type): void
 public "fenceBlockWithRenderType"(fenceBlock0: $FenceBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, string3: string): void
-public "fenceBlockWithRenderType"(fenceBlock0: $FenceBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type): void
 public "fenceBlockWithRenderType"(fenceBlock0: $FenceBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type): void
 public "fenceBlockWithRenderType"(fenceBlock0: $FenceBlock$$Type, resourceLocation1: $ResourceLocation$$Type, string2: string): void
+public "fenceBlockWithRenderType"(fenceBlock0: $FenceBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type): void
+public "fenceBlockWithRenderTypeAndFast"(fenceBlock0: $FenceBlock$$Type, resourceLocation1: $ResourceLocation$$Type, string2: string, string3: string): void
+public "fenceBlockWithRenderTypeAndFast"(fenceBlock0: $FenceBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, string3: string, string4: string): void
 public "fenceBlockWithRenderTypeAndFast"(fenceBlock0: $FenceBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type): void
 public "fenceBlockWithRenderTypeAndFast"(fenceBlock0: $FenceBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type, resourceLocation4: $ResourceLocation$$Type): void
-public "fenceBlockWithRenderTypeAndFast"(fenceBlock0: $FenceBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, string3: string, string4: string): void
-public "fenceBlockWithRenderTypeAndFast"(fenceBlock0: $FenceBlock$$Type, resourceLocation1: $ResourceLocation$$Type, string2: string, string3: string): void
 public "fenceGateBlock"(fenceGateBlock0: $FenceGateBlock$$Type, resourceLocation1: $ResourceLocation$$Type): void
 public "fenceGateBlock"(fenceGateBlock0: $FenceGateBlock$$Type, modelFile1: $ModelFile$$Type, modelFile2: $ModelFile$$Type, modelFile3: $ModelFile$$Type, modelFile4: $ModelFile$$Type): void
 public "fenceGateBlock"(fenceGateBlock0: $FenceGateBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type): void
-public "fenceGateBlockWithRenderType"(fenceGateBlock0: $FenceGateBlock$$Type, resourceLocation1: $ResourceLocation$$Type, string2: string): void
-public "fenceGateBlockWithRenderType"(fenceGateBlock0: $FenceGateBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type): void
 public "fenceGateBlockWithRenderType"(fenceGateBlock0: $FenceGateBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, string3: string): void
+public "fenceGateBlockWithRenderType"(fenceGateBlock0: $FenceGateBlock$$Type, resourceLocation1: $ResourceLocation$$Type, string2: string): void
 public "fenceGateBlockWithRenderType"(fenceGateBlock0: $FenceGateBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type): void
-public "fenceGateBlockWithRenderTypeAndFast"(fenceGateBlock0: $FenceGateBlock$$Type, resourceLocation1: $ResourceLocation$$Type, string2: string, string3: string): void
+public "fenceGateBlockWithRenderType"(fenceGateBlock0: $FenceGateBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type): void
 public "fenceGateBlockWithRenderTypeAndFast"(fenceGateBlock0: $FenceGateBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type): void
-public "fenceGateBlockWithRenderTypeAndFast"(fenceGateBlock0: $FenceGateBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type, resourceLocation4: $ResourceLocation$$Type): void
 public "fenceGateBlockWithRenderTypeAndFast"(fenceGateBlock0: $FenceGateBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, string3: string, string4: string): void
+public "fenceGateBlockWithRenderTypeAndFast"(fenceGateBlock0: $FenceGateBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type, resourceLocation4: $ResourceLocation$$Type): void
+public "fenceGateBlockWithRenderTypeAndFast"(fenceGateBlock0: $FenceGateBlock$$Type, resourceLocation1: $ResourceLocation$$Type, string2: string, string3: string): void
 public "fourWayBlock"(crossCollisionBlock0: $CrossCollisionBlock$$Type, modelFile1: $ModelFile$$Type, modelFile2: $ModelFile$$Type): void
 public "fourWayMultipart"(multiPartBlockStateBuilder0: $MultiPartBlockStateBuilder$$Type, modelFile1: $ModelFile$$Type): void
 public "getMultipartBuilder"(block0: $Block$$Type): $MultiPartBlockStateBuilder
 public "getName"(): string
 public "getVariantBuilder"(block0: $Block$$Type): $VariantBlockStateBuilder
-public "horizontalBlock"(block0: $Block$$Type, function1: $Function$$Type<$BlockState$$Type, $ModelFile>, int2: integer): void
+public "horizontalBlock"(block0: $Block$$Type, modelFile1: $ModelFile$$Type, int2: integer): void
+public "horizontalBlock"(block0: $Block$$Type, modelFile1: $ModelFile$$Type): void
 public "horizontalBlock"(block0: $Block$$Type, function1: $Function$$Type<$BlockState$$Type, $ModelFile>): void
 public "horizontalBlock"(block0: $Block$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type): void
-public "horizontalBlock"(block0: $Block$$Type, modelFile1: $ModelFile$$Type): void
-public "horizontalBlock"(block0: $Block$$Type, modelFile1: $ModelFile$$Type, int2: integer): void
+public "horizontalBlock"(block0: $Block$$Type, function1: $Function$$Type<$BlockState$$Type, $ModelFile>, int2: integer): void
 public "horizontalFaceBlock"(block0: $Block$$Type, modelFile1: $ModelFile$$Type): void
+public "horizontalFaceBlock"(block0: $Block$$Type, function1: $Function$$Type<$BlockState$$Type, $ModelFile>): void
 public "horizontalFaceBlock"(block0: $Block$$Type, modelFile1: $ModelFile$$Type, int2: integer): void
 public "horizontalFaceBlock"(block0: $Block$$Type, function1: $Function$$Type<$BlockState$$Type, $ModelFile>, int2: integer): void
-public "horizontalFaceBlock"(block0: $Block$$Type, function1: $Function$$Type<$BlockState$$Type, $ModelFile>): void
 public "itemModels"(): $ItemModelProvider
 public "logBlock"(rotatedPillarBlock0: $RotatedPillarBlock$$Type): void
+public "logBlockWithRenderType"(rotatedPillarBlock0: $RotatedPillarBlock$$Type, string1: string): void
 public "logBlockWithRenderType"(rotatedPillarBlock0: $RotatedPillarBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type): void
 public "logBlockWithRenderType"(rotatedPillarBlock0: $RotatedPillarBlock$$Type, resourceLocation1: $ResourceLocation$$Type): void
-public "logBlockWithRenderType"(rotatedPillarBlock0: $RotatedPillarBlock$$Type, string1: string): void
 public "logBlockWithRenderTypeAndFast"(rotatedPillarBlock0: $RotatedPillarBlock$$Type, string1: string, string2: string): void
 public "mcLoc"(string0: string): $ResourceLocation
 public "modLoc"(string0: string): $ResourceLocation
 public "models"(): $BlockModelProvider
-public "paneBlock"(ironBarsBlock0: $IronBarsBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type): void
-public "paneBlock"(ironBarsBlock0: $IronBarsBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type): void
 public "paneBlock"(ironBarsBlock0: $IronBarsBlock$$Type, modelFile1: $ModelFile$$Type, modelFile2: $ModelFile$$Type, modelFile3: $ModelFile$$Type, modelFile4: $ModelFile$$Type, modelFile5: $ModelFile$$Type): void
-public "paneBlockWithRenderType"(ironBarsBlock0: $IronBarsBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type): void
+public "paneBlock"(ironBarsBlock0: $IronBarsBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type): void
+public "paneBlock"(ironBarsBlock0: $IronBarsBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type): void
 public "paneBlockWithRenderType"(ironBarsBlock0: $IronBarsBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type, string4: string): void
 public "paneBlockWithRenderType"(ironBarsBlock0: $IronBarsBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type, string3: string): void
+public "paneBlockWithRenderType"(ironBarsBlock0: $IronBarsBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type): void
 public "paneBlockWithRenderType"(ironBarsBlock0: $IronBarsBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type, resourceLocation4: $ResourceLocation$$Type): void
-public "paneBlockWithRenderTypeAndFast"(ironBarsBlock0: $IronBarsBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type, resourceLocation4: $ResourceLocation$$Type, resourceLocation5: $ResourceLocation$$Type): void
-public "paneBlockWithRenderTypeAndFast"(ironBarsBlock0: $IronBarsBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type, string3: string, string4: string): void
-public "paneBlockWithRenderTypeAndFast"(ironBarsBlock0: $IronBarsBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type, string4: string, string5: string): void
 public "paneBlockWithRenderTypeAndFast"(ironBarsBlock0: $IronBarsBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type, resourceLocation4: $ResourceLocation$$Type): void
-public "pressurePlateBlock"(pressurePlateBlock0: $PressurePlateBlock$$Type, resourceLocation1: $ResourceLocation$$Type): void
+public "paneBlockWithRenderTypeAndFast"(ironBarsBlock0: $IronBarsBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type, string4: string, string5: string): void
+public "paneBlockWithRenderTypeAndFast"(ironBarsBlock0: $IronBarsBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type, string3: string, string4: string): void
+public "paneBlockWithRenderTypeAndFast"(ironBarsBlock0: $IronBarsBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type, resourceLocation4: $ResourceLocation$$Type, resourceLocation5: $ResourceLocation$$Type): void
 public "pressurePlateBlock"(pressurePlateBlock0: $PressurePlateBlock$$Type, modelFile1: $ModelFile$$Type, modelFile2: $ModelFile$$Type): void
+public "pressurePlateBlock"(pressurePlateBlock0: $PressurePlateBlock$$Type, resourceLocation1: $ResourceLocation$$Type): void
 public "run"(cachedOutput0: $CachedOutput$$Type): $CompletableFuture<any>
 public static "saveStable"(cachedOutput0: $CachedOutput$$Type, jsonElement1: $JsonElement$$Type, path2: $Path$$Type): $CompletableFuture<any>
 public "signBlock"(standingSignBlock0: $StandingSignBlock$$Type, wallSignBlock1: $WallSignBlock$$Type, modelFile2: $ModelFile$$Type): void
 public "signBlock"(standingSignBlock0: $StandingSignBlock$$Type, wallSignBlock1: $WallSignBlock$$Type, resourceLocation2: $ResourceLocation$$Type): void
 public "simpleBlock"(block0: $Block$$Type, ...configuredModel1s: $ConfiguredModel$$Type[]): void
-public "simpleBlock"(block0: $Block$$Type, modelFile1: $ModelFile$$Type): void
-public "simpleBlock"(block0: $Block$$Type): void
 public "simpleBlock"(block0: $Block$$Type, function1: $Function$$Type<$ModelFile$$Type, $ConfiguredModel[]>): void
+public "simpleBlock"(block0: $Block$$Type): void
+public "simpleBlock"(block0: $Block$$Type, modelFile1: $ModelFile$$Type): void
 public "simpleBlockItem"(block0: $Block$$Type, modelFile1: $ModelFile$$Type): void
 public "simpleBlockWithItem"(block0: $Block$$Type, modelFile1: $ModelFile$$Type): void
-public "slabBlock"(slabBlock0: $SlabBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type, resourceLocation4: $ResourceLocation$$Type): void
 public "slabBlock"(slabBlock0: $SlabBlock$$Type, modelFile1: $ModelFile$$Type, modelFile2: $ModelFile$$Type, modelFile3: $ModelFile$$Type): void
 public "slabBlock"(slabBlock0: $SlabBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type): void
+public "slabBlock"(slabBlock0: $SlabBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type, resourceLocation4: $ResourceLocation$$Type): void
 public "stairsBlock"(stairBlock0: $StairBlock$$Type, modelFile1: $ModelFile$$Type, modelFile2: $ModelFile$$Type, modelFile3: $ModelFile$$Type): void
 public "stairsBlock"(stairBlock0: $StairBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type, resourceLocation4: $ResourceLocation$$Type): void
-public "stairsBlock"(stairBlock0: $StairBlock$$Type, resourceLocation1: $ResourceLocation$$Type): void
 public "stairsBlock"(stairBlock0: $StairBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type): void
+public "stairsBlock"(stairBlock0: $StairBlock$$Type, resourceLocation1: $ResourceLocation$$Type): void
 public "stairsBlock"(stairBlock0: $StairBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type): void
-public "stairsBlockWithRenderType"(stairBlock0: $StairBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type, resourceLocation4: $ResourceLocation$$Type, resourceLocation5: $ResourceLocation$$Type): void
-public "stairsBlockWithRenderType"(stairBlock0: $StairBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type, resourceLocation4: $ResourceLocation$$Type, string5: string): void
 public "stairsBlockWithRenderType"(stairBlock0: $StairBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type, string4: string): void
-public "stairsBlockWithRenderType"(stairBlock0: $StairBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, string3: string): void
-public "stairsBlockWithRenderType"(stairBlock0: $StairBlock$$Type, resourceLocation1: $ResourceLocation$$Type, string2: string): void
-public "stairsBlockWithRenderType"(stairBlock0: $StairBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type): void
 public "stairsBlockWithRenderType"(stairBlock0: $StairBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type): void
+public "stairsBlockWithRenderType"(stairBlock0: $StairBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type): void
+public "stairsBlockWithRenderType"(stairBlock0: $StairBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type, resourceLocation4: $ResourceLocation$$Type, string5: string): void
+public "stairsBlockWithRenderType"(stairBlock0: $StairBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, string3: string): void
 public "stairsBlockWithRenderType"(stairBlock0: $StairBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type, resourceLocation4: $ResourceLocation$$Type): void
+public "stairsBlockWithRenderType"(stairBlock0: $StairBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type, resourceLocation4: $ResourceLocation$$Type, resourceLocation5: $ResourceLocation$$Type): void
+public "stairsBlockWithRenderType"(stairBlock0: $StairBlock$$Type, resourceLocation1: $ResourceLocation$$Type, string2: string): void
+public "stairsBlockWithRenderTypeAndFast"(stairBlock0: $StairBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type, resourceLocation4: $ResourceLocation$$Type, resourceLocation5: $ResourceLocation$$Type): void
+public "stairsBlockWithRenderTypeAndFast"(stairBlock0: $StairBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type, resourceLocation4: $ResourceLocation$$Type): void
 public "stairsBlockWithRenderTypeAndFast"(stairBlock0: $StairBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type): void
 public "stairsBlockWithRenderTypeAndFast"(stairBlock0: $StairBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type, resourceLocation4: $ResourceLocation$$Type, string5: string, string6: string): void
-public "stairsBlockWithRenderTypeAndFast"(stairBlock0: $StairBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type, string4: string, string5: string): void
-public "stairsBlockWithRenderTypeAndFast"(stairBlock0: $StairBlock$$Type, resourceLocation1: $ResourceLocation$$Type, string2: string, string3: string): void
 public "stairsBlockWithRenderTypeAndFast"(stairBlock0: $StairBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, string3: string, string4: string): void
+public "stairsBlockWithRenderTypeAndFast"(stairBlock0: $StairBlock$$Type, resourceLocation1: $ResourceLocation$$Type, string2: string, string3: string): void
+public "stairsBlockWithRenderTypeAndFast"(stairBlock0: $StairBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type, string4: string, string5: string): void
 public "stairsBlockWithRenderTypeAndFast"(stairBlock0: $StairBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type, resourceLocation4: $ResourceLocation$$Type, resourceLocation5: $ResourceLocation$$Type, resourceLocation6: $ResourceLocation$$Type): void
-public "stairsBlockWithRenderTypeAndFast"(stairBlock0: $StairBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type, resourceLocation4: $ResourceLocation$$Type): void
-public "stairsBlockWithRenderTypeAndFast"(stairBlock0: $StairBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type, resourceLocation4: $ResourceLocation$$Type, resourceLocation5: $ResourceLocation$$Type): void
 public "trapdoorBlock"(trapDoorBlock0: $TrapDoorBlock$$Type, modelFile1: $ModelFile$$Type, modelFile2: $ModelFile$$Type, modelFile3: $ModelFile$$Type, boolean4: boolean): void
-public "trapdoorBlock"(trapDoorBlock0: $TrapDoorBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, boolean3: boolean): void
 public "trapdoorBlock"(trapDoorBlock0: $TrapDoorBlock$$Type, resourceLocation1: $ResourceLocation$$Type, boolean2: boolean): void
-public "trapdoorBlockWithRenderType"(trapDoorBlock0: $TrapDoorBlock$$Type, resourceLocation1: $ResourceLocation$$Type, boolean2: boolean, string3: string): void
+public "trapdoorBlock"(trapDoorBlock0: $TrapDoorBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, boolean3: boolean): void
 public "trapdoorBlockWithRenderType"(trapDoorBlock0: $TrapDoorBlock$$Type, resourceLocation1: $ResourceLocation$$Type, boolean2: boolean, resourceLocation3: $ResourceLocation$$Type): void
-public "trapdoorBlockWithRenderType"(trapDoorBlock0: $TrapDoorBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, boolean3: boolean, string4: string): void
 public "trapdoorBlockWithRenderType"(trapDoorBlock0: $TrapDoorBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, boolean3: boolean, resourceLocation4: $ResourceLocation$$Type): void
-public "trapdoorBlockWithRenderTypeAndFast"(trapDoorBlock0: $TrapDoorBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, boolean3: boolean, string4: string, string5: string): void
+public "trapdoorBlockWithRenderType"(trapDoorBlock0: $TrapDoorBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, boolean3: boolean, string4: string): void
+public "trapdoorBlockWithRenderType"(trapDoorBlock0: $TrapDoorBlock$$Type, resourceLocation1: $ResourceLocation$$Type, boolean2: boolean, string3: string): void
 public "trapdoorBlockWithRenderTypeAndFast"(trapDoorBlock0: $TrapDoorBlock$$Type, resourceLocation1: $ResourceLocation$$Type, boolean2: boolean, string3: string, string4: string): void
-public "trapdoorBlockWithRenderTypeAndFast"(trapDoorBlock0: $TrapDoorBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, boolean3: boolean, resourceLocation4: $ResourceLocation$$Type, resourceLocation5: $ResourceLocation$$Type): void
+public "trapdoorBlockWithRenderTypeAndFast"(trapDoorBlock0: $TrapDoorBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, boolean3: boolean, string4: string, string5: string): void
 public "trapdoorBlockWithRenderTypeAndFast"(trapDoorBlock0: $TrapDoorBlock$$Type, resourceLocation1: $ResourceLocation$$Type, boolean2: boolean, resourceLocation3: $ResourceLocation$$Type, resourceLocation4: $ResourceLocation$$Type): void
-public "wallBlock"(wallBlock0: $WallBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type): void
+public "trapdoorBlockWithRenderTypeAndFast"(trapDoorBlock0: $TrapDoorBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, boolean3: boolean, resourceLocation4: $ResourceLocation$$Type, resourceLocation5: $ResourceLocation$$Type): void
 public "wallBlock"(wallBlock0: $WallBlock$$Type, modelFile1: $ModelFile$$Type, modelFile2: $ModelFile$$Type, modelFile3: $ModelFile$$Type): void
 public "wallBlock"(wallBlock0: $WallBlock$$Type, resourceLocation1: $ResourceLocation$$Type): void
+public "wallBlock"(wallBlock0: $WallBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type): void
 public "wallBlockWithRenderType"(wallBlock0: $WallBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type): void
 public "wallBlockWithRenderType"(wallBlock0: $WallBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type): void
 public "wallBlockWithRenderType"(wallBlock0: $WallBlock$$Type, resourceLocation1: $ResourceLocation$$Type, string2: string): void
 public "wallBlockWithRenderType"(wallBlock0: $WallBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, string3: string): void
-public "wallBlockWithRenderTypeAndFast"(wallBlock0: $WallBlock$$Type, resourceLocation1: $ResourceLocation$$Type, string2: string, string3: string): void
 public "wallBlockWithRenderTypeAndFast"(wallBlock0: $WallBlock$$Type, resourceLocation1: $ResourceLocation$$Type, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type): void
-public "wallBlockWithRenderTypeAndFast"(wallBlock0: $WallBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, string3: string, string4: string): void
 public "wallBlockWithRenderTypeAndFast"(wallBlock0: $WallBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, resourceLocation3: $ResourceLocation$$Type, resourceLocation4: $ResourceLocation$$Type): void
+public "wallBlockWithRenderTypeAndFast"(wallBlock0: $WallBlock$$Type, resourceLocation1: $ResourceLocation$$Type, string2: string, string3: string): void
+public "wallBlockWithRenderTypeAndFast"(wallBlock0: $WallBlock$$Type, string1: string, resourceLocation2: $ResourceLocation$$Type, string3: string, string4: string): void
 get "name"(): string
 }
 }
@@ -3118,24 +3118,27 @@ public "skyLight"(): integer
 }
 
 declare module "packages/net/minecraftforge/client/event/$EntityRenderersEvent$AddLayers" {
+import { $EntityRenderersEvent } from "packages/net/minecraftforge/client/event/$EntityRenderersEvent"
+import { $LivingEntityRenderer, $LivingEntityRenderer$$Type } from "packages/net/minecraft/client/renderer/entity/$LivingEntityRenderer"
+import { $LivingEntity, $LivingEntity$$Type } from "packages/net/minecraft/world/entity/$LivingEntity"
 import { $EntityType$$Type } from "packages/net/minecraft/world/entity/$EntityType"
 import { $EntityRendererProvider$Context, $EntityRendererProvider$Context$$Type } from "packages/net/minecraft/client/renderer/entity/$EntityRendererProvider$Context"
 import { $Player, $Player$$Type } from "packages/net/minecraft/world/entity/player/$Player"
-import { $EntityRenderersEvent } from "packages/net/minecraftforge/client/event/$EntityRenderersEvent"
-import { $LivingEntityRenderer, $LivingEntityRenderer$$Type } from "packages/net/minecraft/client/renderer/entity/$LivingEntityRenderer"
 import { $Set } from "packages/java/util/$Set"
-import { $EntityRenderer$$Type } from "packages/net/minecraft/client/renderer/entity/$EntityRenderer"
+import { $EntityRenderer, $EntityRenderer$$Type } from "packages/net/minecraft/client/renderer/entity/$EntityRenderer"
 import { $EntityModelSet } from "packages/net/minecraft/client/model/geom/$EntityModelSet"
 import { $EntityModel, $EntityModel$$Type } from "packages/net/minecraft/client/model/$EntityModel"
-import { $LivingEntity, $LivingEntity$$Type } from "packages/net/minecraft/world/entity/$LivingEntity"
 import { $Map$$Type } from "packages/java/util/$Map"
+import { $Entity, $Entity$$Type } from "packages/net/minecraft/world/entity/$Entity"
 
 export class $EntityRenderersEvent$AddLayers extends $EntityRenderersEvent {
-constructor(map0: $Map$$Type<$EntityType$$Type<any>, $EntityRenderer$$Type<any>>, map1: $Map$$Type<string, $EntityRenderer$$Type<$Player$$Type>>, context2: $EntityRendererProvider$Context$$Type)
 constructor()
+constructor(map0: $Map$$Type<$EntityType$$Type<any>, $EntityRenderer$$Type<any>>, map1: $Map$$Type<string, $EntityRenderer$$Type<$Player$$Type>>, context2: $EntityRendererProvider$Context$$Type)
 
 public "getContext"(): $EntityRendererProvider$Context
 public "getEntityModels"(): $EntityModelSet
+public "getEntityRenderer"<T extends $Entity, R extends $EntityRenderer<T>>(entityType0: $EntityType$$Type<T>): R
+public "getPlayerSkin"<R extends $EntityRenderer<$Player>>(string0: string): R
 public "getRenderer"<T extends $LivingEntity, R extends $LivingEntityRenderer<T, $EntityModel<T>>>(entityType0: $EntityType$$Type<T>): R
 public "getSkin"<R extends $LivingEntityRenderer<$Player, $EntityModel<$Player>>>(string0: string): R
 public "getSkins"(): $Set<string>
@@ -3327,8 +3330,8 @@ public "postRotation"(float0: float, float1: float, float2: float, boolean3: boo
 public "postRotation"(quaternionf0: $Quaternionf$$Type): $ModelBuilder$RootTransformsBuilder<>
 public "rightRotation"(float0: float, float1: float, float2: float, boolean3: boolean): $ModelBuilder$RootTransformsBuilder<>
 public "rightRotation"(quaternionf0: $Quaternionf$$Type): $ModelBuilder$RootTransformsBuilder<>
-public "rotation"(quaternionf0: $Quaternionf$$Type): $ModelBuilder$RootTransformsBuilder<>
 public "rotation"(float0: float, float1: float, float2: float, boolean3: boolean): $ModelBuilder$RootTransformsBuilder<>
+public "rotation"(quaternionf0: $Quaternionf$$Type): $ModelBuilder$RootTransformsBuilder<>
 public "scale"(float0: float): $ModelBuilder$RootTransformsBuilder<>
 public "scale"(float0: float, float1: float, float2: float): $ModelBuilder$RootTransformsBuilder<>
 public "scale"(vector3f0: $Vector3f$$Type): $ModelBuilder$RootTransformsBuilder<>
@@ -3415,10 +3418,10 @@ export interface $IForgeBakedModel {
 "getParticleIcon"(modelData0: $ModelData$$Type): $TextureAtlasSprite
 "getQuads"(blockState0: $BlockState$$Type, direction1: $Direction$$Type, randomSource2: $RandomSource$$Type, modelData3: $ModelData$$Type, renderType4: $RenderType$$Type): $List<$BakedQuad>
 "getRenderPasses"(itemStack0: $ItemStack$$Type, boolean1: boolean): $List<$BakedModel>
-"getRenderTypes"(itemStack0: $ItemStack$$Type, boolean1: boolean): $List<$RenderType>
 "getRenderTypes"(blockState0: $BlockState$$Type, randomSource1: $RandomSource$$Type, modelData2: $ModelData$$Type): $ChunkRenderTypeSet
-"useAmbientOcclusion"(blockState0: $BlockState$$Type): boolean
+"getRenderTypes"(itemStack0: $ItemStack$$Type, boolean1: boolean): $List<$RenderType>
 "useAmbientOcclusion"(blockState0: $BlockState$$Type, renderType1: $RenderType$$Type): boolean
+"useAmbientOcclusion"(blockState0: $BlockState$$Type): boolean
 }
 
 export namespace $IForgeBakedModel {
@@ -3642,7 +3645,7 @@ static "rayTraceDistance": double
 constructor(minecraft0: $Minecraft$$Type)
 
 public "getMinecraft"(): $Minecraft
-public "handler$bfe000$iris$handleHudHidingScreens"(pGui0: $GuiGraphics$$Type, pFloat1: float, ci: $CallbackInfo$$Type): void
+public "handler$bja000$iris$handleHudHidingScreens"(pGui0: $GuiGraphics$$Type, pFloat1: float, ci: $CallbackInfo$$Type): void
 public "renderFood"(int0: integer, int1: integer, guiGraphics2: $GuiGraphics$$Type): void
 public "renderHealth"(int0: integer, int1: integer, guiGraphics2: $GuiGraphics$$Type): void
 public "setupOverlayRenderState"(boolean0: boolean, boolean1: boolean): void

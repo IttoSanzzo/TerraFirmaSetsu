@@ -104,12 +104,12 @@ export interface $IEventBus {
 "addGenericListener"<T extends $GenericEvent<F>, F>(class0: $Class$$Type<F>, eventPriority1: $EventPriority$$Type, boolean2: boolean, class3: $Class$$Type<T>, consumer4: $Consumer$$Type<T>): void
 "addGenericListener"<T extends $GenericEvent<F>, F>(class0: $Class$$Type<F>, eventPriority1: $EventPriority$$Type, consumer2: $Consumer$$Type<T>): void
 "addGenericListener"<T extends $GenericEvent<F>, F>(class0: $Class$$Type<F>, consumer1: $Consumer$$Type<T>): void
-"addListener"<T extends $Event>(eventPriority0: $EventPriority$$Type, boolean1: boolean, consumer2: $Consumer$$Type<T>): void
 "addListener"<T extends $Event>(eventPriority0: $EventPriority$$Type, consumer1: $Consumer$$Type<T>): void
 "addListener"<T extends $Event>(consumer0: $Consumer$$Type<T>): void
+"addListener"<T extends $Event>(eventPriority0: $EventPriority$$Type, boolean1: boolean, consumer2: $Consumer$$Type<T>): void
 "addListener"<T extends $Event>(eventPriority0: $EventPriority$$Type, boolean1: boolean, class2: $Class$$Type<T>, consumer3: $Consumer$$Type<T>): void
-"post"(event0: $Event$$Type, iEventBusInvokeDispatcher1: $IEventBusInvokeDispatcher$$Type): boolean
 "post"(event0: $Event$$Type): boolean
+"post"(event0: $Event$$Type, iEventBusInvokeDispatcher1: $IEventBusInvokeDispatcher$$Type): boolean
 "register"(object0: any): void
 "shutdown"(): void
 "start"(): void

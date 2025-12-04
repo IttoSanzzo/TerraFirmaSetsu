@@ -62,10 +62,9 @@ constructor()
 public "addConditionalFunction"(func: $Consumer$$Type<$ConditionalFunction$$Type>): $FunctionContainer
 public "addEmpty"(weight: integer): $LootTableEntry
 public "addEntry"(json: $JsonObject$$Type): $LootTableEntry
-public "addFunction"(o: $JsonObject$$Type): $LootBuilderPool
-public "addItem"(item: $ItemStack$$Type): $LootTableEntry
-public "addItem"(item: $ItemStack$$Type, weight: integer): $LootTableEntry
 public "addItem"(item: $ItemStack$$Type, weight: integer, count: $NumberProvider$$Type): $LootTableEntry
+public "addItem"(item: $ItemStack$$Type, weight: integer): $LootTableEntry
+public "addItem"(item: $ItemStack$$Type): $LootTableEntry
 public "addLootTable"(table: $ResourceLocation$$Type): $LootTableEntry
 public "addTag"(tag: string, expand: boolean): $LootTableEntry
 public "copyName"(source: $CopyNameFunction$NameSource$$Type): $FunctionContainer
@@ -297,8 +296,8 @@ export class $BlockLootEventJS extends $LootEventJS {
 constructor(c: $Map$$Type<$ResourceLocation$$Type, $JsonElement$$Type>)
 
 public "addBlock"(blocks: $BlockStatePredicate$$Type, b: $Consumer$$Type<$LootBuilder$$Type>): void
-public "addSimpleBlock"(blocks: $BlockStatePredicate$$Type, item: $ItemStack$$Type): void
 public "addSimpleBlock"(blocks: $BlockStatePredicate$$Type): void
+public "addSimpleBlock"(blocks: $BlockStatePredicate$$Type, item: $ItemStack$$Type): void
 public "build"(blocks: $BlockStatePredicate$$Type, b: $Consumer$$Type<$LootBuilder$$Type>): void
 public "modifyBlock"(blocks: $BlockStatePredicate$$Type, b: $Consumer$$Type<$LootBuilder$$Type>): void
 }

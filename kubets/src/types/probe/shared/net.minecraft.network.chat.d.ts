@@ -119,8 +119,8 @@ readonly "type": $EntityType<any>
 
 constructor(entityType0: $EntityType$$Type<any>, uUID1: $UUID$$Type, component2: $Component$$Type)
 
-public static "create"(component0: $Component$$Type): $HoverEvent$EntityTooltipInfo
 public static "create"(jsonElement0: $JsonElement$$Type): $HoverEvent$EntityTooltipInfo
+public static "create"(component0: $Component$$Type): $HoverEvent$EntityTooltipInfo
 public "getTooltipLines"(): $List<$Component>
 public "serialize"(): $JsonElement
 get "tooltipLines"(): $List<$Component>
@@ -256,8 +256,8 @@ static readonly "MESSAGE_EXPIRES_AFTER_SERVER": $Duration
 constructor(signedMessageLink0: $SignedMessageLink$$Type, messageSignature1: $MessageSignature$$Type, signedMessageBody2: $SignedMessageBody$$Type, component3: $Component$$Type, filterMask4: $FilterMask$$Type)
 
 public "decoratedContent"(): $Component
-public "filter"(filterMask0: $FilterMask$$Type): $PlayerChatMessage
 public "filter"(boolean0: boolean): $PlayerChatMessage
+public "filter"(filterMask0: $FilterMask$$Type): $PlayerChatMessage
 public "filterMask"(): $FilterMask
 public "hasExpiredClient"(instant0: $Instant$$Type): boolean
 public "hasExpiredServer"(instant0: $Instant$$Type): boolean
@@ -316,8 +316,8 @@ import { $ComponentContents } from "packages/net/minecraft/network/chat/$Compone
 import { $List, $List$$Type } from "packages/java/util/$List"
 import { $Optional, $Optional$$Type } from "packages/java/util/$Optional"
 import { $DataSource$$Type } from "packages/net/minecraft/network/chat/contents/$DataSource"
-import { $FormattedText$StyledContentConsumer$$Type } from "packages/net/minecraft/network/chat/$FormattedText$StyledContentConsumer"
 import { $FormattedText$ContentConsumer$$Type } from "packages/net/minecraft/network/chat/$FormattedText$ContentConsumer"
+import { $FormattedText$StyledContentConsumer$$Type } from "packages/net/minecraft/network/chat/$FormattedText$StyledContentConsumer"
 import { $Style, $Style$$Type } from "packages/net/minecraft/network/chat/$Style"
 import { $MutableComponent } from "packages/net/minecraft/network/chat/$MutableComponent"
 
@@ -333,8 +333,8 @@ export interface $Component extends $Message, $FormattedText {
 "plainCopy"(): $MutableComponent
 "toFlatList"(style0: $Style$$Type): $List<$Component>
 "toFlatList"(): $List<$Component>
-"visit"<T>(styledContentConsumer0: $FormattedText$StyledContentConsumer$$Type<T>, style1: $Style$$Type): $Optional<T>
 "visit"<T>(contentConsumer0: $FormattedText$ContentConsumer$$Type<T>): $Optional<T>
+"visit"<T>(styledContentConsumer0: $FormattedText$StyledContentConsumer$$Type<T>, style1: $Style$$Type): $Optional<T>
 get "contents"(): $ComponentContents
 get "siblings"(): $List<$Component>
 get "string"(): string
@@ -343,8 +343,8 @@ get "visualOrderText"(): $FormattedCharSequence
 }
 
 export namespace $Component {
-function composite(...formattedText0s: $FormattedText$$Type[]): $FormattedText
 function composite(list0: $List$$Type<$FormattedText$$Type>): $FormattedText
+function composite(...formattedText0s: $FormattedText$$Type[]): $FormattedText
 function empty(): $MutableComponent
 function keybind(string0: string): $MutableComponent
 function literal(string0: string): $MutableComponent
@@ -354,14 +354,14 @@ function of(string0: string): $FormattedText
 function of(string0: string, style1: $Style$$Type): $FormattedText
 function score(string0: string, string1: string): $MutableComponent
 function selector(string0: string, optional1: $Optional$$Type<$Component$$Type>): $MutableComponent
-function translatable(string0: string): $MutableComponent
 function translatable(string0: string, ...object1s: any[]): $MutableComponent
+function translatable(string0: string): $MutableComponent
 function translatableWithFallback(string0: string, string1: string): $MutableComponent
 function translatableWithFallback(string0: string, string1: string, ...object2s: any[]): $MutableComponent
 }
 export abstract class $Component$$Static implements $Component {
-static "composite"(...formattedText0s: $FormattedText$$Type[]): $FormattedText
 static "composite"(list0: $List$$Type<$FormattedText$$Type>): $FormattedText
+static "composite"(...formattedText0s: $FormattedText$$Type[]): $FormattedText
 static "empty"(): $MutableComponent
 static "keybind"(string0: string): $MutableComponent
 static "literal"(string0: string): $MutableComponent
@@ -371,8 +371,8 @@ static "of"(string0: string): $FormattedText
 static "of"(string0: string, style1: $Style$$Type): $FormattedText
 static "score"(string0: string, string1: string): $MutableComponent
 static "selector"(string0: string, optional1: $Optional$$Type<$Component$$Type>): $MutableComponent
-static "translatable"(string0: string): $MutableComponent
 static "translatable"(string0: string, ...object1s: any[]): $MutableComponent
+static "translatable"(string0: string): $MutableComponent
 static "translatableWithFallback"(string0: string, string1: string): $MutableComponent
 static "translatableWithFallback"(string0: string, string1: string, ...object2s: any[]): $MutableComponent
 }
@@ -488,8 +488,8 @@ public "isUnderlined"(): boolean
 public "withBold"(boolean0: boolean): $Style
 public "withClickEvent"(clickEvent0: $ClickEvent$$Type): $Style
 public "withColor"(textColor0: $TextColor$$Type): $Style
-public "withColor"(chatFormatting0: $ChatFormatting$$Type): $Style
 public "withColor"(int0: integer): $Style
+public "withColor"(chatFormatting0: $ChatFormatting$$Type): $Style
 public "withFont"(resourceLocation0: $ResourceLocation$$Type): $Style
 public "withHoverEvent"(hoverEvent0: $HoverEvent$$Type): $Style
 public "withInsertion"(string0: string): $Style
@@ -571,8 +571,8 @@ public "clickSuggestCommand"(command: string): $MutableComponent
 public "color"(c: $Color$$Type): $MutableComponent
 /** @deprecated */
 public "component"(): $Component
-public static "composite"(...formattedText0s: $FormattedText$$Type[]): $FormattedText
 public static "composite"(list0: $List$$Type<$FormattedText$$Type>): $FormattedText
+public static "composite"(...formattedText0s: $FormattedText$$Type[]): $FormattedText
 public "contains"(component0: $Component$$Type): boolean
 public "copy"(): $MutableComponent
 public static "create"(componentContents0: $ComponentContents$$Type): $MutableComponent
@@ -599,8 +599,8 @@ public "hasStyle"(): boolean
 public "hover"(s: $Component$$Type): $MutableComponent
 public "insertion"(s: string): $MutableComponent
 public "isEmpty"(): boolean
-public "italic"(value: boolean): $MutableComponent
 public "italic"(): $MutableComponent
+public "italic"(value: boolean): $MutableComponent
 public static "keybind"(string0: string): $MutableComponent
 public "lightPurple"(): $MutableComponent
 public static "literal"(string0: string): $MutableComponent
@@ -626,19 +626,19 @@ public "strikethrough"(): $MutableComponent
 public "toFlatList"(style0: $Style$$Type): $List<$Component>
 public "toFlatList"(): $List<$Component>
 public "toJson"(): $JsonElement
-public static "translatable"(string0: string): $MutableComponent
 public static "translatable"(string0: string, ...object1s: any[]): $MutableComponent
+public static "translatable"(string0: string): $MutableComponent
 public static "translatableWithFallback"(string0: string, string1: string): $MutableComponent
 public static "translatableWithFallback"(string0: string, string1: string, ...object2s: any[]): $MutableComponent
 public "underlined"(value: boolean): $MutableComponent
 public "underlined"(): $MutableComponent
-public "visit"<T>(styledContentConsumer0: $FormattedText$StyledContentConsumer$$Type<T>, style1: $Style$$Type): $Optional<T>
 public "visit"<T>(contentConsumer0: $FormattedText$ContentConsumer$$Type<T>): $Optional<T>
+public "visit"<T>(styledContentConsumer0: $FormattedText$StyledContentConsumer$$Type<T>, style1: $Style$$Type): $Optional<T>
 public "white"(): $MutableComponent
-public "withStyle"(...chatFormatting0s: $ChatFormatting$$Type[]): $MutableComponent
-public "withStyle"(style0: $Style$$Type): $MutableComponent
 public "withStyle"(chatFormatting0: $ChatFormatting$$Type): $MutableComponent
 public "withStyle"(unaryOperator0: $UnaryOperator$$Type<$Style$$Type>): $MutableComponent
+public "withStyle"(...chatFormatting0s: $ChatFormatting$$Type[]): $MutableComponent
+public "withStyle"(style0: $Style$$Type): $MutableComponent
 public "yellow"(): $MutableComponent
 get "contents"(): $ComponentContents
 get "siblings"(): $List<$Component>
@@ -843,16 +843,16 @@ set "filtered"(value: integer)
 declare module "packages/net/minecraft/network/chat/$ComponentContents" {
 import { $CommandSourceStack$$Type } from "packages/net/minecraft/commands/$CommandSourceStack"
 import { $Optional } from "packages/java/util/$Optional"
-import { $FormattedText$StyledContentConsumer$$Type } from "packages/net/minecraft/network/chat/$FormattedText$StyledContentConsumer"
 import { $FormattedText$ContentConsumer$$Type } from "packages/net/minecraft/network/chat/$FormattedText$ContentConsumer"
+import { $FormattedText$StyledContentConsumer$$Type } from "packages/net/minecraft/network/chat/$FormattedText$StyledContentConsumer"
 import { $Style$$Type } from "packages/net/minecraft/network/chat/$Style"
 import { $MutableComponent } from "packages/net/minecraft/network/chat/$MutableComponent"
 import { $Entity$$Type } from "packages/net/minecraft/world/entity/$Entity"
 
 export interface $ComponentContents {
 "resolve"(commandSourceStack0: $CommandSourceStack$$Type, entity1: $Entity$$Type, int2: integer): $MutableComponent
-"visit"<T>(styledContentConsumer0: $FormattedText$StyledContentConsumer$$Type<T>, style1: $Style$$Type): $Optional<T>
 "visit"<T>(contentConsumer0: $FormattedText$ContentConsumer$$Type<T>): $Optional<T>
+"visit"<T>(styledContentConsumer0: $FormattedText$StyledContentConsumer$$Type<T>, style1: $Style$$Type): $Optional<T>
 }
 
 export namespace $ComponentContents {
@@ -908,23 +908,23 @@ static "create"(playerChatMessage0: $PlayerChatMessage$$Type): $OutgoingChatMess
 declare module "packages/net/minecraft/network/chat/$FormattedText" {
 import { $List$$Type } from "packages/java/util/$List"
 import { $Optional } from "packages/java/util/$Optional"
-import { $FormattedText$StyledContentConsumer$$Type } from "packages/net/minecraft/network/chat/$FormattedText$StyledContentConsumer"
 import { $FormattedText$ContentConsumer$$Type } from "packages/net/minecraft/network/chat/$FormattedText$ContentConsumer"
+import { $FormattedText$StyledContentConsumer$$Type } from "packages/net/minecraft/network/chat/$FormattedText$StyledContentConsumer"
 import { $Style$$Type } from "packages/net/minecraft/network/chat/$Style"
 import { $Unit } from "packages/net/minecraft/util/$Unit"
 
 export interface $FormattedText {
 "getString"(): string
-"visit"<T>(styledContentConsumer0: $FormattedText$StyledContentConsumer$$Type<T>, style1: $Style$$Type): $Optional<T>
 "visit"<T>(contentConsumer0: $FormattedText$ContentConsumer$$Type<T>): $Optional<T>
+"visit"<T>(styledContentConsumer0: $FormattedText$StyledContentConsumer$$Type<T>, style1: $Style$$Type): $Optional<T>
 get "string"(): string
 }
 
 export namespace $FormattedText {
 const EMPTY: $FormattedText
 const STOP_ITERATION: $Optional<$Unit>
-function composite(...formattedText0s: $FormattedText$$Type[]): $FormattedText
 function composite(list0: $List$$Type<$FormattedText$$Type>): $FormattedText
+function composite(...formattedText0s: $FormattedText$$Type[]): $FormattedText
 function of(string0: string): $FormattedText
 function of(string0: string, style1: $Style$$Type): $FormattedText
 }
@@ -932,8 +932,8 @@ export abstract class $FormattedText$$Static implements $FormattedText {
 static readonly "EMPTY": $FormattedText
 static readonly "STOP_ITERATION": $Optional<$Unit>
 
-static "composite"(...formattedText0s: $FormattedText$$Type[]): $FormattedText
 static "composite"(list0: $List$$Type<$FormattedText$$Type>): $FormattedText
+static "composite"(...formattedText0s: $FormattedText$$Type[]): $FormattedText
 static "of"(string0: string): $FormattedText
 static "of"(string0: string, style1: $Style$$Type): $FormattedText
 }

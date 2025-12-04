@@ -278,16 +278,6 @@ export type $ProjectileImpactEvent_ = $ProjectileImpactEvent$$Type;
 }
 }
 
-declare module "packages/net/minecraftforge/event/entity/player/$AnvilRepairEvent" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
-export type $AnvilRepairEvent$$Type = ($AnvilRepairEvent);
-/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
-declare global {
-export type $AnvilRepairEvent_ = $AnvilRepairEvent$$Type;
-}
-}
-
 declare module "packages/net/minecraftforge/event/entity/player/$PlayerEvent$PlayerChangedDimensionEvent" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
@@ -295,6 +285,16 @@ export type $PlayerEvent$PlayerChangedDimensionEvent$$Type = ($PlayerEvent$Playe
 /** Global type exported for convenience, use class-specific types if there's a naming conflict. */
 declare global {
 export type $PlayerEvent$PlayerChangedDimensionEvent_ = $PlayerEvent$PlayerChangedDimensionEvent$$Type;
+}
+}
+
+declare module "packages/net/minecraftforge/event/entity/player/$AnvilRepairEvent" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $AnvilRepairEvent$$Type = ($AnvilRepairEvent);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $AnvilRepairEvent_ = $AnvilRepairEvent$$Type;
 }
 }
 

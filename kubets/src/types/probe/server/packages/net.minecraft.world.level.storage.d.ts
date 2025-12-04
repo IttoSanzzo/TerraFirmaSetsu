@@ -1,3 +1,13 @@
+declare module "packages/net/minecraft/world/level/storage/loot/parameters/$LootContextParams" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $LootContextParams$$Type = ($LootContextParams);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $LootContextParams_ = $LootContextParams$$Type;
+}
+}
+
 declare module "packages/net/minecraft/world/level/storage/loot/$LootDataType" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */

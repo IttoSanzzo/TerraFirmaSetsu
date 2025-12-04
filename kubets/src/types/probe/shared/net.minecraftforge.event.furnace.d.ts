@@ -4,8 +4,8 @@ import { $RecipeType, $RecipeType$$Type } from "packages/net/minecraft/world/ite
 import { $ItemStack, $ItemStack$$Type } from "packages/net/minecraft/world/item/$ItemStack"
 
 export class $FurnaceFuelBurnTimeEvent extends $Event {
-constructor(itemStack0: $ItemStack$$Type, int1: integer, recipeType2: $RecipeType$$Type<any>)
 constructor()
+constructor(itemStack0: $ItemStack$$Type, int1: integer, recipeType2: $RecipeType$$Type<any>)
 
 public "getBurnTime"(): integer
 public "getItemStack"(): $ItemStack

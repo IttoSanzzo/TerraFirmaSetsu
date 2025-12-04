@@ -122,8 +122,8 @@ import { $Direction$$Type } from "packages/net/minecraft/core/$Direction"
 export class $ModelGenerator$Face {
 constructor()
 
-public "cull"(): $ModelGenerator$Face
 public "cull"(d: $Direction$$Type): $ModelGenerator$Face
+public "cull"(): $ModelGenerator$Face
 public "tex"(t: string): $ModelGenerator$Face
 public "tintindex"(i: integer): $ModelGenerator$Face
 public "toJson"(): $JsonObject
@@ -203,8 +203,8 @@ public "setShaderColor"(r: float, g: float, b: float, a: float): void
 public "setShaderInstance"(shader: $Supplier$$Type<$ShaderInstance>): void
 public "setShaderTexture"(tex: $ResourceLocation$$Type): void
 public "translate"(x: double, y: double, z: double): void
-public "vertex"(m: $Matrix4f$$Type, x: float, y: float, z: float, col: integer, u: float, v: float): void
 public "vertex"(m: $Matrix4f$$Type, x: float, y: float, z: float, col: integer): void
+public "vertex"(m: $Matrix4f$$Type, x: float, y: float, z: float, col: integer, u: float, v: float): void
 get "matrix"(): $Matrix4f
 set "shaderInstance"(value: $Supplier$$Type<$ShaderInstance>)
 set "shaderTexture"(value: $ResourceLocation$$Type)
@@ -404,8 +404,8 @@ public "make"(type: string): $PainterObject
 public "paint"(root: $CompoundTag$$Type): void
 public "registerBuiltinObjects"(): void
 public "setVariable"(key: string, variable: $Unit$$Type): void
-public "unitOf"(console: $ConsoleJS$$Type, o: any): $Unit
 public "unitOf"(cx: $Context$$Type, o: any): $Unit
+public "unitOf"(console: $ConsoleJS$$Type, o: any): $Unit
 get "variables"(): $VariableSet
 }
 }

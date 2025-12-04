@@ -323,11 +323,11 @@ import { $List$$Type } from "packages/java/util/$List"
 import { $ResourceLocation$$Type } from "packages/net/minecraft/resources/$ResourceLocation"
 
 export class $NetworkEvent$GatherLoginPayloadsEvent extends $Event {
-constructor()
 constructor(list0: $List$$Type<$NetworkRegistry$LoginPayload$$Type>, boolean1: boolean)
+constructor()
 
-public "add"(friendlyByteBuf0: $FriendlyByteBuf$$Type, resourceLocation1: $ResourceLocation$$Type, string2: string): void
 public "add"(friendlyByteBuf0: $FriendlyByteBuf$$Type, resourceLocation1: $ResourceLocation$$Type, string2: string, boolean3: boolean): void
+public "add"(friendlyByteBuf0: $FriendlyByteBuf$$Type, resourceLocation1: $ResourceLocation$$Type, string2: string): void
 public "isLocal"(): boolean
 get "local"(): boolean
 }

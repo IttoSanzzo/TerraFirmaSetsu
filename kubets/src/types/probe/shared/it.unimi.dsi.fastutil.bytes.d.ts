@@ -61,11 +61,13 @@ export interface $Byte2DoubleFunction extends $Function$0<byte, double>, $IntToD
 "composeObject"<T>(object2ByteFunction0: $Object2ByteFunction$$Type<T>): $Object2DoubleFunction<T>
 "composeReference"<T>(reference2ByteFunction0: $Reference2ByteFunction$$Type<T>): $Reference2DoubleFunction<T>
 "composeShort"(short2ByteFunction0: $Short2ByteFunction$$Type): $Short2DoubleFunction
-"containsKey"(byte0: byte): boolean
 /** @deprecated */
 "containsKey"(object0: any): boolean
+"containsKey"(byte0: byte): boolean
 "defaultReturnValue"(): double
 "defaultReturnValue"(double0: double): void
+/** @deprecated */
+"get"(object0: any): double
 "get"(byte0: byte): double
 /** @deprecated */
 "getOrDefault"(object0: any, double1: double): double
@@ -74,6 +76,8 @@ export interface $Byte2DoubleFunction extends $Function$0<byte, double>, $IntToD
 /** @deprecated */
 "put"(byte0: byte, double1: double): double
 "remove"(byte0: byte): double
+/** @deprecated */
+"remove"(object0: any): double
 "size"(): integer
 }
 
@@ -148,11 +152,13 @@ export interface $Byte2LongFunction extends $Function$0<byte, long>, $IntToLongF
 "composeObject"<T>(object2ByteFunction0: $Object2ByteFunction$$Type<T>): $Object2LongFunction<T>
 "composeReference"<T>(reference2ByteFunction0: $Reference2ByteFunction$$Type<T>): $Reference2LongFunction<T>
 "composeShort"(short2ByteFunction0: $Short2ByteFunction$$Type): $Short2LongFunction
-"containsKey"(byte0: byte): boolean
 /** @deprecated */
 "containsKey"(object0: any): boolean
+"containsKey"(byte0: byte): boolean
 "defaultReturnValue"(): long
 "defaultReturnValue"(long0: long): void
+/** @deprecated */
+"get"(object0: any): long
 "get"(byte0: byte): long
 /** @deprecated */
 "getOrDefault"(object0: any, long1: long): long
@@ -161,6 +167,8 @@ export interface $Byte2LongFunction extends $Function$0<byte, long>, $IntToLongF
 /** @deprecated */
 "put"(byte0: byte, long1: long): long
 "remove"(byte0: byte): long
+/** @deprecated */
+"remove"(object0: any): long
 "size"(): integer
 }
 
@@ -222,11 +230,11 @@ export interface $Byte2ByteFunction extends $Function<byte, byte>, $IntUnaryOper
 "composeObject"<T>(object2ByteFunction0: $Object2ByteFunction$$Type<T>): $Object2ByteFunction<T>
 "composeReference"<T>(reference2ByteFunction0: $Reference2ByteFunction$$Type<T>): $Reference2ByteFunction<T>
 "composeShort"(short2ByteFunction0: $Short2ByteFunction$$Type): $Short2ByteFunction
-"containsKey"(byte0: byte): boolean
 /** @deprecated */
 "containsKey"(object0: any): boolean
-"defaultReturnValue"(byte0: byte): void
+"containsKey"(byte0: byte): boolean
 "defaultReturnValue"(): byte
+"defaultReturnValue"(byte0: byte): void
 "get"(byte0: byte): byte
 /** @deprecated */
 "getOrDefault"(object0: any, byte1: byte): byte
@@ -313,11 +321,13 @@ export interface $Byte2CharFunction extends $Function$0<byte, character>, $IntUn
 "composeObject"<T>(object2ByteFunction0: $Object2ByteFunction$$Type<T>): $Object2CharFunction<T>
 "composeReference"<T>(reference2ByteFunction0: $Reference2ByteFunction$$Type<T>): $Reference2CharFunction<T>
 "composeShort"(short2ByteFunction0: $Short2ByteFunction$$Type): $Short2CharFunction
-"containsKey"(byte0: byte): boolean
 /** @deprecated */
 "containsKey"(object0: any): boolean
+"containsKey"(byte0: byte): boolean
 "defaultReturnValue"(): character
 "defaultReturnValue"(char0: character): void
+/** @deprecated */
+"get"(object0: any): character
 "get"(byte0: byte): character
 /** @deprecated */
 "getOrDefault"(object0: any, character1: character): character
@@ -326,6 +336,8 @@ export interface $Byte2CharFunction extends $Function$0<byte, character>, $IntUn
 /** @deprecated */
 "put"(byte0: byte, character1: character): character
 "remove"(byte0: byte): character
+/** @deprecated */
+"remove"(object0: any): character
 "size"(): integer
 }
 
@@ -402,14 +414,14 @@ export interface $Byte2ReferenceFunction<V> extends $Function$0<byte, V>, $IntFu
 /** @deprecated */
 "containsKey"(object0: any): boolean
 "containsKey"(byte0: byte): boolean
-"defaultReturnValue"(v0: V): void
 "defaultReturnValue"(): V
+"defaultReturnValue"(v0: V): void
 /** @deprecated */
 "get"(object0: any): V
 "get"(byte0: byte): V
+"getOrDefault"(byte0: byte, v1: V): V
 /** @deprecated */
 "getOrDefault"(object0: any, v1: V): V
-"getOrDefault"(byte0: byte, v1: V): V
 /** @deprecated */
 "put"(byte0: byte, v1: V): V
 "put"(byte0: byte, v1: V): V
@@ -492,11 +504,13 @@ export interface $Byte2IntFunction extends $Function$0<byte, integer>, $IntUnary
 "composeObject"<T>(object2ByteFunction0: $Object2ByteFunction$$Type<T>): $Object2IntFunction<T>
 "composeReference"<T>(reference2ByteFunction0: $Reference2ByteFunction$$Type<T>): $Reference2IntFunction<T>
 "composeShort"(short2ByteFunction0: $Short2ByteFunction$$Type): $Short2IntFunction
-"containsKey"(byte0: byte): boolean
 /** @deprecated */
 "containsKey"(object0: any): boolean
+"containsKey"(byte0: byte): boolean
 "defaultReturnValue"(): integer
 "defaultReturnValue"(int0: integer): void
+/** @deprecated */
+"get"(object0: any): integer
 "get"(byte0: byte): integer
 /** @deprecated */
 "getOrDefault"(object0: any, integer1: integer): integer
@@ -505,6 +519,8 @@ export interface $Byte2IntFunction extends $Function$0<byte, integer>, $IntUnary
 /** @deprecated */
 "put"(byte0: byte, integer1: integer): integer
 "remove"(byte0: byte): integer
+/** @deprecated */
+"remove"(object0: any): integer
 "size"(): integer
 }
 
@@ -581,24 +597,22 @@ export interface $Byte2BooleanFunction extends $Function$0<byte, boolean>, $IntP
 "composeObject"<T>(object2ByteFunction0: $Object2ByteFunction$$Type<T>): $Object2BooleanFunction<T>
 "composeReference"<T>(reference2ByteFunction0: $Reference2ByteFunction$$Type<T>): $Reference2BooleanFunction<T>
 "composeShort"(short2ByteFunction0: $Short2ByteFunction$$Type): $Short2BooleanFunction
+"containsKey"(byte0: byte): boolean
 /** @deprecated */
 "containsKey"(object0: any): boolean
-"containsKey"(byte0: byte): boolean
 "defaultReturnValue"(): boolean
 "defaultReturnValue"(boolean0: boolean): void
 /** @deprecated */
 "get"(object0: any): boolean
 "get"(byte0: byte): boolean
-"getOrDefault"(byte0: byte, boolean1: boolean): boolean
 /** @deprecated */
 "getOrDefault"(object0: any, boolean1: boolean): boolean
+"getOrDefault"(byte0: byte, boolean1: boolean): boolean
 "negate"(): $IntPredicate
 "or"(intPredicate0: $IntPredicate$$Type): $IntPredicate
 /** @deprecated */
 "put"(byte0: byte, boolean1: boolean): boolean
 "put"(byte0: byte, boolean1: boolean): boolean
-/** @deprecated */
-"remove"(object0: any): boolean
 "remove"(byte0: byte): boolean
 "size"(): integer
 /** @deprecated */
@@ -678,11 +692,13 @@ export interface $Byte2ShortFunction extends $Function$0<byte, short>, $IntUnary
 "composeObject"<T>(object2ByteFunction0: $Object2ByteFunction$$Type<T>): $Object2ShortFunction<T>
 "composeReference"<T>(reference2ByteFunction0: $Reference2ByteFunction$$Type<T>): $Reference2ShortFunction<T>
 "composeShort"(short2ByteFunction0: $Short2ByteFunction$$Type): $Short2ShortFunction
-"containsKey"(byte0: byte): boolean
 /** @deprecated */
 "containsKey"(object0: any): boolean
+"containsKey"(byte0: byte): boolean
 "defaultReturnValue"(): short
 "defaultReturnValue"(short0: short): void
+/** @deprecated */
+"get"(object0: any): short
 "get"(byte0: byte): short
 /** @deprecated */
 "getOrDefault"(object0: any, short1: short): short
@@ -691,6 +707,8 @@ export interface $Byte2ShortFunction extends $Function$0<byte, short>, $IntUnary
 /** @deprecated */
 "put"(byte0: byte, short1: short): short
 "remove"(byte0: byte): short
+/** @deprecated */
+"remove"(object0: any): short
 "size"(): integer
 }
 
@@ -767,14 +785,14 @@ export interface $Byte2ObjectFunction<V> extends $Function$0<byte, V>, $IntFunct
 /** @deprecated */
 "containsKey"(object0: any): boolean
 "containsKey"(byte0: byte): boolean
-"defaultReturnValue"(v0: V): void
 "defaultReturnValue"(): V
+"defaultReturnValue"(v0: V): void
 /** @deprecated */
 "get"(object0: any): V
 "get"(byte0: byte): V
+"getOrDefault"(byte0: byte, v1: V): V
 /** @deprecated */
 "getOrDefault"(object0: any, v1: V): V
-"getOrDefault"(byte0: byte, v1: V): V
 /** @deprecated */
 "put"(byte0: byte, v1: V): V
 "put"(byte0: byte, v1: V): V
@@ -855,11 +873,13 @@ export interface $Byte2FloatFunction extends $Function$0<byte, float>, $IntToDou
 "composeObject"<T>(object2ByteFunction0: $Object2ByteFunction$$Type<T>): $Object2FloatFunction<T>
 "composeReference"<T>(reference2ByteFunction0: $Reference2ByteFunction$$Type<T>): $Reference2FloatFunction<T>
 "composeShort"(short2ByteFunction0: $Short2ByteFunction$$Type): $Short2FloatFunction
-"containsKey"(byte0: byte): boolean
 /** @deprecated */
 "containsKey"(object0: any): boolean
+"containsKey"(byte0: byte): boolean
 "defaultReturnValue"(): float
 "defaultReturnValue"(float0: float): void
+/** @deprecated */
+"get"(object0: any): float
 "get"(byte0: byte): float
 /** @deprecated */
 "getOrDefault"(object0: any, float1: float): float
@@ -868,6 +888,8 @@ export interface $Byte2FloatFunction extends $Function$0<byte, float>, $IntToDou
 /** @deprecated */
 "put"(byte0: byte, float1: float): float
 "remove"(byte0: byte): float
+/** @deprecated */
+"remove"(object0: any): float
 "size"(): integer
 }
 

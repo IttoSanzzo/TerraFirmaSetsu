@@ -99,7 +99,6 @@ get "enforcedPosition"(): $Vec3
 }
 
 declare module "packages/com/alrex/parcool/config/$ParCoolConfig$Client$Doubles" {
-import { $ForgeConfigSpec$DoubleValue } from "packages/net/minecraftforge/common/$ForgeConfigSpec$DoubleValue"
 import { $ParCoolConfig$Item } from "packages/com/alrex/parcool/config/$ParCoolConfig$Item"
 import { $Enum } from "packages/java/lang/$Enum"
 import { $ForgeConfigSpec$Builder$$Type } from "packages/net/minecraftforge/common/$ForgeConfigSpec$Builder"
@@ -119,9 +118,6 @@ readonly "Min": double
 readonly "Path": string
 readonly "Translation": string
 
-public "get"(): double
-/** Client only, do not use in server scripts */
-public "getInternalInstance"(): $ForgeConfigSpec$DoubleValue
 public "getPath"(): string
 public "readFromBuffer"(byteBuffer0: $ByteBuffer$$Type): double
 public "register"(builder0: $ForgeConfigSpec$Builder$$Type): void
@@ -129,7 +125,6 @@ public "set"(double0: double): void
 public static "valueOf"(string0: string): $ParCoolConfig$Client$Doubles
 public static "values"(): $ParCoolConfig$Client$Doubles[]
 public "writeToBuffer"(byteBuffer0: $ByteBuffer$$Type): void
-get "internalInstance"(): $ForgeConfigSpec$DoubleValue
 get "path"(): string
 }
 }
@@ -193,7 +188,6 @@ get "player"(): $Player
 }
 
 declare module "packages/com/alrex/parcool/config/$ParCoolConfig$Server$Doubles" {
-import { $ForgeConfigSpec$DoubleValue } from "packages/net/minecraftforge/common/$ForgeConfigSpec$DoubleValue"
 import { $ParCoolConfig$Item } from "packages/com/alrex/parcool/config/$ParCoolConfig$Item"
 import { $Enum } from "packages/java/lang/$Enum"
 import { $ForgeConfigSpec$Builder$$Type } from "packages/net/minecraftforge/common/$ForgeConfigSpec$Builder"
@@ -213,9 +207,6 @@ static readonly "MaxFastSwimSpeedModifier": $ParCoolConfig$Server$Doubles
 readonly "Min": double
 readonly "Path": string
 
-public "get"(): double
-/** Client only, do not use in server scripts */
-public "getInternalInstance"(): $ForgeConfigSpec$DoubleValue
 public "getPath"(): string
 public "readFromBuffer"(byteBuffer0: $ByteBuffer$$Type): double
 public "register"(builder0: $ForgeConfigSpec$Builder$$Type): void
@@ -223,7 +214,6 @@ public "set"(double0: double): void
 public static "valueOf"(string0: string): $ParCoolConfig$Server$Doubles
 public static "values"(): $ParCoolConfig$Server$Doubles[]
 public "writeToBuffer"(byteBuffer0: $ByteBuffer$$Type): void
-get "internalInstance"(): $ForgeConfigSpec$DoubleValue
 get "path"(): string
 }
 }
@@ -670,11 +660,13 @@ constructor()
 public "canContinue"(player0: $Player$$Type, parkourability1: $Parkourability$$Type, iStamina2: $IStamina$$Type): boolean
 /** Client only, do not use in server scripts */
 public "canStart"(player0: $Player$$Type, parkourability1: $Parkourability$$Type, iStamina2: $IStamina$$Type, byteBuffer3: $ByteBuffer$$Type): boolean
+public "finish"(): void
 public "getDoingTick"(): integer
 public "getNotDoingTick"(): integer
 public "getStaminaConsumeTiming"(): $StaminaConsumeTiming
 /** Client only, do not use in server scripts */
 public "getStatusValue"(localPlayer0: $LocalPlayer$$Type, parkourability1: $Parkourability$$Type): float
+public "getTickFromLastStarted"(): integer
 public "isDoing"(): boolean
 public "isJustStarted"(): boolean
 /** Client only, do not use in server scripts */
@@ -701,19 +693,16 @@ public "onWorkingTickInLocalClient"(player0: $Player$$Type, parkourability1: $Pa
 public "onWorkingTickInServer"(player0: $Player$$Type, parkourability1: $Parkourability$$Type, iStamina2: $IStamina$$Type): void
 public "restoreSynchronizedState"(byteBuffer0: $ByteBuffer$$Type): void
 public "saveSynchronizedState"(byteBuffer0: $ByteBuffer$$Type): void
-public "setDoing"(boolean0: boolean): void
-public "setDoingTick"(int0: integer): void
-public "setNotDoingTick"(int0: integer): void
+public "start"(): void
+public "tick"(): void
 /** Client only, do not use in server scripts */
 public "wantsToShowStatusBar"(localPlayer0: $LocalPlayer$$Type, parkourability1: $Parkourability$$Type): boolean
 get "doingTick"(): integer
 get "notDoingTick"(): integer
 get "staminaConsumeTiming"(): $StaminaConsumeTiming
+get "tickFromLastStarted"(): integer
 get "doing"(): boolean
 get "justStarted"(): boolean
-set "doing"(value: boolean)
-set "doingTick"(value: integer)
-set "notDoingTick"(value: integer)
 }
 }
 
@@ -837,12 +826,12 @@ constructor(player0: $Player$$Type, playerModel1: $PlayerModel$$Type<any>, boole
 
 public "addRotateLeftArm"(float0: float, float1: float, float2: float): $PlayerModelTransformer
 public "addRotateLeftArm"(float0: float, float1: float, float2: float, float3: float): $PlayerModelTransformer
-public "addRotateLeftLeg"(float0: float, float1: float, float2: float, float3: float): $PlayerModelTransformer
 public "addRotateLeftLeg"(float0: float, float1: float, float2: float): $PlayerModelTransformer
-public "addRotateRightArm"(float0: float, float1: float, float2: float): $PlayerModelTransformer
+public "addRotateLeftLeg"(float0: float, float1: float, float2: float, float3: float): $PlayerModelTransformer
 public "addRotateRightArm"(float0: float, float1: float, float2: float, float3: float): $PlayerModelTransformer
-public "addRotateRightLeg"(float0: float, float1: float, float2: float): $PlayerModelTransformer
+public "addRotateRightArm"(float0: float, float1: float, float2: float): $PlayerModelTransformer
 public "addRotateRightLeg"(float0: float, float1: float, float2: float, float3: float): $PlayerModelTransformer
+public "addRotateRightLeg"(float0: float, float1: float, float2: float): $PlayerModelTransformer
 public "copyFromBodyToWear"(): void
 public "end"(): void
 public "getHeadPitch"(): float
@@ -864,12 +853,12 @@ public "rotateAdditionallyHeadYaw"(float0: float): $PlayerModelTransformer
 public "rotateHeadPitch"(float0: float): $PlayerModelTransformer
 public "rotateHeadYaw"(float0: float): $PlayerModelTransformer
 public "rotateHeadYawRadian"(float0: float): $PlayerModelTransformer
-public "rotateLeftArm"(float0: float, float1: float, float2: float): $PlayerModelTransformer
 public "rotateLeftArm"(float0: float, float1: float, float2: float, float3: float): $PlayerModelTransformer
-public "rotateLeftLeg"(float0: float, float1: float, float2: float): $PlayerModelTransformer
+public "rotateLeftArm"(float0: float, float1: float, float2: float): $PlayerModelTransformer
 public "rotateLeftLeg"(float0: float, float1: float, float2: float, float3: float): $PlayerModelTransformer
-public "rotateRightArm"(float0: float, float1: float, float2: float): $PlayerModelTransformer
+public "rotateLeftLeg"(float0: float, float1: float, float2: float): $PlayerModelTransformer
 public "rotateRightArm"(float0: float, float1: float, float2: float, float3: float): $PlayerModelTransformer
+public "rotateRightArm"(float0: float, float1: float, float2: float): $PlayerModelTransformer
 public "rotateRightLeg"(float0: float, float1: float, float2: float): $PlayerModelTransformer
 public "rotateRightLeg"(float0: float, float1: float, float2: float, float3: float): $PlayerModelTransformer
 public "setOption"(animationOption0: $AnimationOption$$Type): void

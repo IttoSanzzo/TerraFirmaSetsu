@@ -66,8 +66,8 @@ public "getDefaultDisplayOffset"(): integer
 public "getDisplayBlockState"(): $BlockState
 public "getDisplayName"(): $Component
 public "getDisplayOffset"(): integer
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getDragAir"(): double
 public "getDropItem"(): $Item
@@ -103,7 +103,7 @@ public "getSoundFromFluidType"(fluidType0: $FluidType$$Type, soundAction1: $Soun
 public "getStepHeight"(): float
 public "getTeamId"(): string
 public "getType"(): string
-public "handler$cll004$adastra$tick"(ci: $CallbackInfo$$Type): void
+public "handler$dam004$adastra$tick"(ci: $CallbackInfo$$Type): void
 public "hasCustomDisplay"(): boolean
 public "hasCustomOutlineRendering"(player0: $Player$$Type): boolean
 public "isAmbientCreature"(): boolean
@@ -141,7 +141,6 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $Entity
-public "serializeNBT"(): $CompoundTag
 public "setCanUseRail"(boolean0: boolean): void
 public "setCurrentCartSpeedCapOnRail"(float0: float): void
 public "setCustomDisplay"(boolean0: boolean): void
@@ -299,8 +298,8 @@ public "getClassification"(boolean0: boolean): $MobCategory
 public "getComparatorLevel"(): integer
 public "getCurrentRailPosition"(): $BlockPos
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 /** @deprecated */
 public "getEyeHeightForge"(pose0: $Pose$$Type, entityDimensions1: $EntityDimensions$$Type): float
@@ -361,7 +360,6 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $Entity
-public "serializeNBT"(): $CompoundTag
 public "setHexereiDynamicLightEnabled"(boolean0: boolean): void
 public "setMotionX"(x: double): void
 public "setMotionY"(y: double): void
@@ -534,11 +532,11 @@ public "clear"(ingredient: $Ingredient$$Type): void
 public "clearChestVehicleContent"(): void
 public "clearContent"(): void
 public "clearItemStacks"(): void
-public "count"(ingredient: $Ingredient$$Type): integer
 public "count"(): integer
+public "count"(ingredient: $Ingredient$$Type): integer
 public "countItem"(item0: $Item$$Type): integer
-public "countNonEmpty"(): integer
 public "countNonEmpty"(ingredient: $Ingredient$$Type): integer
+public "countNonEmpty"(): integer
 public "createMenu"(int0: integer, inventory1: $Inventory$$Type, player2: $Player$$Type): $AbstractContainerMenu
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
@@ -557,8 +555,8 @@ public "getContainerSize"(): integer
 public "getCurrentRailPosition"(): $BlockPos
 public "getDisplayName"(): $Component
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 /** @deprecated */
 public "getEyeHeightForge"(pose0: $Pose$$Type, entityDimensions1: $EntityDimensions$$Type): float
@@ -646,7 +644,6 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $Container
-public "serializeNBT"(): $CompoundTag
 public "setChanged"(): void
 public "setChanged"(): void
 public "setChestVehicleItem"(int0: integer, itemStack1: $ItemStack$$Type): void
@@ -678,6 +675,7 @@ public "startOpen"(player0: $Player$$Type): void
 public "stillValid"(player0: $Player$$Type): boolean
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 public "stopOpen"(player0: $Player$$Type): void
 public "teleportTo"(dimension: $ResourceLocation$$Type, x: double, y: double, z: double, yaw: float, pitch: float): void
 public "tell"(message: $Component$$Type): void
@@ -781,11 +779,11 @@ export interface $ContainerEntity extends $Container, $MenuProvider {
 "clearChestVehicleContent"(): void
 "clearContent"(): void
 "clearItemStacks"(): void
-"count"(ingredient: $Ingredient$$Type): integer
 "count"(): integer
+"count"(ingredient: $Ingredient$$Type): integer
 "countItem"(item0: $Item$$Type): integer
-"countNonEmpty"(): integer
 "countNonEmpty"(ingredient: $Ingredient$$Type): integer
+"countNonEmpty"(): integer
 "createMenu"(int0: integer, inventory1: $Inventory$$Type, player2: $Player$$Type): $AbstractContainerMenu
 "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
 "find"(ingredient: $Ingredient$$Type): integer
@@ -859,11 +857,13 @@ set "lootTableSeed"(value: long)
 export namespace $ContainerEntity {
 function stillValidBlockEntity(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 function stillValidBlockEntity(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+function stillValidBlockEntity(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 function tryClear(object0: any): void
 }
 export abstract class $ContainerEntity$$Static implements $ContainerEntity {
 static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 static "tryClear"(object0: any): void
 }
 }
@@ -921,8 +921,8 @@ public "getClassification"(boolean0: boolean): $MobCategory
 public "getComparatorLevel"(): integer
 public "getCurrentRailPosition"(): $BlockPos
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 /** @deprecated */
 public "getEyeHeightForge"(pose0: $Pose$$Type, entityDimensions1: $EntityDimensions$$Type): float
@@ -985,7 +985,6 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $Entity
-public "serializeNBT"(): $CompoundTag
 public "setHexereiDynamicLightEnabled"(boolean0: boolean): void
 public "setMotionX"(x: double): void
 public "setMotionY"(y: double): void
@@ -1139,11 +1138,11 @@ public "chestVehicleDestroyed"(damageSource0: $DamageSource$$Type, level1: $Leve
 public "clear"(): void
 public "clear"(ingredient: $Ingredient$$Type): void
 public "clearChestVehicleContent"(): void
-public "count"(ingredient: $Ingredient$$Type): integer
 public "count"(): integer
+public "count"(ingredient: $Ingredient$$Type): integer
 public "countItem"(item0: $Item$$Type): integer
-public "countNonEmpty"(): integer
 public "countNonEmpty"(ingredient: $Ingredient$$Type): integer
+public "countNonEmpty"(): integer
 public "createMenu"(int0: integer, inventory1: $Inventory$$Type): $AbstractContainerMenu
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
@@ -1160,8 +1159,8 @@ public "getComparatorLevel"(): integer
 public "getCurrentRailPosition"(): $BlockPos
 public "getDisplayName"(): $Component
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 /** @deprecated */
 public "getEyeHeightForge"(pose0: $Pose$$Type, entityDimensions1: $EntityDimensions$$Type): float
@@ -1243,7 +1242,6 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $Container
-public "serializeNBT"(): $CompoundTag
 public "setChanged"(): void
 public "setChestVehicleItem"(int0: integer, itemStack1: $ItemStack$$Type): void
 public "setHexereiDynamicLightEnabled"(boolean0: boolean): void
@@ -1269,6 +1267,7 @@ public "spawn"(): void
 public "startOpen"(player0: $Player$$Type): void
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 public "teleportTo"(dimension: $ResourceLocation$$Type, x: double, y: double, z: double, yaw: float, pitch: float): void
 public "tell"(message: $Component$$Type): void
 public static "tryClear"(object0: any): void
@@ -1385,8 +1384,8 @@ public "alwaysAccepts"(): boolean
 public "asContainer"(): $Container
 public "attack"(hp: float): void
 public "canBeRiddenUnderFluidType"(fluidType0: $FluidType$$Type, entity1: $Entity$$Type): boolean
-public "canBoatInFluid"(fluidState0: $FluidState$$Type): boolean
 public "canBoatInFluid"(fluidType0: $FluidType$$Type): boolean
+public "canBoatInFluid"(fluidState0: $FluidState$$Type): boolean
 public "canFluidExtinguish"(fluidType0: $FluidType$$Type): boolean
 public "canHydrateInFluidType"(fluidType0: $FluidType$$Type): boolean
 public "canPlaceItem"(int0: integer, itemStack1: $ItemStack$$Type): boolean
@@ -1400,11 +1399,11 @@ public "clear"(ingredient: $Ingredient$$Type): void
 public "clearChestVehicleContent"(): void
 public "clearContent"(): void
 public "clearItemStacks"(): void
-public "count"(ingredient: $Ingredient$$Type): integer
 public "count"(): integer
+public "count"(ingredient: $Ingredient$$Type): integer
 public "countItem"(item0: $Item$$Type): integer
-public "countNonEmpty"(): integer
 public "countNonEmpty"(ingredient: $Ingredient$$Type): integer
+public "countNonEmpty"(): integer
 public "createMenu"(int0: integer, inventory1: $Inventory$$Type, player2: $Player$$Type): $AbstractContainerMenu
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "destroy"(damageSource0: $DamageSource$$Type): void
@@ -1422,8 +1421,8 @@ public "getClassification"(boolean0: boolean): $MobCategory
 public "getContainerSize"(): integer
 public "getDisplayName"(): $Component
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 /** @deprecated */
 public "getEyeHeightForge"(pose0: $Pose$$Type, entityDimensions1: $EntityDimensions$$Type): float
@@ -1503,7 +1502,6 @@ public "runCommandSilent"(command: string): integer
 public "sdl$isDynamicLightEnabled"(): boolean
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "self"(): $Container
-public "serializeNBT"(): $CompoundTag
 public "setChanged"(): void
 public "setChanged"(): void
 public "setChestVehicleItem"(int0: integer, itemStack1: $ItemStack$$Type): void
@@ -1532,6 +1530,7 @@ public "startOpen"(player0: $Player$$Type): void
 public "stillValid"(player0: $Player$$Type): boolean
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 public "stopOpen"(player0: $Player$$Type): void
 public "teleportTo"(dimension: $ResourceLocation$$Type, x: double, y: double, z: double, yaw: float, pitch: float): void
 public "tell"(message: $Component$$Type): void
@@ -1648,8 +1647,8 @@ public "getClassification"(boolean0: boolean): $MobCategory
 public "getComparatorLevel"(): integer
 public "getCurrentRailPosition"(): $BlockPos
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 /** @deprecated */
 public "getEyeHeightForge"(pose0: $Pose$$Type, entityDimensions1: $EntityDimensions$$Type): float
@@ -1708,7 +1707,6 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $Entity
-public "serializeNBT"(): $CompoundTag
 public "setHexereiDynamicLightEnabled"(boolean0: boolean): void
 public "setMotionX"(x: double): void
 public "setMotionY"(y: double): void
@@ -1793,6 +1791,7 @@ import { $ResourceLocation$$Type } from "packages/net/minecraft/resources/$Resou
 import { $FluidState$$Type } from "packages/net/minecraft/world/level/material/$FluidState"
 import { $EntityType$$Type } from "packages/net/minecraft/world/entity/$EntityType"
 import { $Player$$Type } from "packages/net/minecraft/world/entity/player/$Player"
+import { $List, $List$$Type } from "packages/java/util/$List"
 import { $MinecraftServer } from "packages/net/minecraft/server/$MinecraftServer"
 import { $GameProfile } from "packages/com/mojang/authlib/$GameProfile"
 import { $MobCategory } from "packages/net/minecraft/world/entity/$MobCategory"
@@ -1826,8 +1825,8 @@ constructor(level0: $Level$$Type, double1: double, double2: double, double3: dou
 public "alwaysAccepts"(): boolean
 public "attack"(hp: float): void
 public "canBeRiddenUnderFluidType"(fluidType0: $FluidType$$Type, entity1: $Entity$$Type): boolean
-public "canBoatInFluid"(fluidState0: $FluidState$$Type): boolean
 public "canBoatInFluid"(fluidType0: $FluidType$$Type): boolean
+public "canBoatInFluid"(fluidState0: $FluidState$$Type): boolean
 public "canFluidExtinguish"(fluidType0: $FluidType$$Type): boolean
 public "canHydrateInFluidType"(fluidType0: $FluidType$$Type): boolean
 public "canRiderInteract"(): boolean
@@ -1841,8 +1840,8 @@ public "getCapability"<T>(capability0: $Capability$$Type<T>): $LazyOptional<T>
 public "getClassification"(boolean0: boolean): $MobCategory
 public "getDamage"(): float
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getDropItem"(): $Item
 /** @deprecated */
@@ -1874,7 +1873,7 @@ public "getTeamId"(): string
 public "getType"(): string
 public "getVariant"(): $Boat$Type
 public "getWaterLevelAbove"(): float
-public "handler$clj000$adastra$floatBoat"(ci: $CallbackInfo$$Type): void
+public "handler$dak000$adastra$floatBoat"(ci: $CallbackInfo$$Type): void
 public "hasCustomOutlineRendering"(player0: $Player$$Type): boolean
 public "hasEnoughSpaceFor"(entity0: $Entity$$Type): boolean
 public "isAmbientCreature"(): boolean
@@ -1893,6 +1892,7 @@ public "isPeacefulCreature"(): boolean
 public "isPlayer"(): boolean
 public "isPushedByFluid"(fluidType0: $FluidType$$Type): boolean
 public "isWaterCreature"(): boolean
+public "localvar$zbj000$onTickGetEntities"(list0: $List$$Type<any>): $List<any>
 public "mergeNbt"(tag: $CompoundTag$$Type): $Entity
 public "playSound"(id: $SoundEvent$$Type): void
 public "playSound"(id: $SoundEvent$$Type, volume: float, pitch: float): void
@@ -1903,7 +1903,6 @@ public "runCommandSilent"(command: string): integer
 public "sdl$isDynamicLightEnabled"(): boolean
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "self"(): $Entity
-public "serializeNBT"(): $CompoundTag
 public "setDamage"(float0: float): void
 public "setHexereiDynamicLightEnabled"(boolean0: boolean): void
 public "setHurtDir"(int0: integer): void
@@ -2055,8 +2054,8 @@ public "getClassification"(boolean0: boolean): $MobCategory
 public "getComparatorLevel"(): integer
 public "getCurrentRailPosition"(): $BlockPos
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 /** @deprecated */
 public "getEyeHeightForge"(pose0: $Pose$$Type, entityDimensions1: $EntityDimensions$$Type): float
@@ -2116,7 +2115,6 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $Entity
-public "serializeNBT"(): $CompoundTag
 public "setHexereiDynamicLightEnabled"(boolean0: boolean): void
 public "setMotionX"(x: double): void
 public "setMotionY"(y: double): void
@@ -2253,11 +2251,11 @@ public "chestVehicleDestroyed"(damageSource0: $DamageSource$$Type, level1: $Leve
 public "clear"(): void
 public "clear"(ingredient: $Ingredient$$Type): void
 public "clearChestVehicleContent"(): void
-public "count"(ingredient: $Ingredient$$Type): integer
 public "count"(): integer
+public "count"(ingredient: $Ingredient$$Type): integer
 public "countItem"(item0: $Item$$Type): integer
-public "countNonEmpty"(): integer
 public "countNonEmpty"(ingredient: $Ingredient$$Type): integer
+public "countNonEmpty"(): integer
 public "createMenu"(int0: integer, inventory1: $Inventory$$Type): $AbstractContainerMenu
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
@@ -2274,8 +2272,8 @@ public "getComparatorLevel"(): integer
 public "getCurrentRailPosition"(): $BlockPos
 public "getDisplayName"(): $Component
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 /** @deprecated */
 public "getEyeHeightForge"(pose0: $Pose$$Type, entityDimensions1: $EntityDimensions$$Type): float
@@ -2362,7 +2360,6 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $Container
-public "serializeNBT"(): $CompoundTag
 public "setChanged"(): void
 public "setChestVehicleItem"(int0: integer, itemStack1: $ItemStack$$Type): void
 public "setEnabled"(boolean0: boolean): void
@@ -2389,6 +2386,7 @@ public "spawn"(): void
 public "startOpen"(player0: $Player$$Type): void
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 public "stopOpen"(player0: $Player$$Type): void
 public "suckInItems"(): boolean
 public "teleportTo"(dimension: $ResourceLocation$$Type, x: double, y: double, z: double, yaw: float, pitch: float): void
@@ -2512,8 +2510,8 @@ public "getCommandBlock"(): $BaseCommandBlock
 public "getComparatorLevel"(): integer
 public "getCurrentRailPosition"(): $BlockPos
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 /** @deprecated */
 public "getEyeHeightForge"(pose0: $Pose$$Type, entityDimensions1: $EntityDimensions$$Type): float
@@ -2573,7 +2571,6 @@ public "sdl$resetDynamicLight"(): void
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "sdl$shouldUpdateDynamicLight"(): boolean
 public "self"(): $Entity
-public "serializeNBT"(): $CompoundTag
 public "setHexereiDynamicLightEnabled"(boolean0: boolean): void
 public "setMotionX"(x: double): void
 public "setMotionY"(y: double): void

@@ -258,16 +258,16 @@ function parseInt(object: any, def: integer): integer
 function particleOptions(o: any): $ParticleOptions
 function queueIO(runnable: $Runnable$$Type): void
 function randomOf(random: $Random$$Type, objects: $Collection$$Type<any>): any
-function regex(pattern: string, flags: integer): $Pattern
 function regex(s: any): $Pattern
+function regex(pattern: string, flags: integer): $Pattern
 function rollChestLoot(id: $ResourceLocation$$Type): $List<$ItemStack>
 function rollChestLoot(id: $ResourceLocation$$Type, entity: $Entity$$Type): $List<$ItemStack>
 function runAsync(task: $Runnable$$Type): $CompletableFuture<void>
 function snakeCaseToCamelCase(string: string): string
 function snakeCaseToTitleCase(string: string): string
 function supplyAsync(task: $Supplier$$Type<any>): $CompletableFuture<any>
-function toTitleCase(s: string, ignoreSpecial: boolean): string
 function toTitleCase(s: string): string
+function toTitleCase(s: string, ignoreSpecial: boolean): string
 }
 export abstract class $UtilsWrapper$$Static implements $UtilsWrapper {
 static readonly "ERROR_PARTICLE": $DustParticleOptions
@@ -326,10 +326,10 @@ static "particleOptions"(o: any): $ParticleOptions
 static "queueIO"(runnable: $Runnable$$Type): void
 /** Gets a random object from the list using the passed in random */
 static "randomOf"(random: $Random$$Type, objects: $Collection$$Type<any>): any
-/** Returns a regex pattern of the input with the specified flags */
-static "regex"(pattern: string, flags: integer): $Pattern
 /** Returns a regex pattern of the input */
 static "regex"(s: any): $Pattern
+/** Returns a regex pattern of the input with the specified flags */
+static "regex"(pattern: string, flags: integer): $Pattern
 /** Returns the results of rolling the specified loot table (it does not have to be a chest loot table) */
 static "rollChestLoot"(id: $ResourceLocation$$Type): $List<$ItemStack>
 /** Returns the results of rolling the specified loot table with the entity as a parameter (it does not have to be a chest loot table) */
@@ -342,10 +342,10 @@ static "snakeCaseToCamelCase"(string: string): string
 static "snakeCaseToTitleCase"(string: string): string
 /** Runs the provided supplier function in KubeJS' background thread and returns its CompletableFuture */
 static "supplyAsync"(task: $Supplier$$Type<any>): $CompletableFuture<any>
-/** Capitalises the first letter of the string. If ignoreSpecial is true, it will also capitalise articles and prepositions */
-static "toTitleCase"(s: string, ignoreSpecial: boolean): string
 /** Capitalises the first letter of the string unless it is "a", "an", "the", "of", "on", "in", "and", "or", "but" or "for" */
 static "toTitleCase"(s: string): string
+/** Capitalises the first letter of the string. If ignoreSpecial is true, it will also capitalise articles and prepositions */
+static "toTitleCase"(s: string, ignoreSpecial: boolean): string
 }
 }
 

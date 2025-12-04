@@ -33,7 +33,7 @@ import { setRecipesMna } from "./Mods/MnA";
 import { setRecipesOreWashing } from "./Mods/OreWashing";
 import { setRecipesPotionsMaster } from "./Mods/PotionsMaster";
 import { setRecipesQuark } from "./Mods/Quark";
-import { setSacksAndSuch } from "./Mods/SacksAndSuch";
+import { setSacksAndSuch } from "./Mods/TfcAddons/SacksAndSuch";
 import { setRecipesSimplePlanes } from "./Mods/SimplePlanes";
 import { setRecipesSimpleWeapons } from "./Mods/SimpleWeapons";
 import { setRecipesSophisticatedBackpacks } from "./Mods/SophisticatedBackpacks";
@@ -48,6 +48,7 @@ import { setRecipesTrottingWagons } from "./Mods/TrottingWagons";
 import { setRecipesWaystones } from "./Mods/Waystones";
 import { setRecipesWell } from "./Mods/Well";
 import { setRecipesBloodMagic } from "./Mods/BloodMagic";
+import { setRecipesButchery } from "./Mods/Butchery/Butchery";
 
 export function setRecipes(event: $RecipesEventJS) {
 	console.log("Setsu Recipes Start!");
@@ -95,6 +96,7 @@ export function setRecipes(event: $RecipesEventJS) {
 	setRecipesBioforgeLoomborn(event);
 	setRecipesTrottingWagons(event);
 	setRecipesWell(event);
+	setRecipesButchery(event);
 
 	// TFC Addons
 	setRecipesFirmalife(event);

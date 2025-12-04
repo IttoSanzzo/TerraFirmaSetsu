@@ -87,9 +87,9 @@ public "getName"(): string
 public static "getSimpleRecipeName"(itemLike0: $ItemLike$$Type): string
 public static "getSmeltingRecipeName"(itemLike0: $ItemLike$$Type): string
 public static "hangingSign"(consumer0: $Consumer$$Type<$FinishedRecipe$$Type>, itemLike1: $ItemLike$$Type, itemLike2: $ItemLike$$Type): void
-public static "has"(tagKey0: $TagKey$$Type<$Item$$Type>): $InventoryChangeTrigger$TriggerInstance
-public static "has"(itemLike0: $ItemLike$$Type): $InventoryChangeTrigger$TriggerInstance
 public static "has"(ints0: $MinMaxBounds$Ints$$Type, itemLike1: $ItemLike$$Type): $InventoryChangeTrigger$TriggerInstance
+public static "has"(itemLike0: $ItemLike$$Type): $InventoryChangeTrigger$TriggerInstance
+public static "has"(tagKey0: $TagKey$$Type<$Item$$Type>): $InventoryChangeTrigger$TriggerInstance
 public static "insideOf"(block0: $Block$$Type): $EnterBlockTrigger$TriggerInstance
 public static "inventoryTrigger"(...itemPredicate0s: $ItemPredicate$$Type[]): $InventoryChangeTrigger$TriggerInstance
 public static "mosaicBuilder"(consumer0: $Consumer$$Type<$FinishedRecipe$$Type>, recipeCategory1: $RecipeCategory$$Type, itemLike2: $ItemLike$$Type, itemLike3: $ItemLike$$Type): void
@@ -98,8 +98,8 @@ public static "nineBlockStorageRecipes"(consumer0: $Consumer$$Type<$FinishedReci
 public static "nineBlockStorageRecipes"(consumer0: $Consumer$$Type<$FinishedRecipe$$Type>, recipeCategory1: $RecipeCategory$$Type, itemLike2: $ItemLike$$Type, recipeCategory3: $RecipeCategory$$Type, itemLike4: $ItemLike$$Type): void
 public static "nineBlockStorageRecipesRecipesWithCustomUnpacking"(consumer0: $Consumer$$Type<$FinishedRecipe$$Type>, recipeCategory1: $RecipeCategory$$Type, itemLike2: $ItemLike$$Type, recipeCategory3: $RecipeCategory$$Type, itemLike4: $ItemLike$$Type, string5: string, string6: string): void
 public static "nineBlockStorageRecipesWithCustomPacking"(consumer0: $Consumer$$Type<$FinishedRecipe$$Type>, recipeCategory1: $RecipeCategory$$Type, itemLike2: $ItemLike$$Type, recipeCategory3: $RecipeCategory$$Type, itemLike4: $ItemLike$$Type, string5: string, string6: string): void
-public static "oneToOneConversionRecipe"(consumer0: $Consumer$$Type<$FinishedRecipe$$Type>, itemLike1: $ItemLike$$Type, itemLike2: $ItemLike$$Type, string3: string): void
 public static "oneToOneConversionRecipe"(consumer0: $Consumer$$Type<$FinishedRecipe$$Type>, itemLike1: $ItemLike$$Type, itemLike2: $ItemLike$$Type, string3: string, int4: integer): void
+public static "oneToOneConversionRecipe"(consumer0: $Consumer$$Type<$FinishedRecipe$$Type>, itemLike1: $ItemLike$$Type, itemLike2: $ItemLike$$Type, string3: string): void
 public static "oreBlasting"(consumer0: $Consumer$$Type<$FinishedRecipe$$Type>, list1: $List$$Type<$ItemLike$$Type>, recipeCategory2: $RecipeCategory$$Type, itemLike3: $ItemLike$$Type, float4: float, int5: integer, string6: string): void
 public static "oreCooking"(consumer0: $Consumer$$Type<$FinishedRecipe$$Type>, recipeSerializer1: $RecipeSerializer$$Type<$AbstractCookingRecipe$$Type>, list2: $List$$Type<$ItemLike$$Type>, recipeCategory3: $RecipeCategory$$Type, itemLike4: $ItemLike$$Type, float5: float, int6: integer, string7: string, string8: string): void
 public static "oreSmelting"(consumer0: $Consumer$$Type<$FinishedRecipe$$Type>, list1: $List$$Type<$ItemLike$$Type>, recipeCategory2: $RecipeCategory$$Type, itemLike3: $ItemLike$$Type, float4: float, int5: integer, string6: string): void
@@ -122,8 +122,8 @@ public static "stainedGlassPaneFromStainedGlass"(consumer0: $Consumer$$Type<$Fin
 public static "stairBuilder"(itemLike0: $ItemLike$$Type, ingredient1: $Ingredient$$Type): $RecipeBuilder
 public static "stonecutterResultFromBase"(consumer0: $Consumer$$Type<$FinishedRecipe$$Type>, recipeCategory1: $RecipeCategory$$Type, itemLike2: $ItemLike$$Type, itemLike3: $ItemLike$$Type, int4: integer): void
 public static "stonecutterResultFromBase"(consumer0: $Consumer$$Type<$FinishedRecipe$$Type>, recipeCategory1: $RecipeCategory$$Type, itemLike2: $ItemLike$$Type, itemLike3: $ItemLike$$Type): void
-public static "threeByThreePacker"(consumer0: $Consumer$$Type<$FinishedRecipe$$Type>, recipeCategory1: $RecipeCategory$$Type, itemLike2: $ItemLike$$Type, itemLike3: $ItemLike$$Type, string4: string): void
 public static "threeByThreePacker"(consumer0: $Consumer$$Type<$FinishedRecipe$$Type>, recipeCategory1: $RecipeCategory$$Type, itemLike2: $ItemLike$$Type, itemLike3: $ItemLike$$Type): void
+public static "threeByThreePacker"(consumer0: $Consumer$$Type<$FinishedRecipe$$Type>, recipeCategory1: $RecipeCategory$$Type, itemLike2: $ItemLike$$Type, itemLike3: $ItemLike$$Type, string4: string): void
 public static "trapdoorBuilder"(itemLike0: $ItemLike$$Type, ingredient1: $Ingredient$$Type): $RecipeBuilder
 public static "trimSmithing"(consumer0: $Consumer$$Type<$FinishedRecipe$$Type>, item1: $Item$$Type, resourceLocation2: $ResourceLocation$$Type): void
 public static "twoByTwoPacker"(consumer0: $Consumer$$Type<$FinishedRecipe$$Type>, recipeCategory1: $RecipeCategory$$Type, itemLike2: $ItemLike$$Type, itemLike3: $ItemLike$$Type): void
@@ -164,11 +164,10 @@ import { $IForgeIntrinsicHolderTagAppender } from "packages/net/minecraftforge/c
 import { $TagKey$$Type } from "packages/net/minecraft/tags/$TagKey"
 
 export class $IntrinsicHolderTagsProvider$IntrinsicTagAppender<T> extends $TagsProvider$TagAppender<T> implements $IForgeIntrinsicHolderTagAppender<T> {
-public "add"(...t0s: T[]): $IntrinsicHolderTagsProvider$IntrinsicTagAppender<T>
 public "add"(t0: T): $IntrinsicHolderTagsProvider$IntrinsicTagAppender<T>
+public "add"(...t0s: T[]): $IntrinsicHolderTagsProvider$IntrinsicTagAppender<T>
 public "addOptionalTag"(tagKey0: $TagKey$$Type<T>): $TagsProvider$TagAppender<T>
 public "addOptionalTags"(...tagKey0s: $TagKey$$Type<T>[]): $TagsProvider$TagAppender<T>
-public "addTag"(tagKey0: $TagKey$$Type<T>): $IntrinsicHolderTagsProvider$IntrinsicTagAppender<T>
 public "addTags"(...tagKey0s: $TagKey$$Type<T>[]): $IntrinsicHolderTagsProvider$IntrinsicTagAppender<T>
 public "getKey"(t0: T): $ResourceKey<T>
 public "remove"(resourceKey0: $ResourceKey$$Type<T>, ...resourceKey1s: $ResourceKey$$Type<T>[]): $IntrinsicHolderTagsProvider$IntrinsicTagAppender<T>
@@ -189,8 +188,8 @@ import { $TagBuilder } from "packages/net/minecraft/tags/$TagBuilder"
 
 export class $TagsProvider$TagAppender<T> implements $IForgeTagAppender<T> {
 public "add"(tagEntry0: $TagEntry$$Type): $TagsProvider$TagAppender<T>
-public "add"(...resourceKey0s: $ResourceKey$$Type<T>[]): $TagsProvider$TagAppender<T>
 public "add"(resourceKey0: $ResourceKey$$Type<T>): $TagsProvider$TagAppender<T>
+public "add"(...resourceKey0s: $ResourceKey$$Type<T>[]): $TagsProvider$TagAppender<T>
 public "addOptional"(resourceLocation0: $ResourceLocation$$Type): $TagsProvider$TagAppender<T>
 public "addOptionalTag"(resourceLocation0: $ResourceLocation$$Type): $TagsProvider$TagAppender<T>
 public "addOptionalTag"(tagKey0: $TagKey$$Type<T>): $TagsProvider$TagAppender<T>
@@ -384,11 +383,12 @@ import { $JsonElement$$Type } from "packages/com/google/gson/$JsonElement"
 import { $Path$$Type } from "packages/java/nio/file/$Path"
 import { $DataProvider } from "packages/net/minecraft/data/$DataProvider"
 import { $CompletableFuture } from "packages/java/util/concurrent/$CompletableFuture"
+import { $TagsProviderAccess } from "packages/snownee/kiwi/mixin/$TagsProviderAccess"
 import { $TagsProvider$TagLookup } from "packages/net/minecraft/data/tags/$TagsProvider$TagLookup"
 import { $ExistingFileHelper$$Type } from "packages/net/minecraftforge/common/data/$ExistingFileHelper"
 import { $FileHelperDataProvider } from "packages/fuzs/puzzleslib/impl/data/$FileHelperDataProvider"
 
-export class $TagsProvider<T> implements $DataProvider, $FileHelperDataProvider {
+export class $TagsProvider<T> implements $DataProvider, $TagsProviderAccess<any>, $FileHelperDataProvider {
 public "contentsGetter"(): $CompletableFuture<$TagsProvider$TagLookup<T>>
 public "getName"(): string
 public "puzzleslib$setExistingFileHelper"(existingFileHelper0: $ExistingFileHelper$$Type): void
@@ -433,8 +433,8 @@ constructor(path0: $Path$$Type, worldVersion1: $WorldVersion$$Type, boolean2: bo
 public "addProvider"<T extends $DataProvider>(boolean0: boolean, factory1: $DataProvider$Factory$$Type<T>): T
 public "addProvider"<T extends $DataProvider>(boolean0: boolean, t1: T): T
 public "getBuiltinDatapack"(boolean0: boolean, string1: string): $DataGenerator$PackGenerator
-public "getPackOutput"(): $PackOutput
 public "getPackOutput"(string0: string): $PackOutput
+public "getPackOutput"(): $PackOutput
 public "getProvidersView"(): $Map<string, $DataProvider>
 public "getVanillaPack"(boolean0: boolean): $DataGenerator$PackGenerator
 public "run"(): void
@@ -508,8 +508,8 @@ static readonly "HAS_SILK_TOUCH": $LootItemCondition$Builder
 static readonly "NORMAL_LEAVES_SAPLING_CHANCES": float[]
 static readonly "NORMAL_LEAVES_STICK_CHANCES": float[]
 
-public "add"(block0: $Block$$Type, function1: $Function$$Type<$Block$$Type, $LootTable$Builder>): void
 public "add"(block0: $Block$$Type, builder1: $LootTable$Builder$$Type): void
+public "add"(block0: $Block$$Type, function1: $Function$$Type<$Block$$Type, $LootTable$Builder>): void
 public "addNetherVinesDropTable"(block0: $Block$$Type, block1: $Block$$Type): void
 public "applyExplosionCondition"<T extends $ConditionUserBuilder<T>>(itemLike0: $ItemLike$$Type, conditionUserBuilder1: $ConditionUserBuilder$$Type<T>): T
 public "applyExplosionDecay"<T extends $FunctionUserBuilder<T>>(itemLike0: $ItemLike$$Type, functionUserBuilder1: $FunctionUserBuilder$$Type<T>): T
@@ -544,8 +544,8 @@ public "createShulkerBoxDrop"(block0: $Block$$Type): $LootTable$Builder
 public static "createSilkTouchDispatchTable"(block0: $Block$$Type, builder1: $LootPoolEntryContainer$Builder$$Type<any>): $LootTable$Builder
 public static "createSilkTouchOnlyTable"(itemLike0: $ItemLike$$Type): $LootTable$Builder
 public static "createSilkTouchOrShearsDispatchTable"(block0: $Block$$Type, builder1: $LootPoolEntryContainer$Builder$$Type<any>): $LootTable$Builder
-public "createSingleItemTable"(itemLike0: $ItemLike$$Type): $LootTable$Builder
 public "createSingleItemTable"(itemLike0: $ItemLike$$Type, numberProvider1: $NumberProvider$$Type): $LootTable$Builder
+public "createSingleItemTable"(itemLike0: $ItemLike$$Type): $LootTable$Builder
 public "createSingleItemTableWithSilkTouch"(block0: $Block$$Type, itemLike1: $ItemLike$$Type, numberProvider2: $NumberProvider$$Type): $LootTable$Builder
 public "createSingleItemTableWithSilkTouch"(block0: $Block$$Type, itemLike1: $ItemLike$$Type): $LootTable$Builder
 public "createSinglePropConditionTable"<T extends ($Comparable<T> & $StringRepresentable)>(block0: $Block$$Type, property1: $Property$$Type<T>, t2: T): $LootTable$Builder
@@ -555,8 +555,8 @@ public "dropOther"(block0: $Block$$Type, itemLike1: $ItemLike$$Type): void
 public "dropPottedContents"(block0: $Block$$Type): void
 public "dropSelf"(block0: $Block$$Type): void
 public "dropWhenSilkTouch"(block0: $Block$$Type): void
-public "generate"(): void
 public "generate"(biConsumer0: $BiConsumer$$Type<$ResourceLocation$$Type, $LootTable$Builder$$Type>): void
+public "generate"(): void
 public static "noDrop"(): $LootTable$Builder
 public "otherWhenSilkTouch"(block0: $Block$$Type, block1: $Block$$Type): void
 }
@@ -586,8 +586,8 @@ import { $HolderGetter } from "packages/net/minecraft/core/$HolderGetter"
 
 export interface $BootstapContext<T> {
 "lookup"<S>(resourceKey0: $ResourceKey$$Type<$Registry<S>>): $HolderGetter<S>
-"register"(resourceKey0: $ResourceKey$$Type<T>, t1: T): $Holder$Reference<T>
 "register"(resourceKey0: $ResourceKey$$Type<T>, t1: T, lifecycle2: $Lifecycle$$Type): $Holder$Reference<T>
+"register"(resourceKey0: $ResourceKey$$Type<T>, t1: T): $Holder$Reference<T>
 "registryLookup"<S>(resourceKey0: $ResourceKey$$Type<$Registry<S>>): $Optional<$HolderLookup$RegistryLookup<S>>
 }
 
@@ -607,8 +607,8 @@ export class $PackOutput {
 constructor(path0: $Path$$Type)
 
 public "createPathProvider"(target0: $PackOutput$Target$$Type, string1: string): $PackOutput$PathProvider
-public "getOutputFolder"(target0: $PackOutput$Target$$Type): $Path
 public "getOutputFolder"(): $Path
+public "getOutputFolder"(target0: $PackOutput$Target$$Type): $Path
 get "outputFolder"(): $Path
 }
 }
@@ -625,8 +625,8 @@ export interface $RecipeBuilder {
 "getResult"(): $Item
 "group"(string0: string): $RecipeBuilder
 "save"(consumer0: $Consumer$$Type<$FinishedRecipe$$Type>): void
-"save"(consumer0: $Consumer$$Type<$FinishedRecipe$$Type>, string1: string): void
 "save"(consumer0: $Consumer$$Type<$FinishedRecipe$$Type>, resourceLocation1: $ResourceLocation$$Type): void
+"save"(consumer0: $Consumer$$Type<$FinishedRecipe$$Type>, string1: string): void
 "unlockedBy"(string0: string, criterionTriggerInstance1: $CriterionTriggerInstance$$Type): $RecipeBuilder
 get "result"(): $Item
 }
@@ -666,11 +666,11 @@ import { $List } from "packages/java/util/$List"
 import { $RecipeCategory$$Type } from "packages/net/minecraft/data/recipes/$RecipeCategory"
 import { $ItemLike$$Type } from "packages/net/minecraft/world/level/$ItemLike"
 import { $FinishedRecipe$$Type } from "packages/net/minecraft/data/recipes/$FinishedRecipe"
-import { $CriterionTriggerInstance$$Type } from "packages/net/minecraft/advancements/$CriterionTriggerInstance"
 
 export class $ShapelessRecipeBuilder extends $CraftingRecipeBuilder implements $RecipeBuilder {
 readonly "advancement": $Advancement$Builder
 readonly "count": integer
+"group": string
 readonly "ingredients": $List<$Ingredient>
 readonly "result": $Item
 
@@ -678,19 +678,17 @@ constructor(recipeCategory0: $RecipeCategory$$Type, itemLike1: $ItemLike$$Type, 
 
 public static "getDefaultRecipeId"(itemLike0: $ItemLike$$Type): $ResourceLocation
 public "getResult"(): $Item
+public "group"(string0: string): $ShapelessRecipeBuilder
+public "requires"(ingredient0: $Ingredient$$Type, int1: integer): $ShapelessRecipeBuilder
 public "requires"(itemLike0: $ItemLike$$Type): $ShapelessRecipeBuilder
 public "requires"(itemLike0: $ItemLike$$Type, int1: integer): $ShapelessRecipeBuilder
 public "requires"(tagKey0: $TagKey$$Type<$Item$$Type>): $ShapelessRecipeBuilder
 public "requires"(ingredient0: $Ingredient$$Type): $ShapelessRecipeBuilder
-public "requires"(ingredient0: $Ingredient$$Type, int1: integer): $ShapelessRecipeBuilder
 public "save"(consumer0: $Consumer$$Type<$FinishedRecipe$$Type>, resourceLocation1: $ResourceLocation$$Type): void
 public "save"(consumer0: $Consumer$$Type<$FinishedRecipe$$Type>): void
 public "save"(consumer0: $Consumer$$Type<$FinishedRecipe$$Type>, string1: string): void
 public static "shapeless"(recipeCategory0: $RecipeCategory$$Type, itemLike1: $ItemLike$$Type, int2: integer): $ShapelessRecipeBuilder
 public static "shapeless"(recipeCategory0: $RecipeCategory$$Type, itemLike1: $ItemLike$$Type): $ShapelessRecipeBuilder
-public "unlockedBy"(string0: string, criterionTriggerInstance1: $CriterionTriggerInstance$$Type): $ShapelessRecipeBuilder
-get "group"(): string
-set "group"(value: string)
 }
 }
 
@@ -760,27 +758,27 @@ export class $ShapedRecipeBuilder extends $CraftingRecipeBuilder implements $Rec
 readonly "advancement": $Advancement$Builder
 readonly "category": $RecipeCategory
 readonly "count": integer
+"group": string
 readonly "key": $Map<character, $Ingredient>
 readonly "result": $Item
 readonly "rows": $List<string>
 
 constructor(recipeCategory0: $RecipeCategory$$Type, itemLike1: $ItemLike$$Type, int2: integer)
 
+public "define"(character0: character, ingredient1: $Ingredient$$Type): $ShapedRecipeBuilder
 public "define"(character0: character, itemLike1: $ItemLike$$Type): $ShapedRecipeBuilder
 public "define"(character0: character, tagKey1: $TagKey$$Type<$Item$$Type>): $ShapedRecipeBuilder
-public "define"(character0: character, ingredient1: $Ingredient$$Type): $ShapedRecipeBuilder
 public "ensureValid"(resourceLocation0: $ResourceLocation$$Type): void
 public static "getDefaultRecipeId"(itemLike0: $ItemLike$$Type): $ResourceLocation
 public "getResult"(): $Item
+public "group"(string0: string): $ShapedRecipeBuilder
 public "pattern"(string0: string): $ShapedRecipeBuilder
 public "save"(consumer0: $Consumer$$Type<$FinishedRecipe$$Type>, resourceLocation1: $ResourceLocation$$Type): void
 public "save"(consumer0: $Consumer$$Type<$FinishedRecipe$$Type>): void
 public "save"(consumer0: $Consumer$$Type<$FinishedRecipe$$Type>, string1: string): void
-public static "shaped"(recipeCategory0: $RecipeCategory$$Type, itemLike1: $ItemLike$$Type): $ShapedRecipeBuilder
 public static "shaped"(recipeCategory0: $RecipeCategory$$Type, itemLike1: $ItemLike$$Type, int2: integer): $ShapedRecipeBuilder
+public static "shaped"(recipeCategory0: $RecipeCategory$$Type, itemLike1: $ItemLike$$Type): $ShapedRecipeBuilder
 public "showNotification"(boolean0: boolean): $ShapedRecipeBuilder
-get "group"(): string
-set "group"(value: string)
 }
 }
 

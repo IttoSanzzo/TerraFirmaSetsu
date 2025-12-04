@@ -64,7 +64,7 @@ constructor(rarity0: $Enchantment$Rarity$$Type, ...equipmentSlot1s: $EquipmentSl
 public "allowedInCreativeTab"(item0: $Item$$Type, set1: $Set$$Type<$EnchantmentCategory$$Type>): boolean
 public "getDamageBonus"(int0: integer, mobType1: $MobType$$Type, itemStack2: $ItemStack$$Type): float
 public static "getSweepingDamageRatio"(int0: integer): float
-public "handler$cbj000$getMaxLevel_DisableSweeping"(cir: $CallbackInfoReturnable$$Type<any>): void
+public "handler$cfl000$getMaxLevel_DisableSweeping"(cir: $CallbackInfoReturnable$$Type<any>): void
 }
 }
 

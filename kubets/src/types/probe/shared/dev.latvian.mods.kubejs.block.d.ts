@@ -185,6 +185,7 @@ import { $ToIntFunction$$Type } from "packages/java/util/function/$ToIntFunction
 import { $CropBlockBuilder$SurviveCallback$$Type } from "packages/dev/latvian/mods/kubejs/block/custom/$CropBlockBuilder$SurviveCallback"
 import { $ResourceLocation$$Type } from "packages/net/minecraft/resources/$ResourceLocation"
 import { $RandomTickCallbackJS$$Type } from "packages/dev/latvian/mods/kubejs/block/$RandomTickCallbackJS"
+import { $Block } from "packages/net/minecraft/world/level/block/$Block"
 import { $ToDoubleFunction$$Type } from "packages/java/util/function/$ToDoubleFunction"
 import { $CropBlockBuilder$ShapeBuilder$$Type } from "packages/dev/latvian/mods/kubejs/block/custom/$CropBlockBuilder$ShapeBuilder"
 
@@ -196,6 +197,7 @@ public "age"(age: integer, builder: $Consumer$$Type<$CropBlockBuilder$ShapeBuild
 /** Set the age of the crop. Note that the box will be the same for all ages (A full block size). */
 public "age"(age: integer): $CropBlockBuilder
 public "bonemeal"(bonemealCallback: $ToIntFunction$$Type<$RandomTickCallbackJS$$Type>): $CropBlockBuilder
+public "createObject"(): $Block
 /** Add a crop output with a 100% chance. */
 public "crop"(output: any): $CropBlockBuilder
 /** Add a crop output with a specific chance. */
@@ -577,13 +579,11 @@ export abstract class $CropBlockBuilder$SurviveCallback$$Static implements $Crop
 
 declare module "packages/dev/latvian/mods/kubejs/block/custom/$CarpetBlockBuilder" {
 import { $ResourceLocation$$Type } from "packages/net/minecraft/resources/$ResourceLocation"
-import { $Block } from "packages/net/minecraft/world/level/block/$Block"
 import { $ShapedBlockBuilder } from "packages/dev/latvian/mods/kubejs/block/custom/$ShapedBlockBuilder"
 
 export class $CarpetBlockBuilder extends $ShapedBlockBuilder {
 constructor(i: $ResourceLocation$$Type)
 
-public "createObject"(): $Block
 public "texture"(texture: string): $CarpetBlockBuilder
 }
 }
@@ -617,6 +617,7 @@ public "data"(cd: $BlockEntityPredicateDataCheck$$Type): $BlockEntityPredicate
 
 declare module "packages/dev/latvian/mods/kubejs/block/custom/$ButtonBlockBuilder" {
 import { $ResourceLocation$$Type } from "packages/net/minecraft/resources/$ResourceLocation"
+import { $Block } from "packages/net/minecraft/world/level/block/$Block"
 import { $BlockSetType$$Type } from "packages/net/minecraft/world/level/block/state/properties/$BlockSetType"
 import { $ShapedBlockBuilder } from "packages/dev/latvian/mods/kubejs/block/custom/$ShapedBlockBuilder"
 
@@ -624,8 +625,9 @@ export class $ButtonBlockBuilder extends $ShapedBlockBuilder {
 constructor(i: $ResourceLocation$$Type)
 
 public "arrowsCanPress"(b: boolean): $ButtonBlockBuilder
-public "behaviour"(wt: string): $ButtonBlockBuilder
 public "behaviour"(wt: $BlockSetType$$Type): $ButtonBlockBuilder
+public "behaviour"(wt: string): $ButtonBlockBuilder
+public "createObject"(): $Block
 public "ticksToStayPressed"(t: integer): $ButtonBlockBuilder
 }
 }
@@ -633,7 +635,6 @@ public "ticksToStayPressed"(t: integer): $ButtonBlockBuilder
 declare module "packages/dev/latvian/mods/kubejs/block/custom/$FenceGateBlockBuilder" {
 import { $WoodType$$Type } from "packages/net/minecraft/world/level/block/state/properties/$WoodType"
 import { $ResourceLocation$$Type } from "packages/net/minecraft/resources/$ResourceLocation"
-import { $Block } from "packages/net/minecraft/world/level/block/$Block"
 import { $ShapedBlockBuilder } from "packages/dev/latvian/mods/kubejs/block/custom/$ShapedBlockBuilder"
 
 export class $FenceGateBlockBuilder extends $ShapedBlockBuilder {
@@ -641,7 +642,6 @@ constructor(i: $ResourceLocation$$Type)
 
 public "behaviour"(wt: $WoodType$$Type): $FenceGateBlockBuilder
 public "behaviour"(wt: string): $FenceGateBlockBuilder
-public "createObject"(): $Block
 }
 }
 
@@ -693,8 +693,8 @@ public "clientTick"(callback: $BlockEntityCallback$$Type): void
 public "enableSync"(): void
 public "eventHandler"(eventId: integer, callback: $BlockEntityEventCallback$$Type): void
 public "initialData"(data: $CompoundTag$$Type): void
-public "inventory"(width: integer, height: integer): void
 public "inventory"(width: integer, height: integer, inputFilter: $Ingredient$$Type): void
+public "inventory"(width: integer, height: integer): void
 public "rightClickOpensInventory"(): void
 public "serverTick"(callback: $BlockEntityCallback$$Type): void
 public "serverTick"(frequency: integer, offset: integer, callback: $BlockEntityCallback$$Type): void
@@ -778,11 +778,13 @@ export abstract class $BlockEntityCallback$$Static implements $BlockEntityCallba
 
 declare module "packages/dev/latvian/mods/kubejs/block/custom/$SlabBlockBuilder" {
 import { $ResourceLocation$$Type } from "packages/net/minecraft/resources/$ResourceLocation"
+import { $Block } from "packages/net/minecraft/world/level/block/$Block"
 import { $ShapedBlockBuilder } from "packages/dev/latvian/mods/kubejs/block/custom/$ShapedBlockBuilder"
 
 export class $SlabBlockBuilder extends $ShapedBlockBuilder {
 constructor(i: $ResourceLocation$$Type)
 
+public "createObject"(): $Block
 }
 }
 
@@ -1025,8 +1027,6 @@ public "steppedOn"(callbackJS: $Consumer$$Type<$EntitySteppedOnBlockCallbackJS$$
 public "stoneSoundType"(): $BlockBuilder
 /** Makes the block suffocating. */
 public "suffocating"(b: boolean): $BlockBuilder
-/** Tags both the block and the item with the given tag. */
-public "tag"(tag: $ResourceLocation$$Type): $BlockBuilder
 /** Tags the block with the given tag. */
 public "tagBlock"(tag: $ResourceLocation$$Type): $BlockBuilder
 /** Tags both the block and the item with the given tag. */
@@ -1063,13 +1063,10 @@ set "randomTickCallback"(value: $Consumer$$Type<$RandomTickCallbackJS$$Type>)
 declare module "packages/dev/latvian/mods/kubejs/block/custom/$HorizontalDirectionalBlockBuilder" {
 import { $BlockBuilder } from "packages/dev/latvian/mods/kubejs/block/$BlockBuilder"
 import { $ResourceLocation$$Type } from "packages/net/minecraft/resources/$ResourceLocation"
-import { $Block } from "packages/net/minecraft/world/level/block/$Block"
 
 export class $HorizontalDirectionalBlockBuilder extends $BlockBuilder {
 constructor(i: $ResourceLocation$$Type)
 
-public "createObject"(): $Block
-public "textureAll"(tex: string): $HorizontalDirectionalBlockBuilder
 }
 }
 
@@ -1212,7 +1209,6 @@ set "velocity"(value: $Vec3$$Type)
 
 declare module "packages/dev/latvian/mods/kubejs/block/custom/$PressurePlateBlockBuilder" {
 import { $ResourceLocation$$Type } from "packages/net/minecraft/resources/$ResourceLocation"
-import { $Block } from "packages/net/minecraft/world/level/block/$Block"
 import { $BlockSetType$$Type } from "packages/net/minecraft/world/level/block/state/properties/$BlockSetType"
 import { $ShapedBlockBuilder } from "packages/dev/latvian/mods/kubejs/block/custom/$ShapedBlockBuilder"
 
@@ -1221,7 +1217,6 @@ constructor(i: $ResourceLocation$$Type)
 
 public "behaviour"(wt: $BlockSetType$$Type): $PressurePlateBlockBuilder
 public "behaviour"(wt: string): $PressurePlateBlockBuilder
-public "createObject"(): $Block
 }
 }
 

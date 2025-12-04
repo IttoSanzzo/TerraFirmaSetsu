@@ -1,11 +1,4 @@
 {
 	"item.kubejs.bismuth_bronze_nugget": "Bismuth Bronze Nugget",
-	"item.kubejs.misc.silk_cocoon": "Silk Cocoon",
-	"item.kubejs.metal.ingot.high_carbon_purple_steel": "High Carbon Purple Steel Ingot",
-	"item.kubejs.metal.ingot.purple_steel": "Purple Steel Ingot",
-	"item.kubejs.metal.double_ingot.purple_steel": "Purple Steel Double Ingot",
-	"metal.kubejs.metal/high_carbon_purple_steel_metal": "High Carbon Purple Steel",
-	"metal.kubejs.metal/purple_steel_metal": "Purple Steel",
-	"fluid.kubejs.metal.high_carbon_purple_steel": "High Carbon Purple Steel",
-	"fluid.kubejs.metal.purple_steel": "Purple Steel"
+	"item.kubejs.misc.silk_cocoon": "Silk Cocoon"
 }

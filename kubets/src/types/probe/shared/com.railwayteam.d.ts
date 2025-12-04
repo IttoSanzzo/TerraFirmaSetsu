@@ -110,22 +110,6 @@ export abstract class $AccessorAbstractVisual$$Static implements $AccessorAbstra
 }
 }
 
-declare module "packages/com/railwayteam/railways/mixin_interfaces/$IMonorailBezier" {
-import { $IMonorailBezier$MonorailAngles } from "packages/com/railwayteam/railways/mixin_interfaces/$IMonorailBezier$MonorailAngles"
-
-export interface $IMonorailBezier {
-/** Client only, do not use in server scripts */
-"getBakedMonorails"(): $IMonorailBezier$MonorailAngles[]
-get "bakedMonorails"(): $IMonorailBezier$MonorailAngles[]
-}
-
-export namespace $IMonorailBezier {
-const probejs$$marker: never
-}
-export abstract class $IMonorailBezier$$Static implements $IMonorailBezier {
-}
-}
-
 declare module "packages/com/railwayteam/railways/mixin_interfaces/$IContraptionFuel" {
 import { $MountedFluidStorageWrapper } from "packages/com/simibubi/create/api/contraption/storage/fluid/$MountedFluidStorageWrapper"
 
@@ -272,8 +256,8 @@ import { $IGenerallySearchableNavigation$PointTest$$Type } from "packages/com/ra
 
 export interface $IGenerallySearchableNavigation {
 "railways$findNearestApproachableSwitch"(boolean0: boolean): $Pair<$TrackSwitch, $Pair<boolean, $Optional<$TrackSwitchBlock$SwitchState>>>
-"railways$searchGeneral"(double0: double, double1: double, boolean2: boolean, pointTest3: $IGenerallySearchableNavigation$PointTest$$Type): void
 "railways$searchGeneral"(double0: double, boolean1: boolean, pointTest2: $IGenerallySearchableNavigation$PointTest$$Type): void
+"railways$searchGeneral"(double0: double, double1: double, boolean2: boolean, pointTest3: $IGenerallySearchableNavigation$PointTest$$Type): void
 }
 
 export namespace $IGenerallySearchableNavigation {
@@ -336,23 +320,6 @@ export namespace $AccessorOrientedContraptionEntity {
 const probejs$$marker: never
 }
 export abstract class $AccessorOrientedContraptionEntity$$Static implements $AccessorOrientedContraptionEntity {
-}
-}
-
-declare module "packages/com/railwayteam/railways/mixin_interfaces/$IMonorailBezier$MonorailAngles" {
-import { $PoseStack$Pose, $PoseStack$Pose$$Type } from "packages/com/mojang/blaze3d/vertex/$PoseStack$Pose"
-import { $BlockPos, $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
-import { $Couple, $Couple$$Type } from "packages/net/createmod/catnip/data/$Couple"
-
-export class $IMonorailBezier$MonorailAngles {
-constructor()
-
-get "beam"(): $PoseStack$Pose
-set "beam"(value: $PoseStack$Pose$$Type)
-get "beamCaps"(): $Couple<$PoseStack$Pose>
-set "beamCaps"(value: $Couple$$Type<$PoseStack$Pose$$Type>)
-get "lightPosition"(): $BlockPos
-set "lightPosition"(value: $BlockPos$$Type)
 }
 }
 

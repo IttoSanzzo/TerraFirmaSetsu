@@ -132,8 +132,8 @@ export interface $Codec<A> extends $Encoder<A>, $Decoder<A> {
 "deprecated"(int0: integer): $Codec<A>
 "dispatch"<E>(function0: $Function$$Type<E, A>, function1: $Function$$Type<A, $Codec<E>>): $Codec<E>
 "dispatch"<E>(string0: string, function1: $Function$$Type<E, A>, function2: $Function$$Type<A, $Codec<E>>): $Codec<E>
-"dispatchMap"<E>(string0: string, function1: $Function$$Type<E, A>, function2: $Function$$Type<A, $Codec<E>>): $MapCodec<E>
 "dispatchMap"<E>(function0: $Function$$Type<E, A>, function1: $Function$$Type<A, $Codec<E>>): $MapCodec<E>
+"dispatchMap"<E>(string0: string, function1: $Function$$Type<E, A>, function2: $Function$$Type<A, $Codec<E>>): $MapCodec<E>
 "dispatchStable"<E>(function0: $Function$$Type<E, A>, function1: $Function$$Type<A, $Codec<E>>): $Codec<E>
 "encode"<T>(a0: A, dynamicOps1: $DynamicOps$$Type<T>, t2: T): $DataResult<T>
 "encodeStart"<T>(dynamicOps0: $DynamicOps$$Type<T>, a1: A): $DataResult<T>
@@ -145,8 +145,8 @@ export interface $Codec<A> extends $Encoder<A>, $Decoder<A> {
 "map"<B>(function0: $Function$$Type<A, B>): $Decoder<B>
 "mapResult"(resultFunction0: $Codec$ResultFunction$$Type<A>): $Codec<A>
 "optionalFieldOf"(string0: string, lifecycle1: $Lifecycle$$Type, a2: A, lifecycle3: $Lifecycle$$Type): $MapCodec<A>
-"optionalFieldOf"(string0: string, a1: A): $MapCodec<A>
 "optionalFieldOf"(string0: string, a1: A, lifecycle2: $Lifecycle$$Type): $MapCodec<A>
+"optionalFieldOf"(string0: string, a1: A): $MapCodec<A>
 "optionalFieldOf"(string0: string): $MapCodec<$Optional<A>>
 "orElse"(unaryOperator0: $UnaryOperator$$Type<string>, a1: A): $Codec<A>
 "orElse"(consumer0: $Consumer$$Type<string>, a1: A): $Codec<A>
@@ -157,6 +157,7 @@ export interface $Codec<A> extends $Encoder<A>, $Decoder<A> {
 "parse"<T>(dynamic0: $Dynamic$$Type<T>): $DataResult<A>
 "parse"<T>(dynamicOps0: $DynamicOps$$Type<T>, t1: T): $DataResult<A>
 "partialDispatch"<E>(string0: string, function1: $Function$$Type<E, $DataResult<A>>, function2: $Function$$Type<A, $DataResult<$Codec<E>>>): $Codec<E>
+"promotePartial"(consumer0: $Consumer$$Type<string>): $Codec<A>
 "simple"(): $Decoder$Simple<A>
 "stable"(): $Codec<A>
 "terminal"(): $Decoder$Terminal<A>

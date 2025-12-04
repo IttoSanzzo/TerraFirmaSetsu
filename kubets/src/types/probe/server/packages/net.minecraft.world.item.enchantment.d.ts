@@ -203,7 +203,7 @@ public "getMinCost"(int0: integer): integer
 public "getMinLevel"(): integer
 public "getRarity"(): $Enchantment$Rarity
 public "getSlotItems"(livingEntity0: $LivingEntity$$Type): $Map<$EquipmentSlot, $ItemStack>
-public "handler$zjg000$apoth_modifyEnchColorForAboveMaxLevel"(int0: integer, callbackInfoReturnable1: $CallbackInfoReturnable$$Type<any>): void
+public "handler$znc000$apoth_modifyEnchColorForAboveMaxLevel"(int0: integer, callbackInfoReturnable1: $CallbackInfoReturnable$$Type<any>): void
 public "isAllowedOnBooks"(): boolean
 public "isCompatibleWith"(enchantment0: $Enchantment$$Type): boolean
 public "isCurse"(): boolean
@@ -318,7 +318,7 @@ export type $ProtectionEnchantment_ = $ProtectionEnchantment$$Type;
 declare module "packages/net/minecraft/world/item/enchantment/$EnchantmentCategory" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
-export type $EnchantmentCategory$$Type = ($EnchantmentCategory | ("armor" | "armor_feet" | "armor_legs" | "armor_chest" | "armor_head" | "weapon" | "digger" | "fishing_rod" | "trident" | "breakable" | "bow" | "wearable" | "crossbow" | "vanishable" | "hoe" | "shield" | "anvil" | "shears" | "pickaxe" | "axe" | "core_armor" | "type_tombstone_all" | "type_tombstone_all_weapons" | "enchantable" | "pickaxe_or_shovel" | "sword_or_axe" | "sword_or_axe_or_crossbow" | "knife" | "malum:scythe_only" | "malum:staff_only" | "malum:soul_hunter_weapon" | "malum:magic_capable_weapon" | "apotheosis.null" | "stafforweapon" | "staves"));
+export type $EnchantmentCategory$$Type = ($EnchantmentCategory | ("armor" | "armor_feet" | "armor_legs" | "armor_chest" | "armor_head" | "weapon" | "digger" | "fishing_rod" | "trident" | "breakable" | "bow" | "wearable" | "crossbow" | "vanishable" | "hoe" | "shield" | "anvil" | "shears" | "pickaxe" | "axe" | "core_armor" | "type_tombstone_all" | "type_tombstone_all_weapons" | "enchantable" | "pickaxe_or_shovel" | "sword_or_axe" | "sword_or_axe_or_crossbow" | "knife" | "malum:scythe_only" | "malum:staff_only" | "malum:soul_hunter_weapon" | "malum:magic_capable_weapon" | "apotheosis.null" | "stafforweapon" | "butcher_butcherenchantment" | "staves"));
 /** Global type exported for convenience, use class-specific types if there's a naming conflict. */
 declare global {
 export type $EnchantmentCategory_ = $EnchantmentCategory$$Type;

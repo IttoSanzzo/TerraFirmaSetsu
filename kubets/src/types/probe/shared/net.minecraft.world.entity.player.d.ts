@@ -38,8 +38,9 @@ readonly "player": $Player
 
 constructor(player0: $Player$$Type)
 
-public "add"(itemStack0: $ItemStack$$Type): boolean
 public "add"(int0: integer, itemStack1: $ItemStack$$Type): boolean
+public "add"(itemStack0: $ItemStack$$Type): boolean
+public "addResource"(int0: integer, itemStack1: $ItemStack$$Type): integer
 public "asContainer"(): $Container
 public "canPlaceItem"(int0: integer, itemStack1: $ItemStack$$Type): boolean
 public "canTakeItem"(container0: $Container$$Type, int1: integer, itemStack2: $ItemStack$$Type): boolean
@@ -47,13 +48,13 @@ public "clear"(): void
 public "clear"(ingredient: $Ingredient$$Type): void
 public "clearContent"(): void
 public "clearOrCountMatchingItems"(predicate0: $Predicate$$Type<$ItemStack$$Type>, int1: integer, container2: $Container$$Type): integer
-public "contains"(tagKey0: $TagKey$$Type<$Item$$Type>): boolean
 public "contains"(itemStack0: $ItemStack$$Type): boolean
-public "count"(ingredient: $Ingredient$$Type): integer
+public "contains"(tagKey0: $TagKey$$Type<$Item$$Type>): boolean
 public "count"(): integer
+public "count"(ingredient: $Ingredient$$Type): integer
 public "countItem"(item0: $Item$$Type): integer
-public "countNonEmpty"(): integer
 public "countNonEmpty"(ingredient: $Ingredient$$Type): integer
+public "countNonEmpty"(): integer
 public "dropAll"(): void
 public "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
 public "fillStackedContents"(stackedContents0: $StackedContents$$Type): void
@@ -82,17 +83,18 @@ public "getStackInSlot"(slot: integer): $ItemStack
 public "getSuitableHotbarSlot"(): integer
 public "getTimesChanged"(): integer
 public "getWidth"(): integer
-public "handler$cjf000$saveSoulboundItems"(callbackInfo0: $CallbackInfo$$Type): void
-public "handler$dlk000$addStackPost"(itemStack0: $ItemStack$$Type, callbackInfoReturnable1: $CallbackInfoReturnable$$Type<any>): void
-public "handler$dlk000$addStackPre"(itemStack0: $ItemStack$$Type, callbackInfoReturnable1: $CallbackInfoReturnable$$Type<any>): void
-public "handler$dlk000$getEmptySlot"(callbackInfoReturnable0: $CallbackInfoReturnable$$Type<any>): void
-public "handler$dlk000$setPickedItemPost"(itemStack0: $ItemStack$$Type, callbackInfo1: $CallbackInfo$$Type): void
-public "handler$dlk000$setPickedItemPre"(itemStack0: $ItemStack$$Type, callbackInfo1: $CallbackInfo$$Type): void
-public "handler$eeb000$fireDropEvent"(ci: $CallbackInfo$$Type, var1: $Iterator$$Type<any>, list: $List$$Type<any>, i: integer): void
-public "handler$eeb000$restoreNotDropped"(ci: $CallbackInfo$$Type, var1: $Iterator$$Type<any>, list: $List$$Type<any>, i: integer): void
+public "handler$cka000$saveSoulboundItems"(callbackInfo0: $CallbackInfo$$Type): void
+public "handler$eai000$addStackPost"(itemStack0: $ItemStack$$Type, callbackInfoReturnable1: $CallbackInfoReturnable$$Type<any>): void
+public "handler$eai000$addStackPre"(itemStack0: $ItemStack$$Type, callbackInfoReturnable1: $CallbackInfoReturnable$$Type<any>): void
+public "handler$eai000$getEmptySlot"(callbackInfoReturnable0: $CallbackInfoReturnable$$Type<any>): void
+public "handler$eai000$setPickedItemPost"(itemStack0: $ItemStack$$Type, callbackInfo1: $CallbackInfo$$Type): void
+public "handler$eai000$setPickedItemPre"(itemStack0: $ItemStack$$Type, callbackInfo1: $CallbackInfo$$Type): void
+public "handler$ekc000$fireDropEvent"(ci: $CallbackInfo$$Type, var1: $Iterator$$Type<any>, list: $List$$Type<any>, i: integer): void
+public "handler$ekc000$restoreNotDropped"(ci: $CallbackInfo$$Type, var1: $Iterator$$Type<any>, list: $List$$Type<any>, i: integer): void
 public "hasAnyMatching"(predicate0: $Predicate$$Type<any>): boolean
 public "hasAnyOf"(set0: $Set$$Type<$Item$$Type>): boolean
 public "hasCustomName"(): boolean
+public "hasRemainingSpaceForItem"(itemStack0: $ItemStack$$Type, itemStack1: $ItemStack$$Type): boolean
 public "hurtArmor"(damageSource0: $DamageSource$$Type, float1: float, int2s: integer[]): void
 public "insertItem"(slot: integer, stack: $ItemStack$$Type, simulate: boolean): $ItemStack
 public "insertItem"(stack: $ItemStack$$Type, simulate: boolean): $ItemStack
@@ -121,6 +123,7 @@ public "startOpen"(player0: $Player$$Type): void
 public "stillValid"(player0: $Player$$Type): boolean
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 public "stopOpen"(player0: $Player$$Type): void
 public "swapPaint"(double0: double): void
 public "tick"(): void
@@ -217,7 +220,6 @@ import { $ItemCooldowns } from "packages/net/minecraft/world/item/$ItemCooldowns
 import { $PlayerKJS } from "packages/dev/latvian/mods/kubejs/core/$PlayerKJS"
 import { $PartEntity } from "packages/net/minecraftforge/entity/$PartEntity"
 import { $DynamicLightSource } from "packages/toni/sodiumdynamiclights/$DynamicLightSource"
-import { $Trackable } from "packages/dev/uncandango/alltheleaks/mixin/$Trackable"
 import { $LazyOptional } from "packages/net/minecraftforge/common/util/$LazyOptional"
 import { $Component, $Component$$Type } from "packages/net/minecraft/network/chat/$Component"
 import { $Stat$$Type } from "packages/net/minecraft/stats/$Stat"
@@ -227,13 +229,11 @@ import { $Stages } from "packages/dev/latvian/mods/kubejs/stages/$Stages"
 import { $IQuiverEntity } from "packages/net/mehvahdjukaar/supplementaries/api/$IQuiverEntity"
 import { $ClickAction$$Type } from "packages/net/minecraft/world/inventory/$ClickAction"
 import { $PlayerData, $PlayerData$$Type } from "packages/com/minecraftserverzone/weaponmaster/setup/playerdata/$PlayerData"
-import { $WeakReference } from "packages/java/lang/ref/$WeakReference"
 import { $AnimationApplier } from "packages/dev/kosmx/playerAnim/impl/animation/$AnimationApplier"
 import { $PlayerModelPart$$Type } from "packages/net/minecraft/world/entity/player/$PlayerModelPart"
 import { $KubeJSInventoryListener } from "packages/dev/latvian/mods/kubejs/player/$KubeJSInventoryListener"
 import { $AccessorPlayer } from "packages/com/illusivesoulworks/comforts/mixin/$AccessorPlayer"
 import { $Collection, $Collection$$Type } from "packages/java/util/$Collection"
-import { $Class } from "packages/java/lang/$Class"
 import { $HitResult$$Type } from "packages/net/minecraft/world/phys/$HitResult"
 import { $InteractionHand, $InteractionHand$$Type } from "packages/net/minecraft/world/$InteractionHand"
 import { $Attribute$$Type } from "packages/net/minecraft/world/entity/ai/attributes/$Attribute"
@@ -289,7 +289,6 @@ import { $LevelRenderer$$Type } from "packages/net/minecraft/client/renderer/$Le
 import { $PlayerStatsJS } from "packages/dev/latvian/mods/kubejs/player/$PlayerStatsJS"
 import { $RayTraceResultJS } from "packages/dev/latvian/mods/kubejs/entity/$RayTraceResultJS"
 import { $SoundAction$$Type } from "packages/net/minecraftforge/common/$SoundAction"
-import { $ObjectOpenCustomHashSet } from "packages/it/unimi/dsi/fastutil/objects/$ObjectOpenCustomHashSet"
 import { $InteractionResult } from "packages/net/minecraft/world/$InteractionResult"
 import { $Ingredient$$Type } from "packages/net/minecraft/world/item/crafting/$Ingredient"
 import { $FishingHook, $FishingHook$$Type } from "packages/net/minecraft/world/entity/projectile/$FishingHook"
@@ -301,9 +300,8 @@ import { $CallbackInfo$$Type } from "packages/org/spongepowered/asm/mixin/inject
 import { $IPlayerData } from "packages/com/minecraftserverzone/weaponmaster/setup/playerdata/$IPlayerData"
 import { $PlayerEntityAccessor } from "packages/net/bettercombat/mixin/$PlayerEntityAccessor"
 import { $EntityDimensions, $EntityDimensions$$Type } from "packages/net/minecraft/world/entity/$EntityDimensions"
-import { $Map } from "packages/java/util/$Map"
 
-export class $Player extends $LivingEntity implements $IForgePlayer, $IAnimatedPlayer, $PlayerAccess, $IFlying, $PlayerAccessor, $PlayerEntityAccessor, $PlayerAttackProperties, $EntityPlayer_BetterCombat, $Trackable, $IPlayerData, $DynamicLightSource, $PlayerAccessor$0, $AccessorPlayer, $PlayerSettings, $IQuiverEntity, $GUIRenderer, $PlayerKJS {
+export class $Player extends $LivingEntity implements $IForgePlayer, $IAnimatedPlayer, $PlayerAccess, $IFlying, $PlayerAccessor, $PlayerEntityAccessor, $PlayerAttackProperties, $EntityPlayer_BetterCombat, $IPlayerData, $DynamicLightSource, $PlayerAccessor$0, $AccessorPlayer, $PlayerSettings, $IQuiverEntity, $GUIRenderer, $PlayerKJS {
 static readonly "CROUCH_BB_HEIGHT": float
 static readonly "DEFAULT_EYE_HEIGHT": float
 static readonly "ENDER_SLOT_OFFSET": integer
@@ -327,14 +325,13 @@ public "addItemCooldown"(item: $Item$$Type, ticks: integer): void
 public "addXP"(xp: integer): void
 public "addXPLevels"(l: integer): void
 public "alwaysAccepts"(): boolean
-public "atl$getBaseClass"(): $Class<any>
 public "attack"(entity0: $Entity$$Type): void
 public "attack"(hp: float): void
 public "awardRecipes"(collection0: $Collection$$Type<$Recipe$$Type<any>>): integer
 public "awardRecipesByKey"(resourceLocation0s: $ResourceLocation$$Type[]): void
 public "awardStat"(resourceLocation0: $ResourceLocation$$Type): void
-public "awardStat"(stat0: $Stat$$Type<any>): void
 public "awardStat"(resourceLocation0: $ResourceLocation$$Type, int1: integer): void
+public "awardStat"(stat0: $Stat$$Type<any>): void
 public "awardStat"(stat0: $Stat$$Type<any>, int1: integer): void
 public "blockActionRestricted"(level0: $Level$$Type, blockPos1: $BlockPos$$Type, gameType2: $GameType$$Type): boolean
 public "boostElytraFlight"(): void
@@ -349,6 +346,8 @@ public "canHydrateInFluidType"(fluidType0: $FluidType$$Type): boolean
 public "canReach"(vec30: $Vec3$$Type, double1: double): boolean
 public "canReach"(blockPos0: $BlockPos$$Type, double1: double): boolean
 public "canReach"(entity0: $Entity$$Type, double1: double): boolean
+public "canReachRaw"(entity0: $Entity$$Type, double1: double): boolean
+public "canReachRaw"(blockPos0: $BlockPos$$Type, double1: double): boolean
 public "canRiderInteract"(): boolean
 public "canStartSwimming"(): boolean
 public "canSwimInFluidType"(fluidType0: $FluidType$$Type): boolean
@@ -356,17 +355,15 @@ public "canUseGameMasterBlocks"(): boolean
 public "causeFoodExhaustion"(float0: float): void
 public "checkMovementStatistics"(double0: double, double1: double, double2: double): void
 public "clearMeshes"(): void
-public static "clearNullReferences"(): void
 public "closeMenu"(): void
 public static "createAttributes"(): $AttributeSupplier$Builder
-public static "createWeakRefBasedSet"(): $ObjectOpenCustomHashSet<$WeakReference<$Trackable>>
 public "crit"(entity0: $Entity$$Type): void
-public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type): void
+public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer): void
 public "damageEquipment"(slot: $EquipmentSlot$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
+public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer, onBroken: $Consumer$$Type<$ItemStack$$Type>): void
 public "damageHeldItem"(): void
-public "damageHeldItem"(hand: $InteractionHand$$Type, amount: integer): void
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "disableShield"(boolean0: boolean): void
 public "displayClientMessage"(component0: $Component$$Type, boolean1: boolean): void
@@ -401,8 +398,8 @@ public "getDefaultMovementSpeed"(): double
 public "getDestroySpeed"(blockState0: $BlockState$$Type): float
 public "getDigSpeed"(blockState0: $BlockState$$Type, blockPos1: $BlockPos$$Type): float
 public "getDisplayName"(): $Component
-public "getDistance"(x: double, y: double, z: double): double
 public "getDistance"(pos: $BlockPos$$Type): double
+public "getDistance"(x: double, y: double, z: double): double
 public "getDistanceSq"(pos: $BlockPos$$Type): double
 public "getEnchantmentSeed"(): integer
 public "getEnderChestInventory"(): $PlayerEnderChestContainer
@@ -466,7 +463,6 @@ public "getStandingEyeHeight"(pose0: $Pose$$Type, entityDimensions1: $EntityDime
 public "getStats"(): $PlayerStatsJS
 public "getStepHeight"(): float
 public "getSuffixes"(): $Collection<$MutableComponent>
-public static "getSummary"(): $Map<$Class<any>, $Map<$Class<any>, long>>
 public "getTeamId"(): string
 public "getTorsoMesh"(): $Mesh
 public "getTotalMovementSpeed"(): double
@@ -479,19 +475,20 @@ public "give"(item: $ItemStack$$Type): void
 public "giveExperienceLevels"(int0: integer): void
 public "giveExperiencePoints"(int0: integer): void
 public "giveInHand"(item: $ItemStack$$Type): void
-public "handler$bkc000$apoth_cacheFlying"(compoundTag0: $CompoundTag$$Type, callbackInfo1: $CallbackInfo$$Type): void
-public "handler$bkc000$apoth_ownedAbilities"(level0: $Level$$Type, blockPos1: $BlockPos$$Type, float2: float, gameProfile3: $GameProfile$$Type, callbackInfo4: $CallbackInfo$$Type): void
-public "handler$cbg000$getEquippedStack_Pre"(slot: $EquipmentSlot$$Type, cir: $CallbackInfoReturnable$$Type<any>): void
-public "handler$cbg000$post_Tick"(ci: $CallbackInfo$$Type): void
-public "handler$cjk000$mna$hurtArmor"(damageSource0: $DamageSource$$Type, float1: float, callbackInfo2: $CallbackInfo$$Type): void
-public "handler$coa004$tick"(callbackInfo0: $CallbackInfo$$Type): void
-public "handler$ddp000$addModDataVersions"(compound: $CompoundTag$$Type, ci: $CallbackInfo$$Type): void
-public "handler$fgl000$getDimensions"(pose0: $Pose$$Type, callbackInfoReturnable1: $CallbackInfoReturnable$$Type<any>): void
-public "handler$fgl000$getStandingEyeHeight"(pose0: $Pose$$Type, entityDimensions1: $EntityDimensions$$Type, callbackInfoReturnable2: $CallbackInfoReturnable$$Type<any>): void
-public "handler$fgl000$onIsStayingOnGroundSurface"(callbackInfoReturnable0: $CallbackInfoReturnable$$Type<any>): void
-public "handler$fgl000$onJumpFromGround"(callbackInfo0: $CallbackInfo$$Type): void
-public "handler$fgl000$onTryToStartFallFlying"(callbackInfoReturnable0: $CallbackInfoReturnable$$Type<any>): void
-public "handler$zoi000$inject$interactOn"(entity0: $Entity$$Type, interactionHand1: $InteractionHand$$Type, callbackInfoReturnable2: $CallbackInfoReturnable$$Type<any>): void
+public "handler$bce000$inject$interactOn"(entity0: $Entity$$Type, interactionHand1: $InteractionHand$$Type, callbackInfoReturnable2: $CallbackInfoReturnable$$Type<any>): void
+public "handler$bno000$apoth_cacheFlying"(compoundTag0: $CompoundTag$$Type, callbackInfo1: $CallbackInfo$$Type): void
+public "handler$bno000$apoth_ownedAbilities"(level0: $Level$$Type, blockPos1: $BlockPos$$Type, float2: float, gameProfile3: $GameProfile$$Type, callbackInfo4: $CallbackInfo$$Type): void
+public "handler$cfi000$getEquippedStack_Pre"(slot: $EquipmentSlot$$Type, cir: $CallbackInfoReturnable$$Type<any>): void
+public "handler$cfi000$post_Tick"(ci: $CallbackInfo$$Type): void
+public "handler$ckf000$mna$hurtArmor"(damageSource0: $DamageSource$$Type, float1: float, callbackInfo2: $CallbackInfo$$Type): void
+public "handler$ddb004$tick"(callbackInfo0: $CallbackInfo$$Type): void
+public "handler$dja000$addModDataVersions"(compound: $CompoundTag$$Type, ci: $CallbackInfo$$Type): void
+public "handler$fmo000$getDimensions"(pose0: $Pose$$Type, callbackInfoReturnable1: $CallbackInfoReturnable$$Type<any>): void
+public "handler$fmo000$getStandingEyeHeight"(pose0: $Pose$$Type, entityDimensions1: $EntityDimensions$$Type, callbackInfoReturnable2: $CallbackInfoReturnable$$Type<any>): void
+public "handler$fmo000$onIsStayingOnGroundSurface"(callbackInfoReturnable0: $CallbackInfoReturnable$$Type<any>): void
+public "handler$fmo000$onJumpFromGround"(callbackInfo0: $CallbackInfo$$Type): void
+public "handler$fmo000$onTryToStartFallFlying"(callbackInfoReturnable0: $CallbackInfoReturnable$$Type<any>): void
+public "handler$zcg000$onMayUseItemAt"(blockPos0: $BlockPos$$Type, direction1: $Direction$$Type, itemStack2: $ItemStack$$Type, callbackInfoReturnable3: $CallbackInfoReturnable$$Type<any>): void
 public "hasContainerOpen"(): boolean
 public "hasCorrectToolForDrops"(blockState0: $BlockState$$Type): boolean
 public "hasCustomOutlineRendering"(player0: $Player$$Type): boolean
@@ -535,12 +532,12 @@ public "markFlying"(): void
 public "mayBuild"(): boolean
 public "mayUseItemAt"(blockPos0: $BlockPos$$Type, direction1: $Direction$$Type, itemStack2: $ItemStack$$Type): boolean
 public "mergeNbt"(tag: $CompoundTag$$Type): $Entity
-public "modify$cbg000$getHand"(hand: $InteractionHand$$Type): $InteractionHand
+public "modify$cfi000$getHand"(hand: $InteractionHand$$Type): $InteractionHand
 public "modifyAttribute"(attribute: $Attribute$$Type, identifier: string, d: double, operation: $AttributeModifier$Operation$$Type): void
-public "modifyExpressionValue$cjd001$elytraOverride"(boolean0: boolean): boolean
+public "modifyExpressionValue$cjo001$elytraOverride"(boolean0: boolean): boolean
 public "moveInFluid"(fluidState0: $FluidState$$Type, vec31: $Vec3$$Type, double2: double): boolean
-public "notify"(title: $Component$$Type, text: $Component$$Type): void
 public "notify"(builder: $NotificationBuilder$$Type): void
+public "notify"(title: $Component$$Type, text: $Component$$Type): void
 public "onEnchantmentPerformed"(itemStack0: $ItemStack$$Type, int1: integer): void
 public "onUpdateAbilities"(): void
 public "openCommandBlock"(commandBlockEntity0: $CommandBlockEntity$$Type): void
@@ -555,14 +552,14 @@ public "paint"(renderer: $CompoundTag$$Type): void
 public "playNotifySound"(soundEvent0: $SoundEvent$$Type, soundSource1: $SoundSource$$Type, float2: float, float3: float): void
 public "playSound"(id: $SoundEvent$$Type): void
 public "playSound"(id: $SoundEvent$$Type, volume: float, pitch: float): void
-public "playerAnimator_getAnimation"(): $AnimationApplier
 public "playerAnimator_getAnimation"(id: $ResourceLocation$$Type): $IAnimation
+public "playerAnimator_getAnimation"(): $AnimationApplier
 public "playerAnimator_setAnimation"(id: $ResourceLocation$$Type, animation: $IAnimation$$Type): $IAnimation
 public "rayTrace"(): $RayTraceResultJS
 public "rayTrace"(distance: double, fluids: boolean): $RayTraceResultJS
 public "rayTrace"(distance: double): $RayTraceResultJS
-public "redirect$cbg000$getMainHandStack_Redirect"(instance: $Player$$Type): $ItemStack
-public "redirect$cbg000$setStackInHand_Redirect"(instance: $Player$$Type, handArg: $InteractionHand$$Type, itemStack: $ItemStack$$Type): void
+public "redirect$cfi000$getMainHandStack_Redirect"(instance: $Player$$Type): $ItemStack
+public "redirect$cfi000$setStackInHand_Redirect"(instance: $Player$$Type, handArg: $InteractionHand$$Type, itemStack: $ItemStack$$Type): void
 public "refreshDisplayName"(): void
 public "removeAttribute"(attribute: $Attribute$$Type, identifier: string): void
 public "resetAttackStrengthTicker"(): void
@@ -584,7 +581,6 @@ public "sendData"(channel: string, data: $CompoundTag$$Type): void
 public "sendData"(channel: string): void
 public "sendInventoryUpdate"(): void
 public "sendMerchantOffers"(int0: integer, merchantOffers1: $MerchantOffers$$Type, int2: integer, int3: integer, boolean4: boolean, boolean5: boolean): void
-public "serializeNBT"(): $CompoundTag
 public "setAttributeBaseValue"(attribute: $Attribute$$Type, value: double): void
 public "setChestArmorItem"(item: $ItemStack$$Type): void
 public "setComboCount"(comboCount: integer): void
@@ -644,8 +640,6 @@ public "spawn"(): void
 public "startAutoSpinAttack"(int0: integer): void
 public "startFallFlying"(): void
 public "startSleepInBed"(blockPos0: $BlockPos$$Type): $Either<$Player$BedSleepingProblem, $Unit>
-public "startTracking"(): void
-public static "startTracking"(object0: any): void
 public "stopFallFlying"(): void
 public "stopSleepInBed"(boolean0: boolean, boolean1: boolean): void
 public "supplementaries$getQuiver"(): $ItemStack
@@ -660,7 +654,6 @@ public static "tickEntity"(entity: $LivingEntity$$Type): void
 public "triggerRecipeCrafted"(recipe0: $Recipe$$Type<any>, list1: $List$$Type<$ItemStack$$Type>): void
 public "tryToStartFallFlying"(): boolean
 public "updateTutorialInventoryAction"(itemStack0: $ItemStack$$Type, itemStack1: $ItemStack$$Type, clickAction2: $ClickAction$$Type): void
-public "wrap"(): $WeakReference<$Trackable>
 get "bob"(): float
 set "bob"(value: float)
 get "containerMenu"(): $AbstractContainerMenu
@@ -897,8 +890,8 @@ constructor(friendlyByteBuf0: $FriendlyByteBuf$$Type)
 constructor(instant0: $Instant$$Type, publicKey1: $PublicKey$$Type, byte2s: byte[])
 
 public "expiresAt"(): $Instant
-public "hasExpired"(): boolean
 public "hasExpired"(duration0: $Duration$$Type): boolean
+public "hasExpired"(): boolean
 public "key"(): $PublicKey
 public "keySignature"(): byte[]
 public "write"(friendlyByteBuf0: $FriendlyByteBuf$$Type): void
@@ -917,8 +910,8 @@ readonly "contents": $Int2IntMap
 constructor()
 
 public "accountSimpleStack"(itemStack0: $ItemStack$$Type): void
-public "accountStack"(itemStack0: $ItemStack$$Type): void
 public "accountStack"(itemStack0: $ItemStack$$Type, int1: integer): void
+public "accountStack"(itemStack0: $ItemStack$$Type): void
 public "canCraft"(recipe0: $Recipe$$Type<any>, intList1: $IntList$$Type, int2: integer): boolean
 public "canCraft"(recipe0: $Recipe$$Type<any>, intList1: $IntList$$Type): boolean
 public "clear"(): void

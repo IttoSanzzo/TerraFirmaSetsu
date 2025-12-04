@@ -106,6 +106,8 @@ declare module "packages/dev/tr7zw/skinlayers/accessor/$PlayerEntityModelAccesso
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $PlayerEntityModelAccessor {
 "hasThinArms"(): boolean
+"setIgnored"(boolean0: boolean): void
+set "ignored"(value: boolean)
 }
 
 export namespace $PlayerEntityModelAccessor {

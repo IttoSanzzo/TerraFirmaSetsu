@@ -583,8 +583,8 @@ public static "setContentHandlerFactory"(contentHandlerFactory0: $ContentHandler
 public static "setDefaultAllowUserInteraction"(boolean0: boolean): void
 /** @deprecated */
 public static "setDefaultRequestProperty"(string0: string, string1: string): void
-public "setDefaultUseCaches"(boolean0: boolean): void
 public static "setDefaultUseCaches"(string0: string, boolean1: boolean): void
+public "setDefaultUseCaches"(boolean0: boolean): void
 public "setDoInput"(boolean0: boolean): void
 public "setDoOutput"(boolean0: boolean): void
 public static "setFileNameMap"(fileNameMap0: $FileNameMap$$Type): void
@@ -828,21 +828,21 @@ import { $SocketOption, $SocketOption$$Type } from "packages/java/net/$SocketOpt
  * Loading the class using require() will not throw an error, but the class will be undefined.
  */
 export class $Socket implements $Closeable {
+constructor(inetAddress0: $InetAddress$$Type, int1: integer)
+constructor(string0: string, int1: integer, inetAddress2: $InetAddress$$Type, int3: integer)
+constructor(inetAddress0: $InetAddress$$Type, int1: integer, inetAddress2: $InetAddress$$Type, int3: integer)
 /** @deprecated */
 constructor(string0: string, int1: integer, boolean2: boolean)
-constructor(inetAddress0: $InetAddress$$Type, int1: integer, inetAddress2: $InetAddress$$Type, int3: integer)
-constructor(string0: string, int1: integer, inetAddress2: $InetAddress$$Type, int3: integer)
 /** @deprecated */
 constructor(inetAddress0: $InetAddress$$Type, int1: integer, boolean2: boolean)
 constructor()
 constructor(proxy0: $Proxy$$Type)
 constructor(string0: string, int1: integer)
-constructor(inetAddress0: $InetAddress$$Type, int1: integer)
 
 public "bind"(socketAddress0: $SocketAddress$$Type): void
 public "close"(): void
-public "connect"(socketAddress0: $SocketAddress$$Type, int1: integer): void
 public "connect"(socketAddress0: $SocketAddress$$Type): void
+public "connect"(socketAddress0: $SocketAddress$$Type, int1: integer): void
 public "getChannel"(): $SocketChannel
 public "getInetAddress"(): $InetAddress
 public "getInputStream"(): $InputStream

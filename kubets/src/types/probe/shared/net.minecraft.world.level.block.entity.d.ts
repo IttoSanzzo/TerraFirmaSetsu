@@ -98,11 +98,11 @@ public "canTakeItem"(container0: $Container$$Type, int1: integer, itemStack2: $I
 public "clear"(): void
 public "clear"(ingredient: $Ingredient$$Type): void
 public "clearContent"(): void
-public "count"(ingredient: $Ingredient$$Type): integer
 public "count"(): integer
+public "count"(ingredient: $Ingredient$$Type): integer
 public "countItem"(item0: $Item$$Type): integer
-public "countNonEmpty"(): integer
 public "countNonEmpty"(ingredient: $Ingredient$$Type): integer
+public "countNonEmpty"(): integer
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
 public "find"(ingredient: $Ingredient$$Type): integer
@@ -123,11 +123,11 @@ public "getStackInSlot"(slot: integer): $ItemStack
 public "getUpdatePacket"(): $Packet<any>
 public "getWidth"(): integer
 public "handleUpdateTag"(compoundTag0: $CompoundTag$$Type): void
-public "handler$emn002$load"(compoundTag0: $CompoundTag$$Type, callbackInfo1: $CallbackInfo$$Type): void
-public "handler$fdk000$amendments$fixItemSync"(tag: $CompoundTag$$Type, ci: $CallbackInfo$$Type): void
-public "handler$fdk000$amendments$tickAnimation"(level: $Level$$Type, blockPos: $BlockPos$$Type, blockState: $BlockState$$Type, ci: $CallbackInfo$$Type): void
-public "handler$fdk000$notifyAddedItem"(slot: integer, stack: $ItemStack$$Type, ci: $CallbackInfo$$Type): void
-public "handler$fdk000$notifyRemovedItem"(slot: integer, amount: integer, cir: $CallbackInfoReturnable$$Type<any>): void
+public "handler$fcp002$load"(compoundTag0: $CompoundTag$$Type, callbackInfo1: $CallbackInfo$$Type): void
+public "handler$fjn000$amendments$fixItemSync"(tag: $CompoundTag$$Type, ci: $CallbackInfo$$Type): void
+public "handler$fjn000$amendments$tickAnimation"(level: $Level$$Type, blockPos: $BlockPos$$Type, blockState: $BlockState$$Type, ci: $CallbackInfo$$Type): void
+public "handler$fjn000$notifyAddedItem"(slot: integer, stack: $ItemStack$$Type, ci: $CallbackInfo$$Type): void
+public "handler$fjn000$notifyRemovedItem"(slot: integer, amount: integer, cir: $CallbackInfoReturnable$$Type<any>): void
 public "hasAnyMatching"(predicate0: $Predicate$$Type<$ItemStack$$Type>): boolean
 public "hasAnyOf"(set0: $Set$$Type<$Item$$Type>): boolean
 public "hasCustomOutlineRendering"(player0: $Player$$Type): boolean
@@ -159,6 +159,7 @@ public "startPlaying"(): void
 public "stillValid"(player0: $Player$$Type): boolean
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 public "stopOpen"(player0: $Player$$Type): void
 public static "tryClear"(object0: any): void
 get "allItems"(): $List<$ItemStack>
@@ -207,6 +208,7 @@ public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "getCapability"<T>(capability0: $Capability$$Type<T>): $LazyOptional<T>
 public static "getGameEventFrequency"(gameEvent0: $GameEvent$$Type): integer
 public "getLastVibrationFrequency"(): integer
+public "getListener"(): $VibrationSystem$Listener
 public "getModelData"(): $ModelData
 public static "getRedstoneStrengthForDistance"(float0: float, int1: integer): integer
 public "getRenderBoundingBox"(): $AABB
@@ -222,6 +224,7 @@ public "sdl$isDynamicLightEnabled"(): boolean
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "setLastVibrationFrequency"(int0: integer): void
 get "lastVibrationFrequency"(): integer
+get "listener"(): $VibrationSystem$Listener
 get "modelData"(): $ModelData
 get "renderBoundingBox"(): $AABB
 get "vibrationData"(): $VibrationSystem$Data
@@ -266,11 +269,11 @@ public "canPlaceItem"(int0: integer, itemStack1: $ItemStack$$Type): boolean
 public "canTakeItem"(container0: $Container$$Type, int1: integer, itemStack2: $ItemStack$$Type): boolean
 public "clear"(): void
 public "clear"(ingredient: $Ingredient$$Type): void
-public "count"(ingredient: $Ingredient$$Type): integer
 public "count"(): integer
+public "count"(ingredient: $Ingredient$$Type): integer
 public "countItem"(item0: $Item$$Type): integer
-public "countNonEmpty"(): integer
 public "countNonEmpty"(ingredient: $Ingredient$$Type): integer
+public "countNonEmpty"(): integer
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
 public "find"(ingredient: $Ingredient$$Type): integer
@@ -309,6 +312,7 @@ public "setStackInSlot"(slot: integer, stack: $ItemStack$$Type): void
 public "startOpen"(player0: $Player$$Type): void
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 public "stopOpen"(player0: $Player$$Type): void
 public static "tryClear"(object0: any): void
 get "allItems"(): $List<$ItemStack>
@@ -347,7 +351,7 @@ import { $AABB } from "packages/net/minecraft/world/phys/$AABB"
 import { $LevelRenderer$$Type } from "packages/net/minecraft/client/renderer/$LevelRenderer"
 import { $DynamicLightSource } from "packages/toni/sodiumdynamiclights/$DynamicLightSource"
 
-export class $BlockEntity extends $CapabilityProvider<$BlockEntity> implements $IForgeBlockEntity, $BlockEntityAccessor, $AccessorBlockEntity, $DynamicLightSource {
+export class $BlockEntity extends $CapabilityProvider<$BlockEntity> implements $IForgeBlockEntity, $AccessorBlockEntity, $DynamicLightSource, $BlockEntityAccessor {
 constructor(blockEntityType0: $BlockEntityType$$Type<any>, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type)
 
 public static "addEntityType"(compoundTag0: $CompoundTag$$Type, blockEntityType1: $BlockEntityType$$Type<any>): void
@@ -467,11 +471,11 @@ public static "canUnlock"(player0: $Player$$Type, lockCode1: $LockCode$$Type, co
 public "clear"(): void
 public "clear"(ingredient: $Ingredient$$Type): void
 public "clearContent"(): void
-public "count"(ingredient: $Ingredient$$Type): integer
 public "count"(): integer
+public "count"(ingredient: $Ingredient$$Type): integer
 public "countItem"(item0: $Item$$Type): integer
-public "countNonEmpty"(): integer
 public "countNonEmpty"(ingredient: $Ingredient$$Type): integer
+public "countNonEmpty"(): integer
 public "createMenu"(int0: integer, inventory1: $Inventory$$Type, player2: $Player$$Type): $AbstractContainerMenu
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
@@ -522,6 +526,7 @@ public "startOpen"(player0: $Player$$Type): void
 public "stillValid"(player0: $Player$$Type): boolean
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 public "stopOpen"(player0: $Player$$Type): void
 public static "tryClear"(object0: any): void
 get "lockKey"(): $LockCode
@@ -772,6 +777,7 @@ constructor(blockPos0: $BlockPos$$Type, blockState1: $BlockState$$Type)
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "getCapability"<T>(capability0: $Capability$$Type<T>): $LazyOptional<T>
 public static "getGameEventFrequency"(gameEvent0: $GameEvent$$Type): integer
+public "getListener"(): $VibrationSystem$Listener
 public "getModelData"(): $ModelData
 public static "getRedstoneStrengthForDistance"(float0: float, int1: integer): integer
 public "getRenderBoundingBox"(): $AABB
@@ -788,6 +794,7 @@ public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public static "tryGetPlayer"(entity0: $Entity$$Type): $ServerPlayer
 public "tryRespond"(serverLevel0: $ServerLevel$$Type): void
 public "tryShriek"(serverLevel0: $ServerLevel$$Type, serverPlayer1: $ServerPlayer$$Type): void
+get "listener"(): $VibrationSystem$Listener
 get "modelData"(): $ModelData
 get "renderBoundingBox"(): $AABB
 get "vibrationData"(): $VibrationSystem$Data
@@ -830,11 +837,11 @@ public "canPlaceItem"(int0: integer, itemStack1: $ItemStack$$Type): boolean
 public "canTakeItem"(container0: $Container$$Type, int1: integer, itemStack2: $ItemStack$$Type): boolean
 public "clear"(): void
 public "clear"(ingredient: $Ingredient$$Type): void
-public "count"(ingredient: $Ingredient$$Type): integer
 public "count"(): integer
+public "count"(ingredient: $Ingredient$$Type): integer
 public "countItem"(item0: $Item$$Type): integer
-public "countNonEmpty"(): integer
 public "countNonEmpty"(ingredient: $Ingredient$$Type): integer
+public "countNonEmpty"(): integer
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
 public "find"(ingredient: $Ingredient$$Type): integer
@@ -869,12 +876,13 @@ public "sdl$isDynamicLightEnabled"(): boolean
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public "setChanged"(): void
 public "setChanged"(): void
-public "setLootTable"(resourceLocation0: $ResourceLocation$$Type, long1: long): void
 public static "setLootTable"(blockGetter0: $BlockGetter$$Type, randomSource1: $RandomSource$$Type, blockPos2: $BlockPos$$Type, resourceLocation3: $ResourceLocation$$Type): void
+public "setLootTable"(resourceLocation0: $ResourceLocation$$Type, long1: long): void
 public "setStackInSlot"(slot: integer, stack: $ItemStack$$Type): void
 public "startOpen"(player0: $Player$$Type): void
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 public "stopOpen"(player0: $Player$$Type): void
 public static "tryClear"(object0: any): void
 public "unpackLootTable"(player0: $Player$$Type): void
@@ -964,11 +972,11 @@ public "canTakeItem"(container0: $Container$$Type, int1: integer, itemStack2: $I
 public "clear"(): void
 public "clear"(ingredient: $Ingredient$$Type): void
 public "clearContent"(): void
-public "count"(ingredient: $Ingredient$$Type): integer
 public "count"(): integer
+public "count"(ingredient: $Ingredient$$Type): integer
 public "countItem"(item0: $Item$$Type): integer
-public "countNonEmpty"(): integer
 public "countNonEmpty"(ingredient: $Ingredient$$Type): integer
+public "countNonEmpty"(): integer
 public "createMenu"(int0: integer, inventory1: $Inventory$$Type, player2: $Player$$Type): $AbstractContainerMenu
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
@@ -993,8 +1001,8 @@ public "getStackInSlot"(slot: integer): $ItemStack
 public "getUpdatePacket"(): $Packet<any>
 public "getWidth"(): integer
 public "handleUpdateTag"(compoundTag0: $CompoundTag$$Type): void
-public "handler$fdn000$createEditMenu"(i: integer, inventory: $Inventory$$Type, player: $Player$$Type, cir: $CallbackInfoReturnable$$Type<any>): void
-public "handler$fdn000$setPage"(page: integer, ci: $CallbackInfo$$Type): void
+public "handler$fka000$createEditMenu"(i: integer, inventory: $Inventory$$Type, player: $Player$$Type, cir: $CallbackInfoReturnable$$Type<any>): void
+public "handler$fka000$setPage"(page: integer, ci: $CallbackInfo$$Type): void
 public "hasAnyMatching"(predicate0: $Predicate$$Type<$ItemStack$$Type>): boolean
 public "hasAnyOf"(set0: $Set$$Type<$Item$$Type>): boolean
 public "hasBook"(): boolean
@@ -1013,8 +1021,8 @@ public "removeItemNoUpdate"(slot: integer): $ItemStack
 public "requestModelDataUpdate"(): void
 public "sdl$isDynamicLightEnabled"(): boolean
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
-public "setBook"(itemStack0: $ItemStack$$Type, player1: $Player$$Type): void
 public "setBook"(itemStack0: $ItemStack$$Type): void
+public "setBook"(itemStack0: $ItemStack$$Type, player1: $Player$$Type): void
 public "setChanged"(): void
 public "setItem"(slot: integer, stack: $ItemStack$$Type): void
 public "setStackInSlot"(slot: integer, stack: $ItemStack$$Type): void
@@ -1022,6 +1030,7 @@ public "startOpen"(player0: $Player$$Type): void
 public "stillValid"(player: $Player$$Type): boolean
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 public "stopOpen"(player0: $Player$$Type): void
 public static "tryClear"(object0: any): void
 get "allItems"(): $List<$ItemStack>
@@ -1170,11 +1179,11 @@ public "asContainer"(): $Container
 public "canTakeItem"(container0: $Container$$Type, int1: integer, itemStack2: $ItemStack$$Type): boolean
 public "clear"(): void
 public "clear"(ingredient: $Ingredient$$Type): void
-public "count"(ingredient: $Ingredient$$Type): integer
 public "count"(): integer
+public "count"(ingredient: $Ingredient$$Type): integer
 public "countItem"(item0: $Item$$Type): integer
-public "countNonEmpty"(): integer
 public "countNonEmpty"(ingredient: $Ingredient$$Type): integer
+public "countNonEmpty"(): integer
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
 public "find"(ingredient: $Ingredient$$Type): integer
@@ -1213,6 +1222,7 @@ public "setStackInSlot"(slot: integer, stack: $ItemStack$$Type): void
 public "startOpen"(player0: $Player$$Type): void
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 public "stopOpen"(player0: $Player$$Type): void
 public static "tryClear"(object0: any): void
 get "allItems"(): $List<$ItemStack>
@@ -1258,11 +1268,11 @@ public "canPlaceItem"(int0: integer, itemStack1: $ItemStack$$Type): boolean
 public "canTakeItem"(container0: $Container$$Type, int1: integer, itemStack2: $ItemStack$$Type): boolean
 public "clear"(): void
 public "clear"(ingredient: $Ingredient$$Type): void
-public "count"(ingredient: $Ingredient$$Type): integer
 public "count"(): integer
+public "count"(ingredient: $Ingredient$$Type): integer
 public "countItem"(item0: $Item$$Type): integer
-public "countNonEmpty"(): integer
 public "countNonEmpty"(ingredient: $Ingredient$$Type): integer
+public "countNonEmpty"(): integer
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
 public "find"(ingredient: $Ingredient$$Type): integer
@@ -1300,6 +1310,7 @@ public "setChanged"(): void
 public "setStackInSlot"(slot: integer, stack: $ItemStack$$Type): void
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 public static "tryClear"(object0: any): void
 get "allItems"(): $List<$ItemStack>
 get "height"(): integer
@@ -1500,11 +1511,11 @@ public "clear"(): void
 public "clear"(ingredient: $Ingredient$$Type): void
 public "clearContent"(): void
 public "count"(): integer
-public "count"(ingredient: $Ingredient$$Type): integer
 public "count"(): integer
+public "count"(ingredient: $Ingredient$$Type): integer
 public "countItem"(item0: $Item$$Type): integer
-public "countNonEmpty"(): integer
 public "countNonEmpty"(ingredient: $Ingredient$$Type): integer
+public "countNonEmpty"(): integer
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
 public "find"(ingredient: $Ingredient$$Type): integer
@@ -1551,6 +1562,7 @@ public "startOpen"(player0: $Player$$Type): void
 public "stillValid"(player0: $Player$$Type): boolean
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 public "stopOpen"(player0: $Player$$Type): void
 public static "tryClear"(object0: any): void
 get "allItems"(): $List<$ItemStack>
@@ -1611,11 +1623,11 @@ public "canPlaceItem"(int0: integer, itemStack1: $ItemStack$$Type): boolean
 public "canTakeItem"(container0: $Container$$Type, int1: integer, itemStack2: $ItemStack$$Type): boolean
 public "clear"(): void
 public "clear"(ingredient: $Ingredient$$Type): void
-public "count"(ingredient: $Ingredient$$Type): integer
 public "count"(): integer
+public "count"(ingredient: $Ingredient$$Type): integer
 public "countItem"(item0: $Item$$Type): integer
-public "countNonEmpty"(): integer
 public "countNonEmpty"(ingredient: $Ingredient$$Type): integer
+public "countNonEmpty"(): integer
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public static "entityInside"(level0: $Level$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, entity3: $Entity$$Type, hopperBlockEntity4: $HopperBlockEntity$$Type): void
 public "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
@@ -1664,6 +1676,7 @@ public "setStackInSlot"(slot: integer, stack: $ItemStack$$Type): void
 public "startOpen"(player0: $Player$$Type): void
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 public "stopOpen"(player0: $Player$$Type): void
 public static "suckInItems"(level0: $Level$$Type, hopper1: $Hopper$$Type): boolean
 public static "tryClear"(object0: any): void
@@ -1707,11 +1720,11 @@ export interface $Hopper extends $Container {
 "clear"(): void
 "clear"(ingredient: $Ingredient$$Type): void
 "clearContent"(): void
-"count"(ingredient: $Ingredient$$Type): integer
 "count"(): integer
+"count"(ingredient: $Ingredient$$Type): integer
 "countItem"(item0: $Item$$Type): integer
-"countNonEmpty"(): integer
 "countNonEmpty"(ingredient: $Ingredient$$Type): integer
+"countNonEmpty"(): integer
 "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
 "find"(ingredient: $Ingredient$$Type): integer
 "find"(): integer
@@ -1768,6 +1781,7 @@ const INSIDE: $VoxelShape
 const SUCK: $VoxelShape
 function stillValidBlockEntity(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 function stillValidBlockEntity(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+function stillValidBlockEntity(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 function tryClear(object0: any): void
 }
 export abstract class $Hopper$$Static implements $Hopper {
@@ -1777,6 +1791,7 @@ static readonly "SUCK": $VoxelShape
 
 static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 static "tryClear"(object0: any): void
 }
 }
@@ -1963,11 +1978,11 @@ public "asContainer"(): $Container
 public "canTakeItem"(container0: $Container$$Type, int1: integer, itemStack2: $ItemStack$$Type): boolean
 public "clear"(): void
 public "clear"(ingredient: $Ingredient$$Type): void
-public "count"(ingredient: $Ingredient$$Type): integer
 public "count"(): integer
+public "count"(ingredient: $Ingredient$$Type): integer
 public "countItem"(item0: $Item$$Type): integer
-public "countNonEmpty"(): integer
 public "countNonEmpty"(ingredient: $Ingredient$$Type): integer
+public "countNonEmpty"(): integer
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
 public "find"(ingredient: $Ingredient$$Type): integer
@@ -2006,6 +2021,7 @@ public "setStackInSlot"(slot: integer, stack: $ItemStack$$Type): void
 public "startOpen"(player0: $Player$$Type): void
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 public "stopOpen"(player0: $Player$$Type): void
 public static "tryClear"(object0: any): void
 get "allItems"(): $List<$ItemStack>
@@ -2240,11 +2256,11 @@ public "canPlaceItem"(int0: integer, itemStack1: $ItemStack$$Type): boolean
 public "canTakeItem"(container0: $Container$$Type, int1: integer, itemStack2: $ItemStack$$Type): boolean
 public "clear"(): void
 public "clear"(ingredient: $Ingredient$$Type): void
-public "count"(ingredient: $Ingredient$$Type): integer
 public "count"(): integer
+public "count"(ingredient: $Ingredient$$Type): integer
 public "countItem"(item0: $Item$$Type): integer
-public "countNonEmpty"(): integer
 public "countNonEmpty"(ingredient: $Ingredient$$Type): integer
+public "countNonEmpty"(): integer
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
 public "find"(ingredient: $Ingredient$$Type): integer
@@ -2282,6 +2298,7 @@ public "setStackInSlot"(slot: integer, stack: $ItemStack$$Type): void
 public "startOpen"(player0: $Player$$Type): void
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 public "stopOpen"(player0: $Player$$Type): void
 public static "tryClear"(object0: any): void
 get "allItems"(): $List<$ItemStack>
@@ -2403,7 +2420,7 @@ import { $StructureTemplatePool } from "packages/net/minecraft/world/level/level
 import { $ModelData } from "packages/net/minecraftforge/client/model/data/$ModelData"
 import { $Connection$$Type } from "packages/net/minecraft/network/$Connection"
 import { $BlockState$$Type } from "packages/net/minecraft/world/level/block/state/$BlockState"
-import { $ClientboundBlockEntityDataPacket$$Type } from "packages/net/minecraft/network/protocol/game/$ClientboundBlockEntityDataPacket"
+import { $ClientboundBlockEntityDataPacket, $ClientboundBlockEntityDataPacket$$Type } from "packages/net/minecraft/network/protocol/game/$ClientboundBlockEntityDataPacket"
 import { $ResourceLocation, $ResourceLocation$$Type } from "packages/net/minecraft/resources/$ResourceLocation"
 import { $Capability$$Type } from "packages/net/minecraftforge/common/capabilities/$Capability"
 import { $JigsawBlockEntity$JointType, $JigsawBlockEntity$JointType$$Type } from "packages/net/minecraft/world/level/block/entity/$JigsawBlockEntity$JointType"
@@ -2433,6 +2450,7 @@ public "getName"(): $ResourceLocation
 public "getPool"(): $ResourceKey<$StructureTemplatePool>
 public "getRenderBoundingBox"(): $AABB
 public "getTarget"(): $ResourceLocation
+public "getUpdatePacket"(): $ClientboundBlockEntityDataPacket
 public "handleUpdateTag"(compoundTag0: $CompoundTag$$Type): void
 public "hasCustomOutlineRendering"(player0: $Player$$Type): boolean
 public "onDataPacket"(connection0: $Connection$$Type, clientboundBlockEntityDataPacket1: $ClientboundBlockEntityDataPacket$$Type): void
@@ -2452,6 +2470,7 @@ get "name"(): $ResourceLocation
 get "pool"(): $ResourceKey<$StructureTemplatePool>
 get "renderBoundingBox"(): $AABB
 get "target"(): $ResourceLocation
+get "updatePacket"(): $ClientboundBlockEntityDataPacket
 set "finalState"(value: string)
 set "joint"(value: $JigsawBlockEntity$JointType$$Type)
 set "name"(value: $ResourceLocation$$Type)
@@ -2592,11 +2611,11 @@ public "canTakeItem"(container0: $Container$$Type, int1: integer, itemStack2: $I
 public "canTakeItemThroughFace"(int0: integer, itemStack1: $ItemStack$$Type, direction2: $Direction$$Type): boolean
 public "clear"(): void
 public "clear"(ingredient: $Ingredient$$Type): void
-public "count"(ingredient: $Ingredient$$Type): integer
 public "count"(): integer
+public "count"(ingredient: $Ingredient$$Type): integer
 public "countItem"(item0: $Item$$Type): integer
-public "countNonEmpty"(): integer
 public "countNonEmpty"(ingredient: $Ingredient$$Type): integer
+public "countNonEmpty"(): integer
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
 public "find"(ingredient: $Ingredient$$Type): integer
@@ -2616,7 +2635,7 @@ public "getStackInSlot"(slot: integer): $ItemStack
 public "getUpdatePacket"(): $ClientboundBlockEntityDataPacket
 public "getWidth"(): integer
 public "handleUpdateTag"(compoundTag0: $CompoundTag$$Type): void
-public "handler$fdd000$amendments$refreshModel"(tag: $CompoundTag$$Type, ci: $CallbackInfo$$Type): void
+public "handler$fjg000$amendments$refreshModel"(tag: $CompoundTag$$Type, ci: $CallbackInfo$$Type): void
 public "hasAnyMatching"(predicate0: $Predicate$$Type<$ItemStack$$Type>): boolean
 public "hasAnyOf"(set0: $Set$$Type<$Item$$Type>): boolean
 public "hasCustomName"(): boolean
@@ -2639,6 +2658,7 @@ public "setStackInSlot"(slot: integer, stack: $ItemStack$$Type): void
 public "startOpen"(player0: $Player$$Type): void
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 public "stopOpen"(player0: $Player$$Type): void
 public static "tryClear"(object0: any): void
 get "brewTime"(): integer
@@ -2759,7 +2779,7 @@ import { $Set$$Type } from "packages/java/util/$Set"
 import { $Map } from "packages/java/util/$Map"
 import { $BaseContainerBlockEntity } from "packages/net/minecraft/world/level/block/entity/$BaseContainerBlockEntity"
 
-export class $AbstractFurnaceBlockEntity extends $BaseContainerBlockEntity implements $WorldlyContainer, $RecipeHolder, $StackedContentsCompatible, $AbstractFurnaceBlockEntityAccessor, $AbstractFurnaceBlockEntityForgeAccessor, $FurnaceTEAccess, $AccessorAbstractFurnaceBlockEntity {
+export class $AbstractFurnaceBlockEntity extends $BaseContainerBlockEntity implements $WorldlyContainer, $RecipeHolder, $StackedContentsCompatible, $AbstractFurnaceBlockEntityAccessor, $AbstractFurnaceBlockEntityForgeAccessor, $AccessorAbstractFurnaceBlockEntity, $FurnaceTEAccess {
 static readonly "BURN_COOL_SPEED": integer
 static readonly "BURN_TIME_STANDARD": integer
 static readonly "DATA_COOKING_PROGRESS": integer
@@ -2776,11 +2796,11 @@ public "canTakeItem"(container0: $Container$$Type, int1: integer, itemStack2: $I
 public "canTakeItemThroughFace"(int0: integer, itemStack1: $ItemStack$$Type, direction2: $Direction$$Type): boolean
 public "clear"(): void
 public "clear"(ingredient: $Ingredient$$Type): void
-public "count"(ingredient: $Ingredient$$Type): integer
 public "count"(): integer
+public "count"(ingredient: $Ingredient$$Type): integer
 public "countItem"(item0: $Item$$Type): integer
-public "countNonEmpty"(): integer
 public "countNonEmpty"(ingredient: $Ingredient$$Type): integer
+public "countNonEmpty"(): integer
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
 public "fillStackedContents"(stackedContents0: $StackedContents$$Type): void
@@ -2830,6 +2850,7 @@ public "setStackInSlot"(slot: integer, stack: $ItemStack$$Type): void
 public "startOpen"(player0: $Player$$Type): void
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 public "stopOpen"(player0: $Player$$Type): void
 public static "tryClear"(object0: any): void
 get "cookingProgress"(): integer
@@ -2888,11 +2909,11 @@ public "canPlaceItem"(int0: integer, itemStack1: $ItemStack$$Type): boolean
 public "canTakeItem"(container0: $Container$$Type, int1: integer, itemStack2: $ItemStack$$Type): boolean
 public "clear"(): void
 public "clear"(ingredient: $Ingredient$$Type): void
-public "count"(ingredient: $Ingredient$$Type): integer
 public "count"(): integer
+public "count"(ingredient: $Ingredient$$Type): integer
 public "countItem"(item0: $Item$$Type): integer
-public "countNonEmpty"(): integer
 public "countNonEmpty"(ingredient: $Ingredient$$Type): integer
+public "countNonEmpty"(): integer
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
 public "find"(ingredient: $Ingredient$$Type): integer
@@ -2934,6 +2955,7 @@ public "setChanged"(): void
 public "setStackInSlot"(slot: integer, stack: $ItemStack$$Type): void
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 public static "swapContents"(chestBlockEntity0: $ChestBlockEntity$$Type, chestBlockEntity1: $ChestBlockEntity$$Type): void
 public static "tryClear"(object0: any): void
 get "openersCounter"(): $ContainerOpenersCounter
@@ -2982,11 +3004,11 @@ public "asContainer"(): $Container
 public "canTakeItem"(container0: $Container$$Type, int1: integer, itemStack2: $ItemStack$$Type): boolean
 public "clear"(): void
 public "clear"(ingredient: $Ingredient$$Type): void
-public "count"(ingredient: $Ingredient$$Type): integer
 public "count"(): integer
+public "count"(ingredient: $Ingredient$$Type): integer
 public "countItem"(item0: $Item$$Type): integer
-public "countNonEmpty"(): integer
 public "countNonEmpty"(ingredient: $Ingredient$$Type): integer
+public "countNonEmpty"(): integer
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
 public "find"(ingredient: $Ingredient$$Type): integer
@@ -3025,6 +3047,7 @@ public "setStackInSlot"(slot: integer, stack: $ItemStack$$Type): void
 public "startOpen"(player0: $Player$$Type): void
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 public "stopOpen"(player0: $Player$$Type): void
 public static "tryClear"(object0: any): void
 get "allItems"(): $List<$ItemStack>
@@ -3087,11 +3110,11 @@ public "canTakeItem"(container0: $Container$$Type, int1: integer, itemStack2: $I
 public "canTakeItemThroughFace"(int0: integer, itemStack1: $ItemStack$$Type, direction2: $Direction$$Type): boolean
 public "clear"(): void
 public "clear"(ingredient: $Ingredient$$Type): void
-public "count"(ingredient: $Ingredient$$Type): integer
 public "count"(): integer
+public "count"(ingredient: $Ingredient$$Type): integer
 public "countItem"(item0: $Item$$Type): integer
-public "countNonEmpty"(): integer
 public "countNonEmpty"(ingredient: $Ingredient$$Type): integer
+public "countNonEmpty"(): integer
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
 public "find"(ingredient: $Ingredient$$Type): integer
@@ -3113,7 +3136,7 @@ public "getSlotsForFace"(direction0: $Direction$$Type): integer[]
 public "getStackInSlot"(slot: integer): $ItemStack
 public "getWidth"(): integer
 public "handleUpdateTag"(compoundTag0: $CompoundTag$$Type): void
-public "handler$fac000$canInsertItem"(index: integer, itemStackIn: $ItemStack$$Type, direction: $Direction$$Type, info: $CallbackInfoReturnable$$Type<any>): void
+public "handler$fgf000$canInsertItem"(index: integer, itemStackIn: $ItemStack$$Type, direction: $Direction$$Type, info: $CallbackInfoReturnable$$Type<any>): void
 public "hasAnyMatching"(predicate0: $Predicate$$Type<$ItemStack$$Type>): boolean
 public "hasAnyOf"(set0: $Set$$Type<$Item$$Type>): boolean
 public "hasCustomName"(): boolean
@@ -3136,6 +3159,7 @@ public "setChanged"(): void
 public "setStackInSlot"(slot: integer, stack: $ItemStack$$Type): void
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 public static "tick"(level0: $Level$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, shulkerBoxBlockEntity3: $ShulkerBoxBlockEntity$$Type): void
 public static "tryClear"(object0: any): void
 get "allItems"(): $List<$ItemStack>
@@ -3160,7 +3184,7 @@ import { $ModelData } from "packages/net/minecraftforge/client/model/data/$Model
 import { $Connection$$Type } from "packages/net/minecraft/network/$Connection"
 import { $BlockState$$Type } from "packages/net/minecraft/world/level/block/state/$BlockState"
 import { $Level$$Type } from "packages/net/minecraft/world/level/$Level"
-import { $ClientboundBlockEntityDataPacket$$Type } from "packages/net/minecraft/network/protocol/game/$ClientboundBlockEntityDataPacket"
+import { $ClientboundBlockEntityDataPacket, $ClientboundBlockEntityDataPacket$$Type } from "packages/net/minecraft/network/protocol/game/$ClientboundBlockEntityDataPacket"
 import { $Capability$$Type } from "packages/net/minecraftforge/common/capabilities/$Capability"
 import { $Player$$Type } from "packages/net/minecraft/world/entity/player/$Player"
 import { $TheEndPortalBlockEntity } from "packages/net/minecraft/world/level/block/entity/$TheEndPortalBlockEntity"
@@ -3180,6 +3204,7 @@ public "getModelData"(): $ModelData
 public "getParticleAmount"(): integer
 public "getRenderBoundingBox"(): $AABB
 public "getSpawnPercent"(float0: float): float
+public "getUpdatePacket"(): $ClientboundBlockEntityDataPacket
 public "handleUpdateTag"(compoundTag0: $CompoundTag$$Type): void
 public "hasCustomOutlineRendering"(player0: $Player$$Type): boolean
 public "isCoolingDown"(): boolean
@@ -3195,6 +3220,7 @@ public static "teleportTick"(level0: $Level$$Type, blockPos1: $BlockPos$$Type, b
 get "modelData"(): $ModelData
 get "particleAmount"(): integer
 get "renderBoundingBox"(): $AABB
+get "updatePacket"(): $ClientboundBlockEntityDataPacket
 get "coolingDown"(): boolean
 get "spawning"(): boolean
 }
@@ -3245,11 +3271,11 @@ public "canPlaceItem"(int0: integer, itemStack1: $ItemStack$$Type): boolean
 public "canTakeItem"(container0: $Container$$Type, int1: integer, itemStack2: $ItemStack$$Type): boolean
 public "clear"(): void
 public "clear"(ingredient: $Ingredient$$Type): void
-public "count"(ingredient: $Ingredient$$Type): integer
 public "count"(): integer
+public "count"(ingredient: $Ingredient$$Type): integer
 public "countItem"(item0: $Item$$Type): integer
-public "countNonEmpty"(): integer
 public "countNonEmpty"(ingredient: $Ingredient$$Type): integer
+public "countNonEmpty"(): integer
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "extractItem"(slot: integer, amount: integer, simulate: boolean): $ItemStack
 public "find"(ingredient: $Ingredient$$Type): integer
@@ -3286,6 +3312,7 @@ public "setChanged"(): void
 public "setStackInSlot"(slot: integer, stack: $ItemStack$$Type): void
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type): boolean
 public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, int2: integer): boolean
+public static "stillValidBlockEntity"(blockEntity0: $BlockEntity$$Type, player1: $Player$$Type, double2: double): boolean
 public static "tryClear"(object0: any): void
 get "allItems"(): $List<$ItemStack>
 get "height"(): integer
@@ -3390,6 +3417,7 @@ constructor(blockPos0: $BlockPos$$Type, blockState1: $BlockState$$Type)
 
 public "deserializeNBT"(compoundTag0: $CompoundTag$$Type): void
 public "getCapability"<T>(capability0: $Capability$$Type<T>): $LazyOptional<T>
+public "getListener"(): $SculkCatalystBlockEntity$CatalystListener
 public "getModelData"(): $ModelData
 public "getRenderBoundingBox"(): $AABB
 public "handleUpdateTag"(compoundTag0: $CompoundTag$$Type): void
@@ -3400,6 +3428,7 @@ public "requestModelDataUpdate"(): void
 public "sdl$isDynamicLightEnabled"(): boolean
 public "sdl$setDynamicLightEnabled"(enabled: boolean): void
 public static "serverTick"(level0: $Level$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type, sculkCatalystBlockEntity3: $SculkCatalystBlockEntity$$Type): void
+get "listener"(): $SculkCatalystBlockEntity$CatalystListener
 get "modelData"(): $ModelData
 get "renderBoundingBox"(): $AABB
 }
@@ -3415,7 +3444,7 @@ import { $Connection$$Type } from "packages/net/minecraft/network/$Connection"
 import { $BlockState$$Type } from "packages/net/minecraft/world/level/block/state/$BlockState"
 import { $Level$$Type } from "packages/net/minecraft/world/level/$Level"
 import { $BeaconBlockEntity$BeaconBeamSection, $BeaconBlockEntity$BeaconBeamSection$$Type } from "packages/net/minecraft/world/level/block/entity/$BeaconBlockEntity$BeaconBeamSection"
-import { $ClientboundBlockEntityDataPacket, $ClientboundBlockEntityDataPacket$$Type } from "packages/net/minecraft/network/protocol/game/$ClientboundBlockEntityDataPacket"
+import { $ClientboundBlockEntityDataPacket$$Type } from "packages/net/minecraft/network/protocol/game/$ClientboundBlockEntityDataPacket"
 import { $Capability$$Type } from "packages/net/minecraftforge/common/capabilities/$Capability"
 import { $Player$$Type } from "packages/net/minecraft/world/entity/player/$Player"
 import { $BlockEntity } from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
@@ -3446,7 +3475,6 @@ public "getDisplayName"(): $Component
 public "getModelData"(): $ModelData
 public "getName"(): $Component
 public "getRenderBoundingBox"(): $AABB
-public "getUpdatePacket"(): $ClientboundBlockEntityDataPacket
 public "handleUpdateTag"(compoundTag0: $CompoundTag$$Type): void
 public "hasCustomName"(): boolean
 public "hasCustomOutlineRendering"(player0: $Player$$Type): boolean
@@ -3470,7 +3498,6 @@ get "customName"(): $Component
 get "displayName"(): $Component
 get "modelData"(): $ModelData
 get "renderBoundingBox"(): $AABB
-get "updatePacket"(): $ClientboundBlockEntityDataPacket
 set "customName"(value: $Component$$Type)
 }
 }
@@ -3512,8 +3539,8 @@ public "hasGlowingText"(): boolean
 public "hasMessage"(player0: $Player$$Type): boolean
 public "setColor"(dyeColor0: $DyeColor$$Type): $SignText
 public "setHasGlowingText"(boolean0: boolean): $SignText
-public "setMessage"(int0: integer, component1: $Component$$Type): $SignText
 public "setMessage"(int0: integer, component1: $Component$$Type, component2: $Component$$Type): $SignText
+public "setMessage"(int0: integer, component1: $Component$$Type): $SignText
 get "color"(): $DyeColor
 set "color"(value: $DyeColor$$Type)
 }

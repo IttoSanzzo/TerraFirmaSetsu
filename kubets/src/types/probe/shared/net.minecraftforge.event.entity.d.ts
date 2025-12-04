@@ -99,8 +99,8 @@ import { $Advancement$$Type } from "packages/net/minecraft/advancements/$Advance
 import { $AdvancementProgress, $AdvancementProgress$$Type } from "packages/net/minecraft/advancements/$AdvancementProgress"
 
 export class $AdvancementEvent$AdvancementProgressEvent extends $AdvancementEvent {
-constructor(player0: $Player$$Type, advancement1: $Advancement$$Type, advancementProgress2: $AdvancementProgress$$Type, string3: string, progressType4: $AdvancementEvent$AdvancementProgressEvent$ProgressType$$Type)
 constructor()
+constructor(player0: $Player$$Type, advancement1: $Advancement$$Type, advancementProgress2: $AdvancementProgress$$Type, string3: string, progressType4: $AdvancementEvent$AdvancementProgressEvent$ProgressType$$Type)
 
 public "getAdvancementProgress"(): $AdvancementProgress
 public "getCriterionName"(): string
@@ -331,8 +331,8 @@ import { $LivingEntity$$Type } from "packages/net/minecraft/world/entity/$Living
 import { $Entity, $Entity$$Type } from "packages/net/minecraft/world/entity/$Entity"
 
 export class $LivingEvent$LivingVisibilityEvent extends $LivingEvent {
-constructor(livingEntity0: $LivingEntity$$Type, entity1: $Entity$$Type, double2: double)
 constructor()
+constructor(livingEntity0: $LivingEntity$$Type, entity1: $Entity$$Type, double2: double)
 
 public "getLookingEntity"(): $Entity
 public "getVisibilityModifier"(): double
@@ -391,9 +391,9 @@ import { $LivingEntity$$Type } from "packages/net/minecraft/world/entity/$Living
 import { $MobEffect, $MobEffect$$Type } from "packages/net/minecraft/world/effect/$MobEffect"
 
 export class $MobEffectEvent$Remove extends $MobEffectEvent {
-constructor()
-constructor(livingEntity0: $LivingEntity$$Type, mobEffectInstance1: $MobEffectInstance$$Type)
 constructor(livingEntity0: $LivingEntity$$Type, mobEffect1: $MobEffect$$Type)
+constructor(livingEntity0: $LivingEntity$$Type, mobEffectInstance1: $MobEffectInstance$$Type)
+constructor()
 
 public "getEffect"(): $MobEffect
 get "effect"(): $MobEffect
@@ -457,8 +457,8 @@ import { $Player, $Player$$Type } from "packages/net/minecraft/world/entity/play
 import { $LivingEntity$$Type } from "packages/net/minecraft/world/entity/$LivingEntity"
 
 export class $LivingExperienceDropEvent extends $LivingEvent {
-constructor(livingEntity0: $LivingEntity$$Type, player1: $Player$$Type, int2: integer)
 constructor()
+constructor(livingEntity0: $LivingEntity$$Type, player1: $Player$$Type, int2: integer)
 
 public "getAttackingPlayer"(): $Player
 public "getDroppedExperience"(): integer
@@ -509,6 +509,23 @@ set "impactResult"(value: $ProjectileImpactEvent$ImpactResult$$Type)
 }
 }
 
+declare module "packages/net/minecraftforge/event/entity/player/$PlayerEvent$PlayerChangedDimensionEvent" {
+import { $Player$$Type } from "packages/net/minecraft/world/entity/player/$Player"
+import { $PlayerEvent } from "packages/net/minecraftforge/event/entity/player/$PlayerEvent"
+import { $Level } from "packages/net/minecraft/world/level/$Level"
+import { $ResourceKey, $ResourceKey$$Type } from "packages/net/minecraft/resources/$ResourceKey"
+
+export class $PlayerEvent$PlayerChangedDimensionEvent extends $PlayerEvent {
+constructor(player0: $Player$$Type, resourceKey1: $ResourceKey$$Type<$Level>, resourceKey2: $ResourceKey$$Type<$Level>)
+constructor()
+
+public "getFrom"(): $ResourceKey<$Level>
+public "getTo"(): $ResourceKey<$Level>
+get "from"(): $ResourceKey<$Level>
+get "to"(): $ResourceKey<$Level>
+}
+}
+
 declare module "packages/net/minecraftforge/event/entity/player/$AnvilRepairEvent" {
 import { $Player$$Type } from "packages/net/minecraft/world/entity/player/$Player"
 import { $PlayerEvent } from "packages/net/minecraftforge/event/entity/player/$PlayerEvent"
@@ -528,23 +545,6 @@ get "left"(): $ItemStack
 get "output"(): $ItemStack
 get "right"(): $ItemStack
 set "breakChance"(value: float)
-}
-}
-
-declare module "packages/net/minecraftforge/event/entity/player/$PlayerEvent$PlayerChangedDimensionEvent" {
-import { $Player$$Type } from "packages/net/minecraft/world/entity/player/$Player"
-import { $PlayerEvent } from "packages/net/minecraftforge/event/entity/player/$PlayerEvent"
-import { $Level } from "packages/net/minecraft/world/level/$Level"
-import { $ResourceKey, $ResourceKey$$Type } from "packages/net/minecraft/resources/$ResourceKey"
-
-export class $PlayerEvent$PlayerChangedDimensionEvent extends $PlayerEvent {
-constructor()
-constructor(player0: $Player$$Type, resourceKey1: $ResourceKey$$Type<$Level>, resourceKey2: $ResourceKey$$Type<$Level>)
-
-public "getFrom"(): $ResourceKey<$Level>
-public "getTo"(): $ResourceKey<$Level>
-get "from"(): $ResourceKey<$Level>
-get "to"(): $ResourceKey<$Level>
 }
 }
 
@@ -698,14 +698,12 @@ get "state"(): $BlockState
 
 declare module "packages/net/minecraftforge/event/entity/living/$LivingEvent" {
 import { $EntityEvent } from "packages/net/minecraftforge/event/entity/$EntityEvent"
-import { $LivingEntity, $LivingEntity$$Type } from "packages/net/minecraft/world/entity/$LivingEntity"
+import { $LivingEntity$$Type } from "packages/net/minecraft/world/entity/$LivingEntity"
 
 export class $LivingEvent extends $EntityEvent {
 constructor()
 constructor(livingEntity0: $LivingEntity$$Type)
 
-public "getEntity"(): $LivingEntity
-get "entity"(): $LivingEntity
 }
 }
 
@@ -733,8 +731,8 @@ import { $Entity$$Type } from "packages/net/minecraft/world/entity/$Entity"
 export class $EntityEvent$Size extends $EntityEvent {
 constructor()
 constructor(entity0: $Entity$$Type, pose1: $Pose$$Type, entityDimensions2: $EntityDimensions$$Type, entityDimensions3: $EntityDimensions$$Type, float4: float, float5: float)
-constructor(entity0: $Entity$$Type, pose1: $Pose$$Type, entityDimensions2: $EntityDimensions$$Type)
 constructor(entity0: $Entity$$Type, pose1: $Pose$$Type, entityDimensions2: $EntityDimensions$$Type, float3: float)
+constructor(entity0: $Entity$$Type, pose1: $Pose$$Type, entityDimensions2: $EntityDimensions$$Type)
 
 public "getNewEyeHeight"(): float
 public "getNewSize"(): $EntityDimensions
@@ -743,8 +741,8 @@ public "getOldSize"(): $EntityDimensions
 public "getOriginalSize"(): $EntityDimensions
 public "getPose"(): $Pose
 public "setNewEyeHeight"(float0: float): void
-public "setNewSize"(entityDimensions0: $EntityDimensions$$Type): void
 public "setNewSize"(entityDimensions0: $EntityDimensions$$Type, boolean1: boolean): void
+public "setNewSize"(entityDimensions0: $EntityDimensions$$Type): void
 get "newEyeHeight"(): float
 get "newSize"(): $EntityDimensions
 get "oldEyeHeight"(): float
@@ -783,15 +781,13 @@ get "advancement"(): $Advancement
 }
 
 declare module "packages/net/minecraftforge/event/entity/living/$ZombieEvent" {
-import { $Zombie, $Zombie$$Type } from "packages/net/minecraft/world/entity/monster/$Zombie"
+import { $Zombie$$Type } from "packages/net/minecraft/world/entity/monster/$Zombie"
 import { $EntityEvent } from "packages/net/minecraftforge/event/entity/$EntityEvent"
 
 export class $ZombieEvent extends $EntityEvent {
 constructor()
 constructor(zombie0: $Zombie$$Type)
 
-public "getEntity"(): $Zombie
-get "entity"(): $Zombie
 }
 }
 
@@ -902,8 +898,8 @@ import { $BaseSpawner, $BaseSpawner$$Type } from "packages/net/minecraft/world/l
 import { $ServerLevelAccessor$$Type } from "packages/net/minecraft/world/level/$ServerLevelAccessor"
 
 export class $MobSpawnEvent$PositionCheck extends $MobSpawnEvent {
-constructor()
 constructor(mob0: $Mob$$Type, serverLevelAccessor1: $ServerLevelAccessor$$Type, mobSpawnType2: $MobSpawnType$$Type, baseSpawner3: $BaseSpawner$$Type)
+constructor()
 
 public "getSpawnType"(): $MobSpawnType
 public "getSpawner"(): $BaseSpawner
@@ -960,8 +956,8 @@ import { $Level, $Level$$Type } from "packages/net/minecraft/world/level/$Level"
 import { $LivingEntity, $LivingEntity$$Type } from "packages/net/minecraft/world/entity/$LivingEntity"
 
 export class $ZombieEvent$SummonAidEvent extends $ZombieEvent {
-constructor()
 constructor(zombie0: $Zombie$$Type, level1: $Level$$Type, int2: integer, int3: integer, int4: integer, livingEntity5: $LivingEntity$$Type, double6: double)
+constructor()
 
 public "getAttacker"(): $LivingEntity
 public "getCustomSummonedAid"(): $Zombie
@@ -990,8 +986,8 @@ import { $PlayerEvent } from "packages/net/minecraftforge/event/entity/player/$P
 import { $BlockPos, $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
 
 export class $PlayerSleepInBedEvent extends $PlayerEvent {
-constructor()
 constructor(player0: $Player$$Type, optional1: $Optional$$Type<$BlockPos$$Type>)
+constructor()
 
 public "getOptionalPos"(): $Optional<$BlockPos>
 public "getPos"(): $BlockPos
@@ -1105,8 +1101,8 @@ import { $Entity$$Type } from "packages/net/minecraft/world/entity/$Entity"
 
 /** @deprecated */
 export class $EntityEvent$EyeHeight extends $EntityEvent {
-constructor()
 constructor(entity0: $Entity$$Type, pose1: $Pose$$Type, entityDimensions2: $EntityDimensions$$Type, float3: float)
+constructor()
 
 public "getNewEyeHeight"(): float
 public "getOriginalEyeHeight"(): float
@@ -1161,8 +1157,8 @@ import { $ServerLevelAccessor, $ServerLevelAccessor$$Type } from "packages/net/m
 import { $BlockPos, $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
 
 export class $MobSpawnEvent$SpawnPlacementCheck extends $Event {
-constructor(entityType0: $EntityType$$Type<any>, serverLevelAccessor1: $ServerLevelAccessor$$Type, mobSpawnType2: $MobSpawnType$$Type, blockPos3: $BlockPos$$Type, randomSource4: $RandomSource$$Type, boolean5: boolean)
 constructor()
+constructor(entityType0: $EntityType$$Type<any>, serverLevelAccessor1: $ServerLevelAccessor$$Type, mobSpawnType2: $MobSpawnType$$Type, blockPos3: $BlockPos$$Type, randomSource4: $RandomSource$$Type, boolean5: boolean)
 
 public "getDefaultResult"(): boolean
 public "getEntityType"(): $EntityType<any>
@@ -1244,8 +1240,8 @@ export class $PlayerNegotiationEvent extends $Event {
 constructor(connection0: $Connection$$Type, gameProfile1: $GameProfile$$Type, list2: $List$$Type<$Future$$Type<void>>)
 constructor()
 
-public "enqueueWork"(future0: $Future$$Type<void>): void
 public "enqueueWork"(runnable0: $Runnable$$Type): void
+public "enqueueWork"(future0: $Future$$Type<void>): void
 public "getConnection"(): $Connection
 public "getProfile"(): $GameProfile
 get "connection"(): $Connection
@@ -1448,8 +1444,8 @@ import { $LivingChangeTargetEvent$ILivingTargetType, $LivingChangeTargetEvent$IL
 import { $LivingEntity, $LivingEntity$$Type } from "packages/net/minecraft/world/entity/$LivingEntity"
 
 export class $LivingChangeTargetEvent extends $LivingEvent {
-constructor(livingEntity0: $LivingEntity$$Type, livingEntity1: $LivingEntity$$Type, iLivingTargetType2: $LivingChangeTargetEvent$ILivingTargetType$$Type)
 constructor()
+constructor(livingEntity0: $LivingEntity$$Type, livingEntity1: $LivingEntity$$Type, iLivingTargetType2: $LivingChangeTargetEvent$ILivingTargetType$$Type)
 
 public "getNewTarget"(): $LivingEntity
 public "getOriginalTarget"(): $LivingEntity
@@ -1467,10 +1463,10 @@ import { $LivingEvent } from "packages/net/minecraftforge/event/entity/living/$L
 import { $LivingEntity$$Type } from "packages/net/minecraft/world/entity/$LivingEntity"
 
 export class $LivingDrownEvent extends $LivingEvent {
-constructor(livingEntity0: $LivingEntity$$Type, boolean1: boolean, float2: float, int3: integer)
+constructor()
 /** @deprecated */
 constructor(livingEntity0: $LivingEntity$$Type, boolean1: boolean)
-constructor()
+constructor(livingEntity0: $LivingEntity$$Type, boolean1: boolean, float2: float, int3: integer)
 
 public "getBubbleCount"(): integer
 public "getDamageAmount"(): float
@@ -1777,8 +1773,8 @@ import { $ItemStack, $ItemStack$$Type } from "packages/net/minecraft/world/item/
 import { $LivingEntity$$Type } from "packages/net/minecraft/world/entity/$LivingEntity"
 
 export class $LivingUseTotemEvent extends $LivingEvent {
-constructor()
 constructor(livingEntity0: $LivingEntity$$Type, damageSource1: $DamageSource$$Type, itemStack2: $ItemStack$$Type, interactionHand3: $InteractionHand$$Type)
+constructor()
 
 public "getHandHolding"(): $InteractionHand
 public "getSource"(): $DamageSource
@@ -1993,8 +1989,8 @@ import { $ItemStack, $ItemStack$$Type } from "packages/net/minecraft/world/item/
 import { $LivingEntity$$Type } from "packages/net/minecraft/world/entity/$LivingEntity"
 
 export class $LivingSwapItemsEvent$Hands extends $LivingSwapItemsEvent {
-constructor(livingEntity0: $LivingEntity$$Type)
 constructor()
+constructor(livingEntity0: $LivingEntity$$Type)
 
 public "getItemSwappedToMainHand"(): $ItemStack
 public "getItemSwappedToOffHand"(): $ItemStack
@@ -2053,14 +2049,12 @@ set "extraLife"(value: integer)
 
 declare module "packages/net/minecraftforge/event/entity/item/$ItemEvent" {
 import { $EntityEvent } from "packages/net/minecraftforge/event/entity/$EntityEvent"
-import { $ItemEntity, $ItemEntity$$Type } from "packages/net/minecraft/world/entity/item/$ItemEntity"
+import { $ItemEntity$$Type } from "packages/net/minecraft/world/entity/item/$ItemEntity"
 
 export class $ItemEvent extends $EntityEvent {
 constructor()
 constructor(itemEntity0: $ItemEntity$$Type)
 
-public "getEntity"(): $ItemEntity
-get "entity"(): $ItemEntity
 }
 }
 

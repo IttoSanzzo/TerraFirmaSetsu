@@ -79,7 +79,6 @@ public static "isEqual"<T>(object0: any): $Predicate<T>
 public "isServer"(): boolean
 public "isStartup"(): boolean
 public "kjs$getScriptType"(): $ScriptType
-public "negate"(): $ScriptTypePredicate
 public static "not"<T>(predicate0: $Predicate$$Type<T>): $Predicate<T>
 public "or"(predicate0: $Predicate$$Type<$ScriptType$$Type>): $Predicate<$ScriptType>
 public "test"(type: $ScriptType$$Type): boolean
@@ -147,7 +146,7 @@ constructor(p: $ScriptPack$$Type, i: $ScriptFileInfo$$Type, s: $ScriptSource$$Ty
 
 public "compareTo"(o: $ScriptFile$$Type): integer
 public "load"(): void
-public "redirect$dol000$preEvalProcess"(instance: $Context$$Type, scope: $Scriptable$$Type, source: string, sourceName: string, lineno: integer, securityDomain: any): any
+public "redirect$edk000$preEvalProcess"(instance: $Context$$Type, scope: $Scriptable$$Type, source: string, sourceName: string, lineno: integer, securityDomain: any): any
 }
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
 export type $ScriptFile$$Type = ($ScriptFile);
@@ -229,8 +228,8 @@ export type $ScriptTypePredicate_ = $ScriptTypePredicate$$Type;
 }
 
 declare module "packages/dev/latvian/mods/kubejs/script/data/$GeneratedData" {
-import { $Path$$Type } from "packages/java/nio/file/$Path"
 import { $ZipFile$$Type } from "packages/java/util/zip/$ZipFile"
+import { $Path$$Type } from "packages/java/nio/file/$Path"
 import { $Record } from "packages/java/lang/$Record"
 import { $InputStream } from "packages/java/io/$InputStream"
 import { $ZipEntry$$Type } from "packages/java/util/zip/$ZipEntry"
@@ -251,8 +250,8 @@ static readonly "PACK_META": $GeneratedData
 constructor(id: $ResourceLocation$$Type, data: $Lazy$$Type<byte[]>, alwaysForget: boolean)
 
 public "alwaysForget"(): boolean
-public static "create"(path0: $Path$$Type): $IoSupplier<$InputStream>
 public static "create"(zipFile0: $ZipFile$$Type, zipEntry1: $ZipEntry$$Type): $IoSupplier<$InputStream>
+public static "create"(path0: $Path$$Type): $IoSupplier<$InputStream>
 public "data"(): $Lazy<byte[]>
 public "get"(): $InputStream
 public "id"(): $ResourceLocation
@@ -343,13 +342,13 @@ readonly "scriptType": $ScriptType
 constructor(t: $ScriptType$$Type)
 
 public static "getCurrentContext"(): $Context
-public "handler$doj000$pjs$captureClass"(name: string, error: boolean, cir: $CallbackInfoReturnable$$Type<any>): void
-public "handler$doj000$pjs$reloadStart"(ci: $CallbackInfo$$Type): void
+public "handler$edi000$pjs$captureClass"(name: string, error: boolean, cir: $CallbackInfoReturnable$$Type<any>): void
+public "handler$edi000$pjs$reloadStart"(ci: $CallbackInfo$$Type): void
 public "isClassAllowed"(name: string): boolean
 public "load"(): void
 public "loadFromDirectory"(): void
 public "loadJavaClass"(name: string, error: boolean): $NativeJavaClass
-public "localvar$doj000$pjs$supportTSPath"(name: string): string
+public "localvar$edi000$pjs$supportTSPath"(name: string): string
 public "reload"(resourceManager: $ResourceManager$$Type): void
 public "unload"(): void
 public "visibleToScripts"(fullClassName: string, type: integer): boolean

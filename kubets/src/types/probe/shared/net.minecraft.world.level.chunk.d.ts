@@ -96,8 +96,8 @@ export interface $LightChunk extends $BlockGetter {
 "findBlockLightSources"(biConsumer0: $BiConsumer$$Type<$BlockPos$$Type, $BlockState$$Type>): void
 "getBlockEntity"<T extends $BlockEntity>(blockPos0: $BlockPos$$Type, blockEntityType1: $BlockEntityType$$Type<T>): $Optional<T>
 "getBlockEntity"(blockPos0: $BlockPos$$Type): $BlockEntity
-"getBlockFloorHeight"(blockPos0: $BlockPos$$Type): double
 "getBlockFloorHeight"(voxelShape0: $VoxelShape$$Type, supplier1: $Supplier$$Type<$VoxelShape>): double
+"getBlockFloorHeight"(blockPos0: $BlockPos$$Type): double
 "getBlockState"(blockPos0: $BlockPos$$Type): $BlockState
 "getBlockStates"(aABB0: $AABB$$Type): $Stream<$BlockState>
 "getExistingBlockEntity"(blockPos0: $BlockPos$$Type): $BlockEntity
@@ -263,8 +263,8 @@ public "read"(friendlyByteBuf0: $FriendlyByteBuf$$Type): void
 public "readBiomes"(friendlyByteBuf0: $FriendlyByteBuf$$Type): void
 public "recalcBlockCounts"(): void
 public "release"(): void
-public "setBlockState"(int0: integer, int1: integer, int2: integer, blockState3: $BlockState$$Type, boolean4: boolean): $BlockState
 public "setBlockState"(int0: integer, int1: integer, int2: integer, blockState3: $BlockState$$Type): $BlockState
+public "setBlockState"(int0: integer, int1: integer, int2: integer, blockState3: $BlockState$$Type, boolean4: boolean): $BlockState
 public "write"(friendlyByteBuf0: $FriendlyByteBuf$$Type): void
 get "biomes"(): $PalettedContainerRO<$Holder<$Biome>>
 get "serializedSize"(): integer
@@ -414,8 +414,8 @@ import { $ResourceKey } from "packages/net/minecraft/resources/$ResourceKey"
 export class $ChunkGenerator implements $ChunkGeneratorAccessor, $IChunkGenWrapper {
 static readonly "CODEC": $Codec<$ChunkGenerator>
 
-constructor(biomeSource0: $BiomeSource$$Type, function1: $Function$$Type<$Holder$$Type<$Biome$$Type>, $BiomeGenerationSettings>)
 constructor(biomeSource0: $BiomeSource$$Type)
+constructor(biomeSource0: $BiomeSource$$Type, function1: $Function$$Type<$Holder$$Type<$Biome$$Type>, $BiomeGenerationSettings>)
 
 public "addDebugScreenInfo"(list0: $List$$Type<string>, randomState1: $RandomState$$Type, blockPos2: $BlockPos$$Type): void
 public "applyBiomeDecoration"(worldGenLevel0: $WorldGenLevel$$Type, chunkAccess1: $ChunkAccess$$Type, structureManager2: $StructureManager$$Type): void
@@ -531,45 +531,39 @@ export abstract class $BlockColumn$$Static implements $BlockColumn {
 }
 
 declare module "packages/net/minecraft/world/level/chunk/$ImposterProtoChunk" {
-import { $Trackable } from "packages/dev/uncandango/alltheleaks/mixin/$Trackable"
 import { $ModelDataManager } from "packages/net/minecraftforge/client/model/data/$ModelDataManager"
+import { $LevelHeightAccessor } from "packages/net/minecraft/world/level/$LevelHeightAccessor"
+import { $VoxelShape, $VoxelShape$$Type } from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
+import { $ClipBlockStateContext$$Type } from "packages/net/minecraft/world/level/$ClipBlockStateContext"
+import { $Vec3$$Type } from "packages/net/minecraft/world/phys/$Vec3"
+import { $BlockState, $BlockState$$Type } from "packages/net/minecraft/world/level/block/state/$BlockState"
 import { $LongSet } from "packages/it/unimi/dsi/fastutil/longs/$LongSet"
+import { $BlockEntityType$$Type } from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
 import { $BiFunction$$Type } from "packages/java/util/function/$BiFunction"
 import { $LevelChunk, $LevelChunk$$Type } from "packages/net/minecraft/world/level/chunk/$LevelChunk"
 import { $Function$$Type } from "packages/java/util/function/$Function"
 import { $Structure } from "packages/net/minecraft/world/level/levelgen/structure/$Structure"
 import { $BlockEntity, $BlockEntity$$Type } from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
 import { $BlockHitResult } from "packages/net/minecraft/world/phys/$BlockHitResult"
+import { $Optional } from "packages/java/util/$Optional"
 import { $Stream } from "packages/java/util/stream/$Stream"
 import { $ClipContext$$Type } from "packages/net/minecraft/world/level/$ClipContext"
-import { $WeakReference } from "packages/java/lang/ref/$WeakReference"
 import { $Supplier$$Type } from "packages/java/util/function/$Supplier"
+import { $ProtoChunk } from "packages/net/minecraft/world/level/chunk/$ProtoChunk"
 import { $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
 import { $AABB$$Type } from "packages/net/minecraft/world/phys/$AABB"
-import { $LevelHeightAccessor } from "packages/net/minecraft/world/level/$LevelHeightAccessor"
-import { $VoxelShape, $VoxelShape$$Type } from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
-import { $ObjectOpenCustomHashSet } from "packages/it/unimi/dsi/fastutil/objects/$ObjectOpenCustomHashSet"
-import { $Class } from "packages/java/lang/$Class"
-import { $ClipBlockStateContext$$Type } from "packages/net/minecraft/world/level/$ClipBlockStateContext"
-import { $Vec3$$Type } from "packages/net/minecraft/world/phys/$Vec3"
-import { $BlockState, $BlockState$$Type } from "packages/net/minecraft/world/level/block/state/$BlockState"
-import { $BlockEntityType$$Type } from "packages/net/minecraft/world/level/block/entity/$BlockEntityType"
-import { $Optional } from "packages/java/util/$Optional"
-import { $ProtoChunk } from "packages/net/minecraft/world/level/chunk/$ProtoChunk"
 import { $Map } from "packages/java/util/$Map"
 
 export class $ImposterProtoChunk extends $ProtoChunk {
 constructor(levelChunk0: $LevelChunk$$Type, boolean1: boolean)
 
-public static "clearNullReferences"(): void
 public "clip"(clipContext0: $ClipContext$$Type): $BlockHitResult
 public "clipWithInteractionOverride"(vec30: $Vec3$$Type, vec31: $Vec3$$Type, blockPos2: $BlockPos$$Type, voxelShape3: $VoxelShape$$Type, blockState4: $BlockState$$Type): $BlockHitResult
 public static "create"(int0: integer, int1: integer): $LevelHeightAccessor
-public static "createWeakRefBasedSet"(): $ObjectOpenCustomHashSet<$WeakReference<$Trackable>>
 public "getAllReferences"(): $Map<$Structure, $LongSet>
 public "getBlockEntity"<T extends $BlockEntity>(blockPos0: $BlockPos$$Type, blockEntityType1: $BlockEntityType$$Type<T>): $Optional<T>
-public "getBlockFloorHeight"(blockPos0: $BlockPos$$Type): double
 public "getBlockFloorHeight"(voxelShape0: $VoxelShape$$Type, supplier1: $Supplier$$Type<$VoxelShape>): double
+public "getBlockFloorHeight"(blockPos0: $BlockPos$$Type): double
 public "getBlockStates"(aABB0: $AABB$$Type): $Stream<$BlockState>
 public "getExistingBlockEntity"(blockPos0: $BlockPos$$Type): $BlockEntity
 public "getLightEmission"(blockPos0: $BlockPos$$Type): integer
@@ -581,15 +575,11 @@ public "getSectionIndex"(int0: integer): integer
 public "getSectionIndexFromSectionY"(int0: integer): integer
 public "getSectionYFromSectionIndex"(int0: integer): integer
 public "getSectionsCount"(): integer
-public static "getSummary"(): $Map<$Class<any>, $Map<$Class<any>, long>>
 public "getWrapped"(): $LevelChunk
 public "isBlockInLine"(clipBlockStateContext0: $ClipBlockStateContext$$Type): $BlockHitResult
 public "isOutsideBuildHeight"(blockPos0: $BlockPos$$Type): boolean
 public "isOutsideBuildHeight"(int0: integer): boolean
-public "startTracking"(): void
-public static "startTracking"(object0: any): void
 public static "traverseBlocks"<T, C>(vec30: $Vec3$$Type, vec31: $Vec3$$Type, c2: C, biFunction3: $BiFunction$$Type<C, $BlockPos$$Type, T>, function4: $Function$$Type<C, T>): T
-public "wrap"(): $WeakReference<$Trackable>
 get "allReferences"(): $Map<$Structure, $LongSet>
 get "maxBuildHeight"(): integer
 get "maxSection"(): integer
@@ -623,7 +613,6 @@ public "hasChunk"(chunkPos0: $ChunkPos$$Type): boolean
 }
 
 declare module "packages/net/minecraft/world/level/chunk/$LevelChunk" {
-import { $Trackable } from "packages/dev/uncandango/alltheleaks/mixin/$Trackable"
 import { $ModelDataManager } from "packages/net/minecraftforge/client/model/data/$ModelDataManager"
 import { $Fluid$$Type } from "packages/net/minecraft/world/level/material/$Fluid"
 import { $LazyOptional } from "packages/net/minecraftforge/common/util/$LazyOptional"
@@ -647,7 +636,6 @@ import { $BlockHitResult } from "packages/net/minecraft/world/phys/$BlockHitResu
 import { $Stream } from "packages/java/util/stream/$Stream"
 import { $ClipContext$$Type } from "packages/net/minecraft/world/level/$ClipContext"
 import { $ServerLevel$$Type } from "packages/net/minecraft/server/level/$ServerLevel"
-import { $WeakReference } from "packages/java/lang/ref/$WeakReference"
 import { $Supplier$$Type } from "packages/java/util/function/$Supplier"
 import { $BlockPos, $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
 import { $AABB$$Type } from "packages/net/minecraft/world/phys/$AABB"
@@ -656,8 +644,6 @@ import { $UpgradeData$$Type } from "packages/net/minecraft/world/level/chunk/$Up
 import { $LevelChunk$EntityCreationType$$Type } from "packages/net/minecraft/world/level/chunk/$LevelChunk$EntityCreationType"
 import { $LevelHeightAccessor } from "packages/net/minecraft/world/level/$LevelHeightAccessor"
 import { $VoxelShape, $VoxelShape$$Type } from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
-import { $ObjectOpenCustomHashSet } from "packages/it/unimi/dsi/fastutil/objects/$ObjectOpenCustomHashSet"
-import { $Class } from "packages/java/lang/$Class"
 import { $ClipBlockStateContext$$Type } from "packages/net/minecraft/world/level/$ClipBlockStateContext"
 import { $ChunkAccess } from "packages/net/minecraft/world/level/chunk/$ChunkAccess"
 import { $Level, $Level$$Type } from "packages/net/minecraft/world/level/$Level"
@@ -680,16 +666,14 @@ public "addAndRegisterBlockEntity"(blockEntity0: $BlockEntity$$Type): void
 public "areCapsCompatible"(capabilityProvider0: $CapabilityProvider$$Type<$LevelChunk$$Type>): boolean
 public "areCapsCompatible"(capabilityDispatcher0: $CapabilityDispatcher$$Type): boolean
 public "clearAllBlockEntities"(): void
-public static "clearNullReferences"(): void
 public "clip"(clipContext0: $ClipContext$$Type): $BlockHitResult
 public "clipWithInteractionOverride"(vec30: $Vec3$$Type, vec31: $Vec3$$Type, blockPos2: $BlockPos$$Type, voxelShape3: $VoxelShape$$Type, blockState4: $BlockState$$Type): $BlockHitResult
 public static "create"(int0: integer, int1: integer): $LevelHeightAccessor
-public static "createWeakRefBasedSet"(): $ObjectOpenCustomHashSet<$WeakReference<$Trackable>>
 public "getBlockEntities"(): $Map<$BlockPos, $BlockEntity>
 public "getBlockEntity"(blockPos0: $BlockPos$$Type, entityCreationType1: $LevelChunk$EntityCreationType$$Type): $BlockEntity
 public "getBlockEntity"<T extends $BlockEntity>(blockPos0: $BlockPos$$Type, blockEntityType1: $BlockEntityType$$Type<T>): $Optional<T>
-public "getBlockFloorHeight"(blockPos0: $BlockPos$$Type): double
 public "getBlockFloorHeight"(voxelShape0: $VoxelShape$$Type, supplier1: $Supplier$$Type<$VoxelShape>): double
+public "getBlockFloorHeight"(blockPos0: $BlockPos$$Type): double
 public "getBlockStates"(aABB0: $AABB$$Type): $Stream<$BlockState>
 public "getCapability"<T>(capability0: $Capability$$Type<T>, direction1: $Direction$$Type): $LazyOptional<T>
 public "getCapability"<T>(capability0: $Capability$$Type<T>): $LazyOptional<T>
@@ -707,8 +691,6 @@ public "getSectionIndex"(int0: integer): integer
 public "getSectionIndexFromSectionY"(int0: integer): integer
 public "getSectionYFromSectionIndex"(int0: integer): integer
 public "getSectionsCount"(): integer
-public static "getSummary"(): $Map<$Class<any>, $Map<$Class<any>, long>>
-public "getWorldForge"(): $Level
 public "invalidateCaps"(): void
 public "isBlockInLine"(clipBlockStateContext0: $ClipBlockStateContext$$Type): $BlockHitResult
 public "isEmpty"(): boolean
@@ -725,12 +707,9 @@ public "reviveCaps"(): void
 public "runPostLoad"(): void
 public "setFullStatus"(supplier0: $Supplier$$Type<$FullChunkStatus>): void
 public "setLoaded"(boolean0: boolean): void
-public "startTracking"(): void
-public static "startTracking"(object0: any): void
 public static "traverseBlocks"<T, C>(vec30: $Vec3$$Type, vec31: $Vec3$$Type, c2: C, biFunction3: $BiFunction$$Type<C, $BlockPos$$Type, T>, function4: $Function$$Type<C, T>): T
 public "unpackTicks"(long0: long): void
 public "unregisterTickContainerFromLevel"(serverLevel0: $ServerLevel$$Type): void
-public "wrap"(): $WeakReference<$Trackable>
 /** @deprecated */
 public "writeCapsToNBT"(): $CompoundTag
 get "loaded"(): boolean
@@ -748,7 +727,6 @@ get "maxSection"(): integer
 get "minSection"(): integer
 get "modelDataManager"(): $ModelDataManager
 get "sectionsCount"(): integer
-get "worldForge"(): $Level
 get "empty"(): boolean
 set "fullStatus"(value: $Supplier$$Type<$FullChunkStatus>)
 }
@@ -846,6 +824,7 @@ import { $PalettedContainerRO, $PalettedContainerRO$$Type } from "packages/net/m
 import { $Consumer$$Type } from "packages/java/util/function/$Consumer"
 import { $FriendlyByteBuf$$Type } from "packages/net/minecraft/network/$FriendlyByteBuf"
 import { $List$$Type } from "packages/java/util/$List"
+import { $PalettedContainer$Data, $PalettedContainer$Data$$Type } from "packages/net/minecraft/world/level/chunk/$PalettedContainer$Data"
 import { $BitStorage$$Type } from "packages/net/minecraft/util/$BitStorage"
 import { $PalettedContainer$CountConsumer$$Type } from "packages/net/minecraft/world/level/chunk/$PalettedContainer$CountConsumer"
 
@@ -876,6 +855,8 @@ public "sodium$copy"(): $PalettedContainerRO<any>
 public "sodium$unpack"(object0s: any[], int1: integer, int2: integer, int3: integer, int4: integer, int5: integer, int6: integer): void
 public "sodium$unpack"(object0s: any[]): void
 public "write"(friendlyByteBuf0: $FriendlyByteBuf$$Type): void
+get "data"(): $PalettedContainer$Data<T>
+set "data"(value: $PalettedContainer$Data$$Type<T>)
 get "serializedSize"(): integer
 }
 }
@@ -970,7 +951,6 @@ public "write"(chunkPos0: $ChunkPos$$Type, compoundTag1: $CompoundTag$$Type): vo
 }
 
 declare module "packages/net/minecraft/world/level/chunk/$ProtoChunk" {
-import { $Trackable } from "packages/dev/uncandango/alltheleaks/mixin/$Trackable"
 import { $ModelDataManager } from "packages/net/minecraftforge/client/model/data/$ModelDataManager"
 import { $Fluid, $Fluid$$Type } from "packages/net/minecraft/world/level/material/$Fluid"
 import { $CompoundTag, $CompoundTag$$Type } from "packages/net/minecraft/nbt/$CompoundTag"
@@ -989,7 +969,6 @@ import { $BlendingData$$Type } from "packages/net/minecraft/world/level/levelgen
 import { $BlockHitResult } from "packages/net/minecraft/world/phys/$BlockHitResult"
 import { $Stream } from "packages/java/util/stream/$Stream"
 import { $ClipContext$$Type } from "packages/net/minecraft/world/level/$ClipContext"
-import { $WeakReference } from "packages/java/lang/ref/$WeakReference"
 import { $Supplier$$Type } from "packages/java/util/function/$Supplier"
 import { $GenerationStep$Carving$$Type } from "packages/net/minecraft/world/level/levelgen/$GenerationStep$Carving"
 import { $BlockPos, $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
@@ -998,8 +977,6 @@ import { $ChunkPos$$Type } from "packages/net/minecraft/world/level/$ChunkPos"
 import { $UpgradeData$$Type } from "packages/net/minecraft/world/level/chunk/$UpgradeData"
 import { $LevelHeightAccessor, $LevelHeightAccessor$$Type } from "packages/net/minecraft/world/level/$LevelHeightAccessor"
 import { $VoxelShape, $VoxelShape$$Type } from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
-import { $ObjectOpenCustomHashSet } from "packages/it/unimi/dsi/fastutil/objects/$ObjectOpenCustomHashSet"
-import { $Class } from "packages/java/lang/$Class"
 import { $ClipBlockStateContext$$Type } from "packages/net/minecraft/world/level/$ClipBlockStateContext"
 import { $Registry$$Type } from "packages/net/minecraft/core/$Registry"
 import { $ChunkAccess } from "packages/net/minecraft/world/level/chunk/$ChunkAccess"
@@ -1016,16 +993,14 @@ constructor(chunkPos0: $ChunkPos$$Type, upgradeData1: $UpgradeData$$Type, levelH
 constructor(chunkPos0: $ChunkPos$$Type, upgradeData1: $UpgradeData$$Type, levelChunkSection2s: $LevelChunkSection$$Type[], protoChunkTicks3: $ProtoChunkTicks$$Type<$Block$$Type>, protoChunkTicks4: $ProtoChunkTicks$$Type<$Fluid$$Type>, levelHeightAccessor5: $LevelHeightAccessor$$Type, registry6: $Registry$$Type<$Biome$$Type>, blendingData7: $BlendingData$$Type)
 
 public "addEntity"(compoundTag0: $CompoundTag$$Type): void
-public static "clearNullReferences"(): void
 public "clip"(clipContext0: $ClipContext$$Type): $BlockHitResult
 public "clipWithInteractionOverride"(vec30: $Vec3$$Type, vec31: $Vec3$$Type, blockPos2: $BlockPos$$Type, voxelShape3: $VoxelShape$$Type, blockState4: $BlockState$$Type): $BlockHitResult
 public static "create"(int0: integer, int1: integer): $LevelHeightAccessor
-public static "createWeakRefBasedSet"(): $ObjectOpenCustomHashSet<$WeakReference<$Trackable>>
 public "getBlockEntities"(): $Map<$BlockPos, $BlockEntity>
 public "getBlockEntity"<T extends $BlockEntity>(blockPos0: $BlockPos$$Type, blockEntityType1: $BlockEntityType$$Type<T>): $Optional<T>
 public "getBlockEntityNbts"(): $Map<$BlockPos, $CompoundTag>
-public "getBlockFloorHeight"(blockPos0: $BlockPos$$Type): double
 public "getBlockFloorHeight"(voxelShape0: $VoxelShape$$Type, supplier1: $Supplier$$Type<$VoxelShape>): double
+public "getBlockFloorHeight"(blockPos0: $BlockPos$$Type): double
 public "getBlockStates"(aABB0: $AABB$$Type): $Stream<$BlockState>
 public "getCarvingMask"(carving0: $GenerationStep$Carving$$Type): $CarvingMask
 public "getEntities"(): $List<$CompoundTag>
@@ -1041,7 +1016,6 @@ public "getSectionIndex"(int0: integer): integer
 public "getSectionIndexFromSectionY"(int0: integer): integer
 public "getSectionYFromSectionIndex"(int0: integer): integer
 public "getSectionsCount"(): integer
-public static "getSummary"(): $Map<$Class<any>, $Map<$Class<any>, long>>
 public "isBlockInLine"(clipBlockStateContext0: $ClipBlockStateContext$$Type): $BlockHitResult
 public "isOutsideBuildHeight"(blockPos0: $BlockPos$$Type): boolean
 public "isOutsideBuildHeight"(int0: integer): boolean
@@ -1050,13 +1024,10 @@ public "setBelowZeroRetrogen"(belowZeroRetrogen0: $BelowZeroRetrogen$$Type): voi
 public "setCarvingMask"(carving0: $GenerationStep$Carving$$Type, carvingMask1: $CarvingMask$$Type): void
 public "setLightEngine"(levelLightEngine0: $LevelLightEngine$$Type): void
 public "setStatus"(chunkStatus0: $ChunkStatus$$Type): void
-public "startTracking"(): void
-public static "startTracking"(object0: any): void
 public static "traverseBlocks"<T, C>(vec30: $Vec3$$Type, vec31: $Vec3$$Type, c2: C, biFunction3: $BiFunction$$Type<C, $BlockPos$$Type, T>, function4: $Function$$Type<C, T>): T
 public "unpackBlockTicks"(): $LevelChunkTicks<$Block>
 public "unpackFluidTicks"(): $LevelChunkTicks<$Fluid>
 public static "unpackOffsetCoordinates"(short0: short, int1: integer, chunkPos2: $ChunkPos$$Type): $BlockPos
-public "wrap"(): $WeakReference<$Trackable>
 get "blockEntities"(): $Map<$BlockPos, $BlockEntity>
 get "blockEntityNbts"(): $Map<$BlockPos, $CompoundTag>
 get "entities"(): $List<$CompoundTag>
@@ -1172,7 +1143,6 @@ import { $BlockEntityType$$Type } from "packages/net/minecraft/world/level/block
 import { $TickContainerAccess } from "packages/net/minecraft/world/ticks/$TickContainerAccess"
 import { $Optional } from "packages/java/util/$Optional"
 import { $ChunkAccess$TicksToSave } from "packages/net/minecraft/world/level/chunk/$ChunkAccess$TicksToSave"
-import { $Trackable } from "packages/dev/uncandango/alltheleaks/mixin/$Trackable"
 import { $Fluid } from "packages/net/minecraft/world/level/material/$Fluid"
 import { $ChunkStatus } from "packages/net/minecraft/world/level/chunk/$ChunkStatus"
 import { $BiomeGenerationSettings } from "packages/net/minecraft/world/level/biome/$BiomeGenerationSettings"
@@ -1187,13 +1157,10 @@ import { $BlendingData, $BlendingData$$Type } from "packages/net/minecraft/world
 import { $BlockHitResult } from "packages/net/minecraft/world/phys/$BlockHitResult"
 import { $Stream } from "packages/java/util/stream/$Stream"
 import { $ClipContext$$Type } from "packages/net/minecraft/world/level/$ClipContext"
-import { $WeakReference } from "packages/java/lang/ref/$WeakReference"
 import { $BlockPos, $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
 import { $VoxelShape, $VoxelShape$$Type } from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
 import { $Predicate$$Type } from "packages/java/util/function/$Predicate"
 import { $Collection } from "packages/java/util/$Collection"
-import { $Class } from "packages/java/lang/$Class"
-import { $ObjectOpenCustomHashSet } from "packages/it/unimi/dsi/fastutil/objects/$ObjectOpenCustomHashSet"
 import { $ShortList, $ShortList$$Type } from "packages/it/unimi/dsi/fastutil/shorts/$ShortList"
 import { $BiConsumer$$Type } from "packages/java/util/function/$BiConsumer"
 import { $Holder } from "packages/net/minecraft/core/$Holder"
@@ -1203,7 +1170,7 @@ import { $Map, $Map$$Type } from "packages/java/util/$Map"
 import { $Map$Entry } from "packages/java/util/$Map$Entry"
 import { $BiomeManager$NoiseBiomeSource } from "packages/net/minecraft/world/level/biome/$BiomeManager$NoiseBiomeSource"
 
-export class $ChunkAccess implements $BlockGetter, $BiomeManager$NoiseBiomeSource, $LightChunk, $StructureAccess, $ChunkAccessAccessor, $Trackable, $AccessorChunkAccess {
+export class $ChunkAccess implements $BlockGetter, $BiomeManager$NoiseBiomeSource, $LightChunk, $StructureAccess, $ChunkAccessAccessor, $AccessorChunkAccess {
 static readonly "NO_FILLED_SECTION": integer
 
 constructor(chunkPos0: $ChunkPos$$Type, upgradeData1: $UpgradeData$$Type, levelHeightAccessor2: $LevelHeightAccessor$$Type, registry3: $Registry$$Type<$Biome$$Type>, long4: long, levelChunkSection5s: $LevelChunkSection$$Type[], blendingData6: $BlendingData$$Type)
@@ -1211,14 +1178,11 @@ constructor(chunkPos0: $ChunkPos$$Type, upgradeData1: $UpgradeData$$Type, levelH
 public "addEntity"(entity0: $Entity$$Type): void
 public "addPackedPostProcess"(short0: short, int1: integer): void
 public "addReferenceForStructure"(structure0: $Structure$$Type, long1: long): void
-public "atl$getBaseClass"(): $Class<any>
 /** @deprecated */
 public "carverBiome"(supplier0: $Supplier$$Type<$BiomeGenerationSettings>): $BiomeGenerationSettings
-public static "clearNullReferences"(): void
 public "clip"(clipContext0: $ClipContext$$Type): $BlockHitResult
 public "clipWithInteractionOverride"(vec30: $Vec3$$Type, vec31: $Vec3$$Type, blockPos2: $BlockPos$$Type, voxelShape3: $VoxelShape$$Type, blockState4: $BlockState$$Type): $BlockHitResult
 public static "create"(int0: integer, int1: integer): $LevelHeightAccessor
-public static "createWeakRefBasedSet"(): $ObjectOpenCustomHashSet<$WeakReference<$Trackable>>
 public "fillBiomesFromNoise"(biomeResolver0: $BiomeResolver$$Type, sampler1: $Climate$Sampler$$Type): void
 public "findBlockLightSources"(biConsumer0: $BiConsumer$$Type<$BlockPos$$Type, $BlockState$$Type>): void
 public "findBlocks"(biPredicate0: $BiPredicate$$Type<$BlockState$$Type, $BlockPos$$Type>, biConsumer1: $BiConsumer$$Type<$BlockPos$$Type, $BlockState$$Type>): void
@@ -1232,16 +1196,16 @@ public "getBlockEntity"<T extends $BlockEntity>(blockPos0: $BlockPos$$Type, bloc
 public "getBlockEntity"(blockPos0: $BlockPos$$Type): $BlockEntity
 public "getBlockEntityNbt"(blockPos0: $BlockPos$$Type): $CompoundTag
 public "getBlockEntityNbtForSaving"(blockPos0: $BlockPos$$Type): $CompoundTag
-public "getBlockFloorHeight"(blockPos0: $BlockPos$$Type): double
 public "getBlockFloorHeight"(voxelShape0: $VoxelShape$$Type, supplier1: $Supplier$$Type<$VoxelShape>): double
+public "getBlockFloorHeight"(blockPos0: $BlockPos$$Type): double
 public "getBlockState"(blockPos0: $BlockPos$$Type): $BlockState
 public "getBlockStates"(aABB0: $AABB$$Type): $Stream<$BlockState>
 public "getBlockTicks"(): $TickContainerAccess<$Block>
 public "getExistingBlockEntity"(blockPos0: $BlockPos$$Type): $BlockEntity
 public "getFluidState"(blockPos0: $BlockPos$$Type): $FluidState
 public "getFluidTicks"(): $TickContainerAccess<$Fluid>
-public "getHeight"(types0: $Heightmap$Types$$Type, int1: integer, int2: integer): integer
 public "getHeight"(): integer
+public "getHeight"(types0: $Heightmap$Types$$Type, int1: integer, int2: integer): integer
 public "getHeightAccessorForGeneration"(): $LevelHeightAccessor
 public "getHeightmaps"(): $Collection<$Map$Entry<$Heightmap$Types, $Heightmap>>
 public "getHighestFilledSectionIndex"(): integer
@@ -1273,7 +1237,6 @@ public "getSectionsCount"(): integer
 public "getSkyLightSources"(): $ChunkSkyLightSources
 public "getStartForStructure"(structure0: $Structure$$Type): $StructureStart
 public "getStatus"(): $ChunkStatus
-public static "getSummary"(): $Map<$Class<any>, $Map<$Class<any>, long>>
 public "getTicksForSerialization"(): $ChunkAccess$TicksToSave
 public "getUpgradeData"(): $UpgradeData
 public "getWorldForge"(): $LevelAccessor
@@ -1302,10 +1265,7 @@ public "setInhabitedTime"(long0: long): void
 public "setLightCorrect"(boolean0: boolean): void
 public "setStartForStructure"(structure0: $Structure$$Type, structureStart1: $StructureStart$$Type): void
 public "setUnsaved"(boolean0: boolean): void
-public "startTracking"(): void
-public static "startTracking"(object0: any): void
 public static "traverseBlocks"<T, C>(vec30: $Vec3$$Type, vec31: $Vec3$$Type, c2: C, biFunction3: $BiFunction$$Type<C, $BlockPos$$Type, T>, function4: $Function$$Type<C, T>): T
-public "wrap"(): $WeakReference<$Trackable>
 get "allReferences"(): $Map<any, any>
 get "allStarts"(): $Map<$Structure, $StructureStart>
 get "belowZeroRetrogen"(): $BelowZeroRetrogen

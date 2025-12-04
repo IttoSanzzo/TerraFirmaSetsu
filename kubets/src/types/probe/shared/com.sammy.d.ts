@@ -115,8 +115,8 @@ import { $FeatureFlagSet, $FeatureFlagSet$$Type } from "packages/net/minecraft/w
 import { $ResourceLocation$$Type } from "packages/net/minecraft/resources/$ResourceLocation"
 
 export interface $FeatureFlagExpandedUniverseSet {
-"malum$attachFeatureSet"(uncappedFeatureFlagSet0: $UncappedFeatureFlagSet$$Type): void
 "malum$attachFeatureSet"(featureFlagSet0: $FeatureFlagSet$$Type): void
+"malum$attachFeatureSet"(uncappedFeatureFlagSet0: $UncappedFeatureFlagSet$$Type): void
 "malum$copyWithoutExpansion"(): $FeatureFlagSet
 "malum$getAttachedFeatureSet"(resourceLocation0: $ResourceLocation$$Type): $FeatureFlagSet
 "malum$getAttachedUncappedFeatureSet"(resourceLocation0: $ResourceLocation$$Type): $UncappedFeatureFlagSet

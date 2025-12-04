@@ -1,6 +1,7 @@
 import { StructureModifier } from "packages/moe/wolfgirl/probejs/generated/registry/forge/StructureModifier"
 import { RecipeSerializer } from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/RecipeSerializer"
 import { WorldgenFeature } from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/WorldgenFeature"
+import { PostAction } from "packages/moe/wolfgirl/probejs/generated/registry/lychee/PostAction"
 import { WorldgenBlockStateProviderType } from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/WorldgenBlockStateProviderType"
 import { SoundEvent } from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/SoundEvent"
 import { GameEvent } from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/GameEvent"
@@ -25,6 +26,7 @@ import { WorldgenFeatureSizeType } from "packages/moe/wolfgirl/probejs/generated
 import { LootPoolEntryType } from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/LootPoolEntryType"
 import { Brews } from "packages/moe/wolfgirl/probejs/generated/registry/botania/Brews"
 import { FloatProviderType } from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/FloatProviderType"
+import { Contextual } from "packages/moe/wolfgirl/probejs/generated/registry/lychee/Contextual"
 import { EntityDataSerializers } from "packages/moe/wolfgirl/probejs/generated/registry/forge/EntityDataSerializers"
 import { WorldgenNoiseSettings } from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/WorldgenNoiseSettings"
 import { RecipeType } from "packages/moe/wolfgirl/probejs/generated/registry/minecraft/RecipeType"
@@ -210,17 +212,17 @@ function registry(extra: "damage_type", handler: ((event: DamageType) => void)):
 function registry(extra: "rule_block_entity_modifier", handler: ((event: RuleBlockEntityModifier) => void)): void
 function registry(extra: "decorated_pot_patterns", handler: ((event: DecoratedPotPatterns) => void)): void
 function registry(extra: "worldgen/multi_noise_biome_source_parameter_list", handler: ((event: WorldgenMultiNoiseBiomeSourceParameterList) => void)): void
-function registry(extra: "create:mounted_fluid_storage_type", handler: ((event: MountedFluidStorageType) => void)): void
-function registry(extra: "create:item_attribute_type", handler: ((event: ItemAttributeType) => void)): void
-function registry(extra: "create:display_target", handler: ((event: DisplayTarget) => void)): void
+function registry(extra: "create:potato_projectile/render_mode", handler: ((event: PotatoProjectileRenderMode) => void)): void
 function registry(extra: "create:mounted_item_storage_type", handler: ((event: MountedItemStorageType) => void)): void
+function registry(extra: "create:fan_processing_type", handler: ((event: FanProcessingType) => void)): void
+function registry(extra: "create:mounted_fluid_storage_type", handler: ((event: MountedFluidStorageType) => void)): void
+function registry(extra: "create:potato_projectile/entity_hit_action", handler: ((event: PotatoProjectileEntityHitAction) => void)): void
 function registry(extra: "create:contraption_type", handler: ((event: ContraptionType) => void)): void
 function registry(extra: "create:display_source", handler: ((event: DisplaySource) => void)): void
-function registry(extra: "create:potato_projectile/render_mode", handler: ((event: PotatoProjectileRenderMode) => void)): void
+function registry(extra: "create:display_target", handler: ((event: DisplayTarget) => void)): void
+function registry(extra: "create:item_attribute_type", handler: ((event: ItemAttributeType) => void)): void
 function registry(extra: "create:arm_interaction_point_type", handler: ((event: ArmInteractionPointType) => void)): void
-function registry(extra: "create:potato_projectile/entity_hit_action", handler: ((event: PotatoProjectileEntityHitAction) => void)): void
 function registry(extra: "create:potato_projectile/block_hit_action", handler: ((event: PotatoProjectileBlockHitAction) => void)): void
-function registry(extra: "create:fan_processing_type", handler: ((event: FanProcessingType) => void)): void
 function registry(extra: "bloodmagic:anointment", handler: ((event: Anointment) => void)): void
 function registry(extra: "bloodmagic:bloodorbs", handler: ((event: Bloodorbs) => void)): void
 function registry(extra: "bloodmagic:upgrades", handler: ((event: Upgrades) => void)): void
@@ -233,6 +235,8 @@ function registry(extra: "forge:global_loot_modifier_serializers", handler: ((ev
 function registry(extra: "forge:holder_set_type", handler: ((event: HolderSetType) => void)): void
 function registry(extra: "forge:structure_modifier_serializers", handler: ((event: StructureModifierSerializers) => void)): void
 function registry(extra: "framedblocks:camo_containers", handler: ((event: CamoContainers) => void)): void
+function registry(extra: "lychee:contextual", handler: ((event: Contextual) => void)): void
+function registry(extra: "lychee:post_action", handler: ((event: PostAction) => void)): void
 function registry(extra: "mna:components", handler: ((event: Components) => void)): void
 function registry(extra: "mna:construct_task", handler: ((event: ConstructTask) => void)): void
 function registry(extra: "mna:factions", handler: ((event: Factions) => void)): void

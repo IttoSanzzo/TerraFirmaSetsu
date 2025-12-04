@@ -61,11 +61,13 @@ export interface $Short2FloatFunction extends $Function$0<short, float>, $IntToD
 "composeObject"<T>(object2ShortFunction0: $Object2ShortFunction$$Type<T>): $Object2FloatFunction<T>
 "composeReference"<T>(reference2ShortFunction0: $Reference2ShortFunction$$Type<T>): $Reference2FloatFunction<T>
 "composeShort"(short2ShortFunction0: $Short2ShortFunction$$Type): $Short2FloatFunction
-"containsKey"(short0: short): boolean
 /** @deprecated */
 "containsKey"(object0: any): boolean
+"containsKey"(short0: short): boolean
 "defaultReturnValue"(): float
 "defaultReturnValue"(float0: float): void
+/** @deprecated */
+"get"(object0: any): float
 "get"(short0: short): float
 /** @deprecated */
 "getOrDefault"(object0: any, float1: float): float
@@ -74,6 +76,8 @@ export interface $Short2FloatFunction extends $Function$0<short, float>, $IntToD
 /** @deprecated */
 "put"(short0: short, float1: float): float
 "remove"(short0: short): float
+/** @deprecated */
+"remove"(object0: any): float
 "size"(): integer
 }
 
@@ -172,11 +176,13 @@ export interface $Short2ByteFunction extends $Function$0<short, byte>, $IntUnary
 "composeObject"<T>(object2ShortFunction0: $Object2ShortFunction$$Type<T>): $Object2ByteFunction<T>
 "composeReference"<T>(reference2ShortFunction0: $Reference2ShortFunction$$Type<T>): $Reference2ByteFunction<T>
 "composeShort"(short2ShortFunction0: $Short2ShortFunction$$Type): $Short2ByteFunction
-"containsKey"(short0: short): boolean
 /** @deprecated */
 "containsKey"(object0: any): boolean
+"containsKey"(short0: short): boolean
 "defaultReturnValue"(): byte
 "defaultReturnValue"(byte0: byte): void
+/** @deprecated */
+"get"(object0: any): byte
 "get"(short0: short): byte
 /** @deprecated */
 "getOrDefault"(object0: any, byte1: byte): byte
@@ -185,6 +191,8 @@ export interface $Short2ByteFunction extends $Function$0<short, byte>, $IntUnary
 /** @deprecated */
 "put"(short0: short, byte1: byte): byte
 "remove"(short0: short): byte
+/** @deprecated */
+"remove"(object0: any): byte
 "size"(): integer
 }
 
@@ -261,11 +269,13 @@ export interface $Short2CharFunction extends $Function$0<short, character>, $Int
 "composeObject"<T>(object2ShortFunction0: $Object2ShortFunction$$Type<T>): $Object2CharFunction<T>
 "composeReference"<T>(reference2ShortFunction0: $Reference2ShortFunction$$Type<T>): $Reference2CharFunction<T>
 "composeShort"(short2ShortFunction0: $Short2ShortFunction$$Type): $Short2CharFunction
-"containsKey"(short0: short): boolean
 /** @deprecated */
 "containsKey"(object0: any): boolean
+"containsKey"(short0: short): boolean
 "defaultReturnValue"(): character
 "defaultReturnValue"(char0: character): void
+/** @deprecated */
+"get"(object0: any): character
 "get"(short0: short): character
 /** @deprecated */
 "getOrDefault"(object0: any, character1: character): character
@@ -274,6 +284,8 @@ export interface $Short2CharFunction extends $Function$0<short, character>, $Int
 /** @deprecated */
 "put"(short0: short, character1: character): character
 "remove"(short0: short): character
+/** @deprecated */
+"remove"(object0: any): character
 "size"(): integer
 }
 
@@ -346,9 +358,9 @@ export interface $ShortSet extends $ShortCollection, $Set<short> {
 "toArray"<T>(t0s: T[]): T[]
 "toArray"(): any[]
 "toArray"<T>(intFunction0: $IntFunction$$Type<T[]>): T[]
-"toShortArray"(): short[]
 /** @deprecated */
 "toShortArray"(short0s: short[]): short[]
+"toShortArray"(): short[]
 get "empty"(): boolean
 }
 
@@ -484,14 +496,14 @@ export interface $Short2ReferenceFunction<V> extends $Function$0<short, V>, $Int
 /** @deprecated */
 "containsKey"(object0: any): boolean
 "containsKey"(short0: short): boolean
-"defaultReturnValue"(v0: V): void
 "defaultReturnValue"(): V
+"defaultReturnValue"(v0: V): void
 /** @deprecated */
 "get"(object0: any): V
 "get"(short0: short): V
+"getOrDefault"(short0: short, v1: V): V
 /** @deprecated */
 "getOrDefault"(object0: any, v1: V): V
-"getOrDefault"(short0: short, v1: V): V
 /** @deprecated */
 "put"(short0: short, v1: V): V
 "put"(short0: short, v1: V): V
@@ -574,24 +586,22 @@ export interface $Short2BooleanFunction extends $Function$0<short, boolean>, $In
 "composeObject"<T>(object2ShortFunction0: $Object2ShortFunction$$Type<T>): $Object2BooleanFunction<T>
 "composeReference"<T>(reference2ShortFunction0: $Reference2ShortFunction$$Type<T>): $Reference2BooleanFunction<T>
 "composeShort"(short2ShortFunction0: $Short2ShortFunction$$Type): $Short2BooleanFunction
+"containsKey"(short0: short): boolean
 /** @deprecated */
 "containsKey"(object0: any): boolean
-"containsKey"(short0: short): boolean
 "defaultReturnValue"(): boolean
 "defaultReturnValue"(boolean0: boolean): void
 /** @deprecated */
 "get"(object0: any): boolean
 "get"(short0: short): boolean
-"getOrDefault"(short0: short, boolean1: boolean): boolean
 /** @deprecated */
 "getOrDefault"(object0: any, boolean1: boolean): boolean
+"getOrDefault"(short0: short, boolean1: boolean): boolean
 "negate"(): $IntPredicate
 "or"(intPredicate0: $IntPredicate$$Type): $IntPredicate
 /** @deprecated */
 "put"(short0: short, boolean1: boolean): boolean
 "put"(short0: short, boolean1: boolean): boolean
-/** @deprecated */
-"remove"(object0: any): boolean
 "remove"(short0: short): boolean
 "size"(): integer
 /** @deprecated */
@@ -688,8 +698,8 @@ export interface $ShortList extends $List<short>, $Comparable<$List<short>>, $Sh
 "addAll"(int0: integer, collection1: $Collection$$Type<short>): boolean
 "addAll"(collection0: $Collection$$Type<short>): boolean
 "addAll"(shortCollection0: $ShortCollection$$Type): boolean
-"addElements"(int0: integer, short1s: short[]): void
 "addElements"(int0: integer, short1s: short[], int2: integer, int3: integer): void
+"addElements"(int0: integer, short1s: short[]): void
 "clear"(): void
 "compareTo"(list0: $List$$Type<short>): integer
 /** @deprecated */
@@ -738,9 +748,9 @@ export interface $ShortList extends $List<short>, $Comparable<$List<short>>, $Sh
 /** @deprecated */
 "set"(int0: integer, short1: short): short
 "set"(int0: integer, short1: short): short
-"setElements"(int0: integer, short1s: short[]): void
-"setElements"(short0s: short[]): void
 "setElements"(int0: integer, short1s: short[], int2: integer, int3: integer): void
+"setElements"(short0s: short[]): void
+"setElements"(int0: integer, short1s: short[]): void
 "size"(int0: integer): void
 "size"(): integer
 "sort"(shortComparator0: $ShortComparator$$Type): void
@@ -753,12 +763,12 @@ export interface $ShortList extends $List<short>, $Comparable<$List<short>>, $Sh
 "toArray"<T>(t0s: T[]): T[]
 "toArray"(short0s: short[]): short[]
 "toArray"<T>(intFunction0: $IntFunction$$Type<T[]>): T[]
-"toShortArray"(): short[]
 /** @deprecated */
 "toShortArray"(short0s: short[]): short[]
+"toShortArray"(): short[]
+"unstableSort"(shortComparator0: $ShortComparator$$Type): void
 /** @deprecated */
 "unstableSort"(comparator0: $Comparator$$Type<short>): void
-"unstableSort"(shortComparator0: $ShortComparator$$Type): void
 get "empty"(): boolean
 set "elements"(value: short[])
 }
@@ -868,11 +878,13 @@ export interface $Short2IntFunction extends $Function$0<short, integer>, $IntUna
 "composeObject"<T>(object2ShortFunction0: $Object2ShortFunction$$Type<T>): $Object2IntFunction<T>
 "composeReference"<T>(reference2ShortFunction0: $Reference2ShortFunction$$Type<T>): $Reference2IntFunction<T>
 "composeShort"(short2ShortFunction0: $Short2ShortFunction$$Type): $Short2IntFunction
-"containsKey"(short0: short): boolean
 /** @deprecated */
 "containsKey"(object0: any): boolean
+"containsKey"(short0: short): boolean
 "defaultReturnValue"(): integer
 "defaultReturnValue"(int0: integer): void
+/** @deprecated */
+"get"(object0: any): integer
 "get"(short0: short): integer
 /** @deprecated */
 "getOrDefault"(object0: any, integer1: integer): integer
@@ -881,6 +893,8 @@ export interface $Short2IntFunction extends $Function$0<short, integer>, $IntUna
 /** @deprecated */
 "put"(short0: short, integer1: integer): integer
 "remove"(short0: short): integer
+/** @deprecated */
+"remove"(object0: any): integer
 "size"(): integer
 }
 
@@ -957,14 +971,14 @@ export interface $Short2ObjectFunction<V> extends $Function$0<short, V>, $IntFun
 /** @deprecated */
 "containsKey"(object0: any): boolean
 "containsKey"(short0: short): boolean
-"defaultReturnValue"(v0: V): void
 "defaultReturnValue"(): V
+"defaultReturnValue"(v0: V): void
 /** @deprecated */
 "get"(object0: any): V
 "get"(short0: short): V
+"getOrDefault"(short0: short, v1: V): V
 /** @deprecated */
 "getOrDefault"(object0: any, v1: V): V
-"getOrDefault"(short0: short, v1: V): V
 /** @deprecated */
 "put"(short0: short, v1: V): V
 "put"(short0: short, v1: V): V
@@ -1110,11 +1124,11 @@ export interface $Short2ShortFunction extends $Function<short, short>, $IntUnary
 "composeObject"<T>(object2ShortFunction0: $Object2ShortFunction$$Type<T>): $Object2ShortFunction<T>
 "composeReference"<T>(reference2ShortFunction0: $Reference2ShortFunction$$Type<T>): $Reference2ShortFunction<T>
 "composeShort"(short2ShortFunction0: $Short2ShortFunction$$Type): $Short2ShortFunction
-"containsKey"(short0: short): boolean
 /** @deprecated */
 "containsKey"(object0: any): boolean
-"defaultReturnValue"(short0: short): void
+"containsKey"(short0: short): boolean
 "defaultReturnValue"(): short
+"defaultReturnValue"(short0: short): void
 "get"(short0: short): short
 /** @deprecated */
 "getOrDefault"(object0: any, short1: short): short
@@ -1196,9 +1210,9 @@ export interface $ShortCollection extends $Collection<short>, $ShortIterable {
 "toArray"<T>(t0s: T[]): T[]
 "toArray"(): any[]
 "toArray"<T>(intFunction0: $IntFunction$$Type<T[]>): T[]
-"toShortArray"(): short[]
 /** @deprecated */
 "toShortArray"(short0s: short[]): short[]
+"toShortArray"(): short[]
 get "empty"(): boolean
 }
 
@@ -1272,11 +1286,13 @@ export interface $Short2DoubleFunction extends $Function$0<short, double>, $IntT
 "composeObject"<T>(object2ShortFunction0: $Object2ShortFunction$$Type<T>): $Object2DoubleFunction<T>
 "composeReference"<T>(reference2ShortFunction0: $Reference2ShortFunction$$Type<T>): $Reference2DoubleFunction<T>
 "composeShort"(short2ShortFunction0: $Short2ShortFunction$$Type): $Short2DoubleFunction
-"containsKey"(short0: short): boolean
 /** @deprecated */
 "containsKey"(object0: any): boolean
+"containsKey"(short0: short): boolean
 "defaultReturnValue"(): double
 "defaultReturnValue"(double0: double): void
+/** @deprecated */
+"get"(object0: any): double
 "get"(short0: short): double
 /** @deprecated */
 "getOrDefault"(object0: any, double1: double): double
@@ -1285,6 +1301,8 @@ export interface $Short2DoubleFunction extends $Function$0<short, double>, $IntT
 /** @deprecated */
 "put"(short0: short, double1: double): double
 "remove"(short0: short): double
+/** @deprecated */
+"remove"(object0: any): double
 "size"(): integer
 }
 
@@ -1359,11 +1377,13 @@ export interface $Short2LongFunction extends $Function$0<short, long>, $IntToLon
 "composeObject"<T>(object2ShortFunction0: $Object2ShortFunction$$Type<T>): $Object2LongFunction<T>
 "composeReference"<T>(reference2ShortFunction0: $Reference2ShortFunction$$Type<T>): $Reference2LongFunction<T>
 "composeShort"(short2ShortFunction0: $Short2ShortFunction$$Type): $Short2LongFunction
-"containsKey"(short0: short): boolean
 /** @deprecated */
 "containsKey"(object0: any): boolean
+"containsKey"(short0: short): boolean
 "defaultReturnValue"(): long
 "defaultReturnValue"(long0: long): void
+/** @deprecated */
+"get"(object0: any): long
 "get"(short0: short): long
 /** @deprecated */
 "getOrDefault"(object0: any, long1: long): long
@@ -1372,6 +1392,8 @@ export interface $Short2LongFunction extends $Function$0<short, long>, $IntToLon
 /** @deprecated */
 "put"(short0: short, long1: long): long
 "remove"(short0: short): long
+/** @deprecated */
+"remove"(object0: any): long
 "size"(): integer
 }
 

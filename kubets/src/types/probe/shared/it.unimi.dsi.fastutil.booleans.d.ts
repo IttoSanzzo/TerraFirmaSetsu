@@ -1,3 +1,32 @@
+declare module "packages/it/unimi/dsi/fastutil/booleans/$BooleanPredicate" {
+import { $Predicate, $Predicate$$Type } from "packages/java/util/function/$Predicate"
+
+export interface $BooleanPredicate extends $Predicate<boolean> {
+/** @deprecated */
+"and"(predicate0: $Predicate$$Type<boolean>): $Predicate<boolean>
+"and"(booleanPredicate0: $BooleanPredicate$$Type): $BooleanPredicate
+"or"(booleanPredicate0: $BooleanPredicate$$Type): $BooleanPredicate
+/** @deprecated */
+"or"(predicate0: $Predicate$$Type<boolean>): $Predicate<boolean>
+/** @deprecated */
+"test"(boolean0: boolean): boolean
+"test"(boolean0: boolean): boolean
+}
+
+export namespace $BooleanPredicate {
+function identity(): $BooleanPredicate
+function isEqual<T>(object0: any): $Predicate<T>
+function negation(): $BooleanPredicate
+function not<T>(predicate0: $Predicate$$Type<T>): $Predicate<T>
+}
+export abstract class $BooleanPredicate$$Static implements $BooleanPredicate {
+static "identity"(): $BooleanPredicate
+static "isEqual"<T>(object0: any): $Predicate<T>
+static "negation"(): $BooleanPredicate
+static "not"<T>(predicate0: $Predicate$$Type<T>): $Predicate<T>
+}
+}
+
 declare module "packages/it/unimi/dsi/fastutil/booleans/$Boolean2FloatFunction" {
 import { $Long2FloatFunction } from "packages/it/unimi/dsi/fastutil/longs/$Long2FloatFunction"
 import { $Float2DoubleFunction$$Type } from "packages/it/unimi/dsi/fastutil/floats/$Float2DoubleFunction"
@@ -61,11 +90,11 @@ export interface $Boolean2FloatFunction extends $Function$0<boolean, float> {
 "composeObject"<T>(object2BooleanFunction0: $Object2BooleanFunction$$Type<T>): $Object2FloatFunction<T>
 "composeReference"<T>(reference2BooleanFunction0: $Reference2BooleanFunction$$Type<T>): $Reference2FloatFunction<T>
 "composeShort"(short2BooleanFunction0: $Short2BooleanFunction$$Type): $Short2FloatFunction
+"containsKey"(boolean0: boolean): boolean
 /** @deprecated */
 "containsKey"(object0: any): boolean
-"containsKey"(boolean0: boolean): boolean
-"defaultReturnValue"(float0: float): void
 "defaultReturnValue"(): float
+"defaultReturnValue"(float0: float): void
 /** @deprecated */
 "get"(object0: any): float
 "get"(boolean0: boolean): float
@@ -152,11 +181,11 @@ export interface $Boolean2IntFunction extends $Function$0<boolean, integer> {
 "composeObject"<T>(object2BooleanFunction0: $Object2BooleanFunction$$Type<T>): $Object2IntFunction<T>
 "composeReference"<T>(reference2BooleanFunction0: $Reference2BooleanFunction$$Type<T>): $Reference2IntFunction<T>
 "composeShort"(short2BooleanFunction0: $Short2BooleanFunction$$Type): $Short2IntFunction
+"containsKey"(boolean0: boolean): boolean
 /** @deprecated */
 "containsKey"(object0: any): boolean
-"containsKey"(boolean0: boolean): boolean
-"defaultReturnValue"(int0: integer): void
 "defaultReturnValue"(): integer
+"defaultReturnValue"(int0: integer): void
 /** @deprecated */
 "get"(object0: any): integer
 "get"(boolean0: boolean): integer
@@ -177,6 +206,25 @@ function identity<T>(): $Function<T, T>
 }
 export abstract class $Boolean2IntFunction$$Static implements $Boolean2IntFunction {
 static "identity"<T>(): $Function<T, T>
+}
+}
+
+declare module "packages/it/unimi/dsi/fastutil/booleans/$BooleanConsumer" {
+import { $Consumer, $Consumer$$Type } from "packages/java/util/function/$Consumer"
+
+export interface $BooleanConsumer extends $Consumer<boolean> {
+/** @deprecated */
+"accept"(boolean0: boolean): void
+"accept"(boolean0: boolean): void
+/** @deprecated */
+"andThen"(consumer0: $Consumer$$Type<boolean>): $Consumer<boolean>
+"andThen"(booleanConsumer0: $BooleanConsumer$$Type): $BooleanConsumer
+}
+
+export namespace $BooleanConsumer {
+const probejs$$marker: never
+}
+export abstract class $BooleanConsumer$$Static implements $BooleanConsumer {
 }
 }
 
@@ -245,20 +293,20 @@ export interface $Boolean2ReferenceFunction<V> extends $Function$0<boolean, V> {
 /** @deprecated */
 "containsKey"(object0: any): boolean
 "containsKey"(boolean0: boolean): boolean
-"defaultReturnValue"(): V
 "defaultReturnValue"(v0: V): void
+"defaultReturnValue"(): V
 /** @deprecated */
 "get"(object0: any): V
 "get"(boolean0: boolean): V
-"getOrDefault"(boolean0: boolean, v1: V): V
 /** @deprecated */
 "getOrDefault"(object0: any, v1: V): V
-"put"(boolean0: boolean, v1: V): V
+"getOrDefault"(boolean0: boolean, v1: V): V
 /** @deprecated */
 "put"(boolean0: boolean, v1: V): V
-"remove"(boolean0: boolean): V
+"put"(boolean0: boolean, v1: V): V
 /** @deprecated */
 "remove"(object0: any): V
+"remove"(boolean0: boolean): V
 "size"(): integer
 }
 
@@ -267,6 +315,66 @@ function identity<T>(): $Function<T, T>
 }
 export abstract class $Boolean2ReferenceFunction$$Static<V> implements $Boolean2ReferenceFunction<V> {
 static "identity"<T>(): $Function<T, T>
+}
+}
+
+declare module "packages/it/unimi/dsi/fastutil/booleans/$BooleanCollection" {
+import { $BooleanIterable } from "packages/it/unimi/dsi/fastutil/booleans/$BooleanIterable"
+import { $BooleanPredicate$$Type } from "packages/it/unimi/dsi/fastutil/booleans/$BooleanPredicate"
+import { $Consumer$$Type } from "packages/java/util/function/$Consumer"
+import { $Collection, $Collection$$Type } from "packages/java/util/$Collection"
+import { $Predicate$$Type } from "packages/java/util/function/$Predicate"
+import { $IntFunction$$Type } from "packages/java/util/function/$IntFunction"
+import { $Stream } from "packages/java/util/stream/$Stream"
+import { $BooleanConsumer$$Type } from "packages/it/unimi/dsi/fastutil/booleans/$BooleanConsumer"
+import { $BooleanSpliterator } from "packages/it/unimi/dsi/fastutil/booleans/$BooleanSpliterator"
+
+export interface $BooleanCollection extends $Collection<boolean>, $BooleanIterable {
+/** @deprecated */
+"add"(boolean0: boolean): boolean
+"add"(boolean0: boolean): boolean
+"addAll"(booleanCollection0: $BooleanCollection$$Type): boolean
+"addAll"(collection0: $Collection$$Type<boolean>): boolean
+"clear"(): void
+/** @deprecated */
+"contains"(object0: any): boolean
+"contains"(boolean0: boolean): boolean
+"containsAll"(booleanCollection0: $BooleanCollection$$Type): boolean
+"containsAll"(collection0: $Collection$$Type<any>): boolean
+"equals"(object0: any): boolean
+"forEach"(booleanConsumer0: $BooleanConsumer$$Type): void
+/** @deprecated */
+"forEach"(consumer0: $Consumer$$Type<boolean>): void
+"hashCode"(): integer
+"isEmpty"(): boolean
+"parallelStream"(): $Stream<boolean>
+"rem"(boolean0: boolean): boolean
+/** @deprecated */
+"remove"(object0: any): boolean
+"removeAll"(booleanCollection0: $BooleanCollection$$Type): boolean
+"removeAll"(collection0: $Collection$$Type<any>): boolean
+"removeIf"(booleanPredicate0: $BooleanPredicate$$Type): boolean
+/** @deprecated */
+"removeIf"(predicate0: $Predicate$$Type<boolean>): boolean
+"retainAll"(booleanCollection0: $BooleanCollection$$Type): boolean
+"retainAll"(collection0: $Collection$$Type<any>): boolean
+"size"(): integer
+"spliterator"(): $BooleanSpliterator
+"stream"(): $Stream<boolean>
+"toArray"(boolean0s: boolean[]): boolean[]
+"toArray"<T>(t0s: T[]): T[]
+"toArray"(): any[]
+"toArray"<T>(intFunction0: $IntFunction$$Type<T[]>): T[]
+"toBooleanArray"(): boolean[]
+/** @deprecated */
+"toBooleanArray"(boolean0s: boolean[]): boolean[]
+get "empty"(): boolean
+}
+
+export namespace $BooleanCollection {
+const probejs$$marker: never
+}
+export abstract class $BooleanCollection$$Static implements $BooleanCollection {
 }
 }
 
@@ -333,11 +441,11 @@ export interface $Boolean2ShortFunction extends $Function$0<boolean, short> {
 "composeObject"<T>(object2BooleanFunction0: $Object2BooleanFunction$$Type<T>): $Object2ShortFunction<T>
 "composeReference"<T>(reference2BooleanFunction0: $Reference2BooleanFunction$$Type<T>): $Reference2ShortFunction<T>
 "composeShort"(short2BooleanFunction0: $Short2BooleanFunction$$Type): $Short2ShortFunction
+"containsKey"(boolean0: boolean): boolean
 /** @deprecated */
 "containsKey"(object0: any): boolean
-"containsKey"(boolean0: boolean): boolean
-"defaultReturnValue"(short0: short): void
 "defaultReturnValue"(): short
+"defaultReturnValue"(short0: short): void
 /** @deprecated */
 "get"(object0: any): short
 "get"(boolean0: boolean): short
@@ -358,6 +466,51 @@ function identity<T>(): $Function<T, T>
 }
 export abstract class $Boolean2ShortFunction$$Static implements $Boolean2ShortFunction {
 static "identity"<T>(): $Function<T, T>
+}
+}
+
+declare module "packages/it/unimi/dsi/fastutil/booleans/$BooleanSpliterator" {
+import { $Consumer$$Type } from "packages/java/util/function/$Consumer"
+import { $Spliterator$OfPrimitive } from "packages/java/util/$Spliterator$OfPrimitive"
+import { $BooleanConsumer, $BooleanConsumer$$Type } from "packages/it/unimi/dsi/fastutil/booleans/$BooleanConsumer"
+
+export interface $BooleanSpliterator extends $Spliterator$OfPrimitive<boolean, $BooleanConsumer, $BooleanSpliterator> {
+"characteristics"(): integer
+"estimateSize"(): long
+/** @deprecated */
+"forEachRemaining"(consumer0: $Consumer$$Type<boolean>): void
+"forEachRemaining"(booleanConsumer0: $BooleanConsumer$$Type): void
+"getExactSizeIfKnown"(): long
+"hasCharacteristics"(int0: integer): boolean
+"skip"(long0: long): long
+/** @deprecated */
+"tryAdvance"(consumer0: $Consumer$$Type<boolean>): boolean
+"tryAdvance"(booleanConsumer0: $BooleanConsumer$$Type): boolean
+get "exactSizeIfKnown"(): long
+}
+
+export namespace $BooleanSpliterator {
+const probejs$$marker: never
+}
+export abstract class $BooleanSpliterator$$Static implements $BooleanSpliterator {
+}
+}
+
+declare module "packages/it/unimi/dsi/fastutil/booleans/$BooleanIterable" {
+import { $Consumer$$Type } from "packages/java/util/function/$Consumer"
+import { $BooleanConsumer$$Type } from "packages/it/unimi/dsi/fastutil/booleans/$BooleanConsumer"
+import { $Iterable } from "packages/java/lang/$Iterable"
+
+export interface $BooleanIterable extends $Iterable<boolean> {
+"forEach"(booleanConsumer0: $BooleanConsumer$$Type): void
+/** @deprecated */
+"forEach"(consumer0: $Consumer$$Type<boolean>): void
+}
+
+export namespace $BooleanIterable {
+const probejs$$marker: never
+}
+export abstract class $BooleanIterable$$Static implements $BooleanIterable {
 }
 }
 
@@ -424,11 +577,11 @@ export interface $Boolean2ByteFunction extends $Function$0<boolean, byte> {
 "composeObject"<T>(object2BooleanFunction0: $Object2BooleanFunction$$Type<T>): $Object2ByteFunction<T>
 "composeReference"<T>(reference2BooleanFunction0: $Reference2BooleanFunction$$Type<T>): $Reference2ByteFunction<T>
 "composeShort"(short2BooleanFunction0: $Short2BooleanFunction$$Type): $Short2ByteFunction
+"containsKey"(boolean0: boolean): boolean
 /** @deprecated */
 "containsKey"(object0: any): boolean
-"containsKey"(boolean0: boolean): boolean
-"defaultReturnValue"(byte0: byte): void
 "defaultReturnValue"(): byte
+"defaultReturnValue"(byte0: byte): void
 /** @deprecated */
 "get"(object0: any): byte
 "get"(boolean0: boolean): byte
@@ -515,11 +668,11 @@ export interface $Boolean2LongFunction extends $Function$0<boolean, long> {
 "composeObject"<T>(object2BooleanFunction0: $Object2BooleanFunction$$Type<T>): $Object2LongFunction<T>
 "composeReference"<T>(reference2BooleanFunction0: $Reference2BooleanFunction$$Type<T>): $Reference2LongFunction<T>
 "composeShort"(short2BooleanFunction0: $Short2BooleanFunction$$Type): $Short2LongFunction
+"containsKey"(boolean0: boolean): boolean
 /** @deprecated */
 "containsKey"(object0: any): boolean
-"containsKey"(boolean0: boolean): boolean
-"defaultReturnValue"(long0: long): void
 "defaultReturnValue"(): long
+"defaultReturnValue"(long0: long): void
 /** @deprecated */
 "get"(object0: any): long
 "get"(boolean0: boolean): long
@@ -608,20 +761,20 @@ export interface $Boolean2ObjectFunction<V> extends $Function$0<boolean, V> {
 /** @deprecated */
 "containsKey"(object0: any): boolean
 "containsKey"(boolean0: boolean): boolean
-"defaultReturnValue"(): V
 "defaultReturnValue"(v0: V): void
+"defaultReturnValue"(): V
 /** @deprecated */
 "get"(object0: any): V
 "get"(boolean0: boolean): V
-"getOrDefault"(boolean0: boolean, v1: V): V
 /** @deprecated */
 "getOrDefault"(object0: any, v1: V): V
-"put"(boolean0: boolean, v1: V): V
+"getOrDefault"(boolean0: boolean, v1: V): V
 /** @deprecated */
 "put"(boolean0: boolean, v1: V): V
-"remove"(boolean0: boolean): V
+"put"(boolean0: boolean, v1: V): V
 /** @deprecated */
 "remove"(object0: any): V
+"remove"(boolean0: boolean): V
 "size"(): integer
 }
 
@@ -696,11 +849,11 @@ export interface $Boolean2DoubleFunction extends $Function$0<boolean, double> {
 "composeObject"<T>(object2BooleanFunction0: $Object2BooleanFunction$$Type<T>): $Object2DoubleFunction<T>
 "composeReference"<T>(reference2BooleanFunction0: $Reference2BooleanFunction$$Type<T>): $Reference2DoubleFunction<T>
 "composeShort"(short2BooleanFunction0: $Short2BooleanFunction$$Type): $Short2DoubleFunction
+"containsKey"(boolean0: boolean): boolean
 /** @deprecated */
 "containsKey"(object0: any): boolean
-"containsKey"(boolean0: boolean): boolean
-"defaultReturnValue"(double0: double): void
 "defaultReturnValue"(): double
+"defaultReturnValue"(double0: double): void
 /** @deprecated */
 "get"(object0: any): double
 "get"(boolean0: boolean): double
@@ -787,11 +940,11 @@ export interface $Boolean2CharFunction extends $Function$0<boolean, character> {
 "composeObject"<T>(object2BooleanFunction0: $Object2BooleanFunction$$Type<T>): $Object2CharFunction<T>
 "composeReference"<T>(reference2BooleanFunction0: $Reference2BooleanFunction$$Type<T>): $Reference2CharFunction<T>
 "composeShort"(short2BooleanFunction0: $Short2BooleanFunction$$Type): $Short2CharFunction
+"containsKey"(boolean0: boolean): boolean
 /** @deprecated */
 "containsKey"(object0: any): boolean
-"containsKey"(boolean0: boolean): boolean
-"defaultReturnValue"(char0: character): void
 "defaultReturnValue"(): character
+"defaultReturnValue"(char0: character): void
 /** @deprecated */
 "get"(object0: any): character
 "get"(boolean0: boolean): character

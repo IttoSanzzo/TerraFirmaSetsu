@@ -589,6 +589,17 @@ export type $VisualEmbedding_ = $VisualEmbedding$$Type;
 }
 }
 
+declare module "packages/dev/engine_room/flywheel/backend/mixin/light/$LayerLightSectionStorageAccessor" {
+import { $DataLayer$$Type } from "packages/net/minecraft/world/level/chunk/$DataLayer"
+
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $LayerLightSectionStorageAccessor$$Type = ($LayerLightSectionStorageAccessor | ((arg0: long, arg1: boolean) => $DataLayer$$Type));
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $LayerLightSectionStorageAccessor_ = $LayerLightSectionStorageAccessor$$Type;
+}
+}
+
 declare module "packages/dev/engine_room/flywheel/lib/transform/$Scale" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */

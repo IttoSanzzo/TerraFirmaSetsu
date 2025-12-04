@@ -1030,16 +1030,6 @@ export type $RedStoneOreBlock_ = $RedStoneOreBlock$$Type;
 }
 }
 
-declare module "packages/net/minecraft/world/level/block/$HorizontalDirectionalBlock" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
-export type $HorizontalDirectionalBlock$$Type = ($HorizontalDirectionalBlock);
-/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
-declare global {
-export type $HorizontalDirectionalBlock_ = $HorizontalDirectionalBlock$$Type;
-}
-}
-
 declare module "packages/net/minecraft/world/level/block/$BaseCoralWallFanBlock" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
@@ -1047,6 +1037,16 @@ export type $BaseCoralWallFanBlock$$Type = ($BaseCoralWallFanBlock);
 /** Global type exported for convenience, use class-specific types if there's a naming conflict. */
 declare global {
 export type $BaseCoralWallFanBlock_ = $BaseCoralWallFanBlock$$Type;
+}
+}
+
+declare module "packages/net/minecraft/world/level/block/$HorizontalDirectionalBlock" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $HorizontalDirectionalBlock$$Type = ($HorizontalDirectionalBlock);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $HorizontalDirectionalBlock_ = $HorizontalDirectionalBlock$$Type;
 }
 }
 
@@ -2520,6 +2520,7 @@ import { $Consumer$$Type } from "packages/java/util/function/$Consumer"
 import { $Player$$Type } from "packages/net/minecraft/world/entity/player/$Player"
 import { $InjectedBlockExtension } from "packages/dev/architectury/extensions/injected/$InjectedBlockExtension"
 import { $BlockEntity$$Type } from "packages/net/minecraft/world/level/block/entity/$BlockEntity"
+import { $RandomlyTickable } from "packages/snownee/lychee/random_block_ticking/$RandomlyTickable"
 import { $ToolAction$$Type } from "packages/net/minecraftforge/common/$ToolAction"
 import { $List, $List$$Type } from "packages/java/util/$List"
 import { $RandomSource$$Type } from "packages/net/minecraft/util/$RandomSource"
@@ -2551,6 +2552,7 @@ import { $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
 import { $BlockPlaceContext$$Type } from "packages/net/minecraft/world/item/context/$BlockPlaceContext"
 import { $SpawnPlacements$Type$$Type } from "packages/net/minecraft/world/entity/$SpawnPlacements$Type"
 import { $VoxelShape, $VoxelShape$$Type } from "packages/net/minecraft/world/phys/shapes/$VoxelShape"
+import { $Predicate$$Type } from "packages/java/util/function/$Predicate"
 import { $SignalGetter$$Type } from "packages/net/minecraft/world/level/$SignalGetter"
 import { $BlockPathTypes, $BlockPathTypes$$Type } from "packages/net/minecraft/world/level/pathfinder/$BlockPathTypes"
 import { $Item$$Type } from "packages/net/minecraft/world/item/$Item"
@@ -2567,7 +2569,7 @@ import { $ResourceKey$$Type } from "packages/net/minecraft/resources/$ResourceKe
 import { $ItemLike } from "packages/net/minecraft/world/level/$ItemLike"
 import { $BlockAccessor } from "packages/fuzs/puzzleslib/mixin/accessor/$BlockAccessor"
 
-export class $Block extends $BlockBehaviour implements $ItemLike, $IForgeBlock, $DelegateHolder<any>, $IEnchantingBlock, $BlockAccessor, $InjectedBlockExtension {
+export class $Block extends $BlockBehaviour implements $ItemLike, $IForgeBlock, $DelegateHolder<any>, $IEnchantingBlock, $BlockAccessor, $InjectedBlockExtension, $RandomlyTickable {
 /** @deprecated */
 static readonly "BLOCK_STATE_REGISTRY": $IdMapper<$BlockState>
 static readonly "INDESTRUCTIBLE": float
@@ -2611,10 +2613,10 @@ public "defaultBlockState"(): $BlockState
 public "destroy"(levelAccessor0: $LevelAccessor$$Type, blockPos1: $BlockPos$$Type, blockState2: $BlockState$$Type): void
 /** @deprecated */
 public "dropFromExplosion"(explosion0: $Explosion$$Type): boolean
-public static "dropResources"(blockState0: $BlockState$$Type, levelAccessor1: $LevelAccessor$$Type, blockPos2: $BlockPos$$Type, blockEntity3: $BlockEntity$$Type): void
+public static "dropResources"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, blockEntity3: $BlockEntity$$Type, entity4: $Entity$$Type, itemStack5: $ItemStack$$Type): void
 public static "dropResources"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type): void
 public static "dropResources"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, blockEntity3: $BlockEntity$$Type, entity4: $Entity$$Type, itemStack5: $ItemStack$$Type, boolean6: boolean): void
-public static "dropResources"(blockState0: $BlockState$$Type, level1: $Level$$Type, blockPos2: $BlockPos$$Type, blockEntity3: $BlockEntity$$Type, entity4: $Entity$$Type, itemStack5: $ItemStack$$Type): void
+public static "dropResources"(blockState0: $BlockState$$Type, levelAccessor1: $LevelAccessor$$Type, blockPos2: $BlockPos$$Type, blockEntity3: $BlockEntity$$Type): void
 public "fallOn"(level0: $Level$$Type, blockState1: $BlockState$$Type, blockPos2: $BlockPos$$Type, entity3: $Entity$$Type, float4: float): void
 public "getAdjacentBlockPathType"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, mob3: $Mob$$Type, blockPathTypes4: $BlockPathTypes$$Type): $BlockPathTypes
 public "getAppearance"(blockState0: $BlockState$$Type, blockAndTintGetter1: $BlockAndTintGetter$$Type, blockPos2: $BlockPos$$Type, direction3: $Direction$$Type, blockState4: $BlockState$$Type, blockPos5: $BlockPos$$Type): $BlockState
@@ -2684,6 +2686,8 @@ public static "isShapeFullBlock"(voxelShape0: $VoxelShape$$Type): boolean
 public "isSlimeBlock"(blockState0: $BlockState$$Type): boolean
 public "isStickyBlock"(blockState0: $BlockState$$Type): boolean
 public "isValidSpawn"(blockState0: $BlockState$$Type, blockGetter1: $BlockGetter$$Type, blockPos2: $BlockPos$$Type, type3: $SpawnPlacements$Type$$Type, entityType4: $EntityType$$Type<any>): boolean
+public "lychee$isTickable"(blockState0: $BlockState$$Type): boolean
+public "lychee$setTickable"(predicate0: $Predicate$$Type<any>): void
 public "makesOpenTrapdoorAboveClimbable"(blockState0: $BlockState$$Type, levelReader1: $LevelReader$$Type, blockPos2: $BlockPos$$Type, blockState3: $BlockState$$Type): boolean
 public "mfix$getDelegate"(registryKey: $ResourceKey$$Type<any>): $Holder$Reference<any>
 public "mfix$setDelegate"(registryKey: $ResourceKey$$Type<any>, holder: $Holder$Reference$$Type<any>): void
@@ -2715,8 +2719,8 @@ public "stepOn"(level0: $Level$$Type, blockPos1: $BlockPos$$Type, blockState2: $
 public "supportsExternalFaceHiding"(blockState0: $BlockState$$Type): boolean
 public "updateEntityAfterFallOn"(blockGetter0: $BlockGetter$$Type, entity1: $Entity$$Type): void
 public static "updateFromNeighbourShapes"(blockState0: $BlockState$$Type, levelAccessor1: $LevelAccessor$$Type, blockPos2: $BlockPos$$Type): $BlockState
-public static "updateOrDestroy"(blockState0: $BlockState$$Type, blockState1: $BlockState$$Type, levelAccessor2: $LevelAccessor$$Type, blockPos3: $BlockPos$$Type, int4: integer): void
 public static "updateOrDestroy"(blockState0: $BlockState$$Type, blockState1: $BlockState$$Type, levelAccessor2: $LevelAccessor$$Type, blockPos3: $BlockPos$$Type, int4: integer, int5: integer): void
+public static "updateOrDestroy"(blockState0: $BlockState$$Type, blockState1: $BlockState$$Type, levelAccessor2: $LevelAccessor$$Type, blockPos3: $BlockPos$$Type, int4: integer): void
 public "wasExploded"(level0: $Level$$Type, blockPos1: $BlockPos$$Type, explosion2: $Explosion$$Type): void
 public "withPropertiesOf"(blockState0: $BlockState$$Type): $BlockState
 get "descriptionId"(): string

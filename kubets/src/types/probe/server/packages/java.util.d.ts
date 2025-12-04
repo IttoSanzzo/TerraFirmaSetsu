@@ -435,6 +435,74 @@ export type $Spliterator$OfLong_ = $Spliterator$OfLong$$Type;
 }
 }
 
+declare module "packages/java/util/zip/$Deflater" {
+import { $ByteBuffer$$Type } from "packages/java/nio/$ByteBuffer"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $Deflater {
+static readonly "BEST_COMPRESSION": integer
+static readonly "BEST_SPEED": integer
+static readonly "DEFAULT_COMPRESSION": integer
+static readonly "DEFAULT_STRATEGY": integer
+static readonly "DEFLATED": integer
+static readonly "FILTERED": integer
+static readonly "FULL_FLUSH": integer
+static readonly "HUFFMAN_ONLY": integer
+static readonly "NO_COMPRESSION": integer
+static readonly "NO_FLUSH": integer
+static readonly "SYNC_FLUSH": integer
+
+constructor(int0: integer, boolean1: boolean)
+constructor()
+constructor(int0: integer)
+
+public "deflate"(byte0s: byte[], int1: integer, int2: integer): integer
+public "deflate"(byte0s: byte[], int1: integer, int2: integer, int3: integer): integer
+public "deflate"(byteBuffer0: $ByteBuffer$$Type): integer
+public "deflate"(byte0s: byte[]): integer
+public "deflate"(byteBuffer0: $ByteBuffer$$Type, int1: integer): integer
+public "end"(): void
+public "finish"(): void
+public "finished"(): boolean
+public "getAdler"(): integer
+public "getBytesRead"(): long
+public "getBytesWritten"(): long
+public "getTotalIn"(): integer
+public "getTotalOut"(): integer
+public "needsInput"(): boolean
+public "reset"(): void
+public "setDictionary"(byteBuffer0: $ByteBuffer$$Type): void
+public "setDictionary"(byte0s: byte[]): void
+public "setDictionary"(byte0s: byte[], int1: integer, int2: integer): void
+public "setInput"(byte0s: byte[]): void
+public "setInput"(byte0s: byte[], int1: integer, int2: integer): void
+public "setInput"(byteBuffer0: $ByteBuffer$$Type): void
+public "setLevel"(int0: integer): void
+public "setStrategy"(int0: integer): void
+get "adler"(): integer
+get "bytesRead"(): long
+get "bytesWritten"(): long
+get "totalIn"(): integer
+get "totalOut"(): integer
+set "dictionary"(value: $ByteBuffer$$Type)
+set "dictionary"(value: byte[])
+set "input"(value: byte[])
+set "input"(value: $ByteBuffer$$Type)
+set "level"(value: integer)
+set "strategy"(value: integer)
+}
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $Deflater$$Type = ($Deflater);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $Deflater_ = $Deflater$$Type;
+}
+}
+
 declare module "packages/java/util/function/$IntConsumer" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
@@ -659,6 +727,34 @@ export type $DoubleToIntFunction_ = $DoubleToIntFunction$$Type;
 }
 }
 
+declare module "packages/java/util/zip/$DeflaterOutputStream" {
+import { $Deflater$$Type } from "packages/java/util/zip/$Deflater"
+import { $OutputStream$$Type } from "packages/java/io/$OutputStream"
+import { $FilterOutputStream } from "packages/java/io/$FilterOutputStream"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $DeflaterOutputStream extends $FilterOutputStream {
+constructor(outputStream0: $OutputStream$$Type, boolean1: boolean)
+constructor(outputStream0: $OutputStream$$Type)
+constructor(outputStream0: $OutputStream$$Type, deflater1: $Deflater$$Type, int2: integer, boolean3: boolean)
+constructor(outputStream0: $OutputStream$$Type, deflater1: $Deflater$$Type)
+constructor(outputStream0: $OutputStream$$Type, deflater1: $Deflater$$Type, boolean2: boolean)
+constructor(outputStream0: $OutputStream$$Type, deflater1: $Deflater$$Type, int2: integer)
+
+public "finish"(): void
+}
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $DeflaterOutputStream$$Type = ($DeflaterOutputStream);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $DeflaterOutputStream_ = $DeflaterOutputStream$$Type;
+}
+}
+
 declare module "packages/java/util/function/$BiPredicate" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
@@ -766,6 +862,42 @@ export type $Future$$Type<V> = ($Future<V>);
 /** Global type exported for convenience, use class-specific types if there's a naming conflict. */
 declare global {
 export type $Future_<V> = $Future$$Type<V>;
+}
+}
+
+declare module "packages/java/util/zip/$ZipOutputStream" {
+import { $OutputStream$$Type } from "packages/java/io/$OutputStream"
+import { $DeflaterOutputStream } from "packages/java/util/zip/$DeflaterOutputStream"
+import { $ZipEntry$$Type } from "packages/java/util/zip/$ZipEntry"
+import { $ZipConstants } from "packages/java/util/zip/$ZipConstants"
+import { $Charset$$Type } from "packages/java/nio/charset/$Charset"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $ZipOutputStream extends $DeflaterOutputStream implements $ZipConstants {
+static readonly "DEFLATED": integer
+static readonly "STORED": integer
+
+constructor(outputStream0: $OutputStream$$Type, charset1: $Charset$$Type)
+constructor(outputStream0: $OutputStream$$Type)
+
+public "closeEntry"(): void
+public "putNextEntry"(zipEntry0: $ZipEntry$$Type): void
+public "setComment"(string0: string): void
+public "setLevel"(int0: integer): void
+public "setMethod"(int0: integer): void
+set "comment"(value: string)
+set "level"(value: integer)
+set "method"(value: integer)
+}
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $ZipOutputStream$$Type = ($ZipOutputStream);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $ZipOutputStream_ = $ZipOutputStream$$Type;
 }
 }
 

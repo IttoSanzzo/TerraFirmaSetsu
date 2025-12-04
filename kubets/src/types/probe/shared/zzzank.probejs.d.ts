@@ -602,11 +602,11 @@ readonly "transpiler": $Transpiler
 constructor(parent: $SharedDump$$Type, type: $ScriptType$$Type, scriptPath: $Path$$Type, classFilter: $Predicate$$Type<$Clazz$$Type>)
 
 public "acceptClasses"(classes: $Collection$$Type<$Clazz$$Type>): void
-public "addGlobal"(identifier: string, excludedNames: $Collection$$Type<string>, ...content: $Code$$Type[]): void
 public "addGlobal"(identifier: string, ...content: $Code$$Type[]): void
-public "assignType"(classPath: $Class$$Type<any>, type: $BaseType$$Type): void
-public "assignType"(classPath: $ClassPath$$Type, type: $BaseType$$Type): void
+public "addGlobal"(identifier: string, excludedNames: $Collection$$Type<string>, ...content: $Code$$Type[]): void
 public "assignType"(classPath: $Class$$Type<any>, name: string, type: $BaseType$$Type): void
+public "assignType"(classPath: $ClassPath$$Type, type: $BaseType$$Type): void
+public "assignType"(classPath: $Class$$Type<any>, type: $BaseType$$Type): void
 public "assignType"(classPath: $ClassPath$$Type, name: string, type: $BaseType$$Type): void
 public "clearFiles"(): void
 public "ensureFolder"(): void
@@ -801,8 +801,8 @@ readonly "path": $ClassPath
 constructor(self: $ClassPath$$Type)
 
 public "addCode"(code: $Code$$Type): void
-public "addCodes"(codes: $Collection$$Type<$Code$$Type>): void
 public "addCodes"(...codes: $Code$$Type[]): void
+public "addCodes"(codes: $Collection$$Type<$Code$$Type>): void
 public "excludeSymbol"(name: string): void
 public "findCode"<T extends $Code>(type: $Class$$Type<T>): $Optional<T>
 public "findCodeNullable"<T extends $Code>(type: $Class$$Type<T>): T
@@ -943,8 +943,8 @@ readonly "name": string
 
 constructor(name: string)
 
-public "choices"(choices: $Collection$$Type<string>): $Snippet
 public "choices"(enumeration: integer, choices: $Collection$$Type<string>): $Snippet
+public "choices"(choices: $Collection$$Type<string>): $Snippet
 public "compile"(): $JsonObject
 public "description"(description: string): $Snippet
 public "getPrefixes"(): $List<string>
@@ -1339,8 +1339,8 @@ function and(...types: $BaseType$$Type[]): $BaseType
 function and(types: $Collection$$Type<$BaseType$$Type>): $BaseType
 function array(base: $BaseType$$Type): $TSArrayType
 function contextShield<T extends $BaseType>(type: T, formatType: $BaseType$FormatType$$Type): $ContextShield<T>
-function custom(formatter: $BiFunction$$Type<$Declaration$$Type, $BaseType$FormatType$$Type, string>, imports: $Function$$Type<$BaseType$FormatType$$Type, $ImportInfos>): $CustomType
 function custom(formatter: $BiFunction$$Type<$Declaration$$Type, $BaseType$FormatType$$Type, string>): $CustomType
+function custom(formatter: $BiFunction$$Type<$Declaration$$Type, $BaseType$FormatType$$Type, string>, imports: $Function$$Type<$BaseType$FormatType$$Type, $ImportInfos>): $CustomType
 function filter(type: $BaseType$$Type, typePredicate: $Predicate$$Type<$BaseType$$Type>): $BaseType
 function format(format: string, ...types: $BaseType$$Type[]): $WithFormatType
 function generic(symbol: string): $TSVariableType
@@ -1368,8 +1368,8 @@ function type(clazz: $Class$$Type<any>): $TSClassType
 function type(classPath: $ClassPath$$Type): $TSClassType
 function typeMaybeGeneric(clazz: $Class$$Type<any>): $BaseType
 function typeOf(clazz: $Class$$Type<any>): $JSTypeOfType
-function typeOf(classPath: $ClassPath$$Type): $JSTypeOfType
 function typeOf(classType: $BaseType$$Type): $JSTypeOfType
+function typeOf(classPath: $ClassPath$$Type): $JSTypeOfType
 function withComment(type: $BaseType$$Type, comment: string): $WithFormatType
 }
 export abstract class $Types$$Static implements $Types {
@@ -1391,8 +1391,8 @@ static "and"(...types: $BaseType$$Type[]): $BaseType
 static "and"(types: $Collection$$Type<$BaseType$$Type>): $BaseType
 static "array"(base: $BaseType$$Type): $TSArrayType
 static "contextShield"<T extends $BaseType>(type: T, formatType: $BaseType$FormatType$$Type): $ContextShield<T>
-static "custom"(formatter: $BiFunction$$Type<$Declaration$$Type, $BaseType$FormatType$$Type, string>, imports: $Function$$Type<$BaseType$FormatType$$Type, $ImportInfos>): $CustomType
 static "custom"(formatter: $BiFunction$$Type<$Declaration$$Type, $BaseType$FormatType$$Type, string>): $CustomType
+static "custom"(formatter: $BiFunction$$Type<$Declaration$$Type, $BaseType$FormatType$$Type, string>, imports: $Function$$Type<$BaseType$FormatType$$Type, $ImportInfos>): $CustomType
 static "filter"(type: $BaseType$$Type, typePredicate: $Predicate$$Type<$BaseType$$Type>): $BaseType
 static "format"(format: string, ...types: $BaseType$$Type[]): $WithFormatType
 static "generic"(symbol: string): $TSVariableType
@@ -1421,8 +1421,8 @@ static "type"(clazz: $Class$$Type<any>): $TSClassType
 static "type"(classPath: $ClassPath$$Type): $TSClassType
 static "typeMaybeGeneric"(clazz: $Class$$Type<any>): $BaseType
 static "typeOf"(clazz: $Class$$Type<any>): $JSTypeOfType
-static "typeOf"(classPath: $ClassPath$$Type): $JSTypeOfType
 static "typeOf"(classType: $BaseType$$Type): $JSTypeOfType
+static "typeOf"(classPath: $ClassPath$$Type): $JSTypeOfType
 static "withComment"(type: $BaseType$$Type, comment: string): $WithFormatType
 }
 }
@@ -1508,8 +1508,8 @@ public "line"(declaration: $Declaration$$Type, formatType: $BaseType$FormatType$
 public "line"(declaration: $Declaration$$Type): string
 public "optional"(): $TSOptionalType
 public "or"(...types: $BaseType$$Type[]): $JSJoinedType$Union
-public "withParams"(params: $Collection$$Type<$BaseType$$Type>): $TSParamType
 public "withParams"(...params: string[]): $TSParamType
+public "withParams"(params: $Collection$$Type<$BaseType$$Type>): $TSParamType
 public "withParams"(...params: $BaseType$$Type[]): $TSParamType
 public "withPossibleParams"(params: $Collection$$Type<$BaseType$$Type>): $BaseType
 }
@@ -1742,8 +1742,8 @@ constructor()
 
 public "build"(): $JSLambdaType
 public "param"(symbol: string, type: $BaseType$$Type): SELF
-public "param"(symbol: string, type: $BaseType$$Type, isOptional: boolean, isVarArg: boolean): SELF
 public "param"(symbol: string, type: $BaseType$$Type, isOptional: boolean): SELF
+public "param"(symbol: string, type: $BaseType$$Type, isOptional: boolean, isVarArg: boolean): SELF
 public "returnType"(type: $BaseType$$Type): SELF
 }
 }

@@ -180,8 +180,8 @@ public "ceil"(): $Unit
 public "clamp"(a: $Unit$$Type, b: $Unit$$Type): $Unit
 public "cos"(): $Unit
 public "deg"(): $Unit
-public "div"(other: $Unit$$Type): $Unit
 public "div"(value: double): $Unit
+public "div"(other: $Unit$$Type): $Unit
 public "divSet"(unit: $Unit$$Type): $Unit
 public "eq"(other: $Unit$$Type): $Unit
 public "floor"(): $Unit
@@ -201,8 +201,8 @@ public "lt"(other: $Unit$$Type): $Unit
 public "lte"(other: $Unit$$Type): $Unit
 public "max"(other: $Unit$$Type): $Unit
 public "min"(other: $Unit$$Type): $Unit
-public "mod"(value: double): $Unit
 public "mod"(other: $Unit$$Type): $Unit
+public "mod"(value: double): $Unit
 public "modSet"(unit: $Unit$$Type): $Unit
 public "mul"(other: $Unit$$Type): $Unit
 public "mul"(value: double): $Unit

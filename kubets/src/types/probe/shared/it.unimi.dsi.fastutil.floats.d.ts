@@ -70,11 +70,11 @@ export interface $Float2FloatFunction extends $Function<float, float>, $DoubleUn
 "composeObject"<T>(object2FloatFunction0: $Object2FloatFunction$$Type<T>): $Object2FloatFunction<T>
 "composeReference"<T>(reference2FloatFunction0: $Reference2FloatFunction$$Type<T>): $Reference2FloatFunction<T>
 "composeShort"(short2FloatFunction0: $Short2FloatFunction$$Type): $Short2FloatFunction
-"containsKey"(float0: float): boolean
 /** @deprecated */
 "containsKey"(object0: any): boolean
-"defaultReturnValue"(float0: float): void
+"containsKey"(float0: float): boolean
 "defaultReturnValue"(): float
+"defaultReturnValue"(float0: float): void
 "get"(float0: float): float
 /** @deprecated */
 "getOrDefault"(object0: any, float1: float): float
@@ -188,14 +188,14 @@ export interface $Float2ObjectFunction<V> extends $Function$0<float, V>, $Double
 /** @deprecated */
 "containsKey"(object0: any): boolean
 "containsKey"(float0: float): boolean
-"defaultReturnValue"(v0: V): void
 "defaultReturnValue"(): V
+"defaultReturnValue"(v0: V): void
 /** @deprecated */
 "get"(object0: any): V
 "get"(float0: float): V
+"getOrDefault"(float0: float, v1: V): V
 /** @deprecated */
 "getOrDefault"(object0: any, v1: V): V
-"getOrDefault"(float0: float, v1: V): V
 /** @deprecated */
 "put"(float0: float, v1: V): V
 "put"(float0: float, v1: V): V
@@ -276,11 +276,13 @@ export interface $Float2ShortFunction extends $Function$0<float, short>, $Double
 "composeObject"<T>(object2FloatFunction0: $Object2FloatFunction$$Type<T>): $Object2ShortFunction<T>
 "composeReference"<T>(reference2FloatFunction0: $Reference2FloatFunction$$Type<T>): $Reference2ShortFunction<T>
 "composeShort"(short2FloatFunction0: $Short2FloatFunction$$Type): $Short2ShortFunction
-"containsKey"(float0: float): boolean
 /** @deprecated */
 "containsKey"(object0: any): boolean
+"containsKey"(float0: float): boolean
 "defaultReturnValue"(): short
 "defaultReturnValue"(short0: short): void
+/** @deprecated */
+"get"(object0: any): short
 "get"(float0: float): short
 /** @deprecated */
 "getOrDefault"(object0: any, short1: short): short
@@ -289,6 +291,8 @@ export interface $Float2ShortFunction extends $Function$0<float, short>, $Double
 /** @deprecated */
 "put"(float0: float, short1: short): short
 "remove"(float0: float): short
+/** @deprecated */
+"remove"(object0: any): short
 "size"(): integer
 }
 
@@ -363,11 +367,13 @@ export interface $Float2IntFunction extends $Function$0<float, integer>, $Double
 "composeObject"<T>(object2FloatFunction0: $Object2FloatFunction$$Type<T>): $Object2IntFunction<T>
 "composeReference"<T>(reference2FloatFunction0: $Reference2FloatFunction$$Type<T>): $Reference2IntFunction<T>
 "composeShort"(short2FloatFunction0: $Short2FloatFunction$$Type): $Short2IntFunction
-"containsKey"(float0: float): boolean
 /** @deprecated */
 "containsKey"(object0: any): boolean
+"containsKey"(float0: float): boolean
 "defaultReturnValue"(): integer
 "defaultReturnValue"(int0: integer): void
+/** @deprecated */
+"get"(object0: any): integer
 "get"(float0: float): integer
 /** @deprecated */
 "getOrDefault"(object0: any, integer1: integer): integer
@@ -376,6 +382,8 @@ export interface $Float2IntFunction extends $Function$0<float, integer>, $Double
 /** @deprecated */
 "put"(float0: float, integer1: integer): integer
 "remove"(float0: float): integer
+/** @deprecated */
+"remove"(object0: any): integer
 "size"(): integer
 }
 
@@ -450,11 +458,13 @@ export interface $Float2ByteFunction extends $Function$0<float, byte>, $DoubleTo
 "composeObject"<T>(object2FloatFunction0: $Object2FloatFunction$$Type<T>): $Object2ByteFunction<T>
 "composeReference"<T>(reference2FloatFunction0: $Reference2FloatFunction$$Type<T>): $Reference2ByteFunction<T>
 "composeShort"(short2FloatFunction0: $Short2FloatFunction$$Type): $Short2ByteFunction
-"containsKey"(float0: float): boolean
 /** @deprecated */
 "containsKey"(object0: any): boolean
+"containsKey"(float0: float): boolean
 "defaultReturnValue"(): byte
 "defaultReturnValue"(byte0: byte): void
+/** @deprecated */
+"get"(object0: any): byte
 "get"(float0: float): byte
 /** @deprecated */
 "getOrDefault"(object0: any, byte1: byte): byte
@@ -463,6 +473,8 @@ export interface $Float2ByteFunction extends $Function$0<float, byte>, $DoubleTo
 /** @deprecated */
 "put"(float0: float, byte1: byte): byte
 "remove"(float0: float): byte
+/** @deprecated */
+"remove"(object0: any): byte
 "size"(): integer
 }
 
@@ -617,14 +629,14 @@ export interface $Float2ReferenceFunction<V> extends $Function$0<float, V>, $Dou
 /** @deprecated */
 "containsKey"(object0: any): boolean
 "containsKey"(float0: float): boolean
-"defaultReturnValue"(v0: V): void
 "defaultReturnValue"(): V
+"defaultReturnValue"(v0: V): void
 /** @deprecated */
 "get"(object0: any): V
 "get"(float0: float): V
+"getOrDefault"(float0: float, v1: V): V
 /** @deprecated */
 "getOrDefault"(object0: any, v1: V): V
-"getOrDefault"(float0: float, v1: V): V
 /** @deprecated */
 "put"(float0: float, v1: V): V
 "put"(float0: float, v1: V): V
@@ -731,11 +743,13 @@ export interface $Float2CharFunction extends $Function$0<float, character>, $Dou
 "composeObject"<T>(object2FloatFunction0: $Object2FloatFunction$$Type<T>): $Object2CharFunction<T>
 "composeReference"<T>(reference2FloatFunction0: $Reference2FloatFunction$$Type<T>): $Reference2CharFunction<T>
 "composeShort"(short2FloatFunction0: $Short2FloatFunction$$Type): $Short2CharFunction
-"containsKey"(float0: float): boolean
 /** @deprecated */
 "containsKey"(object0: any): boolean
+"containsKey"(float0: float): boolean
 "defaultReturnValue"(): character
 "defaultReturnValue"(char0: character): void
+/** @deprecated */
+"get"(object0: any): character
 "get"(float0: float): character
 /** @deprecated */
 "getOrDefault"(object0: any, character1: character): character
@@ -744,6 +758,8 @@ export interface $Float2CharFunction extends $Function$0<float, character>, $Dou
 /** @deprecated */
 "put"(float0: float, character1: character): character
 "remove"(float0: float): character
+/** @deprecated */
+"remove"(object0: any): character
 "size"(): integer
 }
 
@@ -893,11 +909,13 @@ export interface $Float2LongFunction extends $Function$0<float, long>, $DoubleTo
 "composeObject"<T>(object2FloatFunction0: $Object2FloatFunction$$Type<T>): $Object2LongFunction<T>
 "composeReference"<T>(reference2FloatFunction0: $Reference2FloatFunction$$Type<T>): $Reference2LongFunction<T>
 "composeShort"(short2FloatFunction0: $Short2FloatFunction$$Type): $Short2LongFunction
-"containsKey"(float0: float): boolean
 /** @deprecated */
 "containsKey"(object0: any): boolean
+"containsKey"(float0: float): boolean
 "defaultReturnValue"(): long
 "defaultReturnValue"(long0: long): void
+/** @deprecated */
+"get"(object0: any): long
 "get"(float0: float): long
 /** @deprecated */
 "getOrDefault"(object0: any, long1: long): long
@@ -906,6 +924,8 @@ export interface $Float2LongFunction extends $Function$0<float, long>, $DoubleTo
 /** @deprecated */
 "put"(float0: float, long1: long): long
 "remove"(float0: float): long
+/** @deprecated */
+"remove"(object0: any): long
 "size"(): integer
 }
 
@@ -1009,11 +1029,13 @@ export interface $Float2DoubleFunction extends $Function$0<float, double>, $Doub
 "composeObject"<T>(object2FloatFunction0: $Object2FloatFunction$$Type<T>): $Object2DoubleFunction<T>
 "composeReference"<T>(reference2FloatFunction0: $Reference2FloatFunction$$Type<T>): $Reference2DoubleFunction<T>
 "composeShort"(short2FloatFunction0: $Short2FloatFunction$$Type): $Short2DoubleFunction
-"containsKey"(float0: float): boolean
 /** @deprecated */
 "containsKey"(object0: any): boolean
+"containsKey"(float0: float): boolean
 "defaultReturnValue"(): double
 "defaultReturnValue"(double0: double): void
+/** @deprecated */
+"get"(object0: any): double
 "get"(float0: float): double
 /** @deprecated */
 "getOrDefault"(object0: any, double1: double): double
@@ -1022,6 +1044,8 @@ export interface $Float2DoubleFunction extends $Function$0<float, double>, $Doub
 /** @deprecated */
 "put"(float0: float, double1: double): double
 "remove"(float0: float): double
+/** @deprecated */
+"remove"(object0: any): double
 "size"(): integer
 }
 
@@ -1098,24 +1122,22 @@ export interface $Float2BooleanFunction extends $Function$0<float, boolean>, $Do
 "composeObject"<T>(object2FloatFunction0: $Object2FloatFunction$$Type<T>): $Object2BooleanFunction<T>
 "composeReference"<T>(reference2FloatFunction0: $Reference2FloatFunction$$Type<T>): $Reference2BooleanFunction<T>
 "composeShort"(short2FloatFunction0: $Short2FloatFunction$$Type): $Short2BooleanFunction
+"containsKey"(float0: float): boolean
 /** @deprecated */
 "containsKey"(object0: any): boolean
-"containsKey"(float0: float): boolean
 "defaultReturnValue"(): boolean
 "defaultReturnValue"(boolean0: boolean): void
 /** @deprecated */
 "get"(object0: any): boolean
 "get"(float0: float): boolean
-"getOrDefault"(float0: float, boolean1: boolean): boolean
 /** @deprecated */
 "getOrDefault"(object0: any, boolean1: boolean): boolean
+"getOrDefault"(float0: float, boolean1: boolean): boolean
 "negate"(): $DoublePredicate
 "or"(doublePredicate0: $DoublePredicate$$Type): $DoublePredicate
 /** @deprecated */
 "put"(float0: float, boolean1: boolean): boolean
 "put"(float0: float, boolean1: boolean): boolean
-/** @deprecated */
-"remove"(object0: any): boolean
 "remove"(float0: float): boolean
 "size"(): integer
 /** @deprecated */

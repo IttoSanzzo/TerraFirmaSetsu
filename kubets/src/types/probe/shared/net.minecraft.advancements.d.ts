@@ -159,8 +159,8 @@ public "getMaxCriteraRequired"(): integer
 public "getParent"(): $Advancement
 public "getRequirements"(): string[][]
 public "getRewards"(): $AdvancementRewards
-public static "getRoot"(advancement0: $Advancement$$Type): $Advancement
 public "getRoot"(): $Advancement
+public static "getRoot"(advancement0: $Advancement$$Type): $Advancement
 public "sendsTelemetryEvent"(): boolean
 get "criteria"(): $Map<string, $Criterion>
 set "criteria"(value: $Map$$Type<string, $Criterion$$Type>)
@@ -232,11 +232,12 @@ set "items"(value: $Set$$Type<$Item$$Type>)
 declare module "packages/net/minecraft/advancements/critereon/$NbtPredicate" {
 import { $CompoundTag, $CompoundTag$$Type } from "packages/net/minecraft/nbt/$CompoundTag"
 import { $JsonElement, $JsonElement$$Type } from "packages/com/google/gson/$JsonElement"
+import { $NbtPredicateAccess } from "packages/snownee/lychee/mixin/$NbtPredicateAccess"
 import { $Tag$$Type } from "packages/net/minecraft/nbt/$Tag"
 import { $ItemStack$$Type } from "packages/net/minecraft/world/item/$ItemStack"
 import { $Entity$$Type } from "packages/net/minecraft/world/entity/$Entity"
 
-export class $NbtPredicate {
+export class $NbtPredicate implements $NbtPredicateAccess {
 static readonly "ANY": $NbtPredicate
 
 constructor(compoundTag0: $CompoundTag$$Type)
@@ -254,9 +255,10 @@ declare module "packages/net/minecraft/advancements/critereon/$MinMaxBounds$Doub
 import { $JsonElement$$Type } from "packages/com/google/gson/$JsonElement"
 import { $Function$$Type } from "packages/java/util/function/$Function"
 import { $StringReader$$Type } from "packages/com/mojang/brigadier/$StringReader"
+import { $DoublesAccess } from "packages/snownee/lychee/mixin/$DoublesAccess"
 import { $MinMaxBounds } from "packages/net/minecraft/advancements/critereon/$MinMaxBounds"
 
-export class $MinMaxBounds$Doubles extends $MinMaxBounds<double> {
+export class $MinMaxBounds$Doubles extends $MinMaxBounds<double> implements $DoublesAccess {
 static readonly "ANY": $MinMaxBounds$Doubles
 
 constructor(double0: double, double1: double)
@@ -333,26 +335,26 @@ import { $FrameType$$Type } from "packages/net/minecraft/advancements/$FrameType
 import { $Map } from "packages/java/util/$Map"
 
 export class $Advancement$Builder implements $IForgeAdvancementBuilder {
-public "addCriterion"(string0: string, criterionTriggerInstance1: $CriterionTriggerInstance$$Type): $Advancement$Builder
 public "addCriterion"(string0: string, criterion1: $Criterion$$Type): $Advancement$Builder
+public "addCriterion"(string0: string, criterionTriggerInstance1: $CriterionTriggerInstance$$Type): $Advancement$Builder
 public static "advancement"(): $Advancement$Builder
 public "build"(resourceLocation0: $ResourceLocation$$Type): $Advancement
 public "canBuild"(function0: $Function$$Type<$ResourceLocation$$Type, $Advancement>): boolean
-public "display"(itemStack0: $ItemStack$$Type, component1: $Component$$Type, component2: $Component$$Type, resourceLocation3: $ResourceLocation$$Type, frameType4: $FrameType$$Type, boolean5: boolean, boolean6: boolean, boolean7: boolean): $Advancement$Builder
 public "display"(displayInfo0: $DisplayInfo$$Type): $Advancement$Builder
 public "display"(itemLike0: $ItemLike$$Type, component1: $Component$$Type, component2: $Component$$Type, resourceLocation3: $ResourceLocation$$Type, frameType4: $FrameType$$Type, boolean5: boolean, boolean6: boolean, boolean7: boolean): $Advancement$Builder
+public "display"(itemStack0: $ItemStack$$Type, component1: $Component$$Type, component2: $Component$$Type, resourceLocation3: $ResourceLocation$$Type, frameType4: $FrameType$$Type, boolean5: boolean, boolean6: boolean, boolean7: boolean): $Advancement$Builder
 public static "fromJson"(jsonObject0: $JsonObject$$Type, deserializationContext1: $DeserializationContext$$Type, iContext2: $ICondition$IContext$$Type): $Advancement$Builder
 /** @deprecated */
 public static "fromJson"(jsonObject0: $JsonObject$$Type, deserializationContext1: $DeserializationContext$$Type): $Advancement$Builder
 public static "fromNetwork"(friendlyByteBuf0: $FriendlyByteBuf$$Type): $Advancement$Builder
 public "getCriteria"(): $Map<string, $Criterion>
-public "parent"(advancement0: $Advancement$$Type): $Advancement$Builder
 public "parent"(resourceLocation0: $ResourceLocation$$Type): $Advancement$Builder
+public "parent"(advancement0: $Advancement$$Type): $Advancement$Builder
 public static "recipeAdvancement"(): $Advancement$Builder
 public "requirements"(string0ss: string[][]): $Advancement$Builder
 public "requirements"(requirementsStrategy0: $RequirementsStrategy$$Type): $Advancement$Builder
-public "rewards"(advancementRewards0: $AdvancementRewards$$Type): $Advancement$Builder
 public "rewards"(builder0: $AdvancementRewards$Builder$$Type): $Advancement$Builder
+public "rewards"(advancementRewards0: $AdvancementRewards$$Type): $Advancement$Builder
 public "save"(consumer0: $Consumer$$Type<$Advancement$$Type>, string1: string): $Advancement
 public "save"(consumer0: $Consumer$$Type<$Advancement$$Type>, resourceLocation1: $ResourceLocation$$Type, existingFileHelper2: $ExistingFileHelper$$Type): $Advancement
 public "serializeToJson"(): $JsonObject
@@ -365,9 +367,10 @@ declare module "packages/net/minecraft/advancements/critereon/$MinMaxBounds$Ints
 import { $JsonElement$$Type } from "packages/com/google/gson/$JsonElement"
 import { $Function$$Type } from "packages/java/util/function/$Function"
 import { $StringReader$$Type } from "packages/com/mojang/brigadier/$StringReader"
+import { $IntsAccess } from "packages/snownee/lychee/mixin/$IntsAccess"
 import { $MinMaxBounds } from "packages/net/minecraft/advancements/critereon/$MinMaxBounds"
 
-export class $MinMaxBounds$Ints extends $MinMaxBounds<integer> {
+export class $MinMaxBounds$Ints extends $MinMaxBounds<integer> implements $IntsAccess {
 static readonly "ANY": $MinMaxBounds$Ints
 
 constructor(integer0: integer, integer1: integer)
@@ -399,6 +402,32 @@ public "serializeToJson"(): $JsonElement
 get "max"(): T
 get "min"(): T
 get "any"(): boolean
+}
+}
+
+declare module "packages/net/minecraft/advancements/critereon/$BlockPredicate" {
+import { $JsonElement, $JsonElement$$Type } from "packages/com/google/gson/$JsonElement"
+import { $Set, $Set$$Type } from "packages/java/util/$Set"
+import { $StatePropertiesPredicate, $StatePropertiesPredicate$$Type } from "packages/net/minecraft/advancements/critereon/$StatePropertiesPredicate"
+import { $ServerLevel$$Type } from "packages/net/minecraft/server/level/$ServerLevel"
+import { $NbtPredicate, $NbtPredicate$$Type } from "packages/net/minecraft/advancements/critereon/$NbtPredicate"
+import { $BlockPos$$Type } from "packages/net/minecraft/core/$BlockPos"
+import { $BlockPredicateAccess } from "packages/snownee/lychee/mixin/$BlockPredicateAccess"
+import { $Block, $Block$$Type } from "packages/net/minecraft/world/level/block/$Block"
+import { $TagKey, $TagKey$$Type } from "packages/net/minecraft/tags/$TagKey"
+
+export class $BlockPredicate implements $BlockPredicateAccess {
+static readonly "ANY": $BlockPredicate
+readonly "blocks": $Set<$Block>
+readonly "nbt": $NbtPredicate
+readonly "properties": $StatePropertiesPredicate
+readonly "tag": $TagKey<$Block>
+
+constructor(tagKey0: $TagKey$$Type<$Block$$Type>, set1: $Set$$Type<$Block$$Type>, statePropertiesPredicate2: $StatePropertiesPredicate$$Type, nbtPredicate3: $NbtPredicate$$Type)
+
+public static "fromJson"(jsonElement0: $JsonElement$$Type): $BlockPredicate
+public "matches"(serverLevel0: $ServerLevel$$Type, blockPos1: $BlockPos$$Type): boolean
+public "serializeToJson"(): $JsonElement
 }
 }
 
@@ -601,8 +630,8 @@ public static "createContext"(serverPlayer0: $ServerPlayer$$Type, entity1: $Enti
 public static "fromJson"(jsonObject0: $JsonObject$$Type, string1: string, deserializationContext2: $DeserializationContext$$Type): $ContextAwarePredicate
 public static "fromJson"(jsonElement0: $JsonElement$$Type): $EntityPredicate
 public static "fromJsonArray"(jsonObject0: $JsonObject$$Type, string1: string, deserializationContext2: $DeserializationContext$$Type): $ContextAwarePredicate[]
-public "matches"(serverLevel0: $ServerLevel$$Type, vec31: $Vec3$$Type, entity2: $Entity$$Type): boolean
 public "matches"(serverPlayer0: $ServerPlayer$$Type, entity1: $Entity$$Type): boolean
+public "matches"(serverLevel0: $ServerLevel$$Type, vec31: $Vec3$$Type, entity2: $Entity$$Type): boolean
 public "serializeToJson"(): $JsonElement
 public static "wrap"(entityPredicate0: $EntityPredicate$$Type): $ContextAwarePredicate
 }
@@ -612,18 +641,19 @@ declare module "packages/net/minecraft/advancements/critereon/$StatePropertiesPr
 import { $JsonElement, $JsonElement$$Type } from "packages/com/google/gson/$JsonElement"
 import { $StateDefinition$$Type } from "packages/net/minecraft/world/level/block/state/$StateDefinition"
 import { $Consumer$$Type } from "packages/java/util/function/$Consumer"
+import { $StatePropertiesPredicateAccess } from "packages/snownee/lychee/mixin/$StatePropertiesPredicateAccess"
 import { $StateHolder, $StateHolder$$Type } from "packages/net/minecraft/world/level/block/state/$StateHolder"
 import { $BlockState$$Type } from "packages/net/minecraft/world/level/block/state/$BlockState"
 import { $FluidState$$Type } from "packages/net/minecraft/world/level/material/$FluidState"
 
-export class $StatePropertiesPredicate {
+export class $StatePropertiesPredicate implements $StatePropertiesPredicateAccess {
 static readonly "ANY": $StatePropertiesPredicate
 
 public "checkState"(stateDefinition0: $StateDefinition$$Type<any, any>, consumer1: $Consumer$$Type<string>): void
 public static "fromJson"(jsonElement0: $JsonElement$$Type): $StatePropertiesPredicate
-public "matches"(fluidState0: $FluidState$$Type): boolean
-public "matches"<S extends $StateHolder<any, S>>(stateDefinition0: $StateDefinition$$Type<any, S>, s1: S): boolean
 public "matches"(blockState0: $BlockState$$Type): boolean
+public "matches"<S extends $StateHolder<any, S>>(stateDefinition0: $StateDefinition$$Type<any, S>, s1: S): boolean
+public "matches"(fluidState0: $FluidState$$Type): boolean
 public "serializeToJson"(): $JsonElement
 }
 }
@@ -643,8 +673,8 @@ static readonly "ANY": $ContextAwarePredicate
 public static "create"(...lootItemCondition0s: $LootItemCondition$$Type[]): $ContextAwarePredicate
 public static "fromElement"(string0: string, deserializationContext1: $DeserializationContext$$Type, jsonElement2: $JsonElement$$Type, lootContextParamSet3: $LootContextParamSet$$Type): $ContextAwarePredicate
 public "matches"(lootContext0: $LootContext$$Type): boolean
-public static "toJson"(contextAwarePredicate0s: $ContextAwarePredicate$$Type[], serializationContext1: $SerializationContext$$Type): $JsonElement
 public "toJson"(serializationContext0: $SerializationContext$$Type): $JsonElement
+public static "toJson"(contextAwarePredicate0s: $ContextAwarePredicate$$Type[], serializationContext1: $SerializationContext$$Type): $JsonElement
 get "compositePredicates"(): $Predicate<$LootContext>
 set "compositePredicates"(value: $Predicate$$Type<$LootContext$$Type>)
 }
@@ -706,6 +736,23 @@ constructor(contextAwarePredicate0: $ContextAwarePredicate$$Type, block1: $Block
 
 public static "entersBlock"(block0: $Block$$Type): $EnterBlockTrigger$TriggerInstance
 public "matches"(blockState0: $BlockState$$Type): boolean
+}
+}
+
+declare module "packages/net/minecraft/advancements/critereon/$StatePropertiesPredicate$PropertyMatcher" {
+import { $JsonElement } from "packages/com/google/gson/$JsonElement"
+import { $StateDefinition$$Type } from "packages/net/minecraft/world/level/block/state/$StateDefinition"
+import { $Consumer$$Type } from "packages/java/util/function/$Consumer"
+import { $StateHolder, $StateHolder$$Type } from "packages/net/minecraft/world/level/block/state/$StateHolder"
+
+export class $StatePropertiesPredicate$PropertyMatcher {
+constructor(string0: string)
+
+public "checkState"(stateDefinition0: $StateDefinition$$Type<any, any>, consumer1: $Consumer$$Type<string>): void
+public "getName"(): string
+public "match"<S extends $StateHolder<any, S>>(stateDefinition0: $StateDefinition$$Type<any, S>, s1: S): boolean
+public "toJson"(): $JsonElement
+get "name"(): string
 }
 }
 
