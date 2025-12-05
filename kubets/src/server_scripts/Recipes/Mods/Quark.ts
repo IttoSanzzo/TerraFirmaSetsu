@@ -6,6 +6,7 @@ import { ItemCol } from "../../HelpCollections/ItemCollections";
 
 export function setRecipesQuark(event: $RecipesEventJS) {
 	// 0. Replaces
+	event.remove({ id: "quark:tweaks/crafting/utility/bent/paper" });
 	event.remove({ output: "quark:thatch" });
 	event.remove({ output: "quark:thatch_stairs" });
 	event.remove({ output: "quark:thatch_slab" });

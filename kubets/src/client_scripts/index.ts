@@ -27,6 +27,7 @@ import {
 	setJeiTrottingWagons,
 } from "./Mods";
 import { setJeiArtisanal } from "./Mods/Artisanal";
+import { setJeiButchery } from "./Mods/Butchery";
 
 console.log("Starting Index.js Client Scripts!");
 JEIEvents.hideItems((event) => {
@@ -56,6 +57,7 @@ JEIEvents.hideItems((event) => {
 	setJeiSacksAndSuch(event);
 	setJeiTrottingWagons(event);
 	setJeiArtisanal(event);
+	setJeiButchery(event);
 });
 
 JEIEvents.addItems((event) => {

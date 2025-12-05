@@ -19,6 +19,7 @@ export function setRecipesHexerei(event: $RecipesEventJS) {
 	event.remove({ id: "hexerei:willow_woodcutter" });
 	event.remove({ id: "hexerei:witch_hazel_woodcutter" });
 	event.remove({ type: "hexerei:woodcutting" });
+	event.remove({ id: "hexerei:leather_from_drying_rack" });
 
 	/**
 	 * Others

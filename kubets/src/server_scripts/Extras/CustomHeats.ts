@@ -28,27 +28,27 @@ export function setCustomHeats(event: $TFCDataEventJS) {
 	event.itemHeat("minecraft:netherite_ingot", 8.0, 1535, null);
 
 	// KubeJs
-	event.metal(
-		"kubejs:metal/high_carbon_purple_steel",
-		1548,
-		0.009,
-		"kubejs:metal/ingot/weak_purple_steel",
-		null,
-		null,
-		3,
-		"kubejs:metal/high_carbon_purple_steel_metal"
-	);
-	event.metal(
-		"kubejs:metal/purple_steel",
-		1548,
-		0.009,
-		"kubejs:metal/ingot/purple_steel",
-		"kubejs:metal/double_ingot/purple_steel",
-		null,
-		3,
-		"kubejs:metal/purple_steel_metal"
-	);
-	event.itemHeat("kubejs:metal/ingot/weak_purple_steel", 3.25, 1100, 1300);
-	event.itemHeat("kubejs:metal/ingot/purple_steel", 3.25, 1100, 1300);
-	event.itemHeat("kubejs:metal/double_ingot/purple_steel", 6.5, 1100, 1300);
+	// event.metal(
+	// 	"kubejs:metal/high_carbon_purple_steel",
+	// 	1548,
+	// 	0.009,
+	// 	"kubejs:metal/ingot/weak_purple_steel",
+	// 	null,
+	// 	null,
+	// 	3,
+	// 	"kubejs:metal/high_carbon_purple_steel_metal"
+	// );
+	// event.metal(
+	// 	"kubejs:metal/purple_steel",
+	// 	1548,
+	// 	0.009,
+	// 	"kubejs:metal/ingot/purple_steel",
+	// 	"kubejs:metal/double_ingot/purple_steel",
+	// 	null,
+	// 	3,
+	// 	"kubejs:metal/purple_steel_metal"
+	// );
+	// event.itemHeat("kubejs:metal/ingot/weak_purple_steel", 3.25, 1100, 1300);
+	// event.itemHeat("kubejs:metal/ingot/purple_steel", 3.25, 1100, 1300);
+	// event.itemHeat("kubejs:metal/double_ingot/purple_steel", 6.5, 1100, 1300);
 }

@@ -14,7 +14,7 @@ declare module "packages/com/notenoughmail/kubejs_tfc/event/$TFCDataEventJS" {
 		itemHeat(
 			ingredient: $Ingredient$$Type,
 			heatCapacity: number, // float → number em TS
-			forgingTemperature: number, // float → number
+			forgingTemperature: number | null, // float → number
 			weldingTemperature: number | null // float → number
 		): void;
 	}

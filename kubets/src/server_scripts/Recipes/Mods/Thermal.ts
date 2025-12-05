@@ -336,4 +336,8 @@ export function setRecipesThermal(event: $RecipesEventJS) {
 		G: "create:zinc_nugget",
 		E: "#tfc:leather_knapping",
 	});
+
+	event.remove({
+		id: "thermal:machines/furnace/furnace_rotten_flesh_to_leather",
+	});
 }

@@ -12,7 +12,7 @@ export function setLootButchery(event: $LootModificationEventJS) {
 			.removeLoot("tfc:large_raw_hide")
 			.removeLoot("tfc:small_sheepskin_hide")
 			.removeLoot("tfc:medium_sheepskin_hide")
-			.removeLoot("tfc:large_rsheepskinhide");
+			.removeLoot("tfc:large_sheepskin_hide");
 	}
 
 	addCorpse("pig", "butcher:pig_corpse_item");

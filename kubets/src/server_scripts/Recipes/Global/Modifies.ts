@@ -84,6 +84,9 @@ export function setRecipeModifies(event: $RecipesEventJS) {
 
 	replaceAll("farmersdelight:rope", "supplementaries:rope");
 	replaceINPUT("#forge:rope", "supplementaries:rope");
+	replaceINPUT("tfc:glue", "#forge:glue");
+	replaceINPUT("sns:leather_strip", "#forge:leather/strip");
+	replaceINPUT("tfc_items:leather_strip", "#forge:leather/strip");
 
 	replaceAll("minecraft:candle", "tfc:candle");
 	ItemCol.allDyes.forEach((color) => {

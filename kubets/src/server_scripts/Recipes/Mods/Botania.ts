@@ -247,4 +247,6 @@ export function setRecipesBotania(event: $RecipesEventJS) {
 	event
 		.shapeless("botania:redstone_root", ["minecraft:redstone", "#tfc:twigs"])
 		.id("setsu:botania/redstone_twig");
+
+	event.remove({ id: "botania:mana_infusion/rotten_flesh_to_leather" });
 }

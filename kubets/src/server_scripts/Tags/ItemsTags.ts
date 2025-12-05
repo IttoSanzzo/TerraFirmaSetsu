@@ -214,6 +214,9 @@ export function setItemTags(
 	event.add("forge:dusts/saltpeter", "tfc:powder/saltpeter");
 	event.add("forge:glue", "tfc:glue");
 	event.add("forge:slimeballs", "tfc:glue");
+	event.add("forge:leather/strip", "sns:leather_strip");
+
+	event.add("forge:slimeballs", "tfc:glue");
 
 	ItemCol.allVanillaWoodTypes.forEach((wood) => {
 		event.remove("functionalstorage:drawer", `functionalstorage:${wood}_1`);

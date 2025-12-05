@@ -49,6 +49,7 @@ import { setRecipesWaystones } from "./Mods/Waystones";
 import { setRecipesWell } from "./Mods/Well";
 import { setRecipesBloodMagic } from "./Mods/BloodMagic";
 import { setRecipesButchery } from "./Mods/Butchery/Butchery";
+import { setRecipesTfcScrapping } from "./Mods/TfcAddons/TfcScrapping";
 
 export function setRecipes(event: $RecipesEventJS) {
 	console.log("Setsu Recipes Start!");
@@ -102,6 +103,7 @@ export function setRecipes(event: $RecipesEventJS) {
 	setRecipesFirmalife(event);
 	setRecipesFirmaciv(event);
 	setRecipesTfcBetterBf(event);
+	setRecipesTfcScrapping(event);
 
 	// Create Addons
 	setRecipesCreateAdditions(event);

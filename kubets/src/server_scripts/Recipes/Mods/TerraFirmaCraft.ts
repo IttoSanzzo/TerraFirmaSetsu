@@ -5,6 +5,9 @@ import { ItemCol } from "../../HelpCollections/ItemCollections";
 import { addDamageShapeless, tfcBucketRecipes } from "../_helperFunctions";
 
 export function setRecipesTerraFirmaCraft(event: $RecipesEventJS) {
+	event.remove({ id: "minecraft:cauldron" });
+	event.remove({ id: "minecraft:leather" });
+
 	event
 		.shapeless("9x kubejs:bismuth_bronze_nugget", [
 			"tfc:metal/ingot/bismuth_bronze",
@@ -27,6 +30,15 @@ export function setRecipesTerraFirmaCraft(event: $RecipesEventJS) {
 		"tfc:metal/ingot/cast_iron",
 		"9x tfc:metal/ingot/wrought_iron"
 	);
+
+	event.remove({ id: "minecraft:paper" });
+	event.remove({ id: "tfc:crafting/parchment" });
+	event.shapeless("8x minecraft:paper", [
+		"tfc:treated_hide",
+		"#firmalife:feeds_yeast",
+		"tfc:powder/lime",
+		"minecraft:egg",
+	]);
 
 	event
 		.shapeless(
@@ -256,5 +268,14 @@ export function setRecipesTerraFirmaCraft(event: $RecipesEventJS) {
 		})
 		.id("setsu:tfc/hand_wheel_base");
 
+	event
+		.shaped("minecraft:campfire", ["WXW", "WWW"], {
+			W: "#tfc:firepit_fuel",
+			X: "malum:infernal_spirit",
+		})
+		.id("setsu:tfc/campfire");
+
 	event.remove({ id: "minecraft:brick" });
+
+	event.shapeless("minecraft:sponge", ["9x #forge:coral"]).id("setsu:sponge");
 }
