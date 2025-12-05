@@ -231,7 +231,7 @@ export function setRecipesTerraFirmaCraft(event: $RecipesEventJS) {
 				.shaped(`beneath:wood/gear_box/${woodType}`, ["ALA", "LXL", "ALA"], {
 					A: `beneath:wood/axle/${woodType}`,
 					L: `beneath:wood/lumber/${woodType}`,
-					X: `beneath:wood/encased_axle/${woodType}`,
+					X: `#forge:gears`,
 				})
 				.id(`setsu:tfc/wood/gear_box/${woodType}`);
 		} else {
@@ -249,7 +249,7 @@ export function setRecipesTerraFirmaCraft(event: $RecipesEventJS) {
 				.shaped(`tfc:wood/gear_box/${woodType}`, ["ALA", "LXL", "ALA"], {
 					A: `tfc:wood/axle/${woodType}`,
 					L: `tfc:wood/lumber/${woodType}`,
-					X: `tfc:wood/encased_axle/${woodType}`,
+					X: `#forge:gears`,
 				})
 				.id(`setsu:tfc/wood/gear_box/${woodType}`);
 		}

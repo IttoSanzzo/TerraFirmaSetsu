@@ -128,6 +128,7 @@ export function setRecipesButchery(event: $RecipesEventJS) {
 		.id("setsu:butcher/clean_sponge_in_barrel");
 
 	// --- Blocks
+	event.remove({ id: "butcher:skinrackrecipe" });
 	event.remove({ id: "butcher:butchers_table_recipe" });
 	event
 		.shaped("butcher:butcherstable", ["ITI", "I I"], {

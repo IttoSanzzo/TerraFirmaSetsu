@@ -9,4 +9,5 @@ export const setJeiButchery = (event: $HideJEIEventJS<any>) => {
 	event.hide("butcher:firedpliermould");
 	event.hide("butcher:unfiredskinningknifeblademold");
 	event.hide("butcher:firedskinningknifemold");
+	event.hide("butcher:emptyskinrack");
 };
