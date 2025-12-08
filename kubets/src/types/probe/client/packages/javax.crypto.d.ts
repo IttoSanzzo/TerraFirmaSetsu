@@ -1,0 +1,20 @@
+declare module "packages/javax/crypto/$ExemptionMechanism" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $ExemptionMechanism$$Type = ($ExemptionMechanism);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $ExemptionMechanism_ = $ExemptionMechanism$$Type;
+}
+}
+
+declare module "packages/javax/crypto/$Cipher" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+/** Class-specific type exported by ProbeJS, use global `{Type}_` types for convenience unless there's a naming conflict. */
+export type $Cipher$$Type = ($Cipher);
+/** Global type exported for convenience, use class-specific types if there's a naming conflict. */
+declare global {
+export type $Cipher_ = $Cipher$$Type;
+}
+}
+
