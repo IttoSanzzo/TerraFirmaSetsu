@@ -1,6 +1,7 @@
 // priority: 1000
 
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
+import { RawCookedMeatPair } from "../Extras/CustomFoods";
 
 export function addCreateMixing(
 	recipesEvent: $RecipesEventJS,
@@ -91,5 +92,26 @@ export function addDamageShapeless(
 		)
 		.id(
 			`setsu:tfc/damage/${(output as string).replace(":", ".").replace("/", ".").replace(" ", "_")}/from/${ingredients[0].replace(":", ".").replace("/", ".").replace(" ", "_").replace("#", "_")}`
+		);
+}
+
+export function newRawToCookedMeatRecipe(
+	recipesEvent: $RecipesEventJS,
+	meat: RawCookedMeatPair,
+	cookTemperature?: number,
+	destroyTemperature?: number
+) {
+	if (!cookTemperature) cookTemperature = 200;
+	if (!destroyTemperature) destroyTemperature = 900;
+	recipesEvent.recipes.tfc
+		.heating(meat.raw, cookTemperature)
+		.resultItem(meat.cooked)
+		.id(
+			`setsu:butcher/heating/${(meat.raw as string).substring((meat.cooked as string).indexOf(":") + 1)}`
+		);
+	recipesEvent.recipes.tfc
+		.heating(meat.cooked, destroyTemperature)
+		.id(
+			`setsu:butcher/heating/${(meat.cooked as string).substring((meat.cooked as string).indexOf(":") + 1)}`
 		);
 }

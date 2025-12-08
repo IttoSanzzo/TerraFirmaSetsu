@@ -2,7 +2,8 @@
 
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
 import { addDamageShaped, addDamageShapeless } from "../../_helperFunctions";
-import { doButcherySkins } from "./ButcherySkins.ts";
+import { doButcherySkins } from "./ButcherySkins";
+import { doButcheryFoods } from "./ButcheryFoods";
 
 export function setRecipesButchery(event: $RecipesEventJS) {
 	// --- Smiths
@@ -169,4 +170,5 @@ export function setRecipesButchery(event: $RecipesEventJS) {
 	);
 
 	doButcherySkins(event);
+	doButcheryFoods(event);
 }

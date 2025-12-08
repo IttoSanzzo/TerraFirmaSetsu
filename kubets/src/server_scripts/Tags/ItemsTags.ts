@@ -2,6 +2,7 @@
 
 import { TagEventProbe } from "packages/moe/wolfgirl/probejs/generated/TagEventProbe";
 import { ItemCol } from "../HelpCollections/ItemCollections";
+import { butcherMeatDict } from "../Extras/Mods/Butchery";
 
 export function setItemTags(
 	event: TagEventProbe<Special.ItemTag, Special.Item>
@@ -625,6 +626,60 @@ export function setItemTags(
 
 	event.remove("hexerei:tallow_meltable", "minecraft:honeycomb");
 	event.add("hexerei:tallow_meltable", "firmalife:beeswax");
+
+	// Butchery ////////////////////////////////////////////
+
+	butcherMeatDict.forEach((meat) => {
+		event.add("tfc:foods", [meat.raw, meat.cooked] as string[]);
+		event.add("artisanal:foods/can_be_potted", [
+			meat.raw,
+			meat.cooked,
+		] as string[]);
+		event.add("sns:prevent_in_leather_sack", [
+			meat.raw,
+			meat.cooked,
+		] as string[]);
+		event.add("artisanal:foods/can_be_canned", [
+			meat.raw,
+			meat.cooked,
+		] as string[]);
+		event.add("tfc:compost_poisons", [meat.raw, meat.cooked] as string[]);
+		event.add("tfc:dog_food", [meat.raw, meat.cooked] as string[]);
+		event.add("sns:prevent_in_straw_basket", [
+			meat.raw,
+			meat.cooked,
+		] as string[]);
+		event.add("sns:prevent_in_burlap_sack", [
+			meat.raw,
+			meat.cooked,
+		] as string[]);
+		event.add("firmalife:usable_in_stovetop_soup", [
+			meat.raw,
+			meat.cooked,
+		] as string[]);
+		event.add("tfc:foods/can_be_salted", [meat.raw, meat.cooked] as string[]);
+		event.add("firmalife:can_be_hung", [meat.raw, meat.cooked] as string[]);
+		event.add("sns:prevent_in_ore_sack", [meat.raw, meat.cooked] as string[]);
+		event.add("tfc:foods/raw_meats", [meat.raw] as string[]);
+		event.add("tfc:foods/meats", [meat.raw, meat.cooked] as string[]);
+		event.add("setsu:raw_meats", [meat.raw, meat.cooked] as string[]);
+		event.add("sns:prevent_in_seed_pouch", [meat.raw, meat.cooked] as string[]);
+		event.add("tfc:pig_food", [meat.raw, meat.cooked] as string[]);
+		event.add("tfc:foods/usable_in_soup", [meat.raw, meat.cooked] as string[]);
+		event.add("tfc:foods/cooked_meats", [meat.cooked] as string[]);
+	});
+
+	/*
+
+	tfc:pig_food
+	tfc:foods/usable_in_soup
+	tfc:dog_food
+	tfc:compost_poisons
+	firmalife:usable_in_stovetop_soup
+	firmalife:can_be_hung
+	tfc:foods/can_be_salted
+
+	*/
 
 	////////////////////////////////////////////////////////
 

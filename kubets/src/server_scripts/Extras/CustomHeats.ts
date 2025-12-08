@@ -1,6 +1,7 @@
 // priority: 199
 
 import { $TFCDataEventJS } from "packages/com/notenoughmail/kubejs_tfc/event/$TFCDataEventJS";
+import { setCustomHeatsButchery } from "./Mods/Butchery";
 
 export function setCustomHeats(event: $TFCDataEventJS) {
 	//  100 - Hot
@@ -26,6 +27,8 @@ export function setCustomHeats(event: $TFCDataEventJS) {
 	event.itemHeat("mna:vinteum_ingot", 2, 960, null);
 	event.itemHeat("mna:purified_vinteum_ingot", 0.5, 1400, null);
 	event.itemHeat("minecraft:netherite_ingot", 8.0, 1535, null);
+
+	setCustomHeatsButchery(event);
 
 	// KubeJs
 	// event.metal(

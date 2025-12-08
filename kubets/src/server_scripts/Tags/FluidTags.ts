@@ -18,6 +18,10 @@ export function setFluidTags(
 		event.get("tfc:usable_in_barrel").add(`${fluid}`);
 		event.get("tfc:usable_in_pot").add(`${fluid}`);
 		event.get("tfc:usable_in_wooden_bucket").add(`${fluid}`);
+		event.get("tfc:usable_in_jug").add(`${fluid}`);
+		event.get("tfc:usable_in_pot").add(`${fluid}`);
+		event.get("tfc:usable_in_red_steel_bucket").add(`${fluid}`);
+		event.get("tfc:usable_in_blue_steel_bucket").add(`${fluid}`);
 	});
 
 	event.add("tfc:usable_in_ingot_mold", [
