@@ -13,7 +13,7 @@ export function setFluidTags(
 		"hexerei:quicksilver_fluid",
 		"hexerei:tallow_fluid",
 		"hexerei:blood_fluid",
-		"butcher:blood_liquid",
+		"butchery:blood",
 	].forEach((fluid) => {
 		event.get("tfc:usable_in_barrel").add(`${fluid}`);
 		event.get("tfc:usable_in_pot").add(`${fluid}`);

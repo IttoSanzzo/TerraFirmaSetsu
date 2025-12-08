@@ -15,7 +15,7 @@ export const butcherMeatDict: RawCookedMeatPair[] = [
 ];
 
 export function setCustomFoodsButchery(event: $TFCDataEventJS) {
-	event.drinkable("butchery:blood_liquid" as any, (data) => {
+	event.drinkable("butchery:blood" as any, (data) => {
 		data.effect("minecraft:nausea", (effect) => {
 			effect.amplifier(0);
 			effect.duration(300);
@@ -23,7 +23,7 @@ export function setCustomFoodsButchery(event: $TFCDataEventJS) {
 		data.food((food) => {
 			food.protein(0.5);
 			food.hunger(2);
-			food.water(40);
+			food.water(34);
 		});
 		data.intoxication(300);
 	});

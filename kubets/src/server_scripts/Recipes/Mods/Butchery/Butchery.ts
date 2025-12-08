@@ -72,6 +72,7 @@ export function setRecipesButchery(event: $RecipesEventJS) {
 	// 		X: "tfc_items:wrought_iron_ring",
 	// 	})
 	// 	.id("setsu:butchery/iron_pliers");
+
 	// --- Wet Rag
 	// event
 	// 	.custom({
@@ -90,40 +91,24 @@ export function setRecipesButchery(event: $RecipesEventJS) {
 	// 		},
 	// 	})
 	// 	.id("setsu:butchery/wet_rag_in_barrel");
-	// event
-	// 	.custom({
-	// 		type: "tfc:barrel_instant",
-	// 		input_item: {
-	// 			ingredient: {
-	// 				item: "butchery:sponge",
-	// 			},
-	// 		},
-	// 		input_fluid: {
-	// 			ingredient: "minecraft:water",
-	// 			amount: 100,
-	// 		},
-	// 		output_item: {
-	// 			item: "butchery:wet_sponge",
-	// 		},
-	// 	})
-	// 	.id("setsu:butchery/wet_sponge_in_barrel");
-	// event
-	// 	.custom({
-	// 		type: "tfc:barrel_instant",
-	// 		input_item: {
-	// 			ingredient: {
-	// 				item: "butchery:blood_soaked_sponge",
-	// 			},
-	// 		},
-	// 		input_fluid: {
-	// 			ingredient: "minecraft:water",
-	// 			amount: 300,
-	// 		},
-	// 		output_item: {
-	// 			item: "butchery:wet_sponge",
-	// 		},
-	// 	})
-	// 	.id("setsu:butchery/clean_sponge_in_barrel");
+	event
+		.custom({
+			type: "tfc:barrel_instant",
+			input_item: {
+				ingredient: {
+					item: "butchery:sponge",
+				},
+			},
+			input_fluid: {
+				ingredient: "minecraft:water",
+				amount: 100,
+			},
+			output_item: {
+				item: "butchery:wet_sponge",
+			},
+		})
+		.id("setsu:butchery/wet_sponge_in_barrel");
+
 	// --- Blocks
 	// event.remove({ id: "butchery:skinrackrecipe" });
 	// event.remove({ id: "butchery:butchers_table_recipe" });
@@ -164,6 +149,6 @@ export function setRecipesButchery(event: $RecipesEventJS) {
 	// 	"minecraft:oak_sign",
 	// 	"#minecraft:signs"
 	// );
-	// doButcherySkins(event);
+	doButcherySkins(event);
 	// doButcheryFoods(event);
 }

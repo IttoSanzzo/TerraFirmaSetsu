@@ -48,53 +48,47 @@ export function doButcherySkins(event: $RecipesEventJS) {
 	}
 
 	const smallFur: KjsItem[] = [
-		"butchery:foxfur",
-		"butchery:snowyfoxfur",
+		"butchery:allblackcatfur",
+		"butchery:black_cat_fur",
+		"butchery:shorthair_cat_fur",
+		"butchery:calico_cat_fur",
+		"butchery:ragdoll_cat_fur",
+		"butchery:fox_skin",
+		"butchery:snow_fox_skin",
+		"butchery:jellie_cat_fur",
+		"butchery:persian_cat_fur",
+		"butchery:red_cat_fur",
 		"minecraft:rabbit_hide",
+		"minecraft:siamese_cat_fur",
+		"minecraft:tabby_cat_fur",
+		"minecraft:white_cat_fur",
 	];
 	const mediumFur: KjsItem[] = [
-		"butchery:goatfur",
-		"butchery:sheep_skin",
-		"butchery:camelfur",
-		"butchery:creamyllamaskin",
+		"butchery:goat_skin",
 		"butchery:brown_llama_skin",
+		"butchery:creamy_llama_skin",
 		"butchery:gray_llama_skin",
 		"butchery:white_llama_skin",
-		"butchery:wolffur",
+		"butchery:wolf_pelt",
 	];
-	const largeFur: KjsItem[] = [
-		"butchery:pandafur",
-		"butchery:polarbearfur",
-		"butchery:snifferfur",
-	];
-	const smallSkin: KjsItem[] = [
-		"butchery:ocelotskin",
-		"butchery:tuxedocatfur",
-		"butchery:blackcatfur",
-		"butchery:whitecatfur",
-		"butchery:tabbycatfur",
-		"butchery:redcatfur",
-		"butchery:siamesecatfur",
-		"butchery:shorthaircatfur",
-		"butchery:calicocatfur",
-		"butchery:persiancatfur",
-		"butchery:ragdollcatfur",
-		"butchery:jelliecatfur",
-	];
+	const largeFur: KjsItem[] = ["butchery:sheep_skin", "butchery:sniffer_fur"];
+	const smallSkin: KjsItem[] = ["butchery:bat_skin", "butchery:ocelot_skin"];
 	const mediumSkin: KjsItem[] = [
 		"butchery:pig_skin",
-		"butchery:donkeyskin",
-		"butchery:muleskin",
+		"butchery:mule_skin",
+		"butchery:camel_skin",
+		"butchery:creeper_skin",
+		"butchery:dolphin_skin",
+		"butchery:donkey_skin",
 	];
 	const largeSkin: KjsItem[] = [
+		"butchery:brown_mooshroom_skin",
+		"butchery:red_mooshroom_skin",
+		"butchery:polarbear_skin",
+		"butchery:panda_skin",
+		"butchery:zoglin_skin",
 		"butchery:cow_skin",
-		"butchery:blackhorseskin",
-		"butchery:brownhorseskin",
-		"butchery:chestnuthorseskin",
-		"butchery:creamyhorseskin",
-		"butchery:darkbrownhorseskin",
-		"butchery:grayhorseskin",
-		"butchery:whitehorseskin",
+		"butchery:hoglin_skin",
 	];
 
 	smallFur.forEach((skin) => skinToHide(skin, "tfc:small_sheepskin_hide"));
