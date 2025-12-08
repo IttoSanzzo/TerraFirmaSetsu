@@ -79,7 +79,7 @@ node-tail.js
 .eslintrc
 /icon-exports-x32
 .probe
-./kubets/src/types/probe/*
+kubets/src/types/probe/
 ESM
 ldlib
 ModlistGenerator
