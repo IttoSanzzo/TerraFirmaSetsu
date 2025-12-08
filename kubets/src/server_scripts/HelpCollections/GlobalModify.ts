@@ -34,5 +34,5 @@ export const globalModify = [
 	"hexerei",
 	"mna",
 	"iceandfire",
-	"butcher",
+	"butchery",
 ];

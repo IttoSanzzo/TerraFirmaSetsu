@@ -5,17 +5,17 @@ import { RawCookedMeatPair } from "../CustomFoods";
 
 export const butcherMeatDict: RawCookedMeatPair[] = [
 	{
-		raw: "butcher:raw_pork_belly",
-		cooked: "butcher:pork_belly",
+		raw: "butchery:raw_pork_belly",
+		cooked: "butchery:pork_belly",
 	},
 	{
-		raw: "butcher:raw_pork_loin",
-		cooked: "butcher:pork_loin",
+		raw: "butchery:raw_pork_loin",
+		cooked: "butchery:pork_loin",
 	},
 ];
 
 export function setCustomFoodsButchery(event: $TFCDataEventJS) {
-	event.drinkable("butcher:blood_liquid" as any, (data) => {
+	event.drinkable("butchery:blood_liquid" as any, (data) => {
 		data.effect("minecraft:nausea", (effect) => {
 			effect.amplifier(0);
 			effect.duration(300);

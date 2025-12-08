@@ -27,7 +27,7 @@ export function doButcherySkins(event: $RecipesEventJS) {
 				energy: 1500,
 			})
 			.id(
-				`setsu:butcher/scraping/ie/${(skin as string).substring((skin as string).indexOf(":") + 1)}`
+				`setsu:butchery/scraping/ie/${(skin as string).substring((skin as string).indexOf(":") + 1)}`
 			);
 		event
 			.custom({
@@ -43,58 +43,58 @@ export function doButcherySkins(event: $RecipesEventJS) {
 				},
 			})
 			.id(
-				`setsu:butcher/scraping/rosia/${(skin as string).substring((skin as string).indexOf(":") + 1)}`
+				`setsu:butchery/scraping/rosia/${(skin as string).substring((skin as string).indexOf(":") + 1)}`
 			);
 	}
 
 	const smallFur: KjsItem[] = [
-		"butcher:foxfur",
-		"butcher:snowyfoxfur",
+		"butchery:foxfur",
+		"butchery:snowyfoxfur",
 		"minecraft:rabbit_hide",
 	];
 	const mediumFur: KjsItem[] = [
-		"butcher:goatfur",
-		"butcher:sheep_skin",
-		"butcher:camelfur",
-		"butcher:creamyllamaskin",
-		"butcher:brown_llama_skin",
-		"butcher:gray_llama_skin",
-		"butcher:white_llama_skin",
-		"butcher:wolffur",
+		"butchery:goatfur",
+		"butchery:sheep_skin",
+		"butchery:camelfur",
+		"butchery:creamyllamaskin",
+		"butchery:brown_llama_skin",
+		"butchery:gray_llama_skin",
+		"butchery:white_llama_skin",
+		"butchery:wolffur",
 	];
 	const largeFur: KjsItem[] = [
-		"butcher:pandafur",
-		"butcher:polarbearfur",
-		"butcher:snifferfur",
+		"butchery:pandafur",
+		"butchery:polarbearfur",
+		"butchery:snifferfur",
 	];
 	const smallSkin: KjsItem[] = [
-		"butcher:ocelotskin",
-		"butcher:tuxedocatfur",
-		"butcher:blackcatfur",
-		"butcher:whitecatfur",
-		"butcher:tabbycatfur",
-		"butcher:redcatfur",
-		"butcher:siamesecatfur",
-		"butcher:shorthaircatfur",
-		"butcher:calicocatfur",
-		"butcher:persiancatfur",
-		"butcher:ragdollcatfur",
-		"butcher:jelliecatfur",
+		"butchery:ocelotskin",
+		"butchery:tuxedocatfur",
+		"butchery:blackcatfur",
+		"butchery:whitecatfur",
+		"butchery:tabbycatfur",
+		"butchery:redcatfur",
+		"butchery:siamesecatfur",
+		"butchery:shorthaircatfur",
+		"butchery:calicocatfur",
+		"butchery:persiancatfur",
+		"butchery:ragdollcatfur",
+		"butchery:jelliecatfur",
 	];
 	const mediumSkin: KjsItem[] = [
-		"butcher:pig_skin",
-		"butcher:donkeyskin",
-		"butcher:muleskin",
+		"butchery:pig_skin",
+		"butchery:donkeyskin",
+		"butchery:muleskin",
 	];
 	const largeSkin: KjsItem[] = [
-		"butcher:cow_skin",
-		"butcher:blackhorseskin",
-		"butcher:brownhorseskin",
-		"butcher:chestnuthorseskin",
-		"butcher:creamyhorseskin",
-		"butcher:darkbrownhorseskin",
-		"butcher:grayhorseskin",
-		"butcher:whitehorseskin",
+		"butchery:cow_skin",
+		"butchery:blackhorseskin",
+		"butchery:brownhorseskin",
+		"butchery:chestnuthorseskin",
+		"butchery:creamyhorseskin",
+		"butchery:darkbrownhorseskin",
+		"butchery:grayhorseskin",
+		"butchery:whitehorseskin",
 	];
 
 	smallFur.forEach((skin) => skinToHide(skin, "tfc:small_sheepskin_hide"));
