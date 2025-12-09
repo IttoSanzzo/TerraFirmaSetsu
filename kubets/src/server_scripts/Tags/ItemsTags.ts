@@ -2,7 +2,7 @@
 
 import { TagEventProbe } from "packages/moe/wolfgirl/probejs/generated/TagEventProbe";
 import { ItemCol } from "../HelpCollections/ItemCollections";
-import { butcherMeatDict } from "../Extras/Mods/Butchery";
+import { butcherMeatDict } from "../Extras/Mods/ButcheryFoodData";
 
 export function setItemTags(
 	event: TagEventProbe<Special.ItemTag, Special.Item>
@@ -629,57 +629,63 @@ export function setItemTags(
 
 	// Butchery ////////////////////////////////////////////
 
-	butcherMeatDict.forEach((meat) => {
-		event.add("tfc:foods", [meat.raw, meat.cooked] as string[]);
+	butcherMeatDict.forEach((meats) => {
+		event.add("tfc:foods", [meats.raw.id, meats.cooked.id] as string[]);
 		event.add("artisanal:foods/can_be_potted", [
-			meat.raw,
-			meat.cooked,
+			meats.raw.id,
+			meats.cooked.id,
 		] as string[]);
 		event.add("sns:prevent_in_leather_sack", [
-			meat.raw,
-			meat.cooked,
+			meats.raw.id,
+			meats.cooked.id,
 		] as string[]);
 		event.add("artisanal:foods/can_be_canned", [
-			meat.raw,
-			meat.cooked,
+			meats.raw.id,
+			meats.cooked.id,
 		] as string[]);
-		event.add("tfc:compost_poisons", [meat.raw, meat.cooked] as string[]);
-		event.add("tfc:dog_food", [meat.raw, meat.cooked] as string[]);
+		event.add("tfc:compost_poisons", [
+			meats.raw.id,
+			meats.cooked.id,
+		] as string[]);
+		event.add("tfc:dog_food", [meats.raw.id, meats.cooked.id] as string[]);
 		event.add("sns:prevent_in_straw_basket", [
-			meat.raw,
-			meat.cooked,
+			meats.raw.id,
+			meats.cooked.id,
 		] as string[]);
 		event.add("sns:prevent_in_burlap_sack", [
-			meat.raw,
-			meat.cooked,
+			meats.raw.id,
+			meats.cooked.id,
 		] as string[]);
 		event.add("firmalife:usable_in_stovetop_soup", [
-			meat.raw,
-			meat.cooked,
+			meats.raw.id,
+			meats.cooked.id,
 		] as string[]);
-		event.add("tfc:foods/can_be_salted", [meat.raw, meat.cooked] as string[]);
-		event.add("firmalife:can_be_hung", [meat.raw, meat.cooked] as string[]);
-		event.add("sns:prevent_in_ore_sack", [meat.raw, meat.cooked] as string[]);
-		event.add("tfc:foods/raw_meats", [meat.raw] as string[]);
-		event.add("tfc:foods/meats", [meat.raw, meat.cooked] as string[]);
-		event.add("setsu:raw_meats", [meat.raw, meat.cooked] as string[]);
-		event.add("sns:prevent_in_seed_pouch", [meat.raw, meat.cooked] as string[]);
-		event.add("tfc:pig_food", [meat.raw, meat.cooked] as string[]);
-		event.add("tfc:foods/usable_in_soup", [meat.raw, meat.cooked] as string[]);
-		event.add("tfc:foods/cooked_meats", [meat.cooked] as string[]);
+		event.add("tfc:foods/can_be_salted", [
+			meats.raw.id,
+			meats.cooked.id,
+		] as string[]);
+		event.add("firmalife:can_be_hung", [
+			meats.raw.id,
+			meats.cooked.id,
+		] as string[]);
+		event.add("sns:prevent_in_ore_sack", [
+			meats.raw.id,
+			meats.cooked.id,
+		] as string[]);
+		event.add("tfc:foods/raw_meats", [meats.raw.id] as string[]);
+		event.add("tfc:foods/meats", [meats.raw.id, meats.cooked.id] as string[]);
+		event.add("setsu:raw_meats", [meats.raw.id, meats.cooked.id] as string[]);
+		event.add("sns:prevent_in_seed_pouch", [
+			meats.raw.id,
+			meats.cooked.id,
+		] as string[]);
+		event.add("tfc:pig_food", [meats.raw.id, meats.cooked.id] as string[]);
+		event.add("tfc:foods/usable_in_soup", [
+			meats.raw.id,
+			meats.cooked.id,
+		] as string[]);
+		event.add("tfc:foods/cooked_meats", [meats.cooked.id] as string[]);
 	});
-
-	/*
-
-	tfc:pig_food
-	tfc:foods/usable_in_soup
-	tfc:dog_food
-	tfc:compost_poisons
-	firmalife:usable_in_stovetop_soup
-	firmalife:can_be_hung
-	tfc:foods/can_be_salted
-
-	*/
 
 	////////////////////////////////////////////////////////
 

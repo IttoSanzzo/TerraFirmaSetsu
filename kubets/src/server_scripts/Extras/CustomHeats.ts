@@ -1,7 +1,7 @@
 // priority: 199
 
 import { $TFCDataEventJS } from "packages/com/notenoughmail/kubejs_tfc/event/$TFCDataEventJS";
-import { setCustomHeatsButchery } from "./Mods/Butchery";
+import { setCustomHeatsButchery } from "./Mods/ButcheryFoodsData";
 
 export function setCustomHeats(event: $TFCDataEventJS) {
 	//  100 - Hot

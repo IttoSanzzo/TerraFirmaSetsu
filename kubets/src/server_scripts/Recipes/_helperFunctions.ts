@@ -97,21 +97,21 @@ export function addDamageShapeless(
 
 export function newRawToCookedMeatRecipe(
 	recipesEvent: $RecipesEventJS,
-	meat: RawCookedMeatPair,
+	meats: RawCookedMeatPair,
 	cookTemperature?: number,
 	destroyTemperature?: number
 ) {
 	if (!cookTemperature) cookTemperature = 200;
 	if (!destroyTemperature) destroyTemperature = 900;
 	recipesEvent.recipes.tfc
-		.heating(meat.raw, cookTemperature)
-		.resultItem(meat.cooked)
+		.heating(meats.raw.id, cookTemperature)
+		.resultItem(meats.cooked.id)
 		.id(
-			`setsu:butcher/heating/${(meat.raw as string).substring((meat.cooked as string).indexOf(":") + 1)}`
+			`setsu:all/cooking/${(meats.cooked.id as string).substring((meats.cooked.id as string).indexOf(":") + 1)}`
 		);
 	recipesEvent.recipes.tfc
-		.heating(meat.cooked, destroyTemperature)
+		.heating(meats.cooked.id, destroyTemperature)
 		.id(
-			`setsu:butcher/heating/${(meat.cooked as string).substring((meat.cooked as string).indexOf(":") + 1)}`
+			`setsu:all/cooking/${(meats.cooked.id as string).substring((meats.cooked.id as string).indexOf(":") + 1)}_overdone`
 		);
 }

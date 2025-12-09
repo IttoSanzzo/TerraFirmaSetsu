@@ -1,7 +1,6 @@
 // priority: 198
 
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
-import { addDamageShaped, addDamageShapeless } from "../../_helperFunctions";
 import { doButcherySkins } from "./ButcherySkins";
 import { doButcheryFoods } from "./ButcheryFoods";
 import { ItemCol } from "../../../HelpCollections/ItemCollections";
@@ -107,6 +106,11 @@ export function setRecipesButchery(event: $RecipesEventJS) {
 	event.remove({ id: "butchery:skinrackrecipe" });
 
 	ItemCol.allVanillaWoodTypes.forEach((wood) => {
+		event.replaceInput(
+			{ id: `butchery:${wood}displayrecipe` },
+			"tfc:food/beef",
+			"#tfc:foods/raw_meats"
+		);
 		if (wood == "crimson" || wood == "warped") return;
 		event.replaceInput(
 			{ mod: "butchery" },
@@ -170,5 +174,5 @@ export function setRecipesButchery(event: $RecipesEventJS) {
 			.id(`setsu:butchery/${color}_canopy`);
 	});
 	doButcherySkins(event);
-	// doButcheryFoods(event);
+	doButcheryFoods(event);
 }
