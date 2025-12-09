@@ -4,74 +4,68 @@ import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$Recipe
 import { addDamageShaped, addDamageShapeless } from "../../_helperFunctions";
 import { doButcherySkins } from "./ButcherySkins";
 import { doButcheryFoods } from "./ButcheryFoods";
+import { ItemCol } from "../../../HelpCollections/ItemCollections";
 
 export function setRecipesButchery(event: $RecipesEventJS) {
 	// --- Smiths
-	// event.remove({ output: "butchery:unfiredcleavermold" });
-	// event.remove({ output: "butchery:fired_cleaver_mold" });
-	// event.remove({ output: "butchery:unfiredpliermould" });
-	// event.remove({ output: "butchery:firedpliermould" });
-	// event.remove({ output: "butchery:unfiredskinningknifeblademold" });
-	// event.remove({ output: "butchery:firedskinningknifemold" });
-	// event.remove({ id: "butchery:cleaverblade" });
-	// event.remove({ id: "butchery:skinningknifebladerecipe" });
-	// event.remove({ id: "butchery:plierjawrecipe" });
-	// --- Butcher Knives
-	// event.remove({ id: "butchery:butchers_knife_recipe" });
-	// event.remove({ id: "butchery:bonebutchersknife_recipe" });
-	// addDamageShaped(event, "butchery:bonebutchersknife", ["WSK", "BB "], {
-	// 	S: "#forge:string",
-	// 	W: "tfc_items:short_wooden_handle",
-	// 	B: "minecraft:bone",
-	// 	K: "#tfc:knives",
-	// });
-	// event.remove({ id: "butchery:cleavercrafting" });
-	// event
-	// 	.shaped("butchery:butchers_knife", [" RB", "GW ", " T "], {
-	// 		R: "tfc_items:wrought_iron_rivet",
-	// 		B: "butchery:ironcleaverblade",
-	// 		G: "#forge:glue",
-	// 		W: "tfc_items:short_wooden_handle",
-	// 		T: "#forge:leather/string",
-	// 	})
-	// 	.id("setsu:butchery/iron_butcher_knife");
-	// event.remove({ id: "butchery:netherite_butchers_knife_crafting" });
-	// addDamageShapeless(event, "butchery:netherite_butchers_knife", [
-	// 	"butchery:butchers_knife",
-	// 	"#tfc:hammers",
-	// 	"tfc:metal/sheet/black_steel",
-	// ]);
-	// --- Skinning Knives
-	// event.remove({ id: "butchery:skinning_knife_recipe" });
-	// event.remove({ id: "butchery:boneskinningkniferecipe" });
-	// addDamageShaped(event, "butchery:boneskinningknife", ["WSB", "KBB"], {
-	// 	S: "#forge:string",
-	// 	W: "tfc_items:short_wooden_handle",
-	// 	B: "minecraft:bone",
-	// 	K: "#tfc:knives",
-	// });
-	// event.remove({ id: "butchery:skinningknifecrafting" });
-	// event
-	// 	.shaped("butchery:skinning_knife", [" RB", "GW ", " T "], {
-	// 		R: "tfc_items:wrought_iron_rivet",
-	// 		B: "butchery:skinningknifeblade",
-	// 		G: "#forge:glue",
-	// 		W: "tfc_items:short_wooden_handle",
-	// 		T: "#forge:leather/string",
-	// 	})
-	// 	.id("setsu:butchery/iron_skinning_knife");
-	// --- Plier
-	// event.remove({ id: "butchery:pliers_recipe" });
-	// event.remove({ id: "butchery:pliercrafting" });
-	// event
-	// 	.shaped("butchery:pliers", ["T B", "WR ", "XWT"], {
-	// 		T: "#forge:leather/string",
-	// 		B: "butchery:plierjaw",
-	// 		R: "tfc_items:wrought_iron_rivet",
-	// 		W: "tfc_items:short_wooden_handle",
-	// 		X: "tfc_items:wrought_iron_ring",
-	// 	})
-	// 	.id("setsu:butchery/iron_pliers");
+	function simpleSmith(
+		output: string,
+		ingredient: string,
+		form: string[],
+		tier: number
+	) {
+		event.recipes.tfc
+			.anvil(output, ingredient, form)
+			.tier(tier)
+			.bonus(true)
+			.id(`setsu:butchery/${output.substring(output.indexOf(":") + 1)}`);
+	}
+	function newButcherTool(
+		type: "cleaver" | "skinning_knife" | "hammer" | "hacksaw",
+		hits: [string] | [string, string] | [string, string, string]
+	) {
+		const typeWithoutUnderspace = type.replace("_", "");
+		event.remove({ id: `butchery:bone${typeWithoutUnderspace}recipe` as any });
+		simpleSmith(`butchery:bone_${type}`, "minecraft:bone", hits, 0);
+		event.remove({
+			id: `butchery:copper${typeWithoutUnderspace}recipe` as any,
+		});
+		simpleSmith(`butchery:copper_${type}`, "tfc:metal/ingot/copper", hits, 1);
+		event.remove({ id: `butchery:iron${typeWithoutUnderspace}recipe` as any });
+		simpleSmith(
+			`butchery:iron_${type}`,
+			"tfc:metal/ingot/wrought_iron",
+			hits,
+			3
+		);
+		event.remove({ id: `butchery:gold${typeWithoutUnderspace}recipe` as any });
+		simpleSmith(`butchery:gold_${type}`, "tfc:metal/ingot/gold", hits, 1);
+		event.remove({
+			id: `butchery:diamond${typeWithoutUnderspace}recipe` as any,
+		});
+		simpleSmith(
+			`butchery:diamond_${type}`,
+			"tfc:metal/ingot/blue_steel",
+			hits,
+			6
+		);
+	}
+	newButcherTool("cleaver", [
+		"shrink_last",
+		"draw_second_last",
+		"draw_third_last",
+	]);
+	newButcherTool("skinning_knife", [
+		"draw_last",
+		"shrink_second_last",
+		"shrink_third_last",
+	]);
+	newButcherTool("hammer", [
+		"shrink_last",
+		"hit_second_last",
+		"punch_third_last",
+	]);
+	newButcherTool("hacksaw", ["shrink_last", "bend_not_last", "bend_not_last"]);
 
 	// --- Wet Rag
 	// event
@@ -110,45 +104,71 @@ export function setRecipesButchery(event: $RecipesEventJS) {
 		.id("setsu:butchery/wet_sponge_in_barrel");
 
 	// --- Blocks
-	// event.remove({ id: "butchery:skinrackrecipe" });
-	// event.remove({ id: "butchery:butchers_table_recipe" });
-	// event
-	// 	.shaped("butchery:butcherstable", ["ITI", "I I"], {
-	// 		I: "#setsu:ingot/all_iron",
-	// 		T: "#tfc:trapdoors",
-	// 	})
-	// 	.id("setsu:butchery/butchers_table");
-	// event.remove({ id: "butchery:bloodgrate_recipe" });
-	// event
-	// 	.shaped("butchery:bloodgratetank", ["NNN", "NBN", "NNN"], {
-	// 		B: "tfc:metal/bars/wrought_iron",
-	// 		N: "minecraft:iron_nugget",
-	// 	})
-	// 	.id("setsu:butchery/blood_grate");
-	// event.remove({ id: "butchery:halfcowrecipe" });
-	// addDamageShapeless(event, "2x butchery:half_cowitem", [
-	// 	"#tfc:swords",
-	// 	"butchery:skinned_cow_corpse_item",
-	// ]);
-	// event.remove({ id: "butchery:tfcspitroastrecipe" });
-	// event.remove({ id: "butchery:metal_tray_crafting_2" });
-	// event.replaceInput(
-	// 	{ id: "butchery:spit_roast_recipe" },
-	// 	"tfc:metal/ingot/wrought_iron",
-	// 	"tfc:metal/rod/wrought_iron"
-	// );
-	// event.replaceInput({ mod: "butcher" }, "butchery:salmon", "tfc:food/salmon");
-	// event.replaceInput({ mod: "butcher" }, "butchery:cod", "tfc:food/cod");
-	// event.replaceInput(
-	// 	{ mod: "butcher" },
-	// 	"minecraft:oak_slab",
-	// 	"#minecraft:wooden_slabs"
-	// );
-	// event.replaceInput(
-	// 	{ mod: "butcher" },
-	// 	"minecraft:oak_sign",
-	// 	"#minecraft:signs"
-	// );
+	event.remove({ id: "butchery:skinrackrecipe" });
+
+	ItemCol.allVanillaWoodTypes.forEach((wood) => {
+		if (wood == "crimson" || wood == "warped") return;
+		event.replaceInput(
+			{ mod: "butchery" },
+			`minecraft:stripped_${wood}_wood`,
+			"#forge:stripped_wood"
+		);
+		event.replaceInput(
+			{ mod: "butchery" },
+			`minecraft:${wood}_slab`,
+			"#minecraft:wooden_slabs"
+		);
+	});
+	event.remove({ id: "butchery:metalbutcherstablerecipe" });
+	event
+		.shaped("butchery:metal_butchers_table", ["ITI", "I I"], {
+			I: "#setsu:ingot/all_iron",
+			T: "#tfc:trapdoors",
+		})
+		.id("setsu:butchery/metal_butchers_table");
+	event.remove({ id: "butchery:bloodgraterecipe" });
+	event
+		.shaped("butchery:blood_grate", ["NBN", "NTN", "NNN"], {
+			N: "minecraft:iron_nugget",
+			B: "tfc:metal/bars/wrought_iron",
+			T: "#tfc:barrels",
+		})
+		.id("setsu:butchery/blood_grate");
+	event.replaceInput(
+		{ mod: "butchery" },
+		"butchery:salmoncarcass",
+		"tfc:food/salmon"
+	);
+	event.replaceInput(
+		{ mod: "butchery" },
+		"butchery:codcarcass",
+		"tfc:food/cod"
+	);
+	event.replaceInput(
+		{ mod: "butchery" },
+		"minecraft:oak_sign",
+		"#minecraft:signs"
+	);
+	event.replaceInput(
+		{ id: "butchery:butchersfloorsign" },
+		"minecraft:black_wool",
+		"minecraft:black_carpet"
+	);
+	ItemCol.allDyes.forEach((color) => {
+		if (color == "white") return;
+		event.remove({ id: `butchery:${color.replace("_", "")}canopyrecipe` });
+		event
+			.shaped(
+				`6x butchery:canopy${color == "blue" || color == "magenta" ? "" : "_"}${color}` as any,
+				["CWC", "CWC", "III"],
+				{
+					C: `minecraft:${color}_carpet`,
+					W: `minecraft:white_carpet`,
+					I: `#forge:rods/all_metal`,
+				}
+			)
+			.id(`setsu:butchery/${color}_canopy`);
+	});
 	doButcherySkins(event);
 	// doButcheryFoods(event);
 }
