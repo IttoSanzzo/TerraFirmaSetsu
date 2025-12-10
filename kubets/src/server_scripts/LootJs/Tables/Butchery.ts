@@ -103,7 +103,7 @@ export function setLootButchery(event: $LootModificationEventJS) {
 	);
 	addCatCarcass("butchery:calico_cat_carcass", "minecraft:calico");
 	addCatCarcass("butchery:persian_cat_carcass", "minecraft:persian");
-	addCatCarcass("butchery:rag_doll_cat_carcass", "minecraft:ragdoll");
+	addCatCarcass("butchery:ragdoll_cat_carcass", "minecraft:ragdoll");
 	addCatCarcass("butchery:white_cat_carcass", "minecraft:white");
 	addCatCarcass("butchery:jellie_cat_carcass", "minecraft:jellie");
 	addCatCarcass("butchery:all_black_cat_carcass", "minecraft:all_black");
