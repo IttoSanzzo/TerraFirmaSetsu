@@ -17,9 +17,6 @@ export function setRecipesMna(event: $RecipesEventJS) {
 		"tfc:torch",
 		"#mna:improvised_manaweave_wand_shafts"
 	);
-	event.remove({
-		id: "mna:manaweaving/utility/leather",
-	});
 
 	event
 		.shaped("3x mna:vinteum_dust", ["FFF", "FXF", "FLF"], {

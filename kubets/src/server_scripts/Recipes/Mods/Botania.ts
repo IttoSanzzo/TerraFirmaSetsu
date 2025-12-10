@@ -249,4 +249,21 @@ export function setRecipesBotania(event: $RecipesEventJS) {
 		.id("setsu:botania/redstone_twig");
 
 	event.remove({ id: "botania:mana_infusion/rotten_flesh_to_leather" });
+	event
+		.custom({
+			type: "botania:mana_infusion",
+			input: {
+				item: "minecraft:rotten_flesh",
+			},
+			output: {
+				item: "tfc:small_raw_hide",
+				count: 1,
+			},
+			mana: 25,
+			catalyst: {
+				type: "block",
+				block: "botania:alchemy_catalyst",
+			},
+		})
+		.id("setsu:botania/raw_hide_from_rotten_flesh");
 }

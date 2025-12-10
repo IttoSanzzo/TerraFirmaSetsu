@@ -1,15 +1,15 @@
 {
 	"type": "mna:manaweaving-recipe",
 	"tier": 1,
-	"output": "minecraft:leather",
-	"quantity": 6,		
+	"output": "tfc:small_raw_hide",
+	"quantity": 6,
 	"items": [
-		"tfc:rotten_compost",
-		"tfc:rotten_compost",
-		"tfc:rotten_compost",
-		"tfc:rotten_compost",
-		"tfc:rotten_compost",
-		"tfc:rotten_compost",
+		"minecraft:rotten_flesh",
+		"minecraft:rotten_flesh",
+		"minecraft:rotten_flesh",
+		"minecraft:rotten_flesh",
+		"minecraft:rotten_flesh",
+		"minecraft:rotten_flesh",
 		"mna:bone_ash"
 	],
 	"patterns": [
