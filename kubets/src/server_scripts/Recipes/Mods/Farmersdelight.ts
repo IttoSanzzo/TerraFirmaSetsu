@@ -12,6 +12,7 @@ export function setRecipesFarmersdelight(event: $RecipesEventJS) {
 		event.remove({ id: `farmersdelight:${wood}_cabinet` });
 	});
 	event.remove({ id: `farmersdelight:bamboo_cabinet` });
+	event.remove({ id: `farmersdelight:wheat_dough_from_water` });
 
 	event.recipes.tfc
 		.anvil("farmersdelight:golden_knife", "tfc:metal/ingot/gold", [

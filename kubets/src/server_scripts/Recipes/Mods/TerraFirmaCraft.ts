@@ -278,4 +278,7 @@ export function setRecipesTerraFirmaCraft(event: $RecipesEventJS) {
 	event.remove({ id: "minecraft:brick" });
 
 	event.shapeless("minecraft:sponge", ["9x #forge:coral"]).id("setsu:sponge");
+	event
+		.shapeless("minecraft:wheat", ["tfc:food/wheat"])
+		.id("setsu:tfc_wheat_to_vanilla");
 }

@@ -169,6 +169,11 @@ export function setRecipesButchery(event: $RecipesEventJS) {
 			})
 			.id(`setsu:butchery/${color}_canopy`);
 	});
+	event.remove({ id: `butchery:animalfatcandlerecipe` });
+	event
+		.shapeless("artisanal:animal_fat", ["butchery:animal_fat"])
+		.id("setsu:butchery/fat_to_artisanal_fat");
+
 	doButcherySkins(event);
 	doButcheryFoods(event);
 }
