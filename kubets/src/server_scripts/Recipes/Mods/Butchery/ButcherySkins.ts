@@ -48,7 +48,7 @@ export function doButcherySkins(event: $RecipesEventJS) {
 	}
 
 	const smallFur: KjsItem[] = [
-		"butchery:allblackcatfur",
+		"butchery:all_black_cat_fur",
 		"butchery:black_cat_fur",
 		"butchery:shorthair_cat_fur",
 		"butchery:calico_cat_fur",
@@ -58,10 +58,10 @@ export function doButcherySkins(event: $RecipesEventJS) {
 		"butchery:jellie_cat_fur",
 		"butchery:persian_cat_fur",
 		"butchery:red_cat_fur",
+		"butchery:siamese_cat_fur",
+		"butchery:tabby_cat_fur",
+		"butchery:white_cat_fur",
 		"minecraft:rabbit_hide",
-		"minecraft:siamese_cat_fur",
-		"minecraft:tabby_cat_fur",
-		"minecraft:white_cat_fur",
 	];
 	const mediumFur: KjsItem[] = [
 		"butchery:goat_skin",

@@ -162,15 +162,11 @@ export function setRecipesButchery(event: $RecipesEventJS) {
 		if (color == "white") return;
 		event.remove({ id: `butchery:${color.replace("_", "")}canopyrecipe` });
 		event
-			.shaped(
-				`6x butchery:canopy${color == "blue" || color == "magenta" ? "" : "_"}${color}` as any,
-				["CWC", "CWC", "III"],
-				{
-					C: `minecraft:${color}_carpet`,
-					W: `minecraft:white_carpet`,
-					I: `#forge:rods/all_metal`,
-				}
-			)
+			.shaped(`6x butchery:canopy_${color}` as any, ["CWC", "CWC", "III"], {
+				C: `minecraft:${color}_carpet`,
+				W: `minecraft:white_carpet`,
+				I: `#forge:rods/all_metal`,
+			})
 			.id(`setsu:butchery/${color}_canopy`);
 	});
 	doButcherySkins(event);

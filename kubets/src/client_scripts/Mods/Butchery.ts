@@ -3,11 +3,11 @@
 import { $HideJEIEventJS } from "packages/dev/latvian/mods/kubejs/integration/forge/jei/$HideJEIEventJS";
 
 export const setJeiButchery = (event: $HideJEIEventJS<any>) => {
-	// event.hide("butcher:unfiredcleavermold");
-	// event.hide("butcher:fired_cleaver_mold");
-	// event.hide("butcher:unfiredpliermould");
-	// event.hide("butcher:firedpliermould");
-	// event.hide("butcher:unfiredskinningknifeblademold");
-	// event.hide("butcher:firedskinningknifemold");
-	event.hide("butcher:skin_rack");
+	// event.hide("butchery:unfiredcleavermold");
+	// event.hide("butchery:fired_cleaver_mold");
+	// event.hide("butchery:unfiredpliermould");
+	// event.hide("butchery:firedpliermould");
+	// event.hide("butchery:unfiredskinningknifeblademold");
+	// event.hide("butchery:firedskinningknifemold");
+	event.hide("butchery:skin_rack");
 };

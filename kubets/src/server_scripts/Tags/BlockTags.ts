@@ -106,7 +106,7 @@ export function setBlockTags(
 	event.add("tfc:can_landslide", "beyond_earth:mars_sand");
 	event.add("tfc:can_landslide", "beyond_earth:venus_sand");
 	event.add("tfc:can_landslide", "beyond_earth:moon_sand");
-	event.add("create:passive_boiler_heaters", "#forge:magma");
+	// event.add("create:passive_boiler_heaters", "#forge:magma");
 
 	// End.
 	console.log("Setsu Tag Block End!");
