@@ -107,7 +107,7 @@ export function setRecipesBotania(event: $RecipesEventJS) {
 					item: `tfc:rock/smooth/${stone}`,
 					count: 1,
 				},
-				mana: 500,
+				mana: 300,
 				catalyst: {
 					type: "block",
 					block: "botania:alchemy_catalyst",
@@ -198,7 +198,7 @@ export function setRecipesBotania(event: $RecipesEventJS) {
 				item: "minecraft:bamboo",
 				count: 1,
 			},
-			mana: 25,
+			mana: 50,
 			catalyst: {
 				type: "block",
 				block: "botania:alchemy_catalyst",
@@ -256,7 +256,7 @@ export function setRecipesBotania(event: $RecipesEventJS) {
 		catalyst?: string;
 	}) {
 		if (!data.outputCount) data.outputCount = 1;
-		if (!data.mana) data.mana = 25;
+		if (!data.mana) data.mana = 300;
 		event
 			.custom(
 				data.catalyst
@@ -301,11 +301,12 @@ export function setRecipesBotania(event: $RecipesEventJS) {
 	addManaInfusion({
 		output: "tfc:ore/bituminous_coal",
 		input: "minecraft:charcoal",
+		mana: 1000,
 	});
 	addManaInfusion({
 		output: "tfc:ore/graphite",
 		input: "tfc:ore/bituminous_coal",
-		mana: 50,
+		mana: 2000,
 		catalyst: "botania:alchemy_catalyst",
 	});
 }

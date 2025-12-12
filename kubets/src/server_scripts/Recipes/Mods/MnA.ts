@@ -314,7 +314,8 @@ export function setRecipesMna(event: $RecipesEventJS) {
 	addManaweaving({
 		output: "tfc:ore/graphite",
 		input: ["tfc:ore/bituminous_coal"],
-		patterns: ["mna:square"],
+		patterns: ["mna:square", "mna:circle", "mna:square"],
+		tier: 2,
 	});
 
 	/**
