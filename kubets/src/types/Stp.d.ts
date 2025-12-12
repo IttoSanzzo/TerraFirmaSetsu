@@ -29,3 +29,5 @@ type KjsItemTagStack = `#${Special.ItemTag}`;
 
 type KjsItemOrItemTag = KjsItem | KjsItemTag;
 type KjsItemOrItemTagStack = KjsItemStack | KjsItemTagStack;
+
+type KjsFluid = OmniString | Special.Fluid;
