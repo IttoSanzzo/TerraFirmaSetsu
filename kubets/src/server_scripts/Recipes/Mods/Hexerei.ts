@@ -96,58 +96,124 @@ export function setRecipesHexerei(event: $RecipesEventJS) {
 	/**
 	 * Raw Cauldron
 	 */
-	const addRawCauldron = (
-		output: Special.Item | OmniString,
-		ingredient: Special.Item | OmniString
-	) => {
+	function addCauldron(data: {
+		output: KjsItem;
+		outputCount?: number;
+		input: { type?: "item" | "tag"; id: KjsItemOrItemTag }[];
+		fluid?: KjsFluid;
+		fluidAmount?: KjsFluid;
+		outputFluid?: KjsFluid;
+	}) {
+		if (!data.outputCount) data.outputCount = 1;
+		if (!data.fluid) data.fluid = "minecraft:water";
+		if (!data.fluidAmount) data.fluidAmount = 1000;
+		if (!data.outputFluid) data.outputFluid = data.fluid;
+		const ingredients = data.input.map((ingredient) => {
+			if (!ingredient.type || ingredient.type == "item")
+				return { item: ingredient.id };
+			return { tag: ingredient.id };
+		});
 		event
 			.custom({
 				type: "hexerei:mixingcauldron",
 				output: {
-					item: output,
+					item: data.output,
+					count: data.outputCount,
 				},
-				ingredients: [
-					{
-						item: ingredient,
-					},
-					{
-						item: "mna:vinteum_dust",
-					},
-					{
-						item: ingredient,
-					},
-					{
-						item: "mna:vinteum_dust",
-					},
-					{
-						item: ingredient,
-					},
-					{
-						item: "mna:vinteum_dust",
-					},
-					{
-						item: ingredient,
-					},
-					{
-						item: "mna:vinteum_dust",
-					},
-				],
+				ingredients: ingredients,
 				liquid: {
-					fluid: "minecraft:water",
+					fluid: data.fluid,
 				},
-				fluidLevelsConsumed: 200,
+				fluidLevelsConsumed: data.fluidAmount,
 				liquidOutput: {
-					fluid: "minecraft:water",
+					fluid: data.outputFluid,
 				},
 			})
 			.id(
-				`setsu:hexerei/raw_${output.replace(":", "_").replace("/", "_")}_transformation`
+				`setsu:hexerei/cauldron/${(data.output as string).substring((data.output as string).indexOf(":") + 1)}/from/${(data.input as any[]).map((ingredient) => ingredient.id.substring(ingredient.id.indexOf(":") + 1)).join("_and_")}`
 			);
+	}
+
+	const addRawCauldron = (
+		output: Special.Item | OmniString,
+		ingredient: Special.Item | OmniString
+	) => {
+		addCauldron({
+			output: output,
+			input: [
+				{
+					id: ingredient,
+				},
+				{
+					id: "mna:vinteum_dust",
+				},
+				{
+					id: ingredient,
+				},
+				{
+					id: "mna:vinteum_dust",
+				},
+				{
+					id: ingredient,
+				},
+				{
+					id: "mna:vinteum_dust",
+				},
+				{
+					id: ingredient,
+				},
+				{
+					id: "mna:vinteum_dust",
+				},
+			],
+			fluidAmount: 200,
+		});
 	};
+
 	addRawCauldron("minecraft:raw_copper", `tfc:ore/normal_native_copper`);
 	addRawCauldron("minecraft:raw_gold", `tfc:ore/normal_native_gold`);
 	addRawCauldron(
 		"immersiveengineering:raw_silver",
 		"tfc:ore/normal_native_silver"
 	);
+
+	addCauldron({
+		output: "minecraft:clay_ball",
+		outputCount: 4,
+		input: [
+			{
+				type: "tag",
+				id: "tfc:plants",
+			},
+			{
+				type: "tag",
+				id: "minecraft:dirt",
+			},
+			{
+				type: "tag",
+				id: "minecraft:dirt",
+			},
+			{
+				type: "tag",
+				id: "forge:sand",
+			},
+			{
+				type: "tag",
+				id: "forge:sand",
+			},
+			{
+				type: "tag",
+				id: "forge:sand",
+			},
+			{
+				type: "tag",
+				id: "minecraft:dirt",
+			},
+			{
+				type: "tag",
+				id: "minecraft:dirt",
+			},
+		],
+		fluidAmount: 200,
+	});
 }

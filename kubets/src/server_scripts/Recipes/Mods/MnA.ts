@@ -283,6 +283,40 @@ export function setRecipesMna(event: $RecipesEventJS) {
 		150
 	);
 
+	function addManaweaving(data: {
+		output: KjsItem;
+		outputCount?: number;
+		input: KjsItem[];
+		tier?: number;
+		patterns: ("mna:circle" | "mna:square" | "mna:triangle")[];
+	}) {
+		if (!data.outputCount) data.outputCount = 1;
+		if (!data.tier) data.tier = 1;
+		event
+			.custom({
+				type: "mna:manaweaving-recipe",
+				tier: data.tier,
+				output: data.output,
+				quantity: data.outputCount,
+				items: data.input,
+				patterns: data.patterns,
+			})
+			.id(
+				`setsu:mna/manaweaving/${(data.output as string).substring((data.output as string).indexOf(":") + 1)}/from/${(data.input as string[]).map((item: string) => item.substring(item.indexOf(":") + 1)).join("_and_")}`
+			);
+	}
+
+	addManaweaving({
+		output: "tfc:ore/bituminous_coal",
+		input: ["minecraft:charcoal"],
+		patterns: ["mna:circle"],
+	});
+	addManaweaving({
+		output: "tfc:ore/graphite",
+		input: ["tfc:ore/bituminous_coal"],
+		patterns: ["mna:square"],
+	});
+
 	/**
 	 * Hexerei Metal Raws
 	 */
@@ -291,18 +325,11 @@ export function setRecipesMna(event: $RecipesEventJS) {
 		output: Special.Item | OmniString,
 		ore: (Special.Item | OmniString)[]
 	) => {
-		event
-			.custom({
-				type: "mna:manaweaving-recipe",
-				tier: 1,
-				output: output,
-				quantity: 1,
-				items: ore,
-				patterns: ["mna:circle", "mna:square", "mna:triangle"],
-			})
-			.id(
-				`setsu:mna/manaweaving/raw_${rarity}_${ore[0].replace(":", "_").replace("/", "_")}_transformation`
-			);
+		addManaweaving({
+			output: output,
+			input: ore,
+			patterns: ["mna:circle", "mna:square", "mna:triangle"],
+		});
 	};
 	const mnaRawTrans = (output: Special.Item, ore: OmniString) => {
 		oreWeaving("poor", output, [

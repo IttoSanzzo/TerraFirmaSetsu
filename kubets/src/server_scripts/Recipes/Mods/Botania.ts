@@ -248,22 +248,64 @@ export function setRecipesBotania(event: $RecipesEventJS) {
 		.shapeless("botania:redstone_root", ["minecraft:redstone", "#tfc:twigs"])
 		.id("setsu:botania/redstone_twig");
 
+	function addManaInfusion(data: {
+		output: KjsItem;
+		outputCount?: number;
+		input: KjsItem;
+		mana?: number;
+		catalyst?: string;
+	}) {
+		if (!data.outputCount) data.outputCount = 1;
+		if (!data.mana) data.mana = 25;
+		event
+			.custom(
+				data.catalyst
+					? {
+							type: "botania:mana_infusion",
+							input: {
+								item: data.input,
+							},
+							output: {
+								item: data.output,
+								count: data.outputCount,
+							},
+							mana: data.mana,
+							catalyst: {
+								type: "block",
+								block: data.catalyst,
+							},
+						}
+					: {
+							type: "botania:mana_infusion",
+							input: {
+								item: data.input,
+							},
+							output: {
+								item: data.output,
+								count: data.outputCount,
+							},
+							mana: data.mana,
+						}
+			)
+			.id(
+				`setsu:botania/mana_infusion${data.catalyst ? `/${(data.catalyst as string).substring((data.catalyst as string).indexOf(":") + 1)}` : ""}/${(data.output as string).substring((data.output as string).indexOf(":") + 1)}_from_${(data.input as string).substring((data.input as string).indexOf(":") + 1)}`
+			);
+	}
+
 	event.remove({ id: "botania:mana_infusion/rotten_flesh_to_leather" });
-	event
-		.custom({
-			type: "botania:mana_infusion",
-			input: {
-				item: "minecraft:rotten_flesh",
-			},
-			output: {
-				item: "tfc:small_raw_hide",
-				count: 1,
-			},
-			mana: 25,
-			catalyst: {
-				type: "block",
-				block: "botania:alchemy_catalyst",
-			},
-		})
-		.id("setsu:botania/raw_hide_from_rotten_flesh");
+	addManaInfusion({
+		output: "tfc:small_raw_hide",
+		input: "minecraft:rotten_flesh",
+		catalyst: "botania:alchemy_catalyst",
+	});
+	addManaInfusion({
+		output: "tfc:ore/bituminous_coal",
+		input: "minecraft:charcoal",
+	});
+	addManaInfusion({
+		output: "tfc:ore/graphite",
+		input: "tfc:ore/bituminous_coal",
+		mana: 50,
+		catalyst: "botania:alchemy_catalyst",
+	});
 }
