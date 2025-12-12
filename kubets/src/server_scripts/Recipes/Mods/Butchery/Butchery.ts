@@ -90,6 +90,9 @@ export function setRecipesButchery(event: $RecipesEventJS) {
 			input_item: {
 				ingredient: {
 					item: "butchery:sponge",
+					nbt: {
+						spongeWetness: 0,
+					},
 				},
 			},
 			input_fluid: {
@@ -97,7 +100,10 @@ export function setRecipesButchery(event: $RecipesEventJS) {
 				amount: 100,
 			},
 			output_item: {
-				item: "butchery:wet_sponge",
+				item: "butchery:sponge",
+				nbt: {
+					spongeWetness: 7.0,
+				},
 			},
 		})
 		.id("setsu:butchery/wet_sponge_in_barrel");
