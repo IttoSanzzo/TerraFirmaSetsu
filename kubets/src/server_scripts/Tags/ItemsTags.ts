@@ -130,6 +130,7 @@ export function setItemTags(
 	});
 
 	// Misc Items //////////////////////////////////////////
+	event.add("chipped:torch", "tfc:torch");
 	event.add("immersiveengineering:drillheads", [
 		"immersiveengineering:drillhead_steel",
 		"immersiveengineering:drillhead_iron",

@@ -101,7 +101,7 @@ export function setRecipesHexerei(event: $RecipesEventJS) {
 		outputCount?: number;
 		input: { type?: "item" | "tag"; id: KjsItemOrItemTag }[];
 		fluid?: KjsFluid;
-		fluidAmount?: KjsFluid;
+		fluidAmount?: number;
 		outputFluid?: KjsFluid;
 	}) {
 		if (!data.outputCount) data.outputCount = 1;
@@ -215,5 +215,17 @@ export function setRecipesHexerei(event: $RecipesEventJS) {
 			},
 		],
 		fluidAmount: 200,
+	});
+
+	["willow", "witch_hazel", "mahogany"].forEach((wood) => {
+		event.remove({
+			output: `hexerei:${wood}_chest`,
+		});
+		event
+			.shapeless(`hexerei:${wood}_chest`, [
+				"#forge:chests",
+				"kubejs:bismuth_bronze_nugget",
+			])
+			.id(`setsu:hexerei/${wood}_chest`);
 	});
 }

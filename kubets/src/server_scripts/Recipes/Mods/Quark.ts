@@ -7,6 +7,7 @@ import { ItemCol } from "../../HelpCollections/ItemCollections";
 export function setRecipesQuark(event: $RecipesEventJS) {
 	// 0. Replaces
 	event.remove({ id: "quark:tweaks/crafting/utility/bent/paper" });
+	event.remove({ id: "quark:tweaks/crafting/utility/misc/easy_hopper" });
 	event.remove({ output: "quark:thatch" });
 	event.remove({ output: "quark:thatch_stairs" });
 	event.remove({ output: "quark:thatch_slab" });
@@ -146,5 +147,34 @@ export function setRecipesQuark(event: $RecipesEventJS) {
 			`#quark:${wood}_logs`,
 			"#tfc:metal/saws",
 		]);
+	});
+	[
+		"acacia",
+		"ancient",
+		"azalea",
+		"bamboo",
+		"birch",
+		"cherry",
+		"crimson",
+		"dark_oak",
+		"jungle",
+		"mangrove",
+		"nether_brick",
+		"oak",
+		"prismarine",
+		"purpur",
+		"spruce",
+		"blossom",
+		"warped",
+	].forEach((wood) => {
+		event.remove({
+			output: `quark:${wood}_chest`,
+		});
+		event
+			.shapeless(`quark:${wood}_chest`, [
+				"#forge:chests",
+				"kubejs:bismuth_bronze_nugget",
+			])
+			.id(`setsu:quark/${wood}_chest`);
 	});
 }

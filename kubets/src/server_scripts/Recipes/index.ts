@@ -15,7 +15,6 @@ import { setRecipesAccommodation } from "./Mods/Accommodation";
 import { setRecipesApotheosis } from "./Mods/Apotheosis";
 import { setArtisanal } from "./Mods/TfcAddons/Artisanal";
 import { setRecipesBigReactors } from "./Mods/BigReactors";
-import { setRecipesBioforgeLoomborn } from "./Mods/BioforgeLoomborn";
 import { setRecipesBotania } from "./Mods/Botania";
 import { setRecipesChipped } from "./Mods/Chipped";
 import { setRecipesConstructionWand } from "./Mods/ConstructionWand";
@@ -50,6 +49,7 @@ import { setRecipesWell } from "./Mods/Well";
 import { setRecipesBloodMagic } from "./Mods/BloodMagic";
 import { setRecipesButchery } from "./Mods/Butchery/Butchery";
 import { setRecipesTfcScrapping } from "./Mods/TfcAddons/TfcScrapping";
+import { setRecipesWoodenHopper } from "./Mods/WoodenHopper";
 
 export function setRecipes(event: $RecipesEventJS) {
 	console.log("Setsu Recipes Start!");
@@ -94,10 +94,10 @@ export function setRecipes(event: $RecipesEventJS) {
 	setRecipesIceAndFire(event);
 	setSacksAndSuch(event);
 	setArtisanal(event);
-	setRecipesBioforgeLoomborn(event);
 	setRecipesTrottingWagons(event);
 	setRecipesWell(event);
 	setRecipesButchery(event);
+	setRecipesWoodenHopper(event);
 
 	// TFC Addons
 	setRecipesFirmalife(event);
