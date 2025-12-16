@@ -51,6 +51,7 @@ export function setFluidTags(
 			"firmalife:coconut_milk",
 		]);
 	event.add("forge:refined_fuel", "thermal:refined_fuel");
+	event.add("thermal:refined_fuel", "thermal:refined_fuel");
 
 	// Color Dyes
 	ItemCol.allDyes.forEach((color) => {
@@ -67,6 +68,7 @@ export function setFluidTags(
 	oilTags.forEach((oil) => {
 		event.add(oil, oil);
 	});
+	event.add("ad_astra:cryo_fuel", "ad_astra:cryo_fuel");
 	event.add("ad_astra:pure_oil", "ad_astra:oil");
 	event.add("ad_astra:pure_fuel", "ad_astra:fuel");
 

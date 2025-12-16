@@ -63,10 +63,65 @@ export function setRecipesAdAstra(event: $RecipesEventJS) {
 	);
 
 	/**
+	 * Globes
+	 */
+
+	event
+		.shaped("ad_astra:earth_globe", ["supplementaries:globe", "#tfc:rock/raw"])
+		.id(`setsu:ad_astra/earth_globe`);
+	event
+		.shaped("ad_astra:moon_globe", [
+			"supplementaries:globe",
+			"ad_astra:moon_stone",
+		])
+		.id(`setsu:ad_astra/moon_globe`);
+	event
+		.shaped("ad_astra:mars_globe", [
+			"supplementaries:globe",
+			"ad_astra:mars_stone",
+		])
+		.id(`setsu:ad_astra/mars_globe`);
+	event
+		.shaped("ad_astra:mercury_globe", [
+			"supplementaries:globe",
+			"ad_astra:mercury_stone",
+		])
+		.id(`setsu:ad_astra/mercury_globe`);
+	event
+		.shaped("ad_astra:venus_globe", [
+			"supplementaries:globe",
+			"ad_astra:venus_stone",
+		])
+		.id(`setsu:ad_astra/venus_globe`);
+	event
+		.shaped("ad_astra:glacio_globe", [
+			"supplementaries:globe",
+			"ad_astra:glacio_stone",
+		])
+		.id(`setsu:ad_astra/glacio_globe`);
+
+	/**
 	 * Fuel!
 	 */
 
-	const newRefinery1Input = (
+	const addBottling = (
+		output: Special.Item | OmniString,
+		ingredient: Special.Item | OmniString,
+		fluid: Special.FluidTag | OmniString,
+		amount: number
+	) => {
+		event
+			.custom({
+				type: "immersiveengineering:bottling_machine",
+				results: [{ item: output }],
+				input: { item: ingredient },
+				fluid: { tag: fluid, amount: amount },
+			})
+			.id(
+				`setsu:ad_astra/bottling/${ingredient.replace(":", ".").replace("/", ".")}/to/${output.replace(":", ".").replace("/", ".")}`
+			);
+	};
+	const addRefinery1Input = (
 		output: Special.Fluid,
 		amount: number,
 		input0: Special.FluidTag,
@@ -94,7 +149,7 @@ export function setRecipesAdAstra(event: $RecipesEventJS) {
 				`setsu:ad_astra/refinery/${output.replace(":", ".").replace("/", ".")}`
 			);
 	};
-	const newRefinery2Input = (
+	const addRefinery2Input = (
 		output: Special.Fluid,
 		amount: number,
 		input0: Special.FluidTag,
@@ -145,33 +200,47 @@ export function setRecipesAdAstra(event: $RecipesEventJS) {
 			);
 	};
 
-	newRefinery2Input(
-		"ad_astra:fuel",
-		8,
-		"thermal:heavy_oil",
-		4,
-		"thermal:light_oil",
-		4
-	);
-	newRefinery1Input(
-		"thermal:light_oil",
-		5,
-		"immersiveengineering:biodiesel",
-		8
-	);
-	newRefinery2Input(
-		"thermal:heavy_oil",
-		8,
-		"ad_astra:pure_oil",
-		5,
-		"immersiveengineering:redstone_acid",
-		5
-	);
-	newRefinery1Input("ad_astra:oil", 5, "forge:creosote", 15);
+	// addRefinery2Input(
+	// 	"ad_astra:fuel",
+	// 	8,
+	// 	"thermal:heavy_oil",
+	// 	4,
+	// 	"thermal:light_oil",
+	// 	4
+	// );
+	// addRefinery1Input(
+	// 	"thermal:light_oil",
+	// 	5,
+	// 	"immersiveengineering:biodiesel",
+	// 	8
+	// );
+	// addRefinery2Input(
+	// 	"thermal:heavy_oil",
+	// 	8,
+	// 	"ad_astra:pure_oil",
+	// 	5,
+	// 	"immersiveengineering:redstone_acid",
+	// 	5
+	// );
+	// addRefinery1Input("ad_astra:oil", 5, "forge:creosote", 15);
+	// addMixer(
+	// 	"ad_astra:cryo_fuel",
+	// 	"ad_astra:ice_shard",
+	// 	"ad_astra:pure_fuel",
+	// 	100
+	// );
 	addMixer(
 		"ad_astra:cryo_fuel",
 		"ad_astra:ice_shard",
-		"ad_astra:pure_fuel",
+		"thermal:refined_fuel",
 		100
+	);
+
+	// event.remove({ id: "immersiveengineering:jei_bucket_cryo_fuel" });
+	addBottling(
+		"ad_astra:cryo_fuel_bucket",
+		"minecraft:bucket",
+		"ad_astra:cryo_fuel",
+		1000
 	);
 }

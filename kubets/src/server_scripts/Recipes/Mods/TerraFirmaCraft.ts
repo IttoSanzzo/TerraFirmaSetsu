@@ -281,4 +281,41 @@ export function setRecipesTerraFirmaCraft(event: $RecipesEventJS) {
 	event
 		.shapeless("minecraft:wheat", ["tfc:food/wheat"])
 		.id("setsu:tfc_wheat_to_vanilla");
+
+	function addBarrel(data: {
+		inputItem: any;
+		inputFluid: KjsFluid;
+		inputFluidAmount: number;
+		outputItem?: KjsItem;
+		outputFluid: KjsFluid;
+		outputFluidAmount: number;
+		duration: number;
+		id: string;
+	}) {
+		event
+			.custom({
+				type: "tfc:barrel_sealed",
+				input_item: { ingredient: data.inputItem },
+				input_fluid: {
+					ingredient: data.inputFluid,
+					amount: data.inputFluidAmount,
+				},
+				output_fluid: {
+					fluid: data.outputFluid,
+					amount: data.outputFluidAmount,
+				},
+				duration: data.duration,
+			})
+			.id(`setsu:tfc/barrel/${data.id}`);
+	}
+
+	addBarrel({
+		inputItem: { tag: "setsu:medium_tannin_ingredient" },
+		inputFluid: "minecraft:water",
+		inputFluidAmount: 500,
+		outputFluid: "tfc:tannin",
+		outputFluidAmount: 500,
+		duration: 8000,
+		id: "tannin_from_barks",
+	});
 }

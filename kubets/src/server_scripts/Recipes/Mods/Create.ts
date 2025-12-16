@@ -52,6 +52,27 @@ export function setRecipesCreate(event: $RecipesEventJS) {
 				`setsu:create/pressing/${ingredient.replace(":", ".").replace("/", ".")}/to/${output.replace(":", ".").replace("/", ".")}`
 			);
 	}
+	function createAddCompacting(
+		output: Special.Item | OmniString,
+		ingredient: Special.Item | OmniString,
+		ingredientCount?: number
+	) {
+		if (!ingredientCount) ingredientCount = 1;
+		const ingredients = Array(ingredientCount).fill({ item: ingredient });
+		event
+			.custom({
+				type: "create:compacting",
+				results: [
+					{
+						item: output,
+					},
+				],
+				ingredients: ingredients,
+			})
+			.id(
+				`setsu:create/compacting/${ingredient.replace(":", ".").replace("/", ".")}/to/${output.replace(":", ".").replace("/", ".")}`
+			);
+	}
 	function createAddRolling(
 		output: Special.Item | OmniString,
 		count: number,
@@ -103,13 +124,10 @@ export function setRecipesCreate(event: $RecipesEventJS) {
 	}
 
 	ItemCol.tfcWoodTypes.forEach((log) => {
-		createAddCutting(`tfc:wood/stripped_log/${log}`, 1, `tfc:wood/log/${log}`);
-		createAddCutting(
-			`tfc:wood/lumber/${log}`,
-			8,
-			`tfc:wood/stripped_log/${log}`
-		);
 		createAddCutting(`tfc:wood/lumber/${log}`, 4, `tfc:wood/planks/${log}`);
+		event.remove({ id: `tfc_ie_addon:sawmill/${log}_stripped_log` });
+		event.remove({ id: `tfc_ie_addon:sawmill/${log}_log` });
+		event.remove({ id: `tfc_ie_addon:sawmill/${log}_wood` });
 	});
 
 	event
@@ -123,6 +141,14 @@ export function setRecipesCreate(event: $RecipesEventJS) {
 
 	createAddPressing("tfc:refined_iron_bloom", "tfc:raw_iron_bloom");
 	createAddPressing("tfc:metal/ingot/wrought_iron", "tfc:refined_iron_bloom");
+
+	ItemCol.tfcWoodTypes.forEach((wood) => {
+		createAddCompacting(
+			`tfc:wood/lumber/${wood}`,
+			`tfc_debark:${wood}_bark_powder`,
+			3
+		);
+	});
 
 	const rodMetals = [
 		"copper",
@@ -289,6 +315,13 @@ export function setRecipesCreate(event: $RecipesEventJS) {
 			C: "minecraft:anvil",
 		})
 		.id("setsu:create/mechanical_press_vanilla_anvil");
+	event
+		.shaped("create:mechanical_press", ["A", "B", "C"], {
+			A: "create:shaft",
+			B: "create:andesite_casing",
+			C: "tfc_metal_items:steel_pressing_head",
+		})
+		.id("setsu:create/mechanical_press_tfc_metal_items.steel_pressing_head");
 
 	event.replaceInput(
 		{ id: "create:haunting/soul_lantern" },
@@ -330,6 +363,59 @@ export function setRecipesCreate(event: $RecipesEventJS) {
 			{
 				fluid: "minecraft:lava",
 				amount: 100,
+			},
+		]
+	);
+	addCreateMixing(
+		event,
+		{
+			item: "minecraft:clay_ball",
+			count: 3,
+		},
+		[
+			{
+				tag: "forge:bark_powder",
+			},
+			{
+				tag: "forge:bark_powder",
+			},
+			{
+				tag: "forge:bark_powder",
+			},
+			{
+				item: "tfc:mud/silt",
+			},
+			{
+				item: "tfc:mud/silt",
+			},
+			{
+				item: "tfc:mud/silt",
+			},
+			{
+				tag: "forge:sand",
+			},
+			{
+				tag: "forge:sand",
+			},
+			{
+				fluid: "minecraft:water",
+				amount: 200,
+			},
+		]
+	);
+	addCreateMixing(
+		event,
+		{
+			fluid: "tfc:tannin",
+			amount: 500,
+		},
+		[
+			{
+				tag: "setsu:medium_tannin_ingredient",
+			},
+			{
+				fluid: "minecraft:water",
+				amount: 500,
 			},
 		]
 	);

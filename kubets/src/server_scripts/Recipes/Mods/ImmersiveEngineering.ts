@@ -357,7 +357,7 @@ export function setRecipesImmersiveEngineering(event: $RecipesEventJS) {
 				`setsu:immersiveengineering/arcfurnace/${ingredient.replace(":", ".").replace("/", ".")}/to/${output.replace(":", ".").replace("/", ".")}`
 			);
 	};
-	const addCrusher = (output, ingredient) => {
+	const addMineralCrusher = (output, ingredient) => {
 		event
 			.custom({
 				type: "immersiveengineering:crusher",
@@ -507,7 +507,7 @@ export function setRecipesImmersiveEngineering(event: $RecipesEventJS) {
 	);
 
 	ItemCol.tfcStoneTypes.forEach((stone) => {
-		addCrusher(`tfc:rock/gravel/${stone}`, `tfc:rock/cobble/${stone}`);
+		addMineralCrusher(`tfc:rock/gravel/${stone}`, `tfc:rock/cobble/${stone}`);
 	});
 
 	event.replaceInput(
@@ -751,4 +751,44 @@ export function setRecipesImmersiveEngineering(event: $RecipesEventJS) {
 		`tfc:powder/soda_ash`,
 		150
 	);
+
+	ItemCol.tfcWoodTypes.forEach((wood) => {
+		event
+			.custom({
+				type: "immersiveengineering:crusher",
+				result: {
+					item: `tfc_debark:${wood}_bark_powder`,
+				},
+				secondaries: [
+					{
+						chance: 0.33,
+						output: {
+							item: `tfc_debark:${wood}_bark_powder`,
+						},
+					},
+				],
+				input: {
+					item: `tfc_debark:${wood}_bark`,
+				},
+				energy: 10,
+			})
+			.id(`setsu:immersiveengineering/crusher/${wood}_bark_powder`);
+		event
+			.custom({
+				type: "immersiveengineering:metal_press",
+				result: {
+					item: `tfc:wood/lumber/${wood}`,
+					count: 1,
+				},
+				input: {
+					base_ingredient: {
+						item: `tfc_debark:${wood}_bark_powder`,
+					},
+					count: 2,
+				},
+				mold: "tfc_metal_items:steel_pressing_head",
+				energy: 25,
+			})
+			.id(`setsu:immersiveengineering/metalpress/${wood}_bark_powder`);
+	});
 }

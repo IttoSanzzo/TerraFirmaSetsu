@@ -230,6 +230,23 @@ export function setItemTags(
 		event.add("tfc:mossy_loose", `tfc:rock/mossy_loose/${stone}`);
 	});
 
+	[
+		"birch",
+		"chestnut",
+		"douglas_fir",
+		"hickory",
+		"maple",
+		"oak",
+		"sequoia",
+	].forEach((wood) => {
+		event.add("setsu:medium_tannin_ingredient", [
+			`tfc_debark:${wood}_bark`,
+			`tfc_debark:${wood}_bark_powder`,
+		]);
+	});
+	event.add("tfc:firepit_fuel", ["#forge:bark_powder"]);
+	event.add("rosia:fire_box_fuel", ["#forge:bark_powder", "#forge:bark"]);
+
 	// Tool ////////////////////////////////////////////////
 
 	ItemCol.tfcStoneToolTypes.forEach((type) => {

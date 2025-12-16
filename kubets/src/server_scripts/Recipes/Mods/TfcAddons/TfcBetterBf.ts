@@ -8,6 +8,7 @@ export function setRecipesTfcBetterBf(event: $RecipesEventJS) {
 		.shapeless("tfcbetterbf:insulated_fire_bricks", [
 			"1x tfc:fire_bricks",
 			"3x tfc:metal/sheet/wrought_iron",
+			"1x tfc:powder/flux",
 		])
 		.id("setsu:tfcbetterbf/insulated_fire_bricks");
 }

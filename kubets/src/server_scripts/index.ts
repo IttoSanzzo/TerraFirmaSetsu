@@ -3,6 +3,7 @@
 import {
 	setCustomHeats,
 	setCustomFoods,
+	setCustomFuels,
 	entitySpawned,
 	loginEvent,
 	rightClickEvent,
@@ -24,6 +25,7 @@ console.log("Starting Index.js Server Scripts!");
 	TFCEvents.data(setCustomHeats);
 	TFCEvents.data(setCustomWeights);
 	TFCEvents.data(setCustomFoods);
+	TFCEvents.data(setCustomFuels);
 	EntityEvents.spawned(entitySpawned);
 	PlayerEvents.loggedIn(loginEvent);
 	ItemEvents.rightClicked(rightClickEvent);

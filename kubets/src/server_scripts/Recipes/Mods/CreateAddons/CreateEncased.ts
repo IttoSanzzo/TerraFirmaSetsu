@@ -113,6 +113,15 @@ export function setRecipesCreateEncased(event: $RecipesEventJS) {
 				C: "minecraft:anvil",
 			})
 			.id(`setsu:createcasing/${type}_press_vanilla_anvil`);
+		event
+			.shaped(`createcasing:${type}_press`, ["S", "M", "C"], {
+				S: "create:shaft",
+				M: `create:${type}_casing`,
+				C: "tfc_metal_items:steel_pressing_head",
+			})
+			.id(
+				`setsu:createcasing/${type}_press_tfc_metal_items.steel_pressing_head`
+			);
 	});
 	event
 		.shaped(`createcasing:industrial_iron_press`, ["S", "M", "C"], {
@@ -129,6 +138,16 @@ export function setRecipesCreateEncased(event: $RecipesEventJS) {
 		})
 		.id(`setsu:createcasing/industrial_iron_press_vanilla_anvil`);
 	event
+		.shaped(`createcasing:industrial_iron_press`, ["S", "M", "C"], {
+			S: "create:shaft",
+			M: `create:industrial_iron_block`,
+			C: "tfc_metal_items:steel_pressing_head",
+		})
+		.id(
+			`setsu:createcasing/industrial_iron_press_tfc_metal_items.steel_pressing_head`
+		);
+
+	event
 		.shaped(`createcasing:weathered_iron_press`, ["S", "M", "C"], {
 			S: "create:shaft",
 			M: `create:weathered_iron_block`,
@@ -142,6 +161,15 @@ export function setRecipesCreateEncased(event: $RecipesEventJS) {
 			C: "minecraft:anvil",
 		})
 		.id(`setsu:createcasing/weathered_iron_press_vanilla_anvil`);
+	event
+		.shaped(`createcasing:weathered_iron_press`, ["S", "M", "C"], {
+			S: "create:shaft",
+			M: `create:weathered_iron_block`,
+			C: "tfc_metal_items:steel_pressing_head",
+		})
+		.id(
+			`setsu:createcasing/weathered_iron_press_tfc_metal_items.steel_pressing_head`
+		);
 
 	event
 		.shaped(`createcasing:creative_press`, ["S", "M", "C"], {
@@ -157,4 +185,13 @@ export function setRecipesCreateEncased(event: $RecipesEventJS) {
 			C: "minecraft:anvil",
 		})
 		.id(`setsu:createcasing/creative_press_vanilla_anvil`);
+	event
+		.shaped(`createcasing:creative_press`, ["S", "M", "C"], {
+			S: "create:shaft",
+			M: `createcasing:creative_casing`,
+			C: "tfc_metal_items:steel_pressing_head",
+		})
+		.id(
+			`setsu:createcasing/creative_press_tfc_metal_items.steel_pressing_head`
+		);
 }

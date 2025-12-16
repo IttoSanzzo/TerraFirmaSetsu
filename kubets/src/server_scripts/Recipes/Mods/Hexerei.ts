@@ -179,15 +179,15 @@ export function setRecipesHexerei(event: $RecipesEventJS) {
 
 	addCauldron({
 		output: "minecraft:clay_ball",
-		outputCount: 4,
+		outputCount: 3,
 		input: [
 			{
 				type: "tag",
-				id: "tfc:plants",
+				id: "forge:bark_powder",
 			},
 			{
 				type: "tag",
-				id: "minecraft:dirt",
+				id: "forge:bark_powder",
 			},
 			{
 				type: "tag",
@@ -199,7 +199,7 @@ export function setRecipesHexerei(event: $RecipesEventJS) {
 			},
 			{
 				type: "tag",
-				id: "forge:sand",
+				id: "minecraft:dirt",
 			},
 			{
 				type: "tag",
@@ -211,7 +211,7 @@ export function setRecipesHexerei(event: $RecipesEventJS) {
 			},
 			{
 				type: "tag",
-				id: "minecraft:dirt",
+				id: "forge:bark_powder",
 			},
 		],
 		fluidAmount: 200,
