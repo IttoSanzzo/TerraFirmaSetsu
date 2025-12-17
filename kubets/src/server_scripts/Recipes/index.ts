@@ -49,7 +49,6 @@ import { setRecipesWell } from "./Mods/Well";
 import { setRecipesBloodMagic } from "./Mods/BloodMagic";
 import { setRecipesButchery } from "./Mods/Butchery/Butchery";
 import { setRecipesTfcScrapping } from "./Mods/TfcAddons/TfcScrapping";
-import { setRecipesTfcRegrowingForests } from "./Mods/TfcAddons/TfcRegrowingForests";
 import { setRecipesWoodenHopper } from "./Mods/WoodenHopper";
 import { setRecipesWorkshopForHandsomeAdventurer } from "./Mods/WorkshopForHandsomeAdventurer";
 
@@ -107,7 +106,6 @@ export function setRecipes(event: $RecipesEventJS) {
 	setRecipesFirmaciv(event);
 	setRecipesTfcBetterBf(event);
 	setRecipesTfcScrapping(event);
-	setRecipesTfcRegrowingForests(event);
 
 	// Create Addons
 	setRecipesCreateAdditions(event);
