@@ -277,6 +277,16 @@ export function setRecipesTerraFirmaCraft(event: $RecipesEventJS) {
 
 	event.remove({ id: "minecraft:brick" });
 
+	event
+		.shapeless("minecraft:lantern", ["#tfc:lamps", "malum:infernal_spirit"])
+		.id("setsu:vanilla_lantern");
+	event
+		.shapeless("minecraft:lantern", [
+			"#mcwlights:lanterns",
+			"malum:infernal_spirit",
+		])
+		.id("setsu:vanilla_lantern_from_mcw");
+
 	event.shapeless("minecraft:sponge", ["9x #forge:coral"]).id("setsu:sponge");
 	event
 		.shapeless("minecraft:wheat", ["tfc:food/wheat"])

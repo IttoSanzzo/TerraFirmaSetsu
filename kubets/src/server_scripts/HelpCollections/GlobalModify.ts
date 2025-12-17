@@ -35,4 +35,6 @@ export const globalModify = [
 	"mna",
 	"iceandfire",
 	"butchery",
+	"workshop_for_handsome_adventurer",
+	"breezy",
 ];

@@ -12,7 +12,6 @@ export const setJeiMinecraft = (event: $HideJEIEventJS<any>) => {
 	event.hide("minecraft:dried_kelp_block");
 	event.hide("minecraft:torch");
 	event.hide("minecraft:soul_torch");
-	event.hide("minecraft:lantern");
 	event.hide("minecraft:rabbit_hide");
 	event.hide("minecraft:lapis_lazuli");
 
@@ -74,7 +73,6 @@ export const setJeiMinecraft = (event: $HideJEIEventJS<any>) => {
 	event.hide("minecraft:smoker");
 	event.hide("minecraft:fletching_table");
 	event.hide("minecraft:bell");
-	event.hide("minecraft:campfire");
 	event.hide("minecraft:soul_campfire");
 	event.hide("minecraft:bee_nest");
 	event.hide("minecraft:beehive");

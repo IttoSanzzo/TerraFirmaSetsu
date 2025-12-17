@@ -198,4 +198,30 @@ export function setRecipesMacawMods(event: $RecipesEventJS) {
 			})
 			.id(`setsu:mcwtrpdoors/print_${print}`);
 	});
+
+	/**
+	 * Stairs
+	 */
+
+	event.replaceInput(
+		{ mod: "mcwstairs" },
+		"#minecraft:logs",
+		"#minecraft:logs"
+	);
+	event.replaceInput({ mod: "mcwstairs" }, "#minecraft:planks", "#tfc:lumber");
+	event.replaceInput(
+		{ mod: "mcwstairs" },
+		"#forge:rods/wooden",
+		"#forge:rods/wooden"
+	);
+	event.replaceInput(
+		{ mod: "mcwstairs" },
+		"#minecraft:wooden_slabs",
+		"#minecraft:wooden_slabs"
+	);
+	event.replaceInput(
+		{ mod: "mcwstairs" },
+		"minecraft:iron_ingot",
+		"tfc:metal/ingot/wrought_iron"
+	);
 }

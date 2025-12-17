@@ -131,6 +131,17 @@ export function setItemTags(
 
 	// Misc Items //////////////////////////////////////////
 	event.add("chipped:torch", "tfc:torch");
+
+	event.add("mcwlights:lanterns", [
+		"mcwlights:striped_lantern",
+		"mcwlights:covered_lantern",
+		"mcwlights:chain_lantern",
+		"mcwlights:tavern_lantern",
+		"mcwlights:festive_lantern",
+		"mcwlights:cross_lantern",
+		"mcwlights:bell_lantern",
+	]);
+
 	event.add("immersiveengineering:drillheads", [
 		"immersiveengineering:drillhead_steel",
 		"immersiveengineering:drillhead_iron",
@@ -163,6 +174,21 @@ export function setItemTags(
 	event.add("forge:honeycombs", ["minecraft:honeycomb", "firmalife:raw_honey"]);
 
 	event.add("forge:seapickles", ["minecraft:sea_pickle", "tfc:sea_pickle"]);
+
+	event.add("minecraft:creeper_igniters", [
+		"#tfc:starts_fires_with_durability",
+	]);
+	event.add("breezy:ignition_sources", ["#tfc:starts_fires_with_durability"]);
+	event.add("immersiveengineering:toolbox/tools", [
+		"#tfc:starts_fires_with_durability",
+	]);
+	event.add("tfc:usable_on_tool_rack", ["#tfc:starts_fires_with_durability"]);
+	event.add("workshop_for_handsome_adventurer:dont_rotate_on_toolrack", [
+		"#tfc:starts_fires_with_durability",
+	]);
+	event.add("supplementaries:fire_sources", [
+		"#tfc:starts_fires_with_durability",
+	]);
 
 	// WTF /////////////////////////////////////////////////
 
@@ -538,6 +564,10 @@ export function setItemTags(
 	newSetsuWoodTag("mangrove", ["rosewood", "mangrove"]);
 	newSetsuWoodTag("crimson", ["kapok"]);
 	newSetsuWoodTag("warped", ["willow"]);
+
+	ItemCol.tfcWoodTypes.forEach((wood) => {
+		event.add("tfc:compost_browns", [`tfc_debark:${wood}_bark_powder`]);
+	});
 
 	// Chipped /////////////////////////////////////////////
 

@@ -30,7 +30,7 @@
 		}
 	],
 	"output": {
-		"item": "hexerei:witch_hazel_sapling"
+		"item": "dthexerei:witch_hazel_seed"
 	},
 	"liquidOutput": {
 		"fluid": "hexerei:quicksilver_fluid"
