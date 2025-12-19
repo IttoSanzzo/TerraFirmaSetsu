@@ -97,7 +97,7 @@ export function setRecipesCreateUnbreakable(event: $RecipesEventJS) {
 				],
 			})
 			.id(
-				`setsu:eternal_core/from/${ingredients.map((ingredient) => ingredient.substring(ingredient.indexOf(":") + 1)).join("_AND_")}`
+				`setsu:eternal_core/from/${ingredients.map((ingredient) => ingredient.substring(ingredient.indexOf(":") + 1)).join("_and_")}`
 			);
 	}
 
