@@ -6,7 +6,7 @@
 	"author": "Itto Sanzzo",
 	"license": "SEE LICENSE IN LICENSE",
 	"config": {
-		"kubejs_out": "../../Minecraft/Instances/TerraFirmaSetsu dev 76 dev 1/kubejs"
+		"kubejs_out": "../../Minecraft/Instances/TerraFirmaSetsu (dev)/kubejs"
 	},
 	"scripts": {
 		"dev": "node builder.mjs --watch --out \"$npm_package_config_kubejs_out\"",
