@@ -3,6 +3,10 @@
 import { $LootModificationEventJS } from "packages/com/almostreliable/lootjs/kube/$LootModificationEventJS";
 
 export function setLootButchery(event: $LootModificationEventJS) {
+	event
+		.addLootTableModifier(`minecraft:entities/ender_dragon` as any)
+		.addLoot("butchery:ender_dragon_carcass");
+
 	function addCorpse(mob: OmniString, corpse: KjsItemStack) {
 		event
 			.addLootTableModifier(`tfc:entities/${mob}` as any)

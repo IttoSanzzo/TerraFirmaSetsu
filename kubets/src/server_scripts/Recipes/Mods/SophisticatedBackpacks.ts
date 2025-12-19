@@ -139,7 +139,7 @@ export function setRecipesSophisticatedBackpacks(event: $RecipesEventJS) {
 			L: "botania:red_string",
 			N: "tfc:bone_needle",
 			U: "sophisticatedbackpacks:stack_upgrade_tier_4",
-			Z: "kubejs:metal/ingot/purple_steel",
+			Z: "rosia:purple_steel_ingot",
 			B: "toolbelt:pouch",
 			C: "sophisticatedbackpacks:diamond_backpack",
 			G: "ad_astra:ostrum_plate",
@@ -278,7 +278,7 @@ export function setRecipesSophisticatedBackpacks(event: $RecipesEventJS) {
 		["VPN", "SCS", " P "],
 		{
 			S: "#forge:string",
-			P: "kubejs:metal/ingot/purple_steel",
+			P: "rosia:purple_steel_ingot",
 			V: "#tfc:metal/shearss",
 			N: "tfc:bone_needle",
 			C: "sophisticatedbackpacks:stack_upgrade_tier_3",

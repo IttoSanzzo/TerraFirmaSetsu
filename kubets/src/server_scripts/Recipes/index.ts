@@ -51,6 +51,7 @@ import { setRecipesButchery } from "./Mods/Butchery/Butchery";
 import { setRecipesTfcScrapping } from "./Mods/TfcAddons/TfcScrapping";
 import { setRecipesWoodenHopper } from "./Mods/WoodenHopper";
 import { setRecipesWorkshopForHandsomeAdventurer } from "./Mods/WorkshopForHandsomeAdventurer";
+import { setRecipesCreateUnbreakable } from "./Mods/CreateUnbreakable";
 
 export function setRecipes(event: $RecipesEventJS) {
 	console.log("Setsu Recipes Start!");
@@ -100,6 +101,7 @@ export function setRecipes(event: $RecipesEventJS) {
 	setRecipesButchery(event);
 	setRecipesWoodenHopper(event);
 	setRecipesWorkshopForHandsomeAdventurer(event);
+	setRecipesCreateUnbreakable(event);
 
 	// TFC Addons
 	setRecipesFirmalife(event);

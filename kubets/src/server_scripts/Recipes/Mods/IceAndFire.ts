@@ -175,19 +175,19 @@ export function setRecipesIceAndFire(event: $RecipesEventJS) {
 
 	addDragonForge(
 		"iceandfire:dragonsteel_fire_ingot",
-		"kubejs:metal/ingot/purple_steel",
+		"rosia:purple_steel_ingot",
 		"iceandfire:fire_dragon_blood",
 		"fire"
 	);
 	addDragonForge(
 		"iceandfire:dragonsteel_ice_ingot",
-		"kubejs:metal/ingot/purple_steel",
+		"rosia:purple_steel_ingot",
 		"iceandfire:ice_dragon_blood",
 		"ice"
 	);
 	addDragonForge(
 		"iceandfire:dragonsteel_lightning_ingot",
-		"kubejs:metal/ingot/purple_steel",
+		"rosia:purple_steel_ingot",
 		"iceandfire:lightning_dragon_blood",
 		"lightning"
 	);

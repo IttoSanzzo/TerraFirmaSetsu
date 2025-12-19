@@ -24,15 +24,6 @@ export function setFluidTags(
 		event.get("tfc:usable_in_blue_steel_bucket").add(`${fluid}`);
 	});
 
-	event.add("tfc:usable_in_ingot_mold", [
-		"kubejs:metal/purple_steel",
-		"kubejs:metal/high_carbon_purple_steel",
-	]);
-	event.add("tfc:usable_in_tool_head_mold", [
-		"kubejs:metal/purple_steel",
-		"kubejs:metal/high_carbon_purple_steel",
-	]);
-
 	/// OldOnes
 	event
 		.get("minecraft:water")

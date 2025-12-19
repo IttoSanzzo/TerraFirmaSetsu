@@ -75,6 +75,62 @@ export function setBlockTags(
 	ItemCol.tfcWoodTypes.forEach((wood) => {
 		event.add("mca:chests", [`tfc:wood/chest/${wood}`]);
 		event.add("c:chest", [`tfc:wood/chest/${wood}`]);
+		event.remove("immersiveengineering:buzzsaw/tree_blacklist", [
+			`dttfc:${wood}_branch`,
+		]);
+		[
+			`tfc:${wood}_logs`,
+			"minecraft:completes_find_tree_tutorial",
+			"tfc:mineable_with_hammer",
+			"tfc:logs_that_log",
+			"tfc:scraping_surface",
+			"minecraft:lava_pool_stone_cannot_replace",
+			"minecraft:logs",
+			"minecraft:mineable/axe",
+			"tfc:mineable_with_blunt_tool",
+			"mna:logs",
+			"minecraft:mineable/axe",
+			"tfc:mineable_with_blunt_tool",
+			"mna:logs",
+			"simpleplanes:plane_materials",
+			"minecraft:parrots_spawnable_on",
+			"tfc:creeping_plantable_on",
+		].forEach((tag) => {
+			event.add(tag, [`dttfc:${wood}_branch`]);
+		});
+		[
+			"minecraft:prevent_mob_spawning_inside",
+			"tfc:mineable_with_knife",
+			"mna:construct_walk_through",
+			"tfcastikorcarts:mineable_plow_hoe",
+			"tfcastikorcarts:mineable_plow_scythe",
+			"iceandfire:myrmex_harvestables",
+			"tfc:mineable_with_scythe",
+			"supplementaries:map_tint_generic",
+			"ad_astra:passes_flood_fill",
+			"ad_astra:destroyed_in_space",
+			"forge:mineable/sickle",
+			"mna:leaves",
+			"mna:gust_destructible_blocks",
+			"minecraft:replaceable_by_trees",
+			"tfc:seasonal_leaves",
+			"minecraft:completes_find_tree_tutorial",
+			"framedblocks:frameable",
+			"botania:horn_of_the_canopy_breakable",
+			"create:fan_transparent",
+			"tfc:mineable_with_sharp_tool",
+			"minecraft:leaves",
+			"minecraft:mineable/hoe",
+			"minecraft:lava_pool_stone_cannot_replace",
+			"supplementaries:hang_from_ropes",
+			"minecraft:parrots_spawnable_on",
+			"dynamictrees:foliage",
+			"minecraft:sword_efficient",
+			"parcool:hide_able",
+			"tfcastikorcarts:mineable_plow_knife",
+		].forEach((tag) => {
+			event.add(tag, [`dttfc:${wood}_leaves`]);
+		});
 	});
 
 	event.add("minecraft:anvil", "#tfc:anvils");

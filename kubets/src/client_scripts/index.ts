@@ -30,6 +30,7 @@ import { setJeiArtisanal } from "./Mods/Artisanal";
 import { setJeiButchery } from "./Mods/Butchery";
 
 console.log("Starting Index.js Client Scripts!");
+
 JEIEvents.hideItems((event) => {
 	// JEI Hides
 	setJeiMinecraft(event);

@@ -3,18 +3,16 @@
 import { TagEventProbe } from "packages/moe/wolfgirl/probejs/generated/TagEventProbe";
 import { ItemCol } from "../HelpCollections/ItemCollections";
 import { butcherMeatDict } from "../Extras/Mods/ButcheryFoodData";
+import { allEternalIngredients } from "../Recipes/Mods/CreateUnbreakable";
 
 export function setItemTags(
 	event: TagEventProbe<Special.ItemTag, Special.Item>
 ) {
 	console.log("Setsu Tag Item Start!");
-	// Metals & Mineral ////////////////////////////////////
 
-	event.add("forge:ingots", [
-		"kubejs:metal/ingot/purple_steel",
-		"kubejs:metal/ingot/high_carbon_purple_steel",
-	]);
-	event.add("forge:double_ingots", "kubejs:metal/double_ingot/purple_steel");
+	// event.add("setsu:eternalizable", CompleteItemCollections.damageable);
+
+	// Metals & Mineral ////////////////////////////////////
 
 	event.remove("forge:ingots/steel", [
 		"immersiveengineering:ingot_steel",
@@ -88,6 +86,22 @@ export function setItemTags(
 		"mna:chimerite_gem",
 	]);
 	event.add("forge:bitumen", ["thermal:bitumen", "tfc:ore/bituminous_coal"]);
+
+	event.add("setsu:dragonsteel", [
+		"iceandfire:dragonsteel_fire_ingot",
+		"iceandfire:dragonsteel_ice_ingot",
+		"iceandfire:dragonsteel_lightning_ingot",
+	]);
+
+	event.add("setsu:eternal_ingredient", allEternalIngredients);
+	event.add(
+		"setsu:eternal_item_ingredient",
+		allEternalIngredients.filter((entry) => entry[0] != "#")
+	);
+	event.add(
+		"setsu:eternal_tag_ingredient",
+		allEternalIngredients.filter((entry) => entry[0] == "#")
+	);
 
 	// Ores //////////////////////////////////////////////
 	event.add("forge:copper_ore_r", [

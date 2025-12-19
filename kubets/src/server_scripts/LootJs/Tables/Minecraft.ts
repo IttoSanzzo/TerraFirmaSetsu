@@ -104,6 +104,9 @@ export function setLootMinecraft(event: $LootModificationEventJS) {
 	event
 		.addLootTypeModifier(LootType.ENTITY)
 		.replaceLoot("minecraft:carrot", "tfc:food/carrot", true);
+	event
+		.addLootTypeModifier(LootType.ENTITY)
+		.replaceLoot("minecraft:leather", "beneath:cursed_hide", false);
 
 	// Chest Meat
 	event

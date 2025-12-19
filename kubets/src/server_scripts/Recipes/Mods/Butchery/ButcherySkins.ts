@@ -84,7 +84,7 @@ export function doButcherySkins(event: $RecipesEventJS) {
 	const largeSkin: KjsItem[] = [
 		"butchery:brown_mooshroom_skin",
 		"butchery:red_mooshroom_skin",
-		"butchery:polarbear_skin",
+		"butchery:polar_bear_skin",
 		"butchery:panda_skin",
 		"butchery:zoglin_skin",
 		"butchery:cow_skin",
