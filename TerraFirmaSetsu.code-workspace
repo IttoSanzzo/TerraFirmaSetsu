@@ -9,13 +9,23 @@
 			"name": "KubeTs"
 		},
 		{
-			"path": "../Minecraft/Instances/TerraFirmaSetsu dev 76 dev 1",
+			"path": "../Minecraft/Instances/TerraFirmaSetsu (dev)",
 			"name": "Modpack Instance"
 		},
 		{
-			"path": "../Minecraft/Instances/TerraFirmaSetsu dev 76 dev 1/kubejs",
+			"path": "../Minecraft/Instances/TerraFirmaSetsu (dev)/kubejs",
 			"name": "KubeJs"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"files.watcherExclude": {
+			"**/node_modules/**": true,
+			"**/dist/**": true,
+			"**/build/**": true,
+			"**/.next/**": true,
+			"**/.output/**": true,
+			"**/.nuxt/**": true
+		},
+		"typescript.tsserver.maxTsServerMemory": 5000
+	}
 }
