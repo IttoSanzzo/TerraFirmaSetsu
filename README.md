@@ -52,8 +52,9 @@ These projects influenced ideas, structure, and direction.
 
 TerraFirmaSetsu includes and builds upon the work of many talented creators from the Minecraft modding community, including mods, resource packs, shader packs, and other community-made content.
 
-All included content is used in accordance with its respective license and distribution terms.  
-Full attribution is provided through official mod listings and accompanying documentation whenever applicable.
+All credited works are used with permission where required, and full attribution is provided through official mod listings and documentation, including:
+
+- **Complementary Unbound - edition HardRock TFC** — [[link](https://legacy.curseforge.com/minecraft/shaders/complementary-unbound-edition-hardrock-tfc)]
 
 TerraFirmaSetsu exists thanks to the creativity, effort, and openness of the wider Minecraft modding community.
 
