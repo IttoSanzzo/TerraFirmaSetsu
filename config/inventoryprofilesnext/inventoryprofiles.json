@@ -37,7 +37,7 @@
         },
         "sort_inventory": {
             "main": {
-                "keys": "BUTTON_3"
+                "keys": "V"
             }
         },
         "scroll_to_chest": {

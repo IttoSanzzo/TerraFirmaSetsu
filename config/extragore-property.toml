@@ -1,0 +1,284 @@
+# ExtraGore Particle Group Configuration
+# ------------------------------------------------------
+# This file enables the creation of custom blood particle properties for various entities.
+# Begin by uniquely naming each property group to effectively manage different settings.
+
+# Particle Behavior Options:
+# - Bounce: The particle will bounce off surfaces like a solid object.
+# - Stick: The particle will stick to walls and other surfaces.
+# - Magic: Some particles will fall to the ground while the majority will fly up to the sky.
+# - None: The particle won't have any special effects.
+
+# Particle Weight Options:
+# - Heavy: The particle will sink to the bottom when it's underwater.
+# - Light: The particle will float up to the top of the water.
+
+# Particle State Options:
+# - Liquid: The particle will get larger during its lifetime.
+# - Solid: The particle will remain the same size all the time.
+
+# Color Settings:
+# Set an RGB color value to visually distinguish particles for various entities.
+
+# How to Use:
+# 1. Define a group with a name, including behavior, weight, state, color and entity values.
+# 2. Example:
+#    ["Color Group Name"]
+#    behavior = Choose from "Stuck", "Bounce" or "None"
+#    weight = Choose from "Heavy" or "Light"
+#    state = Choose from "Liquid" or "Solid"
+#    color = "R,G,B"
+#    entities = ["entityID1", "entityID2"]
+# 3. You can modify or delete any predefined groups, except for the red group. The red group is non editable and serves only to show you unused entities which are compatible with different color groups.
+# 4. Add your custom color groups under an already predefined group, except for the red one.
+# 5. Ensure each color group has a unique name and is properly structured.
+
+# Note: Incorrectly formatted lines or unrecognized entity IDs will be ignored.
+# ------------------------------------------------------
+
+["Violet Group"]
+behavior = "Magic"
+weight = "Light"
+state = "Liquid"
+color = "128,0,128"
+entities = ["minecraft:enderman", "minecraft:endermite", "minecraft:phantom", "minecraft:shulker", "minecraft:silverfish", "minecraft:warden", "minecraft:ender_dragon"]
+
+["White Group"]
+behavior = "Bounce"
+weight = "Heavy"
+state = "Solid"
+color = "255,255,255"
+entities = ["minecraft:skeleton", "minecraft:ghast", "minecraft:iron_golem", "minecraft:skeleton_horse", "minecraft:snow_golem", "minecraft:stray", "minecraft:vex", "minecraft:wither_skeleton", "minecraft:allay", "minecraft:wither"]
+
+["Green Group"]
+behavior = "Stuck"
+weight = "Light"
+state = "Liquid"
+color = "0,255,0"
+entities = ["minecraft:cave_spider", "minecraft:creeper", "minecraft:slime", "minecraft:spider", "minecraft:witch"]
+
+["Yellow Group"]
+behavior = "Bounce"
+weight = "Heavy"
+state = "Solid"
+color = "255,255,0"
+entities = ["minecraft:blaze", "minecraft:magma_cube", "minecraft:strider"]
+
+["Blue Group"]
+behavior = "None"
+weight = "Light"
+state = "Liquid"
+color = "0,0,255"
+entities = ["minecraft:squid", "minecraft:elder_guardian", "minecraft:guardian", "minecraft:glow_squid"]
+
+# Auto generated red color group - do not edit. Use this as reference for unused entity IDs.
+"255,0,0" = [
+    "minecraft:horse",
+    "mna:mushroom_soldier",
+    "tfc:bluegill",
+    "minecraft:llama",
+    "minecraft:tadpole",
+    "minecraft:mooshroom",
+    "tfc:duck",
+    "minecraft:axolotl",
+    "ad_astra:martian_raptor",
+    "botania:doppleganger",
+    "quark:crab",
+    "iceandfire:siren",
+    "ad_astra:sulfur_creeper",
+    "tfc:mule",
+    "mna:spectral_horse",
+    "tfc:peafowl",
+    "mna:blood_tendril",
+    "tfc:boar",
+    "minecraft:chicken",
+    "minecraft:zombie",
+    "iceandfire:dread_knight",
+    "ad_astra:glacian_ram",
+    "minecraft:hoglin",
+    "iceandfire:myrmex_swarmer",
+    "minecraft:zombified_piglin",
+    "tfc:pheasant",
+    "minecraft:sheep",
+    "tfc:hyena",
+    "quark:foxhound",
+    "minecraft:ravager",
+    "iceandfire:myrmex_soldier",
+    "iceandfire:pixie",
+    "tfc:moose",
+    "iceandfire:myrmex_sentinel",
+    "tfc:lake_trout",
+    "tfc:dog",
+    "tfc:sheep",
+    "firmalife:bee",
+    "tfc:bongo",
+    "railways:conductor",
+    "mna:spell_breaker",
+    "mna:lantern_wraith",
+    "ad_astra:zombified_mogler",
+    "iceandfire:myrmex_worker",
+    "minecraft:cat",
+    "minecraft:tropical_fish",
+    "tfc:fox",
+    "mna:council_warden",
+    "minecraft:zombie_villager",
+    "minecraft:giant",
+    "ad_astra:corrupted_lunarian",
+    "minecraft:husk",
+    "minecraft:donkey",
+    "tfc:dolphin",
+    "mna:blood_golem",
+    "minecraft:piglin_brute",
+    "iceandfire:ice_dragon",
+    "minecraft:parrot",
+    "tfc:horseshoe_crab",
+    "iceandfire:sea_serpent",
+    "tfc:musk_ox",
+    "tfc:direwolf",
+    "minecraft:mule",
+    "tfc:pufferfish",
+    "tfc:goat",
+    "minecraft:vindicator",
+    "quark:forgotten",
+    "tfc:octopoteuthis",
+    "tombstone:grave_guardian",
+    "tfc:wildebeest",
+    "iceandfire:lightning_dragon",
+    "minecraft:pig",
+    "cold_sweat:chameleon",
+    "iceandfire:fire_dragon",
+    "ad_astra:pygro",
+    "minecraft:cod",
+    "minecraft:cow",
+    "tfc:frog",
+    "iceandfire:dread_scuttler",
+    "minecraft:salmon",
+    "tfc:turkey",
+    "minecraft:rabbit",
+    "minecraft:pillager",
+    "minecraft:zoglin",
+    "mna:faction_war",
+    "thermal:basalz",
+    "butchery:turtleshellboat",
+    "mna:skeleton_assassin",
+    "tfc:sabertooth",
+    "beneath:red_elk",
+    "iceandfire:gorgon",
+    "minecraft:sniffer",
+    "tfc:lion",
+    "iceandfire:cockatrice",
+    "tfc:ocelot",
+    "iceandfire:deathworm",
+    "mna:living_ward",
+    "ad_astra:mogler",
+    "tfc:tropical_fish",
+    "tfc:crocodile",
+    "tfc:manatee",
+    "minecraft:trader_llama",
+    "tfc:cougar",
+    "tfc:donkey",
+    "iceandfire:dread_lich",
+    "hexerei:owl",
+    "tfc:grizzly_bear",
+    "minecraft:dolphin",
+    "tfc:panda",
+    "mna:pumpkin_king",
+    "tfc:alpaca",
+    "mna:illusion_creeper",
+    "minecraft:bee",
+    "minecraft:illusioner",
+    "tombstone:spectral_wolf",
+    "tfc:smallmouth_bass",
+    "tfc:yak",
+    "minecraft:drowned",
+    "tfc:deer",
+    "ad_astra:zombified_pygro",
+    "minecraft:wandering_trader",
+    "mna:odin",
+    "iceandfire:stone_statue",
+    "tfc:lobster",
+    "create_sa:brass_drone",
+    "tfc:polar_bear",
+    "tfc:crappie",
+    "minecraft:pufferfish",
+    "minecraft:fox",
+    "immersiveengineering:bulwark",
+    "mna:insect_swarm",
+    "immersiveengineering:fusilier",
+    "mna:chatterer",
+    "mna:witch_hunter",
+    "tfc:panther",
+    "minecraft:polar_bear",
+    "minecraft:turtle",
+    "tfc:caribou",
+    "tfc:cow",
+    "quark:wraith",
+    "tfc:orca",
+    "tfc:pig",
+    "tfc:quail",
+    "tfc:cod",
+    "quark:shiba",
+    "tfc:tiger",
+    "ad_astra:pygro_brute",
+    "tfc:isopod",
+    "supplementaries:red_merchant",
+    "mna:pixie",
+    "iceandfire:troll",
+    "tfc:gazelle",
+    "minecraft:bat",
+    "iceandfire:amphithere",
+    "mna:demon_lord",
+    "tfc:turtle",
+    "mna:hulking_zombie",
+    "iceandfire:stymphalian_bird",
+    "tfc:wolf",
+    "tfc:squid",
+    "iceandfire:hippogryph",
+    "ad_astra:lunarian_wandering_trader",
+    "minecraft:panda",
+    "immersiveengineering:commando",
+    "iceandfire:cyclops",
+    "mna:barkling",
+    "tfc:black_bear",
+    "quark:stoneling",
+    "quark:toretoise",
+    "mna:wither_lich",
+    "tfc:jellyfish",
+    "tfc:grouse",
+    "tfc:crayfish",
+    "thermal:blizz",
+    "vinery:mule",
+    "ad_astra:lunarian",
+    "minecraft:frog",
+    "tfc:rat",
+    "iceandfire:hydra",
+    "vinery:wandering_winemaker",
+    "minecraft:evoker",
+    "hexerei:crow",
+    "iceandfire:dread_ghoul",
+    "mna:tfpd",
+    "tfc:cat",
+    "iceandfire:dread_horse",
+    "thermal:blitz",
+    "minecraft:goat",
+    "iceandfire:dread_beast",
+    "tfc:salmon",
+    "tfc:largemouth_bass",
+    "tfc:penguin",
+    "tfc:rabbit",
+    "iceandfire:hippocampus",
+    "iceandfire:myrmex_queen",
+    "iceandfire:ghost",
+    "tfc:rainbow_trout",
+    "iceandfire:myrmex_royal",
+    "ad_astra:star_crawler",
+    "iceandfire:dread_thrall",
+    "minecraft:piglin",
+    "tfc:chicken",
+    "minecraft:zombie_horse",
+    "minecraft:camel",
+    "minecraft:ocelot",
+    "mna:demon_imp",
+    "minecraft:wolf",
+    "tfc:horse"
+]

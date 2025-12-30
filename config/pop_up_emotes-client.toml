@@ -1,0 +1,42 @@
+
+#Pop-up Emotes Client Config
+[mod]
+	isEnabled = true
+	moveModButtonToSettings = false
+	#Range: 0 ~ 3840
+	modButtonOffsetX = 0
+	#Range: 0 ~ 3840
+	modButtonOffsetY = 0
+
+[visual]
+	brightEmotes = false
+	glowingEmotes = false
+	#Range: 0.5 ~ 1.5
+	emoteScale = 1.0
+	#Range: -1.0 ~ 1.0
+	emoteVerticalOffset = 0.0
+
+[data_1_3_6]
+	#If you are using resource pack to change emotes, set this value to the amount of emotes changed by it to hide mod's default emotes beyond that.
+	#Range: 8 ~ 40
+	resourcePackEmoteAmount = 40
+	#The maximum local pack emotes amount. For server side value see your world's 'serverconfig' folder
+	#Range: 8 ~ 40
+	maxEmoteAmount = 40
+	#This only sets client side local pack limit. For server side value see your world's 'serverconfig' folder.
+	#Range: 1 ~ 12
+	maxPackSizeMB = 8
+	#* Only for when the game server accepts emotes as images *
+	#If you have low internet bandwidth, enable this option.
+	#Limits max bandwidth used when sending/receiving emotes to ~640 KB/sec.
+	lowNetworkUsage = false
+	#* Only for when the game server accepts emotes as images *
+	#Tell the server your desired limit for custom emote pack chunk packets sent per tick.
+	#Default: 2 packets per tick (~1.2MB/sec).
+	#Range: 1 ~ 16
+	maxPacketsPerTick = 2
+
+[emote_pack_urls]
+	#List of emote image URLs
+	emotePackUrls = []
+

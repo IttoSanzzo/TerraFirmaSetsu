@@ -1,0 +1,30 @@
+
+#Pop-up Emotes Server Config
+[data_1_3_6]
+	#Allow clients to upload their custom emote packs.
+	allowCustomPacks = true
+	#Allow clients to send their emotes as url links. Takes priority over 'allowImagePacks'.
+	allowUrlPacks = true
+	#Ignored if allowUrlPacks is true.Allow clients to send their custom emotes as images (from pop_emote_pack) to the server.
+	allowImagePacks = false
+	#The maximum received per-player emote amount.
+	#Range: 8 ~ 40
+	maxEmoteAmount = 40
+	#The maximum received per-player emote pack size, measured in megabytes.
+	#Range: 1 ~ 32
+	maxPackSizeMB = 8
+	#* Only for when the game server accepts emotes as images (not urls) *
+	#If you have low internet bandwidth, enable this option.
+	#Limits max bandwidth used when sending/receiving emotes to ~640 KB/sec.
+	lowNetworkUsage = false
+	# * Only for when the game server accepts emotes as images (not urls) *
+	#Custom limit for emote pack chunk packets sent per tick.
+	#Default: 4 packets per tick (~2.5MB/sec).
+	#Range: 1 ~ 16
+	maxPacketsPerTick = 4
+	# * Only for when the game server accepts emotes as images (not urls) *
+	#*Per Player* Custom limit for emote pack chunk packets sent per tick.
+	#Default: 2 packets per tick (~1.2MB/sec).
+	#Range: 1 ~ 16
+	maxPacketsPerTickPerPlayer = 2
+

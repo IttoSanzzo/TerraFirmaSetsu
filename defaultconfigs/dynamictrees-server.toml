@@ -6,21 +6,21 @@ growthFolding = 400
 [seeds]
 	#The rate at which seeds drop from leaves.
 	#Range: 0.0 ~ 64.0
-	leavesSeedDropRate = 0.02
+	leavesSeedDropRate = 0.01
 	#The rate at which seeds voluntarily drop from branches
 	#Range: 0.0 ~ 1.0
-	voluntarySeedDropRate = 0.01
+	voluntarySeedDropRate = 1.0
 	#The rate at which seeds voluntarily plant themselves in their ideal biomes
 	#Range: 0.0 ~ 1.0
-	seedPlantRate = 0.1666666716337204
+	seedPlantRate = 1.0
 	#Ticks before a seed in the world attempts to plant itself or despawn. 1200 = 1 minute
 	#Range: 0 ~ 6000
 	timeToLive = 1200
 	#If enabled then seeds will only voluntarily plant themselves in forest-like biomes.
-	seedOnlyForest = true
+	seedOnlyForest = false
 	#The minimum forestness that non-forest-like biomes can have. 0 = is not at all a forest, 1 = may as well be a forest. Can be fractional.
 	#Range: 0.0 ~ 1.0
-	seedMinForestness = 0.0
+	seedMinForestness = 1.0
 
 #Tree Settings
 [trees]
@@ -83,7 +83,7 @@ growthFolding = 400
 	#If enabled the Dirt Bucket will place a dirt block on right-click
 	dirtBucketPlacesDirt = true
 	#If enabled then improperly broken trees(not by an entity) will still drop wood.
-	sloppyBreakDrops = false
+	sloppyBreakDrops = true
 	#The minimum radius a branch must have before its able to be stripped. 8 = Full block size. Set to 0 to disable stripping trees
 	#Range: 0 ~ 24
 	minRadiusForStrip = 6

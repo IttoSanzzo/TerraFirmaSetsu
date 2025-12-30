@@ -3,7 +3,7 @@
 export const globalModify = [
 	"minecraft",
 	"trashcans",
-	"framedblocks",
+	// "framedblocks",
 	"supplementaries",
 	"suppsquared",
 	"farmersdelight",

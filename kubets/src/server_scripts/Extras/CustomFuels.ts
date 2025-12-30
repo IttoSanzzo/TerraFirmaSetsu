@@ -23,6 +23,6 @@ export function setCustomFuels(event: $TFCDataEventJS) {
 
 	event.fuel("immersiveengineering:dust_wood" as any, 200, 400, null as any);
 	ItemCol.tfcWoodTypes.forEach((wood) => {
-		event.fuel(`tfc_debark:${wood}_bark_powder` as any, 300, 300, null as any);
+		event.fuel(`tfc_debark:${wood}_bark_powder` as any, 300, 450, null as any);
 	});
 }

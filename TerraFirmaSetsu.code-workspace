@@ -9,11 +9,11 @@
 			"name": "KubeTs"
 		},
 		{
-			"path": "../Minecraft/Instances/TerraFirmaSetsu (dev)",
+			"path": "../../ClientManager/instances/TerraFirmaSetsu (Dev)",
 			"name": "Modpack Instance"
 		},
 		{
-			"path": "../Minecraft/Instances/TerraFirmaSetsu (dev)/kubejs",
+			"path": "../../ClientManager/instances/TerraFirmaSetsu (Dev)/kubejs",
 			"name": "KubeJs"
 		}
 	],

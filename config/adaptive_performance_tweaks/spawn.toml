@@ -34,4 +34,6 @@
 	#Defines the max. number of entities of a specific type, which could spawn within the server. Use 0 to disable this optimization.
 	#Range: 0 ~ 1024
 	spawnLimitationMaxMobsPerServer = 512
+	#Enable/Disable bypassing spawn limitations when using spawn eggs. When enabled, spawn eggs will bypass player-based spawn limitations.
+	spawnEggBypassLimitations = true
 

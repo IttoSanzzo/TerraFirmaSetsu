@@ -1,7 +1,4 @@
 {
-  "framedblocks": {
-    "framed_item_frame": true
-  },
   "minecraft": {
     "item_storage.show_name_amount": 5,
     "furnace": true,
@@ -54,6 +51,9 @@
     "painting": true,
     "chiseled_bookshelf": true
   },
+  "tfcgroomer": {
+    "grooming_station": true
+  },
   "tombstone": {
     "decorative_graves": true,
     "player_graves": true
@@ -66,7 +66,7 @@
     "distance": false,
     "block_face": false,
     "coordinates": false,
-    "registry_name": "OFF",
+    "registry_name": "ADVANCED_TOOLTIPS",
     "mod_name": true
   },
   "alekiships": {
@@ -80,6 +80,9 @@
     "adventure": true,
     "ench": true,
     "spawner": true
+  },
+  "functionalstorage": {
+    "armory": true
   },
   "balm": {
     "jade": true
@@ -115,13 +118,17 @@
     "composter": true,
     "decaying": true,
     "wall_torch": true,
+    "electric_forge": true,
     "windmill": true,
+    "fire_box": true,
+    "boiling_cauldron": true,
     "ocelot": true,
     "candle_cake": true,
     "horse": true,
     "clutch": true,
     "animal": true,
     "fruit_tree_sapling": true,
+    "lava_basin": true,
     "squid": true,
     "encased_axle": true,
     "crop": true,
@@ -129,6 +136,7 @@
     "hand_wheel": true,
     "sheet_pile": true,
     "quern": true,
+    "kiln": true,
     "pit_kiln_above": true,
     "hot_poured_glass": true,
     "gearbox": true,
@@ -138,6 +146,7 @@
     "barrel": true,
     "mold_table": true,
     "predator": true,
+    "steam_generator": true,
     "wild_animal": true,
     "crucible": true,
     "torch": true,
@@ -157,6 +166,11 @@
     "tfc_chest": true,
     "barrel": true
   },
+  "workshop_for_handsome_adventurer": {
+    "jade_plugin2": true,
+    "jade_plugin3": true,
+    "jade_plugin1": true
+  },
   "supplementaries": {
     "hat_stand": true
   },
@@ -167,7 +181,20 @@
     "rooty": true,
     "branch": true
   },
+  "survivorsdelight": {
+    "feast_decay": true
+  },
   "waystones": {
     "waystone": true
+  },
+  "firmasupps": {
+    "candle_holder": true,
+    "sconce": true,
+    "fire_pit": true,
+    "sconce_lever": true,
+    "sconce_wall": true
+  },
+  "tfc_support_indicator": {
+    "support_indicator": true
   }
 }

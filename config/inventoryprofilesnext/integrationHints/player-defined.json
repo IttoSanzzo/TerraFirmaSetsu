@@ -36,6 +36,10 @@
             "CONTINUOUS_CRAFTING": {
                 "horizontalOffset": -1,
                 "bottom": 1
+            },
+            "SETTINGS": {
+                "horizontalOffset": 15,
+                "top": 1
             }
         }
     }

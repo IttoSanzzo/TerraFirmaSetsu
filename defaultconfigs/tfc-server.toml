@@ -31,7 +31,7 @@ familiarityDecayLimit = 0.3
 	enableInfestations = true
 	#
 	# Enables TFC setting the moon phase based on the progress of the month. The etymology of the English word 'month' is in fact related to the word 'moon'.
-	enableCalendarSensitiveMoonPhases = false
+	enableCalendarSensitiveMoonPhases = true
 	#
 	# If false, vanilla lightning will not strike.
 	enableLightning = true
@@ -602,7 +602,7 @@ familiarityDecayLimit = 0.3
 		#
 		# The chance a jug will break after drinking.
 		#Range: 0.0 ~ 1.0
-		jugBreakChance = 0.02
+		jugBreakChance = 0.15
 
 	[items.glassBottle]
 		#
@@ -679,7 +679,7 @@ familiarityDecayLimit = 0.3
 		enableBlockLandslides = true
 		#
 		# Enable chisels starting collapses
-		enableChiselsStartCollapses = true
+		enableChiselsStartCollapses = false
 		#
 		# Chance for a collapse to be triggered by mining a block.
 		#Range: 0.0 ~ 1.0
@@ -821,7 +821,7 @@ familiarityDecayLimit = 0.3
 		enableVanillaWeatherEffects = false
 		#
 		# If true, vanilla will attempt to spawn skeleton 'trap' horses during thunderstorms.
-		enableVanillaSkeletonHorseSpawning = false
+		enableVanillaSkeletonHorseSpawning = true
 		#
 		# If true, enables the default vanilla behavior of mobs spawning with enchanted weapons sometimes.
 		enableVanillaMobsSpawningWithEnchantments = true
