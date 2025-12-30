@@ -24,6 +24,8 @@ TerraFirmaSetsu is fully compatible with multiplayer gameplay and dedicated serv
 
 The modpack is suitable for long-term worlds and encourages cooperation, specialization, and community-driven progression, supporting both small groups and larger player bases.
 
+[![Modpack Server in Wabbanode](https://i.imgur.com/kZeGmN8.png)](https://wabbanode.com/affiliate/terrafirmasetsu)
+
 ---
 
 ## 🚧 Project Status
