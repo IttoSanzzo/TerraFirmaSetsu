@@ -8,27 +8,15 @@ export function setRecipesTerraFirmaCraft(event: $RecipesEventJS) {
 	event.remove({ id: "minecraft:cauldron" });
 	event.remove({ id: "minecraft:leather" });
 
-	event
-		.shapeless("9x kubejs:bismuth_bronze_nugget", [
-			"tfc:metal/ingot/bismuth_bronze",
-		])
-		.id("setsu:tfc/bismuth_bronze_nugget");
-
-	event
-		.shapeless("tfc:metal/ingot/bismuth_bronze", [
-			"9x kubejs:bismuth_bronze_nugget",
-		])
-		.id("setsu:tfc/bismuth_bronze_from_nugget");
-
 	event.replaceInput(
 		{ id: "tfc:crafting/barrel_rack" },
 		"minecraft:scaffolding",
-		"tfc:wattle"
+		"tfc:wattle",
 	);
 	event.replaceOutput(
 		{ id: "minecraft:iron_ingot_from_iron_block" },
 		"tfc:metal/ingot/cast_iron",
-		"9x tfc:metal/ingot/wrought_iron"
+		"9x tfc:metal/ingot/wrought_iron",
 	);
 
 	event.remove({ id: "minecraft:paper" });
@@ -43,7 +31,7 @@ export function setRecipesTerraFirmaCraft(event: $RecipesEventJS) {
 	event
 		.shapeless(
 			Item.of("patchouli:guide_book", '{"patchouli:book":"tfc:field_guide"}'),
-			["minecraft:book", "#tfc:rock_knapping", "#forge:rods/wooden"]
+			["minecraft:book", "#tfc:rock_knapping", "#forge:rods/wooden"],
 		)
 		.id("setsu:tfc/field_guide");
 
@@ -67,7 +55,7 @@ export function setRecipesTerraFirmaCraft(event: $RecipesEventJS) {
 	event
 		.shapeless("minecraft:chest", [
 			"#forge:chests/wooden",
-			"kubejs:bismuth_bronze_nugget",
+			"knightsofterrafirma:bismuth_bronze_nugget",
 		])
 		.id("setsu:tfc/vanilla_chest");
 
@@ -140,7 +128,7 @@ export function setRecipesTerraFirmaCraft(event: $RecipesEventJS) {
 				event.recipes.minecraft.crafting_shapeless(`tfc:seeds/${crop}`, [
 					`4x tfc:food/${crop}`,
 					"#tfc:knives",
-				])
+				]),
 			)
 			.id(`setsu:custom/${crop}_seed`);
 	});
@@ -150,7 +138,7 @@ export function setRecipesTerraFirmaCraft(event: $RecipesEventJS) {
 				event.recipes.minecraft.crafting_shapeless(`tfc:seeds/${plant}`, [
 					`4x tfc:${plant}`,
 					"#tfc:knives",
-				])
+				]),
 			)
 			.id(`setsu:custom/${plant}_seed`);
 	});
@@ -169,7 +157,7 @@ export function setRecipesTerraFirmaCraft(event: $RecipesEventJS) {
 	event.replaceInput(
 		{ output: "minecraft:dried_kelp_block" },
 		`minecraft:dried_kelp`,
-		`tfc:food/dried_kelp`
+		`tfc:food/dried_kelp`,
 	);
 
 	ItemCol.allVanillaWoodTypes.forEach((wood) => {

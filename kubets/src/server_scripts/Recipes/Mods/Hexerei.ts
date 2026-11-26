@@ -29,12 +29,12 @@ export function setRecipesHexerei(event: $RecipesEventJS) {
 	event.replaceInput(
 		{ mod: "hexerei" },
 		"minecraft:glow_berries",
-		"#hexerei:tallow_meltable"
+		"#hexerei:tallow_meltable",
 	);
 	event.replaceInput(
 		{ mod: "hexerei" },
 		"minecraft:honeycomb",
-		"firmalife:beeswax"
+		"firmalife:beeswax",
 	);
 	event.replaceInput({ mod: "hexerei" }, "tfc:food/wheat", "tfc:straw");
 
@@ -130,13 +130,13 @@ export function setRecipesHexerei(event: $RecipesEventJS) {
 				},
 			})
 			.id(
-				`setsu:hexerei/cauldron/${(data.output as string).substring((data.output as string).indexOf(":") + 1)}/from/${(data.input as any[]).map((ingredient) => ingredient.id.substring(ingredient.id.indexOf(":") + 1)).join("_and_")}`
+				`setsu:hexerei/cauldron/${(data.output as string).substring((data.output as string).indexOf(":") + 1)}/from/${(data.input as any[]).map((ingredient) => ingredient.id.substring(ingredient.id.indexOf(":") + 1)).join("_and_")}`,
 			);
 	}
 
 	const addRawCauldron = (
 		output: Special.Item | OmniString,
-		ingredient: Special.Item | OmniString
+		ingredient: Special.Item | OmniString,
 	) => {
 		addCauldron({
 			output: output,
@@ -174,7 +174,7 @@ export function setRecipesHexerei(event: $RecipesEventJS) {
 	addRawCauldron("minecraft:raw_gold", `tfc:ore/normal_native_gold`);
 	addRawCauldron(
 		"immersiveengineering:raw_silver",
-		"tfc:ore/normal_native_silver"
+		"tfc:ore/normal_native_silver",
 	);
 
 	addCauldron({
@@ -224,7 +224,7 @@ export function setRecipesHexerei(event: $RecipesEventJS) {
 		event
 			.shapeless(`hexerei:${wood}_chest`, [
 				"#forge:chests",
-				"kubejs:bismuth_bronze_nugget",
+				"knightsofterrafirma:bismuth_bronze_nugget",
 			])
 			.id(`setsu:hexerei/${wood}_chest`);
 	});

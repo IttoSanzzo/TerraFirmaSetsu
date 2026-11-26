@@ -28,12 +28,12 @@ export function setRecipesQuark(event: $RecipesEventJS) {
 	event.replaceInput(
 		{ id: "quark:building/crafting/paper_lantern" },
 		"minecraft:bamboo",
-		"#minecraft:wooden_buttons"
+		"#minecraft:wooden_buttons",
 	);
 	event.replaceInput(
 		{ id: "quark:tools/crafting/abacus" },
 		"tfc:metal/ingot/wrought_iron",
-		"#forge:bones"
+		"#forge:bones",
 	);
 	// event.replaceInput({ id: "quark:tools/crafting/abacus" }, "#minecraft:planks", "#tfc:lumber");
 
@@ -174,7 +174,7 @@ export function setRecipesQuark(event: $RecipesEventJS) {
 		event
 			.shapeless(`quark:${wood}_chest`, [
 				"#forge:chests",
-				"kubejs:bismuth_bronze_nugget",
+				"knightsofterrafirma:bismuth_bronze_nugget",
 			])
 			.id(`setsu:quark/${wood}_chest`);
 	});

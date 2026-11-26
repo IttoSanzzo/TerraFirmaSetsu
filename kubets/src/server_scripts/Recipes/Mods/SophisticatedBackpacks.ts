@@ -70,7 +70,7 @@ export function setRecipesSophisticatedBackpacks(event: $RecipesEventJS) {
 			B: "toolbelt:pouch",
 			Z: "sophisticatedbackpacks:upgrade_base",
 			C: "sns:frame_pack",
-		}
+		},
 	);
 	addDamageShaped(
 		event,
@@ -84,7 +84,7 @@ export function setRecipesSophisticatedBackpacks(event: $RecipesEventJS) {
 			B: "toolbelt:pouch",
 			Z: "tfc:metal/sheet/copper",
 			C: "sophisticatedbackpacks:backpack",
-		}
+		},
 	);
 	addDamageShaped(
 		event,
@@ -98,7 +98,7 @@ export function setRecipesSophisticatedBackpacks(event: $RecipesEventJS) {
 			B: "toolbelt:pouch",
 			Z: "tfc:metal/sheet/wrought_iron",
 			C: "sophisticatedbackpacks:copper_backpack",
-		}
+		},
 	);
 	addDamageShaped(
 		event,
@@ -110,10 +110,10 @@ export function setRecipesSophisticatedBackpacks(event: $RecipesEventJS) {
 			N: "tfc:bone_needle",
 			U: "sophisticatedbackpacks:stack_upgrade_tier_2",
 			Z: "tfc:metal/sheet/rose_gold",
-			G: "kubejs:bismuth_bronze_nugget",
+			G: "knightsofterrafirma:bismuth_bronze_nugget",
 			B: "toolbelt:pouch",
 			C: "sophisticatedbackpacks:iron_backpack",
-		}
+		},
 	);
 	addDamageShaped(
 		event,
@@ -128,7 +128,7 @@ export function setRecipesSophisticatedBackpacks(event: $RecipesEventJS) {
 			B: "toolbelt:pouch",
 			C: "sophisticatedbackpacks:gold_backpack",
 			G: "ad_astra:desh_plate",
-		}
+		},
 	);
 	addDamageShaped(
 		event,
@@ -143,7 +143,7 @@ export function setRecipesSophisticatedBackpacks(event: $RecipesEventJS) {
 			B: "toolbelt:pouch",
 			C: "sophisticatedbackpacks:diamond_backpack",
 			G: "ad_astra:ostrum_plate",
-		}
+		},
 	);
 
 	/**
@@ -159,7 +159,7 @@ export function setRecipesSophisticatedBackpacks(event: $RecipesEventJS) {
 			V: "#tfc:metal/shearss",
 			N: "tfc:bone_needle",
 			S: "#tfc:leather_knapping",
-		}
+		},
 	);
 
 	event
@@ -177,7 +177,7 @@ export function setRecipesSophisticatedBackpacks(event: $RecipesEventJS) {
 				M: "#tfc:magnetic_rocks",
 				C: "sophisticatedbackpacks:advanced_pickup_upgrade",
 				R: "#forge:dusts/redstone",
-			}
+			},
 		)
 		.id("setsu:sophisticatedbackpacks/advanced_upgrade");
 
@@ -230,7 +230,7 @@ export function setRecipesSophisticatedBackpacks(event: $RecipesEventJS) {
 			V: "#tfc:metal/shearss",
 			N: "tfc:bone_needle",
 			C: "sophisticatedbackpacks:upgrade_base",
-		}
+		},
 	);
 
 	addDamageShaped(
@@ -243,7 +243,7 @@ export function setRecipesSophisticatedBackpacks(event: $RecipesEventJS) {
 			V: "#tfc:metal/shearss",
 			N: "tfc:bone_needle",
 			C: "sophisticatedbackpacks:stack_upgrade_starter_tier",
-		}
+		},
 	);
 
 	addDamageShaped(
@@ -256,7 +256,7 @@ export function setRecipesSophisticatedBackpacks(event: $RecipesEventJS) {
 			V: "#tfc:metal/shearss",
 			N: "tfc:bone_needle",
 			C: "sophisticatedbackpacks:stack_upgrade_tier_1",
-		}
+		},
 	);
 
 	addDamageShaped(
@@ -269,7 +269,7 @@ export function setRecipesSophisticatedBackpacks(event: $RecipesEventJS) {
 			V: "#tfc:metal/shearss",
 			N: "tfc:bone_needle",
 			C: "sophisticatedbackpacks:stack_upgrade_tier_2",
-		}
+		},
 	);
 
 	addDamageShaped(
@@ -282,7 +282,7 @@ export function setRecipesSophisticatedBackpacks(event: $RecipesEventJS) {
 			V: "#tfc:metal/shearss",
 			N: "tfc:bone_needle",
 			C: "sophisticatedbackpacks:stack_upgrade_tier_3",
-		}
+		},
 	);
 
 	/*	

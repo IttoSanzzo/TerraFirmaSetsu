@@ -10,7 +10,7 @@ export function setRecipesTomsStorage(event: $RecipesEventJS) {
 		.shaped("toms_storage:ts.inventory_connector", ["BNB", "CTC", "BEB"], {
 			B: "create:brass_sheet",
 			N: "toms_storage:ts.inventory_cable_connector",
-			C: "kubejs:bismuth_bronze_nugget",
+			C: "knightsofterrafirma:bismuth_bronze_nugget",
 			T: "toms_storage:ts.trim",
 			E: "minecraft:ender_pearl",
 		})
@@ -58,7 +58,7 @@ export function setRecipesTomsStorage(event: $RecipesEventJS) {
 				C: "toms_storage:ts.inventory_cable",
 				P: "minecraft:comparator",
 				B: "create:brass_sheet",
-			}
+			},
 		)
 		.id("setsu:toms_storage/ts.inventory_cable_connector");
 

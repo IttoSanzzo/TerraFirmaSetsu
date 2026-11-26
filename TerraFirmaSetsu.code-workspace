@@ -9,13 +9,17 @@
 			"name": "KubeTs"
 		},
 		{
-			"path": "../../ClientManager/instances/TerraFirmaSetsu (Dev)",
+			"path": "../../ClientManager/instances/TerraFirmaSetsu (DEV)",
 			"name": "Modpack Instance"
 		},
 		{
-			"path": "../../ClientManager/instances/TerraFirmaSetsu (Dev)/kubejs",
+			"path": "../../ClientManager/instances/TerraFirmaSetsu (DEV)/kubejs",
 			"name": "KubeJs"
-		}
+		},
+		{
+			"path": "./kubets/src",
+			"name": "KubeTs"
+		},
 	],
 	"settings": {
 		"files.watcherExclude": {
