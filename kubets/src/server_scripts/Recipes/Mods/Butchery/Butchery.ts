@@ -11,7 +11,7 @@ export function setRecipesButchery(event: $RecipesEventJS) {
 		output: string,
 		ingredient: string,
 		form: string[],
-		tier: number
+		tier: number,
 	) {
 		event.recipes.tfc
 			.anvil(output, ingredient, form)
@@ -21,7 +21,7 @@ export function setRecipesButchery(event: $RecipesEventJS) {
 	}
 	function newButcherTool(
 		type: "cleaver" | "skinning_knife" | "hammer" | "hacksaw",
-		hits: [string] | [string, string] | [string, string, string]
+		hits: [string] | [string, string] | [string, string, string],
 	) {
 		const typeWithoutUnderspace = type.replace("_", "");
 		event.remove({ id: `butchery:bone${typeWithoutUnderspace}recipe` as any });
@@ -35,7 +35,7 @@ export function setRecipesButchery(event: $RecipesEventJS) {
 			`butchery:iron_${type}`,
 			"tfc:metal/ingot/wrought_iron",
 			hits,
-			3
+			3,
 		);
 		event.remove({ id: `butchery:gold${typeWithoutUnderspace}recipe` as any });
 		simpleSmith(`butchery:gold_${type}`, "tfc:metal/ingot/gold", hits, 1);
@@ -46,7 +46,7 @@ export function setRecipesButchery(event: $RecipesEventJS) {
 			`butchery:diamond_${type}`,
 			"tfc:metal/ingot/blue_steel",
 			hits,
-			6
+			6,
 		);
 	}
 	newButcherTool("cleaver", [
@@ -115,18 +115,18 @@ export function setRecipesButchery(event: $RecipesEventJS) {
 		event.replaceInput(
 			{ id: `butchery:${wood}displayrecipe` },
 			"tfc:food/beef",
-			"#tfc:foods/raw_meats"
+			"#tfc:foods/raw_meats",
 		);
 		if (wood == "crimson" || wood == "warped") return;
 		event.replaceInput(
 			{ mod: "butchery" },
 			`minecraft:stripped_${wood}_wood`,
-			"#forge:stripped_wood"
+			"#forge:stripped_wood",
 		);
 		event.replaceInput(
 			{ mod: "butchery" },
 			`minecraft:${wood}_slab`,
-			"#minecraft:wooden_slabs"
+			"#minecraft:wooden_slabs",
 		);
 	});
 	event.remove({ id: "butchery:metalbutcherstablerecipe" });
@@ -144,25 +144,31 @@ export function setRecipesButchery(event: $RecipesEventJS) {
 			T: "#tfc:barrels",
 		})
 		.id("setsu:butchery/blood_grate");
+	event.replaceInput({ mod: "butchery" }, `minecraft:barrel`, "#tfc:barrels");
 	event.replaceInput(
 		{ mod: "butchery" },
 		"butchery:salmoncarcass",
-		"tfc:food/salmon"
+		"tfc:food/salmon",
 	);
 	event.replaceInput(
 		{ mod: "butchery" },
 		"butchery:codcarcass",
-		"tfc:food/cod"
+		"tfc:food/cod",
 	);
 	event.replaceInput(
 		{ mod: "butchery" },
 		"minecraft:oak_sign",
-		"#minecraft:signs"
+		"#minecraft:signs",
 	);
 	event.replaceInput(
 		{ id: "butchery:butchersfloorsign" },
 		"minecraft:black_wool",
-		"minecraft:black_carpet"
+		"minecraft:black_carpet",
+	);
+	event.replaceInput(
+		{ id: "butchery:dioritebrickstairsrecipe" },
+		"#tfc:all_stone",
+		"butchery:diorite_bricks",
 	);
 	ItemCol.allDyes.forEach((color) => {
 		if (color == "white") return;

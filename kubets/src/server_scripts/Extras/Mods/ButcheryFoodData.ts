@@ -1401,6 +1401,40 @@ export const allButcheryMeats: NewTfcFood[] = [
 			protein: 1,
 		},
 	},
+	{
+		id: "butchery:raw_ravager_meat",
+		foodData: {
+			hunger: 3.5,
+			decayModifier: 3,
+			protein: 1.5,
+		},
+	},
+	{
+		id: "butchery:cooked_ravager_meat",
+		foodData: {
+			hunger: 4,
+			decayModifier: 2,
+			saturation: 7,
+			protein: 2.1,
+		},
+	},
+	{
+		id: "butchery:raw_human_meat",
+		foodData: {
+			hunger: 2,
+			decayModifier: 3,
+			protein: 0.8,
+		},
+	},
+	{
+		id: "butchery:cooked_human_meat",
+		foodData: {
+			hunger: 4,
+			decayModifier: 2,
+			saturation: 5,
+			protein: 1.5,
+		},
+	},
 	// {
 	// 	id: "butchery:raw_",
 	// 	foodData: {
