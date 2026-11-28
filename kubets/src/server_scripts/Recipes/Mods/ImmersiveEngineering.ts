@@ -11,7 +11,7 @@ function setClocheRecipes(event: $RecipesEventJS) {
 		seed: Special.Item | OmniString,
 		soil: Special.ItemTag | OmniString,
 		render: Special.Block | OmniString,
-		time: number
+		time: number,
 	) {
 		event
 			.custom({
@@ -40,7 +40,7 @@ function setClocheRecipes(event: $RecipesEventJS) {
 				time: time,
 			})
 			.id(
-				`setsu:immersiveengineering/cloche/${seed.replace(":", "/").replace("/", ".")}`
+				`setsu:immersiveengineering/cloche/${seed.replace(":", "/").replace("/", ".")}`,
 			);
 	}
 
@@ -50,7 +50,7 @@ function setClocheRecipes(event: $RecipesEventJS) {
 		"tfc:seeds/carrot",
 		"tfc:dirt",
 		"tfc:wild_crop/carrot",
-		800
+		1200,
 	);
 	addClocheRecipe(
 		"tfc:food/onion",
@@ -58,7 +58,7 @@ function setClocheRecipes(event: $RecipesEventJS) {
 		"tfc:seeds/onion",
 		"tfc:dirt",
 		"tfc:wild_crop/onion",
-		800
+		1200,
 	);
 	addClocheRecipe(
 		"tfc:food/squash",
@@ -66,7 +66,7 @@ function setClocheRecipes(event: $RecipesEventJS) {
 		"tfc:seeds/squash",
 		"tfc:dirt",
 		"tfc:wild_crop/squash",
-		800
+		1200,
 	);
 	addClocheRecipe(
 		"tfc:food/garlic",
@@ -74,7 +74,7 @@ function setClocheRecipes(event: $RecipesEventJS) {
 		"tfc:seeds/garlic",
 		"tfc:dirt",
 		"tfc:wild_crop/garlic",
-		800
+		1200,
 	);
 	addClocheRecipe(
 		"tfc:food/maize",
@@ -82,7 +82,7 @@ function setClocheRecipes(event: $RecipesEventJS) {
 		"tfc:seeds/maize",
 		"tfc:dirt",
 		"tfc:wild_crop/maize",
-		1550
+		1550,
 	);
 	addClocheRecipe(
 		"tfc:food/cabbage",
@@ -90,7 +90,7 @@ function setClocheRecipes(event: $RecipesEventJS) {
 		"tfc:seeds/cabbage",
 		"tfc:dirt",
 		"tfc:wild_crop/cabbage",
-		1500
+		1500,
 	);
 	addClocheRecipe(
 		"tfc:food/potato",
@@ -98,7 +98,7 @@ function setClocheRecipes(event: $RecipesEventJS) {
 		"tfc:seeds/potato",
 		"tfc:dirt",
 		"tfc:wild_crop/potato",
-		1450
+		1450,
 	);
 	addClocheRecipe(
 		"tfc:food/tomato",
@@ -106,7 +106,7 @@ function setClocheRecipes(event: $RecipesEventJS) {
 		"tfc:seeds/tomato",
 		"tfc:dirt",
 		"tfc:wild_crop/tomato",
-		1400
+		1400,
 	);
 	addClocheRecipe(
 		"tfc:food/beet",
@@ -114,7 +114,7 @@ function setClocheRecipes(event: $RecipesEventJS) {
 		"tfc:seeds/beet",
 		"tfc:dirt",
 		"tfc:wild_crop/beet",
-		1350
+		1350,
 	);
 	addClocheRecipe(
 		"tfc:food/soybean",
@@ -122,7 +122,7 @@ function setClocheRecipes(event: $RecipesEventJS) {
 		"tfc:seeds/soybean",
 		"tfc:dirt",
 		"tfc:wild_crop/soybean",
-		1300
+		1300,
 	);
 	addClocheRecipe(
 		"tfc:food/green_bean",
@@ -130,7 +130,7 @@ function setClocheRecipes(event: $RecipesEventJS) {
 		"tfc:seeds/green_bean",
 		"tfc:dirt",
 		"tfc:wild_crop/green_bean",
-		1250
+		1250,
 	);
 	addClocheRecipe(
 		"tfc:jute",
@@ -138,7 +138,7 @@ function setClocheRecipes(event: $RecipesEventJS) {
 		"tfc:seeds/jute",
 		"tfc:dirt",
 		"tfc:wild_crop/jute",
-		1800
+		1200,
 	);
 	addClocheRecipe(
 		"tfc:food/sugarcane",
@@ -146,7 +146,7 @@ function setClocheRecipes(event: $RecipesEventJS) {
 		"tfc:seeds/sugarcane",
 		"tfc:dirt",
 		"tfc:wild_crop/sugarcane",
-		1800
+		1200,
 	);
 	addClocheRecipe(
 		"tfc:food/barley",
@@ -154,7 +154,7 @@ function setClocheRecipes(event: $RecipesEventJS) {
 		"tfc:seeds/barley",
 		"tfc:dirt",
 		"tfc:wild_crop/barley",
-		1650
+		1650,
 	);
 	addClocheRecipe(
 		"tfc:food/oat",
@@ -162,7 +162,7 @@ function setClocheRecipes(event: $RecipesEventJS) {
 		"tfc:seeds/oat",
 		"tfc:dirt",
 		"tfc:wild_crop/oat",
-		1700
+		1700,
 	);
 	addClocheRecipe(
 		"tfc:food/rye",
@@ -170,7 +170,7 @@ function setClocheRecipes(event: $RecipesEventJS) {
 		"tfc:seeds/rye",
 		"tfc:dirt",
 		"tfc:wild_crop/rye",
-		1700
+		1700,
 	);
 	addClocheRecipe(
 		"tfc:food/wheat",
@@ -178,7 +178,7 @@ function setClocheRecipes(event: $RecipesEventJS) {
 		"tfc:seeds/wheat",
 		"tfc:dirt",
 		"tfc:wild_crop/wheat",
-		1700
+		1700,
 	);
 	addClocheRecipe(
 		"tfc:food/rice",
@@ -186,7 +186,7 @@ function setClocheRecipes(event: $RecipesEventJS) {
 		"tfc:seeds/rice",
 		"tfc:dirt",
 		"tfc:wild_crop/rice",
-		1750
+		1750,
 	);
 	addClocheRecipe(
 		"tfc:melon",
@@ -194,7 +194,7 @@ function setClocheRecipes(event: $RecipesEventJS) {
 		"tfc:seeds/melon",
 		"tfc:dirt",
 		"tfc:wild_crop/melon",
-		1600
+		1600,
 	);
 	addClocheRecipe(
 		"tfc:pumpkin",
@@ -202,7 +202,7 @@ function setClocheRecipes(event: $RecipesEventJS) {
 		"tfc:seeds/pumpkin",
 		"tfc:dirt",
 		"tfc:wild_crop/pumpkin",
-		1600
+		1600,
 	);
 
 	ItemCol.tfcBigFruits.forEach((fruitTree) => {
@@ -212,7 +212,7 @@ function setClocheRecipes(event: $RecipesEventJS) {
 			`tfc:plant/${fruitTree}_sapling`,
 			"tfc:dirt",
 			`tfc:food/${fruitTree}_sapling`,
-			2500
+			2500,
 		);
 	});
 	ItemCol.tfcBerries.forEach((bush) => {
@@ -222,7 +222,7 @@ function setClocheRecipes(event: $RecipesEventJS) {
 			`tfc:plant/${bush}_bush`,
 			"tfc:dirt",
 			`tfc:food/${bush}_bush`,
-			1500
+			1500,
 		);
 	});
 	addClocheRecipe(
@@ -231,7 +231,7 @@ function setClocheRecipes(event: $RecipesEventJS) {
 		"firmalife:plant/nightshade_bush",
 		"tfc:dirt",
 		"firmalife:plant/nightshade_bush",
-		1500
+		1500,
 	);
 	addClocheRecipe(
 		"firmalife:food/pineapple",
@@ -239,7 +239,7 @@ function setClocheRecipes(event: $RecipesEventJS) {
 		"firmalife:plant/pineapple_bush",
 		"tfc:dirt",
 		"firmalife:plant/pineapple_bush",
-		1500
+		1500,
 	);
 	addClocheRecipe(
 		"firmalife:food/cocoa_beans",
@@ -247,7 +247,7 @@ function setClocheRecipes(event: $RecipesEventJS) {
 		"firmalife:plant/cocoa_sapling",
 		"tfc:dirt",
 		"firmalife:plant/cocoa_sapling",
-		2500
+		2500,
 	);
 	addClocheRecipe(
 		"firmalife:food/fig",
@@ -255,18 +255,18 @@ function setClocheRecipes(event: $RecipesEventJS) {
 		"firmalife:plant/fig_sapling",
 		"tfc:dirt",
 		"firmalife:plant/fig_sapling",
-		2500
+		2500,
 	);
 }
 
 export function setRecipesImmersiveEngineering(event: $RecipesEventJS) {
-	event.remove({ id: "immersiveengineering:crafting/cokebrick" });
+	setClocheRecipes(event);
 
 	const addMetalPress = (
 		output: Special.Item | OmniString,
 		count: number,
 		ingredient: Special.Item | OmniString,
-		mold: Special.Item | OmniString
+		mold: Special.Item | OmniString,
 	) => {
 		event
 			.custom({
@@ -285,7 +285,7 @@ export function setRecipesImmersiveEngineering(event: $RecipesEventJS) {
 				energy: 2600,
 			})
 			.id(
-				`setsu:immersiveengineering/metalpress/${ingredient.replace(":", ".").replace("/", ".")}/to/${output.replace(":", ".").replace("/", ".")}`
+				`setsu:immersiveengineering/metalpress/${ingredient.replace(":", ".").replace("/", ".")}/to/${output.replace(":", ".").replace("/", ".")}`,
 			);
 	};
 	const addArcFurnace = (
@@ -294,7 +294,6 @@ export function setRecipesImmersiveEngineering(event: $RecipesEventJS) {
 		ingredient: Special.Item | OmniString,
 		ingredientCount: number,
 		additive: Special.Item | OmniString,
-		time: number
 	) => {
 		event
 			.custom({
@@ -318,11 +317,11 @@ export function setRecipesImmersiveEngineering(event: $RecipesEventJS) {
 						item: additive,
 					},
 				],
-				energy: 25000,
-				time: time,
+				energy: 50000,
+				time: 100,
 			})
 			.id(
-				`setsu:immersiveengineering/arcfurnace/${ingredient.replace(":", ".").replace("/", ".")}/to/${output.replace(":", ".").replace("/", ".")}`
+				`setsu:immersiveengineering/arcfurnace/${ingredient.replace(":", ".").replace("/", ".")}/to/${output.replace(":", ".").replace("/", ".")}`,
 			);
 	};
 	const addArcFurnaceNoAds = (
@@ -330,7 +329,6 @@ export function setRecipesImmersiveEngineering(event: $RecipesEventJS) {
 		count: number,
 		ingredient: Special.Item | OmniString,
 		ingredientCount: number,
-		time: number
 	) => {
 		event
 			.custom({
@@ -350,11 +348,11 @@ export function setRecipesImmersiveEngineering(event: $RecipesEventJS) {
 					count: ingredientCount,
 				},
 				additives: [],
-				energy: 10000,
-				time: time,
+				energy: 25000,
+				time: 100,
 			})
 			.id(
-				`setsu:immersiveengineering/arcfurnace/${ingredient.replace(":", ".").replace("/", ".")}/to/${output.replace(":", ".").replace("/", ".")}`
+				`setsu:immersiveengineering/arcfurnace/${ingredient.replace(":", ".").replace("/", ".")}/to/${output.replace(":", ".").replace("/", ".")}`,
 			);
 	};
 	const addMineralCrusher = (output, ingredient) => {
@@ -384,34 +382,41 @@ export function setRecipesImmersiveEngineering(event: $RecipesEventJS) {
 				energy: 1600,
 			})
 			.id(
-				`setsu:immersiveengineering/crusher/${ingredient.replace(":", ".").replace("/", ".")}/to/${output.replace(":", ".").replace("/", ".")}`
+				`setsu:immersiveengineering/crusher/${ingredient.replace(":", ".").replace("/", ".")}/to/${output.replace(":", ".").replace("/", ".")}`,
 			);
 	};
 
 	addArcFurnace(
-		"kubejs:metal/ingot/high_carbon_purple_steel",
+		"rosia:purple_steel_ingot",
 		2,
 		`tfc:metal/ingot/red_steel`,
 		1,
 		`tfc:metal/ingot/blue_steel`,
-		800
-	);
-	addMetalPress(
-		"kubejs:metal/ingot/purple_steel",
-		1,
-		"kubejs:metal/ingot/high_carbon_purple_steel",
-		"tfc_metal_items:steel_pressing_head"
 	);
 	addArcFurnace(
-		"kubejs:metal/double_ingot/purple_steel",
+		"rosia:purple_steel_double_ingot",
 		1,
-		"kubejs:metal/ingot/purple_steel",
+		"rosia:purple_steel_ingot",
 		1,
-		"kubejs:metal/ingot/purple_steel",
-		800
+		"rosia:purple_steel_ingot",
 	);
 
-	setClocheRecipes(event);
+	addArcFurnace(
+		`tfc:metal/ingot/high_carbon_black_steel`,
+		1,
+		`tfc:metal/ingot/weak_steel`,
+		1,
+		`tfc:metal/ingot/pig_iron`,
+	);
+	["blue", "red"].forEach((type) => {
+		addArcFurnace(
+			`tfc:metal/ingot/high_carbon_${type}_steel`,
+			1,
+			`tfc:metal/ingot/weak_${type}_steel`,
+			1,
+			`tfc:metal/ingot/black_steel`,
+		);
+	});
 
 	const sheetAndDoubleIngotMetals = [
 		"copper",
@@ -450,7 +455,6 @@ export function setRecipesImmersiveEngineering(event: $RecipesEventJS) {
 			`tfc:metal/ingot/${sheetMetal}`,
 			1,
 			`tfc:metal/ingot/${sheetMetal}`,
-			800
 		);
 		addArcFurnace(
 			`tfc:metal/double_sheet/${sheetMetal}`,
@@ -458,7 +462,6 @@ export function setRecipesImmersiveEngineering(event: $RecipesEventJS) {
 			`tfc:metal/sheet/${sheetMetal}`,
 			1,
 			`tfc:metal/sheet/${sheetMetal}`,
-			800
 		);
 	}
 	event.remove({ id: `tfc_ie_addon:metalpress/sheet_chromium` });
@@ -471,7 +474,6 @@ export function setRecipesImmersiveEngineering(event: $RecipesEventJS) {
 		`firmalife:metal/ingot/chromium`,
 		1,
 		`firmalife:metal/ingot/chromium`,
-		800
 	);
 	addArcFurnace(
 		`firmalife:metal/double_sheet/chromium`,
@@ -479,7 +481,6 @@ export function setRecipesImmersiveEngineering(event: $RecipesEventJS) {
 		`firmalife:metal/sheet/chromium`,
 		1,
 		`firmalife:metal/sheet/chromium`,
-		800
 	);
 	event.remove({ id: `tfc_ie_addon:metalpress/sheet_stainless_steel` });
 	event.remove({
@@ -495,7 +496,6 @@ export function setRecipesImmersiveEngineering(event: $RecipesEventJS) {
 		`firmalife:metal/ingot/stainless_steel`,
 		1,
 		`firmalife:metal/ingot/stainless_steel`,
-		800
 	);
 	addArcFurnace(
 		`firmalife:metal/double_sheet/stainless_steel`,
@@ -503,7 +503,6 @@ export function setRecipesImmersiveEngineering(event: $RecipesEventJS) {
 		`firmalife:metal/sheet/stainless_steel`,
 		1,
 		`firmalife:metal/sheet/stainless_steel`,
-		800
 	);
 
 	ItemCol.tfcStoneTypes.forEach((stone) => {
@@ -513,46 +512,46 @@ export function setRecipesImmersiveEngineering(event: $RecipesEventJS) {
 	event.replaceInput(
 		{ type: "minecraft:crafting_shaped", mod: "immersiveengineering" },
 		"#forge:ingots/steel",
-		"#forge:plates/steel"
+		"#forge:plates/steel",
 	);
 	event.replaceInput(
 		{ type: "minecraft:crafting_shaped", mod: "immersiveengineering" },
 		"#forge:ingots/iron",
-		"#forge:sheets/wrought_iron"
+		"#forge:sheets/wrought_iron",
 	);
 	event.replaceInput(
 		{ type: "minecraft:crafting_shaped", mod: "immersiveengineering" },
 		"#forge:ingots/bronze",
-		"#forge:plates/bronze"
+		"#forge:plates/bronze",
 	);
 	event.replaceInput(
 		{ type: "minecraft:crafting_shaped", mod: "immersiveengineering" },
 		"#forge:ingots/copper",
-		"#forge:sheets/copper"
+		"#forge:sheets/copper",
 	);
 
 	event.replaceInput(
 		{ type: "minecraft:crafting_shaped" },
 		"immersiveengineering:hemp_fiber",
-		"tfc:jute_fiber"
+		"tfc:jute_fiber",
 	);
 
 	event.replaceInput(
 		{ type: "immersiveengineering:cloche" },
 		"minecraft:dirt",
-		"#tfc:dirt"
+		"#tfc:dirt",
 	);
 
 	event.replaceInput(
 		{ id: "immersiveengineering:crafting/balloon" },
 		"minecraft:torch",
-		"tfc:torch"
+		"tfc:torch",
 	);
 
 	event.replaceInput(
 		{ id: "immersiveengineering:crafting/conveyor_dropper" },
 		"minecraft:iron_trapdoor",
-		"tfc:metal/trapdoor/wrought_iron"
+		"tfc:metal/trapdoor/wrought_iron",
 	);
 
 	event.remove({ id: "immersiveengineering:alloybrick" });
@@ -571,6 +570,7 @@ export function setRecipesImmersiveEngineering(event: $RecipesEventJS) {
 			Y: "#forge:string",
 		})
 		.id("setsu:immersiveengineering/hemp_fabric");
+	event.remove({ id: "immersiveengineering:crafting/cokebrick" });
 	event.remove({ id: "immersiveengineering:cokebrick" });
 	event
 		.shaped("immersiveengineering:cokebrick", ["CBC", "BSB", "CBC"], {
@@ -609,19 +609,19 @@ export function setRecipesImmersiveEngineering(event: $RecipesEventJS) {
 		"tfc:brass_mechanisms",
 		2,
 		"tfc:metal/ingot/brass",
-		"immersiveengineering:mold_gear"
+		"immersiveengineering:mold_gear",
 	);
 
 	event.remove({ id: "immersiveengineering:arcfurnace/steel" });
 	event.replaceInput(
 		{ id: "immersiveengineering:blastfurnace/steel" },
 		"minecraft:iron_ingot",
-		"#setsu:ingot/all_iron"
+		"#setsu:ingot/all_iron",
 	);
 	event.replaceOutput(
 		{ id: "immersiveengineering:blastfurnace/steel" },
 		"immersiveengineering:ingot_steel",
-		"tfc:metal/ingot/steel"
+		"tfc:metal/ingot/steel",
 	);
 
 	/**
@@ -640,7 +640,7 @@ export function setRecipesImmersiveEngineering(event: $RecipesEventJS) {
 	event.replaceInput(
 		{ id: "immersiveengineering:crafting/hemp_fabric" },
 		"tfc:jute_fiber",
-		"tfc:burlap_cloth"
+		"tfc:burlap_cloth",
 	);
 
 	event.remove({ id: "immersiveengineering:crafting/strip_curtain" });
@@ -659,7 +659,7 @@ export function setRecipesImmersiveEngineering(event: $RecipesEventJS) {
 		output: Special.Fluid | OmniString,
 		ingredient: Special.ItemTag | OmniString,
 		fluid: Special.FluidTag | OmniString,
-		amount: number
+		amount: number,
 	) => {
 		event
 			.custom({
@@ -670,14 +670,14 @@ export function setRecipesImmersiveEngineering(event: $RecipesEventJS) {
 				energy: 1600,
 			})
 			.id(
-				`setsu:immersiveengineering/mixer/${ingredient.replace(":", ".").replace("/", ".")}/to/${output.replace(":", ".").replace("/", ".")}`
+				`setsu:immersiveengineering/mixer/${ingredient.replace(":", ".").replace("/", ".")}/to/${output.replace(":", ".").replace("/", ".")}`,
 			);
 	};
 	const addBottling = (
 		output: Special.Item | OmniString,
 		ingredient: Special.Item | OmniString,
 		fluid: Special.FluidTag | OmniString,
-		amount: number
+		amount: number,
 	) => {
 		event
 			.custom({
@@ -687,14 +687,14 @@ export function setRecipesImmersiveEngineering(event: $RecipesEventJS) {
 				fluid: { tag: fluid, amount: amount },
 			})
 			.id(
-				`setsu:immersiveengineering/bottling/${ingredient.replace(":", ".").replace("/", ".")}/to/${output.replace(":", ".").replace("/", ".")}`
+				`setsu:immersiveengineering/bottling/${ingredient.replace(":", ".").replace("/", ".")}/to/${output.replace(":", ".").replace("/", ".")}`,
 			);
 	};
 	const addSawmill = (
 		output: Special.Item | OmniString,
 		count: number,
 		ingredient: Special.Item | OmniString,
-		secondary: Special.Item | OmniString
+		secondary: Special.Item | OmniString,
 	) => {
 		event
 			.custom({
@@ -705,43 +705,43 @@ export function setRecipesImmersiveEngineering(event: $RecipesEventJS) {
 				energy: 800,
 			})
 			.id(
-				`setsu:immersiveengineering/sawmill/${ingredient.replace(":", ".").replace("/", ".")}/to/${output.replace(":", ".").replace("/", ".")}`
+				`setsu:immersiveengineering/sawmill/${ingredient.replace(":", ".").replace("/", ".")}/to/${output.replace(":", ".").replace("/", ".")}`,
 			);
 	};
 
-	addArcFurnaceNoAds("minecraft:glass", 1, "tfc:silica_glass_batch", 1, 100);
+	addArcFurnaceNoAds("minecraft:glass", 1, "tfc:silica_glass_batch", 1);
 
 	ItemCol.allDyes.forEach((color) => {
 		addMixer(
 			`tfc:${color}_dye`,
 			`forge:dyes/${color}`,
 			"minecraft:water",
-			1000
+			1000,
 		);
 		addBottling(
 			`minecraft:${color}_stained_glass`,
 			`minecraft:glass`,
 			`setsu:dyes/${color}`,
-			160
+			160,
 		);
 		addBottling(
 			`minecraft:${color}_stained_glass_pane`,
 			`minecraft:glass_pane`,
 			`setsu:dyes/${color}`,
-			40
+			40,
 		);
 		addSawmill(
 			`minecraft:${color}_stained_glass_pane`,
 			16,
 			`minecraft:${color}_stained_glass`,
-			`quark:${color}_shard`
+			`quark:${color}_shard`,
 		);
 	});
 	addSawmill(
 		`minecraft:glass_pane`,
 		16,
 		`minecraft:glass`,
-		`quark:clear_shard`
+		`quark:clear_shard`,
 	);
 	addArcFurnace(
 		`firmalife:reinforced_glass`,
@@ -749,7 +749,6 @@ export function setRecipesImmersiveEngineering(event: $RecipesEventJS) {
 		`minecraft:glass_pane`,
 		1,
 		`tfc:powder/soda_ash`,
-		150
 	);
 
 	ItemCol.tfcWoodTypes.forEach((wood) => {

@@ -25,6 +25,7 @@ import {
 	setJeiTerraFirmaCraft,
 	setJeiThermal,
 	setJeiTrottingWagons,
+	setJeiKaleidoscope,
 } from "./Mods";
 import { setJeiArtisanal } from "./Mods/Artisanal";
 import { setJeiButchery } from "./Mods/Butchery";
@@ -59,11 +60,12 @@ JEIEvents.hideItems((event) => {
 	setJeiTrottingWagons(event);
 	setJeiArtisanal(event);
 	setJeiButchery(event);
+	setJeiKaleidoscope(event);
 });
 
 JEIEvents.addItems((event) => {
 	event.add(
-		Item.of("patchouli:guide_book", '{"patchouli:book":"tfc:field_guide"}')
+		Item.of("patchouli:guide_book", '{"patchouli:book":"tfc:field_guide"}'),
 	);
 	event.add(Item.of("minecraft:bundle"));
 	event.add("sophisticatedbackpacks:backpack");

@@ -3,7 +3,7 @@
 import { $RecipesEventJS } from "packages/dev/latvian/mods/kubejs/recipe/$RecipesEventJS";
 import { ItemCol } from "../../HelpCollections/ItemCollections";
 
-export function setRecipesFarmersdelight(event: $RecipesEventJS) {
+export function setRecipesFarmersDelight(event: $RecipesEventJS) {
 	event.remove({ id: "farmersdelight:stove" });
 	event.remove({ id: `farmersdelight:rice_bale` });
 	event.remove({ id: `farmersdelight:organic_compost_from_tree_bark` });
@@ -22,12 +22,13 @@ export function setRecipesFarmersdelight(event: $RecipesEventJS) {
 		])
 		.tier(1)
 		.id("setsu:farmersdelight/golden_knife");
+
 	event.recipes.tfc
-		.welding(
-			"farmersdelight:netherite_knife",
-			"farmersdelight:golden_knife",
-			"potionsmaster:calcinatednetherite_powder",
-			5
-		)
+		.anvil("farmersdelight:netherite_knife", "tfc:metal/ingot/black_steel", [
+			"hit_last",
+			"draw_second_last",
+			"draw_third_last",
+		])
+		.tier(5)
 		.id("setsu:farmersdelight/netherite_knife");
 }

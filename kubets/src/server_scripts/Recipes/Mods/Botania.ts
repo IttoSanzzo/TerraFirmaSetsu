@@ -118,30 +118,31 @@ export function setRecipesBotania(event: $RecipesEventJS) {
 
 	// Replaces ////////////////////////////////////////////
 
+	event.replaceInput({ mod: "botania" }, "minecraft:bucket", "#tfc:buckets");
 	event.replaceInput(
 		{ mod: "botania" },
 		"minecraft:brown_mushroom",
-		"#forge:mushrooms"
+		"#forge:mushrooms",
 	);
 	event.replaceInput(
 		{ mod: "botania" },
 		"#forge:crops/wheat",
-		"#tfc:fresh_grains"
+		"#tfc:fresh_grains",
 	);
 	event.replaceInput(
 		{ mod: "botania" },
 		"minecraft:white_wool",
-		"tfc:wool_cloth"
+		"tfc:wool_cloth",
 	);
 	event.replaceInput(
 		{ mod: "botania" },
 		"minecraft:sugar_cane",
-		"tfc:food/sugarcane"
+		"tfc:food/sugarcane",
 	);
 	event.replaceInput(
 		{ mod: "botania" },
 		"#tfc:disabled_monster_held_items",
-		"firmalife:watering_can"
+		"firmalife:watering_can",
 	);
 	event.replaceInput({ mod: "botania" }, "minecraft:cake", "minecraft:ice");
 
@@ -248,13 +249,45 @@ export function setRecipesBotania(event: $RecipesEventJS) {
 		.shapeless("botania:redstone_root", ["minecraft:redstone", "#tfc:twigs"])
 		.id("setsu:botania/redstone_twig");
 
-	function addManaInfusion(data: {
-		output: KjsItem;
-		outputCount?: number;
-		input: KjsItem;
-		mana?: number;
-		catalyst?: string;
-	}) {
+	handleManaInfusions(event);
+}
+
+interface ManaInfusionProps {
+	output: KjsItem;
+	outputCount?: number;
+	input: KjsItem;
+	mana?: number;
+	catalyst?: string;
+}
+
+function handleManaInfusions(event: $RecipesEventJS) {
+	event.remove({ id: "botania:mana_infusion/rotten_flesh_to_leather" });
+
+	const manaInfusionSets: ManaInfusionProps[] = [
+		{
+			output: "tfc:small_raw_hide",
+			input: "minecraft:rotten_flesh",
+			catalyst: "botania:alchemy_catalyst",
+		},
+		{
+			output: "tfc:ore/bituminous_coal",
+			input: "minecraft:charcoal",
+			mana: 1000,
+		},
+		{
+			output: "tfc:ore/graphite",
+			input: "tfc:ore/bituminous_coal",
+			mana: 2000,
+			catalyst: "botania:alchemy_catalyst",
+		},
+		{
+			output: "botania:mana_diamond",
+			input: "tfc:gem/diamond",
+			mana: 10000,
+		},
+	];
+
+	function addManaInfusion(data: ManaInfusionProps) {
 		if (!data.outputCount) data.outputCount = 1;
 		if (!data.mana) data.mana = 300;
 		event
@@ -285,28 +318,12 @@ export function setRecipesBotania(event: $RecipesEventJS) {
 								count: data.outputCount,
 							},
 							mana: data.mana,
-						}
+						},
 			)
 			.id(
-				`setsu:botania/mana_infusion${data.catalyst ? `/${(data.catalyst as string).substring((data.catalyst as string).indexOf(":") + 1)}` : ""}/${(data.output as string).substring((data.output as string).indexOf(":") + 1)}_from_${(data.input as string).substring((data.input as string).indexOf(":") + 1)}`
+				`setsu:botania/mana_infusion${data.catalyst ? `/${(data.catalyst as string).substring((data.catalyst as string).indexOf(":") + 1)}` : ""}/${(data.output as string).substring((data.output as string).indexOf(":") + 1)}_from_${(data.input as string).substring((data.input as string).indexOf(":") + 1)}`,
 			);
 	}
 
-	event.remove({ id: "botania:mana_infusion/rotten_flesh_to_leather" });
-	addManaInfusion({
-		output: "tfc:small_raw_hide",
-		input: "minecraft:rotten_flesh",
-		catalyst: "botania:alchemy_catalyst",
-	});
-	addManaInfusion({
-		output: "tfc:ore/bituminous_coal",
-		input: "minecraft:charcoal",
-		mana: 1000,
-	});
-	addManaInfusion({
-		output: "tfc:ore/graphite",
-		input: "tfc:ore/bituminous_coal",
-		mana: 2000,
-		catalyst: "botania:alchemy_catalyst",
-	});
+	manaInfusionSets.forEach((entry) => addManaInfusion(entry));
 }

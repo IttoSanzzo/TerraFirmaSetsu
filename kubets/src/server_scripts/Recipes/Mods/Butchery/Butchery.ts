@@ -40,15 +40,28 @@ export function setRecipesButchery(event: $RecipesEventJS) {
 		event.remove({ id: `butchery:gold${typeWithoutUnderspace}recipe` as any });
 		simpleSmith(`butchery:gold_${type}`, "tfc:metal/ingot/gold", hits, 1);
 		event.remove({
-			id: `butchery:diamond${typeWithoutUnderspace}recipe` as any,
+			id: `butchery:netherite${typeWithoutUnderspace}recipe` as any,
 		});
 		simpleSmith(
-			`butchery:diamond_${type}`,
-			"tfc:metal/ingot/blue_steel",
+			`butchery:netherite_${type}`,
+			"tfc:metal/ingot/black_steel",
 			hits,
-			6,
+			5,
 		);
+
+		event.remove({
+			id: `butchery:diamond${typeWithoutUnderspace}recipe` as any,
+		});
+		event.recipes.tfc
+			.welding(
+				`butchery:diamond_${type}`,
+				`butchery:iron_${type}`,
+				"tfc:powder/diamond",
+				3,
+			)
+			.id(`setsu:butchery/diamond_${type}`);
 	}
+
 	newButcherTool("cleaver", [
 		"shrink_last",
 		"draw_second_last",

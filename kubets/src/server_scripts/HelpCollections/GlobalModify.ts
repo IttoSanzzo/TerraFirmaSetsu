@@ -25,6 +25,7 @@ export const globalModify = [
 	"create_enchantment_industry",
 	"immersiveengineering",
 	"create",
+	"createcasing",
 	"bloodmagic",
 	"thermal",
 	"biggerreactors",
@@ -34,6 +35,7 @@ export const globalModify = [
 	"mna",
 	"iceandfire",
 	"butchery",
-	"workshop_for_handsome_adventurer",
 	"breezy",
+	"touhou_little_maid",
+	"maid_restaurant",
 ];

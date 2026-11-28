@@ -7,7 +7,7 @@ export function setRecipesCreateRailways(event: $RecipesEventJS) {
 	event.replaceInput(
 		{ mod: "railways" },
 		"minecraft:campfire",
-		"#tfc:firepit_fuel"
+		"#tfc:firepit_fuel",
 	);
 	event.shaped("railways:slashed_locometal", [" N ", "NIN", " N "], {
 		N: "minecraft:iron_nugget",
@@ -18,7 +18,7 @@ export function setRecipesCreateRailways(event: $RecipesEventJS) {
 	 * Rails
 	 */
 
-	function newTrackNormal(wood) {
+	function newTrackNormal(wood: string) {
 		event
 			.custom({
 				type: "create:sequenced_assembly",
@@ -52,7 +52,7 @@ export function setRecipesCreateRailways(event: $RecipesEventJS) {
 			})
 			.id(`setsu:railways/track_tfc_${wood}`);
 	}
-	function newTrackNarrow(wood) {
+	function newTrackNarrow(wood: string) {
 		event
 			.custom({
 				type: "create:sequenced_assembly",

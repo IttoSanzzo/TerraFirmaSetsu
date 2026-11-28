@@ -22,3 +22,4 @@ export { setJeiSophisticatedBackpacks } from "./SophisticatedBackpacks";
 export { setJeiTerraFirmaCraft } from "./TerraFirmaCraft";
 export { setJeiThermal } from "./Thermal";
 export { setJeiTrottingWagons } from "./TrottingWagons";
+export { setJeiKaleidoscope } from "./Kaleidoscope";

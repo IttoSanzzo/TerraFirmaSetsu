@@ -17,17 +17,17 @@ export function setRecipesAccommodation(event: $RecipesEventJS) {
 	event.replaceInput(
 		{ id: "accommodation_:tea_set_recipe" },
 		"minecraft:potion",
-		"tfc:empty_jar"
+		"tfc:empty_jar",
 	);
 	event.replaceInput(
 		{ mod: "accommodation_" },
 		"minecraft:deepslate_tile_slab",
-		"#setsu:tfc/cobblestone_slab"
+		"#setsu:tfc/cobblestone_slab",
 	);
 	event.replaceInput(
 		{ mod: "accommodation_" },
 		"minecraft:deepslate_tile_slab",
-		"#setsu:tfc/cobblestone_slab"
+		"#setsu:tfc/cobblestone_slab",
 	);
 	[
 		"oak",
@@ -43,7 +43,7 @@ export function setRecipesAccommodation(event: $RecipesEventJS) {
 		event.replaceInput(
 			{ mod: "accommodation_" },
 			`minecraft:${wood}_slab`,
-			"#minecraft:wooden_slabs"
+			"#minecraft:wooden_slabs",
 		);
 		event.remove({ id: `accommodation_:${wood}_shoji_recipe` });
 		event.remove({ id: `accommodation_:${wood}_shoji_middle_recipe` });
@@ -98,7 +98,7 @@ export function setRecipesAccommodation(event: $RecipesEventJS) {
 						L: lumber,
 						P: "minecraft:paper",
 						S: "#minecraft:wooden_slabs",
-					}
+					},
 				)
 				.id(`setsu:accommodation_/shoji_bottom/${id}`);
 			event
@@ -108,7 +108,7 @@ export function setRecipesAccommodation(event: $RecipesEventJS) {
 					{
 						L: lumber,
 						P: "minecraft:paper",
-					}
+					},
 				)
 				.id(`setsu:accommodation_/shoji_middle/${String(id)}`);
 		});

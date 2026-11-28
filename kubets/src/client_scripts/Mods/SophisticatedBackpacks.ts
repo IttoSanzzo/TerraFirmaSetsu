@@ -10,10 +10,7 @@ export const setJeiSophisticatedBackpacks = (event: $HideJEIEventJS<any>) => {
 		"auto_smoking_upgrade",
 		"blasting_upgrade",
 		"auto_blasting_upgrade",
-		"stonecutter_upgrade",
-		"anvil_upgrade",
-		"smithing_upgrade",
-		"backpack",
+		// "backpack",
 	];
 	spAllRemoves.forEach((item) => {
 		event.hide(`sophisticatedbackpacks:${item}`);

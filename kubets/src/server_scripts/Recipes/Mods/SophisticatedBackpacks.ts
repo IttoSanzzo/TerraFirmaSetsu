@@ -25,12 +25,6 @@ export function setRecipesSophisticatedBackpacks(event: $RecipesEventJS) {
 		 * Backpacks
 		 */
 		"backpack",
-		"copper_backpack",
-		"iron_backpack",
-		"iron_backpack_from_copper",
-		"gold_backpack",
-		"diamond_backpack",
-		"netherite_backpack",
 		/**
 		 * Upgrades
 		 */
@@ -70,79 +64,6 @@ export function setRecipesSophisticatedBackpacks(event: $RecipesEventJS) {
 			B: "toolbelt:pouch",
 			Z: "sophisticatedbackpacks:upgrade_base",
 			C: "sns:frame_pack",
-		},
-	);
-	addDamageShaped(
-		event,
-		"sophisticatedbackpacks:copper_backpack",
-		["SLN", "UZU", "BCB"],
-		{
-			S: "#tfc:metal/shearss",
-			L: "#forge:string",
-			N: "tfc:bone_needle",
-			U: "sophisticatedbackpacks:stack_upgrade_starter_tier",
-			B: "toolbelt:pouch",
-			Z: "tfc:metal/sheet/copper",
-			C: "sophisticatedbackpacks:backpack",
-		},
-	);
-	addDamageShaped(
-		event,
-		"sophisticatedbackpacks:iron_backpack",
-		["SLN", "UZU", "BCB"],
-		{
-			S: "#tfc:metal/shearss",
-			L: "#forge:string",
-			N: "tfc:bone_needle",
-			U: "sophisticatedbackpacks:stack_upgrade_tier_1",
-			B: "toolbelt:pouch",
-			Z: "tfc:metal/sheet/wrought_iron",
-			C: "sophisticatedbackpacks:copper_backpack",
-		},
-	);
-	addDamageShaped(
-		event,
-		"sophisticatedbackpacks:gold_backpack",
-		["SLN", "UZG", "BCB"],
-		{
-			S: "#tfc:metal/shearss",
-			L: "createaddition:gold_spool",
-			N: "tfc:bone_needle",
-			U: "sophisticatedbackpacks:stack_upgrade_tier_2",
-			Z: "tfc:metal/sheet/rose_gold",
-			G: "knightsofterrafirma:bismuth_bronze_nugget",
-			B: "toolbelt:pouch",
-			C: "sophisticatedbackpacks:iron_backpack",
-		},
-	);
-	addDamageShaped(
-		event,
-		"sophisticatedbackpacks:diamond_backpack",
-		["SLN", "UZG", "BCB"],
-		{
-			S: "#tfc:metal/shearss",
-			L: "immersiveengineering:wire_steel",
-			N: "tfc:bone_needle",
-			U: "sophisticatedbackpacks:stack_upgrade_tier_3",
-			Z: "botania:mana_diamond",
-			B: "toolbelt:pouch",
-			C: "sophisticatedbackpacks:gold_backpack",
-			G: "ad_astra:desh_plate",
-		},
-	);
-	addDamageShaped(
-		event,
-		"sophisticatedbackpacks:netherite_backpack",
-		["SLN", "UZG", "BCB"],
-		{
-			S: "#tfc:metal/shearss",
-			L: "botania:red_string",
-			N: "tfc:bone_needle",
-			U: "sophisticatedbackpacks:stack_upgrade_tier_4",
-			Z: "rosia:purple_steel_ingot",
-			B: "toolbelt:pouch",
-			C: "sophisticatedbackpacks:diamond_backpack",
-			G: "ad_astra:ostrum_plate",
 		},
 	);
 
@@ -220,111 +141,6 @@ export function setRecipesSophisticatedBackpacks(event: $RecipesEventJS) {
 	/**
 	 * Stack Upgrades
 	 */
-	addDamageShaped(
-		event,
-		"sophisticatedbackpacks:stack_upgrade_starter_tier",
-		["SPS", "VCN", "SPS"],
-		{
-			S: "#forge:string",
-			P: "tfc:metal/sheet/copper",
-			V: "#tfc:metal/shearss",
-			N: "tfc:bone_needle",
-			C: "sophisticatedbackpacks:upgrade_base",
-		},
-	);
 
-	addDamageShaped(
-		event,
-		"sophisticatedbackpacks:stack_upgrade_tier_1",
-		["VPN", "SCS", " P "],
-		{
-			S: "#forge:string",
-			P: "tfc:metal/sheet/wrought_iron",
-			V: "#tfc:metal/shearss",
-			N: "tfc:bone_needle",
-			C: "sophisticatedbackpacks:stack_upgrade_starter_tier",
-		},
-	);
-
-	addDamageShaped(
-		event,
-		"sophisticatedbackpacks:stack_upgrade_tier_2",
-		["VPN", "SCS", " P "],
-		{
-			S: "#forge:string",
-			P: "tfc:metal/sheet/rose_gold",
-			V: "#tfc:metal/shearss",
-			N: "tfc:bone_needle",
-			C: "sophisticatedbackpacks:stack_upgrade_tier_1",
-		},
-	);
-
-	addDamageShaped(
-		event,
-		"sophisticatedbackpacks:stack_upgrade_tier_3",
-		["VPN", "SCS", " P "],
-		{
-			S: "#forge:string",
-			P: "potionsmaster:calcinateddiamond_powder",
-			V: "#tfc:metal/shearss",
-			N: "tfc:bone_needle",
-			C: "sophisticatedbackpacks:stack_upgrade_tier_2",
-		},
-	);
-
-	addDamageShaped(
-		event,
-		"sophisticatedbackpacks:stack_upgrade_tier_4",
-		["VPN", "SCS", " P "],
-		{
-			S: "#forge:string",
-			P: "rosia:purple_steel_ingot",
-			V: "#tfc:metal/shearss",
-			N: "tfc:bone_needle",
-			C: "sophisticatedbackpacks:stack_upgrade_tier_3",
-		},
-	);
-
-	/*	
-		// Tiers /////////////////////////////////////
-		
-		
-		event.remove({ output: "sophisticatedbackpacks:stack_upgrade_tier_2" });
-		event.shaped("sophisticatedbackpacks:stack_upgrade_tier_2", ["EPE", "TCT", "LDL"], {
-				E: "#forge:electron_tube",
-				T: "sewingkit:leather_strip",
-				P: "immersiveengineering:plate_gold",
-				D: "tfc:metal/sheet/bronze",
-				L: "create:cogwheel",
-				C: "sophisticatedbackpacks:stack_upgrade_tier_1",
-			}
-		)
-		
-		event.remove({ output: "sophisticatedbackpacks:stack_upgrade_tier_3" });
-		event.shaped(
-			"sophisticatedbackpacks:stack_upgrade_tier_3",
-			["EPE", "TCT", "LDL"],
-			{
-				E: "#forge:electron_tube",
-				T: "sewingkit:leather_strip",
-				P: "immersiveengineering:plate_iron",
-				D: "tfc:metal/sheet/blue_steel",
-				L: "create:large_cogwheel",
-				C: "sophisticatedbackpacks:stack_upgrade_tier_2",
-			}
-		).id("setsu:sophisticatedbackpacks_upgrades/stack_upgrade_3");
-		
-		event.remove({ output: "sophisticatedbackpacks:stack_upgrade_tier_4" });
-		event.shaped(
-			"sophisticatedbackpacks:stack_upgrade_tier_4",
-			["PPP", "PCP", "LDL"],
-			{
-				P: "immersiveengineering:component_electronic_adv",
-				L: "#forge:leather",
-				D: "enderstorage:ender_chest",
-				C: "sophisticatedbackpacks:stack_upgrade_tier_3",
-			}
-		).id("setsu:sophisticatedbackpacks_upgrades/stack_upgrade_4");
-			
-		*/
+	// Removed due to tfcsbu
 }

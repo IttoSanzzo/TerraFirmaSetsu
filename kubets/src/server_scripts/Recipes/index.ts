@@ -20,7 +20,7 @@ import { setRecipesChipped } from "./Mods/Chipped";
 import { setRecipesConstructionWand } from "./Mods/ConstructionWand";
 import { setRecipesCreate } from "./Mods/Create";
 import { setRecipesEnderStorage } from "./Mods/EnderStorage";
-import { setRecipesFarmersdelight } from "./Mods/Farmersdelight";
+import { setRecipesFarmersDelight } from "./Mods/FarmersDelight";
 import { setRecipesFunctionalStorage } from "./Mods/FunctionalStorage";
 import { setRecipesHexerei } from "./Mods/Hexerei";
 import { setRecipesIceAndFire } from "./Mods/IceAndFire";
@@ -50,8 +50,14 @@ import { setRecipesBloodMagic } from "./Mods/BloodMagic";
 import { setRecipesButchery } from "./Mods/Butchery/Butchery";
 import { setRecipesTfcScrapping } from "./Mods/TfcAddons/TfcScrapping";
 import { setRecipesWoodenHopper } from "./Mods/WoodenHopper";
-import { setRecipesWorkshopForHandsomeAdventurer } from "./Mods/WorkshopForHandsomeAdventurer";
 import { setRecipesCreateUnbreakable } from "./Mods/CreateUnbreakable";
+import { setRecipesBreezy } from "./Mods/Breezy";
+import { setRecipesKaleidoscope } from "./Mods/Kaleidoscope";
+import { setRecipesOffsetSmoker } from "./Mods/TfcAddons/OffsetSmoker";
+import { setRecipesTfcSuperHammer } from "./Mods/TfcAddons/TfcSuperHammer";
+import { setRecipesRosia } from "./Mods/TfcAddons/Rosia";
+import { setRecipesMaidRestaurant } from "./Mods/MaidRestaurant";
+import { setRecipesEpicKnights } from "./Mods/EpicKnights";
 
 export function setRecipes(event: $RecipesEventJS) {
 	console.log("Setsu Recipes Start!");
@@ -76,7 +82,7 @@ export function setRecipes(event: $RecipesEventJS) {
 	setRecipesEnderStorage(event);
 	setRecipesFunctionalStorage(event);
 	setRecipesPotionsMaster(event);
-	setRecipesFarmersdelight(event);
+	setRecipesFarmersDelight(event);
 	setRecipesQuark(event);
 	setRecipesHexerei(event);
 	setRecipesMalum(event);
@@ -100,8 +106,14 @@ export function setRecipes(event: $RecipesEventJS) {
 	setRecipesWell(event);
 	setRecipesButchery(event);
 	setRecipesWoodenHopper(event);
-	setRecipesWorkshopForHandsomeAdventurer(event);
 	setRecipesCreateUnbreakable(event);
+	setRecipesBreezy(event);
+	setRecipesKaleidoscope(event);
+	setRecipesOffsetSmoker(event);
+	setRecipesTfcSuperHammer(event);
+	setRecipesMaidRestaurant(event);
+	setRecipesEpicKnights(event);
+	setRecipesRosia(event);
 
 	// TFC Addons
 	setRecipesFirmalife(event);
